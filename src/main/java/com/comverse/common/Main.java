@@ -35,7 +35,7 @@ public class Main {
     public User user;
     public Boolean debug;
     public static String path = System.getProperty("user.dir");
-    public static final String INIT_LOCATION = path + "\\src\\main\\resources\\";
+    public static final String INIT_LOCATION = path + "/src/main/resources/";
     public static final String INIT_PROPERTY_FILE = "init.properties";
     public static final String ACCOUNTS_PROPERTY_FILE = "Accounts.properties";
     public static final String BCT_PROPERTY_FILE = "bctinit.properties";
