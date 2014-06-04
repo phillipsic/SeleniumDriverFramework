@@ -1,0 +1,122 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.comverse.css.commonpages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import com.comverse.css.common.Common;
+
+/**
+ * 
+ * @author gmaroth
+ */
+public class ViewBalanceCommon extends CommonMenu {
+    static String expectedScreen = "View Balances";
+
+    public ViewBalanceCommon(WebDriver driver) throws Exception {
+        super(driver);
+
+        String currentScreen = this.driver.getTitle();
+
+        // Check that we're on the right page.
+        if (!expectedScreen.equals(currentScreen)) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
+            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+        }
+    }
+
+    public NonVoucherRechargeCommon clickNonVoucherRechargeFreeAmount() throws Exception {
+
+        driver.findElement(By.linkText("Non voucher Recharge (free amount)")).click();
+
+        return new NonVoucherRechargeCommon(driver);
+    }
+
+    public RechargeWithVoucherCommon clickRechargeByVoucher() throws Exception {
+
+        driver.findElement(By.linkText("Recharge by voucher")).click();
+
+        return new RechargeWithVoucherCommon(driver);
+    }
+
+    public AdjustBalanceDetailsCommon clickAdjustBalance(String balancename) throws Exception {
+
+        // this.retrieveBalanceID(balancename);
+        // driver.findElement(By.id("adjust_balance_" + balanceID + "" ));
+
+        // driver.findElement(By.xpath("//tr[td/a[contains(text(),'Adjust')]]/td/a[contains(text(),'"
+        // + balancename + "')]")).click();
+        driver.findElement(By.xpath("//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]")).click();
+
+        return new AdjustBalanceDetailsCommon(driver);
+    }
+
+    public ReconfigureBalanceCommon clickConfigureSharedBalance(String balanceName) throws Exception {
+
+        String balanceID = retrieveBalanceID(balanceName);
+        driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]")).click();
+        return new ReconfigureBalanceCommon(driver);
+    }
+
+    public ReconfigureBalanceCommon clickConfigureLimit(String balanceName) throws Exception {
+
+        String balanceID = retrieveBalanceID(balanceName);
+
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(By.xpath("//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]"))).perform();
+        action.moveToElement(driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]"))).click().perform();
+        Common.sleepForNumberOfSeconds(3);
+
+        return new ReconfigureBalanceCommon(driver);
+    }
+
+    public void clickBack() throws Exception {
+
+        driver.findElement(By.id("youcan_ON_BACK")).click();
+    }
+
+    public Double getCoreBalance() throws Exception {
+
+        String coreBalanceString = driver.findElement(By.xpath("//a[contains(.,'CORE BALANCE')]/../../td[2]")).getText();
+        coreBalanceString = coreBalanceString.replaceAll(",", "");
+        Double coreBalance = Double.parseDouble(coreBalanceString.substring(1));
+        System.out.println("Core Balance is " + coreBalance);
+        return coreBalance;
+    }
+
+    public BalanceDetailsCommon viewBalanceDetails(String balanceName) throws Exception {
+
+        driver.findElement(By.linkText(balanceName)).click();
+        return new BalanceDetailsCommon(driver);
+    }
+
+    // @SuppressWarnings("unused")
+    private String retrieveBalanceID(String balanceName) throws Exception {
+
+        /*
+         * String pageSource = driver.getPageSource(); String temp[]; String
+         * cleanString;
+         * 
+         * temp = pageSource.split("abtr:" + balanceName); temp =
+         * temp[1].split("value="); temp = temp[1].split(">");
+         * 
+         * cleanString = Common.cleanStringOfIllegalChars(temp[0]); cleanString
+         * = cleanString.replaceAll("\\(", ""); cleanString =
+         * cleanString.replaceAll("\\)", ""); cleanString =
+         * cleanString.replaceAll(",", ""); String balanceID =
+         * cleanString.replaceAll(">", "");
+         */
+        String temp[];
+        String balanceIdDirty = driver.findElement(By.xpath("//a[contains(text(), '" + balanceName + "')]")).getAttribute("id");
+        temp = balanceIdDirty.split("_");
+        int tempSize = temp.length;
+        String balanceID = temp[tempSize - 1].trim();
+
+        return balanceID;
+    }
+}

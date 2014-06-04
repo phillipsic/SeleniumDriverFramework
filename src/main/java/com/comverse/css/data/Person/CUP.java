@@ -1,0 +1,31 @@
+package com.comverse.css.data.Person;
+
+import com.comverse.css.common.Subscriber;
+import com.comverse.css.data.Offer;
+import com.comverse.css.data.PO.PO_WilsonCometPlan;
+
+public class CUP extends Subscriber {
+
+    private Subscriber sub;
+    private PO_WilsonCometPlan po_WilsonCometPlan;
+
+    public CUP() {
+        super();
+
+        sub = new Subscriber();
+        sub.setSubscriberLastNameProperty("Karen");
+        sub.setSubscriberFirstNameProperty("Smith");
+        sub.setSubscriberMSISDNProperty("8861245987");
+        po_WilsonCometPlan = new PO_WilsonCometPlan();
+    }
+
+    @Override
+    public Subscriber getSubscriber() {
+        return sub;
+    }
+
+    @Override
+    public Offer getOffer() {
+        return po_WilsonCometPlan;
+    }
+}
