@@ -57,7 +57,7 @@ public class Main {
         }
         System.out.println("computerName : " + platform.getComputerName());
 
-        System.out.println("property file  : " + INIT_PROPERTY_FILE);
+       
         debug = Boolean.valueOf(propsHelper.readInitProperties("DEBUG"));
         System.out.println("DEBUG = " + debug);
 
