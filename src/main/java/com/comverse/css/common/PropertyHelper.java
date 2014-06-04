@@ -82,8 +82,6 @@ public class PropertyHelper extends Main {
         Properties props = null;
         String value = "";
 
-        //System.out.println("property file  : " + INIT_PROPERTY_FILE);
-
         try {
             props = readProperties(INIT_PROPERTY_FILE);
         } catch (IOException e) {
