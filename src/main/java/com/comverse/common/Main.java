@@ -1,15 +1,20 @@
 package com.comverse.common;
 
-import static org.junit.Assert.fail;
-
+import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.PropertyHelper;
+import com.comverse.sec.ComverseOneSingleSignOn;
+import java.io.FileReader;
 import java.net.InetAddress;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.concurrent.TimeUnit;
-
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.junit.After;
+import static org.junit.Assert.fail;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,11 +23,6 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import com.comverse.css.common.AlreadyRunException;
-import com.comverse.css.common.Prep;
-import com.comverse.css.common.PropertyHelper;
-import com.comverse.sec.ComverseOneSingleSignOn;
 
 public class Main {
 
@@ -49,15 +49,15 @@ public class Main {
         platform = new Platform();
         user = new User();
         platform.setComputerName(System.getenv("computername"));
-
-        System.out.println("PATH  : " + path);
+        //platform.setComputerName("IPLINUX");
+        
+         System.out.println("PATH  : " + path);
 
         if (platform.getComputerName() == null) {
             platform.setComputerName(InetAddress.getLocalHost().getHostName());
         }
         System.out.println("computerName : " + platform.getComputerName());
 
-       
         debug = Boolean.valueOf(propsHelper.readInitProperties("DEBUG"));
         System.out.println("DEBUG = " + debug);
 
@@ -101,6 +101,8 @@ public class Main {
                 driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
 
             } else {
+                
+                System.out.println(System.getProperty("selenium_browser"));
                 if (System.getProperty("selenium_browser").equalsIgnoreCase("IE")) {
                     platform.IE(capabilities);
                 }
