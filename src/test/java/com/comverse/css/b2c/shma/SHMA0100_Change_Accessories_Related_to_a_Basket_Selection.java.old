@@ -1,0 +1,94 @@
+package com.comverse.css.b2c.shma;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.b2c.Nca;
+import com.comverse.css.common.CSSSeleneseTestCase; import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.Wait;
+
+public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = ""; private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+
+        String htmlFileName = this.getClass().getSimpleName().toString();
+
+        super.setUp(htmlFileName);
+
+    }
+
+    public void testSHMA0100_Change_Accessories_Related_to_a_Basket_Selection() throws Exception {
+
+        try {
+            Prep b2cApplication = new Prep(selenium);
+            Nca doB2CNca = new Nca(selenium);
+            Wait waiting = new Wait(selenium);
+
+            app = b2cApplication.launchB2C();
+            version = b2cApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = b2cApplication.getBrowserAgent();
+            doB2CNca.startAnonymousShopping();
+            doB2CNca.enterCustomerPrerequisites();
+            doB2CNca.checkShoppingPageDisplayed();
+            doB2CNca.selectVoiceAccessoriesCategory();
+            selenium.type("qtyByAcc" + doB2CNca.selectAccessory("CSS-PQA-Headset-Voice-ACC15_EN") + "_"
+                                  + doB2CNca.selectAccessory2("CSS-PQA-Headset-Voice-ACC16_EN"), "91");
+            selenium.click("doSubmit");
+            waiting.forTextPresent("My Basket");
+            assertTrue(selenium.isTextPresent("91"));
+            bugId = "CBS00105315";
+            assertTrue(selenium.isTextPresent("10,919.09"));
+            bugId = "NoBug";
+            selenium.click("//img[@alt='Add Accessories']");
+            selenium.waitForPageToLoad("30000");
+            selenium.type("qtyByAcc" + doB2CNca.selectAccessory("CSS-PQA-Headset-Voice-ACC15_EN") + "_"
+                                  + doB2CNca.selectAccessory2("CSS-PQA-Headset-Voice-ACC16_EN"), "92");
+            selenium.click("doSubmit");
+            waiting.forTextPresent("My Basket");
+            assertTrue(selenium.isTextPresent("92"));
+            assertTrue(selenium.isTextPresent("11,039.08"));
+            selenium.click("//img[@alt='Add Accessories']");
+            selenium.waitForPageToLoad("30000");
+            selenium.type("qtyByAcc" + doB2CNca.selectAccessory("CSS-PQA-Battery-Phone-ACC10_EN") + "_"
+                                  + doB2CNca.selectAccessory2("CSS-PQA-Battery-Phone-ACC11_EN"), "93");
+            selenium.click("doSubmit");
+            waiting.forTextPresent("My Basket");
+            //assertTrue(selenium.isTextPresent("93"));
+            assertTrue(selenium.isTextPresent("11,039.08"));
+            //assertTrue(selenium.isTextPresent("2789.07"));
+            assertTrue(selenium.isTextPresent("13,828.15"));
+            selenium.type("acc_qty_" + doB2CNca.changeBasketQty("CSS-PQA-Battery-Phone-ACC11_EN"), "0");
+            selenium.click("//form[@id='update']/input");
+            selenium.waitForPageToLoad("30000");
+            assertFalse(selenium.isTextPresent("CSS-PQA-Battery-Phone-ACC11_EN"));
+            assertTrue(selenium.isTextPresent("11,039.08"));
+            assertFalse(selenium.isTextPresent("13,828.15"));
+
+        result = "pass"; } catch (AlreadyRunException e) {         } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+
+        super.tearDown();
+    }
+}
