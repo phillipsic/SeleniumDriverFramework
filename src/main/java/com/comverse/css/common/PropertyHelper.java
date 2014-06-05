@@ -23,7 +23,7 @@ public class PropertyHelper extends Main {
             input = new FileInputStream(INIT_LOCATION + name);
             prop.load(input);
 
-            System.out.println("Properties Loaded");
+            //System.out.println("Properties Loaded");
 
         } catch (IOException ex) {
             ex.printStackTrace();
