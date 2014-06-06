@@ -29,6 +29,7 @@
                 <configuration>
                     <systemPropertyVariables>
                         <selenium_browser>${selenium_browser}</selenium_browser>
+                        <suiteFile>${suiteFile}</suiteFile>
                     </systemPropertyVariables>
                     <excludes>
                         <exclude>**/*.java</exclude>
@@ -53,26 +54,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/JarFiles</outputDirectory>
-                            <overWriteReleases>false</overWriteReleases>
-                            <overWriteSnapshots>false</overWriteSnapshots>
-                            <overWriteIfNewer>true</overWriteIfNewer>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-           
+
         </plugins>
         <finalName>SLN_MVN_PROP</finalName>
         <resources>
@@ -100,6 +82,7 @@
             <artifactId>selenium-java</artifactId>
             <version>2.42.1</version>
         </dependency>
+
         <dependency>
             <groupId>com.jcraft</groupId>
             <artifactId>jsch</artifactId>
@@ -116,8 +99,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
-
-
     </dependencies>
     
 </project>
