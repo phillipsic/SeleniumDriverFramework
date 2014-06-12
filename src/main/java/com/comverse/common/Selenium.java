@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -167,23 +168,28 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void clickUsingXPath(String xpath) throws Exception {
+    public void clickUsingXPath(AutomationTool tool, String xpath) throws Exception {
         tool.driver.findElement(By.xpath(xpath)).click();
     }
 
     @Override
-    public void clickUsingID(String id) throws Exception {
+    public void clickUsingID(AutomationTool tool, String id) throws Exception {
         tool.driver.findElement(By.id(id)).click();
     }
 
     @Override
-    public void clickUsingName(String name) throws Exception {
+    public void clickUsingName(AutomationTool tool, String name) throws Exception {
         tool.driver.findElement(By.name(name)).click();
     }
 
     @Override
-    public void searchUsingName(String name) throws Exception {
-        tool.driver.findElement(By.name(name));
+    public WebElement searchUsingID(AutomationTool tool, String id) throws Exception {
+        return tool.driver.findElement(By.id(id));
+    }
+
+    @Override
+    public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
+        return tool.driver.findElement(By.name(name));
     }
 
     @Override
@@ -192,18 +198,18 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void clickUsingCssSelector(String cssSelector) throws Exception {
+    public void clickUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
         tool.driver.findElement(By.cssSelector(cssSelector)).click();
     }
 
     @Override
-    public void enterStringUsingId(String id, String data) throws Exception {
+    public void enterStringUsingId(AutomationTool tool, String id, String data) throws Exception {
         tool.driver.findElement(By.id(id)).clear();
         tool.driver.findElement(By.id(id)).sendKeys(data);
     }
 
     @Override
-    public void enterStringUsingName(String name, String data) throws Exception {
+    public void enterStringUsingName(AutomationTool tool, String name, String data) throws Exception {
         tool.driver.findElement(By.name(name)).clear();
         tool.driver.findElement(By.name(name)).sendKeys(data);
     }
