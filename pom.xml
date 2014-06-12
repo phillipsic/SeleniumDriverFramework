@@ -14,7 +14,7 @@
         <repository>
             <id>project.local</id>
             <name>project</name>
-            <url>file:${project.basedir}/src/main/repo</url>
+            <url>/src/main/repo</url>
         </repository>
     </repositories>
 
@@ -111,11 +111,12 @@
             <artifactId>jxl</artifactId>
             <version>2.6</version>
         </dependency>
-	<dependency>
-		<groupId>com.oracle</groupId>
-		<artifactId>ojdbc14</artifactId>
-		<version>10.2.0.2.0</version>
-</dependency>
+        <dependency>
+        	<groupId>com.oracle</groupId>
+        	<artifactId>ojdbc14</artifactId>
+        	<version>10.2.0.1.0</version>
+        	<scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>
