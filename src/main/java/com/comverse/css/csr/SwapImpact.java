@@ -1,24 +1,25 @@
 package com.comverse.css.csr;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.SwapImpactCommon;
-import org.openqa.selenium.WebDriver;
 
 public class SwapImpact extends SwapImpactCommon {
 
-    public SwapImpact(WebDriver driver) throws Exception {
-        super(driver);
-
+    public SwapImpact(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public MyBasket clickOK() throws Exception {
         super.clickOK();
-        return new MyBasket(driver);
+        return new MyBasket(tool, test, user);
     }
 
     @Override
     public ConfigureBalance clickOKExpectingConfigureBalance() throws Exception {
         super.clickOKExpectingConfigureBalance();
-        return new ConfigureBalance(driver);
+        return new ConfigureBalance(tool, test, user);
     }
 }

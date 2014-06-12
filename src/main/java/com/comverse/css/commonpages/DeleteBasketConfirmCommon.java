@@ -1,14 +1,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class DeleteBasketConfirmCommon extends CommonMenu {
 
-    public DeleteBasketConfirmCommon(WebDriver driver) throws Exception {
+    public DeleteBasketConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Delete Basket Confirm";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,7 +22,7 @@ public class DeleteBasketConfirmCommon extends CommonMenu {
 
     public ResumeAParkedBasketCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new ResumeAParkedBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new ResumeAParkedBasketCommon(tool, test, user);
     }
 }

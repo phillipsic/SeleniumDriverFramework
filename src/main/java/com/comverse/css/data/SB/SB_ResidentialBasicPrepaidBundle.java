@@ -1,14 +1,8 @@
 package com.comverse.css.data.SB;
 
-import com.comverse.css.data.BAL.BAL_Bonus_Money;
-import com.comverse.css.data.BAL.BAL_CORE_BALANCE;
-import com.comverse.css.data.BAL.BAL_MMS_ALL;
-import com.comverse.css.data.BAL.BAL_SMS_ALL;
-import com.comverse.css.data.BAL.BAL_VoiceNightWeekendShared;
-import com.comverse.css.data.BAL.BAL_Voice_M2M;
-import com.comverse.css.data.BAL.BAL_Voice_M2Long_Distance;
 import com.comverse.css.data.C1Data;
 import com.comverse.css.data.Offer;
+import com.comverse.css.data.BAL.*;
 import com.comverse.css.data.PO.PO_ResidentialBasicPrepaid;
 
 public class SB_ResidentialBasicPrepaidBundle extends Offer {

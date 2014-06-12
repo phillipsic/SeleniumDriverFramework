@@ -1,0 +1,28 @@
+package com.comverse.upm.upmPages;
+
+/**
+ * 
+ * @author osmolya
+ */
+
+import com.comverse.upm.common.UpmWait;
+import com.thoughtworks.selenium.Selenium;
+
+public class Login {
+
+    private Selenium callerSelenium;
+
+    public Login(Selenium selenium) {
+        this.callerSelenium = selenium;
+    }
+
+    public void typeLoginCredentials(String username, String password) throws Exception {
+        UpmWait waiting = new UpmWait(callerSelenium);
+        callerSelenium.type("id=loginForm:userName", username);
+        callerSelenium.type("id=loginForm:password", password);
+        callerSelenium.click("id=loginForm:loginBtn");
+
+        waiting.forPageToLoad();
+        waiting.forTextPresent("Alarm Summary");
+    }
+}

@@ -7,24 +7,23 @@ package com.comverse.css.commonpages;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-/**
- * 
- * @author Koushic
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class MoveLevelCommon extends CommonMenu {
 
     private List<WebElement> WebElementfound;
 
-    public MoveLevelCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public MoveLevelCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Move Level";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -33,28 +32,29 @@ public class MoveLevelCommon extends CommonMenu {
 
     public MoveLevelCommon clickSelectByLevelName(String weeklyLevelName) throws Exception {
 
-        driver.findElement(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]")).click();
+        tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]")).click();
 
-        return new MoveLevelCommon(driver);
+        return new MoveLevelCommon(tool, test, user);
     }
 
     @Override
     public ViewHierarchyCommon clickHierarchy() throws Exception {
 
         /*
-         * driver.findElement(By.linkText("Select")).click();
+         * tool.driver.findElement(By.linkText("Select")).click();
          */
-        driver.findElement(By.id("mnu_HIERARCHY")).click();
+        tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
 
-        return new ViewHierarchyCommon(driver);
+        return new ViewHierarchyCommon(tool, test, user);
 
     }
 
     public MoveLevelCommon levelNameWithOutSelectLink(String weeklyLevelName) throws Exception {
 
-        //driver.findElement(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]"));
+        // tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" +
+        // weeklyLevelName + "')]]"));
 
-        WebElementfound = driver.findElements(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]"));
+        WebElementfound = tool.driver.findElements(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]"));
 
         if (WebElementfound.size() > 0) {
 
@@ -62,7 +62,7 @@ public class MoveLevelCommon extends CommonMenu {
 
         } else {
             System.out.println("Value of Unique code is KK");
-            return new MoveLevelCommon(driver);
+            return new MoveLevelCommon(tool, test, user);
 
         }
 
@@ -70,16 +70,17 @@ public class MoveLevelCommon extends CommonMenu {
 
     public MoveLevelStatusCommon clickSelectForLevelName(String weeklyLevelName) throws Exception {
 
-        driver.findElement(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]")).click();
+        tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]")).click();
 
-        return new MoveLevelStatusCommon(driver);
+        return new MoveLevelStatusCommon(tool, test, user);
     }
 
     public MoveLevelCommon findSelectByLevelname(String weeklyLevelName) throws Exception {
 
-        //driver.findElement(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]"));
+        // tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" +
+        // weeklyLevelName + "')]]"));
 
-        WebElementfound = driver.findElements(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]"));
+        WebElementfound = tool.driver.findElements(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]"));
 
         if (WebElementfound.size() > 0) {
 
@@ -87,7 +88,7 @@ public class MoveLevelCommon extends CommonMenu {
 
         } else {
             System.out.println("Value of Unique code is KK");
-            return new MoveLevelCommon(driver);
+            return new MoveLevelCommon(tool, test, user);
 
         }
 

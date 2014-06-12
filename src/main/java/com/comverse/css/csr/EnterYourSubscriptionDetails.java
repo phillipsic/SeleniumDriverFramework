@@ -4,25 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.EnterYourSubscriptionDetailsCommon;
 
-/**
- *
- * @author iphilli
- */
 public class EnterYourSubscriptionDetails extends EnterYourSubscriptionDetailsCommon {
 
-    public EnterYourSubscriptionDetails(WebDriver driver) throws Exception {
-        super(driver);
-
+    public EnterYourSubscriptionDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public SelectOffersForYourSubscriber clickContinue() throws Exception {
         super.clickContinue();
-        return new SelectOffersForYourSubscriber(driver);
+        return new SelectOffersForYourSubscriber(tool, test, user);
     }
 
 }

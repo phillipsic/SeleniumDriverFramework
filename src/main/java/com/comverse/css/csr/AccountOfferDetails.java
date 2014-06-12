@@ -4,15 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.AccountOfferDetailsCommon;
 
 public class AccountOfferDetails extends AccountOfferDetailsCommon {
 
-    public AccountOfferDetails(WebDriver driver) throws Exception {
-        super(driver);
-
+    public AccountOfferDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
 }

@@ -1,13 +1,16 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class Shopping extends B2CMenu {
 
-    public Shopping(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public Shopping(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectScreen = "Shopping";
 
         if (!expectScreen.equals(currentScreen)) {
@@ -18,54 +21,54 @@ public class Shopping extends B2CMenu {
 
     public ChooseYourPrimaryOffer clickGSMMobileLink() throws Exception {
 
-        driver.findElement(By.xpath("//li[contains(.,'Welcome to a new world of convergence')]/img")).click();
-        driver.findElement(By.linkText("GSM Mobile")).click();
+        tool.driver.findElement(By.xpath("//li[contains(.,'Welcome to a new world of convergence')]/img")).click();
+        tool.driver.findElement(By.linkText("GSM Mobile")).click();
 
-        return new ChooseYourPrimaryOffer(driver);
+        return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public ChooseYourPrimaryOffer clickNetworkTVLink() throws Exception {
 
-        driver.findElement(By.xpath("//li[contains(.,'Welcome to a new world of convergence')]/img")).click();
-        driver.findElement(By.linkText("Network TV")).click();
+        tool.driver.findElement(By.xpath("//li[contains(.,'Welcome to a new world of convergence')]/img")).click();
+        tool.driver.findElement(By.linkText("Network TV")).click();
 
-        return new ChooseYourPrimaryOffer(driver);
+        return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public ChooseYourHandset clickVoiceDevicesLink() throws Exception {
 
-        driver.findElement(By.xpath("//li[contains(.,'Voice Items')]/img")).click();
-        driver.findElement(By.linkText("Voice Devices")).click();
+        tool.driver.findElement(By.xpath("//li[contains(.,'Voice Items')]/img")).click();
+        tool.driver.findElement(By.linkText("Voice Devices")).click();
 
-        return new ChooseYourHandset(driver);
+        return new ChooseYourHandset(tool, test, user);
     }
 
     public ChooseYourHandset clickDataDevicesLink() throws Exception {
 
-        driver.findElement(By.xpath("//li[contains(.,'Data Items')]/img")).click();
-        driver.findElement(By.linkText("Data Devices")).click();
+        tool.driver.findElement(By.xpath("//li[contains(.,'Data Items')]/img")).click();
+        tool.driver.findElement(By.linkText("Data Devices")).click();
 
-        return new ChooseYourHandset(driver);
+        return new ChooseYourHandset(tool, test, user);
     }
 
     public ChooseAccessories clickPhoneAccessoriesLink() throws Exception {
 
-        driver.findElement(By.xpath("//li[starts-with(.,'Accessories')]/img")).click();
-        driver.findElement(By.linkText("Phone Accessories")).click();
-        return new ChooseAccessories(driver);
+        tool.driver.findElement(By.xpath("//li[starts-with(.,'Accessories')]/img")).click();
+        tool.driver.findElement(By.linkText("Phone Accessories")).click();
+        return new ChooseAccessories(tool, test, user);
 
     }
 
     public ChooseYourPrimaryOfferInThisAccountBundle clickFamilyPackLink() throws Exception {
 
-        driver.findElement(By.xpath("//li[contains(.,'Keep in touch with your family')]/img")).click();
-        driver.findElement(By.linkText("Family Pack")).click();
+        tool.driver.findElement(By.xpath("//li[contains(.,'Keep in touch with your family')]/img")).click();
+        tool.driver.findElement(By.linkText("Family Pack")).click();
 
-        return new ChooseYourPrimaryOfferInThisAccountBundle(driver);
+        return new ChooseYourPrimaryOfferInThisAccountBundle(tool, test, user);
     }
 
     public SubscriberDetail clickMyAccount() throws Exception {
-        driver.findElement(By.linkText("My Account")).click();
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.linkText("My Account")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 }

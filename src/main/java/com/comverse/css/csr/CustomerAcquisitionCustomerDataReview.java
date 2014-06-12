@@ -1,34 +1,33 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.CustomerAcquisitionCustomerDataReviewCommon;
 
 public class CustomerAcquisitionCustomerDataReview extends CustomerAcquisitionCustomerDataReviewCommon {
 
-    public CustomerAcquisitionCustomerDataReview(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public CustomerAcquisitionCustomerDataReview(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public Shopping clickContinue() throws Exception {
 
         super.clickContinue();
-        return new Shopping(driver);
+        return new Shopping(tool, test, user);
     }
 
     @Override
     public UpdateAccountContactInformations clickEditCustomerIdentityAndContact() throws Exception {
 
         super.clickEditCustomerIdentityAndContact();
-        return new UpdateAccountContactInformations(driver);
+        return new UpdateAccountContactInformations(tool, test, user);
     }
 
     @Override
     public UpdateAdministrativeAccountInformation clickBillingInformationEditButton() throws Exception {
         super.clickBillingInformationEditButton();
-        return new UpdateAdministrativeAccountInformation(driver);
+        return new UpdateAdministrativeAccountInformation(tool, test, user);
     }
 }

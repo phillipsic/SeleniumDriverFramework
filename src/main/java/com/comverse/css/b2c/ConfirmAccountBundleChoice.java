@@ -5,34 +5,28 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ConfirmAccountBundleChoice extends B2CMenu {
 
-    
-
-    public ConfirmAccountBundleChoice(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public ConfirmAccountBundleChoice(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Confirm Account Bundle Choice";
 
-       
-        if (!expectedScreen.equals(driver.getTitle())) {
-            
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public SelectOffersForYourAccount clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new SelectOffersForYourAccount(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new SelectOffersForYourAccount(tool, test, user);
     }
-    
-     
 
 }

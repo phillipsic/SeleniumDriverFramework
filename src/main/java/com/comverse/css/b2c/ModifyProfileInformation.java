@@ -1,21 +1,21 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import com.comverse.css.b2c.ConfirmModifyProfileInformation;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ModifyProfileInformation extends B2CMenu {
 
-    public ModifyProfileInformation(WebDriver driver) {
+    public ModifyProfileInformation(AutomationTool tool, Test test, User user) {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Profile Information";
 
-
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -23,14 +23,14 @@ public class ModifyProfileInformation extends B2CMenu {
 
     public void selectApprovalSequencing(String choice) throws Exception {
 
-        new Select(driver.findElement(By.id("approval_sequencing_field"))).selectByVisibleText(choice);
+        new Select(tool.driver.findElement(By.id("approval_sequencing_field"))).selectByVisibleText(choice);
 
     }
 
     public ConfirmModifyProfileInformation clickOK() throws Exception {
 
-        driver.findElement(By.id("okButton")).click();
-        return new ConfirmModifyProfileInformation(driver);
+        tool.driver.findElement(By.id("okButton")).click();
+        return new ConfirmModifyProfileInformation(tool, test, user);
 
     }
 }

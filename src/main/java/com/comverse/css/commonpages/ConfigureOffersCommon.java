@@ -5,14 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ConfigureOffersCommon extends CommonMenu {
 
-    public ConfigureOffersCommon(WebDriver driver) throws Exception {
+    public ConfigureOffersCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Configure Offers";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,23 +25,23 @@ public class ConfigureOffersCommon extends CommonMenu {
     }
 
     public ConfigureBalanceCommon clickContinue() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new ConfigureBalanceCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new ConfigureBalanceCommon(tool, test, user);
     }
 
     public MyBasketCommon clickContinueExpectingMyBasket() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
     public ServiceConnectionDetailsCommon clickContinueExpectingServiceConnectionDetails() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new ServiceConnectionDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
     public SwapImpactCommon clickContinueExpectingSwapImpact() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new SwapImpactCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new SwapImpactCommon(tool, test, user);
     }
 
 }

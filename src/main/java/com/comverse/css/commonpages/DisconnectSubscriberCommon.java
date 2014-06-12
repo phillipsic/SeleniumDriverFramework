@@ -1,15 +1,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class DisconnectSubscriberCommon extends CommonMenu {
 
-    public DisconnectSubscriberCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public DisconnectSubscriberCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Disconnect subscriber";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -18,9 +20,9 @@ public class DisconnectSubscriberCommon extends CommonMenu {
 
     public DisconnectSubscriberDisconnectionSuccessfulCommon clickConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new DisconnectSubscriberDisconnectionSuccessfulCommon(driver);
+        return new DisconnectSubscriberDisconnectionSuccessfulCommon(tool, test, user);
     }
 }

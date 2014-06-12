@@ -4,18 +4,16 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-/**
- * 
- * @author Vikram Sharma
- */
 public class ViewNRCTermDetailsCommon extends CommonMenu {
 
-    public ViewNRCTermDetailsCommon(WebDriver driver) throws Exception {
+    public ViewNRCTermDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "View NRC term details";
 
         // Check that we're on the right page.

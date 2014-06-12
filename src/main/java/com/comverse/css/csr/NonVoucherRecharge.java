@@ -4,18 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.NonVoucherRechargeCommon;
 
-/**
- * 
- * @author gmaroth
- */
 public class NonVoucherRecharge extends NonVoucherRechargeCommon {
 
-    public NonVoucherRecharge(WebDriver driver) throws Exception {
-        super(driver);
+    public NonVoucherRecharge(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 
@@ -23,19 +20,19 @@ public class NonVoucherRecharge extends NonVoucherRechargeCommon {
     public NonVoucherRechargeReview nonVoucherRechargeByCheck(String rechargeAmount) throws Exception {
 
         super.nonVoucherRechargeByCheck(rechargeAmount);
-        return new NonVoucherRechargeReview(driver);
+        return new NonVoucherRechargeReview(tool, test, user);
     }
 
     @Override
     public NonVoucherRechargeReview clickSelect() throws Exception {
 
         super.clickSelect();
-        return new NonVoucherRechargeReview(driver);
+        return new NonVoucherRechargeReview(tool, test, user);
     }
 
     @Override
     public NonVoucherRechargeReview clickContinueExpectingNonVoucherRechargeReview() throws Exception {
         super.clickContinueExpectingNonVoucherRechargeReview();
-        return new NonVoucherRechargeReview(driver);
+        return new NonVoucherRechargeReview(tool, test, user);
     }
 }

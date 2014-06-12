@@ -54,18 +54,22 @@ public class DB extends Main {
         this.password = propsHelper.getDBProperties(key + "_PASSWORD");
     }
 
-    public Statement oracleDBcnx() throws Exception {
+    public Statement oracleDBStatement() throws Exception {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         Connection con = DriverManager.getConnection("jdbc:oracle:thin:@" + getIp() + ":1521/" + getService_name(), getLogin(), getPassword());
 
         return con.createStatement();
     }
 
-    public Statement mysqlDBcnx() throws Exception {
+    public Statement mysqlDBStatement() throws Exception {
+        return mysqlDBcnx().createStatement();
+    }
+
+    public Connection mysqlDBcnx() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://" + getIp() + ":3306/" + getService_name(), getLogin(), getPassword());
 
-        return con.createStatement();
+        return con;
     }
 
     public String execSQL(Statement st, String sqlQuery, int columnId) throws Exception {

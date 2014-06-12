@@ -4,17 +4,18 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class SubscriberStatusCommon extends CommonMenu {
     static String expectedScreen = "Subscriber Status";
 
-    public SubscriberStatusCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public SubscriberStatusCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,7 +24,7 @@ public class SubscriberStatusCommon extends CommonMenu {
     }
 
     public void checkStatus() throws Exception {
-        Common.assertTextOnPage(driver, "active");
+        Common.assertTextOnPage(tool, "active");
     }
 
 }

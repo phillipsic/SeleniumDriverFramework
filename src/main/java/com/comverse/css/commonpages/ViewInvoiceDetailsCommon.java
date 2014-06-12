@@ -1,14 +1,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ViewInvoiceDetailsCommon extends CommonMenu {
 
-    public ViewInvoiceDetailsCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ViewInvoiceDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "View invoice details";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,47 +22,47 @@ public class ViewInvoiceDetailsCommon extends CommonMenu {
     }
 
     public InvoiceImageInTextCommon clickAsciiImage() throws Exception {
-        driver.findElement(By.xpath("//img[@title='Simple format - Ascii']")).click();
-        return new InvoiceImageInTextCommon(driver);
+        tool.driver.findElement(By.xpath("//img[@title='Simple format - Ascii']")).click();
+        return new InvoiceImageInTextCommon(tool, test, user);
     }
 
     public ViewInvoiceBalanceDetailsCommon clickBalanceName() throws Exception {
-        driver.findElement(By.xpath(".//a[contains(text(),'Balances')]//../../../../../../following::tbody[2]/tr[1]/td/div/a")).click();
-        return new ViewInvoiceBalanceDetailsCommon(driver);
+        tool.driver.findElement(By.xpath(".//a[contains(text(),'Balances')]//../../../../../../following::tbody[2]/tr[1]/td/div/a")).click();
+        return new ViewInvoiceBalanceDetailsCommon(tool, test, user);
     }
 
     public BilledAdjustmentsCommon clickBilledAdjustments() throws Exception {
-        driver.findElement(By.id("youcan_VIEW_ADJUSTMENTS")).click();
-        return new BilledAdjustmentsCommon(driver);
+        tool.driver.findElement(By.id("youcan_VIEW_ADJUSTMENTS")).click();
+        return new BilledAdjustmentsCommon(tool, test, user);
     }
 
     public ViewPaymentDistributionsCommon clickPaymentDistribution() throws Exception {
-        driver.findElement(By.id("youcan_VIEW_PAYMENT_DISTRIBUTIONS")).click();
-        return new ViewPaymentDistributionsCommon(driver);
+        tool.driver.findElement(By.id("youcan_VIEW_PAYMENT_DISTRIBUTIONS")).click();
+        return new ViewPaymentDistributionsCommon(tool, test, user);
     }
 
     public ViewBilledRCNRCTermsCommon clickBilledRCNRC() throws Exception {
-        driver.findElement(By.id("youcan_VIEW_RC_NRC")).click();
-        return new ViewBilledRCNRCTermsCommon(driver);
+        tool.driver.findElement(By.id("youcan_VIEW_RC_NRC")).click();
+        return new ViewBilledRCNRCTermsCommon(tool, test, user);
     }
 
     public ViewBilledRechargesCommon clickBilledRecharges() throws Exception {
-        driver.findElement(By.id("youcan_VIEW_INVOICE_RECHARGES")).click();
-        return new ViewBilledRechargesCommon(driver);
+        tool.driver.findElement(By.id("youcan_VIEW_INVOICE_RECHARGES")).click();
+        return new ViewBilledRechargesCommon(tool, test, user);
     }
 
     public ViewBilledUsageCommon clickBilledUsages() throws Exception {
-        driver.findElement(By.id("youcan_VIEW_USAGES")).click();
-        return new ViewBilledUsageCommon(driver);
+        tool.driver.findElement(By.id("youcan_VIEW_USAGES")).click();
+        return new ViewBilledUsageCommon(tool, test, user);
     }
 
     public ViewBilledMTRCommon clickBilledMTR() throws Exception {
-        driver.findElement(By.id("youcan_VIEW_INVOICE_MTR")).click();
-        return new ViewBilledMTRCommon(driver);
+        tool.driver.findElement(By.id("youcan_VIEW_INVOICE_MTR")).click();
+        return new ViewBilledMTRCommon(tool, test, user);
     }
 
     public ViewInvoicesCommon clickBack() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Back']")).click();
-        return new ViewInvoicesCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        return new ViewInvoicesCommon(tool, test, user);
     }
 }

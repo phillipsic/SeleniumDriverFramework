@@ -5,21 +5,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class NewMemberLegalAddressCommon extends CommonMenu {
 
-    public NewMemberLegalAddressCommon(WebDriver driver) throws Exception {
+    public NewMemberLegalAddressCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "New Member - Legal Address";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -27,20 +26,20 @@ public class NewMemberLegalAddressCommon extends CommonMenu {
 
     public void setFirstName(String firstName) throws Exception {
 
-        driver.findElement(By.id("first_name")).clear();
-        driver.findElement(By.id("first_name")).sendKeys(firstName);
+        tool.driver.findElement(By.id("first_name")).clear();
+        tool.driver.findElement(By.id("first_name")).sendKeys(firstName);
     }
 
     public void setLastName(String lastName) throws Exception {
 
-        driver.findElement(By.id("last_name")).clear();
-        driver.findElement(By.id("last_name")).sendKeys(lastName);
+        tool.driver.findElement(By.id("last_name")).clear();
+        tool.driver.findElement(By.id("last_name")).sendKeys(lastName);
     }
 
     public LoginCommon clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
 
-        return new LoginCommon(driver);
+        return new LoginCommon(tool, test, user);
     }
 }

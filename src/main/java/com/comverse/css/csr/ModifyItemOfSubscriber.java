@@ -4,19 +4,20 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyItemOfSubscriberCommon;
 
 public class ModifyItemOfSubscriber extends ModifyItemOfSubscriberCommon {
 
-    public ModifyItemOfSubscriber(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ModifyItemOfSubscriber(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ModifyItem clickConfirm() throws Exception {
         super.clickConfirm();
-        return new ModifyItem(driver);
+        return new ModifyItem(tool, test, user);
     }
 }

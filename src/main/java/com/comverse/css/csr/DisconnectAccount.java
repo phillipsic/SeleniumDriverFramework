@@ -1,46 +1,45 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.DisconnectAccountCommon;
 
 public class DisconnectAccount extends DisconnectAccountCommon {
 
-    public DisconnectAccount(WebDriver driver) throws Exception {
-        super(driver);
-
+    public DisconnectAccount(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public void clickCheckBoxUnlockNow() throws Exception {
-
-        driver.findElement(By.id("disconnectNow")).click();
-
+        tool.driver.findElement(By.id("disconnectNow")).click();
     }
 
     @Override
     public void setAnnotation(String annotation) throws Exception {
 
-        driver.findElement(By.id("annotation")).clear();
-        driver.findElement(By.id("annotation")).sendKeys(annotation);
+        tool.driver.findElement(By.id("annotation")).clear();
+        tool.driver.findElement(By.id("annotation")).sendKeys(annotation);
     }
 
     @Override
     public DisconnectAccount clickContinue() throws Exception {
         super.clickContinue();
-        return new DisconnectAccount(driver);
+        return new DisconnectAccount(tool, test, user);
     }
 
     @Override
     public DisconnectAccount clickContinueOnImpacts() throws Exception {
         super.clickContinueOnImpacts();
-        return new DisconnectAccount(driver);
+        return new DisconnectAccount(tool, test, user);
     }
 
     @Override
     public AccountDetails clickOk() throws Exception {
         super.clickOk();
-        return new AccountDetails(driver);
+        return new AccountDetails(tool, test, user);
     }
 }

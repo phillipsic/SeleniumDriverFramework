@@ -4,26 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ResumeBasketConfirmCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ResumeBasketConfirm extends ResumeBasketConfirmCommon {
 
-    public ResumeBasketConfirm(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ResumeBasketConfirm(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public MyBasket clickOk() throws Exception {
 
         super.clickOk();
-        return new MyBasket(driver);
+        return new MyBasket(tool, test, user);
     }
 }

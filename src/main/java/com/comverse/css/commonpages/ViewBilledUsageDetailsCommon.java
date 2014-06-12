@@ -1,14 +1,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ViewBilledUsageDetailsCommon extends CommonMenu {
 
-    public ViewBilledUsageDetailsCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ViewBilledUsageDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "View Billed Usage Details";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -20,7 +23,7 @@ public class ViewBilledUsageDetailsCommon extends CommonMenu {
 
     public ViewBilledUsageCommon clickBack() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Back']")).click();
-        return new ViewBilledUsageCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        return new ViewBilledUsageCommon(tool, test, user);
     }
 }

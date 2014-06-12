@@ -4,25 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyPaymentInformationCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ModifyPaymentInformation extends ModifyPaymentInformationCommon {
 
-    public ModifyPaymentInformation(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ModifyPaymentInformation(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ModifyPaymentMethod clickModifyPaymentButton() throws Exception {
 
         super.clickModifyPaymentButton();
-        return new ModifyPaymentMethod(driver);
+        return new ModifyPaymentMethod(tool, test, user);
     }
 }

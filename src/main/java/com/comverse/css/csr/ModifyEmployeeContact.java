@@ -4,22 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyEmployeeContactCommon;
 
 public class ModifyEmployeeContact extends ModifyEmployeeContactCommon {
 
-    public ModifyEmployeeContact(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ModifyEmployeeContact(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ModifyEmployeeContactConfirmation clickOk() throws Exception {
         super.clickOk();
-        return new ModifyEmployeeContactConfirmation(driver);
+        return new ModifyEmployeeContactConfirmation(tool, test, user);
     }
 
 }

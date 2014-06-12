@@ -4,21 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyDeliveryAddressCommon;
 
 public class ModifyDeliveryAddress extends ModifyDeliveryAddressCommon {
 
-    public ModifyDeliveryAddress(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ModifyDeliveryAddress(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ModifyDeliveryAddressConfirmation clickOk() throws Exception {
 
         super.clickOk();
-        return new ModifyDeliveryAddressConfirmation(driver);
+        return new ModifyDeliveryAddressConfirmation(tool, test, user);
     }
 }

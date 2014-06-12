@@ -3,34 +3,35 @@ package com.comverse.css.csr;
 import java.util.Calendar;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ViewHierarchyCommon;
 
 public class ViewHierarchy extends ViewHierarchyCommon {
 
-    public ViewHierarchy(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ViewHierarchy(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     public NewMemberLegalAddress clickAddEmployeeOCM() throws Exception {
 
-        driver.findElement(By.id("smnu_ADD_MEMBER")).click();
-        return new NewMemberLegalAddress(driver);
+        tool.driver.findElement(By.id("smnu_ADD_MEMBER")).click();
+        return new NewMemberLegalAddress(tool, test, user);
     }
 
     public NewMemberLegalAddress clickAddEmployee() throws Exception {
 
-        driver.findElement(By.id("smnu_ADD_MEMBER")).click();
-        return new NewMemberLegalAddress(driver);
+        tool.driver.findElement(By.id("smnu_ADD_MEMBER")).click();
+        return new NewMemberLegalAddress(tool, test, user);
     }
 
     public AddEmployeeContactInformation clickAddB2BEmployee() throws Exception {
 
-        driver.findElement(By.id("smnu_REGISTER_EMPLOYEE")).click();
-        return new AddEmployeeContactInformation(driver);
+        tool.driver.findElement(By.id("smnu_REGISTER_EMPLOYEE")).click();
+        return new AddEmployeeContactInformation(tool, test, user);
     }
 
     public ViewHierarchy addWeeklyLevel() throws Exception {
@@ -40,7 +41,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
         String weeklyLevelName = "level" + week + "a";
 
-        if (!Common.isTextOnPage(driver, weeklyLevelName)) {
+        if (!Common.isTextOnPage(tool, weeklyLevelName)) {
 
             AddSubLevelSelectLevelType addSubLevelSelectLevelType = this.clickAddLevel();
 
@@ -55,46 +56,46 @@ public class ViewHierarchy extends ViewHierarchyCommon {
             System.out.println("Weekly level already exists " + weeklyLevelName);
         }
 
-        return new ViewHierarchy(driver);
+        return new ViewHierarchy(tool, test, user);
 
     }
 
     public AddSubLevelSelectLevelType clickAddLevel() throws Exception {
 
-        driver.findElement(By.id("smnu_ADD_LEVEL")).click();
-        return new AddSubLevelSelectLevelType(driver);
+        tool.driver.findElement(By.id("smnu_ADD_LEVEL")).click();
+        return new AddSubLevelSelectLevelType(tool, test, user);
     }
 
     public MoveLevel clickMoveLevel() throws Exception {
 
-        driver.findElement(By.id("smnu_MOVE_LEVEL")).click();
-        return new MoveLevel(driver);
+        tool.driver.findElement(By.id("smnu_MOVE_LEVEL")).click();
+        return new MoveLevel(tool, test, user);
     }
 
     public RemoveSelection clickRemoveLevel() throws Exception {
 
-        driver.findElement(By.id("smnu_REMOVE_LEVEL")).click();
-        return new RemoveSelection(driver);
+        tool.driver.findElement(By.id("smnu_REMOVE_LEVEL")).click();
+        return new RemoveSelection(tool, test, user);
     }
 
     public LevelLegalContact clickViewContact() throws Exception {
 
-        driver.findElement(By.id("smnu_ADDRESS")).click();
-        return new LevelLegalContact(driver);
+        tool.driver.findElement(By.id("smnu_ADDRESS")).click();
+        return new LevelLegalContact(tool, test, user);
     }
 
     @Override
     public ContactInformation clickEmployeeNameLink(String firstName, String lastName) throws Exception {
 
         super.clickEmployeeNameLink(firstName, lastName);
-        return new ContactInformation(driver);
+        return new ContactInformation(tool, test, user);
     }
 
     @Override
     public MyshapeCSRPortal clickLogout() throws Exception {
 
         super.clickLogout();
-        return new MyshapeCSRPortal(driver);
+        return new MyshapeCSRPortal(tool, test, user);
     }
 
     public String addEmployee(String uniqueCode, @SuppressWarnings("unused") String role) throws Exception {

@@ -5,22 +5,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
-/**
- * 
- * @author gmaroth
- */
 public class ViewBalanceCommon extends CommonMenu {
     static String expectedScreen = "View Balances";
 
-    public ViewBalanceCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ViewBalanceCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = this.driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -32,57 +30,57 @@ public class ViewBalanceCommon extends CommonMenu {
 
     public NonVoucherRechargeCommon clickNonVoucherRechargeFreeAmount() throws Exception {
 
-        driver.findElement(By.linkText("Non voucher Recharge (free amount)")).click();
+        tool.driver.findElement(By.linkText("Non voucher Recharge (free amount)")).click();
 
-        return new NonVoucherRechargeCommon(driver);
+        return new NonVoucherRechargeCommon(tool, test, user);
     }
 
     public RechargeWithVoucherCommon clickRechargeByVoucher() throws Exception {
 
-        driver.findElement(By.linkText("Recharge by voucher")).click();
+        tool.driver.findElement(By.linkText("Recharge by voucher")).click();
 
-        return new RechargeWithVoucherCommon(driver);
+        return new RechargeWithVoucherCommon(tool, test, user);
     }
 
     public AdjustBalanceDetailsCommon clickAdjustBalance(String balancename) throws Exception {
 
         // this.retrieveBalanceID(balancename);
-        // driver.findElement(By.id("adjust_balance_" + balanceID + "" ));
+        // tool.driver.findElement(By.id("adjust_balance_" + balanceID + "" ));
 
-        // driver.findElement(By.xpath("//tr[td/a[contains(text(),'Adjust')]]/td/a[contains(text(),'"
+        // tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'Adjust')]]/td/a[contains(text(),'"
         // + balancename + "')]")).click();
-        driver.findElement(By.xpath("//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]")).click();
+        tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]")).click();
 
-        return new AdjustBalanceDetailsCommon(driver);
+        return new AdjustBalanceDetailsCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon clickConfigureSharedBalance(String balanceName) throws Exception {
 
         String balanceID = retrieveBalanceID(balanceName);
-        driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]")).click();
-        return new ReconfigureBalanceCommon(driver);
+        tool.driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]")).click();
+        return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon clickConfigureLimit(String balanceName) throws Exception {
 
         String balanceID = retrieveBalanceID(balanceName);
 
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(By.xpath("//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]"))).perform();
-        action.moveToElement(driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]"))).click().perform();
+        Actions action = new Actions(tool.driver);
+        action.moveToElement(tool.driver.findElement(By.xpath("//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]"))).perform();
+        action.moveToElement(tool.driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]"))).click().perform();
         Common.sleepForNumberOfSeconds(3);
 
-        return new ReconfigureBalanceCommon(driver);
+        return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public void clickBack() throws Exception {
 
-        driver.findElement(By.id("youcan_ON_BACK")).click();
+        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
     }
 
     public Double getCoreBalance() throws Exception {
 
-        String coreBalanceString = driver.findElement(By.xpath("//a[contains(.,'CORE BALANCE')]/../../td[2]")).getText();
+        String coreBalanceString = tool.driver.findElement(By.xpath("//a[contains(.,'CORE BALANCE')]/../../td[2]")).getText();
         coreBalanceString = coreBalanceString.replaceAll(",", "");
         Double coreBalance = Double.parseDouble(coreBalanceString.substring(1));
         System.out.println("Core Balance is " + coreBalance);
@@ -91,15 +89,15 @@ public class ViewBalanceCommon extends CommonMenu {
 
     public BalanceDetailsCommon viewBalanceDetails(String balanceName) throws Exception {
 
-        driver.findElement(By.linkText(balanceName)).click();
-        return new BalanceDetailsCommon(driver);
+        tool.driver.findElement(By.linkText(balanceName)).click();
+        return new BalanceDetailsCommon(tool, test, user);
     }
 
     // @SuppressWarnings("unused")
     private String retrieveBalanceID(String balanceName) throws Exception {
 
         /*
-         * String pageSource = driver.getPageSource(); String temp[]; String
+         * String pageSource = tool.driver.getPageSource(); String temp[]; String
          * cleanString;
          * 
          * temp = pageSource.split("abtr:" + balanceName); temp =
@@ -112,7 +110,7 @@ public class ViewBalanceCommon extends CommonMenu {
          * cleanString.replaceAll(">", "");
          */
         String temp[];
-        String balanceIdDirty = driver.findElement(By.xpath("//a[contains(text(), '" + balanceName + "')]")).getAttribute("id");
+        String balanceIdDirty = tool.driver.findElement(By.xpath("//a[contains(text(), '" + balanceName + "')]")).getAttribute("id");
         temp = balanceIdDirty.split("_");
         int tempSize = temp.length;
         String balanceID = temp[tempSize - 1].trim();

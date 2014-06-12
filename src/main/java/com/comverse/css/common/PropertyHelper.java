@@ -8,43 +8,21 @@ import com.comverse.common.Main;
 public class PropertyHelper extends Main {
 
     /**
-     *
+     * 
      * @param name
      * @return
      * @throws IOException
      */
     public Properties readProperties(String name) throws IOException {
-        Properties prop = new Properties();
-        InputStream input = null;
-
-    
-        try {
-
-            input = new FileInputStream(INIT_LOCATION + name);
-            prop.load(input);
-
-            //System.out.println("Properties Loaded");
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        /* ClassLoader loader = PropertyHelper.class.getClassLoader();
-         InputStream inStream = loader.getResourceAsStream(name);
-         properties.load(inStream);*/
-        return prop;
+        Properties properties = new Properties();
+        ClassLoader loader = PropertyHelper.class.getClassLoader();
+        InputStream inStream = loader.getResourceAsStream(name);
+        properties.load(inStream);
+        return properties;
     }
 
     /**
-     *
+     * 
      * @param key
      * @return
      */
@@ -56,7 +34,7 @@ public class PropertyHelper extends Main {
         String environmentIdentifier = this.getENV();
 
         try {
-            props = readProperties(environmentIdentifier + "_" + INIT_PROPERTY_FILE);
+            props = readProperties(INIT_PROPERTY_FILE);
         } catch (IOException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
@@ -89,12 +67,12 @@ public class PropertyHelper extends Main {
             e.printStackTrace();
         }
 
- /*       try {
+        try {
             props = readProperties(INIT_PROPERTY_FILE);
         } catch (IOException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
-        }*/
+        }
         value = props.getProperty(key);
 
         return value;
@@ -139,7 +117,7 @@ public class PropertyHelper extends Main {
     }
 
     /**
-     *
+     * 
      * @param key
      * @return
      */
@@ -162,7 +140,7 @@ public class PropertyHelper extends Main {
 
     // changed for setting the property for success order
     /**
-     *
+     * 
      * @param key
      * @param lastname
      */
@@ -217,12 +195,12 @@ public class PropertyHelper extends Main {
      * Writes the last name out to a property file 'BCT_PROPERTY_FILE' The
      * BCT_PROPERTY_FILE should not be in GIT or this causes problems with the
      * PULL
-     *
+     * 
      * This method should only be called after a successful NCA.
-     *
+     * 
      * The BCT_PROPERTY_FILE property file will be found at the root of Selenium
      * or workspace.
-     *
+     * 
      * @param lastnamevalue
      */
     public void savePropertiesToFile(String lastnamevalue, String loginvalue, String passwordvalue, String callingTest) {
@@ -255,7 +233,7 @@ public class PropertyHelper extends Main {
     }
 
     /**
-     *
+     * 
      * @return
      */
     public String readLastNameFromFile() {
@@ -299,6 +277,7 @@ public class PropertyHelper extends Main {
             }
 
             // load a properties file
+
             prop.load(new FileInputStream(initFile.getAbsolutePath()));
             System.out.println("Login retrieved from file = " + prop.getProperty("bct_login"));
 
@@ -334,7 +313,7 @@ public class PropertyHelper extends Main {
     }
 
     /**
-     *
+     * 
      * @param args
      */
     public static void main(String args[]) {

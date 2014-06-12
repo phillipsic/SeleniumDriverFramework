@@ -4,15 +4,15 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.Set;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.DB;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
@@ -20,16 +20,10 @@ import com.jcraft.jsch.Session;
 
 public class Common {
 
-    public static final String url = "jdbc:mysql://10.140.84.213:3306/";
-    public static final String dbName = "csspqa";
-    public static final String driver = "com.mysql.jdbc.Driver";
-    public static final String userName = "30test";
-    public static final String password = "30test123";
-
     public Common() {
     }
 
-    public static void waitForEndOfWaitingPage(WebDriver driver, String className) throws Exception {
+    public static void waitForEndOfWaitingPage(AutomationTool tool, String className) throws Exception {
         for (int iteration = 0;; iteration++) {
 
             System.out.println(className + ": Iteration " + iteration + " of 90");
@@ -37,7 +31,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
 
-            if (driver.getTitle().matches("Waiting Page")) {
+            if (tool.driver.getTitle().matches("Waiting Page")) {
                 // System.out.println("Please Wait present");
                 Thread.sleep(3000);
             } else {
@@ -55,32 +49,32 @@ public class Common {
         Thread.sleep(numberOfSeconds);
     }
 
-    public static Boolean isTextOnPage(WebDriver driver, String searchText) throws Exception {
+    public static Boolean isTextOnPage(AutomationTool tool, String searchText) throws Exception {
 
-        String pageSource = driver.getPageSource();
+        String pageSource = tool.driver.getPageSource();
         return pageSource.contains(searchText);
     }
 
-    public static Boolean isCheckBoxSelected(WebDriver driver, String idOfCheckBox) throws Exception {
+    public static Boolean isCheckBoxSelected(AutomationTool tool, String idOfCheckBox) throws Exception {
 
-        return (driver.findElement(By.id(idOfCheckBox)).isSelected());
+        return (tool.driver.findElement(By.id(idOfCheckBox)).isSelected());
     }
 
-    public static void assertTextOnPage(WebDriver driver, String searchText) throws Exception {
+    public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
 
-        String pageSource = Common.returnCleanPageSource(driver);
+        String pageSource = Common.returnCleanPageSource(tool);
         assertTrue(pageSource.contains(searchText));
     }
 
-    public static void assertTextNotOnPage(WebDriver driver, String searchText) throws Exception {
+    public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
 
-        String pageSource = Common.returnCleanPageSource(driver);
+        String pageSource = Common.returnCleanPageSource(tool);
         assertFalse(pageSource.contains(searchText));
     }
 
-    public static boolean isElementPresent(WebDriver driver, By by) {
+    public static boolean isElementPresent(AutomationTool tool, By by) {
         try {
-            driver.findElements(by);
+            tool.driver.findElements(by);
             return true;
         } catch (Exception e) {
             return false;
@@ -96,30 +90,30 @@ public class Common {
 
     }
 
-    public static String returnCleanPageSource(WebDriver driver) throws Exception {
-        String dirtyString = driver.getPageSource();
+    public static String returnCleanPageSource(AutomationTool tool) throws Exception {
+        String dirtyString = tool.driver.getPageSource();
         dirtyString = removeHTMLTags(dirtyString);
         return cleanStringOfIllegalChars(dirtyString);
     }
 
-    public static Boolean isTextOnPageWithRegex(WebDriver driver, String searchText) throws Exception {
+    public static Boolean isTextOnPageWithRegex(AutomationTool tool, String searchText) throws Exception {
 
-        String pageSource = Common.returnCleanPageSource(driver);
+        String pageSource = Common.returnCleanPageSource(tool);
         return pageSource.matches("^[\\s\\S]*" + searchText + "[\\s\\S]*$");
     }
 
-    public static Boolean isTextNotOnPage(WebDriver driver, String searchText) throws Exception {
+    public static Boolean isTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
 
-        String pageSource = Common.returnCleanPageSource(driver);
+        String pageSource = Common.returnCleanPageSource(tool);
 
         return !pageSource.contains(searchText);
     }
 
-    public static Boolean isOfferTextOnPage(WebDriver driver, String searchText) throws Exception {
+    public static Boolean isOfferTextOnPage(AutomationTool tool, String searchText) throws Exception {
         Boolean foundIt = false;
         int startOfOfferIndex = 1;
 
-        String pageSource = driver.getPageSource();
+        String pageSource = tool.driver.getPageSource();
 
         while (startOfOfferIndex > 0 && foundIt == false) {
 
@@ -170,14 +164,14 @@ public class Common {
 
     }
 
-    public static void checkForExistingBasketAndDiscard(WebDriver driver) throws Exception {
-        if (driver.getTitle().equals("Restore Previous Basket")) {
-            driver.findElement(By.xpath("//input[@value='Discard']")).click();
-            driver.findElement(By.cssSelector("input.submit")).click();
+    public static void checkForExistingBasketAndDiscard(AutomationTool tool) throws Exception {
+        if (tool.driver.getTitle().equals("Restore Previous Basket")) {
+            tool.driver.findElement(By.xpath("//input[@value='Discard']")).click();
+            tool.driver.findElement(By.cssSelector("input.submit")).click();
         }
     }
 
-    public static void waitForOffersToLoadOnPage(WebDriver driver, String className) throws Exception {
+    public static void waitForOffersToLoadOnPage(AutomationTool tool, String className) throws Exception {
         for (int iteration = 0;; iteration++) {
 
             System.out.println(className + ": Iteration " + iteration + " of 5");
@@ -185,7 +179,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
 
-            if (isTextOnPage(driver, "Loading Primary Offers and Subscriber Bundles")) {
+            if (isTextOnPage(tool, "Loading Primary Offers and Subscriber Bundles")) {
                 System.out.println("Still loading offers ...");
                 Thread.sleep(3000);
             } else {
@@ -196,7 +190,7 @@ public class Common {
         }
     }
 
-    public static void waitForEventsToLoadOnPage(WebDriver driver, String className) throws Exception {
+    public static void waitForEventsToLoadOnPage(AutomationTool tool, String className) throws Exception {
 
         boolean foundElement = false;
         for (int iteration = 0;; iteration++) {
@@ -205,7 +199,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
             try {
-                driver.findElement(By.cssSelector("img[title=\" Action\"]"));
+                tool.driver.findElement(By.cssSelector("img[title=\" Action\"]"));
                 foundElement = true;
 
                 System.out.println("FoundElement =  ..." + foundElement);
@@ -217,7 +211,8 @@ public class Common {
              * System.out.println("Iteration " + iteration + " of 90"); if
              * (iteration >= 90) { throw new Exception("Timeout"); }
              * 
-             * if ( "".equals(driver.findElement(By.cssSelector("img[title=\"
+             * if (
+             * "".equals(tool.driver.findElement(By.cssSelector("img[title=\"
              * Action\"]")).getText())){ System.out.println("Still loading
              * events ..."); Thread.sleep(1000); } else {
              * System.out.println("events Loaded"); break; }
@@ -226,7 +221,7 @@ public class Common {
         }
     }
 
-    public static void waitForAccountBundlesToLoadOnPage(WebDriver driver, String className) throws Exception {
+    public static void waitForAccountBundlesToLoadOnPage(AutomationTool tool, String className) throws Exception {
         for (int iteration = 0;; iteration++) {
             Thread.sleep(1000);
             System.out.println(className + ": Iteration " + iteration + " of 90");
@@ -234,7 +229,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
 
-            if (isTextOnPage(driver, "Loading Account Bundles...")) {
+            if (isTextOnPage(tool, "Loading Account Bundles...")) {
                 System.out.println("Still loading Bundles ...");
                 Thread.sleep(1000);
             } else {
@@ -245,7 +240,7 @@ public class Common {
         }
     }
 
-    public static void waitForDevicesToLoadOnPage(WebDriver driver, String className) throws Exception {
+    public static void waitForDevicesToLoadOnPage(AutomationTool tool, String className) throws Exception {
         for (int iteration = 0;; iteration++) {
 
             System.out.println(className + ": Iteration " + iteration + " of 90");
@@ -253,7 +248,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
 
-            if (isTextOnPage(driver, "Loading Devices...")) {
+            if (isTextOnPage(tool, "Loading Devices...")) {
                 System.out.println("Still loading Devices ...");
                 Thread.sleep(1000);
             } else {
@@ -264,7 +259,7 @@ public class Common {
         }
     }
 
-    public static void waitForAccessoriesToLoadOnPage(WebDriver driver, String className) throws Exception {
+    public static void waitForAccessoriesToLoadOnPage(AutomationTool tool, String className) throws Exception {
         for (int iteration = 0;; iteration++) {
 
             System.out.println(className + ": Iteration " + iteration + " of 90");
@@ -272,7 +267,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
 
-            if (isTextOnPage(driver, "Loading Accessories...")) {
+            if (isTextOnPage(tool, "Loading Accessories...")) {
                 System.out.println("Still loading Accessories ...");
                 Thread.sleep(1000);
             } else {
@@ -292,9 +287,8 @@ public class Common {
         Connection connection = null;
 
         try {
-
-            connection = DriverManager.getConnection(url + dbName, userName, password);
-            System.out.println("Connected to the database");
+            DB autotest = new DB("AUTOTEST");
+            connection = autotest.mysqlDBcnx();
 
             statement = connection
                     .prepareStatement("INSERT INTO dynamic_test_data ( environment, property_key, property_value, property_comment, property_used  ) VALUES (?, ?, ?, ?, false)");
@@ -323,9 +317,8 @@ public class Common {
         Connection connection = null;
 
         try {
-            // Class.forName(driver).newInstance();
-            connection = DriverManager.getConnection(url + dbName, userName, password);
-            System.out.println("Connected to the database");
+            DB autotest = new DB("AUTOTEST");
+            connection = autotest.mysqlDBcnx();
 
             statement = connection
                     .prepareStatement("UPDATE dynamic_test_data SET property_value = ?, property_comment = ?, property_used = false WHERE property_key = ? AND environment = ?");
@@ -352,9 +345,8 @@ public class Common {
         Connection connection = null;
 
         try {
-            // Class.forName(driver).newInstance();
-            connection = DriverManager.getConnection(url + dbName, userName, password);
-            System.out.println("Connected to the database");
+            DB autotest = new DB("AUTOTEST");
+            connection = autotest.mysqlDBcnx();
 
             statement = connection.prepareStatement("DELETE FROM dynamic_test_data WHERE property_value = ? AND property_key = ? AND environment = ?");
             statement.setString(1, value);
@@ -369,31 +361,6 @@ public class Common {
         }
     }
 
-    /*
-     * private static void updateUsedFlagToTrue(String key, String comment)
-     * throws Exception {
-     * 
-     * PropertyHelper propsHelper = new PropertyHelper(); String testEnvironment
-     * = propsHelper.getEnvProperties();
-     * 
-     * PreparedStatement statement = null; Connection connection = null;
-     * 
-     * try { // Class.forName(driver).newInstance(); connection =
-     * DriverManager.getConnection(url + dbName, userName, password);
-     * System.out.println("Connected to the database");
-     * 
-     * statement = connection.prepareStatement("UPDATE dynamic_test_data SET
-     * property_used = true, property_comment = ? WHERE property_key = ? AND
-     * environment = ?");
-     * 
-     * statement.setString(1, comment); statement.setString(2, key);
-     * statement.setString(3, testEnvironment);
-     * 
-     * 
-     * statement.executeUpdate();
-     * 
-     * } finally { statement.close(); connection.close(); } }
-     */
     private static boolean checkPropertyExistsInDB(String key) throws Exception {
 
         PropertyHelper propsHelper = new PropertyHelper();
@@ -404,13 +371,10 @@ public class Common {
         ResultSet resultSet = null;
         boolean exist = false;
         Connection connection = null;
-        connection = DriverManager.getConnection(url + dbName, userName, password);
+        DB autotest = new DB("AUTOTEST");
+        connection = autotest.mysqlDBcnx();
 
         try {
-            // Class.forName(driver).newInstance();
-
-            System.out.println("Connected to the database");
-
             statement = connection.prepareStatement("SELECT COUNT(*) as MY_COUNT FROM dynamic_test_data WHERE property_key = ? AND environment = ?");
 
             statement.setString(1, key);
@@ -443,13 +407,10 @@ public class Common {
         ResultSet resultSet = null;
         String propertyValue;
         Connection connection = null;
-        connection = DriverManager.getConnection(url + dbName, userName, password);
+        DB autotest = new DB("AUTOTEST");
+        connection = autotest.mysqlDBcnx();
 
         try {
-            // Class.forName(driver).newInstance();
-
-            System.out.println("Connected to the database");
-
             statement = connection.prepareStatement("SELECT property_value FROM dynamic_test_data WHERE property_key = ? AND environment = ?");
 
             statement.setString(1, key);
@@ -483,13 +444,10 @@ public class Common {
         ResultSet resultSet = null;
         String propertyValue;
         Connection connection = null;
-        connection = DriverManager.getConnection(url + dbName, userName, password);
+        DB autotest = new DB("AUTOTEST");
+        connection = autotest.mysqlDBcnx();
 
         try {
-            // Class.forName(driver).newInstance();
-
-            System.out.println("Connected to the database");
-
             statement = connection.prepareStatement("SELECT property_value FROM dynamic_test_data WHERE property_key = ? AND property_value like ? AND environment = ?");
 
             statement.setString(1, key);
@@ -522,7 +480,7 @@ public class Common {
      * propertyValue; Connection connection = null; connection =
      * DriverManager.getConnection(url + dbName, userName, password);
      * 
-     * try { // Class.forName(driver).newInstance();
+     * try { // Class.forName(tool.driver).newInstance();
      * 
      * System.out.println("Connected to the database");
      * 
@@ -979,7 +937,7 @@ public class Common {
         return propertyValue;
     }
 
-    public static void clickAction2ItemIsAccessible(WebDriver driver, String actionID, String classTitle) throws Exception {
+    public static void clickAction2ItemIsAccessible(AutomationTool tool, String actionID, String classTitle) throws Exception {
         boolean successfullyDisplayed = false;
         int loopCounter = 0;
 
@@ -993,15 +951,15 @@ public class Common {
                     successfullyDisplayed = true;
                 }
                 Common.sleepForNumberOfSeconds(2);
-                driver.findElement(By.xpath("(//input[@value='+ Action'])[2]")).click();
-                driver.findElement(By.id(actionID)).click();
-                String pageTitle = driver.getTitle();
+                tool.driver.findElement(By.xpath("(//input[@value='+ Action'])[2]")).click();
+                tool.driver.findElement(By.id(actionID)).click();
+                String pageTitle = tool.driver.getTitle();
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
                     successfullyDisplayed = true;
                 } else {
 
-                    driver.navigate().refresh();
+                    tool.driver.navigate().refresh();
                 }
             } catch (Exception e) {
                 System.out.println("Menu item not selectable");
@@ -1009,7 +967,7 @@ public class Common {
         }
     }
 
-    public static void clickAction1ItemIsAccessible(WebDriver driver, String classTitle, String... actionIDTable) throws Exception {
+    public static void clickAction1ItemIsAccessible(AutomationTool tool, String classTitle, String... actionIDTable) throws Exception {
         boolean successfullyDisplayed = false;
         int loopCounter = 0;
 
@@ -1023,20 +981,20 @@ public class Common {
                     successfullyDisplayed = true;
                 }
                 Common.sleepForNumberOfSeconds(2);
-                driver.findElement(By.xpath("//input[@value='+ Action']")).click();
+                tool.driver.findElement(By.xpath("//input[@value='+ Action']")).click();
                 if (actionIDTable != null) {
                     for (String actionID : actionIDTable) {
                         Common.sleepForNumberOfSeconds(1);
-                        driver.findElement(By.id(actionID)).click();
+                        tool.driver.findElement(By.id(actionID)).click();
                     }
                 }
-                String pageTitle = driver.getTitle();
+                String pageTitle = tool.driver.getTitle();
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
                     successfullyDisplayed = true;
                 } else {
 
-                    driver.navigate().refresh();
+                    tool.driver.navigate().refresh();
                     System.out.println("Trying browser refresh");
                 }
             } catch (Exception e) {
@@ -1069,20 +1027,20 @@ public class Common {
         storePropertyInDB(fieldName, opportunityName, comment);
     }
 
-    public static String getCurrentWindowHandle(WebDriver driver) {
-        return driver.getWindowHandle();
+    public static String getCurrentWindowHandle(AutomationTool tool) {
+        return tool.driver.getWindowHandle();
     }
 
-    public static void switchToThisWindow(WebDriver driver, String windowHandle) {
-        driver.switchTo().window(windowHandle);
+    public static void switchToThisWindow(AutomationTool tool, String windowHandle) {
+        tool.driver.switchTo().window(windowHandle);
     }
 
-    public static void switchToNewWindow(WebDriver driver, String... windowHandleTable) {
-        Set<String> windows = driver.getWindowHandles();
+    public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) {
+        Set<String> windows = tool.driver.getWindowHandles();
         for (String window : windows) {
             for (String windowHandle : windowHandleTable) {
                 if (!window.equals(windowHandle)) {
-                    driver.switchTo().window(window);
+                    tool.driver.switchTo().window(window);
                     break;
                 }
             }

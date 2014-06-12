@@ -4,27 +4,22 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.UnlockLoginCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class UnlockLogin extends UnlockLoginCommon {
 
-    public UnlockLogin(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public UnlockLogin(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public UnlockDone clickConfirm() throws Exception {
 
         super.clickConfirm();
-        return new UnlockDone(driver);
+        return new UnlockDone(tool, test, user);
     }
 
 }

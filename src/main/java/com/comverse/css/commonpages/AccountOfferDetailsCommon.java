@@ -5,14 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class AccountOfferDetailsCommon extends CommonMenu {
     static String expectedScreen = "Account Offer Detail";
 
-    public AccountOfferDetailsCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public AccountOfferDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -21,8 +24,8 @@ public class AccountOfferDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourAccountCommon clickReturnToList() throws Exception {
-        driver.findElement(By.name("select")).click();
-        return new SelectOffersForYourAccountCommon(driver);
+        tool.driver.findElement(By.name("select")).click();
+        return new SelectOffersForYourAccountCommon(tool, test, user);
     }
 
 }

@@ -4,20 +4,18 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-/**
- * 
- * @author iphilli
- */
 public class CustomerPrerequisite extends B2CMenu {
 
-    public CustomerPrerequisite(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public CustomerPrerequisite(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
-        if (!"Myshape Consumer".equals(driver.getTitle())) {
+        if (!"Myshape Consumer".equals(tool.driver.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: CustomerPrerequisite, but got: " + currentScreen);

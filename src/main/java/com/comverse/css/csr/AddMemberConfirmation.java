@@ -1,21 +1,20 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.AddMemberConfirmationCommon;
 
 public class AddMemberConfirmation extends AddMemberConfirmationCommon {
 
-    public AddMemberConfirmation(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public AddMemberConfirmation(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AddMember clickOk() throws Exception {
 
         super.clickOk();
-        return new AddMember(driver);
+        return new AddMember(tool, test, user);
     }
 }

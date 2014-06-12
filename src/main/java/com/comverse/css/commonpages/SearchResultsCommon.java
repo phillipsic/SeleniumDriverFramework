@@ -4,20 +4,18 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-/**
- * 
- * @author iphilli
- */
 public class SearchResultsCommon extends CommonMenu {
 
-    public SearchResultsCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public SearchResultsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Search Requests";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

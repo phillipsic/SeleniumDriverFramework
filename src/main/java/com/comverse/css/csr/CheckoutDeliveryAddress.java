@@ -4,24 +4,20 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.CheckoutDeliveryAddressCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class CheckoutDeliveryAddress extends CheckoutDeliveryAddressCommon {
 
-    public CheckoutDeliveryAddress(WebDriver driver) throws Exception {
-        super(driver);
-
+    public CheckoutDeliveryAddress(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public CheckoutReview clickNextPage() throws Exception {
         super.clickNextPage();
-        return new CheckoutReview(driver);
+        return new CheckoutReview(tool, test, user);
     }
 }

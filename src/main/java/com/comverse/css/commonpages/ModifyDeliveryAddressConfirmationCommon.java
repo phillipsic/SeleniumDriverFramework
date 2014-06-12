@@ -6,16 +6,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ModifyDeliveryAddressConfirmationCommon extends CommonMenu {
 
-    public ModifyDeliveryAddressConfirmationCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public ModifyDeliveryAddressConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Delivery Address - Confirmation";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -23,7 +26,7 @@ public class ModifyDeliveryAddressConfirmationCommon extends CommonMenu {
 
     public DeliveryAddressesCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new DeliveryAddressesCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new DeliveryAddressesCommon(tool, test, user);
     }
 }

@@ -1,7 +1,10 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 /**
  * 
@@ -9,10 +12,10 @@ import org.openqa.selenium.WebDriver;
  */
 public class RemoveSelectionCommon extends CommonMenu {
 
-    public RemoveSelectionCommon(WebDriver driver) throws Exception {
+    public RemoveSelectionCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Remove Selection";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,13 +26,13 @@ public class RemoveSelectionCommon extends CommonMenu {
 
     public MyBasketCommon clickYes() throws Exception {
 
-        driver.findElement(By.xpath("//form[@id='form_YES']/div/input")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//form[@id='form_YES']/div/input")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
     public RemoveLevelCommon clickRemoveSelectionByYes() throws Exception {
 
-        driver.findElement(By.xpath("//form[@id='form_YES']/div/input")).click();
-        return new RemoveLevelCommon(driver);
+        tool.driver.findElement(By.xpath("//form[@id='form_YES']/div/input")).click();
+        return new RemoveLevelCommon(tool, test, user);
     }
 }

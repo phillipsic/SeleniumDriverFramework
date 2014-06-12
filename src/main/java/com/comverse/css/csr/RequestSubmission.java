@@ -4,32 +4,28 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.RequestSubmissionCommon;
 
-/**
- * 
- * @author Vikram Sharma
- */
 public class RequestSubmission extends RequestSubmissionCommon {
 
-    public RequestSubmission(WebDriver driver) throws Exception {
-        super(driver);
-
+    public RequestSubmission(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AccountDetails clickOkModifyRequestGoTOAccountDashboard() throws Exception {
 
         super.clickOkModifyRequestGoTOAccountDashboard();
-        return new AccountDetails(driver);
+        return new AccountDetails(tool, test, user);
     }
 
     @Override
     public ViewHierarchy clickOk() throws Exception {
 
         super.clickOk();
-        return new ViewHierarchy(driver);
+        return new ViewHierarchy(tool, test, user);
     }
 }

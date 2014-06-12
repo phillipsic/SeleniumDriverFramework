@@ -1,70 +1,43 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.CommonMenu;
 
-/**
- * 
- * @author Vikram Sharma
- */
 public class HealthPage extends CommonMenu {
 
-    public HealthPage(WebDriver driver, String baseUrl) throws Exception {
-
-        super(driver);
+    public HealthPage(AutomationTool tool, User user, Test test, String baseUrl) throws Exception {
+        super(tool, test, user);
 
         System.out.println("baseUrl:" + baseUrl);
-
-        driver.get(baseUrl);
-
-        boolean sapi = driver.getPageSource().contains("SAPI Information");
-
+        tool.driver.get(baseUrl);
+        boolean sapi = tool.driver.getPageSource().contains("SAPI Information");
         if (sapi == false) {
-
             throw new IllegalStateException("SAPI page is not available");
-
         } else {
-
             System.out.println("Sapi Page is Available");
-
         }
-
     }
 
     public boolean crmhealthcheck(String baseUrl, String Text) {
-
-        driver.get(baseUrl);
-
-        boolean crm = driver.getPageSource().contains(Text);
-
+        tool.driver.get(baseUrl);
+        boolean crm = tool.driver.getPageSource().contains(Text);
         if (crm == true) {
-
             System.out.println("crmhealthcheck  FAILED - " + baseUrl);
         } else {
-
             System.out.println("crmhealthcheck  PASSED");
-
         }
 
         return crm;
     }
 
     public boolean rcsHealthCheck(String baseUrl, String Text) {
-
-        driver.get(baseUrl);
-
-        boolean rcs = driver.getPageSource().contains(Text);
-
+        tool.driver.get(baseUrl);
+        boolean rcs = tool.driver.getPageSource().contains(Text);
         if (rcs == true) {
-
             System.out.println("rcsHealthCheck  FAILED - " + baseUrl);
         } else {
-
             System.out.println("rcsHealthCheck  PASSED");
 
         }
@@ -73,53 +46,36 @@ public class HealthPage extends CommonMenu {
     }
 
     public boolean rhtHealthCheck(String baseUrl, String Text) {
-
-        driver.get(baseUrl);
-
-        boolean rht = driver.getPageSource().contains(Text);
-
+        tool.driver.get(baseUrl);
+        boolean rht = tool.driver.getPageSource().contains(Text);
         if (rht == true) {
-
             System.out.println("rhtHealthCheck  FAILED - " + baseUrl);
         } else {
-
             System.out.println("rhtHealthCheck  PASSED");
-
         }
+
         return rht;
     }
 
     public boolean obcHealthcheck(String baseUrl, String Text) {
-        driver.get(baseUrl);
-
-        boolean OBC = driver.getPageSource().contains(Text);
-
+        tool.driver.get(baseUrl);
+        boolean OBC = tool.driver.getPageSource().contains(Text);
         if (OBC == true) {
-
             System.out.println("obcHealthcheck  FAILED - " + baseUrl);
         } else {
-
             System.out.println("obcHealthcheck  PASSED");
-
         }
 
         return OBC;
-
     }
 
     public boolean dbHealthCheck(String baseUrl, String Text) {
-
-        driver.get(baseUrl);
-
-        boolean db = driver.getPageSource().contains(Text);
-
+        tool.driver.get(baseUrl);
+        boolean db = tool.driver.getPageSource().contains(Text);
         if (db == true) {
-
             System.out.println("dbHealthCheck  FAILED - " + baseUrl);
         } else {
-
             System.out.println("dbHealthCheck  PASSED");
-
         }
 
         return db;

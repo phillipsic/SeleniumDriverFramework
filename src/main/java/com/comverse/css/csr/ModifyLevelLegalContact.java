@@ -4,20 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyLevelLegalContactCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ModifyLevelLegalContact extends ModifyLevelLegalContactCommon {
 
-    public ModifyLevelLegalContact(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ModifyLevelLegalContact(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
@@ -36,20 +31,20 @@ public class ModifyLevelLegalContact extends ModifyLevelLegalContactCommon {
     public ModifyLevelLegalContact clickOk() throws Exception {
 
         super.clickOk();
-        return new ModifyLevelLegalContact(driver);
+        return new ModifyLevelLegalContact(tool, test, user);
     }
 
     @Override
     public ModifyLevelLegalContact clickOkAgain() throws Exception {
 
         super.clickOkAgain();
-        return new ModifyLevelLegalContact(driver);
+        return new ModifyLevelLegalContact(tool, test, user);
     }
 
     @Override
     public LevelLegalContact clickOkButton() throws Exception {
 
         super.clickOkButton();
-        return new LevelLegalContact(driver);
+        return new LevelLegalContact(tool, test, user);
     }
 }

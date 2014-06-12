@@ -4,20 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ServiceOrderDetailsCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ServiceOrderDetails extends ServiceOrderDetailsCommon {
 
-    public ServiceOrderDetails(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ServiceOrderDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
 }

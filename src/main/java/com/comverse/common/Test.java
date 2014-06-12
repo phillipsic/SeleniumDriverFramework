@@ -5,6 +5,7 @@ public class Test extends Main {
     private String name;
     private String result;
     private String bugId;
+    private Boolean debug;
 
     public Test() throws Exception {
         setResult("fail");
@@ -33,6 +34,14 @@ public class Test extends Main {
 
     public void setBugId(String bugId) {
         this.bugId = bugId;
+    }
+
+    public Boolean getDebug() {
+        return debug;
+    }
+
+    public void setDebug(Boolean debug) {
+        this.debug = debug;
     }
 
 }

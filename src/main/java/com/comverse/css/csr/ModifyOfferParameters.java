@@ -4,20 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyOfferParametersCommon;
 
 public class ModifyOfferParameters extends ModifyOfferParametersCommon {
 
-    public ModifyOfferParameters(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ModifyOfferParameters(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ModifyItemOfSubscriber clickModify() throws Exception {
         super.clickModify();
-        return new ModifyItemOfSubscriber(driver);
+        return new ModifyItemOfSubscriber(tool, test, user);
     }
 
 }

@@ -1,18 +1,21 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddressAdd {
-    public WebDriver driver;
-    
-    public AddressAdd(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.commonpages.AddressAddCommon;
+
+public class AddressAdd extends AddressAddCommon {
+
+    public AddressAdd(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Address Add";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -21,37 +24,35 @@ public class AddressAdd {
 
     public void setStreetName(String streetname) throws Exception {
 
-        driver.findElement(By.id("add_streetName")).clear();
-        driver.findElement(By.id("add_streetName")).sendKeys(streetname);
+        tool.driver.findElement(By.id("add_streetName")).clear();
+        tool.driver.findElement(By.id("add_streetName")).sendKeys(streetname);
 
     }
 
     public void setCity(String city) throws Exception {
 
-        driver.findElement(By.id("add_city")).clear();
-        driver.findElement(By.id("add_city")).sendKeys(city);
+        tool.driver.findElement(By.id("add_city")).clear();
+        tool.driver.findElement(By.id("add_city")).sendKeys(city);
 
     }
 
     public void setZipCode(String zipcode) throws Exception {
 
-        driver.findElement(By.id("add_postalCode")).clear();
-        driver.findElement(By.id("add_postalCode")).sendKeys(zipcode);
+        tool.driver.findElement(By.id("add_postalCode")).clear();
+        tool.driver.findElement(By.id("add_postalCode")).sendKeys(zipcode);
 
     }
 
-
     public void selectCountry(String country) throws Exception {
 
-       new Select(driver.findElement(By.id("add_countryCode"))).selectByVisibleText(country);
+        new Select(tool.driver.findElement(By.id("add_countryCode"))).selectByVisibleText(country);
 
     }
 
     public AddressAdministration clickOK() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Ok']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
 
-        return new AddressAdministration(driver);
+        return new AddressAdministration(tool, test, user);
     }
 }
-

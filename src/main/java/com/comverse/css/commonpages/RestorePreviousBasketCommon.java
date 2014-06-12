@@ -1,16 +1,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class RestorePreviousBasketCommon extends CommonMenu {
 
-    public RestorePreviousBasketCommon(WebDriver driver) throws Exception {
+    public RestorePreviousBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Restore Previous Basket";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,8 +23,8 @@ public class RestorePreviousBasketCommon extends CommonMenu {
 
     public MyBasketCommon clickRestoreSavedBasket() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Restore the basket']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Restore the basket']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new MyBasketCommon(tool, test, user);
     }
 }

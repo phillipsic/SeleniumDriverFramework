@@ -5,17 +5,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class ConfigureServiceConnectionDetailsCommon extends CommonMenu {
     static String expectedScreen = "Configure Service Connection Details";
 
-    public ConfigureServiceConnectionDetailsCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public ConfigureServiceConnectionDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -23,29 +25,29 @@ public class ConfigureServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickContinue() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new MyBasketCommon(tool, test, user);
     }
 
     public SwapSubscriberExternalIdConfirmationCommon clickContinueExpectingSwapSubscriberExternalIdConfirmation() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new SwapSubscriberExternalIdConfirmationCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new SwapSubscriberExternalIdConfirmationCommon(tool, test, user);
     }
 
     public void selectTopLevelContainerType(String containerType) throws Exception {
-        new Select(driver.findElement(By.id("p-advInvSearch-L4:17000"))).selectByVisibleText(containerType);
+        new Select(tool.driver.findElement(By.id("p-advInvSearch-L4:17000"))).selectByVisibleText(containerType);
     }
 
     public ServiceConnectionDetailsCommon clickOK() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new ServiceConnectionDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
     public void setServiceConnectionEmail(String Email) throws Exception {
-        driver.findElement(By.id("inputFields1178")).clear();
-        driver.findElement(By.id("inputFields1178")).sendKeys(Email);
+        tool.driver.findElement(By.id("inputFields1178")).clear();
+        tool.driver.findElement(By.id("inputFields1178")).sendKeys(Email);
 
     }
 

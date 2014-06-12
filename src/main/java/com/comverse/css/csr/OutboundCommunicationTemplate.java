@@ -5,73 +5,44 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.commonpages.OutboundCommunicationTemplateCommon;
 
+public class OutboundCommunicationTemplate extends OutboundCommunicationTemplateCommon {
 
-/**
- *
- * @author gmaroth
- */
-public class OutboundCommunicationTemplate {
-    
-    
-    public void doAddTemplates() throws Exception {
-           
-      clickSearch();
-      /*  String Temp1 = "Case-Case_Creation_Report-email-FR.jrxml";
- 
-       
-       
-       String text1 ;
-       text1 = driver.findElement(By.xpath(".//div[contains(text(),'Case-Case_Creation_Report-email-FR.jrxml')]") ).get;
-       
-      if (Temp1.equals(driver.findElement(By.xpath(".//div[contains(text(),'Case-Case_Creation_Report-email-FR.jrxml')]") ))) {
-            
-            
-            System.out.println("this is our loop it is entering in the loop");
-        
-                           
-    }else {
-       
-           
-       System.out.println("Temp1 " + Temp1); 
-       System.out.println("this is our loop it is not entering in the loop");
-       
-       
-     }
-       */    
-    }
-
-    private void clickSearch() {
-                
-        driver.findElement(By.xpath(".//*[@id='OutboundCommTemplateSearchForm']/fieldset[2]/input[3]")).click();
-    }
-
-    public WebDriver driver;
-
-    public OutboundCommunicationTemplate(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+    public OutboundCommunicationTemplate(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Outbound Communication Template";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
 
     }
 
+    public void doAddTemplates() throws Exception {
+        clickSearch();
+    }
+
+    private void clickSearch() {
+
+        tool.driver.findElement(By.xpath(".//*[@id='OutboundCommTemplateSearchForm']/fieldset[2]/input[3]")).click();
+    }
+
     public AddOutboundCommunicationTemplate clickAdd() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Add']")).click();
-        return new AddOutboundCommunicationTemplate(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Add']")).click();
+        return new AddOutboundCommunicationTemplate(tool, test, user);
     }
 
     public void clickBack() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Back']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
     }
-    
-    
+
 }

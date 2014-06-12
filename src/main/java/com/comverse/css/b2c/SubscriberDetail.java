@@ -5,15 +5,17 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class SubscriberDetail extends B2CMenu {
 
-    public SubscriberDetail(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public SubscriberDetail(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Subscriber detail";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,106 +26,106 @@ public class SubscriberDetail extends B2CMenu {
 
     public BillingAccountInformation clickManageBillingAccounts() throws Exception {
 
-        driver.findElement(By.id("smnu_PAYMENT_INFOS")).click();
-        return new BillingAccountInformation(driver);
+        tool.driver.findElement(By.id("smnu_PAYMENT_INFOS")).click();
+        return new BillingAccountInformation(tool, test, user);
     }
 
     public SelectModeOfRecharge clickRecharge() throws Exception {
 
-        driver.findElement(By.linkText("Recharge")).click();
-        return new SelectModeOfRecharge(driver);
+        tool.driver.findElement(By.linkText("Recharge")).click();
+        return new SelectModeOfRecharge(tool, test, user);
     }
 
     // public Shopping clickShopping() throws Exception {
-    // driver.findElement(By.linkText("Shopping")).click();
-    // Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-    // return new Shopping(driver);
+    // tool.driver.findElement(By.linkText("Shopping")).click();
+    // Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+    // return new Shopping(tool, test, user);
     // }
     public ViewBalances clickBalances() throws Exception {
 
-        driver.findElement(By.linkText("Balances")).click();
-        return new ViewBalances(driver);
+        tool.driver.findElement(By.linkText("Balances")).click();
+        return new ViewBalances(tool, test, user);
     }
 
     public ViewBalances clickSharedBalances() throws Exception {
 
-        driver.findElement(By.linkText("Shared balances")).click();
-        return new ViewBalances(driver);
+        tool.driver.findElement(By.linkText("Shared balances")).click();
+        return new ViewBalances(tool, test, user);
     }
 
     public SelectOffers clickAddSO() throws Exception {
 
-        driver.findElement(By.linkText("Add Supplementary Offers")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new SelectOffers(driver);
+        tool.driver.findElement(By.linkText("Add Supplementary Offers")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new SelectOffers(tool, test, user);
     }
 
     public SearchMember clickMyInformationTab() throws Exception {
 
-        driver.findElement(By.linkText("My Information")).click();
-        return new SearchMember(driver);
+        tool.driver.findElement(By.linkText("My Information")).click();
+        return new SearchMember(tool, test, user);
     }
 
     public SearchOrders clickMyOrdersTab() throws Exception {
 
-        driver.findElement(By.linkText("My Orders")).click();
-        return new SearchOrders(driver);
+        tool.driver.findElement(By.linkText("My Orders")).click();
+        return new SearchOrders(tool, test, user);
     }
 
     public RemoveOffer clickOfferRemove() throws Exception {
-        driver.findElement(By.linkText("Remove")).click();
-        return new RemoveOffer(driver);
+        tool.driver.findElement(By.linkText("Remove")).click();
+        return new RemoveOffer(tool, test, user);
     }
 
     public ModifyOfferParameters clickOfferConfigure(String offerName) throws Exception {
-        driver.findElement(By.xpath("//a[contains(text(),'" + offerName + "')]/../..//a[contains(text(),'Configure')]")).click();
-        return new ModifyOfferParameters(driver);
+        tool.driver.findElement(By.xpath("//a[contains(text(),'" + offerName + "')]/../..//a[contains(text(),'Configure')]")).click();
+        return new ModifyOfferParameters(tool, test, user);
     }
 
     public Identity clickUpdateContact() throws Exception {
-        driver.findElement(By.xpath("//*[contains(text(),'Contact')]/..//a[contains(text(), 'Update')]")).click();
-        return new Identity(driver);
+        tool.driver.findElement(By.xpath("//*[contains(text(),'Contact')]/..//a[contains(text(), 'Update')]")).click();
+        return new Identity(tool, test, user);
     }
 
     public SelectOffersForYourAccount clickSubscribeToNewOffer() throws Exception {
-        driver.findElement(By.xpath("//a[contains(text(), 'Subscribe to new offers')]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new SelectOffersForYourAccount(driver);
+        tool.driver.findElement(By.xpath("//a[contains(text(), 'Subscribe to new offers')]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new SelectOffersForYourAccount(tool, test, user);
     }
 
     public RemoveOffer clickRemoveAO(String offerName) throws Exception {
-        driver.findElement(By.xpath("//a[contains(text(), '" + offerName + "')]/../..//a[contains(text(), 'Remove')]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new RemoveOffer(driver);
+        tool.driver.findElement(By.xpath("//a[contains(text(), '" + offerName + "')]/../..//a[contains(text(), 'Remove')]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new RemoveOffer(tool, test, user);
     }
 
     public ModifySubscriberAttributes clickConfigureAttributes() throws Exception {
-        driver.findElement(By.xpath("//*[contains(text(),'Attributes')]/..//a[contains(text(), 'Configure')]")).click();
-        return new ModifySubscriberAttributes(driver);
+        tool.driver.findElement(By.xpath("//*[contains(text(),'Attributes')]/..//a[contains(text(), 'Configure')]")).click();
+        return new ModifySubscriberAttributes(tool, test, user);
     }
 
     public ChooseYourPrimaryOffer clickMigrateToPostpaidSubscriber() throws Exception {
-        driver.findElement(By.xpath("//a[contains(text(), 'Migrate to postpaid subscriber')]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ChooseYourPrimaryOffer(driver);
+        tool.driver.findElement(By.xpath("//a[contains(text(), 'Migrate to postpaid subscriber')]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public String getOfferName() throws Exception {
 
-        return driver.findElement(By.xpath("//div[@id='mainContentsGrey']/div[1]/div[2]/div[3]/div[1]/div[1]/a")).getAttribute("value");
+        return tool.driver.findElement(By.xpath("//div[@id='mainContentsGrey']/div[1]/div[2]/div[3]/div[1]/div[1]/a")).getAttribute("value");
 
     }
 
     public ChooseYourPrimaryOffer clickChangeOffer() throws Exception {
-        driver.findElement(By.xpath("//a[contains(text(), 'Change Offer')]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ChooseYourPrimaryOffer(driver);
+        tool.driver.findElement(By.xpath("//a[contains(text(), 'Change Offer')]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public SubscriberStatusHistory clickStatusHistory() throws Exception {
-        driver.findElement(By.xpath("//a[contains(text(), 'View Status History')]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new SubscriberStatusHistory(driver);
+        tool.driver.findElement(By.xpath("//a[contains(text(), 'View Status History')]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new SubscriberStatusHistory(tool, test, user);
     }
 
 }

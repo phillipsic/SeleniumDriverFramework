@@ -5,21 +5,20 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class RegisterNewResidentialMember extends B2CMenu {
 
-    public RegisterNewResidentialMember(WebDriver driver) {
+    public RegisterNewResidentialMember(AutomationTool tool, Test test, User user) {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Register New Residential Member";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -28,57 +27,57 @@ public class RegisterNewResidentialMember extends B2CMenu {
 
     public void enterFirstName(String firstName) throws Exception {
 
-        driver.findElement(By.id("firstname")).clear();
-        driver.findElement(By.id("firstname")).sendKeys(firstName);
+        tool.driver.findElement(By.id("firstname")).clear();
+        tool.driver.findElement(By.id("firstname")).sendKeys(firstName);
         System.out.println("Login - " + firstName);
 
     }
 
     public void enterLastName(String lastName) throws Exception {
 
-        driver.findElement(By.id("lastname")).clear();
-        driver.findElement(By.id("lastname")).sendKeys(lastName);
+        tool.driver.findElement(By.id("lastname")).clear();
+        tool.driver.findElement(By.id("lastname")).sendKeys(lastName);
         System.out.println("Password - " + lastName);
 
     }
 
     public void enterLogin(String login) throws Exception {
 
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(login);
+        tool.driver.findElement(By.id("login")).clear();
+        tool.driver.findElement(By.id("login")).sendKeys(login);
         System.out.println("Login - " + login);
 
     }
 
     public void enterPassword(String password) throws Exception {
 
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(password);
+        tool.driver.findElement(By.id("password")).clear();
+        tool.driver.findElement(By.id("password")).sendKeys(password);
         System.out.println("Password - " + password);
 
     }
 
     public void enterConfirmPassword(String confirmPassword) throws Exception {
 
-        driver.findElement(By.id("confirmPassword")).clear();
-        driver.findElement(By.id("confirmPassword")).sendKeys(confirmPassword);
+        tool.driver.findElement(By.id("confirmPassword")).clear();
+        tool.driver.findElement(By.id("confirmPassword")).sendKeys(confirmPassword);
 
     }
 
     public void clickSubmit() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Submit']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Submit']")).click();
     }
 
     public RequestSubmission clickConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
-        return new RequestSubmission(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        return new RequestSubmission(tool, test, user);
     }
 
     public void clickResidentialSubscriber() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@name='role'])[2]")).click();
+        tool.driver.findElement(By.xpath("(//input[@name='role'])[2]")).click();
     }
 
     public RequestSubmission createResidentialSubscriber(String uniqueString, String password) throws Exception {
@@ -91,6 +90,6 @@ public class RegisterNewResidentialMember extends B2CMenu {
         this.clickResidentialSubscriber();
         this.clickSubmit();
         this.clickConfirm();
-        return new RequestSubmission(driver);
+        return new RequestSubmission(tool, test, user);
     }
 }

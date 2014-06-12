@@ -5,19 +5,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-/**
- * 
- * @author Koushic
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ModifyProfileInformationCommon extends CommonMenu {
 
-    public ModifyProfileInformationCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ModifyProfileInformationCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = this.driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Profile Information";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -28,12 +27,12 @@ public class ModifyProfileInformationCommon extends CommonMenu {
 
     public void setTimeZone(String timeZone) throws Exception {
 
-        new Select(driver.findElement(By.id("timezone_field"))).selectByVisibleText(timeZone);
+        new Select(tool.driver.findElement(By.id("timezone_field"))).selectByVisibleText(timeZone);
     }
 
     public ModifyProfileInformationConfirmationCommon clickOkToModify() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new ModifyProfileInformationConfirmationCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new ModifyProfileInformationConfirmationCommon(tool, test, user);
     }
 }

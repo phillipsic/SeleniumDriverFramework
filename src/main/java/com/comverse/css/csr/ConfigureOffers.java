@@ -4,32 +4,27 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ConfigureOffersCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ConfigureOffers extends ConfigureOffersCommon {
 
-    public ConfigureOffers(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ConfigureOffers(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ConfigureBalance clickContinue() throws Exception {
 
         super.clickContinue();
-        return new ConfigureBalance(driver);
+        return new ConfigureBalance(tool, test, user);
     }
-    
+
     @Override
-     public SwapImpact clickContinueExpectingSwapImpact() throws Exception {
-       super.clickContinueExpectingSwapImpact();
-        return new SwapImpact(driver);
+    public SwapImpact clickContinueExpectingSwapImpact() throws Exception {
+        super.clickContinueExpectingSwapImpact();
+        return new SwapImpact(tool, test, user);
     }
 }

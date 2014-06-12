@@ -1,21 +1,20 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ChangePasswordCommon;
 
 public class ChangePassword extends ChangePasswordCommon {
 
-    public ChangePassword(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ChangePassword(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ModifyLoginPassword clickChange() throws Exception {
 
         super.clickChange();
-        return new ModifyLoginPassword(driver);
+        return new ModifyLoginPassword(tool, test, user);
     }
 }

@@ -1,14 +1,14 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-public class OrderDetailsCommon {
+public class OrderDetailsCommon extends CommonMenu {
 
-    public WebDriver driver;
-
-    public OrderDetailsCommon(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+    public OrderDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Order Details";
 
         if (!expectedScreen.equals(currentScreen)) {

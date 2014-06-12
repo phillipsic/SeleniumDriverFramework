@@ -1,15 +1,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class AdjustmentDetailsCommon extends CommonMenu {
     static String expectedScreen = "Adjustment details";
 
-    public AdjustmentDetailsCommon(WebDriver driver) throws Exception {
+    public AdjustmentDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -21,7 +24,7 @@ public class AdjustmentDetailsCommon extends CommonMenu {
 
     public ViewUnbilledAdjustmentCommon clickBack() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Back']")).click();
-        return new ViewUnbilledAdjustmentCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        return new ViewUnbilledAdjustmentCommon(tool, test, user);
     }
 }

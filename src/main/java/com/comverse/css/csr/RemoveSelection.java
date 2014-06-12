@@ -1,32 +1,27 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.RemoveSelectionCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class RemoveSelection extends RemoveSelectionCommon {
 
-    public RemoveSelection(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public RemoveSelection(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public MyBasket clickYes() throws Exception {
 
         super.clickYes();
-        return new MyBasket(driver);
+        return new MyBasket(tool, test, user);
     }
 
     @Override
     public RemoveLevel clickRemoveSelectionByYes() throws Exception {
 
         super.clickRemoveSelectionByYes();
-        return new RemoveLevel(driver);
+        return new RemoveLevel(tool, test, user);
     }
 }

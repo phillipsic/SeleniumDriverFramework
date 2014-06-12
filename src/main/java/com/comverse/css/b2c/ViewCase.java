@@ -1,20 +1,19 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ViewCase extends B2CMenu {
 
-    public ViewCase(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public ViewCase(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "View Case";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -22,27 +21,27 @@ public class ViewCase extends B2CMenu {
 
     public String getCategory() throws Exception {
 
-        String caseID = driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
 
         return caseID;
     }
 
     public String getSubCategory() throws Exception {
 
-        String caseID = driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
 
         return caseID;
     }
 
     public String getDescription() throws Exception {
 
-        String caseID = driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
 
         return caseID;
     }
 
     public String getSubscriber() throws Exception {
-        String caseID = driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
 
         return caseID;
     }

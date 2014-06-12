@@ -5,22 +5,23 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.Application;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 
-public class HomePage {
+public class HomePage extends B2CMenu {
 
-    private final WebDriver driver;
     Prep preparation;
 
-    public HomePage(WebDriver driver) {
+    public HomePage(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
 
-        this.driver = driver;
-        String currentScreen = this.driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Myshape Consumer";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -32,202 +33,202 @@ public class HomePage {
 
     public CustomerPrerequisite selectUSDCurrency() throws Exception {
 
-        new Select(driver.findElement(By.name("currency"))).selectByVisibleText("USD");
-        driver.findElement(By.name("submit")).click();
+        new Select(tool.driver.findElement(By.name("currency"))).selectByVisibleText("USD");
+        tool.driver.findElement(By.name("submit")).click();
 
-        return new CustomerPrerequisite(driver);
+        return new CustomerPrerequisite(tool, test, user);
     }
 
     public void enterUsername(String username) throws Exception {
 
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(username);
+        tool.driver.findElement(By.id("login")).clear();
+        tool.driver.findElement(By.id("login")).sendKeys(username);
 
     }
 
     public void enterPassword(String password) throws Exception {
 
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(password);
+        tool.driver.findElement(By.id("password")).clear();
+        tool.driver.findElement(By.id("password")).sendKeys(password);
     }
 
     public void enterOldPassword(String password) throws Exception {
 
-        driver.findElement(By.id("password_old")).clear();
-        driver.findElement(By.id("password_old")).sendKeys(password);
+        tool.driver.findElement(By.id("password_old")).clear();
+        tool.driver.findElement(By.id("password_old")).sendKeys(password);
     }
 
     public void enterNewPassword(String password) throws Exception {
 
-        driver.findElement(By.id("password_new")).clear();
-        driver.findElement(By.id("password_new")).sendKeys(password);
+        tool.driver.findElement(By.id("password_new")).clear();
+        tool.driver.findElement(By.id("password_new")).sendKeys(password);
     }
 
     public void enterNewConfirmPassword(String password) throws Exception {
 
-        driver.findElement(By.id("password_verify")).clear();
-        driver.findElement(By.id("password_verify")).sendKeys(password);
+        tool.driver.findElement(By.id("password_verify")).clear();
+        tool.driver.findElement(By.id("password_verify")).sendKeys(password);
     }
 
     public void enterChangePasswordSecretAnswer(String secretanswer) throws Exception {
 
-        driver.findElement(By.id("secretAnswer")).clear();
-        driver.findElement(By.id("secretAnswer")).sendKeys(secretanswer);
+        tool.driver.findElement(By.id("secretAnswer")).clear();
+        tool.driver.findElement(By.id("secretAnswer")).sendKeys(secretanswer);
     }
 
     public void enterConfirmPassword(String password) throws Exception {
 
-        driver.findElement(By.id("confirm_password")).clear();
-        driver.findElement(By.id("confirm_password")).sendKeys(password);
+        tool.driver.findElement(By.id("confirm_password")).clear();
+        tool.driver.findElement(By.id("confirm_password")).sendKeys(password);
 
     }
 
     public void enterSecretAnswer(String secretanswer) throws Exception {
 
-        driver.findElement(By.id("secret_answer")).clear();
-        driver.findElement(By.id("secret_answer")).sendKeys(secretanswer);
+        tool.driver.findElement(By.id("secret_answer")).clear();
+        tool.driver.findElement(By.id("secret_answer")).sendKeys(secretanswer);
 
     }
 
     public HomePage clickSignMeUp() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Sign Me Up']")).click();
-        return new HomePage(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Sign Me Up']")).click();
+        return new HomePage(tool, test, user);
     }
 
     public SubscriberDetail clickLogIn() throws Exception {
 
-        driver.findElement(By.name("LoginButton")).click();
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.name("LoginButton")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInExpectingWorkSpace() throws Exception {
 
-        driver.findElement(By.name("LoginButton")).click();
-        return new WorkSpace(driver);
+        tool.driver.findElement(By.name("LoginButton")).click();
+        return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickLogInAsTelcoAdmin() throws Exception {
 
-        driver.findElement(By.name("LoginButton")).click();
-        return new WorkSpace(driver);
+        tool.driver.findElement(By.name("LoginButton")).click();
+        return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickChange() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Change']")).click();
-        return new WorkSpace(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        return new WorkSpace(tool, test, user);
     }
 
     public SubscriberDetail clickChangeExpectingSubscriberDetail() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Change']")).click();
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInWithCUP() throws Exception {
 
-        driver.findElement(By.name("LoginButton")).click();
-        return new WorkSpace(driver);
+        tool.driver.findElement(By.name("LoginButton")).click();
+        return new WorkSpace(tool, test, user);
     }
 
     public void clickHomePage() throws Exception {
 
-        driver.findElement(By.name("gohome")).click();
+        tool.driver.findElement(By.name("gohome")).click();
 
     }
 
     public String getLogoffMessage() throws Exception {
 
-        return driver.findElement(By.cssSelector("span")).getText();
+        return tool.driver.findElement(By.cssSelector("span")).getText();
 
     }
 
     public String getSignMeUpMessage() throws Exception {
 
-        return driver.findElement(By.cssSelector("span")).getText();
+        return tool.driver.findElement(By.cssSelector("span")).getText();
 
     }
 
     public void clickLogInExpectingFail() throws Exception {
 
-        driver.findElement(By.name("LoginButton")).click();
+        tool.driver.findElement(By.name("LoginButton")).click();
 
     }
 
     public void clickLogInExpectingChangePassword() throws Exception {
 
-        driver.findElement(By.name("LoginButton")).click();
+        tool.driver.findElement(By.name("LoginButton")).click();
 
     }
 
     public void clickShoppingLink() throws Exception {
 
-        driver.findElement(By.linkText("Shopping")).click();
+        tool.driver.findElement(By.linkText("Shopping")).click();
 
     }
 
     public Shopping selectAccountSegmentAll() throws Exception {
 
-        new Select(driver.findElement(By.id("p-ACCOUNT-L4:80070"))).selectByVisibleText("All Segments");
-        driver.findElement(By.name("submit")).click();
+        new Select(tool.driver.findElement(By.id("p-ACCOUNT-L4:80070"))).selectByVisibleText("All Segments");
+        tool.driver.findElement(By.name("submit")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new Shopping(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new Shopping(tool, test, user);
     }
 
     public void clickActivateAccount() throws Exception {
 
-        driver.findElement(By.linkText("Activate your account now")).click();
+        tool.driver.findElement(By.linkText("Activate your account now")).click();
 
     }
 
     public void enterLastName(String lastname) throws Exception {
 
-        driver.findElement(By.id("customer_last_name")).clear();
-        driver.findElement(By.id("customer_last_name")).sendKeys(lastname);
+        tool.driver.findElement(By.id("customer_last_name")).clear();
+        tool.driver.findElement(By.id("customer_last_name")).sendKeys(lastname);
 
     }
 
     public void enterAccountNumber(String accountnumber) throws Exception {
 
-        driver.findElement(By.name("customer_reference")).clear();
-        driver.findElement(By.name("customer_reference")).sendKeys(accountnumber);
+        tool.driver.findElement(By.name("customer_reference")).clear();
+        tool.driver.findElement(By.name("customer_reference")).sendKeys(accountnumber);
 
     }
 
     public void clickContinueActivateAccount() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
 
     }
 
     public String getActivateAccountMessage() throws Exception {
 
-        return driver.findElement(By.cssSelector("span")).getText();
+        return tool.driver.findElement(By.cssSelector("span")).getText();
 
     }
 
     public String getMessageFromTheSignMeUpPage() throws Exception {
-        System.out.println(">>" + driver.findElement(By.cssSelector("span")).getText());
-        return driver.findElement(By.cssSelector("span")).getText();
+        System.out.println(">>" + tool.driver.findElement(By.cssSelector("span")).getText());
+        return tool.driver.findElement(By.cssSelector("span")).getText();
 
     }
 
     public void clickOK() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
     public void enterLogin(String login) throws Exception {
 
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(login);
+        tool.driver.findElement(By.id("login")).clear();
+        tool.driver.findElement(By.id("login")).sendKeys(login);
 
     }
 
     public String getSuccesfulSignMeUpMessage() throws Exception {
-        System.out.println(">>" + driver.findElement(By.cssSelector("span")).getText());
-        return driver.findElement(By.cssSelector("span")).getText();
+        System.out.println(">>" + tool.driver.findElement(By.cssSelector("span")).getText());
+        return tool.driver.findElement(By.cssSelector("span")).getText();
 
     }
 
@@ -236,13 +237,13 @@ public class HomePage {
         String TelcoAdmin_password = preparation.readUsersPasswordFromIniFile("TelcoAdmin");
         String TelcoAdmin_login = preparation.readUsersUserNameFromIniFile("TelcoAdmin");
 
-        driver.get(application.appURL() + "jfn?entry=admin_login");
+        tool.driver.get(application.appURL() + "jfn?entry=admin_login");
 
         this.enterLogin(TelcoAdmin_login);
         this.enterPassword(TelcoAdmin_password);
         this.clickLogInAsTelcoAdmin();
 
-        return new WorkSpace(driver);
+        return new WorkSpace(tool, test, user);
 
     }
 }

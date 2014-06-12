@@ -5,22 +5,20 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class RequestSubmission extends B2CMenu {
 
-    public RequestSubmission(WebDriver driver) {
+    public RequestSubmission(AutomationTool tool, Test test, User user) {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Request Submission";
 
-
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -29,13 +27,13 @@ public class RequestSubmission extends B2CMenu {
 
     public SearchMember clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new SearchMember(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new SearchMember(tool, test, user);
     }
-    
+
     public SubscriberDetail clickOkToConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 }

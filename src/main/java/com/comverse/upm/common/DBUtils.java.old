@@ -1,0 +1,216 @@
+package com.comverse.upm.common;
+
+/**
+ * 
+ * @author osmolya
+ */
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+
+// import org.junit.Test;
+
+//import com.thoughtworks.selenium.Selenium;
+// import com.comverse.upm.upmPages.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+/*
+import java.text.SimpleDateFormat;
+import java.util.Date;
+//import java.util.Properties;
+import net.neoremind.sshxcute.core.ConnBean;
+import net.neoremind.sshxcute.core.SSHExec;
+import net.neoremind.sshxcute.task.CustomTask;
+import net.neoremind.sshxcute.task.impl.ExecCommand;
+import net.neoremind.sshxcute.task.impl.ExecShellScript;
+import net.neoremind.sshxcute.core.Result;
+import net.neoremind.sshxcute.exception.TaskExecFailException;
+
+import com.comverse.css.common.PropertyHelper;
+import com.comverse.css.common.Wait;
+import com.thoughtworks.selenium.SeleneseTestCase;
+*/
+
+import com.comverse.css.pos.Nca;
+
+
+//import com.comverse.upm.upmPages.Process;
+
+
+public class DBUtils extends UPMSeleneseTestCase {
+	
+    public static final String PROP_FILE = "init.properties";
+    public static String cust_ip = null;
+  
+    /*
+    private Selenium callerSelenium;
+ //   private String DefaultTimeout = "100000";
+ //   private String DefaultTaskMode = "Production";
+
+    public DBUtils(Selenium selenium) {
+        this.callerSelenium = selenium;
+    }
+   */ 
+  
+ 
+	
+	    public static Properties readProperties(String name) throws IOException {
+	        Properties properties = new Properties();
+	        ClassLoader loader = Nca.class.getClassLoader();
+	        InputStream inStream = loader.getResourceAsStream(name);
+	        properties.load(inStream);
+	        return properties;
+	    }
+	    
+		public String acctBackdate(String accno) throws Exception {
+	        Properties props = readProperties(PROP_FILE);
+	        String ctlg_key = "BIP.CTLG";
+	        String ctlg_ip = props.getProperty(ctlg_key);
+	        System.out.println("catalogue DB ip is : " + ctlg_ip);
+	        System.out.println("executing main going to call function ");
+	        Connection conn = null;
+	        String url = "jdbc:oracle:thin:@//" + ctlg_ip + "/";
+	        String dbctlg = "ctlg";
+	       
+	        String driver = "oracle.jdbc.OracleDriver";
+	        String userName = "cbs_owner";
+	        String password = "comverse";
+	        String Schema = null;
+	        //String accno = "66";
+	        String servid = null;
+	        String rcTermInstId = null;
+	        try {
+	            Class.forName(driver);
+	            conn = DriverManager.getConnection(url + dbctlg, userName, password);
+	            System.out.println("Connected to the database cust1");
+	            try {
+	                Statement st = conn.createStatement();
+	                String sql = "select a.account_no,a.server_id,b.ds_database,b.hostname from account_lookup a,server_definition b where a.server_id = b.server_id and a.account_no='"
+	                             + accno + "'";
+	                ResultSet rset = st.executeQuery(sql);
+	                System.out.println("Query executed");
+	                try {
+	                    while (rset.next()) {
+	                        Schema = (rset.getString(3));// Print col 1
+	                        servid = (rset.getString(2));// print col 2
+	                        accno = (rset.getString(1));// print col 3
+	                    }
+	                } finally {
+	                    try {
+	                        rset.close();
+	                    } catch (Exception ignore) {
+	                    }
+	                }
+
+	            } catch (SQLException s) {
+	                System.err.println("SQL statement is not executed!");
+	                s.printStackTrace();
+	            }
+
+	            conn.close();
+	            System.out.println("Disconnected from database ctlg");
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+
+	        System.out.println(Schema + ":::" + servid);
+	        Properties props2 = readProperties(PROP_FILE);
+	        String cust_key = "BIP." + Schema;
+	        cust_ip = props2.getProperty(cust_key);
+	        System.out.println("Customer DB ip is : " + cust_ip);
+	        String url1 = "jdbc:oracle:thin:@//" + cust_ip + "/";
+	        System.out.println(" connection prepared for url : " + url1);
+
+	        try {
+	            Class.forName(driver);
+	            conn = DriverManager.getConnection(url1 + Schema, userName, password);
+	            System.out.println("Connected to the database " + Schema);
+	            try {
+	                Statement st = conn.createStatement();
+	                System.out.println("schema: " + Schema);
+	                System.out.println("account_no: " + accno);
+	                System.out.println("server_id: " + servid);
+	                
+	         //       Get RC_TERM_INST_ID
+	                String sql = "select rc.rc_term_inst_id from RC where RC.billing_account_no='"
+                            + accno + "'";
+               ResultSet rset = st.executeQuery(sql);
+               System.out.println("Query to ger rc_term_inst_id executed");
+               try {
+                   while (rset.next()) {
+                       rcTermInstId = (rset.getString(1));// print col 3
+                   }
+               } finally {
+                   try {
+                       rset.close();
+                   } catch (Exception ignore) {
+                   }
+               }
+
+       /*    }  
+	            catch (SQLException s) {
+               System.err.println("SQL statement is not executed!");
+               s.printStackTrace();
+           }  */
+
+	                
+	                System.out.println("rc_term_inst_id: " + rcTermInstId);
+	                
+	                String updateCMF= "update CMF set next_bill_date=next_bill_date-45, prev_bill_date=prev_bill_date-45, date_active=date_active-45, billed_from_dt=billed_from_dt-45 where account_no="+accno;
+	                System.out.println("Backdating CMF");
+	                
+	                String updateRC= "update RC set from_date=from_date-45, to_date=to_date-45, cycle_from_date=cycle_from_date-45, cycle_to_date=cycle_to_date-45, apply_date=apply_date-45,create_date=create_date-45, rc_inst_start_date=rc_inst_start_date-45  where billing_account_no="+accno;
+	                System.out.println("Backdating RC");
+	                
+	                String updateSubscriberView= "update SUBSCRIBER_VIEW set service_active_dt=service_active_dt-45 where parent_account_no="+accno;
+	                System.out.println("Backdating SUBSCRIBER_VIEW");
+	                
+	                String updateBundleInstView= "update BUNDLE_INST_VIEW set active_dt=active_dt-45 where account_no="+accno;
+	                System.out.println("Backdating SUBSCRIBER_VIEW");
+	                
+	                String updateRcTermInst= "update RC_TERM_INST set rc_term_inst_active_dt=rc_term_inst_active_dt-45, next_apply_dt=next_apply_dt-45  where billing_account_no="+accno;
+	                System.out.println("Backdating RC_TERM_INST");
+
+	                String updateRcTax= "update RC_TAX set expected_cutoff_dt=expected_cutoff_dt-45  where rc_term_inst_id="+rcTermInstId;
+	                System.out.println("Backdating RC_TAX");
+	                
+	                String updateRcBalance= "update RC_BALANCE set expected_cutoff_dt=expected_cutoff_dt-45  where rc_term_inst_id="+rcTermInstId;
+	                System.out.println("Backdating RC_BALANCE");
+	                
+	                String updateChargeUnbilled= "update CHARGE_UNBILLED set apply_dt=apply_dt-45, expected_cutoff_dt=expected_cutoff_dt-45  where billed_account_no="+accno;
+	                System.out.println("Backdating CHARGE_UNBILLED");
+	                
+	                st.executeQuery(updateCMF);
+	                st.executeQuery(updateSubscriberView);
+	                st.executeQuery(updateBundleInstView);
+	                st.executeQuery(updateRC);
+	                st.executeQuery(updateRcTermInst);
+	                st.executeQuery(updateRcTax);
+	                st.executeQuery(updateRcBalance);
+	                st.executeQuery(updateChargeUnbilled);
+	                
+	            } catch (SQLException s) {
+	                System.err.println("SQL statement is not executed!");
+	                s.printStackTrace();
+	            }
+
+	            conn.close();
+	            System.out.println("Disconnected from database" + Schema);
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+
+	        return servid;
+
+	    }
+
+		
+}

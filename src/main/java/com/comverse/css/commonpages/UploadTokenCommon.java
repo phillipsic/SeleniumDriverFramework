@@ -1,23 +1,21 @@
 package com.comverse.css.commonpages;
 
 import java.io.File;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- *
- * @author gmaroth
- */
-public class UploadTokenCommon {
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-    public WebDriver driver;
+public class UploadTokenCommon extends CommonMenu {
 
-    public UploadTokenCommon(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+    public UploadTokenCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Upload Token";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -27,15 +25,15 @@ public class UploadTokenCommon {
     public void selectFile(String filename) throws Exception {
 
         File file = new File(filename);
-        // driver.findElement(By.id("fileUpload")).clear();
-        driver.findElement(By.id("fileUpload")).sendKeys(file.getAbsolutePath());
+        // tool.driver.findElement(By.id("fileUpload")).clear();
+        tool.driver.findElement(By.id("fileUpload")).sendKeys(file.getAbsolutePath());
 
     }
 
     public TokensfoundCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Ok']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
 
-        return new TokensfoundCommon(driver);
+        return new TokensfoundCommon(tool, test, user);
     }
 }

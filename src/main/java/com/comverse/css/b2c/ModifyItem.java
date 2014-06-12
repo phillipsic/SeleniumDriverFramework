@@ -1,26 +1,28 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class ModifyItem extends B2CMenu {
 
-    public ModifyItem(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public ModifyItem(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Item";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public SubscriberDetail clickOK() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new SubscriberDetail(tool, test, user);
     }
 }

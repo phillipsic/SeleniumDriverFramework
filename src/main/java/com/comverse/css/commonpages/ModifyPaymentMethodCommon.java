@@ -5,18 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ModifyPaymentMethodCommon extends CommonMenu {
 
-    public ModifyPaymentMethodCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ModifyPaymentMethodCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = this.driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify payment method";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,7 +26,7 @@ public class ModifyPaymentMethodCommon extends CommonMenu {
 
     public AccountDetailsCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new AccountDetailsCommon(tool, test, user);
     }
 }

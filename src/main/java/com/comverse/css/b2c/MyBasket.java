@@ -7,20 +7,22 @@ package com.comverse.css.b2c;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class MyBasket extends B2CMenu {
 
-    public MyBasket(WebDriver driver) {
+    public MyBasket(AutomationTool tool, Test test, User user) {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "My Basket";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -28,36 +30,36 @@ public class MyBasket extends B2CMenu {
 
     public CheckoutRegister clickCheckOut() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Checkout']")).click();
-        return new CheckoutRegister(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        return new CheckoutRegister(tool, test, user);
     }
 
     public TermsAndConditions clickCheckOutExpectingTermsAndConditions() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Checkout']")).click();
-        return new TermsAndConditions(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        return new TermsAndConditions(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickCheckOutExpectingCheckOutBillingAccountInformation() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Checkout']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new CheckOutBillingAccountInformation(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public SelectOffersForYourSubscriber clickAddSupplementaryOffers() throws Exception {
-        driver.findElement(By.id("add_srv_0")).click();
-        return new SelectOffersForYourSubscriber(driver);
+        tool.driver.findElement(By.id("add_srv_0")).click();
+        return new SelectOffersForYourSubscriber(tool, test, user);
     }
 
     public TermsAndConditions clickCheckOutWithDevices() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Checkout']")).click();
-        return new TermsAndConditions(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        return new TermsAndConditions(tool, test, user);
     }
 
     public ConfirmOffersSelection clickModifyOnSO(String SO) throws Exception {
-        List<WebElement> Cols = driver.findElements(By.tagName("td"));
+        List<WebElement> Cols = tool.driver.findElements(By.tagName("td"));
         for (WebElement eachCol : Cols) {
             if (eachCol.getText().contains(SO)) {
 
@@ -66,11 +68,11 @@ public class MyBasket extends B2CMenu {
             }
 
         }
-        return new ConfirmOffersSelection(driver);
+        return new ConfirmOffersSelection(tool, test, user);
     }
 
     public RemoveSupplementaryOffer clickRemoveOnSO(String SO) throws Exception {
-        List<WebElement> Cols = driver.findElements(By.tagName("td"));
+        List<WebElement> Cols = tool.driver.findElements(By.tagName("td"));
         int cnter = 0;
         for (WebElement eachCol : Cols) {
             cnter++;
@@ -82,28 +84,28 @@ public class MyBasket extends B2CMenu {
         }
         Cols.get(cnter + 4).getText();
         Cols.get(cnter + 4).findElement(By.linkText("Remove")).click();
-        return new RemoveSupplementaryOffer(driver);
+        return new RemoveSupplementaryOffer(tool, test, user);
     }
 
     public Shopping clickContinueShopping() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue Shopping']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new Shopping(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue Shopping']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new Shopping(tool, test, user);
     }
 
     public ChooseAccessories clickAddAccessory() throws Exception {
-        driver.findElement(By.linkText("Add Accessory")).click();
-        return new ChooseAccessories(driver);
+        tool.driver.findElement(By.linkText("Add Accessory")).click();
+        return new ChooseAccessories(tool, test, user);
     }
 
     public ChooseYourHandset clickChangeDevice() throws Exception {
-        driver.findElement(By.linkText("Change Device")).click();
-        return new ChooseYourHandset(driver);
+        tool.driver.findElement(By.linkText("Change Device")).click();
+        return new ChooseYourHandset(tool, test, user);
     }
 
     public ChooseYourPrimaryOffer clickChangePO() throws Exception {
-        driver.findElement(By.linkText("Change Primary Offer")).click();
-        return new ChooseYourPrimaryOffer(driver);
+        tool.driver.findElement(By.linkText("Change Primary Offer")).click();
+        return new ChooseYourPrimaryOffer(tool, test, user);
     }
 }

@@ -4,26 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.OfferCancellationCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class OfferCancellation extends OfferCancellationCommon {
 
-    public OfferCancellation(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public OfferCancellation(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AccountDetails clickOk() throws Exception {
 
         super.clickOk();
-        return new AccountDetails(driver);
+        return new AccountDetails(tool, test, user);
     }
 }

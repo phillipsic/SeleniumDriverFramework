@@ -1,21 +1,20 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.AdjustBalanceReviewCommon;
 
 public class AdjustBalanceReview extends AdjustBalanceReviewCommon {
 
-    public AdjustBalanceReview(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public AdjustBalanceReview(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AdjustBalanceRequestResult clickConfirm() throws Exception {
 
         super.clickConfirm();
-        return new AdjustBalanceRequestResult(driver);
+        return new AdjustBalanceRequestResult(tool, test, user);
     }
 }

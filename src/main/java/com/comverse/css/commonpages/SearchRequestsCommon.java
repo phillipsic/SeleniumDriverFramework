@@ -5,7 +5,10 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 /**
  * 
@@ -13,12 +16,12 @@ import org.openqa.selenium.WebDriver;
  */
 public class SearchRequestsCommon extends CommonMenu {
 
-    public SearchRequestsCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public SearchRequestsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Search RequestsView Requests";
 
-        if (!expectedScreen.contains(driver.getTitle())) {
+        if (!expectedScreen.contains(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -26,8 +29,8 @@ public class SearchRequestsCommon extends CommonMenu {
 
     public SearchOrdersCommon clickSearchOrders() throws Exception {
 
-        driver.findElement(By.id("smnu_ORDER")).click();
-        return new SearchOrdersCommon(driver);
+        tool.driver.findElement(By.id("smnu_ORDER")).click();
+        return new SearchOrdersCommon(tool, test, user);
     }
 
 }

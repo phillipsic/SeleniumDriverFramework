@@ -5,16 +5,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Account;
 
 public class ServiceOrderDetailsCommon extends CommonMenu {
 
-    public ServiceOrderDetailsCommon(WebDriver driver) throws Exception {
+    public ServiceOrderDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Service Order Details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,12 +26,13 @@ public class ServiceOrderDetailsCommon extends CommonMenu {
     }
 
     public void getAccountID(Account account) throws Exception {
-        String accountID = driver.findElement(By.xpath("//td[2]/a")).getText();
+        String accountID = tool.driver.findElement(By.xpath("//td[2]/a")).getText();
         System.out.println("AccountID = " + accountID);
         account.setBillingAccountIDProperty(accountID);
     }
-    public SearchOrdersCommon clickBack () throws Exception {
-    	driver.findElement(By.cssSelector("input[type='submit'][value='Back']")).click();
-    	return new SearchOrdersCommon(driver);
+
+    public SearchOrdersCommon clickBack() throws Exception {
+        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Back']")).click();
+        return new SearchOrdersCommon(tool, test, user);
     }
 }

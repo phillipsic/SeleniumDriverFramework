@@ -4,26 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyAccountAttributesCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
 
-    public ModifyAccountAttributes(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ModifyAccountAttributes(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public RequestSubmission clickModifyAttributes() throws Exception {
 
         super.clickModifyAttributes();
-        return new RequestSubmission(driver);
+        return new RequestSubmission(tool, test, user);
     }
 }

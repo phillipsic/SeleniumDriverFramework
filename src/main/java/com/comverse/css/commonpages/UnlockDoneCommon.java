@@ -5,18 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class UnlockDoneCommon extends CommonMenu {
 
-    public UnlockDoneCommon(WebDriver driver) throws Exception {
+    public UnlockDoneCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Unlock done";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,8 +26,8 @@ public class UnlockDoneCommon extends CommonMenu {
 
     public ModifyLoginPasswordCommon clickChangePassword() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Change Password']")).click();
-        return new ModifyLoginPasswordCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Change Password']")).click();
+        return new ModifyLoginPasswordCommon(tool, test, user);
     }
 
 }

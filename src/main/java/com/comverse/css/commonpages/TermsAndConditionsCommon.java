@@ -5,18 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class TermsAndConditionsCommon extends CommonMenu {
 
-    public TermsAndConditionsCommon(WebDriver driver) throws Exception {
+    public TermsAndConditionsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Terms and Conditions";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,7 +26,7 @@ public class TermsAndConditionsCommon extends CommonMenu {
 
     public CheckoutDeliveryAddressCommon clickAccept() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Accept']")).click();
-        return new CheckoutDeliveryAddressCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Accept']")).click();
+        return new CheckoutDeliveryAddressCommon(tool, test, user);
     }
 }

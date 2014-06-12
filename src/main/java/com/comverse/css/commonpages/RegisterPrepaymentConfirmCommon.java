@@ -1,13 +1,16 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class RegisterPrepaymentConfirmCommon extends CommonMenu {
 
-    public RegisterPrepaymentConfirmCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public RegisterPrepaymentConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Register PrePayment";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -18,7 +21,7 @@ public class RegisterPrepaymentConfirmCommon extends CommonMenu {
 
     public AccountDetailsCommon clickBackToAccount() throws Exception {
 
-        driver.findElement(By.xpath("//input[@name='confirm']")).click();
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@name='confirm']")).click();
+        return new AccountDetailsCommon(tool, test, user);
     }
 }

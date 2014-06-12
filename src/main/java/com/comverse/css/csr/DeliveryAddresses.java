@@ -4,41 +4,41 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.DeliveryAddressesCommon;
 
 public class DeliveryAddresses extends DeliveryAddressesCommon {
 
-    public DeliveryAddresses(WebDriver driver) throws Exception {
-        super(driver);
-
+    public DeliveryAddresses(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AddDeliveryAddress clickAdd() throws Exception {
 
         super.clickAdd();
-        return new AddDeliveryAddress(driver);
+        return new AddDeliveryAddress(tool, test, user);
     }
 
     @Override
     public ModifyDeliveryAddress clickModify() throws Exception {
 
         super.clickModify();
-        return new ModifyDeliveryAddress(driver);
+        return new ModifyDeliveryAddress(tool, test, user);
     }
 
     @Override
     public RemoveDeliveryAddress clickRemove() throws Exception {
 
         super.clickRemove();
-        return new RemoveDeliveryAddress(driver);
+        return new RemoveDeliveryAddress(tool, test, user);
     }
 
     @Override
     public DeliveryAddresses searchWithWildCard(String wildcard) throws Exception {
         super.searchWithWildCard(wildcard);
-        return new DeliveryAddresses(driver);
+        return new DeliveryAddresses(tool, test, user);
     }
 }

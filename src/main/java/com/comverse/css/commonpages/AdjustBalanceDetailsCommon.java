@@ -1,15 +1,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class AdjustBalanceDetailsCommon extends CommonMenu {
     static String expectedScreen = "Adjust balance - details";
 
-    public AdjustBalanceDetailsCommon(WebDriver driver) throws Exception {
+    public AdjustBalanceDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -20,13 +23,13 @@ public class AdjustBalanceDetailsCommon extends CommonMenu {
 
     public void enterAdjustmentAmount(String amount) throws Exception {
 
-        driver.findElement(By.id("adjustmentValue")).clear();
-        driver.findElement(By.id("adjustmentValue")).sendKeys(amount);
+        tool.driver.findElement(By.id("adjustmentValue")).clear();
+        tool.driver.findElement(By.id("adjustmentValue")).sendKeys(amount);
     }
 
     public AdjustBalanceReviewCommon clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
-        return new AdjustBalanceReviewCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        return new AdjustBalanceReviewCommon(tool, test, user);
     }
 }

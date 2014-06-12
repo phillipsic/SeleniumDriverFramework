@@ -4,13 +4,15 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class SupplementaryOfferDetailCommon extends CommonMenu {
 
-    public SupplementaryOfferDetailCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public SupplementaryOfferDetailCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Supplementary Offer Detail";
 
         if (!expectedScreen.equals(currentScreen)) {

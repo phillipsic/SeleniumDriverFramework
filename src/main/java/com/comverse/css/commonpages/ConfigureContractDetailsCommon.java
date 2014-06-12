@@ -1,17 +1,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class ConfigureContractDetailsCommon extends CommonMenu {
 
-    public ConfigureContractDetailsCommon(WebDriver driver) throws Exception {
+    public ConfigureContractDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Configure Contract Details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -20,24 +22,24 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickContinue() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new MyBasketCommon(tool, test, user);
     }
 
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
-        driver.findElement(By.id(limitName + "_limit")).clear();
-        driver.findElement(By.id(limitName + "_limit")).sendKeys(limitAmount);
+        tool.driver.findElement(By.id(limitName + "_limit")).clear();
+        tool.driver.findElement(By.id(limitName + "_limit")).sendKeys(limitAmount);
     }
 
     public void setLang(String lang) throws Exception {
-        new Select(driver.findElement(By.id("p-param-L4:80000"))).selectByVisibleText(lang);
+        new Select(tool.driver.findElement(By.id("p-param-L4:80000"))).selectByVisibleText(lang);
     }
-    
+
     public ConfigureBalanceCommon clickContinueExpectingConfigureBalance() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ConfigureBalanceCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ConfigureBalanceCommon(tool, test, user);
     }
 
 }

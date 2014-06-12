@@ -7,8 +7,11 @@ package com.comverse.css.commonpages;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 /**
  * 
@@ -17,10 +20,10 @@ import org.openqa.selenium.WebElement;
 public class MoveMemberCommon extends CommonMenu {
     private List<WebElement> WebElementfound;
 
-    public MoveMemberCommon(WebDriver driver) throws Exception {
+    public MoveMemberCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Move Member";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -31,15 +34,16 @@ public class MoveMemberCommon extends CommonMenu {
 
     public MoveMemberCommon clickSelectByLevelName(String levelName) throws Exception {
 
-        driver.findElement(By.xpath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]")).click();
+        tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]")).click();
 
-        //driver.findElement(By.xpath("//tr[td/a[contains(text(),'Select')]]/td[contains(text(),'" + levelname + "')]"));
-        return new MoveMemberCommon(driver);
+        // tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'Select')]]/td[contains(text(),'"
+        // + levelname + "')]"));
+        return new MoveMemberCommon(tool, test, user);
     }
 
     public MoveMemberCommon findSelectByLevelName(String levelName) throws Exception {
 
-        WebElementfound = driver.findElements(By.xpath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]"));
+        WebElementfound = tool.driver.findElements(By.xpath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]"));
 
         if (WebElementfound.size() > 0) {
 
@@ -47,17 +51,18 @@ public class MoveMemberCommon extends CommonMenu {
 
         } else {
             System.out.println("Value of Unique code is MK");
-            return new MoveMemberCommon(driver);
+            return new MoveMemberCommon(tool, test, user);
 
         }
 
-        //driver.findElement(By.xpath("//tr[td/a[contains(text(),'Select')]]/td[contains(text(),'" + levelname + "')]"));
+        // tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'Select')]]/td[contains(text(),'"
+        // + levelname + "')]"));
 
     }
 
     public ContactInformationCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new ContactInformationCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new ContactInformationCommon(tool, test, user);
     }
 }

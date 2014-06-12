@@ -1,19 +1,20 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.AccountBundleDistributionConfigurationCommon;
 
 public class AccountBundleDistributionConfiguration extends AccountBundleDistributionConfigurationCommon {
 
-    public AccountBundleDistributionConfiguration(WebDriver driver) throws Exception {
-        super(driver);
+    public AccountBundleDistributionConfiguration(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 
     @Override
     public ConfigureContractDetails clickContinue() throws Exception {
         super.clickContinue();
-        return new ConfigureContractDetails(driver);
+        return new ConfigureContractDetails(tool, test, user);
     }
 }

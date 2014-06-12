@@ -4,19 +4,14 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ViewNRCTermDetailsCommon;
 
-/**
- * 
- * @author Vikram Sharma
- */
 public class ViewNRCTermDetails extends ViewNRCTermDetailsCommon {
 
-    public ViewNRCTermDetails(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ViewNRCTermDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 }

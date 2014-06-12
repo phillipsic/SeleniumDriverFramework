@@ -4,18 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ViewUsageHistoryCommon;
 
-/**
- * 
- * @author Vikram Sharma
- */
 public class ViewUsageHistory extends ViewUsageHistoryCommon {
 
-    public ViewUsageHistory(WebDriver driver) throws Exception {
-        super(driver);
+    public ViewUsageHistory(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 

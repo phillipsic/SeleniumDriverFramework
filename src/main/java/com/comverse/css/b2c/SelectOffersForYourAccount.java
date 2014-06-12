@@ -5,23 +5,21 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
-/**
- * 
- * @author iphilli
- */
 public class SelectOffersForYourAccount extends B2CMenu {
 
-    public SelectOffersForYourAccount(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public SelectOffersForYourAccount(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Select offers for your Account";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -33,7 +31,7 @@ public class SelectOffersForYourAccount extends B2CMenu {
         if (SOTable != null) {
             for (String SOName : SOTable) {
 
-                driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../../td/input")).click();
+                tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../../td/input")).click();
             }
         }
 
@@ -41,16 +39,16 @@ public class SelectOffersForYourAccount extends B2CMenu {
 
     public EnterYourSubscriptionDetails clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new EnterYourSubscriptionDetails(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public AddAccountOffers clickContinueToAddAO() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AddAccountOffers(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AddAccountOffers(tool, test, user);
     }
 
 }

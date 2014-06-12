@@ -1,21 +1,20 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-/**
- *
- * @author gmaroth
- */
-public class TokenAdministration {
 
-    public WebDriver driver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.commonpages.CommonMenu;
 
-    public TokenAdministration(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+public class TokenAdministration extends CommonMenu {
+
+    public TokenAdministration(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Token Administration";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,10 +23,9 @@ public class TokenAdministration {
 
     public UploadToken clickUpload() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Upload']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Upload']")).click();
 
-        return new UploadToken(driver);
+        return new UploadToken(tool, test, user);
     }
 
-    
 }

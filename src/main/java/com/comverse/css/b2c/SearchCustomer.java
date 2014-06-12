@@ -5,21 +5,20 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class SearchCustomer extends B2CMenu {
 
-    public SearchCustomer(WebDriver driver) {
+    public SearchCustomer(AutomationTool tool, Test test, User user) {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Search Customer";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -28,29 +27,29 @@ public class SearchCustomer extends B2CMenu {
 
     public void enterLastName(String lastName) throws Exception {
 
-        driver.findElement(By.id("p-L1:3-L3:1470")).clear();
-        driver.findElement(By.id("p-L1:3-L3:1470")).sendKeys(lastName);
+        tool.driver.findElement(By.id("p-L1:3-L3:1470")).clear();
+        tool.driver.findElement(By.id("p-L1:3-L3:1470")).sendKeys(lastName);
     }
 
     public RequestSubmission clickSearch() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@value='Search'])[2]")).click();
-        return new RequestSubmission(driver);
+        tool.driver.findElement(By.xpath("(//input[@value='Search'])[2]")).click();
+        return new RequestSubmission(tool, test, user);
     }
 
     public SearchMember clickSearchMemberLink() throws Exception {
 
-        driver.findElement(By.id("smnu_SEARCH_BY_MEMBER")).click();
-        return new SearchMember(driver);
+        tool.driver.findElement(By.id("smnu_SEARCH_BY_MEMBER")).click();
+        return new SearchMember(tool, test, user);
     }
 
     public ContactInformation clickOnCustomerNameLink(String lastname) throws Exception {
 
-        driver.findElement(By.partialLinkText(lastname)).click();
-        return new ContactInformation(driver);
+        tool.driver.findElement(By.partialLinkText(lastname)).click();
+        return new ContactInformation(tool, test, user);
     }
 
     public void clickSearchLastFirstName() throws Exception {
-        driver.findElement(By.xpath("(//input[@value='Search'])[2]")).click();
+        tool.driver.findElement(By.xpath("(//input[@value='Search'])[2]")).click();
     }
 }

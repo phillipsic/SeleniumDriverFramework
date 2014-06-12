@@ -4,24 +4,20 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.PersonIdentificationSearchResultCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class PersonIdentificationSearchResult extends PersonIdentificationSearchResultCommon {
 
-    public PersonIdentificationSearchResult(WebDriver driver) throws Exception {
-        super(driver);
-
+    public PersonIdentificationSearchResult(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public WorkSpace clickHome() throws Exception {
         super.clickHome();
-        return new WorkSpace(driver);
+        return new WorkSpace(tool, test, user);
     }
 }

@@ -5,37 +5,33 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class CheckoutReview extends B2CMenu {
-   
 
-    public CheckoutReview(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public CheckoutReview(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Checkout Review";
 
-       
-        if (!expectedScreen.equals(this.driver.getTitle())) {
-   
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public CheckoutConfirmation clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new CheckoutConfirmation(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new CheckoutConfirmation(tool, test, user);
     }
-    
+
     public ImmediatePayment clickContinueWithDevices() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new ImmediatePayment(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new ImmediatePayment(tool, test, user);
     }
 
 }

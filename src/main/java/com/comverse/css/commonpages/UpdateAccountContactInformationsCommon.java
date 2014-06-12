@@ -1,21 +1,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class UpdateAccountContactInformationsCommon extends CommonMenu {
 
-    public UpdateAccountContactInformationsCommon(WebDriver driver) throws Exception {
+    public UpdateAccountContactInformationsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Update account contact informations";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,16 +23,16 @@ public class UpdateAccountContactInformationsCommon extends CommonMenu {
 
     public String getLastName() throws Exception {
 
-        return driver.findElement(By.id("last_name")).getAttribute("value");
+        return tool.driver.findElement(By.id("last_name")).getAttribute("value");
     }
 
     public String getFirstName() throws Exception {
 
-        return driver.findElement(By.xpath("first_name")).getAttribute("value");
+        return tool.driver.findElement(By.xpath("first_name")).getAttribute("value");
     }
 
     public String getTitle() throws Exception {
 
-        return driver.findElement(By.xpath("titleString")).getAttribute("value");
+        return tool.driver.findElement(By.xpath("titleString")).getAttribute("value");
     }
 }

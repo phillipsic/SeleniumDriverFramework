@@ -5,19 +5,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ModifyLevelLegalContactCommon extends CommonMenu {
 
-    public ModifyLevelLegalContactCommon(WebDriver driver) throws Exception {
+    public ModifyLevelLegalContactCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Level Legal Contact";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,40 +26,40 @@ public class ModifyLevelLegalContactCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickBack() throws Exception {
-        driver.findElement(By.id("youcan_ON_BACK")).click();
-        return new ViewHierarchyCommon(driver);
+        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        return new ViewHierarchyCommon(tool, test, user);
     }
 
     public void setNewLevelName(String uniqueString) throws Exception {
 
-        driver.findElement(By.id("company_name")).clear();
-        driver.findElement(By.id("company_name")).sendKeys(uniqueString);
+        tool.driver.findElement(By.id("company_name")).clear();
+        tool.driver.findElement(By.id("company_name")).sendKeys(uniqueString);
     }
 
     public void setNewLevelState(String uniqueState) throws Exception {
 
-        new Select(driver.findElement(By.id("home_state"))).selectByVisibleText(uniqueState);
+        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(uniqueState);
 
     }
 
     public ModifyLevelLegalContactCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new ModifyLevelLegalContactCommon(driver);
+        return new ModifyLevelLegalContactCommon(tool, test, user);
     }
 
     public ModifyLevelLegalContactCommon clickOkAgain() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new ModifyLevelLegalContactCommon(driver);
+        return new ModifyLevelLegalContactCommon(tool, test, user);
     }
 
     public LevelLegalContactCommon clickOkButton() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new LevelLegalContactCommon(driver);
+        return new LevelLegalContactCommon(tool, test, user);
     }
 }

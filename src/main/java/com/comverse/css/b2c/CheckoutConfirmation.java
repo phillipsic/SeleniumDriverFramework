@@ -5,45 +5,41 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class CheckoutConfirmation extends B2CMenu {
 
-    public CheckoutConfirmation(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public CheckoutConfirmation(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Checkout Confirmation";
 
-
-        if (!expectedScreen.equals(this.driver.getTitle())) {
-
+        if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public SearchOrders clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new SearchOrders(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new SearchOrders(tool, test, user);
     }
-    
+
     public Shopping clickOkExpectingShopping() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new Shopping(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new Shopping(tool, test, user);
     }
-
 
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
 
-        orderNumber = driver.findElement(By.xpath("//span[2]")).getText();
+        orderNumber = tool.driver.findElement(By.xpath("//span[2]")).getText();
         System.out.println("Order Number = '" + orderNumber + "'");
-        
+
         return orderNumber;
     }
 

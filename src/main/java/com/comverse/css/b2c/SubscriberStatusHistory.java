@@ -1,17 +1,16 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author Koushic
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class SubscriberStatusHistory extends B2CMenu {
 
-    public SubscriberStatusHistory(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public SubscriberStatusHistory(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Subscriber Status History";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,15 +21,15 @@ public class SubscriberStatusHistory extends B2CMenu {
 
     public SubscriberDetail clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        // Common.waitForEndOfWaitingPage(driver,
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        // Common.waitForEndOfWaitingPage(tool,
         // this.getClass().getSimpleName());
-        return new SubscriberDetail(driver);
+        return new SubscriberDetail(tool, test, user);
     }
 
     public String getStatus() throws Exception {
         String subscriberStatus;
-        subscriberStatus = driver.findElement(By.xpath("//td[2]")).getText();
+        subscriberStatus = tool.driver.findElement(By.xpath("//td[2]")).getText();
         return subscriberStatus;
 
     }

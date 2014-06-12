@@ -5,21 +5,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ConfirmChangePasswordCommon extends CommonMenu {
 
-    public ConfirmChangePasswordCommon(WebDriver driver) throws Exception {
+    public ConfirmChangePasswordCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Confirm change password on next login";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -27,8 +26,8 @@ public class ConfirmChangePasswordCommon extends CommonMenu {
 
     public ChangeLoginPasswordCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new ChangeLoginPasswordCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new ChangeLoginPasswordCommon(tool, test, user);
     }
 
 }

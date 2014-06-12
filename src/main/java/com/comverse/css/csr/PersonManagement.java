@@ -4,18 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.PersonManagementCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class PersonManagement extends PersonManagementCommon {
 
-    public PersonManagement(WebDriver driver) throws Exception {
-        super(driver);
+    public PersonManagement(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 
@@ -23,6 +20,6 @@ public class PersonManagement extends PersonManagementCommon {
     public AddLogin clickActionsAddLoginForPerson(String personLastName) throws Exception {
 
         super.clickActionsAddLoginForPerson(personLastName);
-        return new AddLogin(driver);
+        return new AddLogin(tool, test, user);
     }
 }

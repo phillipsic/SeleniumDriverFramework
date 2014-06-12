@@ -5,22 +5,22 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class CheckoutRegister extends B2CMenu {
 
-    public CheckoutRegister(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public CheckoutRegister(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Checkout Register";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
@@ -37,41 +37,41 @@ public class CheckoutRegister extends B2CMenu {
         this.setRegisteredLogin(loginName);
         this.setPassword(password);
         this.clickContinueExpectingCheckoutBillingAccountInformation();
-        return new CheckOutBillingAccountInformation(driver);
+        return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public void selectSignMeUp() throws Exception {
 
-        driver.findElement(By.id("sign_up_anonymous")).click();
+        tool.driver.findElement(By.id("sign_up_anonymous")).click();
     }
 
     public void setRegisteredLogin(String login) throws Exception {
 
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(login);
+        tool.driver.findElement(By.id("login")).clear();
+        tool.driver.findElement(By.id("login")).sendKeys(login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(password);
+        tool.driver.findElement(By.id("password")).clear();
+        tool.driver.findElement(By.id("password")).sendKeys(password);
     }
 
     public SignUpUser clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new SignUpUser(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new SignUpUser(tool, test, user);
     }
 
     public MyBasket clickCancel() throws Exception {
 
-        driver.findElement(By.name("cancel")).click();
-        return new MyBasket(driver);
+        tool.driver.findElement(By.name("cancel")).click();
+        return new MyBasket(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickContinueExpectingCheckoutBillingAccountInformation() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new CheckOutBillingAccountInformation(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new CheckOutBillingAccountInformation(tool, test, user);
     }
 }

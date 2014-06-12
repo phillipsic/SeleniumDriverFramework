@@ -4,29 +4,28 @@
  */
 package com.comverse.css.csr;
 
-import com.comverse.css.commonpages.CommonMenu;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.commonpages.CommonMenu;
+
 public class AddEmployeeConfirmation extends CommonMenu {
 
-    public AddEmployeeConfirmation(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public AddEmployeeConfirmation(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Add Employee - Confirmation";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public RegisterLogin clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new RegisterLogin(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new RegisterLogin(tool, test, user);
     }
 }

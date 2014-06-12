@@ -1,39 +1,42 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class AddLoginCommon extends CommonMenu {
     static String expectedScreen = "Add Login";
 
-    public AddLoginCommon(WebDriver driver) throws Exception {
+    public AddLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public PersonManagementCommon clickContinue() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
-        return new PersonManagementCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        return new PersonManagementCommon(tool, test, user);
     }
 
     public void setLogin(String value) throws Exception {
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(value);
+        tool.driver.findElement(By.id("login")).clear();
+        tool.driver.findElement(By.id("login")).sendKeys(value);
     }
 
     public void setPassword(String value) throws Exception {
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(value);
+        tool.driver.findElement(By.id("password")).clear();
+        tool.driver.findElement(By.id("password")).sendKeys(value);
     }
 
     public void setConfirmPassword(String value) throws Exception {
-        driver.findElement(By.id("confirmPassword")).clear();
-        driver.findElement(By.id("confirmPassword")).sendKeys(value);
+        tool.driver.findElement(By.id("confirmPassword")).clear();
+        tool.driver.findElement(By.id("confirmPassword")).sendKeys(value);
     }
 }

@@ -1,19 +1,21 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class CustomerSearchResultCommon extends CommonMenu {
 
-    public CustomerSearchResultCommon(WebDriver driver) throws Exception {
+    public CustomerSearchResultCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Customer search result";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -21,36 +23,36 @@ public class CustomerSearchResultCommon extends CommonMenu {
 
     public AccountDetailsCommon clickPersonNameLink(String lastName) throws Exception {
 
-        driver.findElement(By.partialLinkText(lastName)).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.partialLinkText(lastName)).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickAccountLink(String accountNumber) throws Exception {
 
-        driver.findElement(By.partialLinkText(accountNumber)).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.partialLinkText(accountNumber)).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickFirstPersonLink() throws Exception {
 
-        driver.findElement(By.id("value_person_0_0")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.id("value_person_0_0")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickFirstAccountLink() throws Exception {
 
-        driver.findElement(By.xpath("//td[3]/a")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//td[3]/a")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {
 
-        driver.findElement(By.partialLinkText(MSISDN)).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new SubscriberDetailsCommon(driver);
+        tool.driver.findElement(By.partialLinkText(MSISDN)).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new SubscriberDetailsCommon(tool, test, user);
     }
 }

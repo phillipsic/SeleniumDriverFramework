@@ -1,14 +1,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ParkTheCurrentBasketCommon extends CommonMenu {
 
-    public ParkTheCurrentBasketCommon(WebDriver driver) throws Exception {
+    public ParkTheCurrentBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Park the Current Basket";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,12 +22,12 @@ public class ParkTheCurrentBasketCommon extends CommonMenu {
 
     public void enterBasketID(String value) throws Exception {
 
-        driver.findElement(By.id("basket")).clear();
-        driver.findElement(By.id("basket")).sendKeys(value);
+        tool.driver.findElement(By.id("basket")).clear();
+        tool.driver.findElement(By.id("basket")).sendKeys(value);
     }
 
     public void clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 }

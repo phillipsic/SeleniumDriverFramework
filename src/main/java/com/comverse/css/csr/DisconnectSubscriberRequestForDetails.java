@@ -1,19 +1,19 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.DisconnectSubscriberRequestForDetailsCommon;
 
 public class DisconnectSubscriberRequestForDetails extends DisconnectSubscriberRequestForDetailsCommon {
 
-    public DisconnectSubscriberRequestForDetails(WebDriver driver) throws Exception {
-        super(driver);
-
+    public DisconnectSubscriberRequestForDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public DisconnectSubscriberImpacts clickContinue() throws Exception {
         super.clickContinue();
-        return new DisconnectSubscriberImpacts(driver);
+        return new DisconnectSubscriberImpacts(tool, test, user);
     }
 }

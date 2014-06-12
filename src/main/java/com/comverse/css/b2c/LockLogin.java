@@ -4,21 +4,19 @@
  */
 package com.comverse.css.b2c;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
+
 public class LockLogin extends B2CMenu {
 
-    public LockLogin(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public LockLogin(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Lock Login";
-
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -28,10 +26,9 @@ public class LockLogin extends B2CMenu {
 
     public void clickConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
         Common.sleepForNumberOfSeconds(1);
-       
+
     }
 
-   
 }

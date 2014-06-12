@@ -4,17 +4,19 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ModifyEmpContactConfCommon extends CommonMenu {
 
-    public ModifyEmpContactConfCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ModifyEmpContactConfCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Contact Information";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

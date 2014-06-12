@@ -5,16 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class LoginCommon {
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-    public final WebDriver driver;
+public class LoginCommon extends CommonMenu {
 
-    public LoginCommon(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+    public LoginCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Login";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,23 +24,23 @@ public class LoginCommon {
     }
 
     public void setLogin(String login) throws Exception {
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(login);
+        tool.driver.findElement(By.id("login")).clear();
+        tool.driver.findElement(By.id("login")).sendKeys(login);
     }
 
     public void selectRole(String role) throws Exception {
-        new Select(driver.findElement(By.id("roles"))).selectByVisibleText(role);
+        new Select(tool.driver.findElement(By.id("roles"))).selectByVisibleText(role);
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
 
-        return new AddMemberConfirmationCommon(driver);
+        return new AddMemberConfirmationCommon(tool, test, user);
     }
 
     public AddMemberConfirmationCommon clickCreateLoginLater() throws Exception {
-        driver.findElement(By.id("ON_OK")).click();
+        tool.driver.findElement(By.id("ON_OK")).click();
 
-        return new AddMemberConfirmationCommon(driver);
+        return new AddMemberConfirmationCommon(tool, test, user);
     }
 }

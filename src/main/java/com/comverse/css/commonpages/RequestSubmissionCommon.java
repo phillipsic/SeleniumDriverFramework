@@ -5,22 +5,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author Vikram Sharma
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class RequestSubmissionCommon extends CommonMenu {
 
-    public RequestSubmissionCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public RequestSubmissionCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Request Submission";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -28,35 +26,35 @@ public class RequestSubmissionCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new ViewHierarchyCommon(driver);
+        return new ViewHierarchyCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickOkModifyRequestGoTOAccountDashboard() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public ContactInformationCommon clickOkToSubmit() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new ContactInformationCommon(driver);
+        return new ContactInformationCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickOkModifyRequestGoTOSubscriberDashboard() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new SubscriberDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new SubscriberDetailsCommon(tool, test, user);
     }
 
     public ProfileInformationCommon clickOkToSubmitRequest() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new ProfileInformationCommon(driver);
+        return new ProfileInformationCommon(tool, test, user);
     }
 
 }

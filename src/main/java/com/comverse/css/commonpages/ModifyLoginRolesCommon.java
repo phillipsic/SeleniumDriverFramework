@@ -6,21 +6,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author gmaroth
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ModifyLoginRolesCommon extends CommonMenu {
 
-    public ModifyLoginRolesCommon(WebDriver driver) throws Exception {
-
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public ModifyLoginRolesCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Login Roles";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -28,8 +26,8 @@ public class ModifyLoginRolesCommon extends CommonMenu {
 
     public LoginInformationCommon clickVeiwLoginInformationLink() throws Exception {
 
-        driver.findElement(By.id("smnu_LOGIN")).click();
+        tool.driver.findElement(By.id("smnu_LOGIN")).click();
 
-        return new LoginInformationCommon(driver);
+        return new LoginInformationCommon(tool, test, user);
     }
 }

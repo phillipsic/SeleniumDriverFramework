@@ -5,27 +5,22 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ActivateLoginCommon;
-
-/**
- * 
- * @author mkumar
- */
 
 public class ActivateLogin extends ActivateLoginCommon {
 
-    public ActivateLogin(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ActivateLogin(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     public UnlockDone clickConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
-        return new UnlockDone(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        return new UnlockDone(tool, test, user);
     }
 
 }

@@ -1,16 +1,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ReconfigureBalanceConfirmCommon extends CommonMenu {
 
     static String expectedScreen = "Configure balance - Confirm";
 
-    public ReconfigureBalanceConfirmCommon(WebDriver driver) throws Exception {
+    public ReconfigureBalanceConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!currentScreen.equals(expectedScreen)) {
             throw new IllegalStateException("Expected: " + expectedScreen + " but got: " + currentScreen);
@@ -19,8 +22,8 @@ public class ReconfigureBalanceConfirmCommon extends CommonMenu {
 
     public ViewBalanceCommon clickBack() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Back']")).click();
-        return new ViewBalanceCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        return new ViewBalanceCommon(tool, test, user);
     }
 
 }

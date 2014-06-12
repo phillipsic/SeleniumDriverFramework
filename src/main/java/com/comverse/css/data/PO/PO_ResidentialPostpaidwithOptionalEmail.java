@@ -1,7 +1,7 @@
 package com.comverse.css.data.PO;
 
-import com.comverse.css.data.BAL.BAL_GPRS_WAP_INTERNET;
 import com.comverse.css.data.Offer;
+import com.comverse.css.data.BAL.BAL_GPRS_WAP_INTERNET;
 
 public class PO_ResidentialPostpaidwithOptionalEmail extends Offer {
 

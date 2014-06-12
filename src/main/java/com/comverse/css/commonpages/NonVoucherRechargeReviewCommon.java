@@ -6,23 +6,21 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
-/**
- * 
- * @author gmaroth
- */
 public class NonVoucherRechargeReviewCommon extends CommonMenu {
 
-    public NonVoucherRechargeReviewCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public NonVoucherRechargeReviewCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Non voucher recharge review";
 
         // Check that we're on the right page.
-        if (!"Non voucher recharge review".equals(driver.getTitle())) {
+        if (!"Non voucher recharge review".equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -30,19 +28,19 @@ public class NonVoucherRechargeReviewCommon extends CommonMenu {
 
     public RechargeSubscriberCommon confirmNonVoucherRecharge() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new RechargeSubscriberCommon(driver);
+        return new RechargeSubscriberCommon(tool, test, user);
     }
 
     public RechargeSubscriberCommon confirmNonVoucherRechargeByCreditCard() throws Exception {
 
-        driver.findElement(By.xpath("//input[@name='select']")).click();
+        tool.driver.findElement(By.xpath("//input[@name='select']")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new RechargeSubscriberCommon(driver);
+        return new RechargeSubscriberCommon(tool, test, user);
     }
 }

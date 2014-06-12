@@ -1,18 +1,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class ShoppingCommon extends CommonMenu {
 
     static String expectedScreen = "Shopping";
 
-    public ShoppingCommon(WebDriver driver) throws Exception {
+    public ShoppingCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -23,45 +25,45 @@ public class ShoppingCommon extends CommonMenu {
     public void filterSubscriberBundlePrimaryOfferByName(String offername) throws Exception {
 
         this.waitForOffersToLoadOnPage();
-        driver.findElement(By.id("filter_str_plan_name")).sendKeys(offername);
+        tool.driver.findElement(By.id("filter_str_plan_name")).sendKeys(offername);
 
     }
 
     public void waitForOffersToLoadOnPage() throws Exception {
 
-        Common.waitForOffersToLoadOnPage(driver, this.getClass().getSimpleName());
+        Common.waitForOffersToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickSubscriberBundlePrimaryOfferName(String offername) throws Exception {
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForOffersToLoadOnPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.linkText(offername)).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForOffersToLoadOnPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.linkText(offername)).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickPOCompatibleOffersTab() throws Exception {
-        driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[2]/a/em")).click();
+        tool.driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[2]/a/em")).click();
     }
 
     public void clickPOTermsAndConditionsTab() throws Exception {
-        driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[3]/a/em")).click();
+        tool.driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[3]/a/em")).click();
     }
 
     public void clickPOOfferPolicyDetailsTab() throws Exception {
-        driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[4]/a/em")).click();
+        tool.driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[4]/a/em")).click();
     }
 
     public void clickABCompatibleOffersTab() throws Exception {
-        driver.findElement(By.xpath("//div[@id='accountBundleDetails']/ul/li[2]/a/em")).click();
+        tool.driver.findElement(By.xpath("//div[@id='accountBundleDetails']/ul/li[2]/a/em")).click();
     }
 
     public void clickABTermsAndConditionsTab() throws Exception {
-        driver.findElement(By.xpath("//div[@id='accountBundleDetails']/ul/li[3]/a/em")).click();
+        tool.driver.findElement(By.xpath("//div[@id='accountBundleDetails']/ul/li[3]/a/em")).click();
     }
 
     public void clickAccountBundleOfferName(String accountBundle) throws Exception {
 
-        String pageSource = driver.getPageSource();
+        String pageSource = tool.driver.getPageSource();
         String temp[];
         String cleanString;
 
@@ -74,126 +76,126 @@ public class ShoppingCommon extends CommonMenu {
         cleanString = cleanString.replaceAll(",", "");
         String accountBundleID = cleanString.replaceAll(">", "");
 
-        Common.waitForAccountBundlesToLoadOnPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForAccountBundlesToLoadOnPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        driver.findElement(By.xpath("//b[@onclick=\"javascript: accountBundleDetails('" + accountBundleID + "')\"]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//b[@onclick=\"javascript: accountBundleDetails('" + accountBundleID + "')\"]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public MyBasketCommon clickSelectOfferInPopUpWindow() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.name("select")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.name("select")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new MyBasketCommon(driver);
+        return new MyBasketCommon(tool, test, user);
     }
 
     public ConfigureBalanceCommon clickSelectOfferInPopUpWindowExpectingConfigureBalance() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.name("select")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.name("select")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new ConfigureBalanceCommon(driver);
+        return new ConfigureBalanceCommon(tool, test, user);
     }
 
     public TestServiceAbilityCommon clickSelectOfferInPopUpWindowWithServiceAbility() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.name("select")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.name("select")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new TestServiceAbilityCommon(driver);
+        return new TestServiceAbilityCommon(tool, test, user);
     }
 
     public TestServiceAbilityCommon clickNotEligibleLink() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.xpath("//a/span")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//a/span")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new TestServiceAbilityCommon(driver);
+        return new TestServiceAbilityCommon(tool, test, user);
     }
 
     public ConfigureContractDetailsCommon clickSelectOfferInPopUpWindowExpectingConfigureContract() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.name("select")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.name("select")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new ConfigureContractDetailsCommon(driver);
+        return new ConfigureContractDetailsCommon(tool, test, user);
     }
 
     public EnterYourSubscriptionDetailsCommon clickSelectOfferInPopUpWindowExpectingEnterYourSubscriptionDetails() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.name("select")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.name("select")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new EnterYourSubscriptionDetailsCommon(driver);
+        return new EnterYourSubscriptionDetailsCommon(tool, test, user);
     }
 
     public SelectOffersForYourSubscriberCommon clickSelectOfferInPopUpWindowExpectingSelectOffersForYourSubscriber() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.name("select")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.name("select")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new SelectOffersForYourSubscriberCommon(driver);
+        return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     public EnterYourSubscriptionDetailsCommon clickNoThankstoHandsets() throws Exception {
 
-        driver.findElement(By.name("nothanks")).click();
-        return new EnterYourSubscriptionDetailsCommon(driver);
+        tool.driver.findElement(By.name("nothanks")).click();
+        return new EnterYourSubscriptionDetailsCommon(tool, test, user);
     }
 
     public MyBasketCommon selectHandset(String value) throws Exception {
 
-        driver.findElement(By.id("lnk_ADVANCE_FILTER")).click();
-        driver.findElement(By.id("filterByFreeText")).sendKeys(value);
+        tool.driver.findElement(By.id("lnk_ADVANCE_FILTER")).click();
+        tool.driver.findElement(By.id("filterByFreeText")).sendKeys(value);
         Common.sleepForNumberOfSeconds(3);
-        driver.findElement(By.name("buy_outright")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.name("buy_outright")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
     public void clickAccountBundlesTab() throws Exception {
 
-        driver.findElement(By.xpath("//div[@id='shoppingTabs']/ul/li[2]/a/em")).click();
-        Common.waitForAccountBundlesToLoadOnPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//div[@id='shoppingTabs']/ul/li[2]/a/em")).click();
+        Common.waitForAccountBundlesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickHandsetsTab() throws Exception {
 
-        driver.findElement(By.xpath("//div[@id='shoppingTabs']/ul/li[3]/a/em")).click();
-        Common.waitForDevicesToLoadOnPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//div[@id='shoppingTabs']/ul/li[3]/a/em")).click();
+        Common.waitForDevicesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickAccessoriesTab() throws Exception {
 
-        driver.findElement(By.partialLinkText("Accessories")).click();
-        Common.waitForAccessoriesToLoadOnPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.partialLinkText("Accessories")).click();
+        Common.waitForAccessoriesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
     public void selectBundleByName(String bundleName) throws Exception {
 
-        driver.findElement(By.xpath("//tr[@id='abtr:" + bundleName + "']/td/input")).click();
+        tool.driver.findElement(By.xpath("//tr[@id='abtr:" + bundleName + "']/td/input")).click();
     }
 
     public void selectAccountOffer(@SuppressWarnings("unused") String accountBundleID, String accountOfferName) throws Exception {
 
         /*
          * String temp[]; String temp2[]; String tokenizedOfferName; String
-         * accountOfferID; String pageSource = driver.getPageSource();
+         * accountOfferID; String pageSource = tool.driver.getPageSource();
          * 
          * temp = pageSource.split(accountBundleID + "_selectiveService\"");
          * 
@@ -206,21 +208,23 @@ public class ShoppingCommon extends CommonMenu {
          */
         // div[contains(text(),'DIYe - extended Interactivity (Your
         // account).')]/../..//input
-        driver.findElement(By.xpath("//div[contains(text(),'" + accountOfferName + "')]/../..//input")).click();
+        tool.driver.findElement(By.xpath("//div[contains(text(),'" + accountOfferName + "')]/../..//input")).click();
     }
 
     public void selectOptionalSubscriberBundle(String accountBundleID, String optionalSubscriberBundle) throws Exception {
 
-        driver.findElement(By.xpath("(//input[@type='checkbox' and @name='" + accountBundleID + "_subs_bundle' and contains(@id,'" + optionalSubscriberBundle + "')])")).click();
+        tool.driver.findElement(By.xpath("(//input[@type='checkbox' and @name='" + accountBundleID + "_subs_bundle' and contains(@id,'" + optionalSubscriberBundle + "')])"))
+                .click();
     }
 
     public void selectOptionalSupplementaryOffers(String accountBundleID, String optionalSupplementaryOffers) throws Exception {
-        driver.findElement(By.xpath("//td[@class = 'oddRow' and contains(.,'" + optionalSupplementaryOffers + "')]/../td/input[@parentabid = '" + accountBundleID + "']")).click();
+        tool.driver.findElement(By.xpath("//td[@class = 'oddRow' and contains(.,'" + optionalSupplementaryOffers + "')]/../td/input[@parentabid = '" + accountBundleID + "']"))
+                .click();
     }
 
     private String retrieveAccountBundleID(String accountBundleName) throws Exception {
 
-        String pageSource = driver.getPageSource();
+        String pageSource = tool.driver.getPageSource();
         String temp[];
         String cleanString;
 
@@ -261,18 +265,18 @@ public class ShoppingCommon extends CommonMenu {
      * this.selectOptionalSubscriberBundle(accountBundleID,
      * optionalSubscriberBundle); Thread.sleep(1000); }
      * 
-     * driver.findElement(By.xpath(
+     * tool.driver.findElement(By.xpath(
      * "(//input[@type='button' and @value='Subscribe' and @onclick=\"javascript: selectBundle('"
      * + accountBundleID + "','" + accountBundle + "')\"])")).click();
      * 
-     * return new ConfigureContractDetailsCommon(driver); }
+     * return new ConfigureContractDetailsCommon(tool, test, user); }
      */
     public ConfigureContractDetailsCommon subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingConfigureContract(String accountBundle, String accountOffer,
             String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {
 
         this.subscribeToAccountBundlelSubscriberSelectiveOfferByName(accountBundle, accountOffer, optionalSubscriberBundle, optionalSupplementaryOffersTable);
 
-        return new ConfigureContractDetailsCommon(driver);
+        return new ConfigureContractDetailsCommon(tool, test, user);
     }
 
     public ConfigureBalanceCommon subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingConfigureBalance(String accountBundle, String accountOffer,
@@ -280,7 +284,7 @@ public class ShoppingCommon extends CommonMenu {
 
         this.subscribeToAccountBundlelSubscriberSelectiveOfferByName(accountBundle, accountOffer, optionalSubscriberBundle, optionalSupplementaryOffersTable);
 
-        return new ConfigureBalanceCommon(driver);
+        return new ConfigureBalanceCommon(tool, test, user);
     }
 
     public SelectOffersForYourSubscriberCommon subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffersForSubscriber(String accountBundle, String accountOffer,
@@ -288,7 +292,7 @@ public class ShoppingCommon extends CommonMenu {
 
         this.subscribeToAccountBundlelSubscriberSelectiveOfferByName(accountBundle, accountOffer, optionalSubscriberBundle, optionalSupplementaryOffersTable);
 
-        return new SelectOffersForYourSubscriberCommon(driver);
+        return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     private void subscribeToAccountBundlelSubscriberSelectiveOfferByName(String accountBundle, String accountOffer, String optionalSubscriberBundle,
@@ -312,47 +316,47 @@ public class ShoppingCommon extends CommonMenu {
             }
         }
 
-        driver.findElement(
+        tool.driver.findElement(
                 By.xpath("(//input[@type='button' and @value='Subscribe' and contains( @onclick, '" + accountBundleID + "') and contains( @onclick,'" + accountBundle + "')])"))
                 .click();
 
-        // return new SelectOffersForYourSubscriberCommon(driver);
+        // return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     public ConfigureContractDetailsCommon clickSubscribe() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@value='Subscribe'])[2]")).click();
-        return new ConfigureContractDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("(//input[@value='Subscribe'])[2]")).click();
+        return new ConfigureContractDetailsCommon(tool, test, user);
     }
 
     public MyBasketCommon clickSubscribeNoConfiguration() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@value='Subscribe'])[3]")).click();
+        tool.driver.findElement(By.xpath("(//input[@value='Subscribe'])[3]")).click();
 
-        return new MyBasketCommon(driver);
+        return new MyBasketCommon(tool, test, user);
     }
 
     public SelectOffersForYourSubscriberCommon clickSubscribeAccountBundle() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@value='Subscribe'])[3]")).click();
+        tool.driver.findElement(By.xpath("(//input[@value='Subscribe'])[3]")).click();
 
-        return new SelectOffersForYourSubscriberCommon(driver);
+        return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     public void clickClose() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@value='Close'])")).click();
+        tool.driver.findElement(By.xpath("(//input[@value='Close'])")).click();
     }
 
     public MyBasketCommon selectAccessory(String value) throws Exception {
-        driver.findElement(By.id("filter_acc_name")).sendKeys(value);
+        tool.driver.findElement(By.id("filter_acc_name")).sendKeys(value);
         Common.sleepForNumberOfSeconds(3);
-        driver.findElement(By.linkText(value)).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.xpath("//input[@value='Select']")).click();
+        tool.driver.findElement(By.linkText(value)).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//input[@value='Select']")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new MyBasketCommon(driver);
+        return new MyBasketCommon(tool, test, user);
     }
 }

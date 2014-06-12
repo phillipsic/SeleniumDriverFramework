@@ -1,15 +1,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class AddSubLevelSelectLevelTypeCommon extends CommonMenu {
     static String expectedScreen = "Add Sub Level - Select Level Type";
 
-    public AddSubLevelSelectLevelTypeCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public AddSubLevelSelectLevelTypeCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -20,7 +23,7 @@ public class AddSubLevelSelectLevelTypeCommon extends CommonMenu {
 
     public AddSubLevelLegalAddressCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new AddSubLevelLegalAddressCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new AddSubLevelLegalAddressCommon(tool, test, user);
     }
 }

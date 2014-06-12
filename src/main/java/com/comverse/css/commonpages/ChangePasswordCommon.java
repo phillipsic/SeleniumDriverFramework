@@ -1,17 +1,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ChangePasswordCommon extends CommonMenu {
 
-    public ChangePasswordCommon(WebDriver driver) throws Exception {
+    public ChangePasswordCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Change Password";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -19,25 +22,25 @@ public class ChangePasswordCommon extends CommonMenu {
 
     public void setYourPassword(String password) throws Exception {
 
-        driver.findElement(By.id("oldPassword")).clear();
-        driver.findElement(By.id("oldPassword")).sendKeys(password);
+        tool.driver.findElement(By.id("oldPassword")).clear();
+        tool.driver.findElement(By.id("oldPassword")).sendKeys(password);
     }
 
     public void setNewPassword(String password) throws Exception {
 
-        driver.findElement(By.id("newPassword")).clear();
-        driver.findElement(By.id("newPassword")).sendKeys(password);
+        tool.driver.findElement(By.id("newPassword")).clear();
+        tool.driver.findElement(By.id("newPassword")).sendKeys(password);
     }
 
     public void setConfirmNewPassword(String password) throws Exception {
 
-        driver.findElement(By.id("confirmPassword")).clear();
-        driver.findElement(By.id("confirmPassword")).sendKeys(password);
+        tool.driver.findElement(By.id("confirmPassword")).clear();
+        tool.driver.findElement(By.id("confirmPassword")).sendKeys(password);
     }
 
     public ModifyLoginPasswordCommon clickChange() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Change']")).click();
-        return new ModifyLoginPasswordCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        return new ModifyLoginPasswordCommon(tool, test, user);
     }
 }

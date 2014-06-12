@@ -3,94 +3,96 @@ package com.comverse.css.commonpages;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Person;
 
 public class PersonManagementCommon extends CommonMenu {
 
-    public PersonManagementCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public PersonManagementCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Person Management";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickPersonAdd() {
-        driver.findElement(By.id("personadd")).click();
+        tool.driver.findElement(By.id("personadd")).click();
     }
 
     public void selectTitle(String value) throws Exception {
-        new Select(driver.findElement(By.id("title"))).selectByVisibleText(value);
+        new Select(tool.driver.findElement(By.id("title"))).selectByVisibleText(value);
     }
 
     public void setFirstName(String value) throws Exception {
-        driver.findElement(By.id("firstName")).clear();
-        driver.findElement(By.id("firstName")).sendKeys(value);
+        tool.driver.findElement(By.id("firstName")).clear();
+        tool.driver.findElement(By.id("firstName")).sendKeys(value);
     }
 
     public void setLastName(String value) throws Exception {
-        driver.findElement(By.id("lastName")).clear();
-        driver.findElement(By.id("lastName")).sendKeys(value);
+        tool.driver.findElement(By.id("lastName")).clear();
+        tool.driver.findElement(By.id("lastName")).sendKeys(value);
     }
 
     public void setAddressLine1(String value) throws Exception {
-        driver.findElement(By.id("address1")).clear();
-        driver.findElement(By.id("address1")).sendKeys(value);
+        tool.driver.findElement(By.id("address1")).clear();
+        tool.driver.findElement(By.id("address1")).sendKeys(value);
     }
 
     public void setPostalCode(String value) throws Exception {
-        driver.findElement(By.id("zipcode")).clear();
-        driver.findElement(By.id("zipcode")).sendKeys(value);
+        tool.driver.findElement(By.id("zipcode")).clear();
+        tool.driver.findElement(By.id("zipcode")).sendKeys(value);
     }
 
     public void setCity(String value) throws Exception {
-        driver.findElement(By.id("city")).clear();
-        driver.findElement(By.id("city")).sendKeys(value);
+        tool.driver.findElement(By.id("city")).clear();
+        tool.driver.findElement(By.id("city")).sendKeys(value);
     }
 
     public void selectCountry(String value) throws Exception {
-        new Select(driver.findElement(By.id("country"))).selectByVisibleText(value);
+        new Select(tool.driver.findElement(By.id("country"))).selectByVisibleText(value);
     }
 
     public void selectRegion(String value) throws Exception {
-        new Select(driver.findElement(By.id("state"))).selectByVisibleText(value);
+        new Select(tool.driver.findElement(By.id("state"))).selectByVisibleText(value);
     }
 
     public void selectFirstUserinDropDown() throws Exception {
-        new Select(driver.findElement(By.id("subscriber"))).selectByIndex(1);
+        new Select(tool.driver.findElement(By.id("subscriber"))).selectByIndex(1);
     }
 
     public void clickOrdering() throws Exception {
-        driver.findElement(By.id("ordering")).click();
+        tool.driver.findElement(By.id("ordering")).click();
     }
 
     public void clickAddRole() {
-        driver.findElement(By.id("add_role")).click();
+        tool.driver.findElement(By.id("add_role")).click();
     }
 
     public void clickAdd() {
-        driver.findElement(By.id("submitButton")).click();
+        tool.driver.findElement(By.id("submitButton")).click();
     }
 
     public void clickAccountManager() {
-        driver.findElement(By.id("roleCmp")).click();
+        tool.driver.findElement(By.id("roleCmp")).click();
     }
 
     public void clickActions(String FName) {
-        driver.findElement(By.xpath("//div[contains(text(),'" + FName + "')]/../..//button")).click();
+        tool.driver.findElement(By.xpath("//div[contains(text(),'" + FName + "')]/../..//button")).click();
     }
 
     public void clickActionstoChangeOwner() {
-        // driver.findElement(By.xpath("//*[@id='yui-gen16-button']")).click();
-        driver.findElement(
+        // tool.driver.findElement(By.xpath("//*[@id='yui-gen16-button']")).click();
+        tool.driver.findElement(
                 By.xpath(" //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button"))
                 .click();
     }
@@ -106,49 +108,49 @@ public class PersonManagementCommon extends CommonMenu {
         // i++;
         // }
 
-        driver.findElement(By.cssSelector("button[type='button'][id$=-button][class='submit']")).click();
+        tool.driver.findElement(By.cssSelector("button[type='button'][id$=-button][class='submit']")).click();
     }
 
     public void clickModifyRole() {
 
-        driver.findElement(By.linkText("Modify Role")).click();
+        tool.driver.findElement(By.linkText("Modify Role")).click();
 
     }
 
     public void selectCustomerManagerPersonRole() {
-        driver.findElement(By.id("role_2")).click();
+        tool.driver.findElement(By.id("role_2")).click();
     }
 
     public void clickOKFromSelectPersonaRole() {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
     public void clickDeactivateRole() {
-        driver.findElement(By.linkText("Deactivate Role")).click();
+        tool.driver.findElement(By.linkText("Deactivate Role")).click();
     }
 
     public void clickOKFromDeactivateRole() {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
     public void checkAccountManager() {
-        driver.findElement(By.id("roleCmp")).click();
+        tool.driver.findElement(By.id("roleCmp")).click();
     }
 
     public void clickChangeOwner() {
-        driver.findElement(By.xpath("//a[contains(text(),'Change Owner')]")).click();
+        tool.driver.findElement(By.xpath("//a[contains(text(),'Change Owner')]")).click();
     }
 
     public void clickSwap() {
-        driver.findElement(By.id("submitButton")).click();
+        tool.driver.findElement(By.id("submitButton")).click();
     }
 
     public AddLoginCommon clickActionsAddLoginForPerson(String personLastName) throws Exception {
 
-        driver.findElement(By.xpath("//div[contains(text(),'" + personLastName + "')]/../..//*[@type='button']")).click();
-        driver.findElement(By.linkText("Add Login")).click();
+        tool.driver.findElement(By.xpath("//div[contains(text(),'" + personLastName + "')]/../..//*[@type='button']")).click();
+        tool.driver.findElement(By.linkText("Add Login")).click();
 
-        return new AddLoginCommon(driver);
+        return new AddLoginCommon(tool, test, user);
     }
 
     public Person addCMP() throws Exception {
@@ -176,7 +178,7 @@ public class PersonManagementCommon extends CommonMenu {
         this.selectRegion(person3.getPersonHomeStateProperty());
         this.checkAccountManager();
         this.clickAdd();
-        Common.assertTextOnPage(driver, "Customer Manager Person");
+        Common.assertTextOnPage(tool, "Customer Manager Person");
 
         setPerson3(person3);
 
@@ -213,40 +215,40 @@ public class PersonManagementCommon extends CommonMenu {
 
     public void searchPerson() throws Exception {
         // new
-        // Select(driver.findElement(By.id("custPerson"))).selectByVisibleText(pers.getPersonFirstNameProperty()
+        // Select(tool.driver.findElement(By.id("custPerson"))).selectByVisibleText(pers.getPersonFirstNameProperty()
         // + " "
         // + pers.getPersonLastNameProperty());
-        new Select(driver.findElement(By.id("title"))).selectByVisibleText("Mr.");
-        driver.findElement(By.id("firstName")).sendKeys("test*");
-        driver.findElement(By.id("pm-button-search")).click();
-        final List<WebElement> radios = driver.findElements(By.name("pfr-selected-person"));
+        new Select(tool.driver.findElement(By.id("title"))).selectByVisibleText("Mr.");
+        tool.driver.findElement(By.id("firstName")).sendKeys("test*");
+        tool.driver.findElement(By.id("pm-button-search")).click();
+        final List<WebElement> radios = tool.driver.findElements(By.name("pfr-selected-person"));
         radios.get(0).click();
-        driver.findElement(By.xpath("//*[@id='personfind']/div[2]/div/form/div[2]/input[2]")).click();
-        driver.findElement(By.cssSelector("input[id=submitButton][value='Swap']")).click();
+        tool.driver.findElement(By.xpath("//*[@id='personfind']/div[2]/div/form/div[2]/input[2]")).click();
+        tool.driver.findElement(By.cssSelector("input[id=submitButton][value='Swap']")).click();
 
     }
 
     public void clickDissociate() throws Exception {
 
-        driver.findElement(By.linkText("Disassociate Role")).click();
+        tool.driver.findElement(By.linkText("Disassociate Role")).click();
     }
 
     public void clickOKFromDissociate() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
     public void clickAssociateRoleToSubscriber() throws Exception {
-        // driver.findElement(By.xpath("//a[contains(text(),'Associate Role to Subscriber')]")).click();
-        driver.findElement(By.linkText("Associate Role to Subscriber")).click();
+        // tool.driver.findElement(By.xpath("//a[contains(text(),'Associate Role to Subscriber')]")).click();
+        tool.driver.findElement(By.linkText("Associate Role to Subscriber")).click();
     }
 
     public void clickOKAssociateRoleToSubscriber() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
     public String getLastNameOfCOP() throws Exception {
 
-        String cop_fullName = driver.findElement(By.xpath("//div[contains(text(),'Customer Owner Person')]/../../td[1]")).getText();
+        String cop_fullName = tool.driver.findElement(By.xpath("//div[contains(text(),'Customer Owner Person')]/../../td[1]")).getText();
 
         String temp[] = cop_fullName.split(" ");
         System.out.println("COP LastName" + temp[1]);
@@ -256,9 +258,9 @@ public class PersonManagementCommon extends CommonMenu {
 
     public PersonMergeCommon clickPersonMerge() throws Exception {
 
-        driver.findElement(By.linkText("Person Merge")).click();
+        tool.driver.findElement(By.linkText("Person Merge")).click();
 
-        return new PersonMergeCommon(driver);
+        return new PersonMergeCommon(tool, test, user);
     }
 
 }

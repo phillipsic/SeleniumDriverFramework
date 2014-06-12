@@ -4,25 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.SearchOrdersCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class SearchOrders extends SearchOrdersCommon {
 
-    public SearchOrders(WebDriver driver) throws Exception {
-        super(driver);
-
+    public SearchOrders(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public WorkSpace clickHomeMenu() throws Exception {
 
         super.clickHomeMenu();
-        return new WorkSpace(driver);
+        return new WorkSpace(tool, test, user);
     }
 }

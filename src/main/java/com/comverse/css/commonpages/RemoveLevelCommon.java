@@ -5,19 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author Koushic
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class RemoveLevelCommon extends CommonMenu {
 
-    public RemoveLevelCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public RemoveLevelCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Remove Level";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -29,25 +27,25 @@ public class RemoveLevelCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//form[@id='form_OK']/div/input")).click();
+        tool.driver.findElement(By.xpath("//form[@id='form_OK']/div/input")).click();
 
-        return new ViewHierarchyCommon(driver);
+        return new ViewHierarchyCommon(tool, test, user);
 
     }
 
     public RemoveLevelCommon clickOkToRemoveLevel() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new RemoveLevelCommon(driver);
+        return new RemoveLevelCommon(tool, test, user);
 
     }
 
     public ViewHierarchyCommon clickOkToConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new ViewHierarchyCommon(driver);
+        return new ViewHierarchyCommon(tool, test, user);
 
     }
 

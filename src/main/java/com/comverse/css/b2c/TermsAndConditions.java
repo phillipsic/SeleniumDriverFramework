@@ -1,39 +1,43 @@
 package com.comverse.css.b2c;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class TermsAndConditions extends B2CMenu {
 
-    public TermsAndConditions(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public TermsAndConditions(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Terms and Conditions";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public CheckoutRegister clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new CheckoutRegister(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new CheckoutRegister(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickOkExpectingBilingAccountInformation() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new CheckOutBillingAccountInformation(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckoutRegister clickOkExpectingCheckoutRegister() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new CheckoutRegister(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new CheckoutRegister(tool, test, user);
     }
 }

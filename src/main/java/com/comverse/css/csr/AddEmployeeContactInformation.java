@@ -4,23 +4,22 @@
  */
 package com.comverse.css.csr;
 
-import com.comverse.css.commonpages.CommonMenu;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.commonpages.CommonMenu;
+
 public class AddEmployeeContactInformation extends CommonMenu {
 
-    public AddEmployeeContactInformation(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public AddEmployeeContactInformation(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Add Employee - Contact Information";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -28,30 +27,30 @@ public class AddEmployeeContactInformation extends CommonMenu {
 
     public void setFirstName(String firstName) throws Exception {
 
-        driver.findElement(By.id("first_name")).clear();
-        driver.findElement(By.id("first_name")).sendKeys(firstName);
+        tool.driver.findElement(By.id("first_name")).clear();
+        tool.driver.findElement(By.id("first_name")).sendKeys(firstName);
     }
 
     public void setLastName(String lastName) throws Exception {
 
-        driver.findElement(By.id("last_name")).clear();
-        driver.findElement(By.id("last_name")).sendKeys(lastName);
+        tool.driver.findElement(By.id("last_name")).clear();
+        tool.driver.findElement(By.id("last_name")).sendKeys(lastName);
     }
 
     /*
      * public AddEmployeeRegisterLogin clickSubmit() throws Exception {
-     *
-     * driver.findElement(By.cssSelector("input.submit")).click(); return new
-     * AddEmployeeRegisterLogin(driver); }
+     * 
+     * tool.driver.findElement(By.cssSelector("input.submit")).click(); return
+     * new AddEmployeeRegisterLogin(tool, test, user); }
      */
     public void selectState(String homeState) throws Exception {
 
-        new Select(driver.findElement(By.id("home_state"))).selectByVisibleText(homeState);
+        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(homeState);
     }
 
     public AddEmployeeRegisterLogin clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
-        return new AddEmployeeRegisterLogin(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        return new AddEmployeeRegisterLogin(tool, test, user);
     }
 }

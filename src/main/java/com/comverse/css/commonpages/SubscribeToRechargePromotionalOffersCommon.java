@@ -5,14 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class SubscribeToRechargePromotionalOffersCommon extends CommonMenu {
     static String expectedScreen = "Subscribe to recharge promotional offers";
 
-    public SubscribeToRechargePromotionalOffersCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public SubscribeToRechargePromotionalOffersCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -20,17 +23,17 @@ public class SubscribeToRechargePromotionalOffersCommon extends CommonMenu {
     }
 
     public void selectOffersForSubscriber(String RPO) throws Exception {
-        driver.findElement(By.id("nameFilterField0")).clear();
-        driver.findElement(By.id("nameFilterField0")).sendKeys(RPO);
-        driver.findElement(By.name("rechargePromotionalOffers")).click();
+        tool.driver.findElement(By.id("nameFilterField0")).clear();
+        tool.driver.findElement(By.id("nameFilterField0")).sendKeys(RPO);
+        tool.driver.findElement(By.name("rechargePromotionalOffers")).click();
 
     }
 
     public MyBasketCommon clickContinue() throws Exception {
 
-        driver.findElement(By.cssSelector("input[name='rechargePromotionalOffers']")).click();
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.cssSelector("input[name='rechargePromotionalOffers']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
 }

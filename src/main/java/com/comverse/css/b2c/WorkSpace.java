@@ -1,15 +1,17 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class WorkSpace extends B2CMenu {
 
-    public WorkSpace(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public WorkSpace(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Welcome to Your Personalized Workspace";
-
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -20,19 +22,18 @@ public class WorkSpace extends B2CMenu {
 
     public String getWelcomeMessage() throws Exception {
 
-        return driver.findElement(By.xpath("//div[@id='headerLogoutContainer']/ul/li")).getText();
+        return tool.driver.findElement(By.xpath("//div[@id='headerLogoutContainer']/ul/li")).getText();
     }
 
     public String getMyLinesText() throws Exception {
 
-        return driver.findElement(By.cssSelector("div.dashboardLineName")).getText();
+        return tool.driver.findElement(By.cssSelector("div.dashboardLineName")).getText();
     }
 
     public PrimaryOfferDetails clickOnOfferLink(String offerNamer) throws Exception {
 
-        driver.findElement(By.linkText(offerNamer)).click();
-        return new PrimaryOfferDetails(driver);
+        tool.driver.findElement(By.linkText(offerNamer)).click();
+        return new PrimaryOfferDetails(tool, test, user);
     }
 
-   
 }

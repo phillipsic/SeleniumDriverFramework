@@ -5,17 +5,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class AddCaseConfirmationCommon extends CommonMenu {
     static String expectedScreen = "Add case - confirmation";
 
-    public AddCaseConfirmationCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public AddCaseConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -23,18 +26,18 @@ public class AddCaseConfirmationCommon extends CommonMenu {
 
     public AccountDetailsCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public String getConfirmationMessage() throws Exception {
 
-        return driver.findElement(By.cssSelector("BODY")).getText();
+        return tool.driver.findElement(By.cssSelector("BODY")).getText();
     }
 
     public String getCaseID() throws Exception {
 
-        String caseID = driver.findElement(By.cssSelector("div.txt > span")).getText();
+        String caseID = tool.driver.findElement(By.cssSelector("div.txt > span")).getText();
 
         caseID = caseID.replaceAll("[a-zA-Z \\.]", "");
         System.out.println("New Case ID : " + caseID);

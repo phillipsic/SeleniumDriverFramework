@@ -5,33 +5,36 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class WelcomeToYourPersonalizedWorkspaceCommon extends CommonMenu {
 
-    public WelcomeToYourPersonalizedWorkspaceCommon(WebDriver driver) throws Exception {
+    public WelcomeToYourPersonalizedWorkspaceCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Welcome to Your Personalized Workspace";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public String getHomePageWelcomeMessage() throws Exception {
 
-        return driver.findElement(By.xpath("/html/body/h1")).getText();
+        return tool.driver.findElement(By.xpath("/html/body/h1")).getText();
     }
 
     public ViewHierarchyCommon clickManageTelco() throws Exception {
-        driver.findElement(By.id("mnu_TELCO")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ViewHierarchyCommon(driver);
+        tool.driver.findElement(By.id("mnu_TELCO")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ViewHierarchyCommon(tool, test, user);
     }
 }

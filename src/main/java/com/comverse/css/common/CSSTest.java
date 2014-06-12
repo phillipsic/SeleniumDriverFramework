@@ -2,46 +2,49 @@ package com.comverse.css.common;
 
 import org.junit.Before;
 
-import com.comverse.common.Application;
-import com.comverse.common.Main;
+import com.comverse.common.*;
 
 public class CSSTest extends Main {
 
     @Before
     public void setUp() throws Exception {
-        parseUserAgent(instanciateDriver());
+        tool = new Selenium();
+        test = new Test();
+        tool.platform = new Platform();
+        user = new User();
+        tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
     }
 
     public void launchCSSApplication() throws Exception {
-        application.setVersion(driver);
-        driver.get(application.appURL());
-        if (!debug) {
+        application.setVersion(tool);
+        tool.driver.get(application.appURL());
+        if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
     }
 
     public void launchAnotherCSSApplication(Application application2) throws Exception {
-        driver.get(application2.appURL());
+        tool.driver.get(application2.appURL());
         Thread.sleep(1000);
     }
 
     public void launchCSSApplicationAndSSOLogin() throws Exception {
-        driver.get(application.appURL());
+        tool.driver.get(application.appURL());
         loginSSOUser();
-        application.setVersion(driver);
-        driver.navigate().back();
-        if (!debug) {
+        application.setVersion(tool);
+        tool.driver.navigate().back();
+        if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
-        Common.checkForExistingBasketAndDiscard(driver);
+        Common.checkForExistingBasketAndDiscard(tool);
     }
 
     public void launchOCMApplicationAndGetBuildNumber() throws Exception {
-        application.setVersion(driver);
+        application.setVersion(tool);
         // Launch OCM with Direct URL
         application.setMainURLKey(application.getDirectURLKey());
-        driver.get(application.appOCMURL());
-        if (!debug) {
+        tool.driver.get(application.appOCMURL());
+        if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
     }
@@ -49,16 +52,16 @@ public class CSSTest extends Main {
     public void launchOCMApplication() throws Exception {
         // Launch OCM with Direct URL
         application.setMainURLKey(application.getDirectURLKey());
-        driver.get(application.appOCMURL());
+        tool.driver.get(application.appOCMURL());
     }
 
     public void launchSecurityApplication() throws Exception {
-        application.setVersion(driver);
-        driver.get(application.appFullURL());
+        application.setVersion(tool);
+        tool.driver.get(application.appFullURL());
     }
 
     public void launchOTGApplication() throws Exception {
-        driver.get(application.appFullURL());
+        tool.driver.get(application.appFullURL());
         Thread.sleep(4000);
     }
 }

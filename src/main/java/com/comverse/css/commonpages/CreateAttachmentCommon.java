@@ -1,16 +1,18 @@
 package com.comverse.css.commonpages;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class CreateAttachmentCommon extends CommonMenu {
 
-    public CreateAttachmentCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public CreateAttachmentCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         if (!"Create Attachment".equals(currentScreen)) {
 
@@ -19,30 +21,30 @@ public class CreateAttachmentCommon extends CommonMenu {
     }
 
     public void addAttachmentName(String attachementName) throws Exception {
-        driver.findElement(By.id("name")).sendKeys(attachementName);
+        tool.driver.findElement(By.id("name")).sendKeys(attachementName);
     }
 
     public void addDescription(String description) throws Exception {
-        driver.findElement(By.id("description")).clear();
-        driver.findElement(By.id("description")).sendKeys(description);
+        tool.driver.findElement(By.id("description")).clear();
+        tool.driver.findElement(By.id("description")).sendKeys(description);
     }
 
     public void uploadAttachment(String locationOfFile) throws Exception {
         String path = System.getProperty("user.dir");
-        driver.findElement(By.id("fileUpload")).sendKeys(path + locationOfFile);
+        tool.driver.findElement(By.id("fileUpload")).sendKeys(path + locationOfFile);
     }
 
     public void clickContinue() throws Exception {
-        driver.findElement(By.name("ok")).click();
+        tool.driver.findElement(By.name("ok")).click();
     }
 
     public void clickOKFromAddAttachment() throws Exception {
-        driver.findElement(By.name("ok")).click();
+        tool.driver.findElement(By.name("ok")).click();
     }
 
     public ViewCaseCommon clickOKFromCreateNewAttachmentResult() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ViewCaseCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ViewCaseCommon(tool, test, user);
     }
 }

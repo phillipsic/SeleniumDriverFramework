@@ -4,21 +4,19 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-/**
- * 
- * @author iphilli
- */
 public class BillingAccountInformation extends B2CMenu {
 
-    public BillingAccountInformation(WebDriver driver) {
+    public BillingAccountInformation(AutomationTool tool, Test test, User user) {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Billing Account Information";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

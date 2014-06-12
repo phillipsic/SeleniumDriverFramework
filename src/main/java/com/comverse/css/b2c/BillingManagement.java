@@ -1,17 +1,20 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class BillingManagement extends B2CMenu {
 
-    public BillingManagement(WebDriver driver) {
+    public BillingManagement(AutomationTool tool, Test test, User user) {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Billing Management";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -19,19 +22,19 @@ public class BillingManagement extends B2CMenu {
 
     public CheckoutReview clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new CheckoutReview(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new CheckoutReview(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForFirstSubscriber() throws Exception {
 
-        driver.findElement(By.id("change_billing_contract_0")).click();
-        return new CheckOutBillingAccountInformation(driver);
+        tool.driver.findElement(By.id("change_billing_contract_0")).click();
+        return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForSecondSubscriber() throws Exception {
 
-        driver.findElement(By.id("change_billing_contract_1")).click();
-        return new CheckOutBillingAccountInformation(driver);
+        tool.driver.findElement(By.id("change_billing_contract_1")).click();
+        return new CheckOutBillingAccountInformation(tool, test, user);
     }
 }

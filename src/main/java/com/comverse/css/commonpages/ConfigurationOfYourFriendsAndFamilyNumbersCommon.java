@@ -5,14 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu {
 
-    public ConfigurationOfYourFriendsAndFamilyNumbersCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ConfigurationOfYourFriendsAndFamilyNumbersCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
         if (!"Configuration of your Friends and Family numbers".equals(currentScreen)) {
@@ -23,12 +26,12 @@ public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu
     }
 
     public void setPhoneNumber(String phoneNumber) throws Exception {
-        driver.findElement(By.name("friendsAndFamilyListInputFieldsphone_number0")).clear();
-        driver.findElement(By.name("friendsAndFamilyListInputFieldsphone_number0")).sendKeys(phoneNumber);
+        tool.driver.findElement(By.name("friendsAndFamilyListInputFieldsphone_number0")).clear();
+        tool.driver.findElement(By.name("friendsAndFamilyListInputFieldsphone_number0")).sendKeys(phoneNumber);
     }
 
     public void clickOK() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
 }

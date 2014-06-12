@@ -4,25 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.AddNewCaseCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class AddNewCase extends AddNewCaseCommon {
 
-    public AddNewCase(WebDriver driver) throws Exception {
-        super(driver);
-
+    public AddNewCase(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AddCaseReview clickContinue() throws Exception {
 
         super.clickContinue();
-        return new AddCaseReview(driver);
+        return new AddCaseReview(tool, test, user);
     }
 }

@@ -4,25 +4,23 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.WelcomeToYourPersonalizedWorkspaceCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class WelcomeToYourPersonalizedWorkspace extends WelcomeToYourPersonalizedWorkspaceCommon {
 
-    public WelcomeToYourPersonalizedWorkspace(WebDriver driver) throws Exception {
+    public WelcomeToYourPersonalizedWorkspace(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Welcome to Your Personalized Workspace";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
@@ -30,6 +28,6 @@ public class WelcomeToYourPersonalizedWorkspace extends WelcomeToYourPersonalize
     @Override
     public ViewHierarchy clickManageTelco() throws Exception {
         super.clickManageTelco();
-        return new ViewHierarchy(driver);
+        return new ViewHierarchy(tool, test, user);
     }
 }

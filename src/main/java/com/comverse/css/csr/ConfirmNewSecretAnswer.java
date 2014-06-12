@@ -4,26 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ConfirmNewSecretAnswerCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ConfirmNewSecretAnswer extends ConfirmNewSecretAnswerCommon {
 
-    public ConfirmNewSecretAnswer(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ConfirmNewSecretAnswer(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ConfirmChange clickOK() throws Exception {
 
         super.clickOK();
-        return new ConfirmChange(driver);
+        return new ConfirmChange(tool, test, user);
     }
 }

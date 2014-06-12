@@ -4,26 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ChangeLoginPasswordCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ChangeLoginPassword extends ChangeLoginPasswordCommon {
 
-    public ChangeLoginPassword(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ChangeLoginPassword(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public MyshapeCSRPortal clickLogout() throws Exception {
 
         super.clickLogout();
-        return new MyshapeCSRPortal(driver);
+        return new MyshapeCSRPortal(tool, test, user);
     }
 }

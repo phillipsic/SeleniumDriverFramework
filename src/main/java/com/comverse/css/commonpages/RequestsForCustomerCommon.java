@@ -1,17 +1,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class RequestsForCustomerCommon extends CommonMenu {
     static String expectedScreen = "Requests for Customer";
 
-    public RequestsForCustomerCommon(WebDriver driver) throws Exception {
+    public RequestsForCustomerCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -20,14 +22,14 @@ public class RequestsForCustomerCommon extends CommonMenu {
     }
 
     public void clickSearch() throws Exception {
-        driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public OrderDetailsCommon clickOnOrderNumberLink(String orderNumber) throws Exception {
-        driver.findElement(By.linkText(orderNumber)).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new OrderDetailsCommon(driver);
+        tool.driver.findElement(By.linkText(orderNumber)).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new OrderDetailsCommon(tool, test, user);
     }
 
     public void waitUntilFirstRequestCompletedOrFailed() throws Exception {
@@ -41,8 +43,7 @@ public class RequestsForCustomerCommon extends CommonMenu {
             this.clickSearch();
             requestStatus = this.getFirstRequestStatus();
 
-            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:"
-                               + requestStatus);
+            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + requestStatus);
 
             if (requestStatus.equals("Done")) {
 
@@ -64,15 +65,15 @@ public class RequestsForCustomerCommon extends CommonMenu {
     }
 
     public String getFirstRequestStatus() throws Exception {
-        String requestStatus = driver.findElement(By.xpath("//div[@id='requestsContainer']//tr/td[7]/div")).getText();
+        String requestStatus = tool.driver.findElement(By.xpath("//div[@id='requestsContainer']//tr/td[7]/div")).getText();
         return requestStatus;
     }
 
     public void clickToSubscriberDashboard() throws Exception {
-        driver.findElement(By.cssSelector("div.navContextMain > a[title=\"Go to Subscriber Dashboard\"]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.cssSelector("div.navContextMain > a[title=\"Go to Subscriber Dashboard\"]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
-    
+
     public void waitUntilFirstRequestCompletedOrFailedPOS() throws Exception {
 
         int maxIterations = 90;
@@ -84,8 +85,7 @@ public class RequestsForCustomerCommon extends CommonMenu {
             this.clickSearch();
             requestStatus = this.getFirstRequestStatus();
 
-            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:"
-                               + requestStatus);
+            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + requestStatus);
 
             if (requestStatus.equals("Done")) {
 

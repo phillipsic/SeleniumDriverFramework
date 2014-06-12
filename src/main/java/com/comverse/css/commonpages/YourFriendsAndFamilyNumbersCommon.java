@@ -5,17 +5,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class YourFriendsAndFamilyNumbersCommon extends CommonMenu {
     static String expectedScreen = "Your Friends and Family numbers";
 
-    public YourFriendsAndFamilyNumbersCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public YourFriendsAndFamilyNumbersCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,17 +26,17 @@ public class YourFriendsAndFamilyNumbersCommon extends CommonMenu {
     }
 
     public ConfigurationOfYourFriendsAndFamilyNumbersCommon clickReconfigure() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Reconfigure']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ConfigurationOfYourFriendsAndFamilyNumbersCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Reconfigure']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ConfigurationOfYourFriendsAndFamilyNumbersCommon(tool, test, user);
     }
 
     public void verifyPhoneNumber(String phoneNumber) throws Exception {
-        Common.assertTextOnPage(driver, phoneNumber);
+        Common.assertTextOnPage(tool, phoneNumber);
     }
 
     public void clickOK() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
 }

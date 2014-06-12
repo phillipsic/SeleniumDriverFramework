@@ -5,14 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class RemoveOfferCommon extends CommonMenu {
 
-    public RemoveOfferCommon(WebDriver driver) throws Exception {
+    public RemoveOfferCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Remove Offer";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,7 +25,7 @@ public class RemoveOfferCommon extends CommonMenu {
     }
 
     public OfferCancellationCommon clickYes() throws Exception {
-        driver.findElement(By.xpath("(//input[@value='Yes'])")).click();
-        return new OfferCancellationCommon(driver);
+        tool.driver.findElement(By.xpath("(//input[@value='Yes'])")).click();
+        return new OfferCancellationCommon(tool, test, user);
     }
 }

@@ -1,31 +1,29 @@
 package com.comverse.css.b2c;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
+
 public class AddCaseReview extends B2CMenu {
-    
-    public AddCaseReview(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+
+    public AddCaseReview(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Add case - review";
-        
-        
-        if (!expectedScreen.equals(driver.getTitle())) {
-            
+
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
-    
+
     public AddCaseConfirmation clickCreateCase() throws Exception {
-        
-        driver.findElement(By.xpath("//input[@value='Create case']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AddCaseConfirmation(driver);
+
+        tool.driver.findElement(By.xpath("//input[@value='Create case']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AddCaseConfirmation(tool, test, user);
     }
 }

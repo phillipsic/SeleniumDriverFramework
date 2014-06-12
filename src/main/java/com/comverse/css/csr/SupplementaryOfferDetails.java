@@ -4,20 +4,20 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.SupplementaryOfferDetailsCommon;
 
 public class SupplementaryOfferDetails extends SupplementaryOfferDetailsCommon {
 
-    public SupplementaryOfferDetails(WebDriver driver) throws Exception {
-        super(driver);
-
+    public SupplementaryOfferDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public MyBasket clickViewBasket() throws Exception {
         super.clickViewBasket();
-        return new MyBasket(driver);
+        return new MyBasket(tool, test, user);
     }
 }

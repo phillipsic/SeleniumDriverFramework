@@ -4,20 +4,20 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.RechargeWithVoucherCommon;
 
 public class RechargeWithVoucher extends RechargeWithVoucherCommon {
 
-    public RechargeWithVoucher(WebDriver driver) throws Exception {
-        super(driver);
-
+    public RechargeWithVoucher(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public RechargeSubscriber clickContinue() throws Exception {
         super.clickContinue();
-        return new RechargeSubscriber(driver);
+        return new RechargeSubscriber(tool, test, user);
     }
 }

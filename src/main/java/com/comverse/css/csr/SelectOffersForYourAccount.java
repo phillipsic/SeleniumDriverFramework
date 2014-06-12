@@ -4,26 +4,26 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.SelectOffersForYourAccountCommon;
 
 public class SelectOffersForYourAccount extends SelectOffersForYourAccountCommon {
 
-    public SelectOffersForYourAccount(WebDriver driver) throws Exception {
-        super(driver);
-
+    public SelectOffersForYourAccount(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public MyBasket clickContinueNoConfiguration() throws Exception {
         super.clickContinueNoConfiguration();
-        return new MyBasket(driver);
+        return new MyBasket(tool, test, user);
     }
 
     @Override
     public AccountOfferDetails clickOfferDetail(String accountOfferName) throws Exception {
         super.clickOfferDetail(accountOfferName);
-        return new AccountOfferDetails(driver);
+        return new AccountOfferDetails(tool, test, user);
     }
 }

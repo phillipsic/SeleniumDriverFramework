@@ -10,21 +10,18 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
-
-/**
- * 
- * @author Vikram Sharma
- */
 
 public class ViewRCHistoryCommon extends CommonMenu {
 
-    public ViewRCHistoryCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ViewRCHistoryCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
         if (!"View RC history".equals(currentScreen)) {
@@ -58,27 +55,27 @@ public class ViewRCHistoryCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        driver.findElement(By.id("startDate")).clear();
-        driver.findElement(By.id("startDate")).sendKeys(fromDate);
+        tool.driver.findElement(By.id("startDate")).clear();
+        tool.driver.findElement(By.id("startDate")).sendKeys(fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
-        driver.findElement(By.id("endDate")).clear();
-        driver.findElement(By.id("endDate")).sendKeys(toDate);
+        tool.driver.findElement(By.id("endDate")).clear();
+        tool.driver.findElement(By.id("endDate")).sendKeys(toDate);
 
     }
 
     public void clickSearch() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public String getSearchResults() throws Exception {
 
-        String text = driver.findElement(By.className("resultListTabTitle")).getText();
+        String text = tool.driver.findElement(By.className("resultListTabTitle")).getText();
 
         System.out.println("Output:" + text);
 
@@ -87,10 +84,10 @@ public class ViewRCHistoryCommon extends CommonMenu {
 
     public ViewRCTermDetailsCommon ViewRCTermDetails() throws Exception {
 
-        driver.findElement(By.xpath("//fieldset/div/table/tbody[2]/tr/td/div/a")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//fieldset/div/table/tbody[2]/tr/td/div/a")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new ViewRCTermDetailsCommon(driver);
+        return new ViewRCTermDetailsCommon(tool, test, user);
 
     }
 

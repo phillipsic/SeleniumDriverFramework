@@ -5,14 +5,17 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ModifySubscriberAttributes extends B2CMenu {
 
-    public ModifySubscriberAttributes(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public ModifySubscriberAttributes(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Subscriber Attributes";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,26 +26,26 @@ public class ModifySubscriberAttributes extends B2CMenu {
 
     public RequestSubmission clickModifyAttributes() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value= 'Modify Attributes']")).click();
-        return new RequestSubmission(driver);
+        tool.driver.findElement(By.xpath("//input[@value= 'Modify Attributes']")).click();
+        return new RequestSubmission(tool, test, user);
     }
 
     public void selectLanguage(String language) throws Exception {
 
-        new Select(driver.findElement(By.id("p-param-L4:80000"))).selectByVisibleText(language);
+        new Select(tool.driver.findElement(By.id("p-param-L4:80000"))).selectByVisibleText(language);
 
     }
 
     public String getLanguage() throws Exception {
 
-        String language = new Select(driver.findElement(By.id("p-param-L4:80000"))).getFirstSelectedOption().getText();
+        String language = new Select(tool.driver.findElement(By.id("p-param-L4:80000"))).getFirstSelectedOption().getText();
         return language;
     }
 
     public SubscriberDetail clickCancel() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value= 'Cancel']")).click();
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.xpath("//input[@value= 'Cancel']")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 
 }

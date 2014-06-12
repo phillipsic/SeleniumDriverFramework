@@ -5,20 +5,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class HomePageBackOfficeCommon {
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-    public WebDriver driver;
+public class HomePageBackOfficeCommon extends CommonMenu {
 
-    public HomePageBackOfficeCommon(WebDriver driver) {
+    public HomePageBackOfficeCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
+        String expectedScreen = "Welcome to Your Workspace";
 
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
-        String expectedScreen = "Home Page - Back Office, Inventory and Order Management";
-
-        if (!expectedScreen.equals(driver.getTitle())) {
-
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
 
@@ -26,25 +25,25 @@ public class HomePageBackOfficeCommon {
 
     public AddressAdministrationCommon clickAddressAdministration() throws Exception {
 
-        driver.findElement(By.id("smnu_ADDRESS_ADMINISTRATION")).click();
+        tool.driver.findElement(By.id("smnu_ADDRESS_ADMINISTRATION")).click();
 
-        return new AddressAdministrationCommon(driver);
+        return new AddressAdministrationCommon(tool, test, user);
 
     }
 
     public TokensfoundCommon clickTokenAdministration() throws Exception {
 
-        driver.findElement(By.id("smnu_TOKEN_ADMINISTRATION")).click();
+        tool.driver.findElement(By.id("smnu_TOKEN_ADMINISTRATION")).click();
 
-        return new TokensfoundCommon(driver);
+        return new TokensfoundCommon(tool, test, user);
 
     }
 
     public OutboundCommunicationTemplateCommon clickTemplateAdministration() throws Exception {
 
-        driver.findElement(By.id("smnu_TEMPLATE_ADMINISTRATION")).click();
+        tool.driver.findElement(By.id("smnu_TEMPLATE_ADMINISTRATION")).click();
 
-        return new OutboundCommunicationTemplateCommon(driver);
+        return new OutboundCommunicationTemplateCommon(tool, test, user);
 
     }
 }

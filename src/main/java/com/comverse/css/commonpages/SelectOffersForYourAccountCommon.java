@@ -4,15 +4,18 @@
  */
 package com.comverse.css.commonpages;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class SelectOffersForYourAccountCommon extends CommonMenu {
 
-    public SelectOffersForYourAccountCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public SelectOffersForYourAccountCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Select offers for your Account";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,32 +25,32 @@ public class SelectOffersForYourAccountCommon extends CommonMenu {
     }
 
     public ConfigureOffersCommon clickContinue() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new ConfigureOffersCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new ConfigureOffersCommon(tool, test, user);
     }
 
     public MyBasketCommon clickContinueNoConfiguration() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
     public MyBasketCommon clickPrevious() throws Exception {
-        driver.findElement(By.cssSelector("input.submitGrey")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.cssSelector("input.submitGrey")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
     public void selectAccountOfferByName(String accountOfferName) throws Exception {
-        driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../../td/input")).click();
+        tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../../td/input")).click();
     }
 
     public AccountOfferDetailsCommon clickOfferDetail(String accountOfferName) throws Exception {
-        driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../a")).click();
-        return new AccountOfferDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../a")).click();
+        return new AccountOfferDetailsCommon(tool, test, user);
     }
-    
+
     public void clickOfferDetailAndPopUp(String accountOfferName) throws Exception {
-        driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../a")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        
+        tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../a")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+
     }
 }

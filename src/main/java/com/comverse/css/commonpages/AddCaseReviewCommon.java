@@ -5,20 +5,22 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class AddCaseReviewCommon extends CommonMenu {
     static String expectedScreen = "Add case - review";
 
-    public AddCaseReviewCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public AddCaseReviewCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -26,19 +28,19 @@ public class AddCaseReviewCommon extends CommonMenu {
 
     public AddCaseConfirmationCommon clickCreateCase() throws Exception {
 
-        driver.findElement(By.name("ACTION_CREATE")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AddCaseConfirmationCommon(driver);
+        tool.driver.findElement(By.name("ACTION_CREATE")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AddCaseConfirmationCommon(tool, test, user);
 
     }
-    
-     public AddCaseConfirmationCommon clickCreateCaseAndClose() throws Exception {
 
-        driver.findElement(By.name("ACTION_CREATE_AND_CLOSE")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AddCaseConfirmationCommon(driver);
+    public AddCaseConfirmationCommon clickCreateCaseAndClose() throws Exception {
+
+        tool.driver.findElement(By.name("ACTION_CREATE_AND_CLOSE")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AddCaseConfirmationCommon(tool, test, user);
 
     }
 }

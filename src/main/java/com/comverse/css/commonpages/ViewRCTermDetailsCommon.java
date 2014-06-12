@@ -4,18 +4,16 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-/**
- * 
- * @author Vikram Sharma
- */
 public class ViewRCTermDetailsCommon extends CommonMenu {
 
-    public ViewRCTermDetailsCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ViewRCTermDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "View RC term details";
 
         if (!expectedScreen.equals(currentScreen)) {

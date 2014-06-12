@@ -1,9 +1,11 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 import com.comverse.css.data.PO.PO_DIYRechargesPromotions;
 import com.comverse.css.data.PO.PO_DIYRechargesPromotions2;
@@ -13,42 +15,40 @@ import com.comverse.css.data.SB.SB_ResidentialBasicPrepaidBundle;
 
 public class WorkSpaceCommon extends CommonMenu {
 
-    public WorkSpaceCommon(WebDriver driver) throws Exception {
-
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public WorkSpaceCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Welcome to Your Workspace";
 
         if (!expectedScreen.equals(currentScreen)) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public String getHomePageWelcomeMessage() throws Exception {
 
-        return driver.findElement(By.xpath("/html/body/h1")).getText();
+        return tool.driver.findElement(By.xpath("/html/body/h1")).getText();
     }
 
     public EnterIdentificationDataCommon startNewConvergentResidentialCustomer() throws Exception {
 
-        driver.findElement(By.linkText("New Convergent Residential Customer")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new EnterIdentificationDataCommon(driver);
+        tool.driver.findElement(By.linkText("New Convergent Residential Customer")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new EnterIdentificationDataCommon(tool, test, user);
     }
 
     public EnterIdentificationDataCommon startNewConvergentBusinessCustomer() throws Exception {
 
-        driver.findElement(By.linkText("New Convergent Business Customer")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new EnterIdentificationDataCommon(driver);
+        tool.driver.findElement(By.linkText("New Convergent Business Customer")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new EnterIdentificationDataCommon(tool, test, user);
     }
-    
-     public EnterIdentificationDataCommon startNewPrePaidBusinessCustomer() throws Exception {
 
-        driver.findElement(By.linkText("New Pure Prepaid Business Customer")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new EnterIdentificationDataCommon(driver);
+    public EnterIdentificationDataCommon startNewPrePaidBusinessCustomer() throws Exception {
+
+        tool.driver.findElement(By.linkText("New Pure Prepaid Business Customer")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new EnterIdentificationDataCommon(tool, test, user);
     }
 
     public WorkSpaceCommon doResitdentialNCAResidentialUltraPostpaidPOS() throws Exception {
@@ -323,9 +323,9 @@ public class WorkSpaceCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickManageTelco() throws Exception {
-        driver.findElement(By.id("mnu_TELCO")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ViewHierarchyCommon(driver);
+        tool.driver.findElement(By.id("mnu_TELCO")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ViewHierarchyCommon(tool, test, user);
     }
 
     public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidWithSOCSR(String SUPPLEMENTARY_OFFER) throws Exception {
@@ -369,19 +369,18 @@ public class WorkSpaceCommon extends CommonMenu {
     }
 
     public void clickBrowseCatalog() throws Exception {
-
-        driver.findElement(By.linkText("Browse Catalog")).click();
+        tool.clickUsingLinkText(tool, "Browse Catalog");
     }
 
     public void selectCustomerType(String customerType) throws Exception {
-
-        new Select(driver.findElement(By.id("orgTypeId"))).selectByVisibleText(customerType);
+        new Select(tool.driver.findElement(By.id("orgTypeId"))).selectByVisibleText(customerType);
     }
 
     public ShoppingCommon clickSubmit() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@value='Submit'])")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ShoppingCommon(driver);
+        tool.driver.findElement(By.xpath("(//input[@value='Submit'])")).click();
+
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ShoppingCommon(tool, test, user);
     }
 }

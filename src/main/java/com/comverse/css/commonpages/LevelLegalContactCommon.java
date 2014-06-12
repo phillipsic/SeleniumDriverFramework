@@ -5,18 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class LevelLegalContactCommon extends CommonMenu {
 
-    public LevelLegalContactCommon(WebDriver driver) throws Exception {
+    public LevelLegalContactCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Level Legal Contact";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -26,12 +25,12 @@ public class LevelLegalContactCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickBack() throws Exception {
-        driver.findElement(By.id("youcan_ON_BACK")).click();
-        return new ViewHierarchyCommon(driver);
+        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        return new ViewHierarchyCommon(tool, test, user);
     }
 
     public ModifyLevelLegalContactCommon clickModifyLevelLegalContact() throws Exception {
-        driver.findElement(By.id("youcan_MODIFY_CONTACT")).click();
-        return new ModifyLevelLegalContactCommon(driver);
+        tool.driver.findElement(By.id("youcan_MODIFY_CONTACT")).click();
+        return new ModifyLevelLegalContactCommon(tool, test, user);
     }
 }

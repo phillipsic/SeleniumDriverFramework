@@ -4,25 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.SendCommunicationCommon;
 
-/**
- * 
- * @author gmaroth
- */
 public class SendCommunication extends SendCommunicationCommon {
 
-    public SendCommunication(WebDriver driver) throws Exception {
-        super(driver);
-
+    public SendCommunication(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public OutboundCommunication clickSendCommunication() throws Exception {
 
         super.clickSendCommunication();
-        return new OutboundCommunication(driver);
+        return new OutboundCommunication(tool, test, user);
     }
 }

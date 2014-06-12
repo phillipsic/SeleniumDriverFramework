@@ -4,30 +4,26 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.SearchAddressCommon;
 
-/**
- * 
- * @author gmaroth
- */
 public class SearchAddress extends SearchAddressCommon {
 
-    public SearchAddress(WebDriver driver) throws Exception {
-        super(driver);
-
+    public SearchAddress(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public SearchAddress clickOk() throws Exception {
         super.clickOk();
-        return new SearchAddress(driver);
+        return new SearchAddress(tool, test, user);
     }
 
     @Override
     public EnterIdentificationData clickSelectAddress() throws Exception {
         super.clickSelectAddress();
-        return new EnterIdentificationData(driver);
+        return new EnterIdentificationData(tool, test, user);
     }
 }

@@ -4,13 +4,15 @@
  */
 package com.comverse.css.csr;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.PersonDetailsCommon;
-import org.openqa.selenium.WebDriver;
 
 public class PersonDetails extends PersonDetailsCommon {
 
-    public PersonDetails(WebDriver driver) throws Exception {
-        super(driver);
+    public PersonDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override

@@ -1,17 +1,20 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class HandsetDetails extends B2CMenu {
 
-    public HandsetDetails(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public HandsetDetails(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Handset Details";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -19,17 +22,17 @@ public class HandsetDetails extends B2CMenu {
     }
 
     public MyBasket clickBuyOutRight() throws Exception {
-        driver.findElement(By.cssSelector("input[type='submit'][value='Buy Outright']")).click();
-        return new MyBasket(driver);
+        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Buy Outright']")).click();
+        return new MyBasket(tool, test, user);
     }
 
     public void clickTermsAndConditionsTab() throws Exception {
-        driver.findElement(By.xpath(" .//em[contains(.,'Terms and Conditions')]")).click();
+        tool.driver.findElement(By.xpath(" .//em[contains(.,'Terms and Conditions')]")).click();
 
     }
 
     public ChooseYourHandset clickReturnToList() throws Exception {
-        driver.findElement(By.cssSelector("input[type='submit'][value='Return to List']")).click();
-        return new ChooseYourHandset(driver);
+        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Return to List']")).click();
+        return new ChooseYourHandset(tool, test, user);
     }
 }

@@ -1,27 +1,29 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.By;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class PrimaryOfferDetailsCommon extends CommonMenu {
 
-    public PrimaryOfferDetailsCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public PrimaryOfferDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Primary Offer Details";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickRPOCompatiblePrimaryOffersTab() throws Exception {
-        driver.findElement(By.xpath("//em[contains(text(),'Compatible Offers')]")).click();
+        tool.driver.findElement(By.xpath("//em[contains(text(),'Compatible Offers')]")).click();
     }
 
     public void clickRPOTermsandConditionsTab() throws Exception {
-        driver.findElement(By.xpath("//em[contains(text(),'Terms And Conditions')]")).click();
+        tool.driver.findElement(By.xpath("//em[contains(text(),'Terms And Conditions')]")).click();
     }
 }

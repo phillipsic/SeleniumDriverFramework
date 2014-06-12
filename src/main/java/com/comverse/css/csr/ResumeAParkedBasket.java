@@ -1,28 +1,27 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ResumeAParkedBasketCommon;
 
 public class ResumeAParkedBasket extends ResumeAParkedBasketCommon {
 
-    public ResumeAParkedBasket(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ResumeAParkedBasket(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public DeleteBasketConfirm deleteParkedBasket(String basketName) throws Exception {
 
         super.deleteParkedBasket(basketName);
-        return new DeleteBasketConfirm(driver);
+        return new DeleteBasketConfirm(tool, test, user);
     }
 
     @Override
     public ResumeBasketConfirm resumeParkedBasket(String value) throws Exception {
 
         super.resumeParkedBasket(value);
-        return new ResumeBasketConfirm(driver);
+        return new ResumeBasketConfirm(tool, test, user);
     }
 }

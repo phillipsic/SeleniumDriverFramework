@@ -1,0 +1,31 @@
+
+package com.comverse.upm.common;
+
+
+
+import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.Selenium;
+
+import com.comverse.css.common.*;
+public class UpmPrep {
+	
+	
+	public Selenium startSeleniumAndOpenUpmHome(Selenium selenium) {
+
+		String url="-1";
+       PropertyHelper propsHelper = new PropertyHelper();
+      url = propsHelper.getInitProperties("upm_url");
+        //selenium = new DefaultSelenium("localhost", 4444, "*iexplore", "http://10.230.19.74:8800/upm/");
+		selenium = new DefaultSelenium("localhost", 4444, "*iexplore", url);
+
+
+     
+     //   selenium = new DefaultSelenium("localhost", 4444, "*iexplore", "http://10.230.19.74:8800/upm/");
+
+		selenium.start();
+		selenium.setTimeout("200000");
+		selenium.open("index.jsp");
+		return selenium;
+	}
+
+}

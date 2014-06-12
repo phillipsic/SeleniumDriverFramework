@@ -1,0 +1,62 @@
+package com.comverse.upm.common;
+
+/**
+ * 
+ * @author osmolya
+ */
+
+import com.thoughtworks.selenium.Selenium;
+
+
+public class UpmNavigation {
+	
+    private Selenium callerSelenium;
+//    private String DefaultTimeout = "100000";
+    private long DefaultSleep = 3000;
+
+
+    public UpmNavigation(Selenium selenium) {
+        this.callerSelenium = selenium;
+    }
+    
+		
+		public void goToProcess() throws Exception
+		{
+			//Click on Process tab
+			callerSelenium.click("css=#_id72 > span");
+			
+			UpmWait waiting = new UpmWait(callerSelenium);
+			waiting.forFrameToLoad("history-frame:n0HzD3jUf0J4bhu-_Qcnog:3");
+		}
+
+		public void goToProcessWorkflow() throws Exception
+		{
+			
+			UpmWait waiting = new UpmWait(callerSelenium);
+			goToProcess();
+			
+			//Click on Workflow tab
+			callerSelenium.click("id=_id83:_id84:0.1");
+            
+			waiting.forElementIdPresent("_id83:_id84:0:_id398:wkpTabID:0:_id399:_id404");
+	
+
+		}
+		
+
+		
+		public void goToProcessWorkflowHistory() throws Exception
+		{
+		//Click on History tab
+	    UpmWait waiting = new UpmWait(callerSelenium);
+	    waiting.forElementIdPresent("//a[@id='_id83:_id84:0:_id398:wkpTabID:0.4']/div/table/tbody/tr/td");
+//		callerSelenium.waitForCondition("selenium.isElementPresent(\"//a[@id='_id83:_id84:0:_id398:wkpTabID:0.4']/div/table/tbody/tr/td\")", "40000");
+		
+		callerSelenium.click("//a[@id='_id83:_id84:0:_id398:wkpTabID:0.4']/div/table/tbody/tr/td");
+
+		//Wait for 'CBS Batch Process' workflow option to appear
+		Thread.sleep(DefaultSleep);
+		
+		waiting.forElementIdPresent("_id83:_id84:0:_id398:wkpTabID:0:_id616:_id619");
+		}
+}

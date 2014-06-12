@@ -4,37 +4,37 @@
  */
 package com.comverse.css.b2c;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
+
 public class SearchRequests extends B2CMenu {
 
-    public SearchRequests(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public SearchRequests(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Search Requests";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public SearchOrders clickSearchOrders() throws Exception {
 
-        driver.findElement(By.id("smnu_ORDER")).click();
-        return new SearchOrders(driver);
+        tool.driver.findElement(By.id("smnu_ORDER")).click();
+        return new SearchOrders(tool, test, user);
     }
 
     public void clickSearch() throws Exception {
-        driver.findElement(By.xpath("(//input[@value='Search'])")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("(//input[@value='Search'])")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void waitUntilFirstRequestCompletedOrFailed() throws Exception {
@@ -49,8 +49,7 @@ public class SearchRequests extends B2CMenu {
             this.clickSearch();
             requestStatus = this.getFirstRequestStatus();
 
-            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:"
-                    + requestStatus);
+            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + requestStatus);
 
             if (requestStatus.equals("Done")) {
 
@@ -72,22 +71,22 @@ public class SearchRequests extends B2CMenu {
     }
 
     public String getFirstRequestStatus() throws Exception {
-        String requestStatus = driver.findElement(By.xpath("//div[@id='requestsContainer']//tr[1]/td[6]/div")).getText();
+        String requestStatus = tool.driver.findElement(By.xpath("//div[@id='requestsContainer']//tr[1]/td[6]/div")).getText();
         return requestStatus;
     }
 
     public void expandSearchCriteria() throws Exception {
 
-        driver.findElement(By.id("searchCriteriaTrigger")).click();
+        tool.driver.findElement(By.id("searchCriteriaTrigger")).click();
 
     }
-    
+
     public SubscriberDetail clickDashbaordMenu() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
-        driver.findElement(By.id("mnu_HOME")).click();
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.id("mnu_HOME")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 
 }

@@ -1,20 +1,20 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ViewBilledMTRDetailsCommon;
 
 public class ViewBilledMTRDetails extends ViewBilledMTRDetailsCommon {
 
-    public ViewBilledMTRDetails(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ViewBilledMTRDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ViewBilledMTR clickBack() throws Exception {
 
         super.clickBack();
-        return new ViewBilledMTR(driver);
+        return new ViewBilledMTR(tool, test, user);
     }
 }

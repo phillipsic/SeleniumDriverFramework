@@ -5,19 +5,20 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class HomePageBackOffice {
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.commonpages.HomePageBackOfficeCommon;
 
-    public WebDriver driver;
+public class HomePageBackOffice extends HomePageBackOfficeCommon {
 
-    public HomePageBackOffice(WebDriver driver) {
-
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+    public HomePageBackOffice(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Welcome to Your Workspace";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -26,11 +27,10 @@ public class HomePageBackOffice {
 
     public InventoryAdministration clickBackOffice() throws Exception {
 
-        driver.findElement(By.id("mnu_BACK_OFFICE")).click();
+        tool.driver.findElement(By.id("mnu_BACK_OFFICE")).click();
 
-        return new InventoryAdministration(driver);
+        return new InventoryAdministration(tool, test, user);
 
     }
 
-    
 }

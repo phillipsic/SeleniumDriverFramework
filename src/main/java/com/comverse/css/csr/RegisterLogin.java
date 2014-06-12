@@ -5,38 +5,34 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.RegisterLoginCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class RegisterLogin extends RegisterLoginCommon {
 
-    public RegisterLogin(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public RegisterLogin(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public RegisterLogin clickRegisterLoginContinue() throws Exception {
 
         super.clickRegisterLoginContinue();
-        return new RegisterLogin(driver);
+        return new RegisterLogin(tool, test, user);
     }
 
     public LoginInformation clickConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
-        return new LoginInformation(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        return new LoginInformation(tool, test, user);
     }
-    
-       public ViewHierarchy clickOk() throws Exception {
+
+    public ViewHierarchy clickOk() throws Exception {
 
         super.clickOk();
-        return new ViewHierarchy(driver);
+        return new ViewHierarchy(tool, test, user);
     }
 }

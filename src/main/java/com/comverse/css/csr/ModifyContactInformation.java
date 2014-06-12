@@ -4,24 +4,20 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyContactInformationCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class ModifyContactInformation extends ModifyContactInformationCommon {
 
-    public ModifyContactInformation(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ModifyContactInformation(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ModifyContactInformationConfirmation clickOk() throws Exception {
         super.clickOk();
-        return new ModifyContactInformationConfirmation(driver);
+        return new ModifyContactInformationConfirmation(tool, test, user);
     }
 }

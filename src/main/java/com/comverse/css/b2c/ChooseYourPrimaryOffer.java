@@ -1,19 +1,17 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
-/**
- * 
- * @author iphilli
- */
 public class ChooseYourPrimaryOffer extends B2CMenu {
 
-    public ChooseYourPrimaryOffer(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public ChooseYourPrimaryOffer(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Choose Your Primary Offer";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,36 +25,36 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + offerID);
-        driver.findElement(By.cssSelector("#selectButton_" + offerID)).click();
-        // driver.findElement(By.id("selectButton_" + temp[0])).click();
+        tool.driver.findElement(By.cssSelector("#selectButton_" + offerID)).click();
+        // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.driver.getTitle())) {
 
-            driver.findElement(By.cssSelector("input[name='nothanks']")).click();
+            tool.driver.findElement(By.cssSelector("input[name='nothanks']")).click();
             System.out.println("Checking for device page - found - No Thanks");
         }
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new EnterYourSubscriptionDetails(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public ChooseYourDevice selectPrimaryOfferByNameWithDevice(String primaryOfferName) throws Exception {
 
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + offerID);
-        driver.findElement(By.cssSelector("#selectButton_" + offerID)).click();
-        // driver.findElement(By.id("selectButton_" + temp[0])).click();
+        tool.driver.findElement(By.cssSelector("#selectButton_" + offerID)).click();
+        // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.driver.getTitle())) {
 
-            driver.findElement(By.cssSelector("input[name='nothanks']")).click();
+            tool.driver.findElement(By.cssSelector("input[name='nothanks']")).click();
             System.out.println("Checking for device page - found - No Thanks");
         }
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ChooseYourDevice(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ChooseYourDevice(tool, test, user);
     }
 
     public EnterYourSubscriptionDetails selectSubscriberBundleByNameWithoutDevice(String subscriberBundleName, String primaryOfferName) throws Exception {
@@ -64,29 +62,29 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         String subscriberbundleID = this.getSubscriberBundleID(subscriberBundleName);
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + subscriberbundleID);
-        driver.findElement(By.cssSelector("#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID)).click();
-        // driver.findElement(By.id("selectButton_" + temp[0])).click();
+        tool.driver.findElement(By.cssSelector("#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID)).click();
+        // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.driver.getTitle())) {
 
-            driver.findElement(By.cssSelector("input[name='nothanks']")).click();
+            tool.driver.findElement(By.cssSelector("input[name='nothanks']")).click();
             System.out.println("Checking for device page - found - No Thanks");
         }
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new EnterYourSubscriptionDetails(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public ChooseAccessories clickNoThanks() throws Exception {
-        driver.findElement(By.xpath("//input[@name='nothanks']")).click();
-        return new ChooseAccessories(driver);
+        tool.driver.findElement(By.xpath("//input[@name='nothanks']")).click();
+        return new ChooseAccessories(tool, test, user);
     }
 
     public String getPrimaryOfferID(String primaryOfferName) throws Exception {
         int pageCounter = 2;
 
-        boolean beresult = Common.isOfferTextOnPage(driver, primaryOfferName);
+        boolean beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
         System.out.println("Found offer?  - " + beresult);
 
         while (beresult == false) {
@@ -95,17 +93,17 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             // pageCounter);
             System.out.println("Now trying to navigate to page - " + pageCounter);
 
-            // driver.findElement(By.xpath("//img[@alt='Next Page (" +
+            // tool.driver.findElement(By.xpath("//img[@alt='Next Page (" +
             // pageCounter + ")']")).click();
-            driver.findElement(By.xpath("//a[@id='lnk_NAV_NEXT']/img")).click();
-            beresult = Common.isOfferTextOnPage(driver, primaryOfferName);
+            tool.driver.findElement(By.xpath("//a[@id='lnk_NAV_NEXT']/img")).click();
+            beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
             System.out.println("Found offer? - " + beresult);
             pageCounter++;
         }
 
         String temp[];
 
-        String str = driver.getPageSource();
+        String str = tool.driver.getPageSource();
 
         temp = str.split(primaryOfferName + " </[pP]>"); // works in IE
 
@@ -132,7 +130,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
     public String getSubscriberBundleID(String subscriberBundleName) throws Exception {
         int pageCounter = 2;
 
-        boolean beresult = Common.isOfferTextOnPage(driver, subscriberBundleName);
+        boolean beresult = Common.isOfferTextOnPage(tool, subscriberBundleName);
         System.out.println("Found bundle?  - " + beresult);
 
         while (beresult == false) {
@@ -141,17 +139,17 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             // pageCounter);
             System.out.println("Now trying to navigate to page - " + pageCounter);
 
-            // driver.findElement(By.xpath("//img[@alt='Next Page (" +
+            // tool.driver.findElement(By.xpath("//img[@alt='Next Page (" +
             // pageCounter + ")']")).click();
-            driver.findElement(By.xpath("//a[@id='lnk_NAV_NEXT']/img")).click();
-            beresult = Common.isOfferTextOnPage(driver, subscriberBundleName);
+            tool.driver.findElement(By.xpath("//a[@id='lnk_NAV_NEXT']/img")).click();
+            beresult = Common.isOfferTextOnPage(tool, subscriberBundleName);
             System.out.println("Found bundle? - " + beresult);
             pageCounter++;
         }
 
         String temp[];
 
-        String str = driver.getPageSource();
+        String str = tool.driver.getPageSource();
 
         temp = str.split(subscriberBundleName + " </[pP]>"); // works in IE
 

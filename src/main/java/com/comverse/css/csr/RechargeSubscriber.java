@@ -4,19 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.RechargeSubscriberCommon;
 
-/**
- * 
- * @author gmaroth
- */
 public class RechargeSubscriber extends RechargeSubscriberCommon {
 
-    public RechargeSubscriber(WebDriver driver) throws Exception {
-
-        super(driver);
+    public RechargeSubscriber(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 
@@ -24,6 +20,6 @@ public class RechargeSubscriber extends RechargeSubscriberCommon {
     public ViewBalance clickViewBalances() throws Exception {
 
         super.clickViewBalances();
-        return new ViewBalance(driver);
+        return new ViewBalance(tool, test, user);
     }
 }

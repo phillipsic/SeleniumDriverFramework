@@ -5,18 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class LockLoginCommon extends CommonMenu {
 
-    public LockLoginCommon(WebDriver driver) throws Exception {
+    public LockLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Lock Login";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,18 +26,18 @@ public class LockLoginCommon extends CommonMenu {
 
     public void clickConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
     }
 
     public UnlockLoginCommon clickConfirmUnlock() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
-        return new UnlockLoginCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        return new UnlockLoginCommon(tool, test, user);
     }
 
     public LoginInformationCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new LoginInformationCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new LoginInformationCommon(tool, test, user);
     }
 }

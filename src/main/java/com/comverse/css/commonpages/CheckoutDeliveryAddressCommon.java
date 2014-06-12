@@ -5,17 +5,16 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class CheckoutDeliveryAddressCommon extends CommonMenu {
 
-    public CheckoutDeliveryAddressCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public CheckoutDeliveryAddressCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Checkout - Delivery Address";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -25,8 +24,8 @@ public class CheckoutDeliveryAddressCommon extends CommonMenu {
     }
 
     public CheckoutReviewCommon clickNextPage() throws Exception {
-        driver.findElement(By.id("nav_next_page")).click();
-        return new CheckoutReviewCommon(driver);
+        tool.driver.findElement(By.id("nav_next_page")).click();
+        return new CheckoutReviewCommon(tool, test, user);
     }
 
 }

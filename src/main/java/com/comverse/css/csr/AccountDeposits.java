@@ -4,18 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.AccountDepositsCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class AccountDeposits extends AccountDepositsCommon {
 
-    public AccountDeposits(WebDriver driver) throws Exception {
-        super(driver);
+    public AccountDeposits(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 
@@ -23,13 +20,13 @@ public class AccountDeposits extends AccountDepositsCommon {
     public AddDeposit clickAdd() throws Exception {
 
         super.clickAdd();
-        return new AddDeposit(driver);
+        return new AddDeposit(tool, test, user);
     }
 
     @Override
     public AccountDetails clickBack() throws Exception {
 
         super.clickBack();
-        return new AccountDetails(driver);
+        return new AccountDetails(tool, test, user);
     }
 }

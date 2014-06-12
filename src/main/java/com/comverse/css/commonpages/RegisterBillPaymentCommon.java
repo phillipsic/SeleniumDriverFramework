@@ -1,14 +1,17 @@
 package com.comverse.css.commonpages;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RegisterBillPaymentCommon extends CommonMenu {
 
-    public RegisterBillPaymentCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public RegisterBillPaymentCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Register Bill Payment";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,31 +22,31 @@ public class RegisterBillPaymentCommon extends CommonMenu {
 
     public void enterAmount(String amount) throws Exception {
 
-        driver.findElement(By.id("amount")).clear();
-        driver.findElement(By.id("amount")).sendKeys(amount);
+        tool.driver.findElement(By.id("amount")).clear();
+        tool.driver.findElement(By.id("amount")).sendKeys(amount);
     }
 
     public void selectPaymentMethod(String paymentmethod) throws Exception {
 
-        driver.findElement(By.id(paymentmethod)).click();
+        tool.driver.findElement(By.id(paymentmethod)).click();
     }
 
     public RegisterBillPaymentCommon clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
-        return new RegisterBillPaymentCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        return new RegisterBillPaymentCommon(tool, test, user);
     }
 
     public RegisterBillPaymentCommon clickConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new RegisterBillPaymentCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new RegisterBillPaymentCommon(tool, test, user);
     }
 
     public ViewInvoicesCommon clickBackToInvoices() throws Exception {
 
-        driver.findElement(By.xpath("//input[@name='confirm']")).click();
-        return new ViewInvoicesCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@name='confirm']")).click();
+        return new ViewInvoicesCommon(tool, test, user);
     }
 }

@@ -5,34 +5,33 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ModifyLoginPasswordCommon extends CommonMenu {
 
-    public ModifyLoginPasswordCommon(WebDriver driver) throws Exception {
+    public ModifyLoginPasswordCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Login Password";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickOk() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-       
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+
     }
 
     public String getNewPassword() throws Exception {
 
-        String password = driver.findElement(By.xpath("//div[@id='mainContents']/div/div[2]/div/div/span")).getText();
+        String password = tool.driver.findElement(By.xpath("//div[@id='mainContents']/div/div[2]/div/div/span")).getText();
 
         String temp[] = password.split(":");
         password = temp[1];

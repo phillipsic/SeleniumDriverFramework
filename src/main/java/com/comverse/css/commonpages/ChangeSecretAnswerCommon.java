@@ -5,22 +5,21 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ChangeSecretAnswerCommon extends CommonMenu {
 
-    public ChangeSecretAnswerCommon(WebDriver driver) throws Exception {
+    public ChangeSecretAnswerCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Change secret question and answer";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -28,30 +27,30 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
 
     public void setPassword(String password) throws Exception {
 
-        driver.findElement(By.id("password_old")).clear();
-        driver.findElement(By.id("password_old")).sendKeys(password);
+        tool.driver.findElement(By.id("password_old")).clear();
+        tool.driver.findElement(By.id("password_old")).sendKeys(password);
     }
 
     public void setSecretAnswer(String answer) throws Exception {
 
-        driver.findElement(By.id("secretAnswer")).clear();
-        driver.findElement(By.id("secretAnswer")).sendKeys(answer);
+        tool.driver.findElement(By.id("secretAnswer")).clear();
+        tool.driver.findElement(By.id("secretAnswer")).sendKeys(answer);
     }
 
     public String getSecretAnswer() throws Exception {
 
-        return driver.findElement(By.id("secretAnswer")).getAttribute("value");
+        return tool.driver.findElement(By.id("secretAnswer")).getAttribute("value");
     }
 
     public void setSecretQuestion(String question) throws Exception {
 
-        new Select(driver.findElement(By.id("secretQuestionId"))).selectByVisibleText(question);
+        new Select(tool.driver.findElement(By.id("secretQuestionId"))).selectByVisibleText(question);
     }
 
     public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
-        return new ConfirmNewSecretAnswerCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        return new ConfirmNewSecretAnswerCommon(tool, test, user);
     }
 
 }

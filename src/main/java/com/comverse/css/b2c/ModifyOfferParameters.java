@@ -5,41 +5,44 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class ModifyOfferParameters extends B2CMenu {
 
-    public ModifyOfferParameters(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public ModifyOfferParameters(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Offer Parameters";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void checkVoiceMailEnableToNo() throws Exception {
-    	driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Enable')]/following-sibling::input")).click();
+        tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Enable')]/following-sibling::input")).click();
     }
 
     public void enterVoiceMailSize(String voiceMailSize) throws Exception {
-    	 driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).clear();
-         driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).sendKeys(voiceMailSize);
+        tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).clear();
+        tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).sendKeys(voiceMailSize);
     }
 
     public ModifyItemOfSubscriber clickModify() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Modify']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ModifyItemOfSubscriber(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Modify']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ModifyItemOfSubscriber(tool, test, user);
     }
 
     public String getVoiceMailSize() throws Exception {
 
-        return driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).getAttribute("value");
+        return tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).getAttribute("value");
     }
 }

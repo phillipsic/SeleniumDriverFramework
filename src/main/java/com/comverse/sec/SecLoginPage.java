@@ -5,22 +5,22 @@
 package com.comverse.sec;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.css.common.Common;
+import com.comverse.css.commonpages.CommonMenu;
 
-public class SecLoginPage {
+public class SecLoginPage extends CommonMenu {
 
-    private final WebDriver driver;
     private final User user;
 
-    public SecLoginPage(WebDriver driver, User user) {
-
-        this.driver = driver;
+    public SecLoginPage(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
         this.user = user;
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Security | Home";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -42,22 +42,22 @@ public class SecLoginPage {
 
     public void setSecservUserName(String login) throws Exception {
 
-        driver.findElement(By.id("loginForm:userName")).clear();
-        driver.findElement(By.id("loginForm:userName")).sendKeys(login);
+        tool.driver.findElement(By.id("loginForm:userName")).clear();
+        tool.driver.findElement(By.id("loginForm:userName")).sendKeys(login);
     }
 
     public void setSecservPassword(String password) throws Exception {
 
-        driver.findElement(By.id("loginForm:password")).clear();
-        driver.findElement(By.id("loginForm:password")).sendKeys(password);
+        tool.driver.findElement(By.id("loginForm:password")).clear();
+        tool.driver.findElement(By.id("loginForm:password")).sendKeys(password);
     }
 
     public void clickSignIn() throws Exception {
 
-        driver.findElement(By.linkText("Sign In")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.linkText("Sign In")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "|Welcome | Please Login";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -69,10 +69,10 @@ public class SecLoginPage {
 
     public void clickLogin() throws Exception {
 
-        driver.findElement(By.id("loginForm:loginBtn")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.id("loginForm:loginBtn")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Security | Home";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -84,11 +84,11 @@ public class SecLoginPage {
 
     public void clickIdentity() throws Exception {
 
-        driver.findElement(By.xpath("//a[@id='j_id29']/span")).click();
+        tool.driver.findElement(By.xpath("//a[@id='j_id29']/span")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -100,11 +100,11 @@ public class SecLoginPage {
 
     public void clickCSS_CSR() throws Exception {
         Common.sleepForNumberOfSeconds(2);
-        driver.findElement(By.xpath("//span[contains(text(),'CSS_CSR')]")).click();
+        tool.driver.findElement(By.xpath("//span[contains(text(),'CSS_CSR')]")).click();
         Common.sleepForNumberOfSeconds(3);
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -116,10 +116,10 @@ public class SecLoginPage {
 
     public void clickCSS_DEALER() throws Exception {
 
-        driver.findElement(By.xpath("//a[@id='j_id42:j_id45:n-7:j_id51']/span")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//a[@id='j_id42:j_id45:n-7:j_id51']/span")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -131,10 +131,10 @@ public class SecLoginPage {
 
     public void clickAddUser() throws Exception {
 
-        driver.findElement(By.cssSelector("input[type='button'][value='Add User']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.cssSelector("input[type='button'][value='Add User']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Security | Add User";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -146,7 +146,7 @@ public class SecLoginPage {
 
     public void addEmployeeCSRAdmin(String userlogin, String userpassword) throws Exception {
 
-        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(driver);
+        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
         secCsrAdmin.setFirstName("FN" + userlogin);
@@ -155,7 +155,7 @@ public class SecLoginPage {
         secCsrAdmin.setRePassword(userpassword);
         secCsrAdmin.setEmail(userlogin + "@comverse.com");
         secCsrAdmin.setGroups("CSSCSR_CSS_CSR_ADMIN");
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         secCsrAdmin.clickSave();
 
@@ -170,7 +170,7 @@ public class SecLoginPage {
 
     public void addEmployeeCSRUser(String userlogin, String userpassword) throws Exception {
 
-        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(driver);
+        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
         secCsrAdmin.setFirstName("FN" + userlogin);
@@ -179,7 +179,7 @@ public class SecLoginPage {
         secCsrAdmin.setRePassword(userpassword);
         secCsrAdmin.setEmail(userlogin + "@comverse.com");
         secCsrAdmin.setGroups("CSSCSR_CSS_CSR_USER");
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         secCsrAdmin.clickSave();
 
@@ -194,7 +194,7 @@ public class SecLoginPage {
 
     public void addEmployeeBOGAdmin(String userlogin, String userpassword) throws Exception {
 
-        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(driver);
+        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
         secCsrAdmin.setFirstName("FN" + userlogin);
@@ -203,7 +203,7 @@ public class SecLoginPage {
         secCsrAdmin.setRePassword(userpassword);
         secCsrAdmin.setEmail(userlogin + "@comverse.com");
         secCsrAdmin.setGroups("CSSCSR_CSS_BOG_ADMIN");
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         secCsrAdmin.clickSave();
 
@@ -218,7 +218,7 @@ public class SecLoginPage {
 
     public void addEmployeeTelcoRetailerAdmin(String userlogin, String userpassword) throws Exception {
 
-        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(driver);
+        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
         secCsrAdmin.setFirstName("FN" + userlogin);
@@ -227,13 +227,13 @@ public class SecLoginPage {
         secCsrAdmin.setRePassword(userpassword);
         secCsrAdmin.setEmail(userlogin + "@comverse.com");
         secCsrAdmin.setGroups("RETAILER_TELCO_ADMIN");
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         secCsrAdmin.clickSave();
 
         Common.sleepForNumberOfSeconds(15);
 
-        String cleanPageSource = Common.returnCleanPageSource(driver);
+        String cleanPageSource = Common.returnCleanPageSource(tool);
 
         if (!cleanPageSource.contains("Successfully created")) {
 
@@ -244,7 +244,7 @@ public class SecLoginPage {
 
     public void addEmployeeTelcoRetailerSubscriber(String userlogin, String userpassword) throws Exception {
 
-        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(driver);
+        SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
         secCsrAdmin.setFirstName("FN" + userlogin);
@@ -253,11 +253,11 @@ public class SecLoginPage {
         secCsrAdmin.setRePassword(userpassword);
         secCsrAdmin.setEmail(userlogin + "@comverse.com");
         secCsrAdmin.setGroups("RETAILER_TELCO_USR");
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         secCsrAdmin.clickSave();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         if (!driver.getPageSource().contains("Successfully created")) {
 

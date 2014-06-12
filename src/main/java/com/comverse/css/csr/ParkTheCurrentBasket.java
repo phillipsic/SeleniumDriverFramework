@@ -1,15 +1,15 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ParkTheCurrentBasketCommon;
 
 public class ParkTheCurrentBasket extends ParkTheCurrentBasketCommon {
 
-    public ParkTheCurrentBasket(WebDriver driver) throws Exception {
-
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public ParkTheCurrentBasket(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Park the Current Basket";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,6 +21,6 @@ public class ParkTheCurrentBasket extends ParkTheCurrentBasketCommon {
     @Override
     public ResumeAParkedBasket clickBasket() throws Exception {
         super.clickBasket();
-        return new ResumeAParkedBasket(driver);
+        return new ResumeAParkedBasket(tool, test, user);
     }
 }

@@ -5,45 +5,47 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.LoginCommon;
 
 public class Login extends LoginCommon {
 
-    public Login(WebDriver driver) {
-        super(driver);
+    public Login(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AddMemberConfirmation clickContinue() throws Exception {
         super.clickContinue();
-        return new AddMemberConfirmation(driver);
+        return new AddMemberConfirmation(tool, test, user);
     }
 
     @Override
     public AddMemberConfirmation clickCreateLoginLater() throws Exception {
         super.clickCreateLoginLater();
-        return new AddMemberConfirmation(driver);
+        return new AddMemberConfirmation(tool, test, user);
     }
 
     public void enterLogin(String login) throws Exception {
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(login);
+        tool.driver.findElement(By.id("login")).clear();
+        tool.driver.findElement(By.id("login")).sendKeys(login);
     }
 
     public RegisterLogin clickOk() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new RegisterLogin(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new RegisterLogin(tool, test, user);
     }
 
     public AddMemberConfirmation clickSubmit() throws Exception {
-        driver.findElement(By.cssSelector("input.submit")).click();
-        return new AddMemberConfirmation(driver);
+        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        return new AddMemberConfirmation(tool, test, user);
     }
 
     public void setRoles(String roles) throws Exception {
-        new Select(driver.findElement(By.id("roles"))).selectByVisibleText(roles);
+        new Select(tool.driver.findElement(By.id("roles"))).selectByVisibleText(roles);
     }
 }

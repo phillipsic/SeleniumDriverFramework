@@ -5,101 +5,100 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import com.comverse.css.common.Common;
 import org.openqa.selenium.support.ui.Select;
 
-/**
- *
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
+
 public class SearchOrders extends B2CMenu {
 
-    public SearchOrders(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public SearchOrders(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Search Orders";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickSearch() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Search']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
 
     }
 
     public SubscriberDetail clickAccounts() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.id("mnu_ACCOUNTS")).click();
-        return new SubscriberDetail(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.id("mnu_ACCOUNTS")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 
     public SubscriberDetail clickDashboard() throws Exception {
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        driver.findElement(By.id("mnu_HOME")).click();
-        return new SubscriberDetail(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.driver.findElement(By.id("mnu_HOME")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 
     public SearchRequests clickSearchRequests() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Search']")).click();
-        return new SearchRequests(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
+        return new SearchRequests(tool, test, user);
     }
 
     public String getOrderStatus() throws Exception {
 
-        String orderStatus = driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[5]")).getText();
+        String orderStatus = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[5]")).getText();
         return orderStatus;
     }
 
     public String getOrderStatusWithOrderNumber(String orderNumber) throws Exception {
 
-        String orderStatus = driver.findElement(By.xpath("//a[contains(text(),'" + orderNumber + "')]/../../td[5]")).getText();
+        String orderStatus = tool.driver.findElement(By.xpath("//a[contains(text(),'" + orderNumber + "')]/../../td[5]")).getText();
         return orderStatus;
     }
 
     public String getOrderNumber() throws Exception {
 
-        String orderNumber = driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[4]")).getText();
+        String orderNumber = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[4]")).getText();
         return orderNumber;
     }
 
     public void setOrderNumber(String orderNumber) throws Exception {
-        driver.findElement(By.id("orderNb")).clear();
-        driver.findElement(By.id("orderNb")).sendKeys(orderNumber);
+        tool.driver.findElement(By.id("orderNb")).clear();
+        tool.driver.findElement(By.id("orderNb")).sendKeys(orderNumber);
     }
 
     public void setFromDate(String date) throws Exception {
-        driver.findElement(By.id("startDate")).clear();
-        driver.findElement(By.id("startDate")).sendKeys(date);
+        tool.driver.findElement(By.id("startDate")).clear();
+        tool.driver.findElement(By.id("startDate")).sendKeys(date);
     }
 
     public void setToDate(String date) throws Exception {
-        driver.findElement(By.id("endDate")).clear();
-        driver.findElement(By.id("endDate")).sendKeys(date);
+        tool.driver.findElement(By.id("endDate")).clear();
+        tool.driver.findElement(By.id("endDate")).sendKeys(date);
     }
 
     public String getOrderDate() throws Exception {
 
-        String orderDate = driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[1]")).getText();
+        String orderDate = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[1]")).getText();
         return orderDate;
     }
 
     public void setOrderStatus(String orderStatus) throws Exception {
-        new Select(driver.findElement(By.id("orderStatus"))).selectByVisibleText(orderStatus);
+        new Select(tool.driver.findElement(By.id("orderStatus"))).selectByVisibleText(orderStatus);
     }
 
     public OrderDetails clickOrderNumber(String orderNumber) throws Exception {
-        driver.findElement(By.linkText(orderNumber)).click();
-        return new OrderDetails(driver);
+        tool.driver.findElement(By.linkText(orderNumber)).click();
+        return new OrderDetails(tool, test, user);
     }
 
     public void waitUntilOrderCompletedOrFailed() throws Exception {
@@ -113,8 +112,7 @@ public class SearchOrders extends B2CMenu {
             this.clickSearch();
             orderStatus = this.getOrderStatus();
 
-            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:"
-                    + orderStatus);
+            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + orderStatus);
 
             if (orderStatus.equals("Complete")) {
 
@@ -146,8 +144,7 @@ public class SearchOrders extends B2CMenu {
             this.clickSearch();
             orderStatus = this.getOrderStatusWithOrderNumber(orderNumber);
 
-            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:"
-                    + orderStatus);
+            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + orderStatus);
 
             if (orderStatus.equals("Complete")) {
 
@@ -167,10 +164,10 @@ public class SearchOrders extends B2CMenu {
             throw new IllegalStateException("Order failed with status " + this.getOrderStatus());
         }
     }
-    
+
     public SearchRequests goToSearchRequests() throws Exception {
 
-        driver.findElement(By.id("smnu_VIEW")).click();        
-        return new SearchRequests(driver);
+        tool.driver.findElement(By.id("smnu_VIEW")).click();
+        return new SearchRequests(tool, test, user);
     }
 }

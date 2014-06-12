@@ -4,26 +4,21 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.NewMemberLegalAddressCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class NewMemberLegalAddress extends NewMemberLegalAddressCommon {
 
-    public NewMemberLegalAddress(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public NewMemberLegalAddress(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public Login clickContinue() throws Exception {
 
         super.clickContinue();
-        return new Login(driver);
+        return new Login(tool, test, user);
     }
 }

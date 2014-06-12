@@ -1,17 +1,20 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class InventoryAdministration {
-    public WebDriver driver;
-    
-    public InventoryAdministration(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.commonpages.CommonMenu;
+
+public class InventoryAdministration extends CommonMenu {
+
+    public InventoryAdministration(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Inventory Administration";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -20,42 +23,41 @@ public class InventoryAdministration {
 
     public InsertInventory clickInsertInventory() throws Exception {
 
-        driver.findElement(By.linkText("Insert Inventory")).click();
+        tool.driver.findElement(By.linkText("Insert Inventory")).click();
 
-        return new InsertInventory(driver);
+        return new InsertInventory(tool, test, user);
     }
 
     public AddressAdministration clickAddressAdministration() throws Exception {
 
-        driver.findElement(By.id("smnu_ADDRESS_ADMINISTRATION")).click();
+        tool.driver.findElement(By.id("smnu_ADDRESS_ADMINISTRATION")).click();
 
-        return new AddressAdministration(driver);
+        return new AddressAdministration(tool, test, user);
 
     }
 
     public InventoryAdministration clickInventoryAdministration() throws Exception {
 
-        driver.findElement(By.id("smnu_INVENTORY_ADMINISTRATION")).click();
+        tool.driver.findElement(By.id("smnu_INVENTORY_ADMINISTRATION")).click();
 
-        return new InventoryAdministration(driver);
+        return new InventoryAdministration(tool, test, user);
 
     }
 
     public TokenAdministration clickTokenAdministration() throws Exception {
 
-        driver.findElement(By.id("smnu_TOKEN_ADMINISTRATION")).click();
+        tool.driver.findElement(By.id("smnu_TOKEN_ADMINISTRATION")).click();
 
-        return new TokenAdministration(driver);
+        return new TokenAdministration(tool, test, user);
 
     }
 
     public OutboundCommunicationTemplate clickTemplateAdministration() throws Exception {
 
-        driver.findElement(By.id("smnu_TEMPLATE_ADMINISTRATION")).click();
+        tool.driver.findElement(By.id("smnu_TEMPLATE_ADMINISTRATION")).click();
 
-        return new OutboundCommunicationTemplate(driver);
+        return new OutboundCommunicationTemplate(tool, test, user);
 
     }
-    
-}
 
+}

@@ -1,0 +1,186 @@
+package com.comverse.upm.common;
+
+import com.comverse.css.common.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.SeleneseTestCase;
+
+public class UPMSeleneseTestCase extends SeleneseTestCase {
+
+    protected DefaultSelenium selenium;
+    private BufferedWriter loggingWriter;
+    private static final String MSIE = "MSIE";
+    private static final String FIREFOX = "Firefox";
+    private static final String CHROME = "Chrome";
+
+    @Override
+    @Before
+    public void setUp(String htmlFileName) {
+
+        String host = "-1";
+        host = System.getProperty("selenum_host");
+
+        if (host == null) {
+            host = "localhost";
+        }
+
+        String port = "-1";
+        port = System.getProperty("selenum_port");
+        if (port == null) {
+            port = "4444";
+        }
+
+        String browser = "-1";
+        browser = System.getProperty("selenum_browser");
+
+        if (browser == null) {
+            PropertyHelper propsHelper = new PropertyHelper();
+            browser = propsHelper.getInitProperties("BROWSER.type");
+        }
+
+        String url = "-1";
+        url = System.getProperty("selenum_url");
+        if (url == null) {
+            PropertyHelper propsHelper = new PropertyHelper();
+            url = propsHelper.getInitProperties("css_url");
+        }
+        setUp(host, port, browser, url, htmlFileName);
+    }
+
+    @Before
+    public void setUp(String host, String port, String browser, String url, String htmlFileName) {
+
+        int portInt = 4444;
+        try {
+            portInt = Integer.parseInt(port);
+        } catch (NumberFormatException e) {
+            System.err.println("port parse error !!!");
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        selenium = new DefaultSelenium(host, portInt, browser, url);
+        selenium.start();
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        selenium.stop();
+        try {
+
+            if (null != loggingWriter) {
+                loggingWriter.close();
+            }
+        } catch (IOException e) {
+            // do nothing
+            System.err.println("tearDown close loggingWriter error!!!");
+            e.printStackTrace();
+        }
+    }
+
+    public void logResults(String bugId, String app, String version, String testId, String result, String mode, String browser) {
+        String ip = System.getenv("computername");
+        String version_short = null;
+        if (version.length() >= 57) {
+            version_short = version.substring(57);
+        } else {
+            version_short = version;
+        }
+        String browswer_in = getBrowserIn(browser);
+
+        System.out.println("Result for [" + testId + "]long  version is -[" + version + "]");
+        System.out.println("Result for [" + testId + "] short version is -[" + version_short + "]");
+
+        if (version_short == null || version.equals("") || testId == null || app == null || app.equals("")) {
+
+            System.out.println("Missing mandatory value testid = [" + testId + "] or app = [" + app + "]  or version is NULL");
+        } else {
+            logResults(bugId, ip, app, version_short, testId, result, mode, browswer_in);
+
+        }
+    }
+
+    private String getBrowserIn(String browser) {
+        String result = "";
+        int start = -1;
+        int stop = -1;
+
+        if (browser.indexOf(MSIE) != -1) {
+            start = browser.indexOf(MSIE);
+            stop = browser.indexOf(";", start);
+            result = browser.substring(start, stop);
+        } else if (browser.indexOf(FIREFOX) != -1) {
+            start = browser.indexOf(FIREFOX);
+            result = browser.substring(start);
+        } else if (browser.indexOf(CHROME) != -1) {
+            start = browser.indexOf(CHROME);
+            stop = browser.indexOf(" ", start);
+            result = browser.substring(start, stop);
+        }
+        return result;
+    }
+
+    public void logResults(String bugId, String ip, String app, String version, String testId, String result, String mode, String browser) {
+
+        Connection conn = null;
+        String url = "jdbc:mysql://10.140.84.213:3306/";
+        String dbName = "csspqa";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "30test";
+        String password = "30test123";
+        try {
+            Class.forName(driver).newInstance();
+            conn = DriverManager.getConnection(url + dbName, userName, password);
+            System.out.println("Connected to the database");
+            try {
+                Statement st = conn.createStatement();
+                String sql = "INSERT INTO test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, tag, browser )VALUES ("
+                        + "'"
+                        + bugId
+                        + "','"
+                        + ip
+                        + "','"
+                        + version
+                        + "','"
+                        + app
+                        + "','"
+                        + testId
+                        + "', NOW(),'"
+                        + result
+                        + "','"
+                        + mode
+                        + "','" + browser + "')";
+                st.executeUpdate(sql);
+                System.out.println("Test has been logged as a [" + result + "]");
+                System.out.println("Bug ID logged  [" + bugId + "]");
+                System.out.println("1 row affected");
+            } catch (SQLException s) {
+                System.err.println("SQL statement is not executed!");
+                s.printStackTrace();
+            }
+
+            conn.close();
+            System.out.println("Disconnected from database");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String testResult(StringBuffer broken_error) {
+        if (broken_error.toString() != null && broken_error.toString().length() > 0) {
+            return "fail";
+        }
+        return "pass";
+    }
+}

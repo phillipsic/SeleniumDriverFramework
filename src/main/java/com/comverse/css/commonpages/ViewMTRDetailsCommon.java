@@ -4,19 +4,16 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.WebDriver;
-
-/**
- * 
- * @author Vikram Sharma
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ViewMTRDetailsCommon extends CommonMenu {
 
-    public ViewMTRDetailsCommon(WebDriver driver) throws Exception {
+    public ViewMTRDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "View MTR details";
 
         if (!expectedScreen.equals(currentScreen)) {

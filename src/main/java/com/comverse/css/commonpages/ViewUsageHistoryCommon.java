@@ -10,20 +10,18 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
-/**
- * 
- * @author Vikram Sharma
- */
 public class ViewUsageHistoryCommon extends CommonMenu {
 
-    public ViewUsageHistoryCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ViewUsageHistoryCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
         if (!"View usage history".equals(currentScreen)) {
@@ -57,27 +55,27 @@ public class ViewUsageHistoryCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        driver.findElement(By.id("fromDate")).clear();
-        driver.findElement(By.id("fromDate")).sendKeys(fromDate);
+        tool.driver.findElement(By.id("fromDate")).clear();
+        tool.driver.findElement(By.id("fromDate")).sendKeys(fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
-        driver.findElement(By.id("toDate")).clear();
-        driver.findElement(By.id("toDate")).sendKeys(toDate);
+        tool.driver.findElement(By.id("toDate")).clear();
+        tool.driver.findElement(By.id("toDate")).sendKeys(toDate);
 
     }
 
     public void clickSearch() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public String getSearchResults() throws Exception {
 
-        String text = driver.findElement(By.xpath("//table[2]/tbody/tr[3]/td")).getText();
+        String text = tool.driver.findElement(By.xpath("//table[2]/tbody/tr[3]/td")).getText();
 
         System.out.println("Output:" + text);
 
@@ -86,8 +84,8 @@ public class ViewUsageHistoryCommon extends CommonMenu {
 
     public ViewUsageDetailsCommon ViewUsageDetails() throws Exception {
 
-        driver.findElement(By.id("usageDetails")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ViewUsageDetailsCommon(driver);
+        tool.driver.findElement(By.id("usageDetails")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ViewUsageDetailsCommon(tool, test, user);
     }
 }

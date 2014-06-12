@@ -4,18 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.AddDepositReviewAndConfirmCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class AddDepositReviewAndConfirm extends AddDepositReviewAndConfirmCommon {
 
-    public AddDepositReviewAndConfirm(WebDriver driver) throws Exception {
-        super(driver);
+    public AddDepositReviewAndConfirm(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 
@@ -23,20 +20,20 @@ public class AddDepositReviewAndConfirm extends AddDepositReviewAndConfirmCommon
     public AddDepositReviewAndConfirm clickConfirm() throws Exception {
 
         super.clickConfirm();
-        return new AddDepositReviewAndConfirm(driver);
+        return new AddDepositReviewAndConfirm(tool, test, user);
     }
 
     @Override
     public AccountDetails clickOk() throws Exception {
 
         super.clickOk();
-        return new AccountDetails(driver);
+        return new AccountDetails(tool, test, user);
     }
 
     @Override
     public AccountDeposits clickOkToViewDeposits() throws Exception {
 
         super.clickOkToViewDeposits();
-        return new AccountDeposits(driver);
+        return new AccountDeposits(tool, test, user);
     }
 }

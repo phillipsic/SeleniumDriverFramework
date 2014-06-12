@@ -5,21 +5,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ChangeRolesCommon extends CommonMenu {
 
-    public ChangeRolesCommon(WebDriver driver) throws Exception {
+    public ChangeRolesCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Change Roles";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -27,24 +26,24 @@ public class ChangeRolesCommon extends CommonMenu {
 
     public void clickRadioButtonOCMUser() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='L2:30']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='L2:30']")).click();
 
     }
 
     public void clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
     }
 
     public String getConfirmationMessage() throws Exception {
 
-        return driver.findElement(By.cssSelector("span")).getText();
+        return tool.driver.findElement(By.cssSelector("span")).getText();
     }
 
     public void clickRadioButtonRetailerSubscriber() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@name='roles'])[2]")).click();
+        tool.driver.findElement(By.xpath("(//input[@name='roles'])[2]")).click();
 
     }
 

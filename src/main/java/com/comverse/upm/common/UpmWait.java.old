@@ -1,0 +1,189 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.comverse.upm.common;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+//import com.comverse.css.b2c.Navigation;
+import com.thoughtworks.selenium.SeleneseTestCase;
+import com.thoughtworks.selenium.Selenium;
+
+public class UpmWait extends SeleneseTestCase {
+
+    private Integer DefaultIteration = 60;
+    private String DefaultTimeout = "100000";
+    private Selenium callerSelenium;
+
+    public UpmWait(Selenium selenium) {
+        this.callerSelenium = selenium;
+    }
+
+    public void forCondition(String condition) throws Exception
+    {
+    	callerSelenium.waitForCondition(condition,DefaultTimeout);	
+    }
+    
+    public boolean forRegexpTextPresent(String stringPresent) throws Exception {
+        // prior to using it, please be sure your page is loaded.
+        boolean stringfound = false;
+        System.out.println("entering forRegexpTextPresent : " + stringPresent);
+        try {
+            String CodeSourcePage = callerSelenium.getHtmlSource();
+            CodeSourcePage = CodeSourcePage.toString();
+            Pattern pattern1 = Pattern.compile(stringPresent);
+            Matcher matcher = pattern1.matcher(CodeSourcePage);
+            stringfound = matcher.find();
+            System.out.println("forRegexpTextPresent result = " + stringfound);
+
+            if (stringfound == false) {
+                throw new Exception("forRegexpTextPresent : expected text " + stringPresent + " not found");
+            }
+        } catch (Exception e) {
+            throw new Exception("forRegexpTextPresent failed.");
+        }
+        return (stringfound);
+    }
+
+    public void forTextPresent(String stringPresent) throws Exception {
+        System.out.println("entering forTextPresent - " + stringPresent);
+        for (int iteration = 0;; iteration++) {
+            Thread.sleep(3000);
+            System.out.println("retrying " + iteration + "/" + DefaultIteration);
+
+            if (callerSelenium.isTextPresent("The call timed out")){
+
+                 throw new Exception("Call Timed Out");
+            }
+
+            if (iteration >= DefaultIteration) {
+                throw new Exception("forTextPresent failed.");
+            }
+            try {
+                if (callerSelenium.isTextPresent(stringPresent)) {
+                    System.out.println("forTextPresent: [" + stringPresent + "] was found.");
+                    break;
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public void forTextNotPresent(String stringPresent) throws Exception {
+        System.out.println("entering forTextNotPresent - " + stringPresent);
+        for (int iteration = 0;; iteration++) {
+            Thread.sleep(3000);
+            System.out.println("retrying " + iteration + "/" + DefaultIteration);
+            if (iteration >= DefaultIteration) {
+                throw new Exception("forTextNotPresent failed.");
+            }
+            try {
+                if (!callerSelenium.isTextPresent(stringPresent)) {
+                    System.out.println("forTextNotPresent: [" + stringPresent + "] was not found.");
+                    break;
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public void forTextNotPresentwithRefresh(String stringPresent) throws Exception {
+        System.out.println("entering forTextNotPresent - " + stringPresent);
+        for (int iteration = 0;; iteration++) {
+            callerSelenium.refresh();
+            Thread.sleep(30000);
+            System.out.println("retrying " + iteration + "/" + DefaultIteration);
+            if (iteration >= DefaultIteration) {
+                throw new Exception("forTextNotPresent failed.");
+            }
+            try {
+                if (!callerSelenium.isTextPresent(stringPresent)) {
+                    System.out.println("forTextNotPresent: [" + stringPresent + "] was not found.");
+                    break;
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public void forFrameToLoad(String frameId) throws Exception {
+        callerSelenium.waitForFrameToLoad(frameId, DefaultTimeout);
+    }
+    
+    
+    public void forUpmPageToLoad() throws Exception {
+        callerSelenium.waitForPageToLoad(DefaultTimeout);
+    }
+    
+    public void forPageToLoad() throws Exception {
+        callerSelenium.waitForPageToLoad(DefaultTimeout);
+    }
+/*
+    public void forRequestInDoneState(String expectedtext) throws Exception {
+        Navigation Navigate = new Navigation(callerSelenium);
+        Navigate.gotoSearchRequests();
+        System.out.println("Waiting forRequestInDoneState : " + expectedtext);
+
+        for (int iteration = 0;; iteration++) {
+            callerSelenium.refresh();
+            if (forRegexpTextPresent(expectedtext + ".*Done") == true) {//regex text found
+                throw new Exception("timeout for forRequestInDoneState");
+            }
+        }
+    }
+*/
+    public void forElementPresent(String text) throws Exception {
+        System.out.println("Waiting for next page and expected text : " + text);
+
+        for (int iteration = 0;; iteration++) {
+            Thread.sleep(3000);
+            if (iteration >= DefaultIteration) {
+                throw new Exception("element not found in forElementPresent.");
+            } else {
+                if (callerSelenium.isElementPresent(text)) {
+                    System.out.println("Element: [" + text + "] found");
+                    break;
+                }
+            }
+            System.out.println("Waiting for element '" + text + "': [" + iteration + "/" + DefaultIteration + "]");
+        }
+    }
+
+    public void forElementIdPresent(String id) throws Exception {
+        System.out.println("Waiting for next page and expected element id : " + id);
+
+        for (int iteration = 0;; iteration++) {
+            Thread.sleep(3000);
+            if (iteration >= DefaultIteration) {
+                throw new Exception("element not found in forElementPresent.");
+            } else {
+                if (callerSelenium.isElementPresent(id)) {
+                    System.out.println("Element: [" + id + "] found");
+                    break;
+                }
+            }
+            System.out.println("Waiting for element '" + id + "': [" + iteration + "/" + DefaultIteration + "]");
+        }
+    }
+   
+    public void forEndOfWatingPage() throws Exception {
+        for (int iteration = 0;; iteration++) {
+            if (iteration >= 90) {
+                throw new Exception("Timeout");
+            }
+            try {
+                if (callerSelenium.isTextPresent("Please Wait")) {
+                    System.out.println("Please Wait present");
+                } else {
+                    System.out.println("Executing BREAK out of loop.");
+                    Thread.sleep(3000);
+                    break;
+                }
+            } catch (Exception e) {
+            }
+            forPageToLoad();
+        }
+    }
+}

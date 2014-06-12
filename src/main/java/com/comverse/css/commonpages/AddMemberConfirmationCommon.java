@@ -1,17 +1,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class AddMemberConfirmationCommon extends CommonMenu {
     static String expectedScreen = "Add Member - Confirmation";
 
-    public AddMemberConfirmationCommon(WebDriver driver) throws Exception {
+    public AddMemberConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -19,8 +22,8 @@ public class AddMemberConfirmationCommon extends CommonMenu {
 
     public AddMemberCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new AddMemberCommon(driver);
+        return new AddMemberCommon(tool, test, user);
     }
 }

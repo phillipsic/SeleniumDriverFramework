@@ -5,18 +5,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author Koushic
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ModifyProfileInformationConfirmationCommon extends CommonMenu {
 
-    public ModifyProfileInformationConfirmationCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ModifyProfileInformationConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = this.driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Modify Profile Information - Confirmation";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,7 +26,7 @@ public class ModifyProfileInformationConfirmationCommon extends CommonMenu {
 
     public RequestSubmissionCommon clickOkToConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new RequestSubmissionCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new RequestSubmissionCommon(tool, test, user);
     }
 }

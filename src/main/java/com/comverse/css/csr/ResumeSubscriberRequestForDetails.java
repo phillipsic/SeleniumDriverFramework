@@ -1,19 +1,19 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ResumeSubscriberRequestForDetailsCommon;
 
 public class ResumeSubscriberRequestForDetails extends ResumeSubscriberRequestForDetailsCommon {
 
-    public ResumeSubscriberRequestForDetails(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ResumeSubscriberRequestForDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ResumeSubscriberConfirmation clickContinue() throws Exception {
         super.clickContinue();
-        return new ResumeSubscriberConfirmation(driver);
+        return new ResumeSubscriberConfirmation(tool, test, user);
     }
 }

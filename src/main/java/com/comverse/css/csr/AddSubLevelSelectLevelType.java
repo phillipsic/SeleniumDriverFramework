@@ -4,27 +4,22 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.AddSubLevelSelectLevelTypeCommon;
-
-/**
- * 
- * @author Vikram Sharma
- */
 
 public class AddSubLevelSelectLevelType extends AddSubLevelSelectLevelTypeCommon {
 
-    public AddSubLevelSelectLevelType(WebDriver driver) throws Exception {
-        super(driver);
-
+    public AddSubLevelSelectLevelType(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AddSubLevelLegalAddress clickOk() throws Exception {
 
         super.clickOk();
-        return new AddSubLevelLegalAddress(driver);
+        return new AddSubLevelLegalAddress(tool, test, user);
     }
 
 }

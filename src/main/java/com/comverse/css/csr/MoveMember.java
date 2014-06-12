@@ -4,41 +4,36 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.MoveMemberCommon;
 
-/**
- * 
- * @author mkumar
- */
 public class MoveMember extends MoveMemberCommon {
 
-    public MoveMember(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public MoveMember(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public MoveMember clickSelectByLevelName(String levelName) throws Exception {
 
         super.clickSelectByLevelName(levelName);
-        return new MoveMember(driver);
+        return new MoveMember(tool, test, user);
     }
 
     @Override
     public MoveMember findSelectByLevelName(String levelName) throws Exception {
 
         super.findSelectByLevelName(levelName);
-        return new MoveMember(driver);
+        return new MoveMember(tool, test, user);
     }
 
     @Override
     public ContactInformation clickOk() throws Exception {
 
         super.clickOk();
-        return new ContactInformation(driver);
+        return new ContactInformation(tool, test, user);
     }
 
 }

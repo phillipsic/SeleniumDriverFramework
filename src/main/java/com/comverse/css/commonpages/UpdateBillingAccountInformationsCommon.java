@@ -6,23 +6,23 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author cchadai
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class UpdateBillingAccountInformationsCommon extends CommonMenu {
 
-    public UpdateBillingAccountInformationsCommon(WebDriver driver) throws Exception {
+    public UpdateBillingAccountInformationsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Update administrative account information";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps logging out first
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
+            // Alternatively, we could navigate to the login page, perhaps
+            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
 
@@ -30,8 +30,8 @@ public class UpdateBillingAccountInformationsCommon extends CommonMenu {
 
     public EnterIdentificationDataCommon clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
-        return new EnterIdentificationDataCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        return new EnterIdentificationDataCommon(tool, test, user);
     }
 
 }

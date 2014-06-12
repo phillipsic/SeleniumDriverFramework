@@ -1,21 +1,19 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-/**
- *
- * @author gmaroth
- */
-public class TokensfoundCommon {
 
-    public WebDriver driver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-    public TokensfoundCommon(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+public class TokensfoundCommon extends CommonMenu {
+
+    public TokensfoundCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Tokens found";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,10 +22,9 @@ public class TokensfoundCommon {
 
     public UploadTokenCommon clickUpload() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Upload']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Upload']")).click();
 
-        return new UploadTokenCommon(driver);
+        return new UploadTokenCommon(tool, test, user);
     }
 
-    
 }

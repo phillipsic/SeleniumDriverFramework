@@ -4,17 +4,20 @@
  */
 package com.comverse.css.commonpages;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class SelectOffersForYourSubscriberCommon extends CommonMenu {
 
     static String expectedScreen = "Select offers for your Subscriber";
 
-    public SelectOffersForYourSubscriberCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public SelectOffersForYourSubscriberCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -24,55 +27,55 @@ public class SelectOffersForYourSubscriberCommon extends CommonMenu {
     public void selectOffersForSubscriber(String... SOTable) throws Exception {
         if (SOTable != null) {
             for (String SOName : SOTable) {
-                driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../../td/input")).click();
+                tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../../td/input")).click();
             }
         }
     }
 
     public SupplementaryOfferDetailsCommon clickOfferDetail(String SOName) throws Exception {
-        driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../a")).click();
-        return new SupplementaryOfferDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../a")).click();
+        return new SupplementaryOfferDetailsCommon(tool, test, user);
     }
 
     public ConfigureOffersCommon clickContinue() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new ConfigureOffersCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new ConfigureOffersCommon(tool, test, user);
     }
 
     public MyBasketCommon clickContinueExpectingMyBasket() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
     public SwapImpactCommon clickContinueExpectingSwapImpact() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new SwapImpactCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new SwapImpactCommon(tool, test, user);
     }
 
     public ServiceConnectionDetailsCommon clickContinueExpectingServiceConnectionDetails() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue >']")).click();
-        return new ServiceConnectionDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
     public MyBasketCommon clickPrevious() throws Exception {
-        driver.findElement(By.xpath("//input[@value='< Previous'")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='< Previous'")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
     public MyBasketCommon clickCancel() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Cancel'")).click();
-        return new MyBasketCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Cancel'")).click();
+        return new MyBasketCommon(tool, test, user);
     }
 
     public void clickOfferDetailOnPopUp(String SOName) throws Exception {
-        driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../a")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../a")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickClose() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Close']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Close']")).click();
 
     }
 

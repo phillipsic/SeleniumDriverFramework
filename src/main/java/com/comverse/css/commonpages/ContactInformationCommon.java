@@ -5,21 +5,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class ContactInformationCommon extends CommonMenu {
 
-    public ContactInformationCommon(WebDriver driver) throws Exception {
+    public ContactInformationCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Contact Information";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -27,42 +26,42 @@ public class ContactInformationCommon extends CommonMenu {
 
     public String getFirstName() throws Exception {
 
-        return driver.findElement(By.xpath("//div[@id='mainContents']/div/div/fieldset/p[2]")).getText();
+        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div/div/fieldset/p[2]")).getText();
 
     }
 
     public String getLastName() throws Exception {
 
-        return driver.findElement(By.xpath("//div[@id='mainContents']/div/div/fieldset/p[3]")).getText();
+        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div/div/fieldset/p[3]")).getText();
     }
 
     public LoginInformationCommon clickViewLoginInformationLink() throws Exception {
 
-        driver.findElement(By.linkText("View Login Information")).click();
-        return new LoginInformationCommon(driver);
+        tool.driver.findElement(By.linkText("View Login Information")).click();
+        return new LoginInformationCommon(tool, test, user);
     }
 
     public MoveMemberCommon clickMoveMember() throws Exception {
 
-        driver.findElement(By.id("youcan_MOVE_MEMBER")).click();
-        return new MoveMemberCommon(driver);
+        tool.driver.findElement(By.id("youcan_MOVE_MEMBER")).click();
+        return new MoveMemberCommon(tool, test, user);
     }
 
     public ViewHierarchyCommon clickBack() throws Exception {
 
-        driver.findElement(By.id("youcan_ON_BACK")).click();
-        return new ViewHierarchyCommon(driver);
+        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        return new ViewHierarchyCommon(tool, test, user);
     }
 
     public ModifyContactInformationCommon clickModifyContactInformation() throws Exception {
-        driver.findElement(By.id("youcan_MODIFY_CONTACT")).click();
-        return new ModifyContactInformationCommon(driver);
+        tool.driver.findElement(By.id("youcan_MODIFY_CONTACT")).click();
+        return new ModifyContactInformationCommon(tool, test, user);
     }
 
     public ModifyEmployeeContactCommon clickModifyContact() throws Exception {
 
-        driver.findElement(By.id("youcan_MODIFY_CONTACT")).click();
-        return new ModifyEmployeeContactCommon(driver);
+        tool.driver.findElement(By.id("youcan_MODIFY_CONTACT")).click();
+        return new ModifyEmployeeContactCommon(tool, test, user);
     }
 
 }

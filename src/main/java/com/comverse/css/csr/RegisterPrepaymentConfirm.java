@@ -1,20 +1,20 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.RegisterPrepaymentConfirmCommon;
 
 public class RegisterPrepaymentConfirm extends RegisterPrepaymentConfirmCommon {
 
-    public RegisterPrepaymentConfirm(WebDriver driver) throws Exception {
-        super(driver);
-
+    public RegisterPrepaymentConfirm(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public AccountDetails clickBackToAccount() throws Exception {
 
         super.clickBackToAccount();
-        return new AccountDetails(driver);
+        return new AccountDetails(tool, test, user);
     }
 }

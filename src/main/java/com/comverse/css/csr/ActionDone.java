@@ -1,17 +1,20 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class ActionDone {
-    public WebDriver driver;
-    
-    public ActionDone(WebDriver driver) {
-        this.driver = driver;
-        String currentScreen = driver.getTitle();
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.commonpages.CommonMenu;
+
+public class ActionDone extends CommonMenu {
+
+    public ActionDone(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Action Done";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -20,9 +23,8 @@ public class ActionDone {
 
     public InsertInventory clickBack() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Back']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
 
-        return new InsertInventory(driver);
+        return new InsertInventory(tool, test, user);
     }
 }
-

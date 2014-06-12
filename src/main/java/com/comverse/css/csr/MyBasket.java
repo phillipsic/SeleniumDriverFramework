@@ -4,18 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.MyBasketCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class MyBasket extends MyBasketCommon {
 
-    public MyBasket(WebDriver driver) throws Exception {
-        super(driver);
+    public MyBasket(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 
@@ -23,86 +20,86 @@ public class MyBasket extends MyBasketCommon {
     public RemoveBasket clickClear() throws Exception {
 
         super.clickClear();
-        return new RemoveBasket(driver);
+        return new RemoveBasket(tool, test, user);
     }
 
     @Override
     public RemoveSelection removeSecondItemFromBasket() throws Exception {
 
         super.removeSecondItemFromBasket();
-        return new RemoveSelection(driver);
+        return new RemoveSelection(tool, test, user);
     }
 
     @Override
     public RemoveSelection removeFirstItemFromBasket() throws Exception {
 
         super.removeFirstItemFromBasket();
-        return new RemoveSelection(driver);
+        return new RemoveSelection(tool, test, user);
     }
 
     @Override
     public Shopping changePrimaryOffer() throws Exception {
 
         super.changePrimaryOffer();
-        return new Shopping(driver);
+        return new Shopping(tool, test, user);
     }
 
     @Override
     public ServiceConnectionDetails clickFirstActionsIcon() throws Exception {
 
         super.clickFirstActionsIcon();
-        return new ServiceConnectionDetails(driver);
+        return new ServiceConnectionDetails(tool, test, user);
     }
 
     @Override
     public MyshapeCSRPortal clickLogout() throws Exception {
 
         super.clickLogout();
-        return new MyshapeCSRPortal(driver);
+        return new MyshapeCSRPortal(tool, test, user);
     }
 
     @Override
     public ParkTheCurrentBasket clickParkBasket() throws Exception {
 
         super.clickParkBasket();
-        return new ParkTheCurrentBasket(driver);
+        return new ParkTheCurrentBasket(tool, test, user);
     }
 
     @Override
     public CheckoutReview clickCheckOut() throws Exception {
         super.clickCheckOut();
-        return new CheckoutReview(driver);
+        return new CheckoutReview(tool, test, user);
     }
 
     @Override
     public CheckoutDeliveryAddress clickCheckOutWithGoods() throws Exception {
         super.clickCheckOutWithGoods();
-        return new CheckoutDeliveryAddress(driver);
+        return new CheckoutDeliveryAddress(tool, test, user);
     }
 
     @Override
     public Shopping clickContinueShopping() throws Exception {
 
         super.clickContinueShopping();
-        return new Shopping(driver);
+        return new Shopping(tool, test, user);
     }
 
     @Override
     public SelectOffersForYourSubscriber clickChangeSO() throws Exception {
         super.clickChangeSO();
-        return new SelectOffersForYourSubscriber(driver);
+        return new SelectOffersForYourSubscriber(tool, test, user);
     }
 
     @Override
     public SelectOffersForYourAccount clickAddAO() throws Exception {
 
         super.clickAddAO();
-        return new SelectOffersForYourAccount(driver);
+        return new SelectOffersForYourAccount(tool, test, user);
     }
 
     @Override
     public SelectOffersForYourSubscriber clickAddSO() throws Exception {
         super.clickAddSO();
-        return new SelectOffersForYourSubscriber(driver);
+        return new SelectOffersForYourSubscriber(tool, test, user);
     }
 }

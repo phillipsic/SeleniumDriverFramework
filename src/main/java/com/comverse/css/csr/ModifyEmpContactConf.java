@@ -5,24 +5,21 @@
 package com.comverse.css.csr;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ModifyEmpContactConfCommon;
 
-/**
- * 
- * @author mkumar
- */
 public class ModifyEmpContactConf extends ModifyEmpContactConfCommon {
 
-    public ModifyEmpContactConf(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ModifyEmpContactConf(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     public void clickOk() {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
 }

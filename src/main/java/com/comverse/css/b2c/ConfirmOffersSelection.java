@@ -1,32 +1,35 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class ConfirmOffersSelection  extends B2CMenu {
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
-    public ConfirmOffersSelection(WebDriver driver) {
+public class ConfirmOffersSelection extends B2CMenu {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public ConfirmOffersSelection(AutomationTool tool, Test test, User user) {
+
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Confirm Offers Selection";
 
-
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
-    
-    public MyBasket clickConfirmOffer() throws Exception{
-    	
-    	driver.findElement(By.xpath("//input[@value='Confirm Offer Personalization']")).click();
-    	return new MyBasket(driver);
-    	
+
+    public MyBasket clickConfirmOffer() throws Exception {
+
+        tool.driver.findElement(By.xpath("//input[@value='Confirm Offer Personalization']")).click();
+        return new MyBasket(tool, test, user);
+
     }
+
     public void enterVoiceMailSize(String voiceMailSize) throws Exception {
-   	 driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).clear();
-        driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).sendKeys(voiceMailSize);
-   }
+        tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).clear();
+        tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).sendKeys(voiceMailSize);
+    }
 
 }

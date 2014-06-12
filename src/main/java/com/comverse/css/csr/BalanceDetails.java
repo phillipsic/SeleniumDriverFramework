@@ -1,13 +1,14 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.BalanceDetailsCommon;
 
 public class BalanceDetails extends BalanceDetailsCommon {
 
-    public BalanceDetails(WebDriver driver) throws Exception {
-        super(driver);
+    public BalanceDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
@@ -15,7 +16,7 @@ public class BalanceDetails extends BalanceDetailsCommon {
     public BalanceDetails viewSubscriberBalanceDetails(String balanceName) throws Exception {
 
         super.viewSubscriberBalanceDetails(balanceName);
-        return new BalanceDetails(driver);
+        return new BalanceDetails(tool, test, user);
     }
 
     @Override
@@ -23,14 +24,14 @@ public class BalanceDetails extends BalanceDetailsCommon {
     public ViewBalance viewAccountBalances() throws Exception {
 
         super.viewAccountBalances();
-        return new ViewBalance(driver);
+        return new ViewBalance(tool, test, user);
     }
 
     @Override
     public ViewBalance clickGoToListOfBalances() throws Exception {
 
         super.clickGoToListOfBalances();
-        return new ViewBalance(driver);
+        return new ViewBalance(tool, test, user);
     }
 
 }

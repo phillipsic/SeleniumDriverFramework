@@ -1,15 +1,17 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.WebDriver;
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ContactInformation extends B2CMenu {
 
-    public ContactInformation(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public ContactInformation(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Contact Information";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
 

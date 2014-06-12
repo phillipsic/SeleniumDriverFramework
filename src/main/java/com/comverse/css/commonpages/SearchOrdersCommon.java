@@ -5,21 +5,23 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Account;
 import com.comverse.css.common.Common;
 
 public class SearchOrdersCommon extends CommonMenu {
     static String expectedScreen = "Search Orders";
 
-    public SearchOrdersCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public SearchOrdersCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -28,37 +30,37 @@ public class SearchOrdersCommon extends CommonMenu {
 
     public void clickSearch() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Search']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
 
     }
 
     public WorkSpaceCommon clickHomeMenu() throws Exception {
-        driver.findElement(By.id("mnu_HOME")).click();
-        return new WorkSpaceCommon(driver);
+        tool.driver.findElement(By.id("mnu_HOME")).click();
+        return new WorkSpaceCommon(tool, test, user);
     }
 
     public SearchRequestsCommon clickSearchRequests() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Search']")).click();
-        return new SearchRequestsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
+        return new SearchRequestsCommon(tool, test, user);
     }
 
     public void setOrderNumber(String orderNumber) throws Exception {
-        driver.findElement(By.id("orderNb")).clear();
-        driver.findElement(By.id("orderNb")).sendKeys(orderNumber);
+        tool.driver.findElement(By.id("orderNb")).clear();
+        tool.driver.findElement(By.id("orderNb")).sendKeys(orderNumber);
     }
 
     public String getOrderStatus1() throws Exception {
-        String orderStatus = driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[5]")).getText();
+        String orderStatus = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[5]")).getText();
         return orderStatus;
     }
 
     public String getOrderStatus2() throws Exception {
-        String orderStatus = driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[4]")).getText();
+        String orderStatus = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[4]")).getText();
         return orderStatus;
     }
 
     public void setOrderStatusToAll() throws Exception {
-        new Select(driver.findElement(By.id("orderStatus"))).selectByVisibleText("All");
+        new Select(tool.driver.findElement(By.id("orderStatus"))).selectByVisibleText("All");
     }
 
     public void waitUntilOrderCompletedOrFailed(String orderNumber) throws Exception {
@@ -112,7 +114,7 @@ public class SearchOrdersCommon extends CommonMenu {
 
             if (orderStatus.equals("Complete")) {
                 System.out.println("Order Complete");
-                SearchOrdersCommon serviceOrdersCommon = new SearchOrdersCommon(driver);
+                SearchOrdersCommon serviceOrdersCommon = new SearchOrdersCommon(tool, test, user);
                 ServiceOrderDetailsCommon serviceOrderDetailsCommon = serviceOrdersCommon.clickViewDetails();
                 serviceOrderDetailsCommon.getAccountID(account);
                 break;
@@ -133,9 +135,9 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public ServiceOrderDetailsCommon clickViewDetails() throws Exception {
-        driver.findElement(By.linkText("View Details")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new ServiceOrderDetailsCommon(driver);
+        tool.driver.findElement(By.linkText("View Details")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ServiceOrderDetailsCommon(tool, test, user);
     }
 
 }

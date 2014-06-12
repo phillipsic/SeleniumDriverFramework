@@ -5,19 +5,15 @@
 
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.OutboundCommunicationCommon;
 
-/**
- * 
- * @author gmaroth
- */
 public class OutboundCommunication extends OutboundCommunicationCommon {
 
-    public OutboundCommunication(WebDriver driver) throws Exception {
-        super(driver);
-
+    public OutboundCommunication(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
 }

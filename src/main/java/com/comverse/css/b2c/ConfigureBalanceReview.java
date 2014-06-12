@@ -1,13 +1,16 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class ConfigureBalanceReview extends B2CMenu {
 
-    public ConfigureBalanceReview(WebDriver driver) {
-        super(driver);
-        String currentScreen = driver.getTitle();
+    public ConfigureBalanceReview(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Configure balance - Review";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -17,14 +20,14 @@ public class ConfigureBalanceReview extends B2CMenu {
     }
 
     public ConfigureBalanceConfirm clickConfirm() throws Exception {
-        driver.findElement(By.cssSelector("input[type='button'][value='Confirm']")).click();
-        return new ConfigureBalanceConfirm(driver);
+        tool.driver.findElement(By.cssSelector("input[type='button'][value='Confirm']")).click();
+        return new ConfigureBalanceConfirm(tool, test, user);
 
     }
 
     public ViewBalances clickBack() throws Exception {
-        driver.findElement(By.cssSelector("input[type='submit'][value='Back']")).click();
-        return new ViewBalances(driver);
+        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Back']")).click();
+        return new ViewBalances(tool, test, user);
 
     }
 }

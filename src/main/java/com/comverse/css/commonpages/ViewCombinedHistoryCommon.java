@@ -10,18 +10,20 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class ViewCombinedHistoryCommon extends CommonMenu {
     static String expectedScreen = "View combined history";
 
-    public ViewCombinedHistoryCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public ViewCombinedHistoryCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -53,21 +55,21 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        driver.findElement(By.id("fromDate")).clear();
-        driver.findElement(By.id("fromDate")).sendKeys(fromDate);
+        tool.driver.findElement(By.id("fromDate")).clear();
+        tool.driver.findElement(By.id("fromDate")).sendKeys(fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
-        driver.findElement(By.id("toDate")).clear();
-        driver.findElement(By.id("toDate")).sendKeys(toDate);
+        tool.driver.findElement(By.id("toDate")).clear();
+        tool.driver.findElement(By.id("toDate")).sendKeys(toDate);
 
     }
 
     public void deselectbox() throws Exception {
 
-        Select selectBox = new Select(driver.findElement(By.id("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT")));
+        Select selectBox = new Select(tool.driver.findElement(By.id("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT")));
         selectBox.deselectByVisibleText("Adjustment");
         selectBox.deselectByVisibleText("MTR");
         selectBox.deselectByVisibleText("RC");
@@ -78,25 +80,25 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     public void clickSearch() throws Exception {
 
-        driver.findElement(By.name("B1")).click();
+        tool.driver.findElement(By.name("B1")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public String getSearchResults() throws Exception {
 
-        String text = driver.findElement(By.className("inverseHeaderText")).getText();
+        String text = tool.driver.findElement(By.className("inverseHeaderText")).getText();
         System.out.println("Output:" + text);
         return text;
     }
 
     public ViewNRCTermDetailsCommon ViewNRCTermDetails() throws Exception {
 
-        driver.findElement(By.id("transactionDetails")).click();
+        tool.driver.findElement(By.id("transactionDetails")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        return new ViewNRCTermDetailsCommon(driver);
+        return new ViewNRCTermDetailsCommon(tool, test, user);
 
     }
 

@@ -5,13 +5,16 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class Identity extends B2CMenu {
 
-    public Identity(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public Identity(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Identity";
 
         // Check that we're on the right page.
@@ -24,36 +27,36 @@ public class Identity extends B2CMenu {
 
     public String getFirstName() throws Exception {
 
-        return driver.findElement(By.id("first_name")).getAttribute("value");
+        return tool.driver.findElement(By.id("first_name")).getAttribute("value");
     }
 
     public String getLastName() throws Exception {
 
-        return driver.findElement(By.id("last_name")).getAttribute("value");
+        return tool.driver.findElement(By.id("last_name")).getAttribute("value");
     }
 
     public SubscriberDetail clickCancel() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Cancel']")).click();
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Cancel']")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 
     public RequestSubmission clickModify() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Modify']")).click();
-        return new RequestSubmission(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Modify']")).click();
+        return new RequestSubmission(tool, test, user);
     }
 
     public void setFirstName(String firstName) throws Exception {
 
-        driver.findElement(By.id("first_name")).clear();
-        driver.findElement(By.id("first_name")).sendKeys(firstName);
+        tool.driver.findElement(By.id("first_name")).clear();
+        tool.driver.findElement(By.id("first_name")).sendKeys(firstName);
     }
 
     public void setLastName(String lastName) throws Exception {
 
-        driver.findElement(By.id("last_name")).clear();
-        driver.findElement(By.id("last_name")).sendKeys(lastName);
+        tool.driver.findElement(By.id("last_name")).clear();
+        tool.driver.findElement(By.id("last_name")).sendKeys(lastName);
 
     }
 

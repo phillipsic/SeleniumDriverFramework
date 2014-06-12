@@ -4,19 +4,18 @@
  */
 package com.comverse.css.commonpages;
 
-import com.comverse.css.common.Common;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-/**
- * 
- * @author gmaroth
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+import com.comverse.css.common.Common;
+
 public class RechargeWithVoucherCommon extends CommonMenu {
 
-    public RechargeWithVoucherCommon(WebDriver driver) throws Exception {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public RechargeWithVoucherCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Recharge with voucher";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -25,15 +24,15 @@ public class RechargeWithVoucherCommon extends CommonMenu {
         }
     }
 
-       public void enterVoucherNumber(String voucherNumber) throws Exception {
-        driver.findElement(By.id("pkgnumber")).clear();
-        driver.findElement(By.id("pkgnumber")).sendKeys(voucherNumber);
+    public void enterVoucherNumber(String voucherNumber) throws Exception {
+        tool.driver.findElement(By.id("pkgnumber")).clear();
+        tool.driver.findElement(By.id("pkgnumber")).sendKeys(voucherNumber);
     }
 
-       public RechargeSubscriberCommon clickContinue() throws Exception {
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new RechargeSubscriberCommon(driver);
+    public RechargeSubscriberCommon clickContinue() throws Exception {
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new RechargeSubscriberCommon(tool, test, user);
     }
 
 }

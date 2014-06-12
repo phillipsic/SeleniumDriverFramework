@@ -4,46 +4,41 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ContactInformationCommon;
 
-/**
- *
- * @author iphilli
- */
 public class ContactInformation extends ContactInformationCommon {
 
-    public ContactInformation(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public ContactInformation(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public LoginInformation clickViewLoginInformationLink() throws Exception {
 
         super.clickViewLoginInformationLink();
-        return new LoginInformation(driver);
+        return new LoginInformation(tool, test, user);
     }
 
     @Override
     public MoveMember clickMoveMember() throws Exception {
 
         super.clickMoveMember();
-        return new MoveMember(driver);
+        return new MoveMember(tool, test, user);
     }
 
     @Override
     public ModifyEmployeeContact clickModifyContact() throws Exception {
 
         super.clickModifyContact();
-        return new ModifyEmployeeContact(driver);
+        return new ModifyEmployeeContact(tool, test, user);
     }
 
     @Override
     public ContactInformation clickUserInformation() throws Exception {
         super.clickUserInformation();
-        return new ContactInformation(driver);
+        return new ContactInformation(tool, test, user);
     }
 }

@@ -1,34 +1,34 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.ViewBilledUsageCommon;
 
 public class ViewBilledUsage extends ViewBilledUsageCommon {
 
-    public ViewBilledUsage(WebDriver driver) throws Exception {
-        super(driver);
-
+    public ViewBilledUsage(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ViewBilledUsage clickSearch() throws Exception {
 
         super.clickSearch();
-        return new ViewBilledUsage(driver);
+        return new ViewBilledUsage(tool, test, user);
     }
 
     @Override
     public ViewBilledUsageDetails clickFirstUsage() throws Exception {
 
         super.clickFirstUsage();
-        return new ViewBilledUsageDetails(driver);
+        return new ViewBilledUsageDetails(tool, test, user);
     }
 
     @Override
     public ViewInvoiceDetails clickBack() throws Exception {
 
         super.clickBack();
-        return new ViewInvoiceDetails(driver);
+        return new ViewInvoiceDetails(tool, test, user);
     }
 }

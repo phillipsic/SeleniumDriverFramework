@@ -1,15 +1,17 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class EnableLoginCommon extends CommonMenu {
 
-    public EnableLoginCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public EnableLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
-
+        String currentScreen = tool.driver.getTitle();
 
         if (!"Enable Login".equals(currentScreen)) {
 
@@ -18,7 +20,7 @@ public class EnableLoginCommon extends CommonMenu {
     }
 
     public LoginInformationCommon clickOk() throws Exception {
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        return new LoginInformationCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        return new LoginInformationCommon(tool, test, user);
     }
 }

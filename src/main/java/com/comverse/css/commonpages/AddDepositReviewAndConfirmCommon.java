@@ -5,18 +5,20 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class AddDepositReviewAndConfirmCommon extends CommonMenu {
 
     static String expectedScreen = "Add deposit - Review and Confirm";
 
-    public AddDepositReviewAndConfirmCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public AddDepositReviewAndConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,22 +29,22 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
 
     public AddDepositReviewAndConfirmCommon clickConfirm() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Confirm']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AddDepositReviewAndConfirmCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AddDepositReviewAndConfirmCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDepositsCommon clickOkToViewDeposits() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDepositsCommon(driver);
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDepositsCommon(tool, test, user);
     }
 }

@@ -1,30 +1,33 @@
 package com.comverse.css.b2c;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class OfferCancellation extends B2CMenu {
 
-    public OfferCancellation(WebDriver driver) {
-        super(driver);
-        String currentScreen = this.driver.getTitle();
+    public OfferCancellation(AutomationTool tool, Test test, User user) {
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Offer Cancellation";
 
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public SubscriberDetail ClickOk() throws Exception {
-        driver.findElement(By.cssSelector("input[type='submit'][value='OK']")).click();
-        return new SubscriberDetail(driver);
+        tool.driver.findElement(By.cssSelector("input[type='submit'][value='OK']")).click();
+        return new SubscriberDetail(tool, test, user);
     }
 
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
 
-        orderNumber = driver.findElement(By.xpath("//span[1]")).getText();
+        orderNumber = tool.driver.findElement(By.xpath("//span[1]")).getText();
         String temp[];
         temp = orderNumber.split("number");
         orderNumber = temp[1].replace(".", "");

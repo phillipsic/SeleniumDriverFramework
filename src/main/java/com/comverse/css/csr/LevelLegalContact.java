@@ -4,33 +4,28 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.LevelLegalContactCommon;
 
-/**
- * 
- * @author iphilli
- */
 public class LevelLegalContact extends LevelLegalContactCommon {
 
-    public LevelLegalContact(WebDriver driver) throws Exception {
-
-        super(driver);
-
+    public LevelLegalContact(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public ViewHierarchy clickBack() throws Exception {
 
         super.clickBack();
-        return new ViewHierarchy(driver);
+        return new ViewHierarchy(tool, test, user);
     }
 
     @Override
     public ModifyLevelLegalContact clickModifyLevelLegalContact() throws Exception {
 
         super.clickModifyLevelLegalContact();
-        return new ModifyLevelLegalContact(driver);
+        return new ModifyLevelLegalContact(tool, test, user);
     }
 }

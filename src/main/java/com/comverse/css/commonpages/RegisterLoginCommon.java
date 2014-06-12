@@ -5,19 +5,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-/**
- * 
- * @author iphilli
- */
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
+
 public class RegisterLoginCommon extends CommonMenu {
 
-    public RegisterLoginCommon(WebDriver driver) throws Exception {
+    public RegisterLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = this.driver.getTitle().toLowerCase();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle().toLowerCase();
         String expectedScreen = "Register login".toLowerCase();
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -28,44 +27,44 @@ public class RegisterLoginCommon extends CommonMenu {
 
     public void setLogin(String login) throws Exception {
 
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(login);
+        tool.driver.findElement(By.id("login")).clear();
+        tool.driver.findElement(By.id("login")).sendKeys(login);
     }
 
     public void selectRole(String role) throws Exception {
 
-        new Select(driver.findElement(By.id("roles"))).selectByVisibleText(role);
+        new Select(tool.driver.findElement(By.id("roles"))).selectByVisibleText(role);
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
 
-        return new AddMemberConfirmationCommon(driver);
+        return new AddMemberConfirmationCommon(tool, test, user);
     }
 
     public RegisterLoginCommon clickRegisterLoginContinue() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
 
-        return new RegisterLoginCommon(driver);
+        return new RegisterLoginCommon(tool, test, user);
     }
 
     public void clickRadioButtonTelcoCSRUser() throws Exception {
 
-        driver.findElement(By.xpath("(//input[@name='roles'])[9]")).click();
+        tool.driver.findElement(By.xpath("(//input[@name='roles'])[9]")).click();
 
     }
 
     public void clickRadioButtonOCMUser() throws Exception {
 
-        driver.findElement(By.xpath("//input[@name='roles']")).click();
+        tool.driver.findElement(By.xpath("//input[@name='roles']")).click();
 
     }
 
     public String getTempPasswordFromPage() throws Exception {
 
-        String password = driver.findElement(By.xpath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span")).getText();
+        String password = tool.driver.findElement(By.xpath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span")).getText();
 
         String temp[] = password.split(":");
         password = temp[1];
@@ -76,9 +75,9 @@ public class RegisterLoginCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new ViewHierarchyCommon(driver);
+        return new ViewHierarchyCommon(tool, test, user);
     }
 
 }

@@ -1,21 +1,23 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class IdentifyCustomerCommon extends CommonMenu {
 
-    public IdentifyCustomerCommon(WebDriver driver) throws Exception {
-        super(driver);
+    public IdentifyCustomerCommon(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
-        String currentScreen = this.driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
         String expectedScreen = "Identify Customer";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(driver.getTitle())) {
+        if (!expectedScreen.equals(tool.driver.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -23,255 +25,255 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
-        driver.findElement(By.id("accountId")).clear();
-        driver.findElement(By.id("accountId")).sendKeys(accountID);
-        driver.findElement(By.name("accountButton")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.id("accountId")).clear();
+        tool.driver.findElement(By.id("accountId")).sendKeys(accountID);
+        tool.driver.findElement(By.name("accountButton")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public void clickMoreLink() throws Exception {
-        driver.findElement(By.id("More >>"));
+        tool.driver.findElement(By.id("More >>"));
 
     }
 
     public void clickMoreLinkPerson() throws Exception {
-        driver.findElement(By.xpath("//input[@id='personLastName']/../../a")).click();
+        tool.driver.findElement(By.xpath("//input[@id='personLastName']/../../a")).click();
 
     }
 
     public void searchByPersonNatioanlIdMultiplePersons(String id) throws Exception {
-        driver.findElement(By.id("nationalId")).clear();
-        driver.findElement(By.id("nationalId")).sendKeys(id);
-        driver.findElement(By.name("personButton")).click();
+        tool.driver.findElement(By.id("nationalId")).clear();
+        tool.driver.findElement(By.id("nationalId")).sendKeys(id);
+        tool.driver.findElement(By.name("personButton")).click();
     }
 
     public void searchByPersonDOBMultiplePersons(String DOB) throws Exception {
-        driver.findElement(By.id("dateOfBirth")).clear();
-        driver.findElement(By.id("dateOfBirth")).sendKeys(DOB);
-        driver.findElement(By.name("personButton")).click();
+        tool.driver.findElement(By.id("dateOfBirth")).clear();
+        tool.driver.findElement(By.id("dateOfBirth")).sendKeys(DOB);
+        tool.driver.findElement(By.name("personButton")).click();
     }
 
     public AccountDetailsCommon searchByCaseID(String caseID) throws Exception {
-        driver.findElement(By.id("caseId")).clear();
-        driver.findElement(By.id("caseId")).sendKeys(caseID);
-        driver.findElement(By.name("caseButton")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.id("caseId")).clear();
+        tool.driver.findElement(By.id("caseId")).sendKeys(caseID);
+        tool.driver.findElement(By.name("caseButton")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public CustomerSearchResultCommon searchByCaseIDMultiplePersons(String caseID) throws Exception {
-        driver.findElement(By.id("caseId")).clear();
-        driver.findElement(By.id("caseId")).sendKeys(caseID);
-        driver.findElement(By.name("caseButton")).click();
+        tool.driver.findElement(By.id("caseId")).clear();
+        tool.driver.findElement(By.id("caseId")).sendKeys(caseID);
+        tool.driver.findElement(By.name("caseButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new CustomerSearchResultCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CustomerSearchResultCommon(tool, test, user);
     }
 
     public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
 
-        driver.findElement(By.id("accountId")).clear();
-        driver.findElement(By.id("accountId")).sendKeys(accountID);
-        driver.findElement(By.name("accountButton")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.id("accountId")).clear();
+        tool.driver.findElement(By.id("accountId")).sendKeys(accountID);
+        tool.driver.findElement(By.name("accountButton")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         if (currentScreen.equals("Customer search result")) {
 
-            CustomerSearchResultCommon customerSearchResult = new CustomerSearchResultCommon(driver);
+            CustomerSearchResultCommon customerSearchResult = new CustomerSearchResultCommon(tool, test, user);
             customerSearchResult.clickAccountLink(accountID);
         }
 
-        return new AccountDetailsCommon(driver);
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon gotoAccountDashboardUsingAccountLastName(String lastName) throws Exception {
 
-        driver.findElement(By.id("accountLastName")).clear();
-        driver.findElement(By.id("accountLastName")).sendKeys(lastName);
-        driver.findElement(By.name("accountExtendedButton")).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
+        tool.driver.findElement(By.id("accountLastName")).clear();
+        tool.driver.findElement(By.id("accountLastName")).sendKeys(lastName);
+        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = driver.getTitle();
+        String currentScreen = tool.driver.getTitle();
 
         if (currentScreen.equals("Customer search result")) {
 
-            CustomerSearchResultCommon customerSearchResult = new CustomerSearchResultCommon(driver);
+            CustomerSearchResultCommon customerSearchResult = new CustomerSearchResultCommon(tool, test, user);
             customerSearchResult.clickFirstPersonLink();
         }
 
-        return new AccountDetailsCommon(driver);
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
 
-        driver.findElement(By.id("accountLastName")).clear();
-        driver.findElement(By.id("accountLastName")).sendKeys(lastName);
-        driver.findElement(By.name("accountExtendedButton")).click();
+        tool.driver.findElement(By.id("accountLastName")).clear();
+        tool.driver.findElement(By.id("accountLastName")).sendKeys(lastName);
+        tool.driver.findElement(By.name("accountExtendedButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new CustomerSearchResultCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CustomerSearchResultCommon(tool, test, user);
     }
 
     public CustomerSearchResultCommon searchByAccountFirstNameMultiplePersons(String firstName) throws Exception {
 
-        driver.findElement(By.id("accountFirstName")).clear();
-        driver.findElement(By.id("accountFirstName")).sendKeys(firstName);
-        driver.findElement(By.name("accountExtendedButton")).click();
+        tool.driver.findElement(By.id("accountFirstName")).clear();
+        tool.driver.findElement(By.id("accountFirstName")).sendKeys(firstName);
+        tool.driver.findElement(By.name("accountExtendedButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new CustomerSearchResultCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CustomerSearchResultCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon searchBySubscriberMSISDN(String MSISDN) throws Exception {
 
-        driver.findElement(By.id("subscriberId")).clear();
-        driver.findElement(By.id("subscriberId")).sendKeys(MSISDN);
-        driver.findElement(By.name("subscriberButton")).click();
+        tool.driver.findElement(By.id("subscriberId")).clear();
+        tool.driver.findElement(By.id("subscriberId")).sendKeys(MSISDN);
+        tool.driver.findElement(By.name("subscriberButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new SubscriberDetailsCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new SubscriberDetailsCommon(tool, test, user);
 
     }
 
     public CustomerSearchResultCommon searchBySubscriberMSISDNMultiplePersons(String MSISDN) throws Exception {
 
-        driver.findElement(By.id("subscriberId")).clear();
-        driver.findElement(By.id("subscriberId")).sendKeys(MSISDN);
-        driver.findElement(By.name("subscriberButton")).click();
+        tool.driver.findElement(By.id("subscriberId")).clear();
+        tool.driver.findElement(By.id("subscriberId")).sendKeys(MSISDN);
+        tool.driver.findElement(By.name("subscriberButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new CustomerSearchResultCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CustomerSearchResultCommon(tool, test, user);
     }
 
     public AccountDetailsCommon searchByAccountLastNameSinglePerson(String lastName) throws Exception {
 
-        driver.findElement(By.id("accountLastName")).clear();
-        driver.findElement(By.id("accountLastName")).sendKeys(lastName);
-        driver.findElement(By.name("accountExtendedButton")).click();
+        tool.driver.findElement(By.id("accountLastName")).clear();
+        tool.driver.findElement(By.id("accountLastName")).sendKeys(lastName);
+        tool.driver.findElement(By.name("accountExtendedButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon searchByAccountFirstNameSinglePerson(String firstName) throws Exception {
 
-        driver.findElement(By.id("accountFirstName")).clear();
-        driver.findElement(By.id("accountFirstName")).sendKeys(firstName);
-        driver.findElement(By.name("accountExtendedButton")).click();
+        tool.driver.findElement(By.id("accountFirstName")).clear();
+        tool.driver.findElement(By.id("accountFirstName")).sendKeys(firstName);
+        tool.driver.findElement(By.name("accountExtendedButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon searchByCompanyNameSinglePerson(String companyName) throws Exception {
 
-        driver.findElement(By.id("companyName")).clear();
-        driver.findElement(By.id("companyName")).sendKeys(companyName);
-        driver.findElement(By.name("accountExtendedButton")).click();
+        tool.driver.findElement(By.id("companyName")).clear();
+        tool.driver.findElement(By.id("companyName")).sendKeys(companyName);
+        tool.driver.findElement(By.name("accountExtendedButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public CustomerSearchResultCommon searchByCompanyNameMultiplePersons(String companyName) throws Exception {
 
-        driver.findElement(By.id("companyName")).clear();
-        driver.findElement(By.id("companyName")).sendKeys(companyName);
-        driver.findElement(By.name("accountExtendedButton")).click();
+        tool.driver.findElement(By.id("companyName")).clear();
+        tool.driver.findElement(By.id("companyName")).sendKeys(companyName);
+        tool.driver.findElement(By.name("accountExtendedButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new CustomerSearchResultCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CustomerSearchResultCommon(tool, test, user);
     }
 
     public AccountDetailsCommon searchByPersonLastNameSinglePerson(String lastName) throws Exception {
 
-        driver.findElement(By.id("personLastName")).clear();
-        driver.findElement(By.id("personLastName")).sendKeys(lastName);
-        driver.findElement(By.name("personButton")).click();
+        tool.driver.findElement(By.id("personLastName")).clear();
+        tool.driver.findElement(By.id("personLastName")).sendKeys(lastName);
+        tool.driver.findElement(By.name("personButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon searchByPersonFirstNameSinglePerson(String firstName) throws Exception {
 
-        driver.findElement(By.id("personFirstName")).clear();
-        driver.findElement(By.id("personFirstName")).sendKeys(firstName);
-        driver.findElement(By.name("personButton")).click();
+        tool.driver.findElement(By.id("personFirstName")).clear();
+        tool.driver.findElement(By.id("personFirstName")).sendKeys(firstName);
+        tool.driver.findElement(By.name("personButton")).click();
 
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new AccountDetailsCommon(driver);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public CustomerSearchResultCommon searchAccountWildCard() throws Exception {
 
-        driver.findElement(By.id("p-L2:40-L3:2150")).clear();
-        driver.findElement(By.id("p-L2:40-L3:2150")).sendKeys("*");
-        driver.findElement(By.cssSelector("input.submit")).click();
+        tool.driver.findElement(By.id("p-L2:40-L3:2150")).clear();
+        tool.driver.findElement(By.id("p-L2:40-L3:2150")).sendKeys("*");
+        tool.driver.findElement(By.cssSelector("input.submit")).click();
 
-        return new CustomerSearchResultCommon(driver);
+        return new CustomerSearchResultCommon(tool, test, user);
     }
 
     public void setPersonFirstName(String firstName) throws Exception {
 
-        driver.findElement(By.id("personFirstName")).clear();
-        driver.findElement(By.id("personFirstName")).sendKeys(firstName);
+        tool.driver.findElement(By.id("personFirstName")).clear();
+        tool.driver.findElement(By.id("personFirstName")).sendKeys(firstName);
     }
 
     public void setPersonLastName(String lastName) throws Exception {
 
-        driver.findElement(By.id("personLastName")).clear();
-        driver.findElement(By.id("personLastName")).sendKeys(lastName);
+        tool.driver.findElement(By.id("personLastName")).clear();
+        tool.driver.findElement(By.id("personLastName")).sendKeys(lastName);
     }
 
     public void setNationalID(String nationID) throws Exception {
 
-        driver.findElement(By.id("nationalId")).clear();
-        driver.findElement(By.id("nationalId")).sendKeys(nationID);
+        tool.driver.findElement(By.id("nationalId")).clear();
+        tool.driver.findElement(By.id("nationalId")).sendKeys(nationID);
     }
 
     public void setDateOfBirth(String dob) throws Exception {
 
-        driver.findElement(By.id("dateOfBirth")).clear();
-        driver.findElement(By.id("dateOfBirth")).sendKeys(dob);
+        tool.driver.findElement(By.id("dateOfBirth")).clear();
+        tool.driver.findElement(By.id("dateOfBirth")).sendKeys(dob);
     }
 
     public PersonIdentificationSearchResultCommon clickPersonSearchExpectingManyResults() throws Exception {
 
-        driver.findElement(By.name("personButton")).click();
-        return new PersonIdentificationSearchResultCommon(driver);
+        tool.driver.findElement(By.name("personButton")).click();
+        return new PersonIdentificationSearchResultCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickPersonSearchExpectingOneResult() throws Exception {
 
-        driver.findElement(By.name("personButton")).click();
-        return new AccountDetailsCommon(driver);
+        tool.driver.findElement(By.name("personButton")).click();
+        return new AccountDetailsCommon(tool, test, user);
     }
 
     public void clickMorePersonSearchFields() throws Exception {
 
-        driver.findElement(By.xpath("(//a[contains(text(),'More >>')])[2]")).click();
+        tool.driver.findElement(By.xpath("(//a[contains(text(),'More >>')])[2]")).click();
     }
 
     public void clickMoreSubscriberSearchFields() throws Exception {
-        driver.findElement(By.linkText("More >>")).click();
+        tool.driver.findElement(By.linkText("More >>")).click();
     }
 
     public void selectShadowOnly() throws Exception {
-        new Select(driver.findElement(By.id("subscriberType"))).selectByVisibleText("Shadow Only");
+        new Select(tool.driver.findElement(By.id("subscriberType"))).selectByVisibleText("Shadow Only");
     }
 
     public void checkIncludeInactiveSubscriberID() throws Exception {
-        driver.findElement(By.id("includeInactiveSubscribers")).click();
+        tool.driver.findElement(By.id("includeInactiveSubscribers")).click();
     }
 
     public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {
 
-        driver.findElement(By.partialLinkText(MSISDN)).click();
-        Common.waitForEndOfWaitingPage(driver, this.getClass().getSimpleName());
-        return new SubscriberDetailsCommon(driver);
+        tool.driver.findElement(By.partialLinkText(MSISDN)).click();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new SubscriberDetailsCommon(tool, test, user);
     }
 }

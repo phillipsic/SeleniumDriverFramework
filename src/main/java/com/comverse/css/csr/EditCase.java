@@ -4,14 +4,15 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.EditCaseCommon;
 
 public class EditCase extends EditCaseCommon {
 
-    public EditCase(WebDriver driver) throws Exception {
-        super(driver);
+    public EditCase(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
 
     }
 

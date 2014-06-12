@@ -1,19 +1,19 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.FraudlockSubscriberRequestForDetailsCommon;
 
 public class FraudlockSubscriberRequestForDetails extends FraudlockSubscriberRequestForDetailsCommon {
 
-    public FraudlockSubscriberRequestForDetails(WebDriver driver) throws Exception {
-        super(driver);
-
+    public FraudlockSubscriberRequestForDetails(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public FraudlockSubscriberConfirmation clickContinue() throws Exception {
         super.clickContinue();
-        return new FraudlockSubscriberConfirmation(driver);
+        return new FraudlockSubscriberConfirmation(tool, test, user);
     }
 }

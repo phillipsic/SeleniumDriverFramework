@@ -4,39 +4,35 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.WebDriver;
-
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 import com.comverse.css.commonpages.MoveLevelCommon;
 
-/**
- * 
- * @author Koushic
- */
 public class MoveLevel extends MoveLevelCommon {
 
-    public MoveLevel(WebDriver driver) throws Exception {
-        super(driver);
-
+    public MoveLevel(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
     }
 
     @Override
     public MoveLevel clickSelectByLevelName(String weeklyLevelName) throws Exception {
 
         super.clickSelectByLevelName(weeklyLevelName);
-        return new MoveLevel(driver);
+        return new MoveLevel(tool, test, user);
     }
 
     @Override
     public ViewHierarchy clickHierarchy() throws Exception {
 
         super.clickHierarchy();
-        return new ViewHierarchy(driver);
+        return new ViewHierarchy(tool, test, user);
     }
 
     @Override
     public MoveLevel levelNameWithOutSelectLink(String weeklyLevelName) throws Exception {
 
         super.levelNameWithOutSelectLink(weeklyLevelName);
-        return new MoveLevel(driver);
+        return new MoveLevel(tool, test, user);
     }
 }

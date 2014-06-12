@@ -1,15 +1,18 @@
 package com.comverse.css.commonpages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import com.comverse.common.AutomationTool;
+import com.comverse.common.Test;
+import com.comverse.common.User;
 
 public class AddMemberCommon extends CommonMenu {
     static String expectedScreen = "Add Member";
 
-    public AddMemberCommon(WebDriver driver) throws Exception {
+    public AddMemberCommon(AutomationTool tool, Test test, User user) throws Exception {
 
-        super(driver);
-        String currentScreen = driver.getTitle();
+        super(tool, test, user);
+        String currentScreen = tool.driver.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -19,7 +22,7 @@ public class AddMemberCommon extends CommonMenu {
 
     public String getTempPasswordFromPage() throws Exception {
 
-        String password = driver.findElement(By.xpath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span")).getText();
+        String password = tool.driver.findElement(By.xpath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span")).getText();
 
         String temp[] = password.split(":");
         password = temp[1];
@@ -30,8 +33,8 @@ public class AddMemberCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
 
-        return new ViewHierarchyCommon(driver);
+        return new ViewHierarchyCommon(tool, test, user);
     }
 }
