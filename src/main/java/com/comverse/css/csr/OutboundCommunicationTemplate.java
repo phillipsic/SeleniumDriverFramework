@@ -34,7 +34,8 @@ public class OutboundCommunicationTemplate extends OutboundCommunicationTemplate
         tool.driver.findElement(By.xpath(".//*[@id='OutboundCommTemplateSearchForm']/fieldset[2]/input[3]")).click();
     }
 
-    public AddOutboundCommunicationTemplate clickAdd() throws Exception {
+    @Override
+	public AddOutboundCommunicationTemplate clickAdd() throws Exception {
 
         tool.driver.findElement(By.xpath("//input[@value='Add']")).click();
         return new AddOutboundCommunicationTemplate(tool, test, user);

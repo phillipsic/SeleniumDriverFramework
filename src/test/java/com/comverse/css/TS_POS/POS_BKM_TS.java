@@ -1,9 +1,10 @@
 package com.comverse.css.TS_POS;
 
-import com.comverse.css.pos.bkm.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.pos.bkm.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({BKM0010_View_and_manage_basket.class,

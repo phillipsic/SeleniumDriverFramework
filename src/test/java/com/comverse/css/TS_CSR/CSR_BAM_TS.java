@@ -1,9 +1,10 @@
 package com.comverse.css.TS_CSR;
 
-import com.comverse.css.csr.bam.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.csr.bam.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({BAM0010_View_and_manage_account.class,

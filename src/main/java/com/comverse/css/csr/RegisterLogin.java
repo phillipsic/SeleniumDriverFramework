@@ -30,7 +30,8 @@ public class RegisterLogin extends RegisterLoginCommon {
         return new LoginInformation(tool, test, user);
     }
 
-    public ViewHierarchy clickOk() throws Exception {
+    @Override
+	public ViewHierarchy clickOk() throws Exception {
 
         super.clickOk();
         return new ViewHierarchy(tool, test, user);

@@ -22,34 +22,39 @@ public class AddressAdd extends AddressAddCommon {
 
     }
 
-    public void setStreetName(String streetname) throws Exception {
+    @Override
+	public void setStreetName(String streetname) throws Exception {
 
         tool.driver.findElement(By.id("add_streetName")).clear();
         tool.driver.findElement(By.id("add_streetName")).sendKeys(streetname);
 
     }
 
-    public void setCity(String city) throws Exception {
+    @Override
+	public void setCity(String city) throws Exception {
 
         tool.driver.findElement(By.id("add_city")).clear();
         tool.driver.findElement(By.id("add_city")).sendKeys(city);
 
     }
 
-    public void setZipCode(String zipcode) throws Exception {
+    @Override
+	public void setZipCode(String zipcode) throws Exception {
 
         tool.driver.findElement(By.id("add_postalCode")).clear();
         tool.driver.findElement(By.id("add_postalCode")).sendKeys(zipcode);
 
     }
 
-    public void selectCountry(String country) throws Exception {
+    @Override
+	public void selectCountry(String country) throws Exception {
 
         new Select(tool.driver.findElement(By.id("add_countryCode"))).selectByVisibleText(country);
 
     }
 
-    public AddressAdministration clickOK() throws Exception {
+    @Override
+	public AddressAdministration clickOK() throws Exception {
 
         tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
 

@@ -19,12 +19,14 @@ public class AddLevelContactInformation extends AddLevelContactInformationCommon
         return new AddLevelConfirmation(tool, test, user);
     }
 
-    public void setLevelName(String levelName) throws Exception {
+    @Override
+	public void setLevelName(String levelName) throws Exception {
 
         super.setLevelName(levelName);
     }
 
-    public void setLevelState(String levelState) throws Exception {
+    @Override
+	public void setLevelState(String levelState) throws Exception {
 
         super.setLevelState(levelState);
     }

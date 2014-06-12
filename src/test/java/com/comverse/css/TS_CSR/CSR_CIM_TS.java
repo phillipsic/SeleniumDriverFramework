@@ -1,9 +1,10 @@
 package com.comverse.css.TS_CSR;
 
-import com.comverse.css.csr.cim.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.csr.cim.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({CIM0010_View_Customer_Information.class,

@@ -32,7 +32,8 @@ public class AB_ResidentialEnhanceFamilyAccountBundle extends Offer {
         return sb_ResidentialUltraPostpaidBundle;
     }
 
-    public C1Data getBAL_GPRS_WAP_INTERNET() {
+    @Override
+	public C1Data getBAL_GPRS_WAP_INTERNET() {
         return bal_GPRS_WAP_INTERNET;
     }
 

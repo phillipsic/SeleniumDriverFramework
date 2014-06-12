@@ -57,7 +57,8 @@ public class OTGHome extends MyshapeCommon {
         Thread.sleep(1000);
     }
 
-    public OTGHome clickLogout() throws Exception {
+    @Override
+	public OTGHome clickLogout() throws Exception {
         tool.driver.findElement(By.cssSelector("button.btn.btn-default")).click();
         Thread.sleep(1000);
         System.out.println("Logged out");

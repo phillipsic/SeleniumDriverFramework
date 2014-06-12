@@ -67,7 +67,8 @@ public class Shopping extends B2CMenu {
         return new ChooseYourPrimaryOfferInThisAccountBundle(tool, test, user);
     }
 
-    public SubscriberDetail clickMyAccount() throws Exception {
+    @Override
+	public SubscriberDetail clickMyAccount() throws Exception {
         tool.driver.findElement(By.linkText("My Account")).click();
         return new SubscriberDetail(tool, test, user);
     }

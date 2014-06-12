@@ -22,7 +22,8 @@ public class ModifyOfferParameters extends ModifyOfferParametersCommon {
         }
     }
 
-    public ModifyItemOfSubscriber clickModify() throws Exception {
+    @Override
+	public ModifyItemOfSubscriber clickModify() throws Exception {
         super.clickModify();
         return new ModifyItemOfSubscriber(tool, test, user);
     }

@@ -1,9 +1,10 @@
 package com.comverse.css.TS_POS;
 
-import com.comverse.css.pos.bam.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.pos.bam.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({BAM0010_View_and_manage_account.class,

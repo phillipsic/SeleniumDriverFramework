@@ -21,7 +21,8 @@ public class AddressAdministration extends AddressAdministrationCommon {
 
     }
 
-    public AddressAdd clickAdd() throws Exception {
+    @Override
+	public AddressAdd clickAdd() throws Exception {
 
         tool.driver.findElement(By.xpath("//input[@value='Add']")).click();
 

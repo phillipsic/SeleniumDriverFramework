@@ -11,7 +11,8 @@ public abstract class Balance extends C1Data {
         setBalanceValue(null);
     }
 
-    public String getBalanceName() {
+    @Override
+	public String getBalanceName() {
         return balanceName;
     }
 
@@ -27,7 +28,8 @@ public abstract class Balance extends C1Data {
         this.balanceDescription = balanceDescription;
     }
 
-    public String getBalanceValue() {
+    @Override
+	public String getBalanceValue() {
         return balanceValue;
     }
 

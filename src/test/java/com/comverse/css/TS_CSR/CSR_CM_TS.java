@@ -1,9 +1,10 @@
 package com.comverse.css.TS_CSR;
 
-import com.comverse.css.csr.cm.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.csr.cm.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({CM0001_List_Cases_for_Channel_and_CSR_Portal.class,

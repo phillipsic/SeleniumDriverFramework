@@ -1,9 +1,10 @@
 package com.comverse.css.TS_CSR;
 
-import com.comverse.css.csr.clm.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.csr.clm.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({CLM0010_Suspend_Subscriber.class,

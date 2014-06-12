@@ -13,7 +13,8 @@ public class PO_ResidentialPostpaidwithOptionalEmail extends Offer {
         bal_GPRS_WAP_INTERNET = new BAL_GPRS_WAP_INTERNET();
     }
 
-    public BAL_GPRS_WAP_INTERNET getBAL_GPRS_WAP_INTERNET() {
+    @Override
+	public BAL_GPRS_WAP_INTERNET getBAL_GPRS_WAP_INTERNET() {
         return bal_GPRS_WAP_INTERNET;
     }
 }

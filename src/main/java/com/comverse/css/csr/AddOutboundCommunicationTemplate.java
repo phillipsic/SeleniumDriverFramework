@@ -24,7 +24,8 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
 
     }
 
-    public void selectTemplate(String filename) throws Exception {
+    @Override
+	public void selectTemplate(String filename) throws Exception {
 
         File file = new File(filename);
         // tool.driver.findElement(By.id("fileUpload")).clear();
@@ -32,43 +33,50 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
 
     }
 
-    public void selectLanguage(String language) throws Exception {
+    @Override
+	public void selectLanguage(String language) throws Exception {
 
         new Select(tool.driver.findElement(By.id("languageCode"))).selectByVisibleText(language);
 
     }
 
-    public void selectChannel(String channel) throws Exception {
+    @Override
+	public void selectChannel(String channel) throws Exception {
 
         new Select(tool.driver.findElement(By.id("channel"))).selectByVisibleText(channel);
 
     }
 
-    public void selectEventType(String eventType) throws Exception {
+    @Override
+	public void selectEventType(String eventType) throws Exception {
 
         new Select(tool.driver.findElement(By.id("eventType"))).selectByVisibleText(eventType);
 
     }
 
-    public void selectCaseType(String caseType) throws Exception {
+    @Override
+	public void selectCaseType(String caseType) throws Exception {
 
         new Select(tool.driver.findElement(By.id("caseType"))).selectByVisibleText(caseType);
 
     }
 
-    public void selectProblemArea(String problemArea) throws Exception {
+    @Override
+	public void selectProblemArea(String problemArea) throws Exception {
 
         new Select(tool.driver.findElement(By.id("problemArea"))).selectByVisibleText(problemArea);
 
     }
 
-    public void setDescription(String description) throws Exception {
+    @Override
+	public void setDescription(String description) throws Exception {
 
         tool.driver.findElement(By.id("description")).clear();
         tool.driver.findElement(By.id("description")).sendKeys(description);
     }
 
-    public OutboundCommunicationTemplate clickOK() throws Exception {
+    @Override
+	public OutboundCommunicationTemplate clickOK() throws Exception {
 
         tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
 

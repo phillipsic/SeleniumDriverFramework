@@ -17,7 +17,8 @@ public class YourFriendsAndFamilyNumbers extends YourFriendsAndFamilyNumbersComm
 
     }
 
-    public ConfigurationOfYourFriendsAndFamilyNumbers clickReconfigure() throws Exception {
+    @Override
+	public ConfigurationOfYourFriendsAndFamilyNumbers clickReconfigure() throws Exception {
         super.clickReconfigure();
         return new ConfigurationOfYourFriendsAndFamilyNumbers(tool, test, user);
     }

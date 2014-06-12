@@ -1,9 +1,10 @@
 package com.comverse.css.TS_CSR;
 
-import com.comverse.css.csr.prs.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.csr.prs.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({PRS0010_Browse_catalog_to_inform.class,

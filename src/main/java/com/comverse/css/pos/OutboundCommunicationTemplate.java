@@ -26,7 +26,8 @@ public class OutboundCommunicationTemplate extends OutboundCommunicationTemplate
 
     }
 
-    public AddOutboundCommunicationTemplate clickAdd() throws Exception {
+    @Override
+	public AddOutboundCommunicationTemplate clickAdd() throws Exception {
 
         tool.driver.findElement(By.xpath("//input[@value='Add']")).click();
 

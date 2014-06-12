@@ -1,9 +1,10 @@
 package com.comverse.css.TS_POS;
 
-import com.comverse.css.pos.ebp.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.pos.ebp.*;
 
 @RunWith(Suite.class)
    @SuiteClasses({EBP0010_List_Invoices.class,

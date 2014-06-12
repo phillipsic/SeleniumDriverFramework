@@ -4,7 +4,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.comverse.css.b2c.orma.*;
+import com.comverse.css.b2c.orma.ORMA0001_List_All_Orders_ResidentialUser;
+import com.comverse.css.b2c.orma.ORMA0031_View_order_details;
 
 @RunWith(Suite.class)
 @SuiteClasses({

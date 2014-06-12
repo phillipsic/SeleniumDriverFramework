@@ -61,7 +61,8 @@ public class MyShapeChannel extends MyshapeCommon {
         tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
     }
 
-    public void clickHomePage() throws Exception {
+    @Override
+	public void clickHomePage() throws Exception {
         tool.driver.findElement(By.xpath("//input[@value='Home Page']")).click();
     }
 

@@ -16,7 +16,8 @@ public class SearchOrders extends SearchOrdersCommon {
 
     }
 
-    public WorkSpace clickHomeMenu() throws Exception {
+    @Override
+	public WorkSpace clickHomeMenu() throws Exception {
         super.clickHomeMenu();
         return new WorkSpace(tool, test, user);
     }

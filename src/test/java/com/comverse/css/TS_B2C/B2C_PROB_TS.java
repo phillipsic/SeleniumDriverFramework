@@ -1,9 +1,10 @@
 package com.comverse.css.TS_B2C;
 
-import com.comverse.css.b2c.prob.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.b2c.prob.PROB0103_Create_Case;
 
 @RunWith(Suite.class)
 @SuiteClasses({

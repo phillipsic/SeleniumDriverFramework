@@ -1,9 +1,10 @@
 package com.comverse.css;
 
-import com.comverse.css.bct.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+
+import com.comverse.css.bct.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({BCT001_PO_Residential_NCA_B2C.class,

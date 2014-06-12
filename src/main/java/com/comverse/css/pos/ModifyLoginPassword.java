@@ -24,7 +24,8 @@ public class ModifyLoginPassword extends ModifyLoginPasswordCommon {
         return new MyShapeChannel(tool, test, user);
     }
 
-    public void clickOk() throws Exception {
+    @Override
+	public void clickOk() throws Exception {
         super.clickOk();
 
     }

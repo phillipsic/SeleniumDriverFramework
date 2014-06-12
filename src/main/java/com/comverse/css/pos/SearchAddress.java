@@ -24,7 +24,8 @@ public class SearchAddress extends SearchAddressCommon {
         return new SearchAddress(tool, test, user);
     }
 
-    public EnterIdentificationDataCommon clickSelectAddress() throws Exception {
+    @Override
+	public EnterIdentificationDataCommon clickSelectAddress() throws Exception {
 
         super.clickSelectAddress();
         return new EnterIdentificationData(tool, test, user);

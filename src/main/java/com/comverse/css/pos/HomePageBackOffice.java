@@ -27,7 +27,8 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
 
     }
 
-    public AddressAdministration clickAddressAdministration() throws Exception {
+    @Override
+	public AddressAdministration clickAddressAdministration() throws Exception {
 
         tool.driver.findElement(By.id("smnu_ADDRESS_ADMINISTRATION")).click();
 
@@ -35,7 +36,8 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
 
     }
 
-    public TokensfoundCommon clickTokenAdministration() throws Exception {
+    @Override
+	public TokensfoundCommon clickTokenAdministration() throws Exception {
 
         tool.driver.findElement(By.id("smnu_TOKEN_ADMINISTRATION")).click();
 
@@ -43,7 +45,8 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
 
     }
 
-    public OutboundCommunicationTemplate clickTemplateAdministration() throws Exception {
+    @Override
+	public OutboundCommunicationTemplate clickTemplateAdministration() throws Exception {
 
         tool.driver.findElement(By.id("smnu_TEMPLATE_ADMINISTRATION")).click();
 

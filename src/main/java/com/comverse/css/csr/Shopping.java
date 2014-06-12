@@ -44,7 +44,8 @@ public class Shopping extends ShoppingCommon {
         return new ConfigureBalance(tool, test, user);
     }
 
-    public SelectOffersForYourSubscriber subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffersForSubscriber(String accountBundle, String accountOffer,
+    @Override
+	public SelectOffersForYourSubscriber subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffersForSubscriber(String accountBundle, String accountOffer,
             String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {
         super.subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffersForSubscriber(accountBundle, accountOffer, optionalSubscriberBundle,
                 optionalSupplementaryOffersTable);
