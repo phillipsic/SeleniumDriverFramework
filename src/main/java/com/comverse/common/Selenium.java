@@ -180,6 +180,16 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void clickUsingTagName(AutomationTool tool, String tagName) throws Exception {
+        tool.driver.findElement(By.tagName(tagName)).click();
+    }
+
+    @Override
+    public WebElement searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
+        return tool.driver.findElement(By.tagName(tagName));
+    }
+
+    @Override
     public WebElement searchUsingID(AutomationTool tool, String id) throws Exception {
         return tool.driver.findElement(By.id(id));
     }
@@ -192,6 +202,11 @@ public class Selenium extends AutomationTool {
     @Override
     public void clickUsingLinkText(AutomationTool tool, String linkText) throws Exception {
         tool.driver.findElement(By.linkText(linkText)).click();
+    }
+
+    @Override
+    public void clickUsingLinkPartialText(AutomationTool tool, String partialLinkText) throws Exception {
+        tool.driver.findElement(By.partialLinkText(partialLinkText)).click();
     }
 
     @Override

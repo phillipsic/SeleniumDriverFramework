@@ -43,4 +43,14 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public void clickUsingLinkPartialText(AutomationTool tool, String partialLinkText) throws Exception {
+    }
+
+    public void clickUsingTagName(AutomationTool tool, String tagName) throws Exception {
+    }
+
+    public WebElement searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
+        return null;
+    }
+
 }
