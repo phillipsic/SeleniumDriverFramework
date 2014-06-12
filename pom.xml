@@ -9,13 +9,13 @@
 
     <name>SLN_MVN</name>
     <url>http://maven.apache.org</url>
-    <!--repositories>      
-        <repository>
+    <repositories>      
+        <!--repository>
             <id>project.local</id>
             <name>project</name>
-            <url>/src/main/repo</url>
-        </repository>
-    </repositories-->
+            <url>src/main/repo</url>
+        </repository-->
+    </repositories>
 
     <build>
 
@@ -61,30 +61,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.4</version>
-                <executions>
-                    <execution>
-                        <id>install1</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <file>src/main/repo/ojdbc14.jar</file>
-                            <groupId>com.oracle</groupId>
-                            <artifactId>ojdbc14</artifactId>
-                            <version>10.2.0.1.0</version>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-           
-                </executions>
-            </plugin>
-
         </plugins>
         <finalName>SLN_MVN_PROP</finalName>
         <resources>
@@ -137,7 +113,8 @@
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
             <version>10.2.0.1.0</version>
-        	<scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/repo/ojdbc14.jar</systemPath>
         </dependency>
     </dependencies>
 
