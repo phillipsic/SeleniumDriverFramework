@@ -226,4 +226,16 @@ public class Selenium extends AutomationTool {
         tool.driver.findElement(By.name(name)).sendKeys(data);
     }
 
+    @Override
+    public void enterStringUsingXPath(AutomationTool tool, String xpath, String data) throws Exception {
+        tool.driver.findElement(By.xpath(xpath)).clear();
+        tool.driver.findElement(By.xpath(xpath)).sendKeys(data);
+    }
+
+    @Override
+    public void enterStringUsingCssSelector(AutomationTool tool, String cssSelector, String data) throws Exception {
+        tool.driver.findElement(By.cssSelector(cssSelector)).clear();
+        tool.driver.findElement(By.cssSelector(cssSelector)).sendKeys(data);
+    }
+
 }
