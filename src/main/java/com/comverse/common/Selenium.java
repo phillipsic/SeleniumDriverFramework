@@ -37,9 +37,6 @@ public class Selenium extends AutomationTool {
         }
         System.out.println("computerName : " + tool.platform.getComputerName());
 
-        test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
-        System.out.println("DEBUG = " + test.getDebug());
-
         if (System.getProperty("selenium_browser") == null) {
             tool.platform.setBrowser(propsHelper.readInitProperties("BROWSER.type"));
         } else {
