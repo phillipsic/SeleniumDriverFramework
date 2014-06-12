@@ -32,7 +32,7 @@ public class ACCT0550ConfigureAccountBalance extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -83,9 +83,9 @@ public class ACCT0550ConfigureAccountBalance extends CSSTest {
             configureBalance.selectTargetAccount("Voice-Anytime");
             configureBalance.clickConfigureBalance();
 
-            Common.assertTextOnPage(driver, "Your request to configure balance has been processed successfully");
-            Common.assertTextOnPage(driver, "Night and Weekend Minutes");
-            Common.assertTextOnPage(driver, "Voice-Anytime");
+            Common.assertTextOnPage(tool, "Your request to configure balance has been processed successfully");
+            Common.assertTextOnPage(tool, "Night and Weekend Minutes");
+            Common.assertTextOnPage(tool, "Voice-Anytime");
 
             test.setResult("pass");
 

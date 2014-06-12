@@ -32,7 +32,7 @@ public class ACCT0720_Modify_Subsriber_Attributes extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -62,7 +62,7 @@ public class ACCT0720_Modify_Subsriber_Attributes extends CSSTest {
             modifySubscriberAttributes.selectLanguage("French (Standard)");
             RequestSubmission requestSubmission = modifySubscriberAttributes.clickModifyAttributes();
 
-            Common.isTextOnPage(driver, "The \"Modify Subscriber Attributes\" request has been submitted successfully.");
+            Common.isTextOnPage(tool, "The \"Modify Subscriber Attributes\" request has been submitted successfully.");
             subscriberDetail = requestSubmission.clickOkToConfirm();
             searchOrders = subscriberDetail.clickMyOrders();
             SearchRequests searchRequests = searchOrders.goToSearchRequests();

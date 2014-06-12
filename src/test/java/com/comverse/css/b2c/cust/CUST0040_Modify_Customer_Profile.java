@@ -28,12 +28,12 @@ public class CUST0040_Modify_Customer_Profile extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             System.out.println(login + "/" + password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
 
             SearchMember myInformation = subscriberDetail.clickMyInformationTab();
             CustomerProfile changeProfile = myInformation.clickChangeProfile();
@@ -41,7 +41,7 @@ public class CUST0040_Modify_Customer_Profile extends CSSTest {
             modifyProfileInformation.selectApprovalSequencing("Yes");
             ConfirmModifyProfileInformation confirmModifyProfileInformation = modifyProfileInformation.clickOK();
             confirmModifyProfileInformation.clickOK();
-            Common.assertTextOnPage(driver, " has been submitted successfully.");
+            Common.assertTextOnPage(tool, " has been submitted successfully.");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

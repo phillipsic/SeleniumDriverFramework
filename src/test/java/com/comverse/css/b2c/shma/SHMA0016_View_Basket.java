@@ -35,7 +35,7 @@ public class SHMA0016_View_Basket extends CSSTest {
             String uniqueTimeStamp = Common.generateTimeStamp();
             double poNRC = Double.parseDouble(po_ResidentialUltraPostpaid.getNRC());
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -60,11 +60,11 @@ public class SHMA0016_View_Basket extends CSSTest {
 
             // Verification of added PO & Accessory with total price .
 
-            Common.assertTextOnPage(driver, po_ResidentialUltraPostpaid.getOfferName());
-            Common.assertTextOnPage(driver, String.valueOf(poNRC));
-            Common.assertTextOnPage(driver, accBatteryPhone1.getAccessoryName());
-            Common.assertTextOnPage(driver, String.valueOf(accessoryTotalPrice));
-            Common.assertTextOnPage(driver, String.valueOf(poNRC + accessoryTotalPrice));
+            Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
+            Common.assertTextOnPage(tool, String.valueOf(poNRC));
+            Common.assertTextOnPage(tool, accBatteryPhone1.getAccessoryName());
+            Common.assertTextOnPage(tool, String.valueOf(accessoryTotalPrice));
+            Common.assertTextOnPage(tool, String.valueOf(poNRC + accessoryTotalPrice));
 
             // bugId = "NoBug";
             test.setResult("pass");

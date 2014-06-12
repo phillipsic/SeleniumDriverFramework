@@ -1,0 +1,85 @@
+package com.comverse.css.b2b.ebp;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.CSSSeleneseTestCase;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.User;
+import com.comverse.css.common.Wait;
+
+public class EBP0035_View_payments_distribution extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = "";
+    private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testEBP0035_View_payments_distribution() throws Exception {
+        try {
+            Prep b2bApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+            Wait waiting = new Wait(selenium);
+            //PropertyHelper propsHelper = new PropertyHelper();
+            //String Invoice = propsHelper.getAccountProperties("Invoice.PaymentDistribution");
+
+            app = b2bApplication.launchB2B();
+            version = b2bApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = b2bApplication.getBrowserAgent();
+
+            myUser.loginB2BAdmin();
+
+            selenium.click("//a[@id='mnu_ACCOUNT']");
+            waiting.forPageToLoad();
+
+            selenium.click("mnu_BILLS_PAYMENTS");
+            waiting.forPageToLoad();
+
+            assertEquals("View invoices", selenium.getTitle());
+            selenium.click("//table[@id='listInvoices']/tbody/tr[5]/td/a");
+            waiting.forPageToLoad();
+
+            assertEquals("View invoice details", selenium.getTitle());
+            selenium.click("youcan_VIEW_PAYMENT_DISTRIBUTIONS");
+            waiting.forPageToLoad();
+
+            assertEquals("View payment distributions", selenium.getTitle());
+            assertTrue(selenium.isTextPresent("Payments for invoice"));
+            selenium.click("//input[@value='Back']");
+            waiting.forPageToLoad();
+
+            assertEquals("View invoice details", selenium.getTitle());
+            selenium.click("//input[@value='Back']");
+            waiting.forPageToLoad();
+
+            assertEquals("View invoices", selenium.getTitle());
+
+            result = "pass";
+        } catch (AlreadyRunException e) {
+        } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+        super.tearDown();
+    }
+
+}

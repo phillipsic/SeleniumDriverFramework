@@ -30,12 +30,12 @@ public class ACCT0413AB_Remove_Service_AB_SB_PO extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
             SO_OneVoiceData so_OneVoiceData = new SO_OneVoiceData();
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             System.out.println(login + "/" + password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
-            Common.assertTextOnPage(driver, "WelcomeFN" + login);
+            Common.assertTextOnPage(tool, "WelcomeFN" + login);
             SelectOffers selectOffers = subscriberDetail.clickAddSO();
             AddSO addSO = selectOffers.selectOfferByNameAndContinueExpectingAddSO(so_OneVoiceData.getOfferName());
             // AddSO addSO =
@@ -47,7 +47,7 @@ public class ACCT0413AB_Remove_Service_AB_SB_PO extends CSSTest {
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(firstOrder);
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextOnPage(driver, so_OneVoiceData.getOfferName());
+            Common.assertTextOnPage(tool, so_OneVoiceData.getOfferName());
             RemoveOffer removeOffer = subscriberDetail.clickOfferRemove();
             OfferCancellation offerCancellation = removeOffer.ClickYes();
 
@@ -59,7 +59,7 @@ public class ACCT0413AB_Remove_Service_AB_SB_PO extends CSSTest {
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(secondOrder);
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextNotOnPage(driver, so_OneVoiceData.getOfferName());
+            Common.assertTextNotOnPage(tool, so_OneVoiceData.getOfferName());
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

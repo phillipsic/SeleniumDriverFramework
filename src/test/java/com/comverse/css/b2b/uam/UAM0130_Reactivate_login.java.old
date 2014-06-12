@@ -1,0 +1,96 @@
+package com.comverse.css.b2b.uam;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.common.CSSSeleneseTestCase; import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.User;
+import com.comverse.css.common.Wait;
+
+public class UAM0130_Reactivate_login extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = "";
+    private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testUAM0130_Reactivate_login() throws Exception {
+        try {
+            Prep b2bApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+            long ts = b2bApplication.generateTimeStamp();
+            String tsAsString = String.valueOf(ts);
+            Wait waiting = new Wait(selenium);
+
+            app = b2bApplication.launchB2B();
+            version = b2bApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = b2bApplication.getBrowserAgent();
+
+            myUser.loginSeniorAcctManager();
+            selenium.click("//a[@id='mnu_TELCO']");
+            waiting.forPageToLoad();
+
+            assertEquals("View Hierarchy", selenium.getTitle());
+            myUser.createLevelWithLevelType("Level" + tsAsString);
+            assertEquals("View Hierarchy", selenium.getTitle());
+            selenium.click("link=Level" + tsAsString);
+            waiting.forPageToLoad();
+
+            String TempPassword = myUser.createUserWithTempPassword(tsAsString, "Telco CSR Admin");
+
+            selenium.click("link=" + tsAsString + " " + tsAsString);
+            waiting.forPageToLoad();
+
+            assertEquals("Contact Information", selenium.getTitle());
+            selenium.click("smnu_LOGIN");
+            waiting.forPageToLoad();
+
+            assertEquals("Login Information", selenium.getTitle());
+            selenium.click("youcan_DISABLE_LOGIN");
+            waiting.forPageToLoad();
+
+            assertEquals("Deactivate Login", selenium.getTitle());
+            assertTrue(selenium.isTextPresent("Are you sure you want to deactivate the login " + tsAsString));
+            selenium.click("//input[@value='Confirm']");
+            waiting.forPageToLoad();
+
+            selenium.click("youcan_ENABLE_LOGIN");
+            waiting.forPageToLoad();
+
+            assertEquals("Activate Login", selenium.getTitle());
+            selenium.click("//input[@value='Confirm']");
+            waiting.forPageToLoad();
+
+            myUser.logout();
+
+            myUser.changePassword(tsAsString, TempPassword, "u01234");
+            assertEquals("Welcome to Your Workspace", selenium.getTitle());
+
+            result = "pass";
+        } catch (AlreadyRunException e) {         } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+        super.tearDown();
+    }
+
+}

@@ -36,7 +36,7 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -59,8 +59,8 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
 
             // Verification of added PO & SO .
 
-            Common.assertTextOnPage(driver, po_ResidentialUltraPostpaid.getOfferName());
-            Common.assertTextOnPage(driver, so_DIYeCountDownExtra.getOfferName());
+            Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
+            Common.assertTextOnPage(tool, so_DIYeCountDownExtra.getOfferName());
             // Changing added PO
             chooseYourPrimaryOffer = myBasket.clickChangePO();
             chooseYourDevice = chooseYourPrimaryOffer.selectPrimaryOfferByNameWithDevice(po_ResidentialBasicPrepaid.getOfferName());
@@ -72,10 +72,10 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
 
             // Checking of new added offer and removal of earlier offer.
 
-            Common.assertTextOnPage(driver, po_ResidentialBasicPrepaid.getOfferName());
-            Common.assertTextOnPage(driver, so_ResidentialSMSMMSPack.getOfferName());
-            Common.assertTextNotOnPage(driver, po_ResidentialUltraPostpaid.getOfferName());
-            Common.assertTextNotOnPage(driver, so_DIYeCountDownExtra.getOfferName());
+            Common.assertTextOnPage(tool, po_ResidentialBasicPrepaid.getOfferName());
+            Common.assertTextOnPage(tool, so_ResidentialSMSMMSPack.getOfferName());
+            Common.assertTextNotOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
+            Common.assertTextNotOnPage(tool, so_DIYeCountDownExtra.getOfferName());
 
             // bugId = "NoBug";
             test.setResult("pass");

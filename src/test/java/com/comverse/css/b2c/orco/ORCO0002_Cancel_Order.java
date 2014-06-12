@@ -32,7 +32,7 @@ public class ORCO0002_Cancel_Order extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();

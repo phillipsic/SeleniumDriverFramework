@@ -1,0 +1,87 @@
+package com.comverse.css.pos.rtp;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.common.CSSSeleneseTestCase; import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.User;
+import com.comverse.css.common.Wait;
+import com.comverse.css.pos.Nca;
+import com.comverse.css.common.Prep;
+
+public class RTP0010_View_real_time_promotions extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = ""; private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testRTP0010_View_real_time_promotions() throws Exception {
+        try {
+            Prep posApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+            Nca doNca = new Nca(selenium);
+            Wait waiting = new Wait(selenium);
+            long ts = posApplication.generateTimeStamp();
+
+            app = posApplication.launchPOS();
+            version = posApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = posApplication.getBrowserAgent();
+
+            myUser.loginTelcoUser();
+            doNca.checkForExistingBasketAndDiscard();
+            doNca.startNCA("New Convergent Residential Customer");
+            doNca.enterIdentificationData(ts);
+            doNca.modifyAccountDetails();
+            doNca.reviewCustomerData();
+            doNca.chooseOffer("Residential - Ultra Postpaid");
+            doNca.enterSubscriptionDetails(ts);
+            doNca.selectOffersForYourSubscriber();
+            doNca.configureOffers();
+            doNca.configureBalance("GPRS WAP-INTERNET_limit", "1024");
+            String SIM = doNca.selectThreeInventory();
+            doNca.checkMyBasketContent("Residential - Ultra Postpaid");
+            doNca.checkoutReview();
+            doNca.checkoutConfirmation(app);
+            doNca.waitForSubscriberCreated(SIM);
+
+            selenium.click("viewBalances");
+            waiting.forPageToLoad();
+
+            assertEquals("View Balance", selenium.getTitle());
+            selenium.click("youcan_VIEW_ACCUMULATORS");
+            waiting.forPageToLoad();
+
+            assertEquals("View Accumulators", selenium.getTitle());
+            assertTrue(selenium.isTextPresent("Advantages"));
+            assertTrue(selenium.isTextPresent("$10 in usage for the month gives 10 SMS Free"));
+            selenium.click("youcan_DEFAULT");
+            waiting.forPageToLoad();
+
+            assertEquals("Subscriber details", selenium.getTitle());
+
+        result = "pass"; } catch (AlreadyRunException e) {         } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+        super.tearDown();
+    }
+
+}

@@ -34,7 +34,7 @@ public class ORMA0001_List_All_Orders_ResidentialUser extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
@@ -47,7 +47,7 @@ public class ORMA0001_List_All_Orders_ResidentialUser extends CSSTest {
 
             searchOrders.setOrderNumber("none");
             searchOrders.clickSearch();
-            Common.assertTextOnPage(driver, "No matching order found");
+            Common.assertTextOnPage(tool, "No matching order found");
 
             searchOrders.setOrderNumber(firstOrderNumber);
             searchOrders.clickSearch();
@@ -55,7 +55,7 @@ public class ORMA0001_List_All_Orders_ResidentialUser extends CSSTest {
 
             searchOrders.setOrderStatus("Dispatched");
             searchOrders.clickSearch();
-            Common.assertTextOnPage(driver, "No matching order found");
+            Common.assertTextOnPage(tool, "No matching order found");
 
             searchOrders.setOrderStatus(firstOrderStatus);
             searchOrders.clickSearch();
@@ -64,7 +64,7 @@ public class ORMA0001_List_All_Orders_ResidentialUser extends CSSTest {
             searchOrders.setToDate("01/01/2014");
             searchOrders.setFromDate("01/01/2013");
             searchOrders.clickSearch();
-            Common.assertTextOnPage(driver, "No matching order found");
+            Common.assertTextOnPage(tool, "No matching order found");
 
             searchOrders.setToDate(firstOrderDate);
             searchOrders.clickSearch();

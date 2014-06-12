@@ -1,0 +1,23 @@
+package com.comverse.css.TS_B2B;
+
+import com.comverse.css.b2b.ucd.*;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class B2B_UCD_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(UCD0010_View_adjustments_appearing_on_one_invoice.class);
+        suite.addTestSuite(UCD0020_View_account_unbilled_adjustments.class);
+        suite.addTestSuite(UCD0040_View_invoice_balance_usage_charge_adjustments.class);
+        suite.addTestSuite(UCD0050_View_adjustment_detail.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

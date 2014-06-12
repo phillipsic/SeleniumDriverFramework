@@ -32,7 +32,7 @@ public class ACCT3010_Remove_Account_Offer extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -67,7 +67,7 @@ public class ACCT3010_Remove_Account_Offer extends CSSTest {
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(addAO_OrderNumber);
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextOnPage(driver, ao_ResidentialSNRegionAccountOffer.getOfferName());
+            Common.assertTextOnPage(tool, ao_ResidentialSNRegionAccountOffer.getOfferName());
 
             RemoveOffer removeOffer = subscriberDetail.clickRemoveAO(ao_ResidentialSNRegionAccountOffer.getOfferName());
             OfferCancellation offerCancellation = removeOffer.ClickYes();
@@ -77,7 +77,7 @@ public class ACCT3010_Remove_Account_Offer extends CSSTest {
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(removeAO_OrderNumber);
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextNotOnPage(driver, ao_ResidentialSNRegionAccountOffer.getOfferName());
+            Common.assertTextNotOnPage(tool, ao_ResidentialSNRegionAccountOffer.getOfferName());
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

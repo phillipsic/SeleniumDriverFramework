@@ -31,13 +31,13 @@ public class ACCS0020_Logout extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
             homePage = subscriberDetail.clickLogout();
-            Common.assertTextOnPage(driver,
+            Common.assertTextOnPage(tool,
                     "To complete the log off process and prevent other users from opening this application, you must close all browser windows and exit the browser application.");
 
             test.setResult("pass");

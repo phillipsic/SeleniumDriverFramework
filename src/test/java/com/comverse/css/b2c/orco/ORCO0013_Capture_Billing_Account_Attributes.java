@@ -32,7 +32,7 @@ public class ORCO0013_Capture_Billing_Account_Attributes extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -56,7 +56,7 @@ public class ORCO0013_Capture_Billing_Account_Attributes extends CSSTest {
             CustomerDetails customerDetails = signUpUser.enterMandatoryFieldsOnlyAndClickSignMeUp(uniqueTimeStamp);
             CheckOutBillingAccountInformation checkOutBillingAccountInformation = customerDetails.clickOk();
             checkOutBillingAccountInformation.clickCheckRadioButton();
-            Common.assertTextOnPage(driver, "Account Attributes");
+            Common.assertTextOnPage(tool, "Account Attributes");
             checkOutBillingAccountInformation.selectAccountAttributeLanguage("French (Standard)");
             BillingManagement billingManagement = checkOutBillingAccountInformation.clickContinueExpectingBillingManagement();
             CheckoutReview checkoutReview = billingManagement.clickContinue();
@@ -69,8 +69,8 @@ public class ORCO0013_Capture_Billing_Account_Attributes extends CSSTest {
 
             searchOrders.clickDashbaord();
 
-            Common.assertTextOnPage(driver, "Check");
-            Common.assertTextOnPage(driver, "French (Standard)");
+            Common.assertTextOnPage(tool, "Check");
+            Common.assertTextOnPage(tool, "French (Standard)");
 
             // assertTrue(selenium.isTextPresent("Billing Account Currency: US Dollar"));
 

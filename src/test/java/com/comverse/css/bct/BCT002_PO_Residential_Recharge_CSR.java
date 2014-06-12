@@ -31,7 +31,7 @@ public class BCT002_PO_Residential_Recharge_CSR extends CSSTest {
         String accountLastName = Common.getLastNameRechargableAccount();
         String rechargeAmount = "1";
 
-        WorkSpace workSpace = new WorkSpace(driver);
+        WorkSpace workSpace = new WorkSpace(tool, test, user);
 
         IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
         AccountDetails accountDetails = manageAccount.searchByAccountLastNameSinglePerson(accountLastName);

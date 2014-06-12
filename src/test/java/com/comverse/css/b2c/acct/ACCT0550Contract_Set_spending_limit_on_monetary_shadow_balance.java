@@ -29,7 +29,7 @@ public class ACCT0550Contract_Set_spending_limit_on_monetary_shadow_balance exte
 
             String uniqueUserTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -69,18 +69,18 @@ public class ACCT0550Contract_Set_spending_limit_on_monetary_shadow_balance exte
 
             SubscriberDetail subscriberDetail = searchOrders.clickDashbaord();
 
-            Common.assertTextOnPage(driver, "DIY - Super-Pack");
+            Common.assertTextOnPage(tool, "DIY - Super-Pack");
             ViewBalances viewBalances = subscriberDetail.clickBalances();
 
-            Common.assertTextOnPage(driver, "Units used from account balance");
+            Common.assertTextOnPage(tool, "Units used from account balance");
             configureBalance = viewBalances.clickConfigure();
             configureBalance.setSpendingLimit("120");
             configureBalance.selectTargetAccount("Night and Weekend Minutes");
             ConfigureBalanceReview configureBalanceReview = configureBalance.clickConfigureBalance();
             configureBalanceReview.clickConfirm();
-            Common.assertTextOnPage(driver, "Your request to configure balance has been processed successfully");
+            Common.assertTextOnPage(tool, "Your request to configure balance has been processed successfully");
             viewBalances = configureBalanceReview.clickBack();
-            Common.assertTextNotOnPage(driver, "Unlimited");
+            Common.assertTextNotOnPage(tool, "Unlimited");
 
             // More validation steps to be added.
             test.setResult("pass");

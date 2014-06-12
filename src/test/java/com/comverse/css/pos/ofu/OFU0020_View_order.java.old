@@ -1,0 +1,124 @@
+package com.comverse.css.pos.ofu;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.common.CSSSeleneseTestCase; import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.User;
+import com.comverse.css.common.Wait;
+import com.comverse.css.pos.Nca;
+
+public class OFU0020_View_order extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = "";
+    private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testOFU0020_View_order() throws Exception {
+        try {
+            Prep posApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+            Nca doNca = new Nca(selenium);
+            Wait waiting = new Wait(selenium);
+            long ts = posApplication.generateTimeStamp();
+            String orderNumber = "";
+            int MAX_RETRIES = 50;
+            int retries = 0;
+
+            app = posApplication.launchPOS();
+            version = posApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = posApplication.getBrowserAgent();
+
+            myUser.loginTelcoAdmin();
+            doNca.checkForExistingBasketAndDiscard();
+            doNca.startNCA("New Convergent Residential Customer");
+            doNca.enterIdentificationData(ts);
+            doNca.modifyAccountDetails();
+            doNca.reviewCustomerData();
+            doNca.chooseOffer("Residential - Ultra Postpaid");
+            doNca.selectHandSet("");
+            doNca.enterSubscriptionDetails(ts);
+            doNca.selectOffersForYourSubscriber();
+            doNca.configureOffers();
+            doNca.configureBalance("GPRS WAP-INTERNET_limit", "1024");
+            doNca.selectThreeInventory();
+            doNca.checkMyBasketContent("Residential - Ultra Postpaid");
+            doNca.checkoutReview();
+            orderNumber = doNca.checkoutConfirmation(app);
+            doNca.waitForAccountCreated(ts);
+
+            selenium.click("mnu_HOME");
+            waiting.forPageToLoad();
+
+            selenium.click("mnu_REQUESTS");
+            waiting.forPageToLoad();
+
+            selenium.click("smnu_ORDER");
+            waiting.forTextPresent("Search Orders");
+            selenium.type("//input[@name='orderNb']", orderNumber);
+            selenium.select("//select[@name='orderStatus']", "label=All"); // changed the label to ALL since order was in progress COde was not able to search the order 
+
+            while (retries < MAX_RETRIES) {
+                System.out.println("Waiting for account created: retry " + retries + " of " + MAX_RETRIES);
+
+                selenium.click("//input[@value='Search']");
+                waiting.forPageToLoad();
+
+                if (!selenium.isTextPresent("No matching order found")) {
+                    System.out.println("No matching order found NOT present");
+                    break;
+                }
+                retries++;
+            }
+
+            selenium.click("link=" + orderNumber);
+            waiting.forTextPresent("Order Details");
+
+            assertTrue(selenium.isTextPresent("Residential - Ultra Postpaid"));
+            assertTrue(selenium.isTextPresent("Mrs."));
+            assertTrue(selenium.isTextPresent("AcctFN" + ts));
+            assertTrue(selenium.isTextPresent("AcctLN" + ts));
+            assertTrue(selenium.isTextPresent("email@email.com"));
+            assertTrue(selenium.isTextPresent("0123456789"));
+            assertTrue(selenium.isTextPresent("0623456789"));
+            assertTrue(selenium.isTextPresent("Acctaddress_line_1"));
+            assertTrue(selenium.isTextPresent("Acctaddress_line_2"));
+            assertTrue(selenium.isTextPresent("Acctaddress_line_3"));
+            assertTrue(selenium.isTextPresent("Acctaddress_line_4"));
+            assertTrue(selenium.isTextPresent("AcctZip"));
+            assertTrue(selenium.isTextPresent("AcctCity"));
+            assertTrue(selenium.isTextPresent("Alaska"));
+            assertTrue(selenium.isTextPresent("IMSI"));
+            assertTrue(selenium.isTextPresent("SIM"));
+            assertTrue(selenium.isTextPresent("MSISDN"));
+            assertTrue(selenium.isTextPresent("Monthly"));
+
+            result = "pass";
+        } catch (AlreadyRunException e) {         } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+        super.tearDown();
+    }
+
+}

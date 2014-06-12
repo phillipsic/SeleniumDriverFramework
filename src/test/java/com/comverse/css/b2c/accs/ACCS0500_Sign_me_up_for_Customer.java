@@ -32,7 +32,7 @@ public class ACCS0500_Sign_me_up_for_Customer extends CSSTest {
             String accountNumber = Common.getAccountNumberOfUnregisteredAccountForSignMeUp();
             String lastName = Common.getLastNameOfUnregisteredAccountForSignMeUp(accountNumber);
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickActivateAccount();
             assertTrue(homePage.getActivateAccountMessage().matches("^[\\s\\S]*Enter your customer number and your last name or your company name"));
             homePage.enterLastName(lastName);

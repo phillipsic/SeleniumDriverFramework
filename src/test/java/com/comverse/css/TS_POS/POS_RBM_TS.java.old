@@ -1,0 +1,24 @@
+package com.comverse.css.TS_POS;
+
+import com.comverse.css.pos.rbm.*;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class POS_RBM_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(RBM0010_Configure_spending_credit_limits.class);
+        suite.addTestSuite(RBM0030_Display_balances.class);
+        suite.addTestSuite(RBM0040_Display_balance_details.class);
+        suite.addTestSuite(RBM0050_Reconfigure_spending_credit_limit.class);
+        suite.addTestSuite(RBM0060_Reconfigure_shadow_balance.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

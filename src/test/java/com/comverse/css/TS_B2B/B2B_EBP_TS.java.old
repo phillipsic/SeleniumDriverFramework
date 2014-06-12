@@ -1,0 +1,33 @@
+package com.comverse.css.TS_B2B;
+import com.comverse.css.b2b.ebp.*;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class B2B_EBP_TS {
+
+	public static Test suite() {
+		TestSuite suite = new TestSuite();
+		suite.addTestSuite(EBP0010_List_Invoices.class);
+                suite.addTestSuite(EBP0015_View_invoices_details.class);
+                suite.addTestSuite(EBP0018_View_invoice_balance_details.class);
+                suite.addTestSuite(EBP0030_List_Payments.class);
+                suite.addTestSuite(EBP0035_View_payments_distribution.class);
+                suite.addTestSuite(EBP0040_View_Billed_usage.class);
+                suite.addTestSuite(EBP0045_View_Billed_usage_detail.class);
+                suite.addTestSuite(EBP0070_Register_bill_payment.class);
+                suite.addTestSuite(EBP0080_View_Billed_RC_NRC.class);
+                suite.addTestSuite(EBP0090_View_Billed_RC_NRC_Detail.class);
+                suite.addTestSuite(EBP0094_View_Billed_recharges.class);
+                suite.addTestSuite(EBP0096_View_Billed_MTR.class);
+                suite.addTestSuite(EBP0110_View_unbilled_RC_NRC.class);
+                suite.addTestSuite(EBP0130_View_unbilled_usage.class);
+                suite.addTestSuite(EBP0140_View_unbilled_recharges.class);
+                suite.addTestSuite(EBP0150_View_unbilled_MTR.class);
+		return suite;
+	}
+
+	public static void main(String[] args) {
+		junit.textui.TestRunner.run(suite());
+	}
+}

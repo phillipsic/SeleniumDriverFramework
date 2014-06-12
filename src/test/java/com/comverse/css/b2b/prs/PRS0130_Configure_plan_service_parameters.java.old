@@ -1,0 +1,127 @@
+package com.comverse.css.b2b.prs;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.common.CSSSeleneseTestCase; import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.User;
+import com.comverse.css.b2b.Nsa;
+import com.comverse.css.common.Wait;
+
+public class PRS0130_Configure_plan_service_parameters extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = ""; private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testPRS0130_Configure_plan_service_parameters() throws Exception {
+        try {
+            Prep b2bApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+            Nsa doNsa = new Nsa(selenium);
+            Wait waiting = new Wait(selenium);
+            long ts = b2bApplication.generateTimeStamp();
+
+            app = b2bApplication.launchB2B();
+            version = b2bApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = b2bApplication.getBrowserAgent();
+
+            myUser.loginB2BAdmin();
+
+            selenium.click("//a[@id='mnu_ACCOUNT']");
+            waiting.forPageToLoad();
+
+            selenium.click("firstYouCanconvergentNewAccountMenu");
+            waiting.forPageToLoad();
+
+            selenium.click("//input[@value='Continue >']");
+            waiting.forPageToLoad();
+            doNsa.modifyAccountDetails("USD");
+            doNsa.reviewCustomerData();
+
+            waiting.forTextPresent("Subscriber Bundles/Primary Offers");
+            waiting.forTextPresent("per page");
+
+            selenium.click("//div[@id='shoppingTabs']/ul/li[2]/a/em");
+            waiting.forTextPresent("DIY - 10 / 10 Super Bundle");
+            selenium.click("link=DIY - 10 / 10 Super Bundle");
+            waiting.forTextPresent("Monthly");
+            selenium.click("//form[@id='select_priceplan']/input");
+            waiting.forPageToLoad();
+
+            selenium.click("//input[@value='Continue >']");
+            waiting.forPageToLoad();
+            doNsa.selectOffersForYourSubscriber();
+            doNsa.configureOffers();
+            doNsa.selectEmailReferenceInventory();
+            waiting.forTextPresent("My Basket");
+            assertTrue(selenium.isTextPresent("DIY - 10 / 10 Super Bundle"));
+
+            selenium.click("//a[@id='conf_pp_0']/img");
+            waiting.forTextPresent("Enter your subscription details");
+
+            selenium.type("p-param-L4:90070", "01/01/2011");
+            selenium.select("p-param-L4:80000", "label=French (Standard)");
+            selenium.select("title", "label=Mr.");
+            selenium.type("firstName", "SubFN1" + ts);
+            selenium.type("lastName", "SubLN1" + ts);
+            selenium.click("sex_male");
+            selenium.type("streetNumber", "11");
+            selenium.type("streetNumberSuffix", "Bis1");
+            selenium.select("streetDirectionalPrefix", "label=south");
+            selenium.type("streetName", "SubStreet1");
+            selenium.select("streetSuffix", "label=street");
+            selenium.select("streetDirectionalPostfix", "label=north");
+            selenium.select("unitType", "label=office");
+            selenium.type("unitNumber", "21");
+            selenium.type("home_city", "SubCity1");
+            selenium.type("county", "IDF1");
+            selenium.type("home_zip", "SubZIP1");
+            selenium.type("extendedZipCode", "SubExt1");
+            selenium.select("home_country", "label=United States");
+            selenium.select("home_state", "label=Iowa");
+            selenium.type("phoneNumber", "0123456780");
+
+            selenium.click("//input[@value='Continue >']");
+            waiting.forTextPresent("My Basket");
+
+            selenium.click("//a[@id='change_pp_params_0']/img");
+            waiting.forTextPresent("Modify Primary Offer Parameters");
+            selenium.click("//form[@id='ppParamsChange']/fieldset[1]/div[1]/input[1]");
+            selenium.click("//form[@id='ppParamsChange']/fieldset[1]/div[2]/input[1]");
+            selenium.click("//input[@name='continue']");
+            waiting.forTextPresent("My Basket");
+
+            selenium.click("checkout");
+            selenium.waitForPageToLoad("30000");
+            doNsa.acceptTermsAndConditions("DIY - Interactive TV Offer for All Terms and Conditions.");
+            doNsa.checkoutReview();
+            doNsa.checkoutConfirmation(app);
+
+        result = "pass"; } catch (AlreadyRunException e) {         } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+        super.tearDown();
+    }
+
+}

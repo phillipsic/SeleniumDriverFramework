@@ -35,7 +35,7 @@ public class SHMA0001_Capture_Service_Connection_details extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -57,7 +57,7 @@ public class SHMA0001_Capture_Service_Connection_details extends CSSTest {
             // .getBAL_VoiceNightWeekendShared().getBalanceValue());
 
             MyBasket myBasket = configureServiceConnectionDetails.clickContinue();
-            Common.assertTextOnPage(driver, po_DIYInteractiveTVOfferforAll.getOfferName());
+            Common.assertTextOnPage(tool, po_DIYInteractiveTVOfferforAll.getOfferName());
             TermsAndConditions termsAndConditions = myBasket.clickCheckOutExpectingTermsAndConditions();
 
             CheckoutRegister checkoutRegister = termsAndConditions.clickOkExpectingCheckoutRegister();
@@ -72,8 +72,8 @@ public class SHMA0001_Capture_Service_Connection_details extends CSSTest {
             CheckoutConfirmation checkoutConfirmation = checkoutReview.clickContinue();
             String orderNumber = checkoutConfirmation.getOrderNumberFromPage();
             SearchOrders searchOrders = checkoutConfirmation.clickOk();
-            Common.assertTextOnPage(driver, "Your order has been submitted.");
-            Common.assertTextOnPage(driver, orderNumber);
+            Common.assertTextOnPage(tool, "Your order has been submitted.");
+            Common.assertTextOnPage(tool, orderNumber);
             // searchOrders.clickRequests();
             // bugId = "CBS00165217";
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(orderNumber);

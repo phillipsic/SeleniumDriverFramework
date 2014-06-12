@@ -34,7 +34,7 @@ public class ORCO0030_Review_Order_Details extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -58,8 +58,8 @@ public class ORCO0030_Review_Order_Details extends CSSTest {
             MyBasket myBasket = configureServiceConnectionDetails.clickContinue();
 
             TermsAndConditions termsAndConditions = myBasket.clickCheckOutExpectingTermsAndConditions();
-            Common.assertTextOnPage(driver, sb_DIY10_10SuperBundle.getOfferTermsAndConditions());
-            Common.assertTextOnPage(driver, ((Offer) sb_DIY10_10SuperBundle.getPO_DIYInteractiveTVOfferforAll()).getOfferTermsAndConditions());
+            Common.assertTextOnPage(tool, sb_DIY10_10SuperBundle.getOfferTermsAndConditions());
+            Common.assertTextOnPage(tool, ((Offer) sb_DIY10_10SuperBundle.getPO_DIYInteractiveTVOfferforAll()).getOfferTermsAndConditions());
             test.setBugId("CBS00163135");
             CheckoutRegister checkoutRegister = termsAndConditions.clickOk();
             test.setBugId("NoBug");
@@ -78,9 +78,9 @@ public class ORCO0030_Review_Order_Details extends CSSTest {
             checkOutBillingAccountInformation.enterBankCode("111");
             checkOutBillingAccountInformation.enterOwnerLastName("LName");
             checkOutBillingAccountInformation.clickContinueExpectingBillingManagement();
-            Common.assertTextOnPage(driver, sb_DIY10_10SuperBundle.getOfferName());
-            Common.assertTextOnPage(driver, sb_DIY10_10SuperBundle.getPO_DIYInteractiveTVOfferforAll().getOfferName());
-            // Common.assertTextOnPage(driver,
+            Common.assertTextOnPage(tool, sb_DIY10_10SuperBundle.getOfferName());
+            Common.assertTextOnPage(tool, sb_DIY10_10SuperBundle.getPO_DIYInteractiveTVOfferforAll().getOfferName());
+            // Common.assertTextOnPage(tool,
             // sb_DIY10_10SuperBundle.getSO_DIYAdditionalTVServices4U().getOfferName());
             test.setResult("pass");
         } catch (AlreadyRunException e) {

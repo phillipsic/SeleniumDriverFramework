@@ -30,7 +30,7 @@ public class ACCT0540_Display_Balance_Details extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -72,32 +72,32 @@ public class ACCT0540_Display_Balance_Details extends CSSTest {
 
             // CORE BALANCE
             BalanceDetails balanceDetails = viewBalances.clickBalanceDetails(sb_ResidentialBasicPrepaidBundle.getBAL_CORE_BALANCE().getBalanceName());
-            Common.assertTextOnPage(driver, sb_ResidentialBasicPrepaidBundle.getBAL_CORE_BALANCE().getBalanceName());
+            Common.assertTextOnPage(tool, sb_ResidentialBasicPrepaidBundle.getBAL_CORE_BALANCE().getBalanceName());
             balanceDetails.clickGoToListOfSubscribers();
 
             // BONUS MONEY
             balanceDetails = viewBalances.clickBalanceDetails(sb_ResidentialBasicPrepaidBundle.getBAL_Bonus_Money().getBalanceName());
-            Common.assertTextOnPage(driver, sb_ResidentialBasicPrepaidBundle.getBAL_Bonus_Money().getBalanceName());
+            Common.assertTextOnPage(tool, sb_ResidentialBasicPrepaidBundle.getBAL_Bonus_Money().getBalanceName());
             balanceDetails.clickGoToListOfSubscribers();
 
             // Voice M2M Long Distance
             balanceDetails = viewBalances.clickBalanceDetails(sb_ResidentialBasicPrepaidBundle.getBAL_Voice_M2Long_Distance().getBalanceName());
-            Common.assertTextOnPage(driver, sb_ResidentialBasicPrepaidBundle.getBAL_Voice_M2Long_Distance().getBalanceName());
+            Common.assertTextOnPage(tool, sb_ResidentialBasicPrepaidBundle.getBAL_Voice_M2Long_Distance().getBalanceName());
             balanceDetails.clickGoToListOfSubscribers();
 
             // Voice M2M
             balanceDetails = viewBalances.clickBalanceDetails(sb_ResidentialBasicPrepaidBundle.getBAL_Voice_M2M().getBalanceName());
-            Common.assertTextOnPage(driver, sb_ResidentialBasicPrepaidBundle.getBAL_Voice_M2M().getBalanceName());
+            Common.assertTextOnPage(tool, sb_ResidentialBasicPrepaidBundle.getBAL_Voice_M2M().getBalanceName());
             balanceDetails.clickGoToListOfSubscribers();
 
             // MMS-ALL
             balanceDetails = viewBalances.clickBalanceDetails(sb_ResidentialBasicPrepaidBundle.getBAL_MMS_ALL().getBalanceName());
-            Common.assertTextOnPage(driver, sb_ResidentialBasicPrepaidBundle.getBAL_MMS_ALL().getBalanceName());
+            Common.assertTextOnPage(tool, sb_ResidentialBasicPrepaidBundle.getBAL_MMS_ALL().getBalanceName());
             balanceDetails.clickGoToListOfSubscribers();
 
             // SMS-ALL
             balanceDetails = viewBalances.clickBalanceDetails(sb_ResidentialBasicPrepaidBundle.getBAL_SMS_ALL().getBalanceName());
-            Common.assertTextOnPage(driver, sb_ResidentialBasicPrepaidBundle.getBAL_SMS_ALL().getBalanceName());
+            Common.assertTextOnPage(tool, sb_ResidentialBasicPrepaidBundle.getBAL_SMS_ALL().getBalanceName());
             balanceDetails.clickGoToListOfSubscribers();
 
             test.setResult("pass");

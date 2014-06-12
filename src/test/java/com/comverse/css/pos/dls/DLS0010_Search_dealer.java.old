@@ -1,0 +1,72 @@
+package com.comverse.css.pos.dls;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.common.CSSSeleneseTestCase; import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.User;
+import com.comverse.css.common.Wait;
+
+public class DLS0010_Search_dealer extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = "";
+    private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testDLS0010_Search_dealer() throws Exception {
+        try {
+            Prep posApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+            Wait waiting = new Wait(selenium);
+
+            app = posApplication.launchPOS();
+            version = posApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = posApplication.getBrowserAgent();
+
+            myUser.loginSeniorAcctManager();
+            selenium.click("//a[@id='mnu_MANAGE_RETAILER']");
+            waiting.forTextPresent("Search Retailer");
+            selenium.type("//form[@id='form_CUSTOMER_RESULTS_0']/fieldset[1]/div/input", "*");
+            selenium.click("//input[@value='Search']");
+            waiting.forTextPresent("retailers found");
+            assertTrue(selenium.isTextPresent("Dealer 1"));
+            selenium.type("//form[@id='form_CUSTOMER_RESULTS_0']/fieldset[1]/div/input", "noDealer");
+            selenium.click("//input[@value='Search']");
+            waiting.forTextPresent("No matching retailer found ");
+            selenium.type("//form[@id='form_CUSTOMER_RESULTS_0']/fieldset[1]/div/input", "Dealer 1");
+            selenium.click("//input[@value='Search']");
+            waiting.forTextPresent("1 retailers found");
+            assertTrue(selenium.isTextPresent("Dealer 1"));
+
+            selenium.click("//a[@id='lnk_CONTEXT_0']");
+            waiting.forTextPresent("View Hierarchy");
+
+            result = "pass";
+        } catch (AlreadyRunException e) {         } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+
+        super.tearDown();
+    }
+}

@@ -28,7 +28,7 @@ public class BCT006_Send_outbound_communication_for_a_account_CSR extends CSSTes
     public void testBCT006_Send_outbound_communication_for_a_account_CSR() throws Exception {
         launchCSSApplicationAndSSOLogin();
         String accountLastName = Common.getLastNameRechargableAccount();
-        WorkSpace workSpace = new WorkSpace(driver);
+        WorkSpace workSpace = new WorkSpace(tool, test, user);
 
         IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
         AccountDetails accountDetails = manageAccount.searchByAccountLastNameSinglePerson(accountLastName);

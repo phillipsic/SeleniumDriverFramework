@@ -32,7 +32,7 @@ public class ORCO0014_Capture_Billing_Contact extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -90,14 +90,14 @@ public class ORCO0014_Capture_Billing_Contact extends CSSTest {
             checkOutBillingAccountInformation.enterOwnerLastName("ownerLN" + uniqueTimeStamp);
             BillingManagement billingManagement = checkOutBillingAccountInformation.clickContinueExpectingBillingManagement();
 
-            Common.assertTextOnPage(driver, "Mr. BillingFN BillingLN");
-            Common.assertTextOnPage(driver, "BillingAddressLine1");
-            Common.assertTextOnPage(driver, "BillingAddressLine2");
-            Common.assertTextOnPage(driver, "BillingAddressLine3");
-            Common.assertTextOnPage(driver, "BillingAddressLine4");
-            Common.assertTextOnPage(driver, "BillingCity");
-            Common.assertTextOnPage(driver, "Alaska");
-            Common.assertTextOnPage(driver, "123654");
+            Common.assertTextOnPage(tool, "Mr. BillingFN BillingLN");
+            Common.assertTextOnPage(tool, "BillingAddressLine1");
+            Common.assertTextOnPage(tool, "BillingAddressLine2");
+            Common.assertTextOnPage(tool, "BillingAddressLine3");
+            Common.assertTextOnPage(tool, "BillingAddressLine4");
+            Common.assertTextOnPage(tool, "BillingCity");
+            Common.assertTextOnPage(tool, "Alaska");
+            Common.assertTextOnPage(tool, "123654");
 
             CheckoutReview checkoutReview = billingManagement.clickContinue();
 
@@ -107,7 +107,7 @@ public class ORCO0014_Capture_Billing_Contact extends CSSTest {
 
             searchOrders.clickDashbaord();
 
-            Common.assertTextOnPage(driver, "BillingFNBillingLN");
+            Common.assertTextOnPage(tool, "BillingFNBillingLN");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

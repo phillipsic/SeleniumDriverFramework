@@ -31,12 +31,12 @@ public class ACCS0103_Lock_Login_Manually extends CSSTest {
             String password = Common.getB2CPassword();
             String lastName = Common.getBCTLastName();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
 
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
 
             subscriberDetail.clickLogout();
             homePage.clickHomePage();
@@ -61,7 +61,7 @@ public class ACCS0103_Lock_Login_Manually extends CSSTest {
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             homePage.clickLogInExpectingFail();
-            Common.assertTextOnPage(driver, "Your login has been locked");
+            Common.assertTextOnPage(tool, "Your login has been locked");
 
             test.setResult("pass");
 

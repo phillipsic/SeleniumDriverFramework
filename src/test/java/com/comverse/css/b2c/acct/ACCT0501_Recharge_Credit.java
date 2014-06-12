@@ -32,11 +32,11 @@ public class ACCT0501_Recharge_Credit extends CSSTest {
             String password = Common.getB2CPassword();
             String amountToRecharge = "1";
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
 
             ViewBalances viewBalances = subscriberDetail.clickBalances();
 
@@ -58,7 +58,7 @@ public class ACCT0501_Recharge_Credit extends CSSTest {
             selectRechargePaymentMethod.enterCardSecretCode("123");
 
             RechargeDone rechargeDone = selectRechargePaymentMethod.clickSelect();
-            Common.assertTextOnPage(driver, "Available balances known at the date of:");
+            Common.assertTextOnPage(tool, "Available balances known at the date of:");
 
             subscriberDetail = rechargeDone.clickDashbaord();
             viewBalances = subscriberDetail.clickBalances();

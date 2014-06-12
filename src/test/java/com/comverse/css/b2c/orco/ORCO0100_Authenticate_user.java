@@ -33,7 +33,7 @@ public class ORCO0100_Authenticate_user extends CSSTest {
             String userName = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();

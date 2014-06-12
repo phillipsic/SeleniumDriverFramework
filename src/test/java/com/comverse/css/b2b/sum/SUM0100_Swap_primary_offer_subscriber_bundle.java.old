@@ -1,0 +1,162 @@
+package com.comverse.css.b2b.sum;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.b2b.Nsa;
+import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.CSSSeleneseTestCase;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.User;
+import com.comverse.css.common.Wait;
+
+public class SUM0100_Swap_primary_offer_subscriber_bundle extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = "";
+    private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testSUM0100_Swap_primary_offer_subscriber_bundle() throws Exception {
+        try {
+            Prep b2bApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+
+            Nsa doNsa = new Nsa(selenium);
+            Wait waiting = new Wait(selenium);
+            long ts = b2bApplication.generateTimeStamp();
+            String orderNumber = "";
+
+            app = b2bApplication.launchB2B();
+            version = b2bApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = b2bApplication.getBrowserAgent();
+
+            myUser.loginB2BAdmin();
+
+            selenium.click("//a[@id='mnu_ACCOUNT']");
+            waiting.forPageToLoad();
+
+            selenium.click("//a[@id='firstYouCanconvergentExistingAccountMenu']");
+            waiting.forTextPresent("Customer Acquisition - Customer Data Review");
+            selenium.click("//input[@value='Continue >']");
+            doNsa.chooseOffer("DIY - Interactive TV Offer for All");
+
+            assertTrue(selenium.getTitle().equals("Enter your subscription details"));
+
+            selenium.select("title", "label=Mrs.");
+            selenium.type("firstName", "SubFN" + ts);
+            selenium.type("lastName", "SubLN" + ts);
+            selenium.click("sex_fem");
+            selenium.type("streetNumber", "1");
+            selenium.type("streetNumberSuffix", "Bis");
+            selenium.select("streetDirectionalPrefix", "label=north");
+            selenium.type("streetName", "SubStreet");
+            selenium.select("streetSuffix", "label=road");
+            selenium.select("streetDirectionalPostfix", "label=south");
+            selenium.select("unitType", "label=building");
+            selenium.type("unitNumber", "2");
+            selenium.type("home_city", "SubCity");
+            selenium.type("county", "IDF");
+            selenium.type("home_zip", "SubZIP");
+            selenium.type("extendedZipCode", "SubExt");
+            selenium.select("home_country", "label=United States");
+            selenium.select("home_state", "label=Florida");
+            selenium.type("phoneNumber", "0123456789");
+            selenium.type("evening_phone", "0623456789");
+            //selenium.type("email", "a@a.fr");
+
+            selenium.click("//input[@value='Continue >']");
+            waiting.forPageToLoad();
+
+            doNsa.selectOffersForYourSubscriber();
+            doNsa.configureOffers();
+            doNsa.selectEmailReferenceInventory();
+            doNsa.checkMyBasketContent("DIY - Interactive TV Offer for All");
+            doNsa.acceptTermsAndConditions("DIY - Interactive TV Offer for All");
+            doNsa.checkoutReview();
+            waiting.forPageToLoad();
+            assertTrue(selenium.isTextPresent("Checkout Confirmation"));
+            assertTrue(selenium.isTextPresent("Your order has been submitted."));
+
+            orderNumber = selenium.getText("//html/body/table/tbody/tr[2]/td/div/div[2]/div/div[2]/div/div/span[2]");
+            orderNumber = orderNumber.trim();
+
+            selenium.click("submit");
+            waiting.forPageToLoad();
+
+            doNsa.waitForCutomerRequestDone(orderNumber);
+
+            selenium.click("//input[@value='Back']");
+            waiting.forPageToLoad();
+            selenium.click("//input[@value='Cancel']");
+            waiting.forPageToLoad();
+            //doNav.gotoSubscriberPage();
+
+            selenium.click("//a[@id='NavigationLink']");
+            selenium.type("//input[@id='name_nav4']", "SubFN" + ts);
+            selenium.keyUp("name_nav4", "\\40");
+            Thread.sleep(5000);
+            selenium.click("//td[3]/div/a");
+            waiting.forPageToLoad();
+
+            selenium.click("migratePre2Post");
+
+            waiting.forTextPresent("Customer Acquisition - Customer Data Review");
+            selenium.click("//input[@value='Continue >']");
+            waiting.forPageToLoad();
+
+            doNsa.chooseOffer("DIY - Weekly Subscription Prime Offering.");
+            selenium.click("//input[@value='Continue >']");
+
+            doNsa.selectOffersForYourSubscriber();
+            doNsa.configureOffers();
+            doNsa.confirmNoBalanceImpact();
+            doNsa.checkMyBasketContent("DIY - Weekly Subscription Prime Offering.");
+            doNsa.checkoutReview();
+            orderNumber = doNsa.checkoutConfirmation(app);
+
+            selenium.click("//span[2]/a");
+            waiting.forPageToLoad();
+
+            bugId = "CBS00112282";
+            doNsa.waitForCutomerRequestDone(orderNumber);
+            bugId = "NoBug";
+
+            selenium.click("//a[@id='NavigationLink']");
+            selenium.type("//input[@id='name_nav4']", "SubFN" + ts);
+            selenium.keyUp("name_nav4", "\\40");
+            Thread.sleep(5000);
+            selenium.click("//td[3]/div/a");
+            waiting.forPageToLoad();
+
+            assertEquals("Subscriber details", selenium.getTitle());
+            assertTrue(selenium.isTextPresent("DIY - Weekly Subscription Prime Offering."));
+
+            result = "pass";
+        } catch (AlreadyRunException e) {
+        } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+        super.tearDown();
+    }
+
+}

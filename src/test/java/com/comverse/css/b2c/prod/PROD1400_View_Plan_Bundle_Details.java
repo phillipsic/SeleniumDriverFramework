@@ -32,7 +32,7 @@ public class PROD1400_View_Plan_Bundle_Details extends CSSTest {
             launchCSSApplication();
             SB_ResidentialBasicPrepaidBundle sb_ResidentialBasicPrepaidBundle = new SB_ResidentialBasicPrepaidBundle();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -42,10 +42,10 @@ public class PROD1400_View_Plan_Bundle_Details extends CSSTest {
             subscriberBundleDetails.clickTermsAndConditionsTab();
 
             // @TODO - need to replace hard coded string
-            Common.assertTextOnPage(driver, "DIY - Super-Pack Terms and Conditions.");
+            Common.assertTextOnPage(tool, "DIY - Super-Pack Terms and Conditions.");
             chooseYourPrimaryOfferInThisAccountBundle = subscriberBundleDetails.clickReturnToList();
 
-            Common.assertTextOnPage(driver, sb_ResidentialBasicPrepaidBundle.getOfferName());
+            Common.assertTextOnPage(tool, sb_ResidentialBasicPrepaidBundle.getOfferName());
 
             // @TODO - More validation steps to be added.
 

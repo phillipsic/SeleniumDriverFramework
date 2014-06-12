@@ -1,0 +1,27 @@
+package com.comverse.css.TS_B2C;
+import com.comverse.css.b2c.prod.*;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class B2C_PROD_TS {
+
+	public static Test suite() {
+		TestSuite suite = new TestSuite();
+		suite.addTestSuite(PROD0100_Browse_devices_and_kits.class);
+                suite.addTestSuite(PROD0110_Devices_advanced_filter.class);
+                suite.addTestSuite(PROD0200_Browse_Accessories.class);
+                suite.addTestSuite(PROD0300_Browse_Plans_and_Plan_Bundles.class);
+                suite.addTestSuite(PROD0400_Select_Contract_Services.class);
+                suite.addTestSuite(PROD1100_View_Device_Details.class);
+                suite.addTestSuite(PROD1400_View_Plan_Bundle_Details.class);
+                suite.addTestSuite(PROD2100_Compare_Devices.class);
+
+
+		return suite;
+	}
+
+	public static void main(String[] args) {
+		junit.textui.TestRunner.run(suite());
+	}
+}

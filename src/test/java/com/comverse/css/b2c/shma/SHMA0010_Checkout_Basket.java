@@ -34,7 +34,7 @@ public class SHMA0010_Checkout_Basket extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -69,9 +69,9 @@ public class SHMA0010_Checkout_Basket extends CSSTest {
             configureServiceConnectionDetails = chooseAccessories.clickContinueExpectingConnectionServiceDetails();
             myBasket = configureServiceConnectionDetails.clickContinue();
 
-            Common.assertTextOnPage(driver, po_DIYInteractiveTVOfferforAll.getOfferName());
-            Common.assertTextOnPage(driver, so_DIYeCountDownExtra.getOfferName());
-            Common.assertTextOnPage(driver, po_DIYExtTVPO.getOfferName());
+            Common.assertTextOnPage(tool, po_DIYInteractiveTVOfferforAll.getOfferName());
+            Common.assertTextOnPage(tool, so_DIYeCountDownExtra.getOfferName());
+            Common.assertTextOnPage(tool, po_DIYExtTVPO.getOfferName());
             // bugId = "NoBug";
             test.setResult("pass");
 

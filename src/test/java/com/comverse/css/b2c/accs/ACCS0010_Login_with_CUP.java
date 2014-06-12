@@ -31,7 +31,7 @@ public class ACCS0010_Login_with_CUP extends CSSTest {
             String login = Common.getNonOrderingCUPB2CLogin();
             String password = Common.getNonOrderingCUPB2CPassword(login);
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             homePage.clickLogInExpectingChangePassword();
@@ -41,7 +41,7 @@ public class ACCS0010_Login_with_CUP extends CSSTest {
             homePage.enterChangePasswordSecretAnswer("Pa$$w0rd");
             homePage.clickChange();
 
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
 
             test.setResult("pass");
 

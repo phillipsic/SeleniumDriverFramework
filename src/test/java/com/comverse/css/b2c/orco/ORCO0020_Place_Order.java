@@ -33,7 +33,7 @@ public class ORCO0020_Place_Order extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -51,14 +51,14 @@ public class ORCO0020_Place_Order extends CSSTest {
             CheckoutRegister checkoutRegister = myBasket.clickCheckOut();
             SignUpUser signUpUser = checkoutRegister.selectSignMeUpAndClickContinue();
             CustomerDetails customerDetails = signUpUser.enterMandatoryFieldsOnlyAndClickSignMeUp(uniqueTimeStamp);
-            Common.assertTextOnPage(driver, "First Name:FN" + uniqueTimeStamp);
-            Common.assertTextOnPage(driver, "Last Name:LN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "First Name:FN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "Last Name:LN" + uniqueTimeStamp);
 
             CheckOutBillingAccountInformation checkOutBillingAccountInformation = customerDetails.clickOk();
             CheckoutReview checkoutReview = checkOutBillingAccountInformation.clickContinue();
             checkoutReview.clickContinue();
 
-            Common.assertTextOnPage(driver, "Your order has been submitted");
+            Common.assertTextOnPage(tool, "Your order has been submitted");
 
             test.setResult("pass");
 

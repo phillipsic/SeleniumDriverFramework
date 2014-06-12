@@ -32,12 +32,12 @@ public class ACCT0421_Modify_Service extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
             SO_2010WorldCupSoccerNews so_2010WorldCupSoccerNews = new SO_2010WorldCupSoccerNews();
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             System.out.println(login + "/" + password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
-            Common.assertTextOnPage(driver, "WelcomeFN" + login);
+            Common.assertTextOnPage(tool, "WelcomeFN" + login);
             SelectOffers selectOffers = subscriberDetail.clickAddSO();
             ConfigureOffers configureOffer = selectOffers.selectOfferByNameAndContinue(so_2010WorldCupSoccerNews.getOfferName());
             AddSO addSO = configureOffer.clickContinueExpectingOfferConfirmation();
@@ -49,7 +49,7 @@ public class ACCT0421_Modify_Service extends CSSTest {
 
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextOnPage(driver, so_2010WorldCupSoccerNews.getOfferName());
+            Common.assertTextOnPage(tool, so_2010WorldCupSoccerNews.getOfferName());
 
             ModifyOfferParameters modifyOfferParameters = subscriberDetail.clickOfferConfigure(so_2010WorldCupSoccerNews.getOfferName());
             modifyOfferParameters.enterVoiceMailSize("512");

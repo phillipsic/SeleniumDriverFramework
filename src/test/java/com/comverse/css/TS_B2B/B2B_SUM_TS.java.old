@@ -1,0 +1,29 @@
+package com.comverse.css.TS_B2B;
+
+import com.comverse.css.b2b.sum.*;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class B2B_SUM_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(SUM0010_View_and_manage_subscriber.class);
+        suite.addTestSuite(SUM0060_Modify_subscriber_contact.class);
+        suite.addTestSuite(SUM0080_Migrate_from_prepaid_to_post_paid.class);
+        suite.addTestSuite(SUM0090_Change_primary_offer_and_supplementary_offers.class);
+        suite.addTestSuite(SUM0100_Swap_primary_offer_subscriber_bundle.class);
+        suite.addTestSuite(SUM0110_Update_subscriber_external_id.class);
+        suite.addTestSuite(SUM0150_Add_subscriber_offers.class);
+        suite.addTestSuite(SUM0155_Modify_subscriber_offers.class);
+        suite.addTestSuite(SUM0160_Remove_subscriber_offer.class);
+        suite.addTestSuite(SUM0170_Reconfigure_subscriber_selective_offers.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

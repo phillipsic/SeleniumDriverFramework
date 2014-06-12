@@ -32,7 +32,7 @@ public class ACCT0621_Migrate_From_Prepaid_To_Postpaid extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -58,7 +58,7 @@ public class ACCT0621_Migrate_From_Prepaid_To_Postpaid extends CSSTest {
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(orderNumber);
             SubscriberDetail subscriberDetail = searchOrders.clickDashbaord();
 
-            Common.assertTextOnPage(driver, po_DIYRechargesPromotions.getOfferName());
+            Common.assertTextOnPage(tool, po_DIYRechargesPromotions.getOfferName());
 
             chooseYourPrimaryOffer = subscriberDetail.clickMigrateToPostpaidSubscriber();
             enterYourSubscriptionDetails = chooseYourPrimaryOffer.selectSubscriberBundleByNameWithoutDevice(sb_DIYWeek7_7Bundle.getOfferName(), sb_DIYWeek7_7Bundle
@@ -84,7 +84,7 @@ public class ACCT0621_Migrate_From_Prepaid_To_Postpaid extends CSSTest {
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(orderNumber1);
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextOnPage(driver, sb_DIYWeek7_7Bundle.getOfferName());
+            Common.assertTextOnPage(tool, sb_DIYWeek7_7Bundle.getOfferName());
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

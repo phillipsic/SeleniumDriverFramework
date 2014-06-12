@@ -32,7 +32,7 @@ public class ORCO0110_Confirm_Customer_Details extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -65,14 +65,14 @@ public class ORCO0110_Confirm_Customer_Details extends CSSTest {
             signUpUser.enterNationalId(uniqueTimeStamp);
             CustomerDetails customerDetails = signUpUser.clickSignMeUp();
 
-            Common.assertTextOnPage(driver, "FN" + uniqueTimeStamp);
-            Common.assertTextOnPage(driver, "LN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "FN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "LN" + uniqueTimeStamp);
 
-            Common.assertTextOnPage(driver, "Address Line One");
-            Common.assertTextOnPage(driver, "12345");
-            Common.assertTextOnPage(driver, "City1");
-            Common.assertTextOnPage(driver, "Alabama");
-            Common.assertTextOnPage(driver, "email@comverse.com");
+            Common.assertTextOnPage(tool, "Address Line One");
+            Common.assertTextOnPage(tool, "12345");
+            Common.assertTextOnPage(tool, "City1");
+            Common.assertTextOnPage(tool, "Alabama");
+            Common.assertTextOnPage(tool, "email@comverse.com");
 
             customerDetails.clickOk();
 

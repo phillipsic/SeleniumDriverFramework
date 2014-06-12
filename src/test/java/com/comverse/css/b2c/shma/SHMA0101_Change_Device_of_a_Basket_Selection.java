@@ -33,7 +33,7 @@ public class SHMA0101_Change_Device_of_a_Basket_Selection extends CSSTest {
             VD_CSSPQAVoiceDeviceStandardPhonesDEV1 voiceDevice1 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV1();
             VD_CSSPQAVoiceDeviceStandardPhonesDEV2 voiceDevice2 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV2();
             String uniqueTimeStamp = Common.generateTimeStamp();
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -48,16 +48,16 @@ public class SHMA0101_Change_Device_of_a_Basket_Selection extends CSSTest {
             configureBalance.setSpendingLimit("120");
             MyBasket myBasket = configureBalance.clickContinueExpectingMyBasket();
             // Checking Device3 details in Basket.
-            Common.assertTextOnPage(driver, po_ResidentialUltraPostpaid.getOfferName());
-            Common.assertTextOnPage(driver, voiceDevice1.getDeviceName());
-            Common.assertTextOnPage(driver, voiceDevice1.getDevicePriceinDollar());
+            Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
+            Common.assertTextOnPage(tool, voiceDevice1.getDeviceName());
+            Common.assertTextOnPage(tool, voiceDevice1.getDevicePriceinDollar());
             // Changing Device from Basket
             chooseYourHandset = myBasket.clickChangeDevice();
             myBasket = chooseYourHandset.selectHandsetExpectingMyBasket(voiceDevice2.getDeviceName());
             // Checking Device3 not exist & Device4 existence
-            Common.assertTextNotOnPage(driver, voiceDevice1.getDeviceName());
-            Common.assertTextOnPage(driver, voiceDevice2.getDeviceName());
-            Common.assertTextOnPage(driver, voiceDevice2.getDevicePriceinDollar());
+            Common.assertTextNotOnPage(tool, voiceDevice1.getDeviceName());
+            Common.assertTextOnPage(tool, voiceDevice2.getDeviceName());
+            Common.assertTextOnPage(tool, voiceDevice2.getDevicePriceinDollar());
             // bugId = "NoBug";
             test.setResult("pass");
         } catch (AlreadyRunException e) {

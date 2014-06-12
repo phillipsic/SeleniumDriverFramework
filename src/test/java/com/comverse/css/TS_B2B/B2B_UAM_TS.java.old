@@ -1,0 +1,30 @@
+package com.comverse.css.TS_B2B;
+
+import com.comverse.css.b2b.uam.*;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class B2B_UAM_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(UAM0020_Edit_login_information.class);
+        suite.addTestSuite(UAM0030_Change_password.class);
+        suite.addTestSuite(UAM0040_Reset_password_of_another_user.class);
+        suite.addTestSuite(UAM0050_Change_secret_question_and_answer.class);
+        suite.addTestSuite(UAM0060_Lock_login_manually.class);
+        suite.addTestSuite(UAM0070_Unlock_login.class);
+        suite.addTestSuite(UAM0080_Register_login.class);
+        suite.addTestSuite(UAM0100_Get_forgotten_password.class);
+        suite.addTestSuite(UAM0110_Change_password_on_first_login.class);
+        suite.addTestSuite(UAM0120_Deactivate_login.class);
+        suite.addTestSuite(UAM0130_Reactivate_login.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

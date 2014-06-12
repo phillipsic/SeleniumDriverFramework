@@ -1,0 +1,86 @@
+package com.comverse.css.b2b.nsa;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.b2b.Navigation;
+import com.comverse.css.b2b.Nsa;
+import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.CSSSeleneseTestCase;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.User;
+import com.comverse.css.common.Wait;
+
+public class NSA0040_New_contract extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = "";
+    private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testNSA0040_New_contract() throws Exception {
+        try {
+            Prep b2bApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+
+            Nsa doNsa = new Nsa(selenium);
+            Wait waiting = new Wait(selenium);
+            Navigation doNav = new Navigation(selenium);
+
+            app = b2bApplication.launchB2B();
+            version = b2bApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = b2bApplication.getBrowserAgent();
+
+            myUser.loginB2BAdmin();
+
+            selenium.click("//a[@id='mnu_ACCOUNT']");
+            waiting.forPageToLoad();
+
+            selenium.click("firstYouCanconvergentNewAccountMenu");
+            waiting.forPageToLoad();
+
+            selenium.click("//input[@value='Continue >']");
+            waiting.forPageToLoad();
+            doNsa.modifyAccountDetails("USD");
+            doNsa.reviewCustomerData();
+            doNsa.chooseOffer("DIY - Monthly Subscription Prime Offering");
+            doNsa.selectHandSet("");
+            selenium.click("//input[@value='Continue >']");
+            doNsa.selectOffersForYourSubscriber();
+            doNsa.checkMyBasketContent("DIY - Monthly Subscription Prime Offering");
+            doNsa.checkoutReview();
+            doNsa.checkoutConfirmation(app);
+            doNsa.waitForAccountRequestDone();
+
+            doNav.gotoSubscriberPage();
+
+            assertEquals("Subscriber details", selenium.getTitle());
+
+            result = "pass";
+        } catch (AlreadyRunException e) {
+        } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+        super.tearDown();
+    }
+
+}

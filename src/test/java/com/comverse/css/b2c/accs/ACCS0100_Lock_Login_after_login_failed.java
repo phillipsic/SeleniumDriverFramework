@@ -33,11 +33,11 @@ public class ACCS0100_Lock_Login_after_login_failed extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
             homePage = subscriberDetail.clickLogout();
             homePage.clickHomePage();
 
@@ -48,7 +48,7 @@ public class ACCS0100_Lock_Login_after_login_failed extends CSSTest {
                 homePage.enterPassword("wrong");
                 homePage.clickLogInExpectingFail();
 
-                Common.assertTextOnPage(driver, "Warning: after 5 attempts your account will be locked.");
+                Common.assertTextOnPage(tool, "Warning: after 5 attempts your account will be locked.");
 
             }
 

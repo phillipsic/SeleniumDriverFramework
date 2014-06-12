@@ -29,7 +29,7 @@ public class PROD0100_Browse_devices_and_kits extends CSSTest {
             launchCSSApplication();
 
             VD_CSSPQAVoiceDeviceStandardPhonesDEV1 voiceDevice1 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV1();
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -46,10 +46,10 @@ public class PROD0100_Browse_devices_and_kits extends CSSTest {
             chooseAccessories.setQuantityForAccessory("CSS-PQA-Battery-Phone-ACC1", "2");
             myBasket = chooseAccessories.clickContinue();
 
-            Common.assertTextOnPage(driver, voiceDevice1.getDeviceName());
-            Common.assertTextOnPage(driver, voiceDevice1.getDevicePriceinDollar());
-            Common.assertTextOnPage(driver, "CSS-PQA-Battery-Phone-ACC1");
-            Common.assertTextOnPage(driver, "59.98");
+            Common.assertTextOnPage(tool, voiceDevice1.getDeviceName());
+            Common.assertTextOnPage(tool, voiceDevice1.getDevicePriceinDollar());
+            Common.assertTextOnPage(tool, "CSS-PQA-Battery-Phone-ACC1");
+            Common.assertTextOnPage(tool, "59.98");
 
             TermsAndConditions termsAndConditions = myBasket.clickCheckOutExpectingTermsAndConditions();
 

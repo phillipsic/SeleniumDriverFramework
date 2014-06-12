@@ -34,7 +34,7 @@ public class SHMA0014_Remove_a_Basket_Selection extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -55,18 +55,18 @@ public class SHMA0014_Remove_a_Basket_Selection extends CSSTest {
 
             // Verification of added PO & SO .
 
-            Common.assertTextOnPage(driver, po_DIYInteractiveTVOfferforAll.getOfferName());
-            Common.assertTextOnPage(driver, so_DIYeCountDownExtra.getOfferName());
+            Common.assertTextOnPage(tool, po_DIYInteractiveTVOfferforAll.getOfferName());
+            Common.assertTextOnPage(tool, so_DIYeCountDownExtra.getOfferName());
 
             // Removing added SO from Basket.
 
             RemoveSupplementaryOffer removeSO = myBasket.clickRemoveOnSO(so_DIYeCountDownExtra.getOfferName());
-            Common.assertTextOnPage(driver, "Are you sure you want to remove supplementary offer " + so_DIYeCountDownExtra.getOfferName() + "?");
+            Common.assertTextOnPage(tool, "Are you sure you want to remove supplementary offer " + so_DIYeCountDownExtra.getOfferName() + "?");
             myBasket = removeSO.ClickYes();
 
             // Verification of non-existence of SO in Basket.
 
-            Common.assertTextNotOnPage(driver, so_DIYeCountDownExtra.getOfferName());
+            Common.assertTextNotOnPage(tool, so_DIYeCountDownExtra.getOfferName());
 
             // bugId = "NoBug";
             test.setResult("pass");

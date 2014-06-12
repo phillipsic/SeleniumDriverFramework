@@ -29,12 +29,12 @@ public class ACCT0412AB_Subscribe_New_Services_AB_SB_PO extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             System.out.print(login + "/" + password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
             SelectOffers selectOffers = subscriberDetail.clickAddSO();
             AddSO addSO = selectOffers.selectOfferByNameAndContinueExpectingAddSO("OneVoice Data");
             String orderNumber = addSO.getOrderNumberFromPage();
@@ -50,7 +50,7 @@ public class ACCT0412AB_Subscribe_New_Services_AB_SB_PO extends CSSTest {
 
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextOnPage(driver, "OneVoice Data");
+            Common.assertTextOnPage(tool, "OneVoice Data");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

@@ -32,7 +32,7 @@ public class ORCO0012_Capture_Recurring_Payment_Method extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -70,7 +70,7 @@ public class ORCO0012_Capture_Recurring_Payment_Method extends CSSTest {
 
             searchOrders.clickDashbaord();
 
-            Common.assertTextOnPage(driver, "Direct Debit");
+            Common.assertTextOnPage(tool, "Direct Debit");
 
             // assertTrue(selenium.isTextPresent("Billing Account Currency: US Dollar"));
 

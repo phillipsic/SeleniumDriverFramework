@@ -31,7 +31,7 @@ public class ORCO0011_Capture_Immediate_Payment_Method extends CSSTest {
             VD_CSSPQAVoiceDeviceStandardPhonesDEV2 voiceDevice2 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV2();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();

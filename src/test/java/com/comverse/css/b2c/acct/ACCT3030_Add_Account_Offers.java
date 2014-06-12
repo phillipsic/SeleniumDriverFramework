@@ -32,7 +32,7 @@ public class ACCT3030_Add_Account_Offers extends CSSTest {
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -67,7 +67,7 @@ public class ACCT3030_Add_Account_Offers extends CSSTest {
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(ao_OrderNumber);
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextOnPage(driver, ao_ResidentialSNRegionAccountOffer.getOfferName());
+            Common.assertTextOnPage(tool, ao_ResidentialSNRegionAccountOffer.getOfferName());
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

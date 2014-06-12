@@ -32,7 +32,7 @@ public class ORMA0031_View_order_details extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
@@ -45,13 +45,13 @@ public class ORMA0031_View_order_details extends CSSTest {
 
             searchOrders.clickOrderNumber(firstOrderNumber);
 
-            Common.assertTextOnPage(driver, "Order Status:" + firstOrderStatus);
-            Common.assertTextOnPage(driver, "Order Number:" + firstOrderNumber);
+            Common.assertTextOnPage(tool, "Order Status:" + firstOrderStatus);
+            Common.assertTextOnPage(tool, "Order Number:" + firstOrderNumber);
 
-            Common.assertTextOnPage(driver, "Residential - Basic Prepaid");
-            Common.assertTextOnPage(driver, "Voice Prepaid MSISDN");
-            Common.assertTextOnPage(driver, "3G IMSI");
-            Common.assertTextOnPage(driver, "3G SIM");
+            Common.assertTextOnPage(tool, "Residential - Basic Prepaid");
+            Common.assertTextOnPage(tool, "Voice Prepaid MSISDN");
+            Common.assertTextOnPage(tool, "3G IMSI");
+            Common.assertTextOnPage(tool, "3G SIM");
 
             test.setResult("pass");
 

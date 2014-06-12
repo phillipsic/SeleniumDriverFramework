@@ -1,0 +1,21 @@
+package com.comverse.css.TS_CSR;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import com.comverse.css.csr.dtpool.*;
+
+public class CSR_DTPOOL_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(DTPOOL01_View_Pool_Information.class);
+        suite.addTestSuite(DTPOOL02_Filtering_of_Pool_SO.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

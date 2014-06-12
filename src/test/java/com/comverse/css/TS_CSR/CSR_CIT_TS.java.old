@@ -1,0 +1,22 @@
+package com.comverse.css.TS_CSR;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import com.comverse.css.csr.cit.*;
+
+public class CSR_CIT_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(CIT10_Search_and_View_notes.class);
+        suite.addTestSuite(CIT21_View_Existing_Sessions_for_an_Account_View_Details_of_Session.class);
+        suite.addTestSuite(CIT41_Create_session_note.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

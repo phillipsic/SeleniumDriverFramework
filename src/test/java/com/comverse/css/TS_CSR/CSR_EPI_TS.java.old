@@ -1,0 +1,21 @@
+package com.comverse.css.TS_CSR;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import com.comverse.css.csr.epi.*;
+
+public class CSR_EPI_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(EPI0010_Search_employees.class);
+        suite.addTestSuite(EPI0020_List_employees_of_a_level.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

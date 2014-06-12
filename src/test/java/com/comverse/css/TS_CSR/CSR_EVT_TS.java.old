@@ -1,0 +1,24 @@
+package com.comverse.css.TS_CSR;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import com.comverse.css.csr.evt.*;
+
+public class CSR_EVT_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(EVT01_Modify_the_Direction_Channel_and_interactivity_mode_for_a_session.class);
+        suite.addTestSuite(EVT02_Reopen_an_Event.class);
+        suite.addTestSuite(EVT03_Problem_Area_for_a_Non_Case_Event.class);
+        suite.addTestSuite(EVT04_View_Modify_Details_of_an_Event.class);
+        suite.addTestSuite(EVT05_Initiate_an_Outbound_Communication.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

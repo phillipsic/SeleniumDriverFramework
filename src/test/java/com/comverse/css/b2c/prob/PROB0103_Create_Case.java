@@ -32,12 +32,12 @@ public class PROB0103_Create_Case extends CSSTest {
             String login = Common.getB2CLoginName();
             String password = Common.getB2CPassword();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.enterUsername(login);
             homePage.enterPassword(password);
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
 
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
 
             ListCases listCases = subscriberDetail.clickSupport();
             AddCase addCase = listCases.clickCreateCase();
@@ -56,13 +56,13 @@ public class PROB0103_Create_Case extends CSSTest {
             listCases = addCase.clickListCases();
             listCases.clickOnCaseIDLink(newCaseID);
 
-            assertTrue(Common.isTextOnPageWithRegex(driver, "Reference:\\s*" + newCaseID));
-            assertTrue(Common.isTextOnPageWithRegex(driver, "Status:\\s*New"));
-            assertTrue(Common.isTextOnPageWithRegex(driver, "Reporting Person:\\s*" + "FN" + login.toLowerCase()));
-            assertTrue(Common.isTextOnPageWithRegex(driver, "Affected Person:\\s*" + "FN" + login.toLowerCase()));
-            assertTrue(Common.isTextOnPageWithRegex(driver, "Type:\\s*Service Problem"));
-            assertTrue(Common.isTextOnPageWithRegex(driver, "Problem area:\\s*Calls Dropped"));
-            assertTrue(Common.isTextOnPageWithRegex(driver, "Case Description entered by PROB0103 test"));
+            assertTrue(Common.isTextOnPageWithRegex(tool, "Reference:\\s*" + newCaseID));
+            assertTrue(Common.isTextOnPageWithRegex(tool, "Status:\\s*New"));
+            assertTrue(Common.isTextOnPageWithRegex(tool, "Reporting Person:\\s*" + "FN" + login.toLowerCase()));
+            assertTrue(Common.isTextOnPageWithRegex(tool, "Affected Person:\\s*" + "FN" + login.toLowerCase()));
+            assertTrue(Common.isTextOnPageWithRegex(tool, "Type:\\s*Service Problem"));
+            assertTrue(Common.isTextOnPageWithRegex(tool, "Problem area:\\s*Calls Dropped"));
+            assertTrue(Common.isTextOnPageWithRegex(tool, "Case Description entered by PROB0103 test"));
 
             test.setResult("pass");
 

@@ -35,7 +35,7 @@ public class PROD2100_Compare_Devices extends CSSTest {
 
             VD_CSSPQAVoiceDeviceStandardPhonesDEV1 voiceDevice1 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV1();
             VD_CSSPQAVoiceDeviceStandardPhonesDEV2 voiceDevice6 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV2();
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();

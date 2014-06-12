@@ -36,7 +36,7 @@ public class ACCT2203_Change_Primary_Offer_and_Supplementary_Offers extends CSST
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -63,7 +63,7 @@ public class ACCT2203_Change_Primary_Offer_and_Supplementary_Offers extends CSST
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(orderNumber);
             SubscriberDetail subscriberDetail = searchOrders.clickDashbaord();
 
-            Common.assertTextOnPage(driver, po_ResidentialBasicPrepaid.getOfferName());
+            Common.assertTextOnPage(tool, po_ResidentialBasicPrepaid.getOfferName());
 
             chooseYourPrimaryOffer = subscriberDetail.clickChangeOffer();
             enterYourSubscriptionDetails = chooseYourPrimaryOffer.selectPrimaryOfferByNameWithoutDevice(po_ResidentialBasicPrepaidForSwap.getOfferName());
@@ -90,9 +90,9 @@ public class ACCT2203_Change_Primary_Offer_and_Supplementary_Offers extends CSST
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(orderNumber1);
             subscriberDetail = searchOrders.clickDashboard();
 
-            Common.assertTextOnPage(driver, po_ResidentialBasicPrepaidForSwap.getOfferName());
-            Common.assertTextOnPage(driver, so_2010WorldCupSoccerNews.getOfferName());
-            Common.assertTextOnPage(driver, so_2009MarchMadnessNews.getOfferName());
+            Common.assertTextOnPage(tool, po_ResidentialBasicPrepaidForSwap.getOfferName());
+            Common.assertTextOnPage(tool, so_2010WorldCupSoccerNews.getOfferName());
+            Common.assertTextOnPage(tool, so_2009MarchMadnessNews.getOfferName());
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

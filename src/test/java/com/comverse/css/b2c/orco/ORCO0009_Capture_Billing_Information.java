@@ -34,7 +34,7 @@ public class ORCO0009_Capture_Billing_Information extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -52,7 +52,7 @@ public class ORCO0009_Capture_Billing_Information extends CSSTest {
             ChooseAccessories chooseAccessories = configureBalance.clickContinue();
             MyBasket myBasket = chooseAccessories.clickContinue();
 
-            Common.assertTextOnPage(driver, po_ResidentialUltraPostpaid.getOfferName());
+            Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
 
             shopping = myBasket.clickContinueShopping();
 
@@ -83,12 +83,12 @@ public class ORCO0009_Capture_Billing_Information extends CSSTest {
             checkOutBillingAccountInformation.enterOwnerLastName("Sub2LN" + uniqueTimeStamp);
             billingManagement = checkOutBillingAccountInformation.clickContinueExpectingBillingManagement();
 
-            Common.assertTextOnPage(driver, "Check");
-            Common.assertTextOnPage(driver, "Direct Debit");
-            Common.assertTextOnPage(driver, "Bank code:2222");
-            Common.assertTextOnPage(driver, "Bank agency code:4444");
-            Common.assertTextOnPage(driver, "Bank account number:123456");
-            Common.assertTextOnPage(driver, "Owner Last Name:Sub2LN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "Check");
+            Common.assertTextOnPage(tool, "Direct Debit");
+            Common.assertTextOnPage(tool, "Bank code:2222");
+            Common.assertTextOnPage(tool, "Bank agency code:4444");
+            Common.assertTextOnPage(tool, "Bank account number:123456");
+            Common.assertTextOnPage(tool, "Owner Last Name:Sub2LN" + uniqueTimeStamp);
 
             billingManagement.clickContinue();
 

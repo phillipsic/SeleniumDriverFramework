@@ -1,0 +1,131 @@
+package com.comverse.css.b2b.nsa;
+
+import org.junit.After;
+import org.junit.Before;
+
+import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.CSSSeleneseTestCase;
+import com.comverse.css.common.Prep;
+import com.comverse.css.common.User;
+import com.comverse.css.common.Wait;
+import com.comverse.css.b2b.Nsa;
+
+public class NSA0025_Update_administrative_data extends CSSSeleneseTestCase {
+
+    private StringBuffer broken_error = new StringBuffer();
+    private String bugId = "NoBug";
+    private String app = "";
+    private String version = "";
+    private String deployMode = "CV";
+    private String browser = "";
+    private String result = "fail";
+
+    @Before
+    @Override
+    public void setUp() {
+        String htmlFileName = this.getClass().getSimpleName().toString();
+        super.setUp(htmlFileName);
+    }
+
+    public void testNSA0025_Update_administrative_data() throws Exception {
+        try {
+            Prep b2bApplication = new Prep(selenium);
+            User myUser = new User(selenium);
+            
+            Nsa doNsa = new Nsa(selenium);
+            Wait waiting = new Wait(selenium);
+
+            app = b2bApplication.launchB2B();
+            version = b2bApplication.getBuildNumber(app, this.getClass().getSimpleName().toString());
+            browser = b2bApplication.getBrowserAgent();
+
+            myUser.loginB2BAdmin();
+
+            selenium.click("//a[@id='mnu_ACCOUNT']");
+            waiting.forPageToLoad();
+
+            selenium.click("//a[@id='firstYouCanconvergentExistingAccountMenu']");
+            waiting.forTextPresent("Customer Acquisition - Customer Data Review");
+            //Edit on "Customer identity and contact"
+            selenium.click("//fieldset[1]/div/div/form/input");
+            waiting.forPageToLoad();
+
+            assertTrue(selenium.getTitle().equals("Update account contact informations"));
+            selenium.type("titleString", "Mr.");
+            selenium.type("first_name", "AcctFNModified");
+            selenium.type("last_name", "AcctLNModified");
+            selenium.type("email", "emailModified@email.com");
+            selenium.type("fax", "06Modified");
+            selenium.click("//input[@value='Continue >']");
+
+            waiting.forTextPresent("Customer Acquisition - Customer Data Review");
+            //Edit on "Customer Address details"
+            selenium.click("//fieldset[2]/div/div/form/input");
+            waiting.forPageToLoad();
+
+            assertTrue(selenium.getTitle().equals("Update account billing address informations"));
+            selenium.type("address_line_1", "Acctadd1Modified");
+            selenium.type("address_line_2", "Acctadd2Modified");
+            selenium.type("address_line_3", "Acctadd3Modified");
+            selenium.type("address_line_4", "Acctadd4Modified");
+            selenium.type("home_zip", "AcctZipModified");
+            selenium.type("home_city", "AcctCityModified");
+            selenium.select("home_country", "label=France");
+            selenium.click("//input[@value='Confirm']");
+
+            waiting.forTextPresent("Customer Acquisition - Customer Data Review");
+            //Edit on "Account Contact"
+            selenium.click("//form[@id='do_edit_params']/input[3]");
+
+            waiting.forTextPresent("update");
+            assertTrue(selenium.getTitle().equals("Update administrative account information"));
+
+            selenium.select("p-param-L4:91310", "Print Bill on Paper");
+            selenium.click("//input[@value='Continue >']");
+
+            waiting.forTextPresent("Customer Acquisition - Customer Data Review");
+            selenium.click("//input[@value='Continue >']");
+
+            doNsa.chooseOffer("DIY - Monthly Subscription Prime Offering");
+            doNsa.selectHandSet("");
+            selenium.click("//input[@value='Continue >']");
+            doNsa.selectOffersForYourSubscriber();
+            doNsa.checkMyBasketContent("DIY - Monthly Subscription Prime Offering");
+            doNsa.checkoutReview();
+            doNsa.checkoutConfirmation(app);
+            doNsa.waitForAccountRequestDone();
+
+            assertTrue(selenium.isTextPresent("Mr."));
+            assertTrue(selenium.isTextPresent("AcctFNModified"));
+            assertTrue(selenium.isTextPresent("AcctLNModified"));
+            assertTrue(selenium.isTextPresent("emailModified@email.com"));
+            assertTrue(selenium.isTextPresent("06Modified"));
+            assertTrue(selenium.isTextPresent("Acctadd1Modified"));
+            assertTrue(selenium.isTextPresent("Acctadd2Modified"));
+            assertTrue(selenium.isTextPresent("Acctadd3Modified"));
+            assertTrue(selenium.isTextPresent("Acctadd4Modified"));
+            assertTrue(selenium.isTextPresent("AcctZipModified"));
+            assertTrue(selenium.isTextPresent("AcctCityModified"));
+            assertTrue(selenium.isTextPresent("France"));
+
+            selenium.click("//div[@id='account_dashboard']/ul/li[2]/a/em");
+            assertTrue(selenium.isTextPresent("Print Bill on Paper"));
+
+            result = "pass";
+        } catch (AlreadyRunException e) {
+        } catch (Exception e) {
+            broken_error.append(e.getMessage());
+            throw e;
+        }
+    }
+
+    @After
+    @Override
+    public void tearDown() {
+        //String result = super.testResult(broken_error);
+        String testId = this.getClass().getSimpleName().toString();
+        super.logResults(bugId, app, version, testId, result, deployMode, browser);
+        super.tearDown();
+    }
+
+}

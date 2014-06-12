@@ -1,0 +1,23 @@
+package com.comverse.css.TS_B2B;
+
+import com.comverse.css.b2b.prs.*;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class B2B_PRS_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(PRS0090_Add_account_bundle.class);
+        suite.addTestSuite(PRS0130_Configure_plan_service_parameters.class);
+        suite.addTestSuite(PRS0140_Browse_and_select_Devices_Device_kits.class);
+        suite.addTestSuite(PRS0150_Browse_and_select_Accessories.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

@@ -28,7 +28,7 @@ public class BCT005_PO_Residential_Casemanagement_CSR extends CSSTest {
     public void testBCT005_PO_Residential_Casemanagement_CSR() throws Exception {
         launchCSSApplicationAndSSOLogin();
         String accountLastName = Common.getLastNameRechargableAccount();
-        WorkSpace workSpace = new WorkSpace(driver);
+        WorkSpace workSpace = new WorkSpace(tool, test, user);
 
         IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
         AccountDetails accountDetails = manageAccount.searchByAccountLastNameSinglePerson(accountLastName);

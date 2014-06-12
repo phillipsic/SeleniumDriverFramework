@@ -1,0 +1,21 @@
+package com.comverse.css.TS_CSR;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import com.comverse.css.csr.lir.*;
+
+public class CSR_LIR_TS {
+
+    public static Test suite() {
+        TestSuite suite = new TestSuite();
+        suite.addTestSuite(LIR0010_View_Liability_redirection.class);
+        suite.addTestSuite(LIR0020_View_liability_redirection_details.class);
+
+        return suite;
+    }
+
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(suite());
+    }
+}

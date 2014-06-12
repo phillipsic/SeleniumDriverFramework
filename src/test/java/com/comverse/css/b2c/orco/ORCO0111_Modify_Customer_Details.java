@@ -32,7 +32,7 @@ public class ORCO0111_Modify_Customer_Details extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -50,10 +50,10 @@ public class ORCO0111_Modify_Customer_Details extends CSSTest {
             CheckoutRegister checkoutRegister = myBasket.clickCheckOut();
             SignUpUser signUpUser = checkoutRegister.selectSignMeUpAndClickContinue();
             CustomerDetails customerDetails = signUpUser.enterMandatoryFieldsOnlyAndClickSignMeUp(uniqueTimeStamp);
-            Common.assertTextOnPage(driver, "FN" + uniqueTimeStamp);
-            Common.assertTextOnPage(driver, "LN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "FN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "LN" + uniqueTimeStamp);
 
-            Common.assertTextOnPage(driver, "If your customer details are not correct, you can still modify them.");
+            Common.assertTextOnPage(tool, "If your customer details are not correct, you can still modify them.");
             ModifyCustomerDetails modifyCustomerDetails = customerDetails.clickModify();
             modifyCustomerDetails.enterAddressLineOne("ModAddrLine1");
             modifyCustomerDetails.enterAddressLineTwo("ModAddrLine2");
@@ -68,15 +68,15 @@ public class ORCO0111_Modify_Customer_Details extends CSSTest {
             modifyCustomerDetails.clickConfirm();
 
             test.setBugId("CBS00160146");
-            Common.assertTextOnPage(driver, "ModAddrLine1");
+            Common.assertTextOnPage(tool, "ModAddrLine1");
             test.setBugId("NoBug");
-            Common.assertTextOnPage(driver, "ModAddrLine2");
-            Common.assertTextOnPage(driver, "ModAddrLine3");
-            Common.assertTextOnPage(driver, "ModAddrLine4");
-            Common.assertTextOnPage(driver, "ModCity");
-            Common.assertTextOnPage(driver, "ModEmail@comverse.com");
-            Common.assertTextOnPage(driver, "01/01/1982");
-            Common.assertTextOnPage(driver, "ABCD1234");
+            Common.assertTextOnPage(tool, "ModAddrLine2");
+            Common.assertTextOnPage(tool, "ModAddrLine3");
+            Common.assertTextOnPage(tool, "ModAddrLine4");
+            Common.assertTextOnPage(tool, "ModCity");
+            Common.assertTextOnPage(tool, "ModEmail@comverse.com");
+            Common.assertTextOnPage(tool, "01/01/1982");
+            Common.assertTextOnPage(tool, "ABCD1234");
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {

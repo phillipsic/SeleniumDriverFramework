@@ -32,7 +32,7 @@ public class ORCO0001_Accept_Terms_and_Conditions extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -63,8 +63,8 @@ public class ORCO0001_Accept_Terms_and_Conditions extends CSSTest {
 
             SignUpUser signUpUser = checkoutRegister.selectSignMeUpAndClickContinue();
             CustomerDetails customerDetails = signUpUser.enterMandatoryFieldsOnlyAndClickSignMeUp(uniqueTimeStamp);
-            Common.assertTextOnPage(driver, "First Name:FN" + uniqueTimeStamp);
-            Common.assertTextOnPage(driver, "Last Name:LN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "First Name:FN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "Last Name:LN" + uniqueTimeStamp);
 
             CheckOutBillingAccountInformation checkOutBillingAccountInformation = customerDetails.clickOk();
             checkOutBillingAccountInformation.clickCheckRadioButton();
@@ -72,7 +72,7 @@ public class ORCO0001_Accept_Terms_and_Conditions extends CSSTest {
             CheckoutReview checkoutReview = billingManagement.clickContinue();
             checkoutReview.clickContinue();
 
-            Common.assertTextOnPage(driver, "Your order has been submitted");
+            Common.assertTextOnPage(tool, "Your order has been submitted");
 
             test.setResult("pass");
 

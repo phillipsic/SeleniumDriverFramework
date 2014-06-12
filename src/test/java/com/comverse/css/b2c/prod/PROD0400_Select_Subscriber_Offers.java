@@ -34,7 +34,7 @@ public class PROD0400_Select_Subscriber_Offers extends CSSTest {
             SO_2009MarchMadnessNews so_2009MarchMadnessNews = new SO_2009MarchMadnessNews();
             String uniqueUserTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -51,14 +51,14 @@ public class PROD0400_Select_Subscriber_Offers extends CSSTest {
             ChooseAccessories chooseAccessories = configureBalance.clickContinue();
             chooseAccessories.setQuantityForAccessory("CSS-PQA-Battery-Phone-ACC1", "1");
             MyBasket myBasket = chooseAccessories.clickContinue();
-            Common.assertTextOnPage(driver, so_2010WorldCupSoccerNews.getOfferName());
-            Common.assertTextOnPage(driver, po_ResidentialUltraPostpaid.getOfferName());
+            Common.assertTextOnPage(tool, so_2010WorldCupSoccerNews.getOfferName());
+            Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
             ConfirmOffersSelection confirmOfferSelection = myBasket.clickModifyOnSO(so_2010WorldCupSoccerNews.getOfferName());
             confirmOfferSelection.enterVoiceMailSize("20");
             myBasket = confirmOfferSelection.clickConfirmOffer();
             RemoveSupplementaryOffer removeSupplementaryOffer = myBasket.clickRemoveOnSO(so_2010WorldCupSoccerNews.getOfferName());
             myBasket = removeSupplementaryOffer.ClickYes();
-            Common.assertTextNotOnPage(driver, so_2010WorldCupSoccerNews.getOfferName());
+            Common.assertTextNotOnPage(tool, so_2010WorldCupSoccerNews.getOfferName());
             selectOfferForYourSubscriber = myBasket.clickAddSupplementaryOffers();
             selectOfferForYourSubscriber.selectOffersForSubscriber(so_2009MarchMadnessNews.getOfferName());
             configureOffers = selectOfferForYourSubscriber.clickContinue();
@@ -66,8 +66,8 @@ public class PROD0400_Select_Subscriber_Offers extends CSSTest {
             configureBalance.configureBalance("GPRS WAP-INTERNET", "20");
             configureBalance.configureBalance("Voice-Anytime", "50.0");
             myBasket = configureBalance.clickContinueExpectingMyBasket();
-            Common.assertTextOnPage(driver, so_2009MarchMadnessNews.getOfferName());
-            Common.assertTextOnPage(driver, po_ResidentialUltraPostpaid.getOfferName());
+            Common.assertTextOnPage(tool, so_2009MarchMadnessNews.getOfferName());
+            Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
             TermsAndConditions termsAndConditions = myBasket.clickCheckOutExpectingTermsAndConditions();
             test.setBugId("CBS00163135");
             CheckoutRegister checkoutRegister = termsAndConditions.clickOkExpectingCheckoutRegister();

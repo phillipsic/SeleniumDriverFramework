@@ -37,7 +37,7 @@ public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends C
             String uniqueTimeStamp = Common.generateTimeStamp();
             double poNRC = Double.parseDouble(po_ResidentialUltraPostpaid.getNRC());
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
             Shopping shopping = homePage.selectAccountSegmentAll();
 
@@ -62,11 +62,11 @@ public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends C
 
             // Verification of added PO & Accessory with total price .
 
-            Common.assertTextOnPage(driver, po_ResidentialUltraPostpaid.getOfferName());
-            Common.assertTextOnPage(driver, String.valueOf(poNRC));
-            Common.assertTextOnPage(driver, accBatteryPhone1.getAccessoryName());
-            Common.assertTextOnPage(driver, String.valueOf(accessory1TotalPrice));
-            Common.assertTextOnPage(driver, String.valueOf(poNRC + accessory1TotalPrice));
+            Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
+            Common.assertTextOnPage(tool, String.valueOf(poNRC));
+            Common.assertTextOnPage(tool, accBatteryPhone1.getAccessoryName());
+            Common.assertTextOnPage(tool, String.valueOf(accessory1TotalPrice));
+            Common.assertTextOnPage(tool, String.valueOf(poNRC + accessory1TotalPrice));
 
             // Adding accessory.
             chooseAccessories = myBasket.clickAddAccessory();
@@ -83,10 +83,10 @@ public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends C
 
             // Verification of added PO & Accessory with total price .
 
-            Common.assertTextNotOnPage(driver, accBatteryPhone1.getAccessoryName());
-            Common.assertTextOnPage(driver, accBatteryPhone2.getAccessoryName());
+            Common.assertTextNotOnPage(tool, accBatteryPhone1.getAccessoryName());
+            Common.assertTextOnPage(tool, accBatteryPhone2.getAccessoryName());
 
-            Common.assertTextOnPage(driver, String.valueOf(accessory2TotalPrice));
+            Common.assertTextOnPage(tool, String.valueOf(accessory2TotalPrice));
 
             // bugId = "NoBug";
             test.setResult("pass");

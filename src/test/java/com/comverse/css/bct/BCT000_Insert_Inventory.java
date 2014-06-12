@@ -30,7 +30,7 @@ public class BCT000_Insert_Inventory extends CSSTest {
         launchCSSApplicationAndSSOLogin();
         String imsiSerialnumber, simSerialnumber, prepaidSerialnumber, normalSerialnumber;
 
-        HomePageBackOffice homePageBackOffice = new HomePageBackOffice(driver);
+        HomePageBackOffice homePageBackOffice = new HomePageBackOffice(tool, test, user);
 
         InventoryAdministration inventoryAdministration = homePageBackOffice.clickBackOffice();
 

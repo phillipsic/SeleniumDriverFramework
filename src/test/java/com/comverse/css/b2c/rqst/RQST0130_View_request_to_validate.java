@@ -38,7 +38,7 @@ public class RQST0130_View_request_to_validate extends CSSTest {
             String cop_login = Common.getCOPB2CLogin();
             String cop_password = Common.getCOPB2CPassword(cop_login);
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
 
             homePage.enterUsername(cop_login);
             homePage.enterPassword(cop_password);
@@ -50,7 +50,7 @@ public class RQST0130_View_request_to_validate extends CSSTest {
             homePage.enterChangePasswordSecretAnswer(cop_newPassword);
             SubscriberDetail subscriberDetail = homePage.clickChangeExpectingSubscriberDetail();
 
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
 
             SearchMember searchMember = subscriberDetail.clickMyInformationTab();
 
@@ -76,7 +76,7 @@ public class RQST0130_View_request_to_validate extends CSSTest {
             homePage.enterChangePasswordSecretAnswer("Pa$$w0rd");
             WorkSpace workSpace = homePage.clickChange();
 
-            Common.assertTextOnPage(driver, "Welcome");
+            Common.assertTextOnPage(tool, "Welcome");
 
             Shopping shopping = workSpace.clickShopping();
 
@@ -109,7 +109,7 @@ public class RQST0130_View_request_to_validate extends CSSTest {
             homePage.enterPassword(cop_newPassword);
             System.out.print(cop_login + "/" + cop_newPassword);
             homePage.clickLogIn();
-            Common.assertTextOnPage(driver, "You have requests to validate");
+            Common.assertTextOnPage(tool, "You have requests to validate");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

@@ -32,19 +32,19 @@ public class PROD1100_View_Device_Details extends CSSTest {
             launchCSSApplication();
 
             VD_CSSPQAVoiceDeviceStandardPhonesDEV1 voiceDevice1 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV1();
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
 
             ChooseYourHandset chooseYourHandset = shopping.clickVoiceDevicesLink();
             HandsetDetails handsetDetails = chooseYourHandset.viewDetailsOfHandset(voiceDevice1.getDeviceName());
-            Common.assertTextOnPage(driver, voiceDevice1.getDeviceDescription());
+            Common.assertTextOnPage(tool, voiceDevice1.getDeviceDescription());
             handsetDetails.clickTermsAndConditionsTab();
-            Common.assertTextOnPage(driver, voiceDevice1.getDeviceTermsAndConditions());
+            Common.assertTextOnPage(tool, voiceDevice1.getDeviceTermsAndConditions());
             chooseYourHandset = handsetDetails.clickReturnToList();
 
-            Common.assertTextOnPage(driver, voiceDevice1.getDeviceName());
+            Common.assertTextOnPage(tool, voiceDevice1.getDeviceName());
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

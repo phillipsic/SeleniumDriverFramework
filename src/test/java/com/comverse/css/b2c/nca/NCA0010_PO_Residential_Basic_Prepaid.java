@@ -32,7 +32,7 @@ public class NCA0010_PO_Residential_Basic_Prepaid extends CSSTest {
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 
-            HomePage homePage = new HomePage(driver);
+            HomePage homePage = new HomePage(tool, test, user);
             homePage.clickShoppingLink();
 
             Shopping shopping = homePage.selectAccountSegmentAll();
@@ -59,9 +59,9 @@ public class NCA0010_PO_Residential_Basic_Prepaid extends CSSTest {
             searchOrders.waitUntilOrderCompletedOrFailed();
 
             searchOrders.clickDashbaord();
-            Common.assertTextOnPage(driver, po_ResidentialBasicPrepaid.getOfferName());
-            Common.assertTextOnPage(driver, "FN" + uniqueTimeStamp);
-            Common.assertTextOnPage(driver, "LN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, po_ResidentialBasicPrepaid.getOfferName());
+            Common.assertTextOnPage(tool, "FN" + uniqueTimeStamp);
+            Common.assertTextOnPage(tool, "LN" + uniqueTimeStamp);
 
             test.setResult("pass");
 
