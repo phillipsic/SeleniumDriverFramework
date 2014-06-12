@@ -191,7 +191,7 @@ public class ShoppingCommon extends CommonMenu {
         tool.driver.findElement(By.xpath("//tr[@id='abtr:" + bundleName + "']/td/input")).click();
     }
 
-    public void selectAccountOffer(@SuppressWarnings("unused") String accountBundleID, String accountOfferName) throws Exception {
+    public void selectAccountOffer(String accountBundleID, String accountOfferName) throws Exception {
 
         /*
          * String temp[]; String temp2[]; String tokenizedOfferName; String

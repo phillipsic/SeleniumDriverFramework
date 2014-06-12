@@ -90,7 +90,7 @@ public class Logging extends CLSMenu {
         Common.sleepForNumberOfSeconds(10);
     }
 
-    private boolean checkDropDownForValue(@SuppressWarnings("unused") String dropDownID, String value) throws Exception {
+    private boolean checkDropDownForValue(String dropDownID, String value) throws Exception {
 
         boolean optionFound = false;
         tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));

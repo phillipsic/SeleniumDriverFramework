@@ -98,7 +98,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
         return new MyshapeCSRPortal(tool, test, user);
     }
 
-    public String addEmployee(String uniqueCode, @SuppressWarnings("unused") String role) throws Exception {
+    public String addEmployee(String uniqueCode, String role) throws Exception {
 
         NewMemberLegalAddress newMemberLegalAddress = this.clickAddEmployee();
         newMemberLegalAddress.setFirstName("FN" + uniqueCode);
