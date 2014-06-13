@@ -35,7 +35,7 @@ public class ListCases extends B2CMenu {
 
     public ViewCase clickOnCaseIDLink(String caseID) throws Exception {
 
-        tool.driver.findElement(By.linkText(caseID)).click();
+        tool.clickUsingLinkText(tool, caseID);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCase(tool, test, user);
     }

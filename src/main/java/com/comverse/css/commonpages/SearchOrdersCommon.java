@@ -135,7 +135,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public ServiceOrderDetailsCommon clickViewDetails() throws Exception {
-        tool.driver.findElement(By.linkText("View Details")).click();
+        tool.clickUsingLinkText(tool, "View Details");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceOrderDetailsCommon(tool, test, user);
     }

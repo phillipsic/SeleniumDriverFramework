@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,7 +26,7 @@ public class SearchResults extends B2BMenu {
 
     public ViewHierarchy clickFirstRefreshLink() throws Exception {
 
-        tool.driver.findElement(By.linkText("Refresh")).click();
+        tool.clickUsingLinkText(tool, "Refresh");
 
         return new ViewHierarchy(tool, test, user);
     }

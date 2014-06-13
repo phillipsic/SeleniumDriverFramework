@@ -34,7 +34,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public AddNewCaseCommon addNewCase() throws Exception {
-        tool.driver.findElement(By.linkText("Add")).click();
+        tool.clickUsingLinkText(tool, "Add");
 
         return new AddNewCaseCommon(tool, test, user);
     }
@@ -46,7 +46,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public void clickHomeMenu() throws Exception {
-        tool.driver.findElement(By.linkText("Home")).click();
+        tool.clickUsingLinkText(tool, "Home");
     }
 
     public SelectOffersForYourAccountCommon clickAddNewAccountOffer() throws Exception {
@@ -57,7 +57,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourAccountCommon clickReconfigure() throws Exception {
-        tool.driver.findElement(By.linkText("Reconfigure")).click();
+        tool.clickUsingLinkText(tool, "Reconfigure");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SelectOffersForYourAccountCommon(tool, test, user);
@@ -96,7 +96,7 @@ public class AccountDetailsCommon extends CommonMenu {
         tool.driver.findElement(By.id("SubscriberSearchLink")).click();
         tool.driver.findElement(By.id("subscriberSearchButton")).click();
         Common.sleepForNumberOfSeconds(2);
-        tool.driver.findElement(By.linkText(MSISDN)).click();
+        tool.clickUsingLinkText(tool, MSISDN);
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
@@ -125,7 +125,7 @@ public class AccountDetailsCommon extends CommonMenu {
         Common.sleepForNumberOfSeconds(1);
         tool.driver.findElement(By.cssSelector("#firstYouCan > input.submit")).click();
         Common.sleepForNumberOfSeconds(1);
-        tool.driver.findElement(By.linkText("Search Orders")).click();
+        tool.clickUsingLinkText(tool, "Search Orders");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchOrdersCommon(tool, test, user);
     }
@@ -169,7 +169,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public void clickLinkOfOfferName(String offerName) throws Exception {
-        tool.driver.findElement(By.linkText(offerName)).click();
+        tool.clickUsingLinkText(tool, offerName);
     }
 
     public void clickCloseOfferDetailsBox() throws Exception {
@@ -182,7 +182,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public SwapBundleCommon clickUpgrade() throws Exception {
-        tool.driver.findElement(By.linkText("Upgrade")).click();
+        tool.clickUsingLinkText(tool, "Upgrade");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SwapBundleCommon(tool, test, user);
     }
@@ -194,7 +194,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public RemoveOfferCommon clickRemoveFirstAccountOffer() throws Exception {
-        tool.driver.findElement(By.linkText("Remove")).click();
+        tool.clickUsingLinkText(tool, "Remove");
         return new RemoveOfferCommon(tool, test, user);
     }
 
@@ -204,7 +204,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourAccountCommon clickReconfigureAccountOffer() throws Exception {
-        tool.driver.findElement(By.linkText("Reconfigure")).click();
+        tool.clickUsingLinkText(tool, "Reconfigure");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }
@@ -351,7 +351,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public void clickNavigate() throws Exception {
-        tool.driver.findElement(By.linkText("Navigate")).click();
+        tool.clickUsingLinkText(tool, "Navigate");
     }
 
     public AccountDetails removeAccountOfferIfPresent(String accountOfferName) throws Exception {

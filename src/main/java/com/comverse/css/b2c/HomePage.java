@@ -164,7 +164,7 @@ public class HomePage extends B2CMenu {
 
     public void clickShoppingLink() throws Exception {
 
-        tool.driver.findElement(By.linkText("Shopping")).click();
+        tool.clickUsingLinkText(tool, "Shopping");
 
     }
 
@@ -179,7 +179,7 @@ public class HomePage extends B2CMenu {
 
     public void clickActivateAccount() throws Exception {
 
-        tool.driver.findElement(By.linkText("Activate your account now")).click();
+        tool.clickUsingLinkText(tool, "Activate your account now");
 
     }
 

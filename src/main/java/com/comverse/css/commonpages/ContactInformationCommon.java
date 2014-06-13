@@ -37,7 +37,7 @@ public class ContactInformationCommon extends CommonMenu {
 
     public LoginInformationCommon clickViewLoginInformationLink() throws Exception {
 
-        tool.driver.findElement(By.linkText("View Login Information")).click();
+        tool.clickUsingLinkText(tool, "View Login Information");
         return new LoginInformationCommon(tool, test, user);
     }
 

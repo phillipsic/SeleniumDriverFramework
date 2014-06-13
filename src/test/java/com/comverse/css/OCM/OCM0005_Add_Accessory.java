@@ -60,14 +60,14 @@ public class OCM0005_Add_Accessory extends CSSTest {
             accessoryAlreadyExists = false;
 
             if (accessoryType.equals("Headset")) {
-                tool.driver.findElement(By.linkText("Headset")).click();
-                tool.driver.findElement(By.linkText("Create New Headset")).click();
+                tool.clickUsingLinkText(tool, "Headset");
+                tool.clickUsingLinkText(tool, "Create New Headset");
                 System.out.println("Starting creation of Create New Headset");
             }
 
             if (accessoryType.equals("Battery")) {
-                tool.driver.findElement(By.linkText("Battery")).click();
-                tool.driver.findElement(By.linkText("Create New Battery")).click();
+                tool.clickUsingLinkText(tool, "Battery");
+                tool.clickUsingLinkText(tool, "Create New Battery");
                 System.out.println("Starting creation of Create New Battery");
             }
 

@@ -34,27 +34,27 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void setFirstName(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "firstName", value);
     }
 
     public void setLastName(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "lastName", value);
     }
 
     public void setAddressLine1(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "address1", value);
     }
 
     public void setPostalCode(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "zipcode", value);
     }
 
     public void setCity(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "city", value);
     }
 
@@ -92,8 +92,9 @@ public class PersonManagementCommon extends CommonMenu {
 
     public void clickActionstoChangeOwner() {
         // tool.driver.findElement(By.xpath("//*[@id='yui-gen16-button']")).click();
-        tool.driver.findElement(
-                By.xpath(" //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button"))
+        tool.driver
+                .findElement(
+                        By.xpath(" //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button"))
                 .click();
     }
 
@@ -111,9 +112,9 @@ public class PersonManagementCommon extends CommonMenu {
         tool.driver.findElement(By.cssSelector("button[type='button'][id$=-button][class='submit']")).click();
     }
 
-    public void clickModifyRole() {
+    public void clickModifyRole() throws Exception {
 
-        tool.driver.findElement(By.linkText("Modify Role")).click();
+        tool.clickUsingLinkText(tool, "Modify Role");
 
     }
 
@@ -125,8 +126,8 @@ public class PersonManagementCommon extends CommonMenu {
         tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
     }
 
-    public void clickDeactivateRole() {
-        tool.driver.findElement(By.linkText("Deactivate Role")).click();
+    public void clickDeactivateRole() throws Exception {
+        tool.clickUsingLinkText(tool, "Deactivate Role");
     }
 
     public void clickOKFromDeactivateRole() {
@@ -148,7 +149,7 @@ public class PersonManagementCommon extends CommonMenu {
     public AddLoginCommon clickActionsAddLoginForPerson(String personLastName) throws Exception {
 
         tool.driver.findElement(By.xpath("//div[contains(text(),'" + personLastName + "')]/../..//*[@type='button']")).click();
-        tool.driver.findElement(By.linkText("Add Login")).click();
+        tool.clickUsingLinkText(tool, "Add Login");
 
         return new AddLoginCommon(tool, test, user);
     }
@@ -215,7 +216,8 @@ public class PersonManagementCommon extends CommonMenu {
 
     public void searchPerson() throws Exception {
         // new
-        // Select(tool.searchUsingID(tool, "custPerson")).selectByVisibleText(pers.getPersonFirstNameProperty()
+        // Select(tool.searchUsingID(tool,
+        // "custPerson")).selectByVisibleText(pers.getPersonFirstNameProperty()
         // + " "
         // + pers.getPersonLastNameProperty());
         new Select(tool.searchUsingID(tool, "title")).selectByVisibleText("Mr.");
@@ -230,7 +232,7 @@ public class PersonManagementCommon extends CommonMenu {
 
     public void clickDissociate() throws Exception {
 
-        tool.driver.findElement(By.linkText("Disassociate Role")).click();
+        tool.clickUsingLinkText(tool, "Disassociate Role");
     }
 
     public void clickOKFromDissociate() throws Exception {
@@ -239,7 +241,7 @@ public class PersonManagementCommon extends CommonMenu {
 
     public void clickAssociateRoleToSubscriber() throws Exception {
         // tool.driver.findElement(By.xpath("//a[contains(text(),'Associate Role to Subscriber')]")).click();
-        tool.driver.findElement(By.linkText("Associate Role to Subscriber")).click();
+        tool.clickUsingLinkText(tool, "Associate Role to Subscriber");
     }
 
     public void clickOKAssociateRoleToSubscriber() throws Exception {
@@ -258,7 +260,7 @@ public class PersonManagementCommon extends CommonMenu {
 
     public PersonMergeCommon clickPersonMerge() throws Exception {
 
-        tool.driver.findElement(By.linkText("Person Merge")).click();
+        tool.clickUsingLinkText(tool, "Person Merge");
 
         return new PersonMergeCommon(tool, test, user);
     }

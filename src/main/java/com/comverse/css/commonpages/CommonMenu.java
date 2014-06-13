@@ -29,7 +29,7 @@ public class CommonMenu extends Main {
     }
 
     public IdentifyCustomerCommon gotoManageAccount() throws Exception {
-        tool.driver.findElement(By.linkText("Manage Account")).click();
+        tool.clickUsingLinkText(tool, "Manage Account");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new IdentifyCustomerCommon(tool, test, user);
     }
@@ -41,7 +41,7 @@ public class CommonMenu extends Main {
     }
 
     public SearchRequestsCommon clickRequests() throws Exception {
-        tool.driver.findElement(By.linkText("Requests")).click();
+        tool.clickUsingLinkText(tool, "Requests");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchRequestsCommon(tool, test, user);
     }
@@ -87,7 +87,7 @@ public class CommonMenu extends Main {
     }
 
     public MyBasketCommon clickViewBasket() throws Exception {
-        tool.driver.findElement(By.linkText("View Basket")).click();
+        tool.clickUsingLinkText(tool, "View Basket");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }

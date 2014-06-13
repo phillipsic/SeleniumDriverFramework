@@ -45,7 +45,7 @@ public class WorkSpace extends WorkSpaceCommon {
 
     public ResumeAParkedBasket clickViewParkedBaskets() throws Exception {
 
-        tool.driver.findElement(By.linkText("View Parked Baskets")).click();
+        tool.clickUsingLinkText(tool, "View Parked Baskets");
         return new ResumeAParkedBasket(tool, test, user);
     }
 
@@ -56,7 +56,7 @@ public class WorkSpace extends WorkSpaceCommon {
     }
 
     public ManageAccount clickManageAccount() throws Exception {
-        tool.driver.findElement(By.linkText("Manage Account")).click();
+        tool.clickUsingLinkText(tool, "Manage Account");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ManageAccount(tool, test, user);
     }

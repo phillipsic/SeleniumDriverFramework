@@ -36,12 +36,12 @@ public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends CSS
         // Open "Offer Series"
         tool.driver.findElement(By.id("mainPanel:treeForm:catalog-tree:0:1:t2")).click();
         // Click "Postpaid GSM Mobile"
-        tool.driver.findElement(By.linkText("Postpaid GSM Mobile")).click();
+        tool.clickUsingLinkText(tool, "Postpaid GSM Mobile");
         // Click "Manage Relationships with Product Types"
-        tool.driver.findElement(By.linkText("Manage Relationships with Product Types")).click();
+        tool.clickUsingLinkText(tool, "Manage Relationships with Product Types");
 
         // Click "Define Relationships with Product Types"
-        tool.driver.findElement(By.linkText("Define Relationships with Product Types")).click();
+        tool.clickUsingLinkText(tool, "Define Relationships with Product Types");
 
         // Select "Compatible Device Type with Primary Offer Series"
         new Select(tool.searchUsingID(tool, "mainPanel:ruleKindForm:RuleKind")).selectByVisibleText("Compatible Device Type with Primary Offer Series");

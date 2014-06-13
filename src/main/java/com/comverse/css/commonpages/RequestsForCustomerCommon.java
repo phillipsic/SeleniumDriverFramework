@@ -27,7 +27,7 @@ public class RequestsForCustomerCommon extends CommonMenu {
     }
 
     public OrderDetailsCommon clickOnOrderNumberLink(String orderNumber) throws Exception {
-        tool.driver.findElement(By.linkText(orderNumber)).click();
+        tool.clickUsingLinkText(tool, orderNumber);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new OrderDetailsCommon(tool, test, user);
     }

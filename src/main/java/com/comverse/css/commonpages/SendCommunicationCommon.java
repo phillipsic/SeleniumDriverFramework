@@ -102,7 +102,7 @@ public class SendCommunicationCommon extends CommonMenu {
 
     public void clickClosePopUp() throws Exception {
 
-        tool.driver.findElement(By.linkText("Close")).click();
+        tool.clickUsingLinkText(tool, "Close");
 
     }
 }

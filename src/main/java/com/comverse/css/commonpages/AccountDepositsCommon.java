@@ -29,7 +29,7 @@ public class AccountDepositsCommon extends CommonMenu {
 
     public AddDepositCommon clickAdd() throws Exception {
 
-        tool.driver.findElement(By.linkText("Add")).click();
+        tool.clickUsingLinkText(tool, "Add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddDepositCommon(tool, test, user);
     }

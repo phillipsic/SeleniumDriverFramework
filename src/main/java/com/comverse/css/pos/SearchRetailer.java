@@ -35,7 +35,7 @@ public class SearchRetailer extends CommonMenu {
 
     public ViewHierarchy clickDealerLink(String dealerName) throws Exception {
 
-        tool.driver.findElement(By.linkText(dealerName)).click();
+        tool.clickUsingLinkText(tool, dealerName);
 
         return new ViewHierarchy(tool, test, user);
     }

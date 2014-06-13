@@ -97,7 +97,7 @@ public class SearchOrders extends B2CMenu {
     }
 
     public OrderDetails clickOrderNumber(String orderNumber) throws Exception {
-        tool.driver.findElement(By.linkText(orderNumber)).click();
+        tool.clickUsingLinkText(tool, orderNumber);
         return new OrderDetails(tool, test, user);
     }
 

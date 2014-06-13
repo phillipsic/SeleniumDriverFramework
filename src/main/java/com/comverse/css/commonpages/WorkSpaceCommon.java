@@ -32,21 +32,21 @@ public class WorkSpaceCommon extends CommonMenu {
 
     public EnterIdentificationDataCommon startNewConvergentResidentialCustomer() throws Exception {
 
-        tool.driver.findElement(By.linkText("New Convergent Residential Customer")).click();
+        tool.clickUsingLinkText(tool, "New Convergent Residential Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 
     public EnterIdentificationDataCommon startNewConvergentBusinessCustomer() throws Exception {
 
-        tool.driver.findElement(By.linkText("New Convergent Business Customer")).click();
+        tool.clickUsingLinkText(tool, "New Convergent Business Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 
     public EnterIdentificationDataCommon startNewPrePaidBusinessCustomer() throws Exception {
 
-        tool.driver.findElement(By.linkText("New Pure Prepaid Business Customer")).click();
+        tool.clickUsingLinkText(tool, "New Pure Prepaid Business Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }

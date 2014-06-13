@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -19,14 +17,13 @@ public class LoginInformation extends B2CMenu {
         String expectedScreen = "Login Information";
 
         if (!expectedScreen.equals(currentScreen)) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public LockLogin clickLockLogin() throws Exception {
 
-        tool.driver.findElement(By.linkText("Lock Login")).click();
+        tool.clickUsingLinkText(tool, "Lock Login");
         Common.sleepForNumberOfSeconds(1);
         return new LockLogin(tool, test, user);
     }

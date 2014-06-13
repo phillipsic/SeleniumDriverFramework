@@ -15,8 +15,8 @@ public class WPMCMenu extends WPMCTest {
         this.user = user;
     }
 
-    public void clickLogOff() {
-        tool.driver.findElement(By.linkText("//a/img[@title='Log Off']")).click();
+    public void clickLogOff() throws Exception {
+        tool.clickUsingLinkText(tool, "//a/img[@title='Log Off']");
 
     }
 

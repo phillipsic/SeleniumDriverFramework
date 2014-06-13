@@ -74,7 +74,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public SubscribeToRechargePromotionalOffersCommon clickAddRPO() throws Exception {
-        tool.driver.findElement(By.linkText("Add")).click();
+        tool.clickUsingLinkText(tool, "Add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscribeToRechargePromotionalOffersCommon(tool, test, user);
     }
@@ -153,7 +153,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public PrimaryOfferDetailsCommon clickLinkOfPrimaryOfferName(String primaryOfferName) throws Exception {
-        tool.driver.findElement(By.linkText(primaryOfferName)).click();
+        tool.clickUsingLinkText(tool, primaryOfferName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
@@ -190,7 +190,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public RemoveOfferCommon clickDeleteOffer() throws Exception {
-        tool.driver.findElement(By.linkText("Remove")).click();
+        tool.clickUsingLinkText(tool, "Remove");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveOfferCommon(tool, test, user);
     }

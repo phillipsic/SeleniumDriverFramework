@@ -66,7 +66,7 @@ public class DeliveryAddressesCommon extends CommonMenu {
 
     public ModifyDeliveryAddressCommon clickModify() throws Exception {
 
-        tool.driver.findElement(By.linkText("update")).click();
+        tool.clickUsingLinkText(tool, "update");
         return new ModifyDeliveryAddressCommon(tool, test, user);
     }
 
@@ -78,7 +78,7 @@ public class DeliveryAddressesCommon extends CommonMenu {
 
     public void clickMakeDefault() throws Exception {
 
-        tool.driver.findElement(By.linkText("make default")).click();
+        tool.clickUsingLinkText(tool, "make default");
 
     }
 }

@@ -22,7 +22,7 @@ public class Shopping extends B2CMenu {
     public ChooseYourPrimaryOffer clickGSMMobileLink() throws Exception {
 
         tool.driver.findElement(By.xpath("//li[contains(.,'Welcome to a new world of convergence')]/img")).click();
-        tool.driver.findElement(By.linkText("GSM Mobile")).click();
+        tool.clickUsingLinkText(tool, "GSM Mobile");
 
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
@@ -30,7 +30,7 @@ public class Shopping extends B2CMenu {
     public ChooseYourPrimaryOffer clickNetworkTVLink() throws Exception {
 
         tool.driver.findElement(By.xpath("//li[contains(.,'Welcome to a new world of convergence')]/img")).click();
-        tool.driver.findElement(By.linkText("Network TV")).click();
+        tool.clickUsingLinkText(tool, "Network TV");
 
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
@@ -38,7 +38,7 @@ public class Shopping extends B2CMenu {
     public ChooseYourHandset clickVoiceDevicesLink() throws Exception {
 
         tool.driver.findElement(By.xpath("//li[contains(.,'Voice Items')]/img")).click();
-        tool.driver.findElement(By.linkText("Voice Devices")).click();
+        tool.clickUsingLinkText(tool, "Voice Devices");
 
         return new ChooseYourHandset(tool, test, user);
     }
@@ -46,7 +46,7 @@ public class Shopping extends B2CMenu {
     public ChooseYourHandset clickDataDevicesLink() throws Exception {
 
         tool.driver.findElement(By.xpath("//li[contains(.,'Data Items')]/img")).click();
-        tool.driver.findElement(By.linkText("Data Devices")).click();
+        tool.clickUsingLinkText(tool, "Data Devices");
 
         return new ChooseYourHandset(tool, test, user);
     }
@@ -54,7 +54,7 @@ public class Shopping extends B2CMenu {
     public ChooseAccessories clickPhoneAccessoriesLink() throws Exception {
 
         tool.driver.findElement(By.xpath("//li[starts-with(.,'Accessories')]/img")).click();
-        tool.driver.findElement(By.linkText("Phone Accessories")).click();
+        tool.clickUsingLinkText(tool, "Phone Accessories");
         return new ChooseAccessories(tool, test, user);
 
     }
@@ -62,14 +62,14 @@ public class Shopping extends B2CMenu {
     public ChooseYourPrimaryOfferInThisAccountBundle clickFamilyPackLink() throws Exception {
 
         tool.driver.findElement(By.xpath("//li[contains(.,'Keep in touch with your family')]/img")).click();
-        tool.driver.findElement(By.linkText("Family Pack")).click();
+        tool.clickUsingLinkText(tool, "Family Pack");
 
         return new ChooseYourPrimaryOfferInThisAccountBundle(tool, test, user);
     }
 
     @Override
 	public SubscriberDetail clickMyAccount() throws Exception {
-        tool.driver.findElement(By.linkText("My Account")).click();
+        tool.clickUsingLinkText(tool, "My Account");
         return new SubscriberDetail(tool, test, user);
     }
 }

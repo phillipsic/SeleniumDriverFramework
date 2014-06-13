@@ -54,7 +54,7 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickSignIn() throws Exception {
 
-        tool.driver.findElement(By.linkText("Sign In")).click();
+        tool.clickUsingLinkText(tool, "Sign In");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         String currentScreen = tool.driver.getTitle();

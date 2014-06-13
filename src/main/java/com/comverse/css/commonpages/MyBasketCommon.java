@@ -115,7 +115,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public RemoveSelectionCommon removeFirstItemFromBasket() throws Exception {
-        tool.driver.findElement(By.linkText("Remove")).click();
+        tool.clickUsingLinkText(tool, "Remove");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveSelectionCommon(tool, test, user);
     }
@@ -190,7 +190,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public SelectOffersForYourSubscriberCommon clickAddSO() throws Exception {
-        tool.driver.findElement(By.linkText("Add Supplementary Offer(s)")).click();
+        tool.clickUsingLinkText(tool, "Add Supplementary Offer(s)");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }

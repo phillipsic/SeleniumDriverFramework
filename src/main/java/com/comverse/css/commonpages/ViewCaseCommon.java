@@ -71,17 +71,17 @@ public class ViewCaseCommon extends CommonMenu {
     }
 
     public EditCaseCommon clickEditCase() throws Exception {
-        tool.driver.findElement(By.linkText("Edit Case")).click();
+        tool.clickUsingLinkText(tool, "Edit Case");
         return new EditCaseCommon(tool, test, user);
     }
 
     public CreateAttachmentCommon clickAddAttachment() throws Exception {
-        tool.driver.findElement(By.linkText("Add")).click();
+        tool.clickUsingLinkText(tool, "Add");
         return new CreateAttachmentCommon(tool, test, user);
     }
 
     public EditCaseCommon clickReopen() throws Exception {
-        tool.driver.findElement(By.linkText("Reopen")).click();
+        tool.clickUsingLinkText(tool, "Reopen");
         return new EditCaseCommon(tool, test, user);
     }
 

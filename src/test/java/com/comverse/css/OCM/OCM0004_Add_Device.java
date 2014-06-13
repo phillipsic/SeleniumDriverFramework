@@ -60,14 +60,14 @@ public class OCM0004_Add_Device extends CSSTest {
             DeviceAlreadyExist = false;
 
             if (DeviceType.equals("Voice Device")) {
-                tool.driver.findElement(By.linkText("Voice Device")).click();
-                tool.driver.findElement(By.linkText("Create New Voice Device")).click();
+                tool.clickUsingLinkText(tool, "Voice Device");
+                tool.clickUsingLinkText(tool, "Create New Voice Device");
                 System.out.println("Starting creation of New Voice Device");
             }
 
             if (DeviceType.equals("Data Device")) {
-                tool.driver.findElement(By.linkText("Data Device")).click();
-                tool.driver.findElement(By.linkText("Create New Data Device")).click();
+                tool.clickUsingLinkText(tool, "Data Device");
+                tool.clickUsingLinkText(tool, "Create New Data Device");
                 System.out.println("Starting creation of New Data Device");
             }
 

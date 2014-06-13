@@ -30,13 +30,13 @@ public class ViewHierarchyCommon extends CommonMenu {
 
         String weeklyLevelName = "level" + week + "a";
 
-        tool.driver.findElement(By.linkText(weeklyLevelName)).click();
+        tool.clickUsingLinkText(tool, weeklyLevelName);
 
     }
 
     public void clickLevelLink(String linkName) throws Exception {
 
-        tool.driver.findElement(By.linkText(linkName)).click();
+        tool.clickUsingLinkText(tool, linkName);
     }
 
     public String getRootLevel() throws Exception {
@@ -47,7 +47,7 @@ public class ViewHierarchyCommon extends CommonMenu {
 
     public ContactInformationCommon clickEmployeeNameLink(String firstName, String lastName) throws Exception {
 
-        tool.driver.findElement(By.linkText(firstName + " " + lastName)).click();
+        tool.clickUsingLinkText(tool, firstName + " " + lastName);
         return new ContactInformationCommon(tool, test, user);
     }
 

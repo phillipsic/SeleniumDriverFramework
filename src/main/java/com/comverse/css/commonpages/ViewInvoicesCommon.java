@@ -52,13 +52,13 @@ public class ViewInvoicesCommon extends CommonMenu {
 
     public ViewInvoiceDetailsCommon clickInvoiceNumber(String billrefnumber) throws Exception {
 
-        tool.driver.findElement(By.linkText(billrefnumber)).click();
+        tool.clickUsingLinkText(tool, billrefnumber);
         return new ViewInvoiceDetailsCommon(tool, test, user);
     }
 
     public RegisterBillPaymentCommon clickPayLastInvoice() throws Exception {
 
-        tool.driver.findElement(By.linkText("Pay invoice")).click();
+        tool.clickUsingLinkText(tool, "Pay invoice");
         return new RegisterBillPaymentCommon(tool, test, user);
     }
 

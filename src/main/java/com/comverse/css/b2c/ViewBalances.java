@@ -33,7 +33,7 @@ public class ViewBalances extends B2CMenu {
     }
 
     public ConfigureBalance clickConfigure() throws Exception {
-        tool.driver.findElement(By.linkText("Configure")).click();
+        tool.clickUsingLinkText(tool, "Configure");
         return new ConfigureBalance(tool, test, user);
     }
 

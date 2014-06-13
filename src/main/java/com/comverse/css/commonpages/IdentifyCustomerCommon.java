@@ -242,7 +242,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public void clickMoreSubscriberSearchFields() throws Exception {
-        tool.driver.findElement(By.linkText("More >>")).click();
+        tool.clickUsingLinkText(tool, "More >>");
     }
 
     public void selectShadowOnly() throws Exception {

@@ -81,7 +81,7 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public void clickAdvanceFilterLink() throws Exception {
-        tool.driver.findElement(By.linkText("Advanced Filter")).click();
+        tool.clickUsingLinkText(tool, "Advanced Filter");
     }
 
     public HandsetDetails viewDetailsOfHandset(String Handset) throws Exception {

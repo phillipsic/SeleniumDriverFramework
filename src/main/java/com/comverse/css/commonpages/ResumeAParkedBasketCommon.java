@@ -27,7 +27,7 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
 
     public ResumeBasketConfirmCommon resumeParkedBasket(String value) throws Exception {
 
-        tool.driver.findElement(By.linkText(value)).click();
+        tool.clickUsingLinkText(tool, value);
         return new ResumeBasketConfirmCommon(tool, test, user);
     }
 

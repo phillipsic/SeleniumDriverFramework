@@ -32,7 +32,7 @@ public class WorkSpace extends B2CMenu {
 
     public PrimaryOfferDetails clickOnOfferLink(String offerNamer) throws Exception {
 
-        tool.driver.findElement(By.linkText(offerNamer)).click();
+        tool.clickUsingLinkText(tool, offerNamer);
         return new PrimaryOfferDetails(tool, test, user);
     }
 

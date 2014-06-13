@@ -25,14 +25,14 @@ public class BalanceDetailsCommon extends CommonMenu {
     // From Account shared balance details page
     public BalanceDetailsCommon viewSubscriberBalanceDetails(String balanceName) throws Exception {
 
-        tool.driver.findElement(By.linkText(balanceName)).click();
+        tool.clickUsingLinkText(tool, balanceName);
         return new BalanceDetailsCommon(tool, test, user);
     }
 
     // From Subscriber balance details page
     public ViewBalanceCommon viewAccountBalances() throws Exception {
 
-        tool.driver.findElement(By.linkText("View account balances")).click();
+        tool.clickUsingLinkText(tool, "View account balances");
         return new ViewBalanceCommon(tool, test, user);
     }
 

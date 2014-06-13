@@ -37,7 +37,7 @@ public class ShoppingCommon extends CommonMenu {
     public void clickSubscriberBundlePrimaryOfferName(String offername) throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForOffersToLoadOnPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.linkText(offername)).click();
+        tool.clickUsingLinkText(tool, offername);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
@@ -351,7 +351,7 @@ public class ShoppingCommon extends CommonMenu {
     public MyBasketCommon selectAccessory(String value) throws Exception {
         tool.enterStringUsingId(tool, "filter_acc_name", value);
         Common.sleepForNumberOfSeconds(3);
-        tool.driver.findElement(By.linkText(value)).click();
+        tool.clickUsingLinkText(tool, value);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         tool.driver.findElement(By.xpath("//input[@value='Select']")).click();
 

@@ -30,14 +30,14 @@ public class ViewBalanceCommon extends CommonMenu {
 
     public NonVoucherRechargeCommon clickNonVoucherRechargeFreeAmount() throws Exception {
 
-        tool.driver.findElement(By.linkText("Non voucher Recharge (free amount)")).click();
+        tool.clickUsingLinkText(tool, "Non voucher Recharge (free amount)");
 
         return new NonVoucherRechargeCommon(tool, test, user);
     }
 
     public RechargeWithVoucherCommon clickRechargeByVoucher() throws Exception {
 
-        tool.driver.findElement(By.linkText("Recharge by voucher")).click();
+        tool.clickUsingLinkText(tool, "Recharge by voucher");
 
         return new RechargeWithVoucherCommon(tool, test, user);
     }
@@ -89,7 +89,7 @@ public class ViewBalanceCommon extends CommonMenu {
 
     public BalanceDetailsCommon viewBalanceDetails(String balanceName) throws Exception {
 
-        tool.driver.findElement(By.linkText(balanceName)).click();
+        tool.clickUsingLinkText(tool, balanceName);
         return new BalanceDetailsCommon(tool, test, user);
     }
 

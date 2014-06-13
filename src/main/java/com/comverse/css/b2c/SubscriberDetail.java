@@ -32,48 +32,48 @@ public class SubscriberDetail extends B2CMenu {
 
     public SelectModeOfRecharge clickRecharge() throws Exception {
 
-        tool.driver.findElement(By.linkText("Recharge")).click();
+        tool.clickUsingLinkText(tool, "Recharge");
         return new SelectModeOfRecharge(tool, test, user);
     }
 
     // public Shopping clickShopping() throws Exception {
-    // tool.driver.findElement(By.linkText("Shopping")).click();
+    // tool.clickUsingLinkText(tool, "Shopping");
     // Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     // return new Shopping(tool, test, user);
     // }
     public ViewBalances clickBalances() throws Exception {
 
-        tool.driver.findElement(By.linkText("Balances")).click();
+        tool.clickUsingLinkText(tool, "Balances");
         return new ViewBalances(tool, test, user);
     }
 
     public ViewBalances clickSharedBalances() throws Exception {
 
-        tool.driver.findElement(By.linkText("Shared balances")).click();
+        tool.clickUsingLinkText(tool, "Shared balances");
         return new ViewBalances(tool, test, user);
     }
 
     public SelectOffers clickAddSO() throws Exception {
 
-        tool.driver.findElement(By.linkText("Add Supplementary Offers")).click();
+        tool.clickUsingLinkText(tool, "Add Supplementary Offers");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffers(tool, test, user);
     }
 
     public SearchMember clickMyInformationTab() throws Exception {
 
-        tool.driver.findElement(By.linkText("My Information")).click();
+        tool.clickUsingLinkText(tool, "My Information");
         return new SearchMember(tool, test, user);
     }
 
     public SearchOrders clickMyOrdersTab() throws Exception {
 
-        tool.driver.findElement(By.linkText("My Orders")).click();
+        tool.clickUsingLinkText(tool, "My Orders");
         return new SearchOrders(tool, test, user);
     }
 
     public RemoveOffer clickOfferRemove() throws Exception {
-        tool.driver.findElement(By.linkText("Remove")).click();
+        tool.clickUsingLinkText(tool, "Remove");
         return new RemoveOffer(tool, test, user);
     }
 

@@ -34,12 +34,12 @@ public class SubscriberDashboard extends MyshapeCommon {
     }
 
     public void clickRecharge() throws Exception {
-        tool.driver.findElement(By.linkText("Recharge")).click();
+        tool.clickUsingLinkText(tool, "Recharge");
         Thread.sleep(1000);
     }
 
     public void clickOther() throws Exception {
-        tool.driver.findElement(By.linkText("Other")).click();
+        tool.clickUsingLinkText(tool, "Other");
     }
 
     public void setFreeAmount(int freeAmount) throws Exception {

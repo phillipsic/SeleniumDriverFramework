@@ -93,17 +93,17 @@ public class MyBasket extends B2CMenu {
     }
 
     public ChooseAccessories clickAddAccessory() throws Exception {
-        tool.driver.findElement(By.linkText("Add Accessory")).click();
+        tool.clickUsingLinkText(tool, "Add Accessory");
         return new ChooseAccessories(tool, test, user);
     }
 
     public ChooseYourHandset clickChangeDevice() throws Exception {
-        tool.driver.findElement(By.linkText("Change Device")).click();
+        tool.clickUsingLinkText(tool, "Change Device");
         return new ChooseYourHandset(tool, test, user);
     }
 
     public ChooseYourPrimaryOffer clickChangePO() throws Exception {
-        tool.driver.findElement(By.linkText("Change Primary Offer")).click();
+        tool.clickUsingLinkText(tool, "Change Primary Offer");
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 }

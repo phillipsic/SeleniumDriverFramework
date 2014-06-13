@@ -41,7 +41,7 @@ public class MoveLevelCommon extends CommonMenu {
     public ViewHierarchyCommon clickHierarchy() throws Exception {
 
         /*
-         * tool.driver.findElement(By.linkText("Select")).click();
+         * tool.clickUsingLinkText(tool, "Select");
          */
         tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
 

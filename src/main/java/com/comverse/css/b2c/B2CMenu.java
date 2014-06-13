@@ -65,7 +65,7 @@ public class B2CMenu extends Main {
 
     public SearchOrders clickMyOrders() throws Exception {
 
-        tool.driver.findElement(By.linkText("My Orders")).click();
+        tool.clickUsingLinkText(tool, "My Orders");
         return new SearchOrders(tool, test, user);
     }
 
@@ -78,12 +78,12 @@ public class B2CMenu extends Main {
 
     public SubscriberDetail clickMyAccount() throws Exception {
 
-        tool.driver.findElement(By.linkText("My Account")).click();
+        tool.clickUsingLinkText(tool, "My Account");
         return new SubscriberDetail(tool, test, user);
     }
 
     public Shopping clickShopping() throws Exception {
-        tool.driver.findElement(By.linkText("Shopping")).click();
+        tool.clickUsingLinkText(tool, "Shopping");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new Shopping(tool, test, user);
     }

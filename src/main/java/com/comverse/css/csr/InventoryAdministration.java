@@ -23,7 +23,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public InsertInventory clickInsertInventory() throws Exception {
 
-        tool.driver.findElement(By.linkText("Insert Inventory")).click();
+        tool.clickUsingLinkText(tool, "Insert Inventory");
 
         return new InsertInventory(tool, test, user);
     }

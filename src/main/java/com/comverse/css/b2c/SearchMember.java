@@ -56,13 +56,13 @@ public class SearchMember extends B2CMenu {
 
     public LoginInformation clickManageLogin() throws Exception {
 
-        tool.driver.findElement(By.linkText("Manage Login")).click();
+        tool.clickUsingLinkText(tool, "Manage Login");
         return new LoginInformation(tool, test, user);
     }
 
     public CustomerProfile clickChangeProfile() throws Exception {
 
-        tool.driver.findElement(By.linkText("Change Profile")).click();
+        tool.clickUsingLinkText(tool, "Change Profile");
         return new CustomerProfile(tool, test, user);
     }
 

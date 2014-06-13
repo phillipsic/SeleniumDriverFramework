@@ -21,7 +21,7 @@ public class B2BMenu extends Main {
 
     public ContactInformation clickMyInformation() throws Exception {
 
-        tool.driver.findElement(By.linkText("mnu_INFO")).click();
+        tool.clickUsingLinkText(tool, "mnu_INFO");
         return new ContactInformation(tool, test, user);
     }
 
