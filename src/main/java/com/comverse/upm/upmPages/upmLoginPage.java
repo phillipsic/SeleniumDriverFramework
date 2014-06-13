@@ -1,7 +1,5 @@
 package com.comverse.upm.upmPages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.sfa.sfaHomePage;
@@ -38,7 +36,7 @@ public class upmLoginPage extends Main {
 
     public String getMessage() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//span")).getText();
+        return tool.getTextUsingXPath(tool, "//span");
     }
 
 }

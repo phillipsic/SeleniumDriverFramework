@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -45,7 +43,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
         String inventoryString = "SIM type:";
 
         this.clickSetButton(inventoryString);
-        String SIM = tool.driver.findElement(By.xpath("//p[span[contains(text(),\"SIM reference:\")]]/span[2]")).getText();
+        String SIM = tool.getTextUsingXPath(tool, "//p[span[contains(text(),\"SIM reference:\")]]/span[2]");
         subscriber.setSubscriberSIMProperty(SIM);
     }
 
@@ -53,7 +51,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
         String inventoryString = "IMSI type:";
 
         this.clickSetButton(inventoryString);
-        String IMSI = tool.driver.findElement(By.xpath("//p[span[contains(text(),\"IMSI reference:\")]]/span[2]")).getText();
+        String IMSI = tool.getTextUsingXPath(tool, "//p[span[contains(text(),\"IMSI reference:\")]]/span[2]");
         subscriber.setSubscriberIMSIProperty(IMSI);
     }
 
@@ -62,7 +60,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
 
         this.clickSetButton(inventoryString);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        String MSISDN = tool.driver.findElement(By.xpath("//p[span[contains(text(),\"MSISDN reference:\")]]/span[2]")).getText();
+        String MSISDN = tool.getTextUsingXPath(tool, "//p[span[contains(text(),\"MSISDN reference:\")]]/span[2]");
         subscriber.setSubscriberMSISDNProperty(MSISDN);
     }
 
@@ -70,7 +68,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
         String inventoryString = "TVQuality type:";
 
         this.clickSetButton(inventoryString);
-        String TVQuality = tool.driver.findElement(By.xpath("//p[span[contains(text(),\"TVQuality reference:\")]]/span[2]")).getText();
+        String TVQuality = tool.getTextUsingXPath(tool, "//p[span[contains(text(),\"TVQuality reference:\")]]/span[2]");
         subscriber.setSubscriberTVQualityProperty(TVQuality);
     }
 

@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -37,7 +35,7 @@ public class CheckoutConfirmation extends B2CMenu {
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
 
-        orderNumber = tool.driver.findElement(By.xpath("//span[2]")).getText();
+        orderNumber = tool.getTextUsingXPath(tool, "//span[2]");
         System.out.println("Order Number = '" + orderNumber + "'");
 
         return orderNumber;

@@ -241,7 +241,7 @@ public class PersonManagementCommon extends CommonMenu {
 
     public String getLastNameOfCOP() throws Exception {
 
-        String cop_fullName = tool.driver.findElement(By.xpath("//div[contains(text(),'Customer Owner Person')]/../../td[1]")).getText();
+        String cop_fullName = tool.getTextUsingXPath(tool, "//div[contains(text(),'Customer Owner Person')]/../../td[1]");
 
         String temp[] = cop_fullName.split(" ");
         System.out.println("COP LastName" + temp[1]);

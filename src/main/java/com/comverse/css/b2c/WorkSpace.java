@@ -22,7 +22,7 @@ public class WorkSpace extends B2CMenu {
 
     public String getWelcomeMessage() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[@id='headerLogoutContainer']/ul/li")).getText();
+        return tool.getTextUsingXPath(tool, "//div[@id='headerLogoutContainer']/ul/li");
     }
 
     public String getMyLinesText() throws Exception {

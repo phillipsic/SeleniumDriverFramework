@@ -53,7 +53,7 @@ public class SubscriberDashboard extends MyshapeCommon {
     }
 
     public int getRemainingCredits() throws Exception {
-        String remainingCredits = tool.driver.findElement(By.xpath("//html/body/div/div[3]/div[3]/div[1]/div[2]/div/div[2]/h1/span[2]")).getText();
+        String remainingCredits = tool.getTextUsingXPath(tool, "//html/body/div/div[3]/div[3]/div[1]/div[2]/div/div[2]/h1/span[2]");
         System.out.println("Remaining Credits : " + remainingCredits);
         return Integer.valueOf(remainingCredits.substring(1));
     }

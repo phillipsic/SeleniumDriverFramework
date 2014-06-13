@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -26,11 +24,11 @@ public class CompareDevices extends B2CMenu {
     }
 
     public String getDevice1() throws Exception {
-        return tool.driver.findElement(By.xpath("//table[@class='listTable']//th[1]")).getText();
+        return tool.getTextUsingXPath(tool, "//table[@class='listTable']//th[1]");
     }
 
     public String getDevice2() throws Exception {
-        return tool.driver.findElement(By.xpath("//table[@class='listTable']//th[2]")).getText();
+        return tool.getTextUsingXPath(tool, "//table[@class='listTable']//th[2]");
     }
 
 }

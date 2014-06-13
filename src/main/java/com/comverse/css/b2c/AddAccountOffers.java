@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -36,7 +34,7 @@ public class AddAccountOffers extends B2CMenu {
     public String getAOOrderNumberFromPage() throws Exception {
         String orderNumber;
 
-        orderNumber = tool.driver.findElement(By.xpath("//div[@class='txt']/span")).getText();
+        orderNumber = tool.getTextUsingXPath(tool, "//div[@class='txt']/span");
         orderNumber = orderNumber.substring(orderNumber.lastIndexOf(' ') + 1).replace(".", "");
         System.out.println("Order Number = '" + orderNumber + "'");
 

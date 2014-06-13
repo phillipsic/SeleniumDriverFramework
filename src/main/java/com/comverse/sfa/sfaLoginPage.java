@@ -4,8 +4,6 @@
  */
 package com.comverse.sfa;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.common.Test;
@@ -43,7 +41,7 @@ public class sfaLoginPage extends Main {
     }
 
     public String getMessage() throws Exception {
-        return tool.driver.findElement(By.xpath("//span")).getText();
+        return tool.getTextUsingXPath(tool, "//span");
     }
 
 }

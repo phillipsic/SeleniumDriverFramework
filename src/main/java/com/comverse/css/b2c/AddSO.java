@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -31,7 +29,7 @@ public class AddSO extends B2CMenu {
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
 
-        orderNumber = tool.driver.findElement(By.xpath("//span[1]")).getText();
+        orderNumber = tool.getTextUsingXPath(tool, "//span[1]");
         String temp[];
         temp = orderNumber.split("number");
         orderNumber = temp[1].replace(".", "");

@@ -76,7 +76,7 @@ public class OCMApplication extends Main {
     }
 
     public String getDateOfPropagationFromDetailsPage() throws Exception {
-        String creationDate = tool.driver.findElement(By.xpath("//*[@id=\"mainPanel:publicationCreationDate_detail\"]")).getText();
+        String creationDate = tool.getTextUsingXPath(tool, "//*[@id=\"mainPanel:publicationCreationDate_detail\"]");
 
         String dateCreation[];
         dateCreation = creationDate.split(" ");
@@ -85,7 +85,7 @@ public class OCMApplication extends Main {
     }
 
     public String getStatusOfPropagationFromDetailsPage() throws Exception {
-        String success = tool.driver.findElement(By.xpath("//*[@id=\"mainPanel:Status_detail\"]")).getText();
+        String success = tool.getTextUsingXPath(tool, "//*[@id=\"mainPanel:Status_detail\"]");
         return success;
     }
 
@@ -134,7 +134,7 @@ public class OCMApplication extends Main {
 
     public String getAttributeState() throws Exception {
         String AttributeState = "";
-        AttributeState = tool.driver.findElement(By.xpath("//html/body/table/tbody/tr[2]/td/div/div[2]/div/div/span")).getText();
+        AttributeState = tool.getTextUsingXPath(tool, "//html/body/table/tbody/tr[2]/td/div/div[2]/div/div/span");
         return AttributeState;
     }
 

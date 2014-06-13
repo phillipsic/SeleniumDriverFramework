@@ -197,7 +197,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     public String getSubscriberStatus() throws Exception {
 
-        String orderStatus = tool.driver.findElement(By.xpath("//div[@id='navigationContext']/div/div[2]/div[2]")).getText();
+        String orderStatus = tool.getTextUsingXPath(tool, "//div[@id='navigationContext']/div/div[2]/div[2]");
         return orderStatus;
     }
 
@@ -294,7 +294,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public String returnRPOStatus() throws Exception {
-        return tool.driver.findElement(By.xpath("//div[contains(text(),'DIY - Get')]/../../../following-sibling::tr//a")).getText();
+        return tool.getTextUsingXPath(tool, "//div[contains(text(),'DIY - Get')]/../../../following-sibling::tr//a");
     }
 
     public void doAddSO(String SUPPLEMENTARY_OFFER) throws Exception {

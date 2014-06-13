@@ -1,7 +1,5 @@
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -61,7 +59,7 @@ public class IdentifyCustomer extends IdentifyCustomerCommon {
     }
 
     public String getAccountId(String Fname) throws Exception {
-        return tool.driver.findElement(By.xpath("//td[contains(text(),'" + Fname + "')]/following-sibling::td")).getText();
+        return tool.getTextUsingXPath(tool, "//td[contains(text(),'" + Fname + "')]/following-sibling::td");
     }
 
     @Override

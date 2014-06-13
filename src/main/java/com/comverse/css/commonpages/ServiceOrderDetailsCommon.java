@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -26,7 +24,7 @@ public class ServiceOrderDetailsCommon extends CommonMenu {
     }
 
     public void getAccountID(Account account) throws Exception {
-        String accountID = tool.driver.findElement(By.xpath("//td[2]/a")).getText();
+        String accountID = tool.getTextUsingXPath(tool, "//td[2]/a");
         System.out.println("AccountID = " + accountID);
         account.setBillingAccountIDProperty(accountID);
     }

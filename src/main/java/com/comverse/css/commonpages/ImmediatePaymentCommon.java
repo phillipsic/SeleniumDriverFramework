@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -75,7 +73,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
 
     public String isCreditCardNew() throws Exception {
 
-        String creditCard = tool.driver.findElement(By.xpath(".//*/div[3]/form/fieldset[1]/div/div/div[2]/span")).getText();
+        String creditCard = tool.getTextUsingXPath(tool, ".//*/div[3]/form/fieldset[1]/div/div/div[2]/span");
         System.out.println("Text is:" + creditCard);
         return creditCard;
 

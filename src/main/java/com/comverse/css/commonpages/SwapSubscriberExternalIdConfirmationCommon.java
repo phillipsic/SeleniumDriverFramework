@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,7 +25,7 @@ public class SwapSubscriberExternalIdConfirmationCommon extends CommonMenu {
     }
 
     public void setNewMSISDNInventory(Subscriber subscriber) throws Exception {
-        String MSISDN = tool.driver.findElement(By.xpath("//tr[3]/td/span[2]")).getText();
+        String MSISDN = tool.getTextUsingXPath(tool, "//tr[3]/td/span[2]");
         subscriber.setSubscriberMSISDNProperty(MSISDN);
     }
 }

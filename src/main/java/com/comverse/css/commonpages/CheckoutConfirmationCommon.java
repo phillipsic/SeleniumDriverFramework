@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -48,7 +46,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
         // temp = temp[0].split("<span>");
         // orderNumber = temp[1];
 
-        orderNumber = tool.driver.findElement(By.xpath("//div[4]/div/div[2]/div/div/span[2]")).getText();
+        orderNumber = tool.getTextUsingXPath(tool, "//div[4]/div/div[2]/div/div/span[2]");
         System.out.println("Order Number = '" + orderNumber + "'");
         return orderNumber;
     }
@@ -62,7 +60,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
         // temp = temp[0].split("<span>");
         // orderNumber = temp[1];
 
-        orderNumber = tool.driver.findElement(By.xpath("//span[2]")).getText();
+        orderNumber = tool.getTextUsingXPath(tool, "//span[2]");
         System.out.println("Order Number = '" + orderNumber + "'");
         return orderNumber;
     }

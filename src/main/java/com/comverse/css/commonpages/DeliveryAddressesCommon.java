@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,19 +23,19 @@ public class DeliveryAddressesCommon extends CommonMenu {
 
     public String getSelectDeliveryAddressMessage() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[3]/div[2]/div/div/span")).getText();
+        return tool.getTextUsingXPath(tool, "//div[3]/div[2]/div/div/span");
 
     }
 
     public String getNoDeliveryAddressMessage() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[5]/div[2]/div/div/span")).getText();
+        return tool.getTextUsingXPath(tool, "//div[5]/div[2]/div/div/span");
 
     }
 
     public String getDeliveryAddressMessageAfterSearch() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[5]/div[2]/div/div/span")).getText();
+        return tool.getTextUsingXPath(tool, "//div[5]/div[2]/div/div/span");
 
     }
 
@@ -60,7 +58,7 @@ public class DeliveryAddressesCommon extends CommonMenu {
 
     public String getSuccessfulAddDelvieryAddressMessage() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[3]/div[2]/div/div/span")).getText();
+        return tool.getTextUsingXPath(tool, "//div[3]/div[2]/div/div/span");
 
     }
 

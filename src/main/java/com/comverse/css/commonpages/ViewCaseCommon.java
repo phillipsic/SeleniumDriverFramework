@@ -23,33 +23,33 @@ public class ViewCaseCommon extends CommonMenu {
     }
 
     public String getCaseType() throws Exception {
-        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.getTextUsingXPath(tool, "//tr[7]/td/span[2]");
         return caseID;
     }
 
     public String getCaseStatus() throws Exception {
-        String caseStatus = tool.driver.findElement(By.xpath("//tr[4]/td/span[2]")).getText();
+        String caseStatus = tool.getTextUsingXPath(tool, "//tr[4]/td/span[2]");
         return caseStatus;
     }
 
     public String getCaseJustificationStatus() throws Exception {
-        String caseStatus = tool.driver.findElement(By.xpath("//tr[6]/td/span[2]")).getText();
+        String caseStatus = tool.getTextUsingXPath(tool, "//tr[6]/td/span[2]");
         return caseStatus;
     }
 
     public String getCaseProblemArea() throws Exception {
-        String caseProblemArea = tool.driver.findElement(By.xpath("//tr[8]/td/span[2]")).getText();
+        String caseProblemArea = tool.getTextUsingXPath(tool, "//tr[8]/td/span[2]");
         return caseProblemArea;
     }
 
     public String getCaseDescription() throws Exception {
-        String caseDescription = tool.driver.findElement(By.xpath("//*[@id=\"description\"]")).getText();
+        String caseDescription = tool.getTextUsingXPath(tool, "//*[@id=\"description\"]");
         System.out.println("caseDescription : " + caseDescription);
         return caseDescription;
     }
 
     public String getNoteType() throws Exception {
-        String noteType = tool.driver.findElement(By.xpath("//table[@class='listTable']/tbody/tr[1]/td")).getText();
+        String noteType = tool.getTextUsingXPath(tool, "//table[@class='listTable']/tbody/tr[1]/td");
 
         System.out.println("noteType : " + noteType);
         return noteType;

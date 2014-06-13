@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,7 +20,7 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
 
     public String getMessage() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//span")).getText();
+        return tool.getTextUsingXPath(tool, "//span");
     }
 
     public ResumeBasketConfirmCommon resumeParkedBasket(String value) throws Exception {

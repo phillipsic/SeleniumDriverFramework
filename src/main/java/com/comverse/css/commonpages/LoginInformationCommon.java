@@ -82,7 +82,7 @@ public class LoginInformationCommon extends CommonMenu {
 
     public String getTempPasswordFromPage() throws Exception {
 
-        String password = tool.driver.findElement(By.xpath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span")).getText();
+        String password = tool.getTextUsingXPath(tool, "//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
         String temp[] = password.split(":");
         password = temp[1];

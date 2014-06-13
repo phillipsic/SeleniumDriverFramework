@@ -104,7 +104,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public String getMessage() throws Exception {
-        return tool.driver.findElement(By.xpath("//span")).getText();
+        return tool.getTextUsingXPath(tool, "//span");
     }
 
     public MyshapeCommon unsuccessfulLogin(User user) throws Exception {
@@ -116,7 +116,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public String getTempPasswordFromPage() throws Exception {
-        String password = tool.driver.findElement(By.xpath("//span")).getText();
+        String password = tool.getTextUsingXPath(tool, "//span");
         String temp[] = password.split(":");
         password = temp[1];
         System.out.println("Temporary password: " + password.trim());

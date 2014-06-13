@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -55,19 +54,19 @@ public class SearchOrders extends B2CMenu {
 
     public String getOrderStatus() throws Exception {
 
-        String orderStatus = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[5]")).getText();
+        String orderStatus = tool.getTextUsingXPath(tool, "//table[@id='orderList']/tbody/tr/td[5]");
         return orderStatus;
     }
 
     public String getOrderStatusWithOrderNumber(String orderNumber) throws Exception {
 
-        String orderStatus = tool.driver.findElement(By.xpath("//a[contains(text(),'" + orderNumber + "')]/../../td[5]")).getText();
+        String orderStatus = tool.getTextUsingXPath(tool, "//a[contains(text(),'" + orderNumber + "')]/../../td[5]");
         return orderStatus;
     }
 
     public String getOrderNumber() throws Exception {
 
-        String orderNumber = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[4]")).getText();
+        String orderNumber = tool.getTextUsingXPath(tool, "//table[@id='orderList']/tbody/tr/td[4]");
         return orderNumber;
     }
 
@@ -88,7 +87,7 @@ public class SearchOrders extends B2CMenu {
 
     public String getOrderDate() throws Exception {
 
-        String orderDate = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[1]")).getText();
+        String orderDate = tool.getTextUsingXPath(tool, "//table[@id='orderList']/tbody/tr/td[1]");
         return orderDate;
     }
 

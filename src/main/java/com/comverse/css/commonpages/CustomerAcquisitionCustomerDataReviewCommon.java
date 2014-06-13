@@ -37,22 +37,22 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public String getLastName() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset/p[3]")).getText();
+        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset/p[3]");
     }
 
     public String getEmailAddress() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset/p[5]")).getText();
+        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset/p[5]");
     }
 
     public String getPhoneNumber() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset/p[6]")).getText();
+        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset/p[6]");
     }
 
     public String getFaxNumber() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset/p[7]")).getText();
+        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset/p[7]");
     }
 
     public String getAddressLine1() throws Exception {

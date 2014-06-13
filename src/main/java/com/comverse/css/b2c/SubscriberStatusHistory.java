@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,7 +27,7 @@ public class SubscriberStatusHistory extends B2CMenu {
 
     public String getStatus() throws Exception {
         String subscriberStatus;
-        subscriberStatus = tool.driver.findElement(By.xpath("//td[2]")).getText();
+        subscriberStatus = tool.getTextUsingXPath(tool, "//td[2]");
         return subscriberStatus;
 
     }

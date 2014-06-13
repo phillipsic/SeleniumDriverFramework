@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -50,12 +49,12 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public String getOrderStatus1() throws Exception {
-        String orderStatus = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[5]")).getText();
+        String orderStatus = tool.getTextUsingXPath(tool, "//table[@id='orderList']/tbody/tr/td[5]");
         return orderStatus;
     }
 
     public String getOrderStatus2() throws Exception {
-        String orderStatus = tool.driver.findElement(By.xpath("//table[@id='orderList']/tbody/tr/td[4]")).getText();
+        String orderStatus = tool.getTextUsingXPath(tool, "//table[@id='orderList']/tbody/tr/td[4]");
         return orderStatus;
     }
 

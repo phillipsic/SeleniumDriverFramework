@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,7 +23,7 @@ public class CoherencyCheckCommon extends CommonMenu {
     }
 
     public String getOrderNumber() throws Exception {
-        String orderNumber = tool.driver.findElement(By.xpath("//span")).getText();
+        String orderNumber = tool.getTextUsingXPath(tool, "//span");
         orderNumber = orderNumber.substring(orderNumber.lastIndexOf(" ") + 1);
         return orderNumber;
     }

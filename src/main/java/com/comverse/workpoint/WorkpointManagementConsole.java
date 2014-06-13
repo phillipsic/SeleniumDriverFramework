@@ -1,7 +1,5 @@
 package com.comverse.workpoint;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -19,8 +17,8 @@ public class WorkpointManagementConsole extends WPMCMenu {
         }
     }
 
-    public String getStatusOfMonitorQueue(String queueName) {
-        return tool.driver.findElement(By.xpath("//a[contains( text(),'" + queueName + "')]/../../../../../../../../td[2]/font")).getText();
+    public String getStatusOfMonitorQueue(String queueName) throws Exception {
+        return tool.getTextUsingXPath(tool, "//a[contains( text(),'" + queueName + "')]/../../../../../../../../td[2]/font");
 
     }
 

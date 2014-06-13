@@ -318,7 +318,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public String getAccountStatus() throws Exception {
 
-        String orderStatus = tool.driver.findElement(By.xpath("//div[@id='navigationContext']/div/div/div[2]")).getText();
+        String orderStatus = tool.getTextUsingXPath(tool, "//div[@id='navigationContext']/div/div/div[2]");
         return orderStatus;
     }
 

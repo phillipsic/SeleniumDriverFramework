@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,7 +20,7 @@ public class ViewBalances extends B2CMenu {
 
     public double getBalanceValue(String balanceName) throws Exception {
 
-        String balanceValue = tool.driver.findElement(By.xpath("//a[contains(text(),'" + balanceName + "')]/../../td[2]")).getText();
+        String balanceValue = tool.getTextUsingXPath(tool, "//a[contains(text(),'" + balanceName + "')]/../../td[2]");
 
         double balanceValueDouble = Common.removeCurrencyAndConvertToDouble(balanceValue);
         return balanceValueDouble;

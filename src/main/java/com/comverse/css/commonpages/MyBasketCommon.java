@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -74,28 +73,28 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public String getTypeRole() throws Exception {
-        return tool.driver.findElement(By.xpath("//td[2]/div/p")).getText();
+        return tool.getTextUsingXPath(tool, "//td[2]/div/p");
     }
 
     public String getAddress() throws Exception {
-        String address = tool.driver.findElement(By.xpath("//td[4]/div/p")).getText();
+        String address = tool.getTextUsingXPath(tool, "//td[4]/div/p");
         return address.replaceAll("[^\\p{L}\\p{N}]", " ");
     }
 
     public String getOfferName() throws Exception {
-        return tool.driver.findElement(By.xpath("//tr[9]/td")).getText();
+        return tool.getTextUsingXPath(tool, "//tr[9]/td");
     }
 
     public String getRecurringCharge() throws Exception {
-        return tool.driver.findElement(By.xpath("//tr[9]/td[4]")).getText();
+        return tool.getTextUsingXPath(tool, "//tr[9]/td[4]");
     }
 
     public String getUpfrontCharge() throws Exception {
-        return tool.driver.findElement(By.xpath("//tr[9]/td[5]")).getText();
+        return tool.getTextUsingXPath(tool, "//tr[9]/td[5]");
     }
 
     public String getQuantity() throws Exception {
-        return tool.driver.findElement(By.xpath("//tr[9]/td[2]")).getText();
+        return tool.getTextUsingXPath(tool, "//tr[9]/td[2]");
     }
 
     public RemoveBasketCommon clickClear() throws Exception {

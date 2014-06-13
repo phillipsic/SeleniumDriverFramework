@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,7 +26,7 @@ public class RechargeSubscriberCommon extends CommonMenu {
 
     public String getRechargeClass() throws Exception {
 
-        String rechargeClass = tool.driver.findElement(By.xpath("//tr[4]/td[2]/span/strong")).getText();
+        String rechargeClass = tool.getTextUsingXPath(tool, "//tr[4]/td[2]/span/strong");
 
         return rechargeClass;
     }

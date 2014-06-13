@@ -9,8 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -75,7 +73,7 @@ public class ViewUsageHistoryCommon extends CommonMenu {
 
     public String getSearchResults() throws Exception {
 
-        String text = tool.driver.findElement(By.xpath("//table[2]/tbody/tr[3]/td")).getText();
+        String text = tool.getTextUsingXPath(tool, "//table[2]/tbody/tr[3]/td");
 
         System.out.println("Output:" + text);
 

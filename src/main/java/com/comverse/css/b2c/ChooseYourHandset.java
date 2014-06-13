@@ -97,7 +97,7 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public String comparableDevice1() throws Exception {
-        String temp = tool.driver.findElement(By.xpath(".//div[@class='comparisonItem' and starts-with(.,'1.')]")).getText();
+        String temp = tool.getTextUsingXPath(tool, ".//div[@class='comparisonItem' and starts-with(.,'1.')]");
         String[] compareDevice = temp.split(":");
         return compareDevice[1].trim();
 
@@ -109,7 +109,7 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public String comparableDevice2() throws Exception {
-        String temp = tool.driver.findElement(By.xpath(".//div[@class='comparisonItem' and starts-with(.,'2.')]")).getText();
+        String temp = tool.getTextUsingXPath(tool, ".//div[@class='comparisonItem' and starts-with(.,'2.')]");
         String[] compareDevice = temp.split(":");
         return compareDevice[1].trim();
 

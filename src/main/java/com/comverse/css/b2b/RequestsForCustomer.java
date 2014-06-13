@@ -1,7 +1,5 @@
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -54,7 +52,7 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
 
     public String getBizFirstRequestStatus() throws Exception {
 
-        String requestStatus = tool.driver.findElement(By.xpath("//div[5]/table/tbody[2]/tr/td[6]/div")).getText();
+        String requestStatus = tool.getTextUsingXPath(tool, "//div[5]/table/tbody[2]/tr/td[6]/div");
         return requestStatus;
     }
 

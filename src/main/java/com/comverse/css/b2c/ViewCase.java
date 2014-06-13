@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -21,27 +19,27 @@ public class ViewCase extends B2CMenu {
 
     public String getCategory() throws Exception {
 
-        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.getTextUsingXPath(tool, "//tr[7]/td/span[2]");
 
         return caseID;
     }
 
     public String getSubCategory() throws Exception {
 
-        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.getTextUsingXPath(tool, "//tr[7]/td/span[2]");
 
         return caseID;
     }
 
     public String getDescription() throws Exception {
 
-        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.getTextUsingXPath(tool, "//tr[7]/td/span[2]");
 
         return caseID;
     }
 
     public String getSubscriber() throws Exception {
-        String caseID = tool.driver.findElement(By.xpath("//tr[7]/td/span[2]")).getText();
+        String caseID = tool.getTextUsingXPath(tool, "//tr[7]/td/span[2]");
 
         return caseID;
     }

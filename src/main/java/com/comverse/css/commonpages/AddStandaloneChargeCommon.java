@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -28,7 +27,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
 
         Select select = new Select(tool.searchUsingID(tool, "eventType"));
         select.selectByVisibleText("Dispatch");
-        selectedValue = tool.driver.findElement(By.xpath("//option[@selected='selected']")).getText();
+        selectedValue = tool.getTextUsingXPath(tool, "//option[@selected='selected']");
         System.out.println(selectedValue);
 
     }

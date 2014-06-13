@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,7 +20,7 @@ public class AddMemberCommon extends CommonMenu {
 
     public String getTempPasswordFromPage() throws Exception {
 
-        String password = tool.driver.findElement(By.xpath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span")).getText();
+        String password = tool.getTextUsingXPath(tool, "//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
         String temp[] = password.split(":");
         password = temp[1];

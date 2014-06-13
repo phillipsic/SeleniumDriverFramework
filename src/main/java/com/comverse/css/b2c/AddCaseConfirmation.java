@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,7 +25,7 @@ public class AddCaseConfirmation extends B2CMenu {
 
     public String getCaseID() throws Exception {
 
-        String caseID = tool.driver.findElement(By.xpath("//span")).getText();
+        String caseID = tool.getTextUsingXPath(tool, "//span");
 
         caseID = caseID.replaceAll("[a-zA-Z \\.]", "");
         System.out.println("New Case ID : " + caseID);

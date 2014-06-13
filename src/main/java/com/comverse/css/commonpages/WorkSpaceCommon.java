@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -27,7 +26,7 @@ public class WorkSpaceCommon extends CommonMenu {
 
     public String getHomePageWelcomeMessage() throws Exception {
 
-        return tool.driver.findElement(By.xpath("/html/body/h1")).getText();
+        return tool.getTextUsingXPath(tool, "/html/body/h1");
     }
 
     public EnterIdentificationDataCommon startNewConvergentResidentialCustomer() throws Exception {

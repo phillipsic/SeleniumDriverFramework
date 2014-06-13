@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -71,7 +69,7 @@ public class SearchRequests extends B2CMenu {
     }
 
     public String getFirstRequestStatus() throws Exception {
-        String requestStatus = tool.driver.findElement(By.xpath("//div[@id='requestsContainer']//tr[1]/td[6]/div")).getText();
+        String requestStatus = tool.getTextUsingXPath(tool, "//div[@id='requestsContainer']//tr[1]/td[6]/div");
         return requestStatus;
     }
 

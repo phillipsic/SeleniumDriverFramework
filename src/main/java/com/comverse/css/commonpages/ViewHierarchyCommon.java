@@ -41,7 +41,7 @@ public class ViewHierarchyCommon extends CommonMenu {
 
     public String getRootLevel() throws Exception {
         System.out.println("Root Level " + tool.driver.findElement(By.xpath("//div[@id='mainContents']/div/table/tbody/tr/td/a")).getText());
-        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div/table/tbody/tr/td/a")).getText();
+        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div/table/tbody/tr/td/a");
 
     }
 

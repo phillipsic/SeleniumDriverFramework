@@ -74,7 +74,7 @@ public class ViewBalanceCommon extends CommonMenu {
 
     public Double getCoreBalance() throws Exception {
 
-        String coreBalanceString = tool.driver.findElement(By.xpath("//a[contains(.,'CORE BALANCE')]/../../td[2]")).getText();
+        String coreBalanceString = tool.getTextUsingXPath(tool, "//a[contains(.,'CORE BALANCE')]/../../td[2]");
         coreBalanceString = coreBalanceString.replaceAll(",", "");
         Double coreBalance = Double.parseDouble(coreBalanceString.substring(1));
         System.out.println("Core Balance is " + coreBalance);

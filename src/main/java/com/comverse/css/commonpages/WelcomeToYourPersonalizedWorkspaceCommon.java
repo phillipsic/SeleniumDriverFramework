@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,7 +27,7 @@ public class WelcomeToYourPersonalizedWorkspaceCommon extends CommonMenu {
 
     public String getHomePageWelcomeMessage() throws Exception {
 
-        return tool.driver.findElement(By.xpath("/html/body/h1")).getText();
+        return tool.getTextUsingXPath(tool, "/html/body/h1");
     }
 
     public ViewHierarchyCommon clickManageTelco() throws Exception {

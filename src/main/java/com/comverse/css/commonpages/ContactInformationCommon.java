@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -26,13 +24,13 @@ public class ContactInformationCommon extends CommonMenu {
 
     public String getFirstName() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div/div/fieldset/p[2]")).getText();
+        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div/div/fieldset/p[2]");
 
     }
 
     public String getLastName() throws Exception {
 
-        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div/div/fieldset/p[3]")).getText();
+        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div/div/fieldset/p[3]");
     }
 
     public LoginInformationCommon clickViewLoginInformationLink() throws Exception {
