@@ -1,5 +1,7 @@
 package com.comverse.common;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 
 public class AutomationTool extends Main {
@@ -49,7 +51,7 @@ public class AutomationTool extends Main {
     public void clickUsingTagName(AutomationTool tool, String tagName) throws Exception {
     }
 
-    public WebElement searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
+    public List<WebElement> searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
         return null;
     }
 

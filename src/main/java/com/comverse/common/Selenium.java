@@ -2,6 +2,7 @@ package com.comverse.common;
 
 import java.net.InetAddress;
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -39,7 +40,7 @@ public class Selenium extends AutomationTool {
 
         if (System.getProperty("selenium_browser") == null) {
             tool.platform.setBrowser(propsHelper.readInitProperties("BROWSER.type"));
-             System.out.println("Browser set in property file: " + tool.platform.getBrowser());
+            System.out.println("Browser set in property file: " + tool.platform.getBrowser());
         } else {
             tool.platform.setBrowser(System.getProperty("selenium_browser"));
             System.out.println("Browser surcharged by Jenkins to " + tool.platform.getBrowser());
@@ -186,8 +187,8 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public WebElement searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
-        return tool.driver.findElement(By.tagName(tagName));
+    public List<WebElement> searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
+        return tool.driver.findElements(By.tagName(tagName));
     }
 
     @Override
