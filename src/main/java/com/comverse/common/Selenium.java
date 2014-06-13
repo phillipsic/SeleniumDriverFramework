@@ -172,6 +172,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public String getTextUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath)).getText();
+    }
+
+    @Override
     public void clickUsingID(AutomationTool tool, String id) throws Exception {
         tool.driver.findElement(By.id(id)).click();
     }

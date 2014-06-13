@@ -61,4 +61,8 @@ public class AutomationTool extends Main {
     public void enterStringUsingCssSelector(AutomationTool tool, String cssSelector, String data) throws Exception {
     }
 
+    public String getTextUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        return null;
+    }
+
 }
