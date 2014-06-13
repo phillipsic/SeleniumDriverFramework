@@ -93,8 +93,8 @@ public class sfaOpportunity extends SFAMenu {
         Common.sleepForNumberOfSeconds(3);
     }
 
-    String getOpportunityName() {
-        return tool.driver.findElement(By.id("Iasykb7")).getAttribute("value");
+    String getOpportunityName() throws Exception {
+        return tool.getAttributeUsingId(tool, "Iasykb7", "value");
     }
 
     String getPriceList() throws Exception {
@@ -109,8 +109,8 @@ public class sfaOpportunity extends SFAMenu {
         tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_0");
     }
 
-    String getCurrentSalesStage() {
-        return tool.driver.findElement(By.id("If7o2b9")).getAttribute("value");
+    String getCurrentSalesStage() throws Exception {
+        return tool.getAttributeUsingId(tool, "If7o2b9", "value");
     }
 
     String getFirstTaskName() {

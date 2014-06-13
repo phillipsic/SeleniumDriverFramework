@@ -52,7 +52,7 @@ public class sfaOrganization extends SFAMenu {
 
     public String getOrganizationName() throws Exception {
 
-        return tool.driver.findElement(By.id("Ixr0ht5")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "Ixr0ht5", "value");
     }
 
     public String getResellerId() throws Exception {

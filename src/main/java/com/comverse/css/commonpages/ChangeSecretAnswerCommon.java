@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -39,7 +38,7 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
 
     public String getSecretAnswer() throws Exception {
 
-        return tool.driver.findElement(By.id("secretAnswer")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "secretAnswer", "value");
     }
 
     public void setSecretQuestion(String question) throws Exception {

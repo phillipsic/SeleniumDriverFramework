@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -61,16 +59,16 @@ public class ModifyPaymentInformationCommon extends CommonMenu {
 
     public String getBankCode() throws Exception {
 
-        return tool.driver.findElement(By.id("p-L1:1-L3:1360")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "p-L1:1-L3:1360", "value");
     }
 
     public String getBankAgencyCode() throws Exception {
 
-        return tool.driver.findElement(By.id("p-L1:1-L3:1370")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "p-L1:1-L3:1370", "value");
     }
 
     public String getBankAccountNumber() throws Exception {
 
-        return tool.driver.findElement(By.id("p-L1:1-L3:1380")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "p-L1:1-L3:1380", "value");
     }
 }

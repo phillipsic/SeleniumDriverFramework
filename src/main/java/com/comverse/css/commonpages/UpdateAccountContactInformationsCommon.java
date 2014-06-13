@@ -23,7 +23,7 @@ public class UpdateAccountContactInformationsCommon extends CommonMenu {
 
     public String getLastName() throws Exception {
 
-        return tool.driver.findElement(By.id("last_name")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "last_name", "value");
     }
 
     public String getFirstName() throws Exception {

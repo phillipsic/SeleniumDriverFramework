@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.Application;
@@ -196,7 +195,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public String getCustomerStreetName() throws Exception {
-        return tool.driver.findElement(By.id("streetName")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "streetName", "value");
     }
 
     public void enterCustomerPostCode(String postCode) throws Exception {
@@ -205,7 +204,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public String getCustomerPostCode() throws Exception {
-        return tool.driver.findElement(By.id("home_zip")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "home_zip", "value");
     }
 
     public void enterCustomerHomeCountry(String homeCountry) throws Exception {
@@ -226,7 +225,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public String getCustomerCity() throws Exception {
-        return tool.driver.findElement(By.id("home_city")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "home_city", "value");
     }
 
     public void setServiceTitle(String service_title) throws Exception {

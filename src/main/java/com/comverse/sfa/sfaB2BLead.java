@@ -76,8 +76,8 @@ public class sfaB2BLead extends SFAMenu {
         Common.sleepForNumberOfSeconds(3);
     }
 
-    public String getB2BLeadName() {
-        return tool.driver.findElement(By.id("Ix18yor")).getAttribute("value");
+    public String getB2BLeadName() throws Exception {
+        return tool.getAttributeUsingId(tool, "Ix18yor", "value");
     }
 
     public String getPriceList() throws Exception {

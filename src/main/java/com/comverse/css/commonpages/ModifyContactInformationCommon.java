@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -27,42 +26,42 @@ public class ModifyContactInformationCommon extends CommonMenu {
 
     public String getFirstName() throws Exception {
 
-        return tool.driver.findElement(By.id("first_name")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "first_name", "value");
     }
 
     public String getLastName() throws Exception {
 
-        return tool.driver.findElement(By.id("last_name")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "last_name", "value");
     }
 
     public String getAddressLineOne() throws Exception {
 
-        return tool.driver.findElement(By.id("address_line_1")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "address_line_1", "value");
     }
 
     public String getAddressLineTwo() throws Exception {
 
-        return tool.driver.findElement(By.id("address_line_2")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "address_line_2", "value");
     }
 
     public String getAddressLineThree() throws Exception {
 
-        return tool.driver.findElement(By.id("address_line_3")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "address_line_3", "value");
     }
 
     public String getAddressLineFour() throws Exception {
 
-        return tool.driver.findElement(By.id("address_line_4")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "address_line_4", "value");
     }
 
     public String getZipCode() throws Exception {
 
-        return tool.driver.findElement(By.id("home_zip")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "home_zip", "value");
     }
 
     public String getCity() throws Exception {
 
-        return tool.driver.findElement(By.id("home_city")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "home_city", "value");
     }
 
     public String getState() throws Exception {
@@ -73,23 +72,23 @@ public class ModifyContactInformationCommon extends CommonMenu {
 
     public String getEmail() throws Exception {
 
-        return tool.driver.findElement(By.id("email")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "email", "value");
     }
 
     public String getPhoneNumber() throws Exception {
-        return tool.driver.findElement(By.id("home_phone")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "home_phone", "value");
     }
 
     public String getFaxNumber() throws Exception {
-        return tool.driver.findElement(By.id("fax")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "fax", "value");
     }
 
     public String getDayPhone() throws Exception {
-        return tool.driver.findElement(By.id("home_phone")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "home_phone", "value");
     }
 
     public String getEveningPhone() throws Exception {
-        return tool.driver.findElement(By.id("work_phone")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "work_phone", "value");
     }
 
     public void enterFirstName(String FN) throws Exception {

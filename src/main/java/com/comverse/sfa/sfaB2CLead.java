@@ -45,8 +45,8 @@ public class sfaB2CLead extends SFAMenu {
         tool.clickUsingID(tool, "$ff0jf0_cell_0_0_Img");
     }
 
-    String getB2CLeadName() {
-        return tool.driver.findElement(By.id("Ix18yor")).getAttribute("value");
+    String getB2CLeadName() throws Exception {
+        return tool.getAttributeUsingId(tool, "Ix18yor", "value");
 
     }
 
@@ -54,8 +54,8 @@ public class sfaB2CLead extends SFAMenu {
         return new Select(tool.searchUsingID(tool, "Ircc1q4")).getFirstSelectedOption().getText();
     }
 
-    String getNewProspectFlag() {
-        return tool.driver.findElement(By.id("Ib356er")).getAttribute("oldvalue");
+    String getNewProspectFlag() throws Exception {
+        return tool.getAttributeUsingId(tool, "Ib356er", "oldvalue");
     }
 
     String getPriority() throws Exception {

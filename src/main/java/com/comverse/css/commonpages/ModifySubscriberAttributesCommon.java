@@ -27,11 +27,11 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public String getBirthday() throws Exception {
-        return tool.driver.findElement(By.id("p-param-L4:90070")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "p-param-L4:90070", "value");
     }
 
     public String getSecurityWord() throws Exception {
-        return tool.driver.findElement(By.id("p-param-L4:91070")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "p-param-L4:91070", "value");
     }
 
     public String getLanguage() throws Exception {
@@ -39,11 +39,11 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public String getHappyHourStart() throws Exception {
-        return tool.driver.findElement(By.id("p-param-L4:91170")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "p-param-L4:91170", "value");
     }
 
     public String getHappyHourEnd() throws Exception {
-        return tool.driver.findElement(By.id("p-param-L4:91180")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "p-param-L4:91180", "value");
     }
 
     public void enterBirthday(String birthday) throws Exception {

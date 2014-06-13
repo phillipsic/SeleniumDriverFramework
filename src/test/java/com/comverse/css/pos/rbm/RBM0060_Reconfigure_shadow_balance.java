@@ -55,8 +55,8 @@ public class RBM0060_Reconfigure_shadow_balance extends CSSTest {
             configureContractDetails.setSpendingLimit(balanceAnytimeName, balanceAnytimeValue);
             configureContractDetails.setSpendingLimit(ab_AccountBundle.getBAL_GPRS_WAP_INTERNET().getBalanceName(), ab_AccountBundle.getBAL_GPRS_WAP_INTERNET().getBalanceValue());
 
-            String acctBalanceNightWeekendName = tool.driver.findElement(By.id(balanceNightWeekendName + "_target")).getAttribute("value");
-            String acctBalanceAnytimeName = tool.driver.findElement(By.id(balanceAnytimeName + "_target")).getAttribute("value");
+            String acctBalanceNightWeekendName = tool.getAttributeUsingId(tool, balanceNightWeekendName + "_target", "value");
+            String acctBalanceAnytimeName = tool.getAttributeUsingId(tool, balanceAnytimeName + "_target", "value");
             MyBasket myBasket = configureContractDetails.clickContinue();
 
             myBasket.assign3InventoriesFirstOffer(subscriber);

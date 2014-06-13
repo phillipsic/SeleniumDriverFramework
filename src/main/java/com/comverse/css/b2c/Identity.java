@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,12 +25,12 @@ public class Identity extends B2CMenu {
 
     public String getFirstName() throws Exception {
 
-        return tool.driver.findElement(By.id("first_name")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "first_name", "value");
     }
 
     public String getLastName() throws Exception {
 
-        return tool.driver.findElement(By.id("last_name")).getAttribute("value");
+        return tool.getAttributeUsingId(tool, "last_name", "value");
     }
 
     public SubscriberDetail clickCancel() throws Exception {
