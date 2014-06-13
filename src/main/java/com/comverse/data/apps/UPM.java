@@ -2,10 +2,10 @@ package com.comverse.data.apps;
 
 import com.comverse.common.Application;
 
-public class WPMC extends Application {
+public class UPM extends Application {
 
-    public WPMC() throws Exception {
-        setName("workpoint_console");
+    public UPM() throws Exception {
+        setName("upm");
         setIsCSSApp(false);
     }
 }
