@@ -36,8 +36,8 @@ public class ConfigureServiceConnectionDetails extends B2CMenu {
         // tool.driver.findElement(By.id("inputFields1180")).clear();
         // tool.driver.findElement(By.id("inputFields1180")).sendKeys(Email);
 
-        tool.driver.findElement(By.xpath(".//span[contains(text(), 'Enter your Email address:')]/../../div[2]/input")).clear();
-        tool.driver.findElement(By.xpath(".//span[contains(text(), 'Enter your Email address:')]/../../div[2]/input")).sendKeys(Email);
+        
+        tool.enterStringUsingXPath(tool, ".//span[contains(text(), 'Enter your Email address:')]/../../div[2]/input", Email);
 
     }
 }

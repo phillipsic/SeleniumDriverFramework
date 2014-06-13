@@ -28,8 +28,8 @@ public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
 
     @Override
     public void enterSecurityNumber(String value) throws Exception {
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input")).clear();
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input")).sendKeys(value);
+        
+        tool.enterStringUsingXPath(tool, "//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", value);
     }
 
     @Override

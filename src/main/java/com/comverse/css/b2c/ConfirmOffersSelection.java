@@ -28,8 +28,8 @@ public class ConfirmOffersSelection extends B2CMenu {
     }
 
     public void enterVoiceMailSize(String voiceMailSize) throws Exception {
-        tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).clear();
-        tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).sendKeys(voiceMailSize);
+        
+        tool.enterStringUsingXPath(tool, "//label[contains(text(),'Voice Mail Size')]/../input", voiceMailSize);
     }
 
 }

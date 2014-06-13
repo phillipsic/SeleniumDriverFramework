@@ -26,28 +26,28 @@ public class ModifyAccountAttributesCommon extends CommonMenu {
     }
 
     public void enterSecurityNumber(String value) throws Exception {
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[2]/input")).clear();
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[2]/input")).sendKeys(value);
+        
+        tool.enterStringUsingXPath(tool, "//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[2]/input", value);
     }
 
     public void enterPurchaseOrder(String value) throws Exception {
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[3]/input")).clear();
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[3]/input")).sendKeys(value);
+        
+        tool.enterStringUsingXPath(tool, "//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[3]/input", value);
     }
 
     public void enterSalesCode(String value) throws Exception {
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[4]/input")).clear();
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[4]/input")).sendKeys(value);
+        
+        tool.enterStringUsingXPath(tool, "//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[4]/input", value);
     }
 
     public void enterSecurityWord(String value) throws Exception {
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[5]/input")).clear();
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[5]/input")).sendKeys(value);
+        
+        tool.enterStringUsingXPath(tool, "//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[5]/input", value);
     }
 
     public void enterSICWord(String value) throws Exception {
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[6]/input")).clear();
-        tool.driver.findElement(By.xpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[6]/input")).sendKeys(value);
+        
+        tool.enterStringUsingXPath(tool, "//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div[6]/input", value);
     }
 
     public RequestSubmissionCommon clickModifyAttributes() throws Exception {

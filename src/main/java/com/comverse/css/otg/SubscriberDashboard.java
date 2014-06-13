@@ -43,8 +43,8 @@ public class SubscriberDashboard extends MyshapeCommon {
     }
 
     public void setFreeAmount(int freeAmount) throws Exception {
-        tool.driver.findElement(By.xpath("//input[@type='text']")).clear();
-        tool.driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Integer.toString(freeAmount));
+        
+        tool.enterStringUsingXPath(tool, "//input[@type='text']", Integer.toString(freeAmount));
     }
 
     public void clickConfirm() throws Exception {
