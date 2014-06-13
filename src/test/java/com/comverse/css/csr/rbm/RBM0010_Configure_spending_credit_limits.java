@@ -3,7 +3,6 @@ package com.comverse.css.csr.rbm;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.*;
 import com.comverse.css.csr.*;
@@ -40,7 +39,7 @@ public class RBM0010_Configure_spending_credit_limits extends CSSTest {
             shopping.clickSubscriberBundlePrimaryOfferName(po_ResidentialUltraPostpaid.getOfferName());
             ConfigureBalance configureBalance = shopping.clickSelectOfferInPopUpWindowExpectingConfigureBalance();
 
-            tool.driver.findElement(By.xpath("//input[@type='checkbox' and contains(@onclick, 'CORE BALANCE_limit')]")).click();
+            tool.clickUsingXPath(tool, "//input[@type='checkbox' and contains(@onclick, 'CORE BALANCE_limit')]");
             configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceName(), po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE()
                     .getBalanceValue());
             configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_InternationalRoaming().getBalanceName(), po_ResidentialUltraPostpaid.getBAL_InternationalRoaming()

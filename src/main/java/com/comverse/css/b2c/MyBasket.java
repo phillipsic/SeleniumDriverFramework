@@ -30,19 +30,19 @@ public class MyBasket extends B2CMenu {
 
     public CheckoutRegister clickCheckOut() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         return new CheckoutRegister(tool, test, user);
     }
 
     public TermsAndConditions clickCheckOutExpectingTermsAndConditions() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         return new TermsAndConditions(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickCheckOutExpectingCheckOutBillingAccountInformation() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
@@ -54,7 +54,7 @@ public class MyBasket extends B2CMenu {
 
     public TermsAndConditions clickCheckOutWithDevices() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         return new TermsAndConditions(tool, test, user);
     }
 
@@ -87,7 +87,7 @@ public class MyBasket extends B2CMenu {
 
     public Shopping clickContinueShopping() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue Shopping']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue Shopping']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new Shopping(tool, test, user);
     }

@@ -38,27 +38,27 @@ public class RegisterLoginCommon extends CommonMenu {
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }
 
     public RegisterLoginCommon clickRegisterLoginContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
 
         return new RegisterLoginCommon(tool, test, user);
     }
 
     public void clickRadioButtonTelcoCSRUser() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@name='roles'])[9]")).click();
+        tool.clickUsingXPath(tool, "(//input[@name='roles'])[9]");
 
     }
 
     public void clickRadioButtonOCMUser() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@name='roles']")).click();
+        tool.clickUsingXPath(tool, "//input[@name='roles']");
 
     }
 
@@ -75,7 +75,7 @@ public class RegisterLoginCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
         return new ViewHierarchyCommon(tool, test, user);
     }

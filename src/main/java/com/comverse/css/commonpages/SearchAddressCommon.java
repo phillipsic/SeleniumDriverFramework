@@ -5,7 +5,6 @@
 
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -57,13 +56,13 @@ public class SearchAddressCommon extends CommonMenu {
     }
 
     public SearchAddressCommon clickOk() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchAddressCommon(tool, test, user);
     }
 
     public EnterIdentificationDataCommon clickSelectAddress() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Select']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Select']");
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 

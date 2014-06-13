@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
@@ -78,7 +77,7 @@ public class NCA0030_Capture_billing_information extends CSSTest {
             enterIdentificationData.setFaxNumber("185655530776");
 
             Common.assertTextOnPage(tool, "Payment Method");
-            tool.driver.findElement(By.xpath("(//input[@name='method'])[1]")).click();
+            tool.clickUsingXPath(tool, "(//input[@name='method'])[1]");
             enterIdentificationData.setBankCode("192837465");
             enterIdentificationData.setBankAgencyCode("15243");
             enterIdentificationData.setBankAccountNumber("918273640591827364059182736405");

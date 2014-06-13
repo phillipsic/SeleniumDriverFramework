@@ -33,20 +33,20 @@ public class RegisterBillPaymentCommon extends CommonMenu {
 
     public RegisterBillPaymentCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new RegisterBillPaymentCommon(tool, test, user);
     }
 
     public RegisterBillPaymentCommon clickConfirm() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RegisterBillPaymentCommon(tool, test, user);
     }
 
     public ViewInvoicesCommon clickBackToInvoices() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@name='confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@name='confirm']");
         return new ViewInvoicesCommon(tool, test, user);
     }
 }

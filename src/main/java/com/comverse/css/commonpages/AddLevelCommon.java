@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -23,7 +21,7 @@ public class AddLevelCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new ViewHierarchyCommon(tool, test, user);
     }
 }

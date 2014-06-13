@@ -42,7 +42,7 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public AddEmployeeConfirmation clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
 
         return new AddEmployeeConfirmation(tool, test, user);
     }

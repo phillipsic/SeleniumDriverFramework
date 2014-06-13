@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -25,13 +24,13 @@ public class ConfigureServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }
 
     public SwapSubscriberExternalIdConfirmationCommon clickContinueExpectingSwapSubscriberExternalIdConfirmation() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SwapSubscriberExternalIdConfirmationCommon(tool, test, user);
     }
@@ -41,7 +40,7 @@ public class ConfigureServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public ServiceConnectionDetailsCommon clickOK() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 

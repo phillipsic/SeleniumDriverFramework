@@ -32,7 +32,7 @@ public class SearchCustomer extends B2CMenu {
 
     public RequestSubmission clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Search'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Search'])[2]");
         return new RequestSubmission(tool, test, user);
     }
 
@@ -49,6 +49,6 @@ public class SearchCustomer extends B2CMenu {
     }
 
     public void clickSearchLastFirstName() throws Exception {
-        tool.driver.findElement(By.xpath("(//input[@value='Search'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Search'])[2]");
     }
 }

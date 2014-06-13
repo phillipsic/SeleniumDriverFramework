@@ -78,34 +78,34 @@ public class SubscriberDetail extends B2CMenu {
     }
 
     public ModifyOfferParameters clickOfferConfigure(String offerName) throws Exception {
-        tool.driver.findElement(By.xpath("//a[contains(text(),'" + offerName + "')]/../..//a[contains(text(),'Configure')]")).click();
+        tool.clickUsingXPath(tool, "//a[contains(text(),'" + offerName + "')]/../..//a[contains(text(),'Configure')]");
         return new ModifyOfferParameters(tool, test, user);
     }
 
     public Identity clickUpdateContact() throws Exception {
-        tool.driver.findElement(By.xpath("//*[contains(text(),'Contact')]/..//a[contains(text(), 'Update')]")).click();
+        tool.clickUsingXPath(tool, "//*[contains(text(),'Contact')]/..//a[contains(text(), 'Update')]");
         return new Identity(tool, test, user);
     }
 
     public SelectOffersForYourAccount clickSubscribeToNewOffer() throws Exception {
-        tool.driver.findElement(By.xpath("//a[contains(text(), 'Subscribe to new offers')]")).click();
+        tool.clickUsingXPath(tool, "//a[contains(text(), 'Subscribe to new offers')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccount(tool, test, user);
     }
 
     public RemoveOffer clickRemoveAO(String offerName) throws Exception {
-        tool.driver.findElement(By.xpath("//a[contains(text(), '" + offerName + "')]/../..//a[contains(text(), 'Remove')]")).click();
+        tool.clickUsingXPath(tool, "//a[contains(text(), '" + offerName + "')]/../..//a[contains(text(), 'Remove')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveOffer(tool, test, user);
     }
 
     public ModifySubscriberAttributes clickConfigureAttributes() throws Exception {
-        tool.driver.findElement(By.xpath("//*[contains(text(),'Attributes')]/..//a[contains(text(), 'Configure')]")).click();
+        tool.clickUsingXPath(tool, "//*[contains(text(),'Attributes')]/..//a[contains(text(), 'Configure')]");
         return new ModifySubscriberAttributes(tool, test, user);
     }
 
     public ChooseYourPrimaryOffer clickMigrateToPostpaidSubscriber() throws Exception {
-        tool.driver.findElement(By.xpath("//a[contains(text(), 'Migrate to postpaid subscriber')]")).click();
+        tool.clickUsingXPath(tool, "//a[contains(text(), 'Migrate to postpaid subscriber')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
@@ -117,13 +117,13 @@ public class SubscriberDetail extends B2CMenu {
     }
 
     public ChooseYourPrimaryOffer clickChangeOffer() throws Exception {
-        tool.driver.findElement(By.xpath("//a[contains(text(), 'Change Offer')]")).click();
+        tool.clickUsingXPath(tool, "//a[contains(text(), 'Change Offer')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public SubscriberStatusHistory clickStatusHistory() throws Exception {
-        tool.driver.findElement(By.xpath("//a[contains(text(), 'View Status History')]")).click();
+        tool.clickUsingXPath(tool, "//a[contains(text(), 'View Status History')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberStatusHistory(tool, test, user);
     }

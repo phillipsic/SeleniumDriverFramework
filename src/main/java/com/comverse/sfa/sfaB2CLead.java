@@ -29,7 +29,7 @@ public class sfaB2CLead extends SFAMenu {
         tool.enterStringUsingId(tool, "Iny33ei", b2cLeadName);
 
         // Set Created Date
-        tool.driver.findElement(By.xpath("//nobr[contains(text(), 'More Fields')]")).click();
+        tool.clickUsingXPath(tool, "//nobr[contains(text(), 'More Fields')]");
         if (createdDate.equals("Today")) {
             
             tool.enterStringUsingId(tool, "Imcusxj", Common.getSysdateDDMMYYYY());

@@ -52,7 +52,7 @@ public class ModifyAccountAttributesCommon extends CommonMenu {
 
     public RequestSubmissionCommon clickModifyAttributes() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Modify Attributes']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Modify Attributes']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RequestSubmissionCommon(tool, test, user);
     }

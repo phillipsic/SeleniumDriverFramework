@@ -55,7 +55,7 @@ public class ModifyPaymentInformationCommon extends CommonMenu {
 
     public ModifyPaymentMethodCommon clickModifyPaymentButton() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Modify Payment Method']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Modify Payment Method']");
         return new ModifyPaymentMethodCommon(tool, test, user);
     }
 

@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,14 +26,14 @@ public class SwapImpact extends B2CMenu {
 
     public MyBasket clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Ok']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public ConfigureBalance clickOkExpectingConfigureBalance() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Ok']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureBalance(tool, test, user);
     }

@@ -39,7 +39,7 @@ public class UnlockSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public UnlockSubscriberConfirmationCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new UnlockSubscriberConfirmationCommon(tool, test, user);

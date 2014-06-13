@@ -49,7 +49,7 @@ public class ViewBalanceCommon extends CommonMenu {
 
         // tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'Adjust')]]/td/a[contains(text(),'"
         // + balancename + "')]")).click();
-        tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]")).click();
+        tool.clickUsingXPath(tool, "//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]");
 
         return new AdjustBalanceDetailsCommon(tool, test, user);
     }
@@ -57,7 +57,7 @@ public class ViewBalanceCommon extends CommonMenu {
     public ReconfigureBalanceCommon clickConfigureSharedBalance(String balanceName) throws Exception {
 
         String balanceID = retrieveBalanceID(balanceName);
-        tool.driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]")).click();
+        tool.clickUsingXPath(tool, "//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 

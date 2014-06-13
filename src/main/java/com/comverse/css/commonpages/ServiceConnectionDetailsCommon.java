@@ -21,12 +21,12 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickOk() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new MyBasketCommon(tool, test, user);
     }
 
     public SwapImpactCommon clickOkExpectingSwapImpact() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new SwapImpactCommon(tool, test, user);
     }
 
@@ -77,7 +77,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     public void clickSetButton(String inventoryString) throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        tool.driver.findElement(By.xpath("//span[contains(.,'" + inventoryString + "')]/../../following-sibling::div[1]/div/div/span/input")).click();
+        tool.clickUsingXPath(tool, "//span[contains(.,'" + inventoryString + "')]/../../following-sibling::div[1]/div/div/span/input");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }

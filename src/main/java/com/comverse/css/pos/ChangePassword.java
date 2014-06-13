@@ -1,7 +1,5 @@
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -18,7 +16,7 @@ public class ChangePassword extends ChangePasswordCommon {
     @Override
     public ModifyLoginPassword clickChange() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Change']");
         return new ModifyLoginPassword(tool, test, user);
     }
 }

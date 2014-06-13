@@ -50,7 +50,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourAccountCommon clickAddNewAccountOffer() throws Exception {
-        tool.driver.findElement(By.xpath("//p[contains(text(),'Bundle/Offers')]/../../div/a[contains(text(),'Add')]")).click();
+        tool.clickUsingXPath(tool, "//p[contains(text(),'Bundle/Offers')]/../../div/a[contains(text(),'Add')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SelectOffersForYourAccountCommon(tool, test, user);
@@ -65,7 +65,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public ViewCaseCommon clickLinkOfCaseID(String caseID) throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.xpath("//span[text()=" + caseID + "]")).click();
+        tool.clickUsingXPath(tool, "//span[text()=" + caseID + "]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);
@@ -75,8 +75,8 @@ public class AccountDetailsCommon extends CommonMenu {
         System.out.println("selectFirstSubscriberFromNavigationPanel");
         tool.driver.findElement(By.id("NavigationLink")).click();
         Common.sleepForNumberOfSeconds(1);
-        // tool.driver.findElement(By.xpath("(//a[contains(text(),'open')])[2]")).click();
-        tool.driver.findElement(By.xpath("(//td[4]//a[contains(text(), 'open')])[1]")).click();
+        // tool.clickUsingXPath(tool, "(//a[contains(text(),'open')])[2]");
+        tool.clickUsingXPath(tool, "(//td[4]//a[contains(text(), 'open')])[1]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }
@@ -87,7 +87,7 @@ public class AccountDetailsCommon extends CommonMenu {
         Common.assertTextOnPage(tool, "Please enter your criteria and press search");
         tool.driver.findElement(By.id("subscriberSearchButton")).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.xpath("//td[3]/div/a")).click();
+        tool.clickUsingXPath(tool, "//td[3]/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }
@@ -145,12 +145,12 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public ModifyContactInformationCommon clickModifyBillingContact() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='tab1']/table/tbody/tr/td[2]/div[5]/a/u")).click();
+        tool.clickUsingXPath(tool, "//div[@id='tab1']/table/tbody/tr/td[2]/div[5]/a/u");
         return new ModifyContactInformationCommon(tool, test, user);
     }
 
     public ModifyPaymentInformationCommon clickModifyPaymentMethod() throws Exception {
-        tool.driver.findElement(By.xpath("//div[8]/a/u")).click();
+        tool.clickUsingXPath(tool, "//div[8]/a/u");
         return new ModifyPaymentInformationCommon(tool, test, user);
     }
 
@@ -173,11 +173,11 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public void clickCloseOfferDetailsBox() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Close']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Close']");
     }
 
     public void clickAccountAttributesTab() throws Exception {
-        tool.driver.findElement(By.xpath("//a[@href='#tab2']")).click();
+        tool.clickUsingXPath(tool, "//a[@href='#tab2']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
@@ -188,7 +188,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public ModifyAccountAttributesCommon clickModifyAccountContact() throws Exception {
-        tool.driver.findElement(By.xpath("//div[2]/a/u")).click();
+        tool.clickUsingXPath(tool, "//div[2]/a/u");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyAccountAttributesCommon(tool, test, user);
     }
@@ -199,7 +199,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public RemoveOfferCommon clickRemoveAccountOffer(String newOfferName) throws Exception {
-        tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'" + newOfferName + "')]]/td/a[contains(text(), 'Remove')]")).click();
+        tool.clickUsingXPath(tool, "//tr[td/a[contains(text(),'" + newOfferName + "')]]/td/a[contains(text(), 'Remove')]");
         return new RemoveOfferCommon(tool, test, user);
     }
 
@@ -247,7 +247,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public void clickListAllCases() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.xpath("//p[contains(text(),'Cases (last 4 by date)')]/../../div/a[contains(text(),'More...')]")).click();
+        tool.clickUsingXPath(tool, "//p[contains(text(),'Cases (last 4 by date)')]/../../div/a[contains(text(),'More...')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
@@ -341,7 +341,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public void clickSelectOtherPerson() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='personaSelectContainer']/img")).click();
+        tool.clickUsingXPath(tool, "//div[@id='personaSelectContainer']/img");
     }
 
     public AddStandaloneChargeCommon clickAddStandaloneCharge() throws Exception {

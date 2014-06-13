@@ -4,8 +4,6 @@
  */
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,7 +20,7 @@ public class ViewUsageHistory extends ViewUsageHistoryCommon {
     @Override
     public void clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Search']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 }

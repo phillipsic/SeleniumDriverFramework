@@ -31,8 +31,8 @@ public class OCM0007_Publication extends CSSTest {
 
         ocmApplication.clickMenuNewPublication(application);
 
-        tool.driver.findElement(By.xpath("(//input[@name='mainPanel:edit:fields:CatalogPublication'])[2]")).click();
-        tool.driver.findElement(By.xpath("(//input[@name='mainPanel:edit:fields:ContentPublication'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@name='mainPanel:edit:fields:CatalogPublication'])[2]");
+        tool.clickUsingXPath(tool, "(//input[@name='mainPanel:edit:fields:ContentPublication'])[2]");
 
         tool.driver.findElement(By.id("mainPanel:edit:buttons:publish")).click();
 

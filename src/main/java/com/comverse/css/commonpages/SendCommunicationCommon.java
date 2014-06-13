@@ -41,13 +41,13 @@ public class SendCommunicationCommon extends CommonMenu {
 
     public SendCommunicationCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new SendCommunicationCommon(tool, test, user);
     }
 
     public void clickSearchTemplate() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Search template']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Search template']");
     }
 
     public void selectTemplateEventType(String value) throws Exception {
@@ -88,7 +88,7 @@ public class SendCommunicationCommon extends CommonMenu {
 
     public OutboundCommunicationCommon clickSendCommunication() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Send communication']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Send communication']");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new OutboundCommunicationCommon(tool, test, user);

@@ -4,7 +4,6 @@
  */
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -40,7 +39,7 @@ public class AddEmployeeContactInformation extends CommonMenu {
 
     public AddEmployeeRegisterLogin clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
 
         return new AddEmployeeRegisterLogin(tool, test, user);
     }

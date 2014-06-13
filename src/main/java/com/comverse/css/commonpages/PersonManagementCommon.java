@@ -86,12 +86,12 @@ public class PersonManagementCommon extends CommonMenu {
         tool.driver.findElement(By.id("roleCmp")).click();
     }
 
-    public void clickActions(String FName) {
-        tool.driver.findElement(By.xpath("//div[contains(text(),'" + FName + "')]/../..//button")).click();
+    public void clickActions(String FName) throws Exception {
+        tool.clickUsingXPath(tool, "//div[contains(text(),'" + FName + "')]/../..//button");
     }
 
     public void clickActionstoChangeOwner() {
-        // tool.driver.findElement(By.xpath("//*[@id='yui-gen16-button']")).click();
+        // tool.clickUsingXPath(tool, "//*[@id='yui-gen16-button']");
         tool.driver
                 .findElement(
                         By.xpath(" //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button"))
@@ -112,24 +112,24 @@ public class PersonManagementCommon extends CommonMenu {
         tool.driver.findElement(By.id("role_2")).click();
     }
 
-    public void clickOKFromSelectPersonaRole() {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+    public void clickOKFromSelectPersonaRole() throws Exception {
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
     public void clickDeactivateRole() throws Exception {
         tool.clickUsingLinkText(tool, "Deactivate Role");
     }
 
-    public void clickOKFromDeactivateRole() {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+    public void clickOKFromDeactivateRole() throws Exception {
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
     public void checkAccountManager() {
         tool.driver.findElement(By.id("roleCmp")).click();
     }
 
-    public void clickChangeOwner() {
-        tool.driver.findElement(By.xpath("//a[contains(text(),'Change Owner')]")).click();
+    public void clickChangeOwner() throws Exception {
+        tool.clickUsingXPath(tool, "//a[contains(text(),'Change Owner')]");
     }
 
     public void clickSwap() {
@@ -138,7 +138,7 @@ public class PersonManagementCommon extends CommonMenu {
 
     public AddLoginCommon clickActionsAddLoginForPerson(String personLastName) throws Exception {
 
-        tool.driver.findElement(By.xpath("//div[contains(text(),'" + personLastName + "')]/../..//*[@type='button']")).click();
+        tool.clickUsingXPath(tool, "//div[contains(text(),'" + personLastName + "')]/../..//*[@type='button']");
         tool.clickUsingLinkText(tool, "Add Login");
 
         return new AddLoginCommon(tool, test, user);
@@ -215,7 +215,7 @@ public class PersonManagementCommon extends CommonMenu {
         tool.driver.findElement(By.id("pm-button-search")).click();
         final List<WebElement> radios = tool.driver.findElements(By.name("pfr-selected-person"));
         radios.get(0).click();
-        tool.driver.findElement(By.xpath("//*[@id='personfind']/div[2]/div/form/div[2]/input[2]")).click();
+        tool.clickUsingXPath(tool, "//*[@id='personfind']/div[2]/div/form/div[2]/input[2]");
         tool.clickUsingCssSelector(tool, "input[id=submitButton][value='Swap']");
 
     }
@@ -226,16 +226,17 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void clickOKFromDissociate() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
     public void clickAssociateRoleToSubscriber() throws Exception {
-        // tool.driver.findElement(By.xpath("//a[contains(text(),'Associate Role to Subscriber')]")).click();
+        // tool.clickUsingXPath(tool,
+        // "//a[contains(text(),'Associate Role to Subscriber')]");
         tool.clickUsingLinkText(tool, "Associate Role to Subscriber");
     }
 
     public void clickOKAssociateRoleToSubscriber() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
     public String getLastNameOfCOP() throws Exception {

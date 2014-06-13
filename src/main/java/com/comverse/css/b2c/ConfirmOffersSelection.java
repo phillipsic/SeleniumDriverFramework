@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,7 +20,7 @@ public class ConfirmOffersSelection extends B2CMenu {
 
     public MyBasket clickConfirmOffer() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm Offer Personalization']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm Offer Personalization']");
         return new MyBasket(tool, test, user);
 
     }

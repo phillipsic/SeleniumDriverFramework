@@ -22,19 +22,19 @@ public class CheckoutConfirmationCommon extends CommonMenu {
 
     public WorkSpaceCommon clickOk() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpaceCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickOkExpectingAccountDashboard() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickOkExpectingSubscriberDashboard() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }

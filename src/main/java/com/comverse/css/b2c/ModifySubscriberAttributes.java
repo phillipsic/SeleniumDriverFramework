@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -26,7 +25,7 @@ public class ModifySubscriberAttributes extends B2CMenu {
 
     public RequestSubmission clickModifyAttributes() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value= 'Modify Attributes']")).click();
+        tool.clickUsingXPath(tool, "//input[@value= 'Modify Attributes']");
         return new RequestSubmission(tool, test, user);
     }
 
@@ -44,7 +43,7 @@ public class ModifySubscriberAttributes extends B2CMenu {
 
     public SubscriberDetail clickCancel() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value= 'Cancel']")).click();
+        tool.clickUsingXPath(tool, "//input[@value= 'Cancel']");
         return new SubscriberDetail(tool, test, user);
     }
 

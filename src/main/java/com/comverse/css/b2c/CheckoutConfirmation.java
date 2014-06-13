@@ -24,13 +24,13 @@ public class CheckoutConfirmation extends B2CMenu {
 
     public SearchOrders clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new SearchOrders(tool, test, user);
     }
 
     public Shopping clickOkExpectingShopping() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new Shopping(tool, test, user);
     }
 

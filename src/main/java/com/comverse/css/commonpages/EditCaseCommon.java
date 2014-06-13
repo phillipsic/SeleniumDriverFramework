@@ -36,7 +36,7 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void clickOKToCancelOrClose() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
     public void enterReason(String Reason) throws Exception {
@@ -56,7 +56,7 @@ public class EditCaseCommon extends CommonMenu {
     public ViewCase clickOK() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.assertTextOnPage(tool, "Case has been successfully updated.");
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCase(tool, test, user);
     }

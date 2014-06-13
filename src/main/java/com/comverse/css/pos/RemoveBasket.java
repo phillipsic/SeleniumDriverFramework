@@ -4,8 +4,6 @@
  */
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -20,7 +18,7 @@ public class RemoveBasket extends RemoveBasketCommon {
 
     public WorkSpace clickYes() throws Exception {
 
-        tool.driver.findElement(By.xpath("//form[@id='form_YES']/div/input")).click();
+        tool.clickUsingXPath(tool, "//form[@id='form_YES']/div/input");
         return new WorkSpace(tool, test, user);
     }
 }

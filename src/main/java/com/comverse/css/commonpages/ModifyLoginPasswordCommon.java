@@ -25,7 +25,7 @@ public class ModifyLoginPasswordCommon extends CommonMenu {
     }
 
     public void clickOk() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
     }
 

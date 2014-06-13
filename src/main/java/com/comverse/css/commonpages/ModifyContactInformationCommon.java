@@ -155,7 +155,7 @@ public class ModifyContactInformationCommon extends CommonMenu {
     }
 
     public ModifyContactInformationConfirmationCommon clickOk() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new ModifyContactInformationConfirmationCommon(tool, test, user);
     }
 

@@ -29,14 +29,14 @@ public class ChooseAccessories extends B2CMenu {
 
     public MyBasket clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public ConfigureServiceConnectionDetails clickContinueExpectingConnectionServiceDetails() throws Exception {
 
-        // tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        // tool.clickUsingXPath(tool, "//input[@value='Continue']");
         tool.clickUsingName(tool, "doSubmit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureServiceConnectionDetails(tool, test, user);

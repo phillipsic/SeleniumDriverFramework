@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -66,18 +64,18 @@ public class RegisterNewResidentialMember extends B2CMenu {
 
     public void clickSubmit() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Submit']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Submit']");
     }
 
     public RequestSubmission clickConfirm() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
         return new RequestSubmission(tool, test, user);
     }
 
     public void clickResidentialSubscriber() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@name='role'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@name='role'])[2]");
     }
 
     public RequestSubmission createResidentialSubscriber(String uniqueString, String password) throws Exception {

@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,21 +27,21 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
 
     public AddDepositReviewAndConfirmCommon clickConfirm() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddDepositReviewAndConfirmCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDepositsCommon clickOkToViewDeposits() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDepositsCommon(tool, test, user);
     }

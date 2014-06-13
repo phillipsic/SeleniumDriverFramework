@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,12 +23,12 @@ public class SelectOffersForYourAccountCommon extends CommonMenu {
     }
 
     public ConfigureOffersCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new ConfigureOffersCommon(tool, test, user);
     }
 
     public MyBasketCommon clickContinueNoConfiguration() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new MyBasketCommon(tool, test, user);
     }
 
@@ -40,16 +38,16 @@ public class SelectOffersForYourAccountCommon extends CommonMenu {
     }
 
     public void selectAccountOfferByName(String accountOfferName) throws Exception {
-        tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../../td/input")).click();
+        tool.clickUsingXPath(tool, "//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../../td/input");
     }
 
     public AccountOfferDetailsCommon clickOfferDetail(String accountOfferName) throws Exception {
-        tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../a")).click();
+        tool.clickUsingXPath(tool, "//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../a");
         return new AccountOfferDetailsCommon(tool, test, user);
     }
 
     public void clickOfferDetailAndPopUp(String accountOfferName) throws Exception {
-        tool.driver.findElement(By.xpath("//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../a")).click();
+        tool.clickUsingXPath(tool, "//div[@class = 'objectName' and contains(.,'" + accountOfferName + "')]/../a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
     }

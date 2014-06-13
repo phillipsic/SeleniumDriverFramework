@@ -1,7 +1,5 @@
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -58,12 +56,12 @@ public class MyShapeChannel extends MyshapeCommon {
     }
 
     public void clickChange() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Change']");
     }
 
     @Override
 	public void clickHomePage() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Home Page']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Home Page']");
     }
 
     public RestorePreviousBasket loginToChannelAsTelcoAdminWithPreviousBasket() throws Exception {

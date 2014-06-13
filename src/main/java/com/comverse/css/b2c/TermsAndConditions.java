@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -24,20 +22,20 @@ public class TermsAndConditions extends B2CMenu {
 
     public CheckoutRegister clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new CheckoutRegister(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickOkExpectingBilingAccountInformation() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckoutRegister clickOkExpectingCheckoutRegister() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new CheckoutRegister(tool, test, user);
     }
 }

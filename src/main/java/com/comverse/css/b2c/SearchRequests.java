@@ -33,7 +33,7 @@ public class SearchRequests extends B2CMenu {
     }
 
     public void clickSearch() throws Exception {
-        tool.driver.findElement(By.xpath("(//input[@value='Search'])")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Search'])");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 

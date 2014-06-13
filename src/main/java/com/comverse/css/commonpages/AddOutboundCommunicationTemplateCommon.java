@@ -2,7 +2,6 @@ package com.comverse.css.commonpages;
 
 import java.io.File;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -69,7 +68,7 @@ public class AddOutboundCommunicationTemplateCommon extends CommonMenu {
 
     public OutboundCommunicationTemplateCommon clickOK() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Ok']");
 
         return new OutboundCommunicationTemplateCommon(tool, test, user);
     }

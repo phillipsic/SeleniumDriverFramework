@@ -76,7 +76,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void clickNotesTab() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='subdividedTabs']/table/tbody/tr/td[3]/div")).click();
+        tool.clickUsingXPath(tool, "//div[@id='subdividedTabs']/table/tbody/tr/td[3]/div");
         Thread.sleep(3000);
     }
 
@@ -95,7 +95,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void clickViewListNote() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='$gyuovx']/table/tbody/tr/td[2]/nobr")).click();
+        tool.clickUsingXPath(tool, "//div[@id='$gyuovx']/table/tbody/tr/td[2]/nobr");
         Thread.sleep(3000);
     }
 }

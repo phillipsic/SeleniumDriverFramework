@@ -44,7 +44,7 @@ public class CustomerSearchResultCommon extends CommonMenu {
 
     public AccountDetailsCommon clickFirstAccountLink() throws Exception {
 
-        tool.driver.findElement(By.xpath("//td[3]/a")).click();
+        tool.clickUsingXPath(tool, "//td[3]/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }

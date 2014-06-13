@@ -67,7 +67,7 @@ public class sfaAdminJobList extends SFAMenu {
 
     void selectJobByName(String jobName) throws Exception {
         if (!driver.findElement(By.xpath("//div[contains(text(), '" + jobName + "')]/../../td/input")).isSelected()) {
-            tool.driver.findElement(By.xpath("//div[contains(text(), '" + jobName + "')]/../../td/input")).click();
+            tool.clickUsingXPath(tool, "//div[contains(text(), '" + jobName + "')]/../../td/input");
         }
         Common.sleepForNumberOfSeconds(1);
 

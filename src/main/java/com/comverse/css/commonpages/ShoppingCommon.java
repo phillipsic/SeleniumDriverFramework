@@ -42,23 +42,23 @@ public class ShoppingCommon extends CommonMenu {
     }
 
     public void clickPOCompatibleOffersTab() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[2]/a/em")).click();
+        tool.clickUsingXPath(tool, "//div[@id='planDetails']/ul/li[2]/a/em");
     }
 
     public void clickPOTermsAndConditionsTab() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[3]/a/em")).click();
+        tool.clickUsingXPath(tool, "//div[@id='planDetails']/ul/li[3]/a/em");
     }
 
     public void clickPOOfferPolicyDetailsTab() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='planDetails']/ul/li[4]/a/em")).click();
+        tool.clickUsingXPath(tool, "//div[@id='planDetails']/ul/li[4]/a/em");
     }
 
     public void clickABCompatibleOffersTab() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='accountBundleDetails']/ul/li[2]/a/em")).click();
+        tool.clickUsingXPath(tool, "//div[@id='accountBundleDetails']/ul/li[2]/a/em");
     }
 
     public void clickABTermsAndConditionsTab() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='accountBundleDetails']/ul/li[3]/a/em")).click();
+        tool.clickUsingXPath(tool, "//div[@id='accountBundleDetails']/ul/li[3]/a/em");
     }
 
     public void clickAccountBundleOfferName(String accountBundle) throws Exception {
@@ -79,7 +79,7 @@ public class ShoppingCommon extends CommonMenu {
         Common.waitForAccountBundlesToLoadOnPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        tool.driver.findElement(By.xpath("//b[@onclick=\"javascript: accountBundleDetails('" + accountBundleID + "')\"]")).click();
+        tool.clickUsingXPath(tool, "//b[@onclick=\"javascript: accountBundleDetails('" + accountBundleID + "')\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
@@ -117,7 +117,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.xpath("//a/span")).click();
+        tool.clickUsingXPath(tool, "//a/span");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new TestServiceAbilityCommon(tool, test, user);
@@ -170,13 +170,13 @@ public class ShoppingCommon extends CommonMenu {
 
     public void clickAccountBundlesTab() throws Exception {
 
-        tool.driver.findElement(By.xpath("//div[@id='shoppingTabs']/ul/li[2]/a/em")).click();
+        tool.clickUsingXPath(tool, "//div[@id='shoppingTabs']/ul/li[2]/a/em");
         Common.waitForAccountBundlesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickHandsetsTab() throws Exception {
 
-        tool.driver.findElement(By.xpath("//div[@id='shoppingTabs']/ul/li[3]/a/em")).click();
+        tool.clickUsingXPath(tool, "//div[@id='shoppingTabs']/ul/li[3]/a/em");
         Common.waitForDevicesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
@@ -188,7 +188,7 @@ public class ShoppingCommon extends CommonMenu {
 
     public void selectBundleByName(String bundleName) throws Exception {
 
-        tool.driver.findElement(By.xpath("//tr[@id='abtr:" + bundleName + "']/td/input")).click();
+        tool.clickUsingXPath(tool, "//tr[@id='abtr:" + bundleName + "']/td/input");
     }
 
     public void selectAccountOffer(String accountBundleID, String accountOfferName) throws Exception {
@@ -208,7 +208,7 @@ public class ShoppingCommon extends CommonMenu {
          */
         // div[contains(text(),'DIYe - extended Interactivity (Your
         // account).')]/../..//input
-        tool.driver.findElement(By.xpath("//div[contains(text(),'" + accountOfferName + "')]/../..//input")).click();
+        tool.clickUsingXPath(tool, "//div[contains(text(),'" + accountOfferName + "')]/../..//input");
     }
 
     public void selectOptionalSubscriberBundle(String accountBundleID, String optionalSubscriberBundle) throws Exception {
@@ -325,27 +325,27 @@ public class ShoppingCommon extends CommonMenu {
 
     public ConfigureContractDetailsCommon clickSubscribe() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Subscribe'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Subscribe'])[2]");
         return new ConfigureContractDetailsCommon(tool, test, user);
     }
 
     public MyBasketCommon clickSubscribeNoConfiguration() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Subscribe'])[3]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Subscribe'])[3]");
 
         return new MyBasketCommon(tool, test, user);
     }
 
     public SelectOffersForYourSubscriberCommon clickSubscribeAccountBundle() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Subscribe'])[3]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Subscribe'])[3]");
 
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     public void clickClose() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Close'])")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Close'])");
     }
 
     public MyBasketCommon selectAccessory(String value) throws Exception {
@@ -353,7 +353,7 @@ public class ShoppingCommon extends CommonMenu {
         Common.sleepForNumberOfSeconds(3);
         tool.clickUsingLinkText(tool, value);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.xpath("//input[@value='Select']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Select']");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

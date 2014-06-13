@@ -29,7 +29,7 @@ public class SearchOrders extends B2CMenu {
 
     public void clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Search']");
 
     }
 
@@ -49,7 +49,7 @@ public class SearchOrders extends B2CMenu {
 
     public SearchRequests clickSearchRequests() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Search']");
         return new SearchRequests(tool, test, user);
     }
 

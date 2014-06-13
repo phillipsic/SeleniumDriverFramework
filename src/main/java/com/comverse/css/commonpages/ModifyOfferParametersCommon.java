@@ -27,7 +27,7 @@ public class ModifyOfferParametersCommon extends CommonMenu {
     }
 
     public void checkVoiceMailEnableToNo() throws Exception {
-        tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Enable')]/following-sibling::input")).click();
+        tool.clickUsingXPath(tool, "//label[contains(text(),'Voice Mail Enable')]/following-sibling::input");
     }
 
     public void enterVoiceMailSize(String voiceMailSize) throws Exception {
@@ -36,7 +36,7 @@ public class ModifyOfferParametersCommon extends CommonMenu {
     }
 
     public ModifyItemOfSubscriberCommon clickModify() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Modify']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Modify']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyItemOfSubscriberCommon(tool, test, user);
     }

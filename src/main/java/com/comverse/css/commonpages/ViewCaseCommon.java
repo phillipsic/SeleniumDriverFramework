@@ -62,12 +62,12 @@ public class ViewCaseCommon extends CommonMenu {
     }
 
     public void clickNotesTab() throws Exception {
-        tool.driver.findElement(By.xpath("//em[contains(text(), 'Notes')]")).click();
+        tool.clickUsingXPath(tool, "//em[contains(text(), 'Notes')]");
     }
 
     public void clickAttachmentsTab() throws Exception {
 
-        tool.driver.findElement(By.xpath("//em[contains(text(), 'Attachments')]")).click();
+        tool.clickUsingXPath(tool, "//em[contains(text(), 'Attachments')]");
     }
 
     public EditCaseCommon clickEditCase() throws Exception {

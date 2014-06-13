@@ -378,7 +378,7 @@ public class WorkSpaceCommon extends CommonMenu {
 
     public ShoppingCommon clickSubmit() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Submit'])")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Submit'])");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);

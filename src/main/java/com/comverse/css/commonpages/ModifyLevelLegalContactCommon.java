@@ -44,21 +44,21 @@ public class ModifyLevelLegalContactCommon extends CommonMenu {
 
     public ModifyLevelLegalContactCommon clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
         return new ModifyLevelLegalContactCommon(tool, test, user);
     }
 
     public ModifyLevelLegalContactCommon clickOkAgain() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
         return new ModifyLevelLegalContactCommon(tool, test, user);
     }
 
     public LevelLegalContactCommon clickOkButton() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
         return new LevelLegalContactCommon(tool, test, user);
     }

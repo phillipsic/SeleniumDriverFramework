@@ -33,7 +33,7 @@ public class LoginCommon extends CommonMenu {
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }

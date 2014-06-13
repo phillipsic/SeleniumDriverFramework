@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,13 +27,13 @@ public class RegisterPrepaymentCommon extends CommonMenu {
     public void selectPaymentMethod(String paymentMethod) throws Exception {
 
         // tool.driver.findElement(By.id(paymentmethod)).click();
-        tool.driver.findElement(By.xpath("//input[@value='" + paymentMethod + "']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='" + paymentMethod + "']");
 
     }
 
     public RegisterPrepaymentCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new RegisterPrepaymentCommon(tool, test, user);
     }
 
@@ -66,7 +64,7 @@ public class RegisterPrepaymentCommon extends CommonMenu {
 
     public RegisterPrepaymentConfirmCommon clickConfirm() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RegisterPrepaymentConfirmCommon(tool, test, user);
     }

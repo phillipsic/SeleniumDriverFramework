@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -26,24 +25,24 @@ public class CheckOutBillingAccountInformation extends B2CMenu {
 
     public CheckoutReview clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new CheckoutReview(tool, test, user);
     }
 
     public BillingManagement clickContinueExpectingBillingManagement() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new BillingManagement(tool, test, user);
     }
 
     public void clickCheckRadioButton() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@id='paymentMethodCode' and @value='CHECK']")).click();
+        tool.clickUsingXPath(tool, "//input[@id='paymentMethodCode' and @value='CHECK']");
     }
 
     public void clickDirectDebitRadioButton() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@id='paymentMethodCode' and @value='DIRECT_DEBIT']")).click();
+        tool.clickUsingXPath(tool, "//input[@id='paymentMethodCode' and @value='DIRECT_DEBIT']");
     }
 
     public void enterBankCode(String bankCode) throws Exception {

@@ -38,7 +38,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public void clickMoreLinkPerson() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@id='personLastName']/../../a")).click();
+        tool.clickUsingXPath(tool, "//input[@id='personLastName']/../../a");
 
     }
 
@@ -238,7 +238,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public void clickMorePersonSearchFields() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//a[contains(text(),'More >>')])[2]")).click();
+        tool.clickUsingXPath(tool, "(//a[contains(text(),'More >>')])[2]");
     }
 
     public void clickMoreSubscriberSearchFields() throws Exception {

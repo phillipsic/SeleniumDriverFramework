@@ -30,7 +30,7 @@ public class ViewBilledUsageCommon extends CommonMenu {
 
     public ViewBilledUsageCommon clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
         return new ViewBilledUsageCommon(tool, test, user);
     }
 
@@ -42,7 +42,7 @@ public class ViewBilledUsageCommon extends CommonMenu {
 
     public ViewInvoiceDetailsCommon clickBack() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);
     }
 }

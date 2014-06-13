@@ -63,16 +63,16 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void clickOk() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
     public void clickSubmit() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Submit']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Submit']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickHomePage() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Home Page']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Home Page']");
     }
 
     public void clickAdminLogin(Application application) throws Exception {
@@ -125,7 +125,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public WorkSpaceCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
 
         return new WorkSpaceCommon(tool, test, user);
     }

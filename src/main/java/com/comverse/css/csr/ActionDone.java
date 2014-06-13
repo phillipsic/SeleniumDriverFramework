@@ -1,7 +1,5 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -23,7 +21,7 @@ public class ActionDone extends CommonMenu {
 
     public InsertInventory clickBack() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Back']");
 
         return new InsertInventory(tool, test, user);
     }

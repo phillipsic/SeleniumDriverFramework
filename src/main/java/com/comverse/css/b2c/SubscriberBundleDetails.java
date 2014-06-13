@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,7 +20,7 @@ public class SubscriberBundleDetails extends B2CMenu {
     }
 
     public void clickTermsAndConditionsTab() throws Exception {
-        tool.driver.findElement(By.xpath("//em[contains(text(),'Terms And Conditions')]")).click();
+        tool.clickUsingXPath(tool, "//em[contains(text(),'Terms And Conditions')]");
 
     }
 

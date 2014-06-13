@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,7 +20,7 @@ public class AddCaseReview extends B2CMenu {
 
     public AddCaseConfirmation clickCreateCase() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Create case']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Create case']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddCaseConfirmation(tool, test, user);
     }

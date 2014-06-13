@@ -30,7 +30,7 @@ public class SearchOrdersCommon extends CommonMenu {
 
     public void clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Search']");
 
     }
 
@@ -40,7 +40,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public SearchRequestsCommon clickSearchRequests() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Search']");
         return new SearchRequestsCommon(tool, test, user);
     }
 

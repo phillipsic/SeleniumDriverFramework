@@ -116,7 +116,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public ModifySubscriberAttributesCommon clickModifySubscriberDetails() throws Exception {
-        tool.driver.findElement(By.xpath("//div[2]/a/u")).click();
+        tool.clickUsingXPath(tool, "//div[2]/a/u");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifySubscriberAttributesCommon(tool, test, user);
     }
@@ -233,14 +233,14 @@ public class SubscriberDetailsCommon extends CommonMenu {
         Common.assertTextOnPage(tool, "Please enter your criteria and press search");
         tool.driver.findElement(By.id("accountSearchButton")).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.xpath("//td[3]/div/a")).click();
+        tool.clickUsingXPath(tool, "//td[3]/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(2);
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public void clickSubscriberAttributesTab() throws Exception {
-        tool.driver.findElement(By.xpath("//div[@id='account_dashboard']/ul/li[2]/a/em")).click();
+        tool.clickUsingXPath(tool, "//div[@id='account_dashboard']/ul/li[2]/a/em");
     }
 
     public void clickRefreshRPO() throws Exception {
@@ -249,12 +249,12 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public PrimaryOfferDetailsCommon clickRPODetails(String RPO) throws Exception {
-        tool.driver.findElement(By.xpath("//a[@title='View detail for " + RPO + "']")).click();
+        tool.clickUsingXPath(tool, "//a[@title='View detail for " + RPO + "']");
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
 
     public void clickReconfigureAwardCounter() throws Exception {
-        tool.driver.findElement(By.xpath("//div/a/img")).click();
+        tool.clickUsingXPath(tool, "//div/a/img");
         Common.sleepForNumberOfSeconds(2);
     }
 
@@ -264,13 +264,13 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public void clickConfirmAwardCounterReconfiguration() throws Exception {
-        tool.driver.findElement(By.xpath("//span[2]/span/button")).click();
+        tool.clickUsingXPath(tool, "//span[2]/span/button");
         Common.sleepForNumberOfSeconds(2);
     }
 
     public void clickRPOStatus() throws Exception {
 
-        tool.driver.findElement(By.xpath("//div[contains(text(),'Active')]//img")).click();
+        tool.clickUsingXPath(tool, "//div[contains(text(),'Active')]//img");
 
     }
 
@@ -289,7 +289,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     public void clickConfirmStatusExpire() throws Exception {
         Common.sleepForNumberOfSeconds(3);
-        tool.driver.findElement(By.xpath("//button[contains(text(),'Confirm')]")).click();
+        tool.clickUsingXPath(tool, "//button[contains(text(),'Confirm')]");
         this.clickRefreshRPO();
     }
 

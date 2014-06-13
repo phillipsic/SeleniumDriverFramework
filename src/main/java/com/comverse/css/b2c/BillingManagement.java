@@ -22,7 +22,7 @@ public class BillingManagement extends B2CMenu {
 
     public CheckoutReview clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new CheckoutReview(tool, test, user);
     }
 

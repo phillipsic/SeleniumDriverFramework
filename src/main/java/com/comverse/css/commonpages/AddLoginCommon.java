@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -21,7 +19,7 @@ public class AddLoginCommon extends CommonMenu {
     }
 
     public PersonManagementCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new PersonManagementCommon(tool, test, user);
     }
 

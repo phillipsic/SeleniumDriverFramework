@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -21,7 +19,7 @@ public class Shopping extends B2CMenu {
 
     public ChooseYourPrimaryOffer clickGSMMobileLink() throws Exception {
 
-        tool.driver.findElement(By.xpath("//li[contains(.,'Welcome to a new world of convergence')]/img")).click();
+        tool.clickUsingXPath(tool, "//li[contains(.,'Welcome to a new world of convergence')]/img");
         tool.clickUsingLinkText(tool, "GSM Mobile");
 
         return new ChooseYourPrimaryOffer(tool, test, user);
@@ -29,7 +27,7 @@ public class Shopping extends B2CMenu {
 
     public ChooseYourPrimaryOffer clickNetworkTVLink() throws Exception {
 
-        tool.driver.findElement(By.xpath("//li[contains(.,'Welcome to a new world of convergence')]/img")).click();
+        tool.clickUsingXPath(tool, "//li[contains(.,'Welcome to a new world of convergence')]/img");
         tool.clickUsingLinkText(tool, "Network TV");
 
         return new ChooseYourPrimaryOffer(tool, test, user);
@@ -37,7 +35,7 @@ public class Shopping extends B2CMenu {
 
     public ChooseYourHandset clickVoiceDevicesLink() throws Exception {
 
-        tool.driver.findElement(By.xpath("//li[contains(.,'Voice Items')]/img")).click();
+        tool.clickUsingXPath(tool, "//li[contains(.,'Voice Items')]/img");
         tool.clickUsingLinkText(tool, "Voice Devices");
 
         return new ChooseYourHandset(tool, test, user);
@@ -45,7 +43,7 @@ public class Shopping extends B2CMenu {
 
     public ChooseYourHandset clickDataDevicesLink() throws Exception {
 
-        tool.driver.findElement(By.xpath("//li[contains(.,'Data Items')]/img")).click();
+        tool.clickUsingXPath(tool, "//li[contains(.,'Data Items')]/img");
         tool.clickUsingLinkText(tool, "Data Devices");
 
         return new ChooseYourHandset(tool, test, user);
@@ -53,7 +51,7 @@ public class Shopping extends B2CMenu {
 
     public ChooseAccessories clickPhoneAccessoriesLink() throws Exception {
 
-        tool.driver.findElement(By.xpath("//li[starts-with(.,'Accessories')]/img")).click();
+        tool.clickUsingXPath(tool, "//li[starts-with(.,'Accessories')]/img");
         tool.clickUsingLinkText(tool, "Phone Accessories");
         return new ChooseAccessories(tool, test, user);
 
@@ -61,7 +59,7 @@ public class Shopping extends B2CMenu {
 
     public ChooseYourPrimaryOfferInThisAccountBundle clickFamilyPackLink() throws Exception {
 
-        tool.driver.findElement(By.xpath("//li[contains(.,'Keep in touch with your family')]/img")).click();
+        tool.clickUsingXPath(tool, "//li[contains(.,'Keep in touch with your family')]/img");
         tool.clickUsingLinkText(tool, "Family Pack");
 
         return new ChooseYourPrimaryOfferInThisAccountBundle(tool, test, user);

@@ -45,11 +45,11 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
         //
         // tool.driver.findElement(By.id(basketID)).click();
         //
-        // tool.driver.findElement(By.xpath("//input[@td='checkbox']")).click();
+        // tool.clickUsingXPath(tool, "//input[@td='checkbox']");
         //
-        tool.driver.findElement(By.xpath("//td[contains(.,'" + basketName + "')]/../td[2]/span/input")).click();
+        tool.clickUsingXPath(tool, "//td[contains(.,'" + basketName + "')]/../td[2]/span/input");
 
-        tool.driver.findElement(By.xpath("//input[@value='Delete']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Delete']");
         return new DeleteBasketConfirmCommon(tool, test, user);
     }
 }

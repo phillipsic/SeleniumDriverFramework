@@ -59,7 +59,7 @@ public class CheckoutRegister extends B2CMenu {
 
     public SignUpUser clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new SignUpUser(tool, test, user);
     }
 
@@ -71,7 +71,7 @@ public class CheckoutRegister extends B2CMenu {
 
     public CheckOutBillingAccountInformation clickContinueExpectingCheckoutBillingAccountInformation() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 }

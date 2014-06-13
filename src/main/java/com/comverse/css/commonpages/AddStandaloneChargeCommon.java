@@ -38,7 +38,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
         Select select = new Select(tool.searchUsingID(tool, "charge"));
         select.selectByVisibleText("Dispatch Fee");
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
 
         boolean successfullyDisplayed = false;
 
@@ -72,7 +72,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
         boolean successfullyDisplayed = false;
         int loopCounter = 0;
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
 
         while (!successfullyDisplayed) {
             try {
@@ -99,7 +99,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
 
         Common.assertTextOnPage(tool, "The Charge has been successfully provisioned .");
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
     }
 

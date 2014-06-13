@@ -84,7 +84,7 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickIdentity() throws Exception {
 
-        tool.driver.findElement(By.xpath("//a[@id='j_id29']/span")).click();
+        tool.clickUsingXPath(tool, "//a[@id='j_id29']/span");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -100,7 +100,7 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickCSS_CSR() throws Exception {
         Common.sleepForNumberOfSeconds(2);
-        tool.driver.findElement(By.xpath("//span[contains(text(),'CSS_CSR')]")).click();
+        tool.clickUsingXPath(tool, "//span[contains(text(),'CSS_CSR')]");
         Common.sleepForNumberOfSeconds(3);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -116,7 +116,7 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickCSS_DEALER() throws Exception {
 
-        tool.driver.findElement(By.xpath("//a[@id='j_id42:j_id45:n-7:j_id51']/span")).click();
+        tool.clickUsingXPath(tool, "//a[@id='j_id42:j_id45:n-7:j_id51']/span");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         String currentScreen = tool.driver.getTitle();

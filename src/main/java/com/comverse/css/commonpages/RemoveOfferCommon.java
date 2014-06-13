@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,7 +23,7 @@ public class RemoveOfferCommon extends CommonMenu {
     }
 
     public OfferCancellationCommon clickYes() throws Exception {
-        tool.driver.findElement(By.xpath("(//input[@value='Yes'])")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Yes'])");
         return new OfferCancellationCommon(tool, test, user);
     }
 }

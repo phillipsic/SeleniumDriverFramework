@@ -166,7 +166,7 @@ public class Common {
 
     public static void checkForExistingBasketAndDiscard(AutomationTool tool) throws Exception {
         if (tool.driver.getTitle().equals("Restore Previous Basket")) {
-            tool.driver.findElement(By.xpath("//input[@value='Discard']")).click();
+            tool.clickUsingXPath(tool, "//input[@value='Discard']");
             tool.clickUsingCssSelector(tool, "input.submit");
         }
     }
@@ -951,7 +951,7 @@ public class Common {
                     successfullyDisplayed = true;
                 }
                 Common.sleepForNumberOfSeconds(2);
-                tool.driver.findElement(By.xpath("(//input[@value='+ Action'])[2]")).click();
+                tool.clickUsingXPath(tool, "(//input[@value='+ Action'])[2]");
                 tool.driver.findElement(By.id(actionID)).click();
                 String pageTitle = tool.driver.getTitle();
 
@@ -981,7 +981,7 @@ public class Common {
                     successfullyDisplayed = true;
                 }
                 Common.sleepForNumberOfSeconds(2);
-                tool.driver.findElement(By.xpath("//input[@value='+ Action']")).click();
+                tool.clickUsingXPath(tool, "//input[@value='+ Action']");
                 if (actionIDTable != null) {
                     for (String actionID : actionIDTable) {
                         Common.sleepForNumberOfSeconds(1);

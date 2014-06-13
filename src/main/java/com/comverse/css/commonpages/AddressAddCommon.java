@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -50,7 +49,7 @@ public class AddressAddCommon extends CommonMenu {
 
     public AddressAdministrationCommon clickOK() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Ok']");
 
         return new AddressAdministrationCommon(tool, test, user);
     }

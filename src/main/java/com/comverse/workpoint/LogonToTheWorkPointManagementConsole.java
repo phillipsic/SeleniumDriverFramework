@@ -1,7 +1,5 @@
 package com.comverse.workpoint;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -20,17 +18,17 @@ public class LogonToTheWorkPointManagementConsole extends WPMCMenu {
     }
 
     public void setUserName(String login) throws Exception {
-        
+
         tool.enterStringUsingName(tool, "ResourceID", login);
     }
 
     public void setPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingName(tool, "Password", password);
     }
 
     public void clickLogin() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Submit']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Submit']");
     }
 
     public WelcomeToTheWorkpointManagementConsole successfulWPMCAdminLogin() throws Exception {

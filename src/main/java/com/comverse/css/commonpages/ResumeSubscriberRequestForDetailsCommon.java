@@ -39,7 +39,7 @@ public class ResumeSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public ResumeSubscriberConfirmationCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ResumeSubscriberConfirmationCommon(tool, test, user);

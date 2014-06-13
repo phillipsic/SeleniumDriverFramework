@@ -92,7 +92,7 @@ public class HomePage extends B2CMenu {
 
     public HomePage clickSignMeUp() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Sign Me Up']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Sign Me Up']");
         return new HomePage(tool, test, user);
     }
 
@@ -116,13 +116,13 @@ public class HomePage extends B2CMenu {
 
     public WorkSpace clickChange() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Change']");
         return new WorkSpace(tool, test, user);
     }
 
     public SubscriberDetail clickChangeExpectingSubscriberDetail() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Change']");
         return new SubscriberDetail(tool, test, user);
     }
 
@@ -199,7 +199,7 @@ public class HomePage extends B2CMenu {
 
     public void clickContinueActivateAccount() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
 
     }
 
@@ -216,7 +216,7 @@ public class HomePage extends B2CMenu {
     }
 
     public void clickOK() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
     public void enterLogin(String login) throws Exception {

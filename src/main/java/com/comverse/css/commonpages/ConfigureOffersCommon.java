@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,22 +23,22 @@ public class ConfigureOffersCommon extends CommonMenu {
     }
 
     public ConfigureBalanceCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new ConfigureBalanceCommon(tool, test, user);
     }
 
     public MyBasketCommon clickContinueExpectingMyBasket() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new MyBasketCommon(tool, test, user);
     }
 
     public ServiceConnectionDetailsCommon clickContinueExpectingServiceConnectionDetails() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
     public SwapImpactCommon clickContinueExpectingSwapImpact() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new SwapImpactCommon(tool, test, user);
     }
 

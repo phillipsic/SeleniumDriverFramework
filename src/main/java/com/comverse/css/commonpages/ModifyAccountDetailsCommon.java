@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,13 +25,13 @@ public class ModifyAccountDetailsCommon extends CommonMenu {
 
     public void selectCheck() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@name='method'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@name='method'])[2]");
 
     }
 
     public ShoppingCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ShoppingCommon(tool, test, user);

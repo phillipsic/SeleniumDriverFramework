@@ -23,7 +23,7 @@ public class AddSO extends B2CMenu {
     public SubscriberDetail confirmAddSO() throws Exception {
         Common.assertTextOnPage(tool, "request has been submitted successfully with the order number");
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new SubscriberDetail(tool, test, user);
 
     }

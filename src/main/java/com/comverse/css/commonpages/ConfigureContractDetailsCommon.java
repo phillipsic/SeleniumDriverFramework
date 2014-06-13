@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -22,7 +21,7 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }
@@ -37,7 +36,7 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     }
 
     public ConfigureBalanceCommon clickContinueExpectingConfigureBalance() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureBalanceCommon(tool, test, user);
     }

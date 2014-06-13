@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -48,13 +47,13 @@ public class AddDepositCommon extends CommonMenu {
     public void selectPaymentMethod() throws Exception {
 
         // tool.driver.findElement(By.id(paymentMethod)).click();
-        tool.driver.findElement(By.xpath("(//input[@name='paymentMethod'])[1]")).click();
+        tool.clickUsingXPath(tool, "(//input[@name='paymentMethod'])[1]");
 
     }
 
     public AddDepositReviewAndConfirmCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddDepositReviewAndConfirmCommon(tool, test, user);
     }

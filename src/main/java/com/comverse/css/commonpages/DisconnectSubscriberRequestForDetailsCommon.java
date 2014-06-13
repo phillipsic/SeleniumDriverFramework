@@ -39,7 +39,7 @@ public class DisconnectSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public DisconnectSubscriberImpactsCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new DisconnectSubscriberImpactsCommon(tool, test, user);

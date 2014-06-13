@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -33,7 +32,7 @@ public class SuspendSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public SuspendSubscriberConfirmationCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SuspendSubscriberConfirmationCommon(tool, test, user);

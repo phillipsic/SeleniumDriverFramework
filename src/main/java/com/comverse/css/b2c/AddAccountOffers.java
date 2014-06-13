@@ -28,7 +28,7 @@ public class AddAccountOffers extends B2CMenu {
 
     public SubscriberDetail clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
     }

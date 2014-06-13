@@ -1,7 +1,5 @@
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -95,7 +93,7 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public SelectOffersForYourAccount clickAddNewAccountOffer() throws Exception {
-        tool.driver.findElement(By.xpath("(//a[contains(text(),'Add')])[3]")).click();
+        tool.clickUsingXPath(tool, "(//a[contains(text(),'Add')])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccount(tool, test, user);
     }

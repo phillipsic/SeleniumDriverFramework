@@ -29,7 +29,7 @@ public class CaseUIAccounts extends CaseUITest {
     }
 
     public void clickCasesTab() throws Exception {
-        tool.driver.findElement(By.xpath("//div[contains(text(),'Cases') and @class='tabsDarkTab']")).click();
+        tool.clickUsingXPath(tool, "//div[contains(text(),'Cases') and @class='tabsDarkTab']");
 
         Thread.sleep(3000);
     }

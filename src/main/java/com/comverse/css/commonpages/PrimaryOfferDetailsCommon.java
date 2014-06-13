@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -20,10 +18,10 @@ public class PrimaryOfferDetailsCommon extends CommonMenu {
     }
 
     public void clickRPOCompatiblePrimaryOffersTab() throws Exception {
-        tool.driver.findElement(By.xpath("//em[contains(text(),'Compatible Offers')]")).click();
+        tool.clickUsingXPath(tool, "//em[contains(text(),'Compatible Offers')]");
     }
 
     public void clickRPOTermsandConditionsTab() throws Exception {
-        tool.driver.findElement(By.xpath("//em[contains(text(),'Terms And Conditions')]")).click();
+        tool.clickUsingXPath(tool, "//em[contains(text(),'Terms And Conditions')]");
     }
 }

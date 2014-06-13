@@ -24,7 +24,7 @@ public class SearchEmployeeCommon extends CommonMenu {
     public SearchEmployeeCommon searchEmployeeByLastName(String ln) throws Exception {
 
         tool.enterStringUsingId(tool, "p-L2:10-L3:1470", ln);
-        tool.driver.findElement(By.xpath("//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']")).click();
+        tool.clickUsingXPath(tool, "//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']");
 
         return new SearchEmployeeCommon(tool, test, user);
         // sends keys to the last name field in the searchpage and clicks Search
@@ -34,7 +34,7 @@ public class SearchEmployeeCommon extends CommonMenu {
     public SearchEmployeeCommon searchEmployeeByLogin(String lg) throws Exception {
 
         tool.enterStringUsingId(tool, "p-L4:1014-L3:1640", lg);
-        tool.driver.findElement(By.xpath("//form[@id='form_SEARCH_MEMBERS_RESULT_1']//input[@value='Search']")).click();
+        tool.clickUsingXPath(tool, "//form[@id='form_SEARCH_MEMBERS_RESULT_1']//input[@value='Search']");
 
         return new SearchEmployeeCommon(tool, test, user);
         // sends keys to the login field in the searchpage and clicks Search

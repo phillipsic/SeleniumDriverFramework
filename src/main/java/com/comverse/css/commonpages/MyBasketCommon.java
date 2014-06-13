@@ -38,25 +38,25 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public CheckoutReviewCommon clickCheckOut() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutReviewCommon(tool, test, user);
     }
 
     public CheckoutDeliveryAddressCommon clickCheckOutWithGoods() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutDeliveryAddressCommon(tool, test, user);
     }
 
     public TermsAndConditionsCommon clickCheckOutWithTermsAndConditions() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Checkout']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new TermsAndConditionsCommon(tool, test, user);
     }
 
     public ShoppingCommon clickContinueShopping() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue Shopping']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue Shopping']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
@@ -126,7 +126,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void clickUserOfNewSubscriber1() throws Exception {
-        tool.driver.findElement(By.xpath("//td[@id='pm-role-fields']/p[2]/input")).click();
+        tool.clickUsingXPath(tool, "//td[@id='pm-role-fields']/p[2]/input");
     }
 
     public void clickOrdering() throws Exception {

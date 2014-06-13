@@ -69,7 +69,7 @@ public class ViewNRCHistoryCommon extends CommonMenu {
 
     public void clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
@@ -87,7 +87,7 @@ public class ViewNRCHistoryCommon extends CommonMenu {
 
     public ViewNRCTermDetailsCommon ViewNRCTermDetails() throws Exception {
 
-        tool.driver.findElement(By.xpath("//fieldset/div/table/tbody[2]/tr/td/div/a")).click();
+        tool.clickUsingXPath(tool, "//fieldset/div/table/tbody[2]/tr/td/div/a");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

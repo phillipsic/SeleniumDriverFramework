@@ -19,7 +19,7 @@ public class SwapBundleCommon extends CommonMenu {
     }
 
     public void clickToAccountBundle(String accountBundle) throws Exception {
-        tool.driver.findElement(By.xpath("//tr[@id='abtr:" + accountBundle + "']/td/input")).click();
+        tool.clickUsingXPath(tool, "//tr[@id='abtr:" + accountBundle + "']/td/input");
     }
 
     public void clickAdditionalParticipants() throws Exception {

@@ -2,8 +2,6 @@ package com.comverse.css.pos;
 
 import java.io.File;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,7 +27,7 @@ public class UploadToken extends CommonMenu {
     }
 
     public Tokensfound clickOk() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Ok']");
 
         return new Tokensfound(tool, test, user);
     }

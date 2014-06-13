@@ -46,7 +46,7 @@ public class ViewInvoicesCommon extends CommonMenu {
 
     public ViewInvoiceDetailsCommon clickLastInvoice() throws Exception {
 
-        tool.driver.findElement(By.xpath("//table[@id='listInvoices']/tbody/tr[2]/td/a")).click();
+        tool.clickUsingXPath(tool, "//table[@id='listInvoices']/tbody/tr[2]/td/a");
         return new ViewInvoiceDetailsCommon(tool, test, user);
     }
 

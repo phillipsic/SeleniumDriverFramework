@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -49,7 +47,7 @@ public class SelectRechargePaymentMethod extends B2CMenu {
 
     public RechargeDone clickSelect() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@name='select']")).click();
+        tool.clickUsingXPath(tool, "//input[@name='select']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RechargeDone(tool, test, user);
     }

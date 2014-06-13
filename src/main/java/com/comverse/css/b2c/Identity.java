@@ -37,13 +37,13 @@ public class Identity extends B2CMenu {
 
     public SubscriberDetail clickCancel() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Cancel']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Cancel']");
         return new SubscriberDetail(tool, test, user);
     }
 
     public RequestSubmission clickModify() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Modify']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Modify']");
         return new RequestSubmission(tool, test, user);
     }
 

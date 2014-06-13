@@ -40,13 +40,13 @@ public class Logging extends CLSMenu {
 
     public void clickSearch() throws Exception {
         tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
-        tool.driver.findElement(By.xpath("//input[@value='Submit']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Submit']");
         tool.driver.switchTo().defaultContent();
     }
 
     public void clickLogut() throws Exception {
 
-        tool.driver.findElement(By.xpath("//img[@alt='Logout']")).click();
+        tool.clickUsingXPath(tool, "//img[@alt='Logout']");
 
     }
 

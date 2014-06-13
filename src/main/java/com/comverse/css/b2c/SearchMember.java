@@ -38,7 +38,7 @@ public class SearchMember extends B2CMenu {
 
     public void clickSearchFirstLastNameButton() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Search']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Search']");
 
     }
 

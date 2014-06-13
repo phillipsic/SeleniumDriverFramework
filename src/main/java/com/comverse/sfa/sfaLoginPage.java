@@ -38,7 +38,7 @@ public class sfaLoginPage extends Main {
     }
 
     public sfaHomePage clickSignIn() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='SIGN IN']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='SIGN IN']");
         return new sfaHomePage(tool, test, user);
     }
 

@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,7 +23,7 @@ public class PersonMergeCommon extends CommonMenu {
     }
 
     public void clickPersonSearch() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@id='searchPerson']")).click();
+        tool.clickUsingXPath(tool, "//input[@id='searchPerson']");
     }
 
     public void clickSelect() throws Exception {
@@ -34,7 +32,7 @@ public class PersonMergeCommon extends CommonMenu {
     }
 
     public void clickOKFromMerge() throws Exception {
-        tool.driver.findElement(By.xpath("(//input[@value='OK'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='OK'])[2]");
     }
 
 }

@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -21,11 +19,11 @@ public class AccountBundleDistributionConfigurationCommon extends CommonMenu {
 
     public void clickSBSelectiveOffers() throws Exception {
         // Need to remove xpath here
-        tool.driver.findElement(By.xpath("//tr[6]/td/input")).click();
+        tool.clickUsingXPath(tool, "//tr[6]/td/input");
     }
 
     public ConfigureContractDetailsCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureContractDetailsCommon(tool, test, user);
     }

@@ -16,21 +16,21 @@ public class CaseUIMenu extends CaseUITest {
         this.user = user;
     }
 
-    public void clickCaseManagement() {
-        tool.driver.findElement(By.xpath("//div[contains(text(), 'Case Management')]")).click();
+    public void clickCaseManagement() throws Exception {
+        tool.clickUsingXPath(tool, "//div[contains(text(), 'Case Management')]");
     }
 
-    public CaseUICases clickCases() {
-        tool.driver.findElement(By.xpath("//div[contains(text(), 'Cases')]")).click();
+    public CaseUICases clickCases() throws Exception {
+        tool.clickUsingXPath(tool, "//div[contains(text(), 'Cases')]");
         return new CaseUICases(tool, test, user);
     }
 
-    public void clickAccounts() {
-        tool.driver.findElement(By.xpath("//div[contains(text(), 'Accounts')]")).click();
+    public void clickAccounts() throws Exception {
+        tool.clickUsingXPath(tool, "//div[contains(text(), 'Accounts')]");
     }
 
-    public CaseUIAccounts clickAccountsSub() {
-        tool.driver.findElement(By.xpath("//div[8]/div[2]/div/table/tbody/tr/td[2]/div")).click();
+    public CaseUIAccounts clickAccountsSub() throws Exception {
+        tool.clickUsingXPath(tool, "//div[8]/div[2]/div/table/tbody/tr/td[2]/div");
 
         return new CaseUIAccounts(tool, test, user);
     }
@@ -41,12 +41,12 @@ public class CaseUIMenu extends CaseUITest {
         return waitSec;
     }
 
-    public void clickActivities() {
-        tool.driver.findElement(By.xpath("//div[contains(text(), 'Activities')]")).click();
+    public void clickActivities() throws Exception {
+        tool.clickUsingXPath(tool, "//div[contains(text(), 'Activities')]");
     }
 
-    public void clickTasks() {
-        tool.driver.findElement(By.xpath("//div[contains(text(), 'Tasks')]")).click();
+    public void clickTasks() throws Exception {
+        tool.clickUsingXPath(tool, "//div[contains(text(), 'Tasks')]");
     }
 
     public void clickSignOut() {

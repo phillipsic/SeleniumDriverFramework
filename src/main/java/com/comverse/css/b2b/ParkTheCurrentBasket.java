@@ -35,7 +35,7 @@ public class ParkTheCurrentBasket extends ParkTheCurrentBasketCommon {
     }
 
     public WorkSpace clickOkExpectingWorkSpace() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new WorkSpace(tool, test, user);
     }
 }

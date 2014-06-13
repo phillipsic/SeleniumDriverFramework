@@ -26,13 +26,13 @@ public class ChangeRolesCommon extends CommonMenu {
 
     public void clickRadioButtonOCMUser() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='L2:30']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='L2:30']");
 
     }
 
     public void clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
     }
 
@@ -43,7 +43,7 @@ public class ChangeRolesCommon extends CommonMenu {
 
     public void clickRadioButtonRetailerSubscriber() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@name='roles'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@name='roles'])[2]");
 
     }
 

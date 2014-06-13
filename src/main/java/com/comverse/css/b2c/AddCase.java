@@ -50,7 +50,7 @@ public class AddCase extends B2CMenu {
 
     public AddCaseReview clickSubmit() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Submit']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Submit']");
         return new AddCaseReview(tool, test, user);
     }
 

@@ -4,8 +4,6 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,21 +27,21 @@ public class OutboundCommunicationTemplate extends OutboundCommunicationTemplate
         clickSearch();
     }
 
-    private void clickSearch() {
+    private void clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath(".//*[@id='OutboundCommTemplateSearchForm']/fieldset[2]/input[3]")).click();
+        tool.clickUsingXPath(tool, ".//*[@id='OutboundCommTemplateSearchForm']/fieldset[2]/input[3]");
     }
 
     @Override
-	public AddOutboundCommunicationTemplate clickAdd() throws Exception {
+    public AddOutboundCommunicationTemplate clickAdd() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Add']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Add']");
         return new AddOutboundCommunicationTemplate(tool, test, user);
     }
 
     public void clickBack() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Back']");
     }
 
 }

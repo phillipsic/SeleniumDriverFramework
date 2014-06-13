@@ -1,7 +1,5 @@
 package com.comverse.workpoint;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -20,8 +18,8 @@ public class WPMCMenu extends WPMCTest {
 
     }
 
-    public WorkpointManagementConsole clickManageMonitors() {
-        tool.driver.findElement(By.xpath("//a/img[@title='Manage Monitors']")).click();
+    public WorkpointManagementConsole clickManageMonitors() throws Exception {
+        tool.clickUsingXPath(tool, "//a/img[@title='Manage Monitors']");
         return new WorkpointManagementConsole(tool, test, user);
     }
 }

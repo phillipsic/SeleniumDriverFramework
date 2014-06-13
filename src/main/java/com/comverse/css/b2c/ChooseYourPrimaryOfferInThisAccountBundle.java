@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -61,7 +59,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
             // tool.driver.findElement(By.xpath("//img[@alt='Next Page (" +
             // pageCounter + ")']")).click();
-            tool.driver.findElement(By.xpath("//a[@id='lnk_NAV_NEXT']/img")).click();
+            tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
             beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
             System.out.println("Found offer? - " + beresult);
             pageCounter++;
@@ -105,13 +103,13 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
     }
 
     public ChooseAccessories clickNoThanks() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@name='nothanks']")).click();
+        tool.clickUsingXPath(tool, "//input[@name='nothanks']");
         return new ChooseAccessories(tool, test, user);
     }
 
     public SubscriberBundleDetails viewDetailsOfPrimaryOffer(String PO) throws Exception {
 
-        tool.driver.findElement(By.xpath(".//p[contains(text(),'" + PO + "')]/../following-sibling::div[1]//input[@type='submit' and @value='View Details']")).click();
+        tool.clickUsingXPath(tool, ".//p[contains(text(),'" + PO + "')]/../following-sibling::div[1]//input[@type='submit' and @value='View Details']");
         return new SubscriberBundleDetails(tool, test, user);
     }
 

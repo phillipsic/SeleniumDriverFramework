@@ -32,7 +32,7 @@ public class MoveLevelCommon extends CommonMenu {
 
     public MoveLevelCommon clickSelectByLevelName(String weeklyLevelName) throws Exception {
 
-        tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]")).click();
+        tool.clickUsingXPath(tool, "//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]");
 
         return new MoveLevelCommon(tool, test, user);
     }
@@ -70,7 +70,7 @@ public class MoveLevelCommon extends CommonMenu {
 
     public MoveLevelStatusCommon clickSelectForLevelName(String weeklyLevelName) throws Exception {
 
-        tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]")).click();
+        tool.clickUsingXPath(tool, "//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]");
 
         return new MoveLevelStatusCommon(tool, test, user);
     }

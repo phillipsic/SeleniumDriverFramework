@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,19 +20,19 @@ public class SelectOffers extends B2CMenu {
     public ConfigureOffers selectOfferByNameAndContinue(String offerName) throws Exception {
         // System.out.println("//div[contains(text(),'"+ offerName +
         // "')]/..//..//input");
-        tool.driver.findElement(By.xpath("//div[contains(text(),'" + offerName + "')]/..//..//input")).click();
+        tool.clickUsingXPath(tool, "//div[contains(text(),'" + offerName + "')]/..//..//input");
         // System.out.println("//div[contains(text(),'"+ offerName +
         // "')]/..//..//input");
-        tool.driver.findElement(By.xpath("//input[@name='continue_button']")).click();
+        tool.clickUsingXPath(tool, "//input[@name='continue_button']");
         return new ConfigureOffers(tool, test, user);
 
     }
 
     public AddSO selectOfferByNameAndContinueExpectingAddSO(String offerName) throws Exception {
         System.out.println("//div[contains(text(),'" + offerName + "')]/..//..//input");
-        tool.driver.findElement(By.xpath("//div[contains(text(),'" + offerName + "')]/..//..//input")).click();
+        tool.clickUsingXPath(tool, "//div[contains(text(),'" + offerName + "')]/..//..//input");
         System.out.println("//div[contains(text(),'" + offerName + "')]/..//..//input");
-        tool.driver.findElement(By.xpath("//input[@name='continue_button']")).click();
+        tool.clickUsingXPath(tool, "//input[@name='continue_button']");
         return new AddSO(tool, test, user);
 
     }

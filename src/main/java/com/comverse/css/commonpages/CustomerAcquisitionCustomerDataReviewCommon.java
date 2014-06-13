@@ -30,7 +30,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public ShoppingCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
@@ -84,7 +84,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public UpdateAccountContactInformationsCommon clickEditCustomerIdentityAndContact() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Edit']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Edit']");
         return new UpdateAccountContactInformationsCommon(tool, test, user);
     }
 
@@ -126,7 +126,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public UpdateAccountBillingAddressInformationsCommon clickEditAddressDetail() throws Exception {
 
-        tool.driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[4]/div/div[5]/fieldset[2]/div/div/form/input")).click();
+        tool.clickUsingXPath(tool, "/html/body/div[3]/div[2]/div[4]/div/div[5]/fieldset[2]/div/div/form/input");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new UpdateAccountBillingAddressInformationsCommon(tool, test, user);
     }
@@ -174,14 +174,14 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public CustomerAcquisitionCustomerDataReviewCommon clickConfirm() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
     }
 
     public UpdateAdministrativeAccountInformationCommon clickAccountContact() throws Exception {
 
-        tool.driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[4]/div/div[5]/div[3]/fieldset/div/div/form/input[8]")).click();
+        tool.clickUsingXPath(tool, "/html/body/div[3]/div[2]/div[4]/div/div[5]/div[3]/fieldset/div/div/form/input[8]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new UpdateAdministrativeAccountInformationCommon(tool, test, user);
     }
@@ -218,7 +218,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public UpdateAdministrativeAccountInformationCommon clickBillingInformationEditButton() throws Exception {
 
-        tool.driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[4]/div/div[5]/div[4]/fieldset/div/div/form/input[8]")).click();
+        tool.clickUsingXPath(tool, "/html/body/div[3]/div[2]/div[4]/div/div[5]/div[4]/fieldset/div/div/form/input[8]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new UpdateAdministrativeAccountInformationCommon(tool, test, user);
     }

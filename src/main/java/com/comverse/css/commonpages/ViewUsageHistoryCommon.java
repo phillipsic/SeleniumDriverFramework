@@ -69,7 +69,7 @@ public class ViewUsageHistoryCommon extends CommonMenu {
 
     public void clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 

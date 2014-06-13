@@ -264,7 +264,7 @@ public class OCMApplication extends Main {
         // Click on "Residential - Ultra Postpaid"
         // @TODO this link needs to be fixed - need to do string chop to
         // construct with good ID's
-        tool.driver.findElement(By.xpath("//span[.= 'Residential - Ultra Postpaid']/../..//a")).click();
+        tool.clickUsingXPath(tool, "//span[.= 'Residential - Ultra Postpaid']/../..//a");
 
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", deviceName + SubsidizeString);
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", deviceCode + SubsidizeString);

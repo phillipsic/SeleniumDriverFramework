@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -77,7 +75,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
     }
 
     public ChooseAccessories clickNoThanks() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@name='nothanks']")).click();
+        tool.clickUsingXPath(tool, "//input[@name='nothanks']");
         return new ChooseAccessories(tool, test, user);
     }
 
@@ -92,8 +90,8 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             System.out.println("Result - " + beresult + "page - " + pageCounter);
             System.out.println("Now trying to navigate to page - " + pageCounter);
 
-            tool.driver.findElement(By.xpath("//img[@alt='Next Page (" + pageCounter + ")']")).click();
-            //tool.driver.findElement(By.xpath("//a[@id='lnk_NAV_NEXT']/img")).click();
+            tool.clickUsingXPath(tool, "//img[@alt='Next Page (" + pageCounter + ")']");
+            //tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
             beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
             System.out.println("Found offer? - " + beresult);
             pageCounter++;
@@ -139,7 +137,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
             // tool.driver.findElement(By.xpath("//img[@alt='Next Page (" +
             // pageCounter + ")']")).click();
-            tool.driver.findElement(By.xpath("//a[@id='lnk_NAV_NEXT']/img")).click();
+            tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
             beresult = Common.isOfferTextOnPage(tool, subscriberBundleName);
             System.out.println("Found bundle? - " + beresult);
             pageCounter++;

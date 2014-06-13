@@ -1,7 +1,5 @@
 package com.comverse.css.otg;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -37,32 +35,32 @@ public class AccountDashboard extends MyshapeCommon {
     }
 
     public SubscriberDashboard enterThirdSubscriber(String subscriberID) throws Exception {
-        tool.driver.findElement(By.xpath("//div[3]/div/h4/a/span")).click();
+        tool.clickUsingXPath(tool, "//div[3]/div/h4/a/span");
         System.out.println("Enter third Subscriber");
         Thread.sleep(1000);
         return new SubscriberDashboard(tool, test, user, subscriberID);
     }
 
     public void clickFirstSubscriber() throws Exception {
-        tool.driver.findElement(By.xpath("//div[4]/div/div/h4")).click();
+        tool.clickUsingXPath(tool, "//div[4]/div/div/h4");
         System.out.println("click first Subscriber");
         Thread.sleep(1000);
     }
 
     public void clickSecondSubscriber() throws Exception {
-        tool.driver.findElement(By.xpath("//div[4]/div[2]/div/h4")).click();
+        tool.clickUsingXPath(tool, "//div[4]/div[2]/div/h4");
         System.out.println("click second Subscriber");
         Thread.sleep(1000);
     }
 
     public void clickThirdSubscriber() throws Exception {
-        tool.driver.findElement(By.xpath("//div[3]/div/h4")).click();
+        tool.clickUsingXPath(tool, "//div[3]/div/h4");
         System.out.println("click third Subscriber");
         Thread.sleep(1000);
     }
 
     public MyBills clickMyBills() throws Exception {
-        tool.driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//button[@type='button'])[2]");
         System.out.println("Enter MyBills");
         Thread.sleep(1000);
         return new MyBills(tool, test, user);

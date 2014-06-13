@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -29,7 +28,7 @@ public class NonVoucherRechargeCommon extends CommonMenu {
         this.enterRechargeAmount(rechargeAmount);
         new Select(tool.searchUsingID(tool, "rechargeClass")).selectByVisibleText("Check");
         tool.clickUsingName(tool, "payment_type");
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new NonVoucherRechargeReviewCommon(tool, test, user);
     }
 
@@ -40,21 +39,21 @@ public class NonVoucherRechargeCommon extends CommonMenu {
 
     public void selectPaymentMethodCreditCard() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='CREDIT_CARD'])")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='CREDIT_CARD'])");
     }
 
     public void selectPaymentMethodCash() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='CASH'])")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='CASH'])");
     }
 
     public NonVoucherRechargeCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new NonVoucherRechargeCommon(tool, test, user);
     }
 
     public NonVoucherRechargeReviewCommon clickContinueExpectingNonVoucherRechargeReview() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new NonVoucherRechargeReviewCommon(tool, test, user);
     }
 
@@ -90,7 +89,7 @@ public class NonVoucherRechargeCommon extends CommonMenu {
 
     public NonVoucherRechargeReviewCommon clickSelect() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@name='select']")).click();
+        tool.clickUsingXPath(tool, "//input[@name='select']");
         return new NonVoucherRechargeReviewCommon(tool, test, user);
     }
 }

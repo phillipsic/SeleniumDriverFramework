@@ -48,9 +48,9 @@ public class PersonDetailsCommon extends CommonMenu {
 
     public void setGender(String value) throws Exception {
         if (value == "female") {
-            tool.driver.findElement(By.xpath("(//input[@name='gender'])[2]")).click();
+            tool.clickUsingXPath(tool, "(//input[@name='gender'])[2]");
         } else {
-            tool.driver.findElement(By.xpath("//input[@name='gender']")).click();
+            tool.clickUsingXPath(tool, "//input[@name='gender']");
         }
     }
 

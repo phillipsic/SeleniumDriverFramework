@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,31 +25,31 @@ public class ConfigureOffers extends B2CMenu {
 
     public ChooseAccessories clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new ChooseAccessories(tool, test, user);
     }
 
     public ConfigureBalance clickContinueExpectingConfigureBalance() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new ConfigureBalance(tool, test, user);
     }
 
     public AddSO clickContinueExpectingOfferConfirmation() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@type='submit' and @name='continue_button']")).click();
+        tool.clickUsingXPath(tool, "//input[@type='submit' and @name='continue_button']");
 
         return new AddSO(tool, test, user);
     }
 
     public MyBasket clickContinueExpectingMyBasket() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@type='submit' and @name='continue_button']")).click();
+        tool.clickUsingXPath(tool, "//input[@type='submit' and @name='continue_button']");
 
         return new MyBasket(tool, test, user);
     }
 
     public SwapImpact clickContinueExpectingSwapImpact() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new SwapImpact(tool, test, user);
     }
 

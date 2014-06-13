@@ -1,6 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -39,26 +38,26 @@ public class ConfigureBalance extends B2CMenu {
 
     public ChooseAccessories clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseAccessories(tool, test, user);
     }
 
     public MyBasket clickContinueExpectingMyBasket() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public ConfigureServiceConnectionDetails clickContinueExpectingConfigureServiceConnectionDetails() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         return new ConfigureServiceConnectionDetails(tool, test, user);
     }
 
     public ConfigureBalanceReview clickConfigureBalance() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value= 'Reconfigure Balance']")).click();
+        tool.clickUsingXPath(tool, "//input[@value= 'Reconfigure Balance']");
         return new ConfigureBalanceReview(tool, test, user);
 
     }

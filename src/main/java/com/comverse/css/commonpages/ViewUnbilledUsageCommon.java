@@ -37,7 +37,7 @@ public class ViewUnbilledUsageCommon extends CommonMenu {
 
     public ViewUnbilledUsageCommon clickSearch() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@value='Search'])[3]")).click();
+        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
         return new ViewUnbilledUsageCommon(tool, test, user);
     }
 
@@ -49,7 +49,7 @@ public class ViewUnbilledUsageCommon extends CommonMenu {
 
     public UnbilledTransactionCommon clickBack() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Back']");
         return new UnbilledTransactionCommon(tool, test, user);
     }
 }

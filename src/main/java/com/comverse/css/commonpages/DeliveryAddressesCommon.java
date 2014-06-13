@@ -54,7 +54,7 @@ public class DeliveryAddressesCommon extends CommonMenu {
 
     public AddDeliveryAddressCommon clickAdd() throws Exception {
 
-        tool.driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@name='submit'])[2]");
         return new AddDeliveryAddressCommon(tool, test, user);
     }
 

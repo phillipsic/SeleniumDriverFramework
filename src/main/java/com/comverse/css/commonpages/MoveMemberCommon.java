@@ -34,7 +34,7 @@ public class MoveMemberCommon extends CommonMenu {
 
     public MoveMemberCommon clickSelectByLevelName(String levelName) throws Exception {
 
-        tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]")).click();
+        tool.clickUsingXPath(tool, "//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]");
 
         // tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'Select')]]/td[contains(text(),'"
         // + levelname + "')]"));
@@ -62,7 +62,7 @@ public class MoveMemberCommon extends CommonMenu {
 
     public ContactInformationCommon clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new ContactInformationCommon(tool, test, user);
     }
 }

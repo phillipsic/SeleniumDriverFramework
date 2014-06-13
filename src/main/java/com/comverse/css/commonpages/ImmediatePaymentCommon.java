@@ -56,7 +56,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
 
     public CheckoutConfirmationCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutConfirmationCommon(tool, test, user);
     }
@@ -83,7 +83,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
 
     public void clickCreditCardNew() throws Exception {
 
-        tool.driver.findElement(By.xpath("//fieldset/div/div/div/input[@value= 'CREDIT_CARD']")).click();
+        tool.clickUsingXPath(tool, "//fieldset/div/div/div/input[@value= 'CREDIT_CARD']");
     }
 
 }

@@ -29,7 +29,7 @@ public class ViewBalances extends B2CMenu {
     }
 
     public void clickRefreshButton() throws Exception {
-        tool.driver.findElement(By.xpath("//img[@id='refreshCacheImg']")).click();
+        tool.clickUsingXPath(tool, "//img[@id='refreshCacheImg']");
     }
 
     public ConfigureBalance clickConfigure() throws Exception {
@@ -38,7 +38,7 @@ public class ViewBalances extends B2CMenu {
     }
 
     public BalanceDetails clickBalanceDetails(String balanceName) throws Exception {
-        tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'" + balanceName + "')]]/td/a[contains(text(),'Details')]")).click();
+        tool.clickUsingXPath(tool, "//tr[td/a[contains(text(),'" + balanceName + "')]]/td/a[contains(text(),'Details')]");
         return new BalanceDetails(tool, test, user);
     }
 

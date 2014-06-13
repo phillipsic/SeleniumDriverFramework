@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -26,33 +24,33 @@ public class RequestSubmissionCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickOkModifyRequestGoTOAccountDashboard() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public ContactInformationCommon clickOkToSubmit() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
         return new ContactInformationCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickOkModifyRequestGoTOSubscriberDashboard() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
     public ProfileInformationCommon clickOkToSubmitRequest() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
 
         return new ProfileInformationCommon(tool, test, user);
     }

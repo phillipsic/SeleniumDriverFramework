@@ -49,7 +49,7 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
 
     public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
         return new ConfirmNewSecretAnswerCommon(tool, test, user);
     }
 

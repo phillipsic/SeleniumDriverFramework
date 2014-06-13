@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -23,14 +21,14 @@ public class ViewUnbilledRechargeCommon extends CommonMenu {
 
     public ViewRechargeDetailsCommon clickFirstRecharge() throws Exception {
 
-        /* tool.driver.findElement(By.xpath("//td/div/a")).click(); */
-        tool.driver.findElement(By.xpath("//fieldset/div/table/tbody[2]/tr/td/div/a")).click();
+        /* tool.clickUsingXPath(tool, "//td/div/a"); */
+        tool.clickUsingXPath(tool, "//fieldset/div/table/tbody[2]/tr/td/div/a");
         return new ViewRechargeDetailsCommon(tool, test, user);
     }
 
     public UnbilledTransactionCommon clickBack() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Back']");
         return new UnbilledTransactionCommon(tool, test, user);
     }
 }

@@ -64,7 +64,7 @@ public class sfaB2BLead extends SFAMenu {
     }
 
     public void findAndOpenB2BLeadByName(String b2bLeadName) throws Exception {
-        tool.driver.findElement(By.xpath("//nobr[contains(text(), 'More Fields')]")).click();
+        tool.clickUsingXPath(tool, "//nobr[contains(text(), 'More Fields')]");
 
         tool.enterStringUsingId(tool, "Iaw2djm", b2bLeadName);
         tool.driver.findElement(By.id("$2mtu0_filterbutton")).click(); // Click

@@ -40,7 +40,7 @@ public class FraudlockSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public FraudlockSubscriberConfirmationCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new FraudlockSubscriberConfirmationCommon(tool, test, user);

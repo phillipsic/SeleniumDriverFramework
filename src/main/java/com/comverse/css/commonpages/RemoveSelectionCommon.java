@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -26,13 +24,13 @@ public class RemoveSelectionCommon extends CommonMenu {
 
     public MyBasketCommon clickYes() throws Exception {
 
-        tool.driver.findElement(By.xpath("//form[@id='form_YES']/div/input")).click();
+        tool.clickUsingXPath(tool, "//form[@id='form_YES']/div/input");
         return new MyBasketCommon(tool, test, user);
     }
 
     public RemoveLevelCommon clickRemoveSelectionByYes() throws Exception {
 
-        tool.driver.findElement(By.xpath("//form[@id='form_YES']/div/input")).click();
+        tool.clickUsingXPath(tool, "//form[@id='form_YES']/div/input");
         return new RemoveLevelCommon(tool, test, user);
     }
 }

@@ -29,7 +29,7 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public void clickNewOrganization() throws Exception {
-        tool.driver.findElement(By.xpath("//td[contains(text(), 'New')]")).click();
+        tool.clickUsingXPath(tool, "//td[contains(text(), 'New')]");
         Common.sleepForNumberOfSeconds(3);
     }
 
@@ -46,7 +46,7 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public void clickSaveOrganization() throws Exception {
-        tool.driver.findElement(By.xpath("//td[contains(text(), 'Save')]")).click();
+        tool.clickUsingXPath(tool, "//td[contains(text(), 'Save')]");
 
         Common.sleepForNumberOfSeconds(3);
     }

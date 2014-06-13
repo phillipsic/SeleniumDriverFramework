@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,7 +25,7 @@ public class ModifyItemOfSubscriberCommon extends CommonMenu {
     }
 
     public ModifyItemCommon clickConfirm() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyItemCommon(tool, test, user);
     }

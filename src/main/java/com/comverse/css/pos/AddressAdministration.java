@@ -1,7 +1,5 @@
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -24,7 +22,7 @@ public class AddressAdministration extends AddressAdministrationCommon {
     @Override
 	public AddressAdd clickAdd() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Add']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Add']");
 
         return new AddressAdd(tool, test, user);
     }

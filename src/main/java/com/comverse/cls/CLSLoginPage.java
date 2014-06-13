@@ -1,7 +1,5 @@
 package com.comverse.cls;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -20,17 +18,17 @@ public class CLSLoginPage extends CLSMenu {
     }
 
     public void setUserName(String login) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "j_username", login);
     }
 
     public void setPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "j_password", password);
     }
 
     public void clickLogin() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Login']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Login']");
     }
 
     public Logging successfulCLSAdminLogin() throws Exception {

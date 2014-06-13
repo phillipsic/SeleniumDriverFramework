@@ -28,7 +28,7 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
 
     public EnterIdentificationDataCommon clickConfirm() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 

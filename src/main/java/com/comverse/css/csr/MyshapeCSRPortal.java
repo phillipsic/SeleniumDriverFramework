@@ -4,8 +4,6 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,12 +23,12 @@ public class MyshapeCSRPortal extends MyshapeCommon {
     }
 
     public WorkSpace clickChange() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Change']");
         return new WorkSpace(tool, test, user);
     }
 
     public HomePageBackOffice clickChangePassword() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Change']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Change']");
         return new HomePageBackOffice(tool, test, user);
     }
 

@@ -281,11 +281,11 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void clickCopyFromCustomerAddressButton() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Copy from Customer Address']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Copy from Customer Address']");
     }
 
     public void clickCopyFromBillingAddressButton() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Copy from Billing Address']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Copy from Billing Address']");
     }
 
     public void uncheckSameAsCustomerAddress() throws Exception {
@@ -293,7 +293,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void clickPaymentMethodCheck() throws Exception {
-        tool.driver.findElement(By.xpath("(//input[@name='method'])[2]")).click();
+        tool.clickUsingXPath(tool, "(//input[@name='method'])[2]");
     }
 
     public void setBillingCompanyName(String companyName) throws Exception {
@@ -322,7 +322,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public ShoppingCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);

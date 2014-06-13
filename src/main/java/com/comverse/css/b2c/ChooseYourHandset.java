@@ -29,14 +29,14 @@ public class ChooseYourHandset extends B2CMenu {
 
     public ChooseYourPrimaryOffer selectHandset(String Handset) throws Exception {
 
-        tool.driver.findElement(By.xpath(".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']")).click();
+        tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public MyBasket selectHandsetExpectingMyBasket(String Handset) throws Exception {
 
-        tool.driver.findElement(By.xpath(".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']")).click();
+        tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
@@ -75,7 +75,7 @@ public class ChooseYourHandset extends B2CMenu {
 
     public MyBasket clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
@@ -86,13 +86,13 @@ public class ChooseYourHandset extends B2CMenu {
 
     public HandsetDetails viewDetailsOfHandset(String Handset) throws Exception {
 
-        tool.driver.findElement(By.xpath(".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='View Details']")).click();
+        tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='View Details']");
         return new HandsetDetails(tool, test, user);
     }
 
     public ChooseYourHandset clickAddToCompare(String Handset) throws Exception {
 
-        tool.driver.findElement(By.xpath(".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Add to Compare']")).click();
+        tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Add to Compare']");
         return new ChooseYourHandset(tool, test, user);
     }
 

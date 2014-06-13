@@ -31,7 +31,7 @@ public class CoherencyCheckCommon extends CommonMenu {
     }
 
     public void clickOK() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
 }

@@ -22,12 +22,12 @@ public class ViewInvoiceDetailsCommon extends CommonMenu {
     }
 
     public InvoiceImageInTextCommon clickAsciiImage() throws Exception {
-        tool.driver.findElement(By.xpath("//img[@title='Simple format - Ascii']")).click();
+        tool.clickUsingXPath(tool, "//img[@title='Simple format - Ascii']");
         return new InvoiceImageInTextCommon(tool, test, user);
     }
 
     public ViewInvoiceBalanceDetailsCommon clickBalanceName() throws Exception {
-        tool.driver.findElement(By.xpath(".//a[contains(text(),'Balances')]//../../../../../../following::tbody[2]/tr[1]/td/div/a")).click();
+        tool.clickUsingXPath(tool, ".//a[contains(text(),'Balances')]//../../../../../../following::tbody[2]/tr[1]/td/div/a");
         return new ViewInvoiceBalanceDetailsCommon(tool, test, user);
     }
 
@@ -62,7 +62,7 @@ public class ViewInvoiceDetailsCommon extends CommonMenu {
     }
 
     public ViewInvoicesCommon clickBack() throws Exception {
-        tool.driver.findElement(By.xpath("//input[@value='Back']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Back']");
         return new ViewInvoicesCommon(tool, test, user);
     }
 }

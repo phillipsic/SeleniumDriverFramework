@@ -39,7 +39,7 @@ public class DisconnectAccountCommon extends CommonMenu {
 
     public DisconnectAccountCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new DisconnectAccountCommon(tool, test, user);
@@ -47,7 +47,7 @@ public class DisconnectAccountCommon extends CommonMenu {
 
     public DisconnectAccountCommon clickContinueOnImpacts() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new DisconnectAccountCommon(tool, test, user);
@@ -55,7 +55,7 @@ public class DisconnectAccountCommon extends CommonMenu {
 
     public AccountDetailsCommon clickOk() throws Exception {
 
-        tool.driver.findElement(By.xpath("//input[@value='OK']")).click();
+        tool.clickUsingXPath(tool, "//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new AccountDetailsCommon(tool, test, user);
