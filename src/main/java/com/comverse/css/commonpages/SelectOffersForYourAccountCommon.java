@@ -35,7 +35,7 @@ public class SelectOffersForYourAccountCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickPrevious() throws Exception {
-        tool.driver.findElement(By.cssSelector("input.submitGrey")).click();
+        tool.clickUsingCssSelector(tool, "input.submitGrey");
         return new MyBasketCommon(tool, test, user);
     }
 

@@ -123,7 +123,7 @@ public class AccountDetailsCommon extends CommonMenu {
     public SearchOrdersCommon clickSearchOrders() throws Exception {
         tool.driver.navigate().refresh();
         Common.sleepForNumberOfSeconds(1);
-        tool.driver.findElement(By.cssSelector("#firstYouCan > input.submit")).click();
+        tool.clickUsingCssSelector(tool, "#firstYouCan > input.submit");
         Common.sleepForNumberOfSeconds(1);
         tool.clickUsingLinkText(tool, "Search Orders");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

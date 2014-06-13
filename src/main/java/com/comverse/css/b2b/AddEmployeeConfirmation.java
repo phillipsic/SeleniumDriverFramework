@@ -27,7 +27,7 @@ public class AddEmployeeConfirmation extends B2BMenu {
 
     public RegisterLogin clickSubmit() throws Exception {
 
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
         return new RegisterLogin(tool, test, user);
     }
 }

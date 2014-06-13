@@ -32,7 +32,7 @@ public class MyBills extends MyshapeCommon {
     }
 
     public void clickPDFInvoice() throws Exception {
-        tool.driver.findElement(By.cssSelector("a > img")).click();
+        tool.clickUsingCssSelector(tool, "a > img");
         Thread.sleep(1000);
     }
 

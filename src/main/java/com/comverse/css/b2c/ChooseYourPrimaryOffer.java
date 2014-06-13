@@ -25,13 +25,13 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + offerID);
-        tool.driver.findElement(By.cssSelector("#selectButton_" + offerID)).click();
+        tool.clickUsingCssSelector(tool, "#selectButton_" + offerID);
         // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {
 
-            tool.driver.findElement(By.cssSelector("input[name='nothanks']")).click();
+            tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
 
@@ -43,13 +43,13 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + offerID);
-        tool.driver.findElement(By.cssSelector("#selectButton_" + offerID)).click();
+        tool.clickUsingCssSelector(tool, "#selectButton_" + offerID);
         // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {
 
-            tool.driver.findElement(By.cssSelector("input[name='nothanks']")).click();
+            tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
 
@@ -62,13 +62,13 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         String subscriberbundleID = this.getSubscriberBundleID(subscriberBundleName);
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + subscriberbundleID);
-        tool.driver.findElement(By.cssSelector("#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID)).click();
+        tool.clickUsingCssSelector(tool, "#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID);
         // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {
 
-            tool.driver.findElement(By.cssSelector("input[name='nothanks']")).click();
+            tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
 

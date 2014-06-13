@@ -167,7 +167,7 @@ public class Common {
     public static void checkForExistingBasketAndDiscard(AutomationTool tool) throws Exception {
         if (tool.driver.getTitle().equals("Restore Previous Basket")) {
             tool.driver.findElement(By.xpath("//input[@value='Discard']")).click();
-            tool.driver.findElement(By.cssSelector("input.submit")).click();
+            tool.clickUsingCssSelector(tool, "input.submit");
         }
     }
 

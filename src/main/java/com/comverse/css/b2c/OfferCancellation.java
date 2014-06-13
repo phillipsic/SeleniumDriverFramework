@@ -20,7 +20,7 @@ public class OfferCancellation extends B2CMenu {
     }
 
     public SubscriberDetail ClickOk() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='OK']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='OK']");
         return new SubscriberDetail(tool, test, user);
     }
 

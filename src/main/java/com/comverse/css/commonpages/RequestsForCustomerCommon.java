@@ -70,7 +70,7 @@ public class RequestsForCustomerCommon extends CommonMenu {
     }
 
     public void clickToSubscriberDashboard() throws Exception {
-        tool.driver.findElement(By.cssSelector("div.navContextMain > a[title=\"Go to Subscriber Dashboard\"]")).click();
+        tool.clickUsingCssSelector(tool, "div.navContextMain > a[title=\"Go to Subscriber Dashboard\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 

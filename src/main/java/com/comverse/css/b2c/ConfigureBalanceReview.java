@@ -20,13 +20,13 @@ public class ConfigureBalanceReview extends B2CMenu {
     }
 
     public ConfigureBalanceConfirm clickConfirm() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='button'][value='Confirm']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='button'][value='Confirm']");
         return new ConfigureBalanceConfirm(tool, test, user);
 
     }
 
     public ViewBalances clickBack() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Back']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Back']");
         return new ViewBalances(tool, test, user);
 
     }

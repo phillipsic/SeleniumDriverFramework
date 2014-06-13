@@ -40,7 +40,7 @@ public class AddEmployeeContactInformation extends B2BMenu {
 
     public AddEmployeeRegisterLogin clickSubmit() throws Exception {
 
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
         return new AddEmployeeRegisterLogin(tool, test, user);
     }
 

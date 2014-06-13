@@ -32,7 +32,7 @@ public class ServiceOrderDetailsCommon extends CommonMenu {
     }
 
     public SearchOrdersCommon clickBack() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Back']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Back']");
         return new SearchOrdersCommon(tool, test, user);
     }
 }

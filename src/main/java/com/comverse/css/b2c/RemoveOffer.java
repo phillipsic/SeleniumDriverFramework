@@ -20,7 +20,7 @@ public class RemoveOffer extends B2CMenu {
     }
 
     public OfferCancellation ClickYes() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Yes']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Yes']");
         return new OfferCancellation(tool, test, user);
     }
 

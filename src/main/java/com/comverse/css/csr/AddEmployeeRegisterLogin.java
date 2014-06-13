@@ -32,7 +32,7 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public AddEmployeeConfirmation clickSubmit() throws Exception {
 
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
         return new AddEmployeeConfirmation(tool, test, user);
     }
 

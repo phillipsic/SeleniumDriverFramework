@@ -54,7 +54,7 @@ public class BKM0040_Change_primary_offer_of_a_selection extends CSSTest {
                     sb_ResidentialUltraPostpaidBundle.getPO_ResidentialUltraPostpaid().getBAL_GPRS_WAP_INTERNET().getBalanceValue());
 
             if (Common.isElementPresent(tool, By.xpath("xpath=//*[contains(@id, 'Subscriber DetailsBlock') and contains(@style, 'display: none;')]"))) {
-                tool.driver.findElement(By.cssSelector("img.floatLeft")).click();
+                tool.clickUsingCssSelector(tool, "img.floatLeft");
             }
 
             configureContractDetails.setLang("French (Standard)");

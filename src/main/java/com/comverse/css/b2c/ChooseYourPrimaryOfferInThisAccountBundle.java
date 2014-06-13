@@ -92,13 +92,13 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
         }
 
         System.out.println("link = #selectButton_" + temp[0]);
-        tool.driver.findElement(By.cssSelector("#selectButton_" + temp[0])).click();
+        tool.clickUsingCssSelector(tool, "#selectButton_" + temp[0]);
         // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {
 
-            tool.driver.findElement(By.cssSelector("input[name='nothanks']")).click();
+            tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
 
@@ -117,7 +117,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
     public ChooseYourPrimaryOffer clickSwitchToBrowsePrimaryOffers() throws Exception {
 
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Switch to Browse Primary Offers']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Switch to Browse Primary Offers']");
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 

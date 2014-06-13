@@ -20,7 +20,7 @@ public class ConfigureBalanceConfirm extends B2CMenu {
     }
 
     public ViewBalances clickBack() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Back']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Back']");
         return new ViewBalances(tool, test, user);
 
     }

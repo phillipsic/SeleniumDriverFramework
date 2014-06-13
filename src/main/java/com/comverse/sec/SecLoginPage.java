@@ -131,7 +131,7 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickAddUser() throws Exception {
 
-        tool.driver.findElement(By.cssSelector("input[type='button'][value='Add User']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='button'][value='Add User']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         String currentScreen = tool.driver.getTitle();

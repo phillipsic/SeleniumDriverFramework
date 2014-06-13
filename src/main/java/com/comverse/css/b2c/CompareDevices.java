@@ -21,7 +21,7 @@ public class CompareDevices extends B2CMenu {
     }
 
     public ChooseYourHandset clickReturnToList() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Return to List']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Return to List']");
         return new ChooseYourHandset(tool, test, user);
     }
 

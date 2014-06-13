@@ -104,7 +104,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public ModifyContactInformationCommon clickModifyContactInformation() throws Exception {
-        tool.driver.findElement(By.cssSelector("u")).click();
+        tool.clickUsingCssSelector(tool, "u");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyContactInformationCommon(tool, test, user);
     }
@@ -159,31 +159,31 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public PrimaryOfferDetailsCommon clickImageOfPrimaryOfferName(String primaryOfferName) throws Exception {
-        tool.driver.findElement(By.cssSelector("a[title=\"View detail for " + primaryOfferName + "\"] > img")).click();
+        tool.clickUsingCssSelector(tool, "a[title=\"View detail for " + primaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
 
     public SubscriberBundleDetailsCommon clickImageOfSubscriberBundleName(String subscriberBundleName) throws Exception {
-        tool.driver.findElement(By.cssSelector("a[title=\"View detail for " + subscriberBundleName + "\"] > img")).click();
+        tool.clickUsingCssSelector(tool, "a[title=\"View detail for " + subscriberBundleName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberBundleDetailsCommon(tool, test, user);
     }
 
     public AccountOfferDetailsCommon clickImageOfSupplementaryOfferName(String supplementaryOfferName) throws Exception {
-        tool.driver.findElement(By.cssSelector("a[title=\"View detail for " + supplementaryOfferName + "\"] > img")).click();
+        tool.clickUsingCssSelector(tool, "a[title=\"View detail for " + supplementaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountOfferDetailsCommon(tool, test, user);
     }
 
     public AccountOfferDetailsCommon clickImageOfPromotionalOfferName(String supplementaryOfferName) throws Exception {
-        tool.driver.findElement(By.cssSelector("a[title=\"View detail for " + supplementaryOfferName + "\"] > img")).click();
+        tool.clickUsingCssSelector(tool, "a[title=\"View detail for " + supplementaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountOfferDetailsCommon(tool, test, user);
     }
 
     public ModifyOfferParametersCommon clickModifyOfferParameters() throws Exception {
-        tool.driver.findElement(By.cssSelector("a[title=\"Modify Offer Parameters\"]")).click();
+        tool.clickUsingCssSelector(tool, "a[title=\"Modify Offer Parameters\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(3);
         return new ModifyOfferParametersCommon(tool, test, user);

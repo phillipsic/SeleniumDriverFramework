@@ -62,13 +62,13 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public ServiceConnectionDetailsCommon clickFirstActionsIcon() throws Exception {
-        tool.driver.findElement(By.cssSelector("img[title=\"Configure Service Connection Details\"]")).click();
+        tool.clickUsingCssSelector(tool, "img[title=\"Configure Service Connection Details\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
     public ServiceConnectionDetailsCommon clickSecondActionsIcon() throws Exception {
-        tool.driver.findElement(By.cssSelector("#modify_lines_2 > img[title=\"Configure Service Connection Details\"]")).click();
+        tool.clickUsingCssSelector(tool, "#modify_lines_2 > img[title=\"Configure Service Connection Details\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }

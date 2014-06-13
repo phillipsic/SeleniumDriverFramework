@@ -20,7 +20,7 @@ public class RemoveSupplementaryOffer extends B2CMenu {
     }
 
     public MyBasket ClickYes() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Yes']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Yes']");
         return new MyBasket(tool, test, user);
     }
 

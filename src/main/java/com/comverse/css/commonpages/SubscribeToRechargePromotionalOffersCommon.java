@@ -31,7 +31,7 @@ public class SubscribeToRechargePromotionalOffersCommon extends CommonMenu {
 
     public MyBasketCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.cssSelector("input[name='rechargePromotionalOffers']")).click();
+        tool.clickUsingCssSelector(tool, "input[name='rechargePromotionalOffers']");
         tool.driver.findElement(By.xpath("//input[@value='Continue >']")).click();
         return new MyBasketCommon(tool, test, user);
     }

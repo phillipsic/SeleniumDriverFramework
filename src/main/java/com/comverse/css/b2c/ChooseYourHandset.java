@@ -70,7 +70,7 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public void clickFilter() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Filter']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Filter']");
     }
 
     public MyBasket clickContinue() throws Exception {
@@ -104,7 +104,7 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public CompareDevices clickCompare() throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='submit'][value='Compare']")).click();
+        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Compare']");
         return new CompareDevices(tool, test, user);
     }
 

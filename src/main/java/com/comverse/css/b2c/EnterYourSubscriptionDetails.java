@@ -163,7 +163,7 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public SelectOffersForYourSubscriber clickOk() throws Exception {
 
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriber(tool, test, user);
     }

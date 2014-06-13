@@ -27,7 +27,7 @@ public class ManageAccountCommon extends CommonMenu {
 
         
         tool.enterStringUsingId(tool, "p-L2:40-L3:2150", accountID);
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
 
         return new AccountDetailsCommon(tool, test, user);
     }
@@ -46,7 +46,7 @@ public class ManageAccountCommon extends CommonMenu {
 
         
         tool.enterStringUsingId(tool, "p-L2:40-L3:2150", "*");
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
 
         return new SearchResultsCommon(tool, test, user);
 

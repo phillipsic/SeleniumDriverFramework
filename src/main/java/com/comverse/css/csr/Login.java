@@ -41,7 +41,7 @@ public class Login extends LoginCommon {
     }
 
     public AddMemberConfirmation clickSubmit() throws Exception {
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
         return new AddMemberConfirmation(tool, test, user);
     }
 

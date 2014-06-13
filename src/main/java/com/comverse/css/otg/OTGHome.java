@@ -52,14 +52,14 @@ public class OTGHome extends MyshapeCommon {
     }
 
     public void clickHomeBtn() throws Exception {
-        tool.driver.findElement(By.cssSelector("div.btn-group.btn-group-justified > div.btn-group > button.btn.btn-default")).click();
+        tool.clickUsingCssSelector(tool, "div.btn-group.btn-group-justified > div.btn-group > button.btn.btn-default");
         System.out.println("Click Home");
         Thread.sleep(1000);
     }
 
     @Override
 	public OTGHome clickLogout() throws Exception {
-        tool.driver.findElement(By.cssSelector("button.btn.btn-default")).click();
+        tool.clickUsingCssSelector(tool, "button.btn.btn-default");
         Thread.sleep(1000);
         System.out.println("Logged out");
         return new OTGHome(tool, test, user);

@@ -30,7 +30,7 @@ public class PersonMergeCommon extends CommonMenu {
 
     public void clickSelect() throws Exception {
         Common.sleepForNumberOfSeconds(5);
-        tool.driver.findElement(By.cssSelector("input[value='Select'][type='button']")).click();
+        tool.clickUsingCssSelector(tool, "input[value='Select'][type='button']");
     }
 
     public void clickOKFromMerge() throws Exception {

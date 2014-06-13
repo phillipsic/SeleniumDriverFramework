@@ -21,7 +21,7 @@ public class AddCaseConfirmation extends B2CMenu {
 
     public AddCase clickOk() throws Exception {
 
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
         return new AddCase(tool, test, user);
     }
 

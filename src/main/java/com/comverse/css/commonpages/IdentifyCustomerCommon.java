@@ -199,7 +199,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public CustomerSearchResultCommon searchAccountWildCard() throws Exception {
 
         tool.enterStringUsingId(tool, "p-L2:40-L3:2150", "*");
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
 
         return new CustomerSearchResultCommon(tool, test, user);
     }

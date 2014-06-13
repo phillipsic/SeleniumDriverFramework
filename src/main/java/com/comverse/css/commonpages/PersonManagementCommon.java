@@ -98,18 +98,8 @@ public class PersonManagementCommon extends CommonMenu {
                 .click();
     }
 
-    public void clickActions3() {
-        // final List<WebElement>
-        // allDivs=driver.findElements(By.cssSelector("div[innerHTML^=Customer]"));
-        // int i=0;
-        // for(WebElement we:allDivs){
-        // if(we.getAttribute("innerHTML").equals("Customer Manager Person"))
-        // break;
-        // else
-        // i++;
-        // }
-
-        tool.driver.findElement(By.cssSelector("button[type='button'][id$=-button][class='submit']")).click();
+    public void clickActions3() throws Exception {
+        tool.clickUsingCssSelector(tool, "button[type='button'][id$=-button][class='submit']");
     }
 
     public void clickModifyRole() throws Exception {
@@ -226,7 +216,7 @@ public class PersonManagementCommon extends CommonMenu {
         final List<WebElement> radios = tool.driver.findElements(By.name("pfr-selected-person"));
         radios.get(0).click();
         tool.driver.findElement(By.xpath("//*[@id='personfind']/div[2]/div/form/div[2]/input[2]")).click();
-        tool.driver.findElement(By.cssSelector("input[id=submitButton][value='Swap']")).click();
+        tool.clickUsingCssSelector(tool, "input[id=submitButton][value='Swap']");
 
     }
 

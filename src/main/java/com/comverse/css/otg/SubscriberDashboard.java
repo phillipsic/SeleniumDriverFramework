@@ -48,7 +48,7 @@ public class SubscriberDashboard extends MyshapeCommon {
     }
 
     public void clickConfirm() throws Exception {
-        tool.driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        tool.clickUsingCssSelector(tool, "button.btn.btn-primary");
         Thread.sleep(2000);
     }
 

@@ -33,7 +33,7 @@ public class ManageAccount extends IdentifyCustomerCommon {
 
         
         tool.enterStringUsingId(tool, "p-L2:40-L3:2150", accountID);
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
 
         return new AccountDetails(tool, test, user);
     }
@@ -42,7 +42,7 @@ public class ManageAccount extends IdentifyCustomerCommon {
 
         
         tool.enterStringUsingId(tool, "p-L2:40-L2:520", lastName);
-        tool.driver.findElement(By.cssSelector("input.submit")).click();
+        tool.clickUsingCssSelector(tool, "input.submit");
 
         return new AccountDetails(tool, test, user);
     }

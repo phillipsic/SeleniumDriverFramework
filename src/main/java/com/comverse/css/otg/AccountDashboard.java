@@ -30,7 +30,7 @@ public class AccountDashboard extends MyshapeCommon {
     }
 
     public SubscriberDashboard enterFirstSubscriber(String subscriberID) throws Exception {
-        tool.driver.findElement(By.cssSelector("span.glyphicon.glyphicon-chevron-right")).click();
+        tool.clickUsingCssSelector(tool, "span.glyphicon.glyphicon-chevron-right");
         System.out.println("Enter first Subscriber");
         Thread.sleep(1000);
         return new SubscriberDashboard(tool, test, user, subscriberID);
