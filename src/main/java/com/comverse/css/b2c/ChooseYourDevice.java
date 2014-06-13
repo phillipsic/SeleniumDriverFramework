@@ -31,4 +31,11 @@ public class ChooseYourDevice extends B2CMenu {
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
+    public ChooseYourHandset clickSelectVoiceDevices() throws Exception {
+
+        tool.clickUsingXPath(tool, "//form[@id = 'chooseHandset_Voice_Devices']//input");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ChooseYourHandset(tool, test, user);
+    }
+
 }
