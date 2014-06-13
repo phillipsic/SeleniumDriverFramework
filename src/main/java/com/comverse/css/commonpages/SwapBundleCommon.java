@@ -23,7 +23,7 @@ public class SwapBundleCommon extends CommonMenu {
     }
 
     public void clickAdditionalParticipants() throws Exception {
-        tool.driver.findElement(By.name("additionalPartChk")).click();
+        tool.clickUsingName(tool, "additionalPartChk");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 

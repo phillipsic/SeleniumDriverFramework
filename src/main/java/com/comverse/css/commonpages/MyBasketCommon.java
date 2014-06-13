@@ -99,7 +99,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public RemoveBasketCommon clickClear() throws Exception {
-        tool.driver.findElement(By.name("clear")).click();
+        tool.clickUsingName(tool, "clear");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveBasketCommon(tool, test, user);
     }
@@ -130,7 +130,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void clickOrdering() throws Exception {
-        tool.driver.findElement(By.name("role_radio_group_selection_0")).click();
+        tool.clickUsingName(tool, "role_radio_group_selection_0");
     }
 
     public void selectTitle(String value) throws Exception {

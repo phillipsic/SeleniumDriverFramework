@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -31,7 +29,6 @@ public class ManageAccount extends IdentifyCustomerCommon {
     @Override
     public AccountDetails searchByAccountID(String accountID) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-L2:40-L3:2150", accountID);
         tool.clickUsingCssSelector(tool, "input.submit");
 
@@ -40,7 +37,6 @@ public class ManageAccount extends IdentifyCustomerCommon {
 
     public AccountDetails searchByLastName(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-L2:40-L2:520", lastName);
         tool.clickUsingCssSelector(tool, "input.submit");
 
@@ -49,9 +45,8 @@ public class ManageAccount extends IdentifyCustomerCommon {
 
     public SearchResults searchAccountIDWithWildCard() throws Exception {
 
-        
         tool.enterStringUsingId(tool, "accountId", "*");
-        tool.driver.findElement(By.name("accountButton")).click();
+        tool.clickUsingName(tool, "accountButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchResults(tool, test, user);

@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -21,12 +19,12 @@ public class SwapImpactCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickOK() throws Exception {
-        tool.driver.findElement(By.name("ON_OK")).click();
+        tool.clickUsingName(tool, "ON_OK");
         return new MyBasketCommon(tool, test, user);
     }
 
     public ConfigureBalanceCommon clickOKExpectingConfigureBalance() throws Exception {
-        tool.driver.findElement(By.name("ON_OK")).click();
+        tool.clickUsingName(tool, "ON_OK");
         return new ConfigureBalanceCommon(tool, test, user);
     }
 }

@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -36,7 +34,7 @@ public class ManageAccountCommon extends CommonMenu {
 
         
         tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new AccountDetailsCommon(tool, test, user);
@@ -56,7 +54,7 @@ public class ManageAccountCommon extends CommonMenu {
 
         
         tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -67,7 +65,7 @@ public class ManageAccountCommon extends CommonMenu {
 
         
         tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -78,7 +76,7 @@ public class ManageAccountCommon extends CommonMenu {
 
         
         tool.enterStringUsingId(tool, "accountId", accountID);
-        tool.driver.findElement(By.name("accountButton")).click();
+        tool.clickUsingName(tool, "accountButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         String currentScreen = tool.driver.getTitle();

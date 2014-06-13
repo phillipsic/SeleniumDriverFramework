@@ -218,7 +218,7 @@ public class OCMApplication extends Main {
         Cell priceEURCell = workSheet.getCell(10, rowCount);
         String priceEUR = priceEURCell.getContents();
 
-        tool.driver.findElement(By.name("mainPanel:productForm:productDetailsTabbedPane.7")).click();
+        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
@@ -259,7 +259,7 @@ public class OCMApplication extends Main {
 
         String SubsidizeString = "-Subsidized";
 
-        tool.driver.findElement(By.name("mainPanel:productForm:productDetailsTabbedPane.5")).click();
+        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.5");
 
         // Click on "Residential - Ultra Postpaid"
         // @TODO this link needs to be fixed - need to do string chop to
@@ -273,7 +273,7 @@ public class OCMApplication extends Main {
         tool.driver.findElement(By.id("mainPanel:edit:buttons:createProduct")).click();
 
         // Click on Prices tab
-        tool.driver.findElement(By.name("mainPanel:productForm:productDetailsTabbedPane.7")).click();
+        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
@@ -305,7 +305,7 @@ public class OCMApplication extends Main {
     }
 
     public void editVoiceDeviceCategories() throws Exception {
-        tool.driver.findElement(By.name("mainPanel:productForm:productDetailsTabbedPane.9")).click();
+        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
         tool.driver.findElement(By.id("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_VOICE_DEVICES_PC") + ":attach")).click();
@@ -315,7 +315,7 @@ public class OCMApplication extends Main {
     }
 
     public void editDataDeviceCategories() throws Exception {
-        tool.driver.findElement(By.name("mainPanel:productForm:productDetailsTabbedPane.9")).click();
+        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
         tool.driver.findElement(By.id("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_DEVICES_PC") + ":attach")).click();
@@ -409,7 +409,7 @@ public class OCMApplication extends Main {
         Cell priceEURCell = workSheet.getCell(11, rowCount);
         String priceEUR = priceEURCell.getContents();
 
-        tool.driver.findElement(By.name("mainPanel:productForm:productDetailsTabbedPane.7")).click();
+        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
@@ -429,7 +429,7 @@ public class OCMApplication extends Main {
     }
 
     public void editAccessoryCategories() throws Exception {
-        tool.driver.findElement(By.name("mainPanel:productForm:productDetailsTabbedPane.9")).click();
+        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
         tool.driver.findElement(By.id("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_ACCESSORIES_PC") + ":attach")).click();

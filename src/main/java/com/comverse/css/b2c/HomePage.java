@@ -34,7 +34,7 @@ public class HomePage extends B2CMenu {
     public CustomerPrerequisite selectUSDCurrency() throws Exception {
 
         new Select(tool.searchUsingName(tool, "currency")).selectByVisibleText("USD");
-        tool.driver.findElement(By.name("submit")).click();
+        tool.clickUsingName(tool, "submit");
 
         return new CustomerPrerequisite(tool, test, user);
     }
@@ -98,19 +98,19 @@ public class HomePage extends B2CMenu {
 
     public SubscriberDetail clickLogIn() throws Exception {
 
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
         return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInExpectingWorkSpace() throws Exception {
 
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickLogInAsTelcoAdmin() throws Exception {
 
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
@@ -128,13 +128,13 @@ public class HomePage extends B2CMenu {
 
     public WorkSpace clickLogInWithCUP() throws Exception {
 
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public void clickHomePage() throws Exception {
 
-        tool.driver.findElement(By.name("gohome")).click();
+        tool.clickUsingName(tool, "gohome");
 
     }
 
@@ -152,13 +152,13 @@ public class HomePage extends B2CMenu {
 
     public void clickLogInExpectingFail() throws Exception {
 
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
 
     }
 
     public void clickLogInExpectingChangePassword() throws Exception {
 
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
 
     }
 
@@ -171,7 +171,7 @@ public class HomePage extends B2CMenu {
     public Shopping selectAccountSegmentAll() throws Exception {
 
         new Select(tool.searchUsingID(tool, "p-ACCOUNT-L4:80070")).selectByVisibleText("All Segments");
-        tool.driver.findElement(By.name("submit")).click();
+        tool.clickUsingName(tool, "submit");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new Shopping(tool, test, user);

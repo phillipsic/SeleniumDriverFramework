@@ -35,11 +35,11 @@ public class CreateAttachmentCommon extends CommonMenu {
     }
 
     public void clickContinue() throws Exception {
-        tool.driver.findElement(By.name("ok")).click();
+        tool.clickUsingName(tool, "ok");
     }
 
     public void clickOKFromAddAttachment() throws Exception {
-        tool.driver.findElement(By.name("ok")).click();
+        tool.clickUsingName(tool, "ok");
     }
 
     public ViewCaseCommon clickOKFromCreateNewAttachmentResult() throws Exception {

@@ -144,7 +144,7 @@ public class SignUpUser extends B2CMenu {
 
     public CustomerDetails clickSignMeUp() throws Exception {
 
-        tool.driver.findElement(By.name("signmeup")).click();
+        tool.clickUsingName(tool, "signmeup");
         return new CustomerDetails(tool, test, user);
     }
 

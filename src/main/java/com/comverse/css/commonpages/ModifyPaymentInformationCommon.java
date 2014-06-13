@@ -26,7 +26,7 @@ public class ModifyPaymentInformationCommon extends CommonMenu {
 
     public void setPaymentMethodDirectDebit() throws Exception {
 
-        tool.driver.findElement(By.name("method")).click();
+        tool.clickUsingName(tool, "method");
     }
 
     public void setBankCode(String value) throws Exception {

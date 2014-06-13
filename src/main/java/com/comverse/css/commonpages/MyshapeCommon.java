@@ -100,7 +100,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void clickLogin() throws Exception {
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
     }
 
     public String getMessage() throws Exception {

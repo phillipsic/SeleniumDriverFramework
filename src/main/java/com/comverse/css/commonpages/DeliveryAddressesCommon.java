@@ -43,7 +43,7 @@ public class DeliveryAddressesCommon extends CommonMenu {
 
     public DeliveryAddressesCommon searchWithWildCard(String wildcard) throws Exception {
         enterSearchString(wildcard);
-        tool.driver.findElement(By.name("submit")).click();
+        tool.clickUsingName(tool, "submit");
         return new DeliveryAddressesCommon(tool, test, user);
     }
 

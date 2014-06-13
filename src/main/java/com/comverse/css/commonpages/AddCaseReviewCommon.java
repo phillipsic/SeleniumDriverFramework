@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,7 +26,7 @@ public class AddCaseReviewCommon extends CommonMenu {
 
     public AddCaseConfirmationCommon clickCreateCase() throws Exception {
 
-        tool.driver.findElement(By.name("ACTION_CREATE")).click();
+        tool.clickUsingName(tool, "ACTION_CREATE");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddCaseConfirmationCommon(tool, test, user);
@@ -37,7 +35,7 @@ public class AddCaseReviewCommon extends CommonMenu {
 
     public AddCaseConfirmationCommon clickCreateCaseAndClose() throws Exception {
 
-        tool.driver.findElement(By.name("ACTION_CREATE_AND_CLOSE")).click();
+        tool.clickUsingName(tool, "ACTION_CREATE_AND_CLOSE");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddCaseConfirmationCommon(tool, test, user);

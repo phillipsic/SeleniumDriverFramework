@@ -27,7 +27,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
 
         tool.enterStringUsingId(tool, "accountId", accountID);
-        tool.driver.findElement(By.name("accountButton")).click();
+        tool.clickUsingName(tool, "accountButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
@@ -45,19 +45,19 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public void searchByPersonNatioanlIdMultiplePersons(String id) throws Exception {
 
         tool.enterStringUsingId(tool, "nationalId", id);
-        tool.driver.findElement(By.name("personButton")).click();
+        tool.clickUsingName(tool, "personButton");
     }
 
     public void searchByPersonDOBMultiplePersons(String DOB) throws Exception {
 
         tool.enterStringUsingId(tool, "dateOfBirth", DOB);
-        tool.driver.findElement(By.name("personButton")).click();
+        tool.clickUsingName(tool, "personButton");
     }
 
     public AccountDetailsCommon searchByCaseID(String caseID) throws Exception {
 
         tool.enterStringUsingId(tool, "caseId", caseID);
-        tool.driver.findElement(By.name("caseButton")).click();
+        tool.clickUsingName(tool, "caseButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
@@ -65,7 +65,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public CustomerSearchResultCommon searchByCaseIDMultiplePersons(String caseID) throws Exception {
 
         tool.enterStringUsingId(tool, "caseId", caseID);
-        tool.driver.findElement(By.name("caseButton")).click();
+        tool.clickUsingName(tool, "caseButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerSearchResultCommon(tool, test, user);
@@ -74,7 +74,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
 
         tool.enterStringUsingId(tool, "accountId", accountID);
-        tool.driver.findElement(By.name("accountButton")).click();
+        tool.clickUsingName(tool, "accountButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         String currentScreen = tool.driver.getTitle();
@@ -91,7 +91,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public AccountDetailsCommon gotoAccountDashboardUsingAccountLastName(String lastName) throws Exception {
 
         tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         String currentScreen = tool.driver.getTitle();
@@ -108,7 +108,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
 
         tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerSearchResultCommon(tool, test, user);
@@ -117,7 +117,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public CustomerSearchResultCommon searchByAccountFirstNameMultiplePersons(String firstName) throws Exception {
 
         tool.enterStringUsingId(tool, "accountFirstName", firstName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerSearchResultCommon(tool, test, user);
@@ -126,7 +126,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public SubscriberDetailsCommon searchBySubscriberMSISDN(String MSISDN) throws Exception {
 
         tool.enterStringUsingId(tool, "subscriberId", MSISDN);
-        tool.driver.findElement(By.name("subscriberButton")).click();
+        tool.clickUsingName(tool, "subscriberButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
@@ -136,7 +136,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public CustomerSearchResultCommon searchBySubscriberMSISDNMultiplePersons(String MSISDN) throws Exception {
 
         tool.enterStringUsingId(tool, "subscriberId", MSISDN);
-        tool.driver.findElement(By.name("subscriberButton")).click();
+        tool.clickUsingName(tool, "subscriberButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerSearchResultCommon(tool, test, user);
@@ -145,7 +145,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public AccountDetailsCommon searchByAccountLastNameSinglePerson(String lastName) throws Exception {
 
         tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
@@ -154,7 +154,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public AccountDetailsCommon searchByAccountFirstNameSinglePerson(String firstName) throws Exception {
 
         tool.enterStringUsingId(tool, "accountFirstName", firstName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
@@ -163,7 +163,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public AccountDetailsCommon searchByCompanyNameSinglePerson(String companyName) throws Exception {
 
         tool.enterStringUsingId(tool, "companyName", companyName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
@@ -172,7 +172,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public CustomerSearchResultCommon searchByCompanyNameMultiplePersons(String companyName) throws Exception {
 
         tool.enterStringUsingId(tool, "companyName", companyName);
-        tool.driver.findElement(By.name("accountExtendedButton")).click();
+        tool.clickUsingName(tool, "accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerSearchResultCommon(tool, test, user);
@@ -181,7 +181,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public AccountDetailsCommon searchByPersonLastNameSinglePerson(String lastName) throws Exception {
 
         tool.enterStringUsingId(tool, "personLastName", lastName);
-        tool.driver.findElement(By.name("personButton")).click();
+        tool.clickUsingName(tool, "personButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
@@ -190,7 +190,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public AccountDetailsCommon searchByPersonFirstNameSinglePerson(String firstName) throws Exception {
 
         tool.enterStringUsingId(tool, "personFirstName", firstName);
-        tool.driver.findElement(By.name("personButton")).click();
+        tool.clickUsingName(tool, "personButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
@@ -226,13 +226,13 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public PersonIdentificationSearchResultCommon clickPersonSearchExpectingManyResults() throws Exception {
 
-        tool.driver.findElement(By.name("personButton")).click();
+        tool.clickUsingName(tool, "personButton");
         return new PersonIdentificationSearchResultCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickPersonSearchExpectingOneResult() throws Exception {
 
-        tool.driver.findElement(By.name("personButton")).click();
+        tool.clickUsingName(tool, "personButton");
         return new AccountDetailsCommon(tool, test, user);
     }
 

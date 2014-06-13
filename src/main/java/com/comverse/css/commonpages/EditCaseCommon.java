@@ -24,11 +24,11 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void clickSave() throws Exception {
-        tool.driver.findElement(By.name("closeonly")).click();
+        tool.clickUsingName(tool, "closeonly");
     }
 
     public void clickCancelCase() throws Exception {
-        tool.driver.findElement(By.name("cancelcase")).click();
+        tool.clickUsingName(tool, "cancelcase");
     }
 
     public void clickSaveAndCloseCase() throws Exception {

@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -30,7 +29,7 @@ public class ReconfigureBalanceCommon extends CommonMenu {
 
     public ReconfigureBalanceReviewCommon clickAddUnits() throws Exception {
 
-        tool.driver.findElement(By.name("submit_add_units")).click();
+        tool.clickUsingName(tool, "submit_add_units");
         return new ReconfigureBalanceReviewCommon(tool, test, user);
     }
 
@@ -42,7 +41,7 @@ public class ReconfigureBalanceCommon extends CommonMenu {
 
     public ReconfigureBalanceCommon setCreditSpendingLimitUnlimited() throws Exception {
 
-        tool.driver.findElement(By.name("isUnlimitedCheckBox")).click();
+        tool.clickUsingName(tool, "isUnlimitedCheckBox");
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
@@ -52,7 +51,7 @@ public class ReconfigureBalanceCommon extends CommonMenu {
 
     public ReconfigureBalanceReviewCommon clickReconfigureBalance() throws Exception {
 
-        tool.driver.findElement(By.name("submit_reconfigure_limit")).click();
+        tool.clickUsingName(tool, "submit_reconfigure_limit");
         return new ReconfigureBalanceReviewCommon(tool, test, user);
     }
 

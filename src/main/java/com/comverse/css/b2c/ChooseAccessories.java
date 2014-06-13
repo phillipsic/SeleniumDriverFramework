@@ -37,7 +37,7 @@ public class ChooseAccessories extends B2CMenu {
     public ConfigureServiceConnectionDetails clickContinueExpectingConnectionServiceDetails() throws Exception {
 
         // tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
-        tool.driver.findElement(By.name("doSubmit")).click();
+        tool.clickUsingName(tool, "doSubmit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureServiceConnectionDetails(tool, test, user);
     }

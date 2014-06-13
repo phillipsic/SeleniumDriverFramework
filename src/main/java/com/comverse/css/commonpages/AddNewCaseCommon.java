@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -61,7 +60,7 @@ public class AddNewCaseCommon extends CommonMenu {
 
     public AddCaseReviewCommon clickContinue() throws Exception {
 
-        tool.driver.findElement(By.name("ok")).click();
+        tool.clickUsingName(tool, "ok");
         return new AddCaseReviewCommon(tool, test, user);
     }
 }

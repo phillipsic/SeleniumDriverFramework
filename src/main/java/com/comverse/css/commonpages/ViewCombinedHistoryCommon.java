@@ -80,7 +80,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     public void clickSearch() throws Exception {
 
-        tool.driver.findElement(By.name("B1")).click();
+        tool.clickUsingName(tool, "B1");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }

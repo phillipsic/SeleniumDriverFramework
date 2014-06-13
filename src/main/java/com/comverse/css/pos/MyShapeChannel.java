@@ -27,14 +27,14 @@ public class MyShapeChannel extends MyshapeCommon {
     }
 
     public WorkSpace clickAgreeTermsAndConditions() throws Exception {
-        tool.driver.findElement(By.name("continue")).click();
+        tool.clickUsingName(tool, "continue");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.checkForExistingBasketAndDiscard(tool);
         return new WorkSpace(tool, test, user);
     }
 
     public RestorePreviousBasket clickAgreeTermsAndConditionsWithoutBasketCheck() throws Exception {
-        tool.driver.findElement(By.name("continue")).click();
+        tool.clickUsingName(tool, "continue");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RestorePreviousBasket(tool, test, user);
     }

@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -144,7 +143,7 @@ public class ModifyCustomerDetails extends B2CMenu {
 
     public CustomerDetails clickConfirm() throws Exception {
 
-        tool.driver.findElement(By.name("confirm_prospect")).click();
+        tool.clickUsingName(tool, "confirm_prospect");
 
         return new CustomerDetails(tool, test, user);
     }

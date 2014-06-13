@@ -21,7 +21,7 @@ public class SwapSubscriberExternalIdConfirmationCommon extends CommonMenu {
     }
 
     public SubscriberExternalIDSwapDoneCommon clickContinue() throws Exception {
-        tool.driver.findElement(By.name("submit")).click();
+        tool.clickUsingName(tool, "submit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberExternalIDSwapDoneCommon(tool, test, user);
     }

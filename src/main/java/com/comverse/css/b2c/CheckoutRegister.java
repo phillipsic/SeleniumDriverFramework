@@ -65,7 +65,7 @@ public class CheckoutRegister extends B2CMenu {
 
     public MyBasket clickCancel() throws Exception {
 
-        tool.driver.findElement(By.name("cancel")).click();
+        tool.clickUsingName(tool, "cancel");
         return new MyBasket(tool, test, user);
     }
 

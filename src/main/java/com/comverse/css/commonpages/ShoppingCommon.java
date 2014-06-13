@@ -87,7 +87,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.name("select")).click();
+        tool.clickUsingName(tool, "select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new MyBasketCommon(tool, test, user);
@@ -97,7 +97,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.name("select")).click();
+        tool.clickUsingName(tool, "select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ConfigureBalanceCommon(tool, test, user);
@@ -107,7 +107,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.name("select")).click();
+        tool.clickUsingName(tool, "select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new TestServiceAbilityCommon(tool, test, user);
@@ -127,7 +127,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.name("select")).click();
+        tool.clickUsingName(tool, "select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ConfigureContractDetailsCommon(tool, test, user);
@@ -137,7 +137,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.name("select")).click();
+        tool.clickUsingName(tool, "select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new EnterYourSubscriptionDetailsCommon(tool, test, user);
@@ -147,7 +147,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.name("select")).click();
+        tool.clickUsingName(tool, "select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
@@ -155,7 +155,7 @@ public class ShoppingCommon extends CommonMenu {
 
     public EnterYourSubscriptionDetailsCommon clickNoThankstoHandsets() throws Exception {
 
-        tool.driver.findElement(By.name("nothanks")).click();
+        tool.clickUsingName(tool, "nothanks");
         return new EnterYourSubscriptionDetailsCommon(tool, test, user);
     }
 
@@ -164,7 +164,7 @@ public class ShoppingCommon extends CommonMenu {
         tool.driver.findElement(By.id("lnk_ADVANCE_FILTER")).click();
         tool.enterStringUsingId(tool, "filterByFreeText", value);
         Common.sleepForNumberOfSeconds(3);
-        tool.driver.findElement(By.name("buy_outright")).click();
+        tool.clickUsingName(tool, "buy_outright");
         return new MyBasketCommon(tool, test, user);
     }
 

@@ -25,7 +25,7 @@ public class SubscribeToRechargePromotionalOffersCommon extends CommonMenu {
     public void selectOffersForSubscriber(String RPO) throws Exception {
         
         tool.enterStringUsingId(tool, "nameFilterField0", RPO);
-        tool.driver.findElement(By.name("rechargePromotionalOffers")).click();
+        tool.clickUsingName(tool, "rechargePromotionalOffers");
 
     }
 

@@ -1,6 +1,5 @@
 package com.comverse.sec;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -39,7 +38,7 @@ public class ComverseOneSingleSignOn extends Main {
     }
 
     public void clickLogin(AutomationTool tool) throws Exception {
-        tool.driver.findElement(By.name("submit")).click();
+        tool.clickUsingName(tool, "submit");
     }
 
     public WorkSpace loginToCSRAsCSRAdmin() throws Exception {

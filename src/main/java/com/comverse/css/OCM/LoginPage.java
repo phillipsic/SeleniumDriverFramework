@@ -2,8 +2,6 @@ package com.comverse.css.OCM;
 
 import java.util.MissingResourceException;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -37,11 +35,10 @@ public class LoginPage extends CommonMenu {
             throw new MissingResourceException("Missing property " + user.getPassword(), "PASSWORD_PROPERTY_FILE", user.getPassword());
         }
 
-        
         tool.enterStringUsingId(tool, "login:fields:user", user.getLogin());
-        
+
         tool.enterStringUsingId(tool, "login:fields:password", user.getPassword());
-        tool.driver.findElement(By.name("login:buttons:submit")).click();
+        tool.clickUsingName(tool, "login:buttons:submit");
 
         Common.assertTextOnPage(tool, "Login completed successfully.");
 

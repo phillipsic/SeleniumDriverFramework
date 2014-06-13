@@ -82,7 +82,7 @@ public class SendCommunicationCommon extends CommonMenu {
 
     public void clickReviewCommunication() throws Exception {
 
-        tool.driver.findElement(By.name("ok")).click();
+        tool.clickUsingName(tool, "ok");
 
     }
 

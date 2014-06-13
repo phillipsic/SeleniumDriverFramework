@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -23,25 +21,25 @@ public class CustomerDetails extends B2CMenu {
 
     public CheckOutBillingAccountInformation clickOk() throws Exception {
 
-        tool.driver.findElement(By.name("prospectok")).click();
+        tool.clickUsingName(tool, "prospectok");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckOutDeliveryAddress clickOkExpectingCheckOutDeliveryAddress() throws Exception {
 
-        tool.driver.findElement(By.name("prospectok")).click();
+        tool.clickUsingName(tool, "prospectok");
         return new CheckOutDeliveryAddress(tool, test, user);
     }
 
     public CheckOutDeliveryAddress clickOkWithDevices() throws Exception {
 
-        tool.driver.findElement(By.name("prospectok")).click();
+        tool.clickUsingName(tool, "prospectok");
         return new CheckOutDeliveryAddress(tool, test, user);
     }
 
     public ModifyCustomerDetails clickModify() throws Exception {
 
-        tool.driver.findElement(By.name("modifyprospectinfo")).click();
+        tool.clickUsingName(tool, "modifyprospectinfo");
         return new ModifyCustomerDetails(tool, test, user);
     }
 }

@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,11 +23,11 @@ public class MyshapeBusiness extends MyshapeCommon {
     }
 
     public void login(User user) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "login", user.getLogin());
-        
+
         tool.enterStringUsingId(tool, "password", user.getPassword());
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
 
         if (tool.driver.getPageSource().contains("Please enter a valid user name and password.")) {
             throw new Exception("Invalid username or password - IS USER CREATED? ");
@@ -59,37 +57,37 @@ public class MyshapeBusiness extends MyshapeCommon {
     }
 
     public void enterLoginName(String loginName) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "login", loginName);
     }
 
     public void enterNewPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "password_new", password);
     }
 
     public void enterNewPasswordVerify(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "password_verify", password);
     }
 
     public void enterOldPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "password_old", password);
     }
 
     public void enterPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "password", password);
     }
 
     public void enterSecretAnswer(String secretAnswer) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "secretAnswer", secretAnswer);
     }
 
     public WorkSpace clickLoginButton() throws Exception {
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
@@ -99,7 +97,7 @@ public class MyshapeBusiness extends MyshapeCommon {
     }
 
     public void clickLoginButtonForFirstTime() throws Exception {
-        tool.driver.findElement(By.name("LoginButton")).click();
+        tool.clickUsingName(tool, "LoginButton");
     }
 
     @Override
