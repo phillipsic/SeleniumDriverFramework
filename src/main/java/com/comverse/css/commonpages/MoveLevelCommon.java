@@ -50,10 +50,6 @@ public class MoveLevelCommon extends CommonMenu {
     }
 
     public MoveLevelCommon levelNameWithOutSelectLink(String weeklyLevelName) throws Exception {
-
-        // tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" +
-        // weeklyLevelName + "')]]"));
-
         WebElementfound = tool.driver.findElements(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]"));
 
         if (WebElementfound.size() > 0) {
@@ -69,21 +65,15 @@ public class MoveLevelCommon extends CommonMenu {
     }
 
     public MoveLevelStatusCommon clickSelectForLevelName(String weeklyLevelName) throws Exception {
-
         tool.clickUsingXPath(tool, "//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]");
 
         return new MoveLevelStatusCommon(tool, test, user);
     }
 
     public MoveLevelCommon findSelectByLevelname(String weeklyLevelName) throws Exception {
-
-        // tool.driver.findElement(By.xpath("//tr[td[contains(text(),'" +
-        // weeklyLevelName + "')]]"));
-
         WebElementfound = tool.driver.findElements(By.xpath("//tr[td[contains(text(),'" + weeklyLevelName + "')]]/td//a[contains(text(), 'Select')]"));
 
         if (WebElementfound.size() > 0) {
-
             throw new IllegalStateException("Expecting:No Select Link but got: Select Link");
 
         } else {

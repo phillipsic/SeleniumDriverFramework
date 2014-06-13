@@ -249,28 +249,6 @@ public class ShoppingCommon extends CommonMenu {
         return accountBundleID;
     }
 
-    /*
-     * public ConfigureContractDetailsCommon
-     * subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingConfigureContract
-     * (String accountBundle, String accountOffer, String
-     * optionalSubscriberBundle) throws Exception {
-     * 
-     * String accountBundleID = this.retrieveAccountBundleID(accountBundle);
-     * this.selectBundleByName(accountBundle);
-     * 
-     * if (accountOffer != null) { this.selectAccountOffer(accountBundleID,
-     * accountOffer); }
-     * 
-     * if (optionalSubscriberBundle != null) {
-     * this.selectOptionalSubscriberBundle(accountBundleID,
-     * optionalSubscriberBundle); Thread.sleep(1000); }
-     * 
-     * tool.driver.findElement(By.xpath(
-     * "(//input[@type='button' and @value='Subscribe' and @onclick=\"javascript: selectBundle('"
-     * + accountBundleID + "','" + accountBundle + "')\"])")).click();
-     * 
-     * return new ConfigureContractDetailsCommon(tool, test, user); }
-     */
     public ConfigureContractDetailsCommon subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingConfigureContract(String accountBundle, String accountOffer,
             String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {
 

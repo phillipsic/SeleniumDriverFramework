@@ -43,12 +43,6 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public AdjustBalanceDetailsCommon clickAdjustBalance(String balancename) throws Exception {
-
-        // this.retrieveBalanceID(balancename);
-        // tool.driver.findElement(By.id("adjust_balance_" + balanceID + "" ));
-
-        // tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'Adjust')]]/td/a[contains(text(),'"
-        // + balancename + "')]")).click();
         tool.clickUsingXPath(tool, "//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]");
 
         return new AdjustBalanceDetailsCommon(tool, test, user);

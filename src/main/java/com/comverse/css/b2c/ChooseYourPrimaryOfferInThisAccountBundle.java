@@ -52,13 +52,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
         System.out.println("Found offer?  - " + beresult);
 
         while (beresult == false) {
-
-            // System.out.println("Result - " + bresult + "page - " +
-            // pageCounter);
             System.out.println("Now trying to navigate to page - " + pageCounter);
-
-            // tool.driver.findElement(By.xpath("//img[@alt='Next Page (" +
-            // pageCounter + ")']")).click();
             tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
             beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
             System.out.println("Found offer? - " + beresult);

@@ -11,15 +11,6 @@ public class sfaProduct extends SFAMenu {
 
     public sfaProduct(AutomationTool tool, Test test, User user) {
         super(tool, test, user);
-        /*
-         * String expectedTitle = "Products"; String currentTitle =
-         * tool.driver.findElement
-         * (By.xpath("//span[contains(text(), 'Products')]")).getText(); if
-         * (!currentTitle.equals(expectedTitle)) { throw new
-         * IllegalStateException("Expected Product screen doesn't show");
-         * 
-         * }
-         */
     }
 
     sfaB2BLead selectProductForB2BLead(String productName) throws Exception {

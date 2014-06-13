@@ -33,31 +33,21 @@ public class MoveMemberCommon extends CommonMenu {
     }
 
     public MoveMemberCommon clickSelectByLevelName(String levelName) throws Exception {
-
         tool.clickUsingXPath(tool, "//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]");
 
-        // tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'Select')]]/td[contains(text(),'"
-        // + levelname + "')]"));
         return new MoveMemberCommon(tool, test, user);
     }
 
     public MoveMemberCommon findSelectByLevelName(String levelName) throws Exception {
-
         WebElementfound = tool.driver.findElements(By.xpath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]"));
 
         if (WebElementfound.size() > 0) {
-
             throw new IllegalStateException("Expecting:No Select Link but got: Select Link");
-
         } else {
             System.out.println("Value of Unique code is MK");
             return new MoveMemberCommon(tool, test, user);
 
         }
-
-        // tool.driver.findElement(By.xpath("//tr[td/a[contains(text(),'Select')]]/td[contains(text(),'"
-        // + levelname + "')]"));
-
     }
 
     public ContactInformationCommon clickOk() throws Exception {

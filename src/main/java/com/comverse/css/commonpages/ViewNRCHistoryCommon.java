@@ -74,12 +74,7 @@ public class ViewNRCHistoryCommon extends CommonMenu {
     }
 
     public String getSearchResults() throws Exception {
-
         String text = tool.driver.findElement(By.className("resultListTabTitle")).getText();
-
-        // String text =
-        // tool.driver.findElement(By.className("art-button").linkText("Submit")).getText();
-
         System.out.println("Output:" + text);
 
         return text;

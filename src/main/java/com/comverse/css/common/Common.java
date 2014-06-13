@@ -206,18 +206,6 @@ public class Common {
                 break;
             } catch (Exception e) {
             }
-
-            /*
-             * System.out.println("Iteration " + iteration + " of 90"); if
-             * (iteration >= 90) { throw new Exception("Timeout"); }
-             * 
-             * if (
-             * "".equals(tool.driver.findElement(By.cssSelector("img[title=\"
-             * Action\"]")).getText())){ System.out.println("Still loading
-             * events ..."); Thread.sleep(1000); } else {
-             * System.out.println("events Loaded"); break; }
-             */
-
         }
     }
 
