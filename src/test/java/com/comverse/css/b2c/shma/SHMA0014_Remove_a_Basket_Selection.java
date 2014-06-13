@@ -61,7 +61,7 @@ public class SHMA0014_Remove_a_Basket_Selection extends CSSTest {
             // Removing added SO from Basket.
 
             RemoveSupplementaryOffer removeSO = myBasket.clickRemoveOnSO(so_DIYeCountDownExtra.getOfferName());
-            Common.assertTextOnPage(tool, "Are you sure you want to remove supplementary offer " + so_DIYeCountDownExtra.getOfferName() + "?");
+            Common.assertTextOnPage(tool, "Are you sure you want to remove supplementary offer" + so_DIYeCountDownExtra.getOfferName() + "?");
             myBasket = removeSO.ClickYes();
 
             // Verification of non-existence of SO in Basket.
