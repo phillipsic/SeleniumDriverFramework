@@ -69,4 +69,8 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public String getAttributeUsingId(AutomationTool tool, String id, String attribute) throws Exception {
+        return null;
+    }
+
 }
