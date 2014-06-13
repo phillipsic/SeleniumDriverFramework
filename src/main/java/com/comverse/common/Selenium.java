@@ -39,6 +39,7 @@ public class Selenium extends AutomationTool {
 
         if (System.getProperty("selenium_browser") == null) {
             tool.platform.setBrowser(propsHelper.readInitProperties("BROWSER.type"));
+             System.out.println("Browser set in property file: " + tool.platform.getBrowser());
         } else {
             tool.platform.setBrowser(System.getProperty("selenium_browser"));
             System.out.println("Browser surcharged by Jenkins to " + tool.platform.getBrowser());
