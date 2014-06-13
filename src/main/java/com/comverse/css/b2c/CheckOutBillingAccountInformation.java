@@ -67,7 +67,7 @@ public class CheckOutBillingAccountInformation extends B2CMenu {
     }
 
     public void selectAccountAttributeLanguage(String language) throws Exception {
-        new Select(tool.driver.findElement(By.id("p-ACCOUNT-L4:80000"))).selectByVisibleText(language);
+        new Select(tool.searchUsingID(tool, "p-ACCOUNT-L4:80000")).selectByVisibleText(language);
     }
 
     public void enterCity(String city) throws Exception {
@@ -93,7 +93,7 @@ public class CheckOutBillingAccountInformation extends B2CMenu {
 
     public void enterState(String state) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("state"))).selectByVisibleText(state);
+        new Select(tool.searchUsingID(tool, "state")).selectByVisibleText(state);
 
     }
 }

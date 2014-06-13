@@ -27,7 +27,7 @@ public class NonVoucherRechargeCommon extends CommonMenu {
     public NonVoucherRechargeReviewCommon nonVoucherRechargeByCheck(String rechargeAmount) throws Exception {
 
         this.enterRechargeAmount(rechargeAmount);
-        new Select(tool.driver.findElement(By.id("rechargeClass"))).selectByVisibleText("Check");
+        new Select(tool.searchUsingID(tool, "rechargeClass")).selectByVisibleText("Check");
         tool.driver.findElement(By.name("payment_type")).click();
         tool.driver.findElement(By.xpath("//input[@value='Continue']")).click();
         return new NonVoucherRechargeReviewCommon(tool, test, user);

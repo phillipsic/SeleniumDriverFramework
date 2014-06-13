@@ -26,7 +26,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
 
     public void selectEventTypeDispatch() throws Exception {
 
-        Select select = new Select(tool.driver.findElement(By.id("eventType")));
+        Select select = new Select(tool.searchUsingID(tool, "eventType"));
         select.selectByVisibleText("Dispatch");
         selectedValue = tool.driver.findElement(By.xpath("//option[@selected='selected']")).getText();
         System.out.println(selectedValue);
@@ -35,7 +35,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
 
     public void selectNRCTypeDispatchFee() throws Exception {
 
-        Select select = new Select(tool.driver.findElement(By.id("charge")));
+        Select select = new Select(tool.searchUsingID(tool, "charge"));
         select.selectByVisibleText("Dispatch Fee");
 
         tool.driver.findElement(By.xpath("//input[@value='Confirm']")).click();

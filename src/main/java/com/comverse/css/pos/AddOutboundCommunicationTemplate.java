@@ -36,35 +36,35 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
     @Override
 	public void selectLanguage(String language) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("languageCode"))).selectByVisibleText(language);
+        new Select(tool.searchUsingID(tool, "languageCode")).selectByVisibleText(language);
 
     }
 
     @Override
 	public void selectChannel(String channel) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("channel"))).selectByVisibleText(channel);
+        new Select(tool.searchUsingID(tool, "channel")).selectByVisibleText(channel);
 
     }
 
     @Override
 	public void selectEventType(String eventType) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("eventType"))).selectByVisibleText(eventType);
+        new Select(tool.searchUsingID(tool, "eventType")).selectByVisibleText(eventType);
 
     }
 
     @Override
 	public void selectCaseType(String caseType) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("caseType"))).selectByVisibleText(caseType);
+        new Select(tool.searchUsingID(tool, "caseType")).selectByVisibleText(caseType);
 
     }
 
     @Override
 	public void selectProblemArea(String problemArea) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("problemArea"))).selectByVisibleText(problemArea);
+        new Select(tool.searchUsingID(tool, "problemArea")).selectByVisibleText(problemArea);
 
     }
 

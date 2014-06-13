@@ -44,7 +44,7 @@ public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends CSS
         tool.driver.findElement(By.linkText("Define Relationships with Product Types")).click();
 
         // Select "Compatible Device Type with Primary Offer Series"
-        new Select(tool.driver.findElement(By.id("mainPanel:ruleKindForm:RuleKind"))).selectByVisibleText("Compatible Device Type with Primary Offer Series");
+        new Select(tool.searchUsingID(tool, "mainPanel:ruleKindForm:RuleKind")).selectByVisibleText("Compatible Device Type with Primary Offer Series");
 
         // Check VOICE_DEVICE
         tool.driver.findElement(By.id("mainPanel:productForm:productTypeList:0__57a:attach")).click();

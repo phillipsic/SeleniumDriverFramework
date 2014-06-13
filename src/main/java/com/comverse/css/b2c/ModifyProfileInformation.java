@@ -23,7 +23,7 @@ public class ModifyProfileInformation extends B2CMenu {
 
     public void selectApprovalSequencing(String choice) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("approval_sequencing_field"))).selectByVisibleText(choice);
+        new Select(tool.searchUsingID(tool, "approval_sequencing_field")).selectByVisibleText(choice);
 
     }
 

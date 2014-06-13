@@ -23,12 +23,12 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void selectCaseType(String caseType) throws Exception {
-        new Select(tool.driver.findElement(By.id("Ih4kclq"))).selectByVisibleText(caseType);
+        new Select(tool.searchUsingID(tool, "Ih4kclq")).selectByVisibleText(caseType);
         Thread.sleep(1000);
     }
 
     public void selectProblemArea(String problemArea) throws Exception {
-        new Select(tool.driver.findElement(By.id("Ii5gdu9"))).selectByVisibleText(problemArea);
+        new Select(tool.searchUsingID(tool, "Ii5gdu9")).selectByVisibleText(problemArea);
         Thread.sleep(1000);
     }
 
@@ -66,12 +66,12 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void changeCaseStatusToClose() throws Exception {
-        new Select(tool.driver.findElement(By.id("Igdju7d"))).selectByVisibleText("Closed");
+        new Select(tool.searchUsingID(tool, "Igdju7d")).selectByVisibleText("Closed");
         Thread.sleep(1000);
     }
 
     public void changeJustificationStatusToProblemSolved() throws Exception {
-        new Select(tool.driver.findElement(By.id("Iru5lh3"))).selectByVisibleText("Problem Solved");
+        new Select(tool.searchUsingID(tool, "Iru5lh3")).selectByVisibleText("Problem Solved");
         Thread.sleep(1000);
     }
 
@@ -86,7 +86,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void selectNoteType(String noteType) throws Exception {
-        new Select(tool.driver.findElement(By.id("Inl0w6r"))).selectByVisibleText(noteType);
+        new Select(tool.searchUsingID(tool, "Inl0w6r")).selectByVisibleText(noteType);
         Thread.sleep(1000);
     }
 

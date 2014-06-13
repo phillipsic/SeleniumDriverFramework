@@ -34,15 +34,15 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public void selectStatus(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("Iyoe69h"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "Iyoe69h")).selectByVisibleText(value);
     }
 
     public void selectCustomerCategory(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("Iomthof"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "Iomthof")).selectByVisibleText(value);
     }
 
     public void selectResellerId(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("Igtpzy6"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "Igtpzy6")).selectByVisibleText(value);
     }
 
     public void clickSaveOrganization() throws Exception {
@@ -58,15 +58,15 @@ public class sfaOrganization extends SFAMenu {
 
     public String getResellerId() throws Exception {
 
-        return new Select(tool.driver.findElement(By.id("Igtpzy6"))).getFirstSelectedOption().getText();
+        return new Select(tool.searchUsingID(tool, "Igtpzy6")).getFirstSelectedOption().getText();
     }
 
     public String getStatus() throws Exception {
-        return new Select(tool.driver.findElement(By.id("Iyoe69h"))).getFirstSelectedOption().getText();
+        return new Select(tool.searchUsingID(tool, "Iyoe69h")).getFirstSelectedOption().getText();
     }
 
     public String getCustomerCategory() throws Exception {
-        return new Select(tool.driver.findElement(By.id("Iomthof"))).getFirstSelectedOption().getText();
+        return new Select(tool.searchUsingID(tool, "Iomthof")).getFirstSelectedOption().getText();
     }
 
     public sfaContact clickNewContact(String mainWindow) throws Exception {

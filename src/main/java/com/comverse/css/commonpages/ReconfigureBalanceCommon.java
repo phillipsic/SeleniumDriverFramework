@@ -47,7 +47,7 @@ public class ReconfigureBalanceCommon extends CommonMenu {
     }
 
     public void selectUseAccountUnitsFrom(String selectOption) throws Exception {
-        new Select(tool.driver.findElement(By.id("targetBalance"))).selectByVisibleText(selectOption);
+        new Select(tool.searchUsingID(tool, "targetBalance")).selectByVisibleText(selectOption);
     }
 
     public ReconfigureBalanceReviewCommon clickReconfigureBalance() throws Exception {

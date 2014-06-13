@@ -56,7 +56,7 @@ public class CaseUITasks extends CaseUITest {
     }
 
     public void selectNoteType(String noteType) throws Exception {
-        new Select(tool.driver.findElement(By.id("Inl0w6r"))).selectByVisibleText(noteType);
+        new Select(tool.searchUsingID(tool, "Inl0w6r")).selectByVisibleText(noteType);
         Thread.sleep(1000);
     }
 

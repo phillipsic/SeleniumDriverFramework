@@ -35,7 +35,7 @@ public class ComverseOneSingleSignOn extends Main {
     }
 
     public void setRealm(AutomationTool tool, User user) throws Exception {
-        new Select(tool.driver.findElement(By.id("realmselect"))).selectByVisibleText(user.getRealm());
+        new Select(tool.searchUsingID(tool, "realmselect")).selectByVisibleText(user.getRealm());
     }
 
     public void clickLogin(AutomationTool tool) throws Exception {

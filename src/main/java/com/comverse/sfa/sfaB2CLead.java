@@ -50,26 +50,20 @@ public class sfaB2CLead extends SFAMenu {
 
     }
 
-    String getB2CLeadType() {
-        // return
-        // tool.driver.findElement(By.id("Ircc1q4")).getAttribute("oldvalue");
-        return new Select(tool.driver.findElement(By.id("Ircc1q4"))).getFirstSelectedOption().getText();
+    String getB2CLeadType() throws Exception {
+        return new Select(tool.searchUsingID(tool, "Ircc1q4")).getFirstSelectedOption().getText();
     }
 
     String getNewProspectFlag() {
         return tool.driver.findElement(By.id("Ib356er")).getAttribute("oldvalue");
     }
 
-    String getPriority() {
-        // return
-        // tool.driver.findElement(By.id("Ifn7a0g")).getAttribute("oldvalue");
-        return new Select(tool.driver.findElement(By.id("Ifn7a0g"))).getFirstSelectedOption().getText();
+    String getPriority() throws Exception {
+        return new Select(tool.searchUsingID(tool, "Ifn7a0g")).getFirstSelectedOption().getText();
     }
 
-    String getStatus() {
-        // return
-        // tool.driver.findElement(By.id("I5nq7j6")).getAttribute("oldvalue");
-        return new Select(tool.driver.findElement(By.id("I5nq7j6"))).getFirstSelectedOption().getText();
+    String getStatus() throws Exception {
+        return new Select(tool.searchUsingID(tool, "I5nq7j6")).getFirstSelectedOption().getText();
     }
 
     void openOfferList() {

@@ -31,7 +31,7 @@ public class SearchAddressCommon extends CommonMenu {
 
     public void setCountry(String country) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_country"))).selectByVisibleText(country);
+        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(country);
 
     }
 

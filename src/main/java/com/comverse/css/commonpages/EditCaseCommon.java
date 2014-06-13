@@ -45,7 +45,7 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void selectJustificationStatus(String status) throws Exception {
-        new Select(tool.driver.findElement(By.id("case_justification_status"))).selectByVisibleText(status);
+        new Select(tool.searchUsingID(tool, "case_justification_status")).selectByVisibleText(status);
     }
 
     public void updateDescription(String updatedDescription) throws Exception {
@@ -62,7 +62,7 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void changePriorityToLow() throws Exception {
-        new Select(tool.driver.findElement(By.id("case_priority"))).selectByVisibleText("Low");
+        new Select(tool.searchUsingID(tool, "case_priority")).selectByVisibleText("Low");
     }
 
 }

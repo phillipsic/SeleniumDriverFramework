@@ -46,12 +46,12 @@ public class AddEmployeeContactInformation extends B2BMenu {
 
     public void selectState(String homeState) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(homeState);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(homeState);
 
     }
 
     public void selectCountry(String country) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_country"))).selectByVisibleText(country);
+        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(country);
     }
 }

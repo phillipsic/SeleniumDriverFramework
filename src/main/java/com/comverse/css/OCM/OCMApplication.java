@@ -162,7 +162,7 @@ public class OCMApplication extends Main {
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer")).sendKeys(smallImagePath);
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer")).sendKeys(largeImagePath);
 
-        new Select(tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne"))).selectByVisibleText(manufacturer);
+        new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
 
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString")).sendKeys(warehouse);
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString")).sendKeys(
@@ -294,13 +294,13 @@ public class OCMApplication extends Main {
 
     public void SelectEURCurrency() throws Exception {
         tool.driver.findElement(By.id("menu:mainForm:_idJsp5ToggleCollapsed")).click();
-        new Select(tool.driver.findElement(By.id("menu:mainForm:displayedCurrency"))).selectByVisibleText("EUR");
+        new Select(tool.searchUsingID(tool, "menu:mainForm:displayedCurrency")).selectByVisibleText("EUR");
         tool.driver.findElement(By.id("menu:mainForm:_idJsp5ToggleCollapsed")).click();
     }
 
     public void SelectUSDCurrency() throws Exception {
         tool.driver.findElement(By.id("menu:mainForm:_idJsp5ToggleCollapsed")).click();
-        new Select(tool.driver.findElement(By.id("menu:mainForm:displayedCurrency"))).selectByVisibleText("USD");
+        new Select(tool.searchUsingID(tool, "menu:mainForm:displayedCurrency")).selectByVisibleText("USD");
         tool.driver.findElement(By.id("menu:mainForm:_idJsp5ToggleCollapsed")).click();
     }
 
@@ -384,7 +384,7 @@ public class OCMApplication extends Main {
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer")).sendKeys(smallImagePath);
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer")).sendKeys(largeImagePath);
 
-        new Select(tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne"))).selectByVisibleText(manufacturer);
+        new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
 
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString")).sendKeys(warehouse);
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString")).sendKeys(

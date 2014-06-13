@@ -24,15 +24,15 @@ public class ModifyDeliveryAddressCommon extends CommonMenu {
         }
     }
 
-    public void selectCountry(String country) {
+    public void selectCountry(String country) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("country"))).selectByVisibleText(country);
+        new Select(tool.searchUsingID(tool, "country")).selectByVisibleText(country);
 
     }
 
-    public void selectState(String state) {
+    public void selectState(String state) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("state_region"))).selectByVisibleText(state);
+        new Select(tool.searchUsingID(tool, "state_region")).selectByVisibleText(state);
 
     }
 

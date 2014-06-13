@@ -33,7 +33,7 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void selectTitle(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("title"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "title")).selectByVisibleText(value);
     }
 
     public void setFirstName(String value) throws Exception {
@@ -55,11 +55,11 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void setNationality(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("nationality"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "nationality")).selectByVisibleText(value);
     }
 
     public void setLanguage(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("language"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "language")).selectByVisibleText(value);
     }
 
     public void setEmailAddress(String value) throws Exception {
@@ -108,7 +108,7 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void selectHomeCountry(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("country"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "country")).selectByVisibleText(value);
     }
 
 }

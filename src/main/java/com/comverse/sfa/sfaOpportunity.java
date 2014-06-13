@@ -36,12 +36,12 @@ public class sfaOpportunity extends SFAMenu {
         System.out.println("New Opportunity Name: " + opportunityName);
     }
 
-    void selectSalesProcess(String salesProcess) {
-        new Select(tool.driver.findElement(By.id("Iat2w3m"))).selectByVisibleText(salesProcess);
+    void selectSalesProcess(String salesProcess) throws Exception {
+        new Select(tool.searchUsingID(tool, "Iat2w3m")).selectByVisibleText(salesProcess);
     }
 
-    void selectPriority(String priority) {
-        new Select(tool.driver.findElement(By.id("Ix779fi"))).selectByVisibleText(priority);
+    void selectPriority(String priority) throws Exception {
+        new Select(tool.searchUsingID(tool, "Ix779fi")).selectByVisibleText(priority);
     }
 
     sfaOrganization clickOrganization() throws Exception {
@@ -54,12 +54,12 @@ public class sfaOpportunity extends SFAMenu {
         return new sfaOrganization(tool, test, user);
     }
 
-    void selectCurrency(String currency) {
-        new Select(tool.driver.findElement(By.id("Iqovuoj"))).selectByVisibleText(currency);
+    void selectCurrency(String currency) throws Exception {
+        new Select(tool.searchUsingID(tool, "Iqovuoj")).selectByVisibleText(currency);
     }
 
-    void selectPriceList(String priceList) {
-        new Select(tool.driver.findElement(By.id("I4nxoi8"))).selectByVisibleText(priceList);
+    void selectPriceList(String priceList) throws Exception {
+        new Select(tool.searchUsingID(tool, "I4nxoi8")).selectByVisibleText(priceList);
     }
 
     void saveOpportunity() throws Exception {
@@ -97,10 +97,8 @@ public class sfaOpportunity extends SFAMenu {
         return tool.driver.findElement(By.id("Iasykb7")).getAttribute("value");
     }
 
-    String getPriceList() {
-        // return
-        // tool.driver.findElement(By.id("I4nxoi8")).getAttribute("oldvalue");
-        return new Select(tool.driver.findElement(By.id("I4nxoi8"))).getFirstSelectedOption().getText();
+    String getPriceList() throws Exception {
+        return new Select(tool.searchUsingID(tool, "I4nxoi8")).getFirstSelectedOption().getText();
     }
 
     String getFirstProductName() {

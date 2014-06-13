@@ -25,7 +25,7 @@ public class InsertInventory extends CommonMenu {
 
     public void selectInventoryType(String inventoryType) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("inventoryType"))).selectByVisibleText(inventoryType);
+        new Select(tool.searchUsingID(tool, "inventoryType")).selectByVisibleText(inventoryType);
         Common.sleepForNumberOfSeconds(10);
     }
 

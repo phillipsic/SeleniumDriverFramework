@@ -30,16 +30,16 @@ public class sfaAdminJobList extends SFAMenu {
     }
 
     void selectJobType(String jobType) throws Exception {
-        new Select(tool.driver.findElement(By.id("Ishs3hd"))).selectByVisibleText(jobType);
+        new Select(tool.searchUsingID(tool, "Ishs3hd")).selectByVisibleText(jobType);
         Common.sleepForNumberOfSeconds(1);
     }
 
-    void selectImportMap(String importMap) {
-        new Select(tool.driver.findElement(By.id("Iftqn20"))).selectByVisibleText(importMap);
+    void selectImportMap(String importMap) throws Exception {
+        new Select(tool.searchUsingID(tool, "Iftqn20")).selectByVisibleText(importMap);
     }
 
-    void selectFileEncoding(String fileEncoding) {
-        new Select(tool.driver.findElement(By.id("I7g33k8"))).selectByVisibleText(fileEncoding);
+    void selectFileEncoding(String fileEncoding) throws Exception {
+        new Select(tool.searchUsingID(tool, "I7g33k8")).selectByVisibleText(fileEncoding);
     }
 
     void setImportFile(String fileName) {

@@ -85,7 +85,7 @@ public class Logging extends CLSMenu {
     public void selectRecordPerPage(String value) throws Exception {
 
         tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
-        new Select(tool.driver.findElement(By.id("yui-pg0-0-rpp81"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "yui-pg0-0-rpp81")).selectByVisibleText(value);
         tool.driver.switchTo().defaultContent();
         Common.sleepForNumberOfSeconds(10);
     }

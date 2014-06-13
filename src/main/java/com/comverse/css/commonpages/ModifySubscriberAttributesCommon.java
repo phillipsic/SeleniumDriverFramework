@@ -58,7 +58,7 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public void enterLanguage(String language) throws Exception {
-        new Select(tool.driver.findElement(By.id("p-param-L4:80000"))).selectByVisibleText(language);
+        new Select(tool.searchUsingID(tool, "p-param-L4:80000")).selectByVisibleText(language);
     }
 
     public void enterHappyHourStart(String happyHourStart) throws Exception {

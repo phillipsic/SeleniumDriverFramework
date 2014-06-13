@@ -44,7 +44,7 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
 
     public void setSecretQuestion(String question) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("secretQuestionId"))).selectByVisibleText(question);
+        new Select(tool.searchUsingID(tool, "secretQuestionId")).selectByVisibleText(question);
     }
 
     public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {

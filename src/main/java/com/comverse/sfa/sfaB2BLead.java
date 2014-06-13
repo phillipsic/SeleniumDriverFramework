@@ -40,8 +40,8 @@ public class sfaB2BLead extends SFAMenu {
         return new sfaOrganization(tool, test, user);
     }
 
-    public void selectPriceList(String priceList) {
-        new Select(tool.driver.findElement(By.id("I8ea3x9"))).selectByVisibleText(priceList);
+    public void selectPriceList(String priceList) throws Exception {
+        new Select(tool.searchUsingID(tool, "I8ea3x9")).selectByVisibleText(priceList);
     }
 
     public void saveB2BLead() throws Exception {
@@ -80,10 +80,8 @@ public class sfaB2BLead extends SFAMenu {
         return tool.driver.findElement(By.id("Ix18yor")).getAttribute("value");
     }
 
-    public String getPriceList() {
-        // return
-        // tool.driver.findElement(By.id("I8ea3x9")).getAttribute("oldvalue");
-        return new Select(tool.driver.findElement(By.id("I8ea3x9"))).getFirstSelectedOption().getText();
+    public String getPriceList() throws Exception {
+        return new Select(tool.searchUsingID(tool, "I8ea3x9")).getFirstSelectedOption().getText();
     }
 
     public String getFirstProductName() {

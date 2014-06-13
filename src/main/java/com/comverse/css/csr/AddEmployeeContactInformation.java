@@ -45,7 +45,7 @@ public class AddEmployeeContactInformation extends CommonMenu {
      */
     public void selectState(String homeState) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(homeState);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(homeState);
     }
 
     public AddEmployeeRegisterLogin clickContinue() throws Exception {

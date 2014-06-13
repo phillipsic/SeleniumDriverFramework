@@ -25,12 +25,12 @@ public class AddCase extends B2CMenu {
 
     public void selectCategory(String value) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("categoryId"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "categoryId")).selectByVisibleText(value);
     }
 
     public void selectSubCategory(String value) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("subCategoryId"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "subCategoryId")).selectByVisibleText(value);
     }
 
     public void enterDescription(String value) throws Exception {
@@ -45,7 +45,7 @@ public class AddCase extends B2CMenu {
 
     public void selectFirstSubscriber() throws Exception {
 
-        new Select(tool.driver.findElement(By.id("contract"))).selectByIndex(1);
+        new Select(tool.searchUsingID(tool, "contract")).selectByIndex(1);
     }
 
     public AddCaseReview clickSubmit() throws Exception {

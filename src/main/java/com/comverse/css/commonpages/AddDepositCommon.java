@@ -35,7 +35,7 @@ public class AddDepositCommon extends CommonMenu {
 
     public void setBalance(String balanceName) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("balance"))).selectByVisibleText(balanceName);
+        new Select(tool.searchUsingID(tool, "balance")).selectByVisibleText(balanceName);
 
     }
 

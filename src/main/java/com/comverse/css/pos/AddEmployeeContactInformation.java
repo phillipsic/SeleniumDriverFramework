@@ -47,7 +47,7 @@ public class AddEmployeeContactInformation extends CommonMenu {
 
     public void enterHomeState(String homeState) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(homeState);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(homeState);
 
     }
 }

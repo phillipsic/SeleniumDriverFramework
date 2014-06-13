@@ -29,7 +29,7 @@ public class LoginCommon extends CommonMenu {
     }
 
     public void selectRole(String role) throws Exception {
-        new Select(tool.driver.findElement(By.id("roles"))).selectByVisibleText(role);
+        new Select(tool.searchUsingID(tool, "roles")).selectByVisibleText(role);
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {

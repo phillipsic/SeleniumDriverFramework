@@ -170,7 +170,7 @@ public class HomePage extends B2CMenu {
 
     public Shopping selectAccountSegmentAll() throws Exception {
 
-        new Select(tool.driver.findElement(By.id("p-ACCOUNT-L4:80070"))).selectByVisibleText("All Segments");
+        new Select(tool.searchUsingID(tool, "p-ACCOUNT-L4:80070")).selectByVisibleText("All Segments");
         tool.driver.findElement(By.name("submit")).click();
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

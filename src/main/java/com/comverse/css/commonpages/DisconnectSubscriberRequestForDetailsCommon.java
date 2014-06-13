@@ -28,7 +28,7 @@ public class DisconnectSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public void setReason(String reason) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("reason"))).selectByVisibleText(reason);
+        new Select(tool.searchUsingID(tool, "reason")).selectByVisibleText(reason);
     }
 
     public void setAnnotation(String annotation) throws Exception {

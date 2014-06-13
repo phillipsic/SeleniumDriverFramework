@@ -38,7 +38,7 @@ public class ModifyLevelLegalContactCommon extends CommonMenu {
 
     public void setNewLevelState(String uniqueState) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(uniqueState);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(uniqueState);
 
     }
 

@@ -93,7 +93,7 @@ public class SearchOrders extends B2CMenu {
     }
 
     public void setOrderStatus(String orderStatus) throws Exception {
-        new Select(tool.driver.findElement(By.id("orderStatus"))).selectByVisibleText(orderStatus);
+        new Select(tool.searchUsingID(tool, "orderStatus")).selectByVisibleText(orderStatus);
     }
 
     public OrderDetails clickOrderNumber(String orderNumber) throws Exception {

@@ -27,7 +27,7 @@ public class ModifyProfileInformationCommon extends CommonMenu {
 
     public void setTimeZone(String timeZone) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("timezone_field"))).selectByVisibleText(timeZone);
+        new Select(tool.searchUsingID(tool, "timezone_field")).selectByVisibleText(timeZone);
     }
 
     public ModifyProfileInformationConfirmationCommon clickOkToModify() throws Exception {

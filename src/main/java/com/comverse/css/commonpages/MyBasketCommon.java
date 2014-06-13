@@ -134,7 +134,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void selectTitle(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("pm-field-title"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "pm-field-title")).selectByVisibleText(value);
     }
 
     public void setFirstName(String value) throws Exception {
@@ -163,15 +163,15 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void selectCountry(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("pm-field-country"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "pm-field-country")).selectByVisibleText(value);
     }
 
     public void selectRegion(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("pm-field-region"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "pm-field-region")).selectByVisibleText(value);
     }
 
     public void selectFirstUserinDropDown() throws Exception {
-        new Select(tool.driver.findElement(By.id("subscriber"))).selectByIndex(1);
+        new Select(tool.searchUsingID(tool, "subscriber")).selectByIndex(1);
     }
 
     public void clickAddRole() {

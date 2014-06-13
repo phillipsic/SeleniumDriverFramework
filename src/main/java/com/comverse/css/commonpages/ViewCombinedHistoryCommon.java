@@ -69,7 +69,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     public void deselectbox() throws Exception {
 
-        Select selectBox = new Select(tool.driver.findElement(By.id("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT")));
+        Select selectBox = new Select(tool.searchUsingID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT"));
         selectBox.deselectByVisibleText("Adjustment");
         selectBox.deselectByVisibleText("MTR");
         selectBox.deselectByVisibleText("RC");

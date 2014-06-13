@@ -92,7 +92,7 @@ public class SFAMenu extends SFATest {
         String dropDownID = temp[1].replaceAll("=", "");
         dropDownID = Common.cleanStringOfIllegalChars(dropDownID);
 
-        new Select(tool.driver.findElement(By.id(dropDownID))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, dropDownID)).selectByVisibleText(value);
     }
 
     public void clickFindGo() {

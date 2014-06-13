@@ -50,11 +50,11 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setNationality(String title) throws Exception {
-        new Select(tool.driver.findElement(By.id("nationality"))).selectByVisibleText(title);
+        new Select(tool.searchUsingID(tool, "nationality")).selectByVisibleText(title);
     }
 
     public void setLanguage(String title) throws Exception {
-        new Select(tool.driver.findElement(By.id("language"))).selectByVisibleText(title);
+        new Select(tool.searchUsingID(tool, "language")).selectByVisibleText(title);
     }
 
     public void setEmailAddress(String email) throws Exception {
@@ -88,11 +88,11 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingTitle(String title) throws Exception {
-        new Select(tool.driver.findElement(By.id("billing_title"))).selectByVisibleText(title);
+        new Select(tool.searchUsingID(tool, "billing_title")).selectByVisibleText(title);
     }
 
     public void setBusinessTitle(String title) throws Exception {
-        new Select(tool.driver.findElement(By.id("contact_title_field"))).selectByVisibleText(title);
+        new Select(tool.searchUsingID(tool, "contact_title_field")).selectByVisibleText(title);
     }
 
     public void setBillingFirstName(String billing_first_name) throws Exception {
@@ -121,7 +121,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingStreetSuffix(String billing_streetSuffix) throws Exception {
-        new Select(tool.driver.findElement(By.id("billing_streetSuffix"))).selectByVisibleText(billing_streetSuffix);
+        new Select(tool.searchUsingID(tool, "billing_streetSuffix")).selectByVisibleText(billing_streetSuffix);
     }
 
     public void setBillingStreetNumber(String billing_streetNumber) throws Exception {
@@ -135,11 +135,11 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterBillingHomeCountry(String billing_country) throws Exception {
-        new Select(tool.driver.findElement(By.id("billing_country"))).selectByVisibleText(billing_country);
+        new Select(tool.searchUsingID(tool, "billing_country")).selectByVisibleText(billing_country);
     }
 
     public void enterBillingHomeState(String billing_state) throws Exception {
-        new Select(tool.driver.findElement(By.id("billing_state"))).selectByVisibleText(billing_state);
+        new Select(tool.searchUsingID(tool, "billing_state")).selectByVisibleText(billing_state);
     }
 
     public void enterBillingCity(String billing_city) throws Exception {
@@ -155,11 +155,11 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterBusinessHomeCountry(String billing_country) throws Exception {
-        new Select(tool.driver.findElement(By.id("home_country"))).selectByVisibleText(billing_country);
+        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(billing_country);
     }
 
     public void enterBusinessHomeState(String billing_state) throws Exception {
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(billing_state);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(billing_state);
     }
 
     public void enterBusinessCity(String billing_city) throws Exception {
@@ -168,7 +168,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setCustomerTitle(String title) throws Exception {
-        new Select(tool.driver.findElement(By.id("contact_title_field"))).selectByVisibleText(title);
+        new Select(tool.searchUsingID(tool, "contact_title_field")).selectByVisibleText(title);
     }
 
     public void setCustomerFirstName(String firstname) throws Exception {
@@ -187,7 +187,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setCustomerStreetSuffix(String streetSuffix) throws Exception {
-        new Select(tool.driver.findElement(By.id("streetSuffix"))).selectByVisibleText(streetSuffix);
+        new Select(tool.searchUsingID(tool, "streetSuffix")).selectByVisibleText(streetSuffix);
     }
 
     public void setCustomerStreetNumber(String streetNumber) throws Exception {
@@ -209,15 +209,15 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterCustomerHomeCountry(String homeCountry) throws Exception {
-        new Select(tool.driver.findElement(By.id("home_country"))).selectByVisibleText(homeCountry);
+        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(homeCountry);
     }
 
     public String getCustomerHomeCountry() throws Exception {
-        return new Select(tool.driver.findElement(By.id("home_country"))).getFirstSelectedOption().getText();
+        return new Select(tool.searchUsingID(tool, "home_country")).getFirstSelectedOption().getText();
     }
 
     public void enterCustomerHomeState(String homeState) throws Exception {
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(homeState);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(homeState);
     }
 
     public void enterCustomerCity(String city) throws Exception {
@@ -230,7 +230,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setServiceTitle(String service_title) throws Exception {
-        new Select(tool.driver.findElement(By.id("service_title"))).selectByVisibleText(service_title);
+        new Select(tool.searchUsingID(tool, "service_title")).selectByVisibleText(service_title);
     }
 
     public void setServiceFirstName(String service_first_name) throws Exception {
@@ -249,7 +249,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setServiceSteetSuffix(String service_streetSuffix) throws Exception {
-        new Select(tool.driver.findElement(By.id("service_streetSuffix"))).selectByVisibleText(service_streetSuffix);
+        new Select(tool.searchUsingID(tool, "service_streetSuffix")).selectByVisibleText(service_streetSuffix);
     }
 
     public void setServiceStreetNumber(String service_streetNumber) throws Exception {
@@ -263,11 +263,11 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterServiceHomeCountry(String service_home_country) throws Exception {
-        new Select(tool.driver.findElement(By.id("service_home_country"))).selectByVisibleText(service_home_country);
+        new Select(tool.searchUsingID(tool, "service_home_country")).selectByVisibleText(service_home_country);
     }
 
     public void enterServiceHomeState(String service_home_state) throws Exception {
-        new Select(tool.driver.findElement(By.id("service_home_state"))).selectByVisibleText(service_home_state);
+        new Select(tool.searchUsingID(tool, "service_home_state")).selectByVisibleText(service_home_state);
     }
 
     public void enterServiceCity(String service_home_city) throws Exception {

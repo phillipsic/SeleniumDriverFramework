@@ -33,7 +33,7 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     }
 
     public void setLang(String lang) throws Exception {
-        new Select(tool.driver.findElement(By.id("p-param-L4:80000"))).selectByVisibleText(lang);
+        new Select(tool.searchUsingID(tool, "p-param-L4:80000")).selectByVisibleText(lang);
     }
 
     public ConfigureBalanceCommon clickContinueExpectingConfigureBalance() throws Exception {

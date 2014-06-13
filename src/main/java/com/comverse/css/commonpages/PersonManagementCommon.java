@@ -30,7 +30,7 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void selectTitle(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("title"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "title")).selectByVisibleText(value);
     }
 
     public void setFirstName(String value) throws Exception {
@@ -59,15 +59,15 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void selectCountry(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("country"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "country")).selectByVisibleText(value);
     }
 
     public void selectRegion(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("state"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "state")).selectByVisibleText(value);
     }
 
     public void selectFirstUserinDropDown() throws Exception {
-        new Select(tool.driver.findElement(By.id("subscriber"))).selectByIndex(1);
+        new Select(tool.searchUsingID(tool, "subscriber")).selectByIndex(1);
     }
 
     public void clickOrdering() throws Exception {
@@ -215,10 +215,10 @@ public class PersonManagementCommon extends CommonMenu {
 
     public void searchPerson() throws Exception {
         // new
-        // Select(tool.driver.findElement(By.id("custPerson"))).selectByVisibleText(pers.getPersonFirstNameProperty()
+        // Select(tool.searchUsingID(tool, "custPerson")).selectByVisibleText(pers.getPersonFirstNameProperty()
         // + " "
         // + pers.getPersonLastNameProperty());
-        new Select(tool.driver.findElement(By.id("title"))).selectByVisibleText("Mr.");
+        new Select(tool.searchUsingID(tool, "title")).selectByVisibleText("Mr.");
         tool.driver.findElement(By.id("firstName")).sendKeys("test*");
         tool.driver.findElement(By.id("pm-button-search")).click();
         final List<WebElement> radios = tool.driver.findElements(By.name("pfr-selected-person"));

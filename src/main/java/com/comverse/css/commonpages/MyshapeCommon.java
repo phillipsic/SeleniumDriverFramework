@@ -95,7 +95,7 @@ public class MyshapeCommon extends CommonMenu {
 
     public void selectRealm(String realm) throws Exception {
         if (tool.driver.getPageSource().contains("Domain")) {
-            new Select(tool.driver.findElement(By.id("realm"))).selectByVisibleText(realm);
+            new Select(tool.searchUsingID(tool, "realm")).selectByVisibleText(realm);
         }
     }
 

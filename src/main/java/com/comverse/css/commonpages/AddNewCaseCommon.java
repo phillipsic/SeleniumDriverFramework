@@ -27,9 +27,9 @@ public class AddNewCaseCommon extends CommonMenu {
     public void selectCaseType(String caseType) throws Exception {
 
         // new
-        // Select(tool.driver.findElement(By.id("categoryId"))).selectByVisibleText(caseType);
+        // Select(tool.searchUsingID(tool, "categoryId")).selectByVisibleText(caseType);
 
-        Select select = new Select(tool.driver.findElement(By.id("categoryId")));
+        Select select = new Select(tool.searchUsingID(tool, "categoryId"));
         // select.deselectAll();
         select.selectByVisibleText(caseType);
 
@@ -37,7 +37,7 @@ public class AddNewCaseCommon extends CommonMenu {
 
     public void selectCaseProblemArea(String problemArea) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("subCategoryId"))).selectByVisibleText(problemArea);
+        new Select(tool.searchUsingID(tool, "subCategoryId")).selectByVisibleText(problemArea);
 
     }
 
@@ -49,7 +49,7 @@ public class AddNewCaseCommon extends CommonMenu {
 
     public void selectNoteType(String noteType) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("noteType"))).selectByVisibleText(noteType);
+        new Select(tool.searchUsingID(tool, "noteType")).selectByVisibleText(noteType);
 
     }
 

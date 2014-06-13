@@ -34,7 +34,7 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
 
     public void setLevelState(String levelState) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(levelState);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(levelState);
         /*
          * tool.driver.findElement(By.id("home_state")).clear();
          * tool.driver.findElement(By.id("home_state")).sendKeys(levelState);

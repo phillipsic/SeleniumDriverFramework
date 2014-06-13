@@ -61,7 +61,7 @@ public class SecCsrAdmin extends CommonMenu {
 
     public void setGroups(String Group) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("j_id44:j_id45:0:tempGroupsUpdate:j_id245"))).selectByVisibleText(Group);
+        new Select(tool.searchUsingID(tool, "j_id44:j_id45:0:tempGroupsUpdate:j_id245")).selectByVisibleText(Group);
         tool.driver.findElement(By.id("j_id44:j_id45:0:tempGroupsUpdate:j_id247")).click();
 
     }

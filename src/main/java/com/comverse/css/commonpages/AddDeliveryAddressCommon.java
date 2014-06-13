@@ -24,9 +24,9 @@ public class AddDeliveryAddressCommon extends CommonMenu {
         }
     }
 
-    public void selectCountry(String country) {
+    public void selectCountry(String country) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("country"))).selectByVisibleText(country);
+        new Select(tool.searchUsingID(tool, "country")).selectByVisibleText(country);
 
     }
 
@@ -72,7 +72,7 @@ public class AddDeliveryAddressCommon extends CommonMenu {
 
     }
 
-    public void enterDefaultDeliveryAddress(String uniqueTimeStamp) {
+    public void enterDefaultDeliveryAddress(String uniqueTimeStamp) throws Exception {
 
         this.selectCountry("France");
         this.setAddressLine1("AL1-" + uniqueTimeStamp);

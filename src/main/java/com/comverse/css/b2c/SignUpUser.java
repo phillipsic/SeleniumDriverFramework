@@ -223,7 +223,7 @@ public class SignUpUser extends B2CMenu {
 
     public void selectBillingTitle(String title) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("billingTitle"))).selectByVisibleText(title);
+        new Select(tool.searchUsingID(tool, "billingTitle")).selectByVisibleText(title);
 
     }
 

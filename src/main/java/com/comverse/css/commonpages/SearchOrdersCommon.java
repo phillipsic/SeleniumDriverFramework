@@ -60,7 +60,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public void setOrderStatusToAll() throws Exception {
-        new Select(tool.driver.findElement(By.id("orderStatus"))).selectByVisibleText("All");
+        new Select(tool.searchUsingID(tool, "orderStatus")).selectByVisibleText("All");
     }
 
     public void waitUntilOrderCompletedOrFailed(String orderNumber) throws Exception {

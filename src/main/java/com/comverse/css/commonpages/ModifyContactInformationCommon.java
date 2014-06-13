@@ -67,7 +67,7 @@ public class ModifyContactInformationCommon extends CommonMenu {
 
     public String getState() throws Exception {
 
-        return new Select(tool.driver.findElement(By.id("home_state"))).getFirstSelectedOption().getText();
+        return new Select(tool.searchUsingID(tool, "home_state")).getFirstSelectedOption().getText();
 
     }
 
@@ -146,12 +146,12 @@ public class ModifyContactInformationCommon extends CommonMenu {
     }
 
     public void enterState(String state) throws Exception {
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(state);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(state);
 
     }
 
     public void enterCountry(String country) throws Exception {
-        new Select(tool.driver.findElement(By.id("home_country"))).selectByVisibleText(country);
+        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(country);
     }
 
     public ModifyContactInformationConfirmationCommon clickOk() throws Exception {
@@ -167,6 +167,6 @@ public class ModifyContactInformationCommon extends CommonMenu {
 
     public void setLevelState(String uniqueState) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(uniqueState);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(uniqueState);
     }
 }

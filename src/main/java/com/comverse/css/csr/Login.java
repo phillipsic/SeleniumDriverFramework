@@ -46,6 +46,6 @@ public class Login extends LoginCommon {
     }
 
     public void setRoles(String roles) throws Exception {
-        new Select(tool.driver.findElement(By.id("roles"))).selectByVisibleText(roles);
+        new Select(tool.searchUsingID(tool, "roles")).selectByVisibleText(roles);
     }
 }

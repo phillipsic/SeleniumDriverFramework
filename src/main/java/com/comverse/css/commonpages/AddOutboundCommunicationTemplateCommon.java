@@ -33,31 +33,31 @@ public class AddOutboundCommunicationTemplateCommon extends CommonMenu {
 
     public void selectLanguage(String language) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("languageCode"))).selectByVisibleText(language);
+        new Select(tool.searchUsingID(tool, "languageCode")).selectByVisibleText(language);
 
     }
 
     public void selectChannel(String channel) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("channel"))).selectByVisibleText(channel);
+        new Select(tool.searchUsingID(tool, "channel")).selectByVisibleText(channel);
 
     }
 
     public void selectEventType(String eventType) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("eventType"))).selectByVisibleText(eventType);
+        new Select(tool.searchUsingID(tool, "eventType")).selectByVisibleText(eventType);
 
     }
 
     public void selectCaseType(String caseType) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("caseType"))).selectByVisibleText(caseType);
+        new Select(tool.searchUsingID(tool, "caseType")).selectByVisibleText(caseType);
 
     }
 
     public void selectProblemArea(String problemArea) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("problemArea"))).selectByVisibleText(problemArea);
+        new Select(tool.searchUsingID(tool, "problemArea")).selectByVisibleText(problemArea);
 
     }
 

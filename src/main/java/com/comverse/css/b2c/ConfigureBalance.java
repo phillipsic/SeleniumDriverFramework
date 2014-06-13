@@ -34,7 +34,7 @@ public class ConfigureBalance extends B2CMenu {
     }
 
     public void selectTargetAccount(String targetBalance) throws Exception {
-        new Select(tool.driver.findElement(By.id("targetBalance"))).selectByVisibleText(targetBalance);
+        new Select(tool.searchUsingID(tool, "targetBalance")).selectByVisibleText(targetBalance);
     }
 
     public ChooseAccessories clickContinue() throws Exception {

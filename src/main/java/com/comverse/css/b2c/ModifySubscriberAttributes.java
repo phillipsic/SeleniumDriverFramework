@@ -32,13 +32,13 @@ public class ModifySubscriberAttributes extends B2CMenu {
 
     public void selectLanguage(String language) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("p-param-L4:80000"))).selectByVisibleText(language);
+        new Select(tool.searchUsingID(tool, "p-param-L4:80000")).selectByVisibleText(language);
 
     }
 
     public String getLanguage() throws Exception {
 
-        String language = new Select(tool.driver.findElement(By.id("p-param-L4:80000"))).getFirstSelectedOption().getText();
+        String language = new Select(tool.searchUsingID(tool, "p-param-L4:80000")).getFirstSelectedOption().getText();
         return language;
     }
 

@@ -51,33 +51,33 @@ public class SendCommunicationCommon extends CommonMenu {
     }
 
     public void selectTemplateEventType(String value) throws Exception {
-        new Select(tool.driver.findElement(By.id("eventType"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "eventType")).selectByVisibleText(value);
 
     }
 
     public void selectTemplateCaseType(String value) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("caseType"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "caseType")).selectByVisibleText(value);
     }
 
     public void selectTemplateProblemArea(String value) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("problemArea"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "problemArea")).selectByVisibleText(value);
     }
 
     public void selectAvailableCommunicationChannel(String value) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("preferredChannelId"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "preferredChannelId")).selectByVisibleText(value);
     }
 
     public void selectTemplateName(String value) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("templateList"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "templateList")).selectByVisibleText(value);
     }
 
     public void selectMessageFormat(String value) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("formatList"))).selectByVisibleText(value);
+        new Select(tool.searchUsingID(tool, "formatList")).selectByVisibleText(value);
     }
 
     public void clickReviewCommunication() throws Exception {

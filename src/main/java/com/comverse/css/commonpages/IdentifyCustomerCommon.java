@@ -263,7 +263,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public void selectShadowOnly() throws Exception {
-        new Select(tool.driver.findElement(By.id("subscriberType"))).selectByVisibleText("Shadow Only");
+        new Select(tool.searchUsingID(tool, "subscriberType")).selectByVisibleText("Shadow Only");
     }
 
     public void checkIncludeInactiveSubscriberID() throws Exception {

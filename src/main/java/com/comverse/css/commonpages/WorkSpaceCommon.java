@@ -373,7 +373,7 @@ public class WorkSpaceCommon extends CommonMenu {
     }
 
     public void selectCustomerType(String customerType) throws Exception {
-        new Select(tool.driver.findElement(By.id("orgTypeId"))).selectByVisibleText(customerType);
+        new Select(tool.searchUsingID(tool, "orgTypeId")).selectByVisibleText(customerType);
     }
 
     public ShoppingCommon clickSubmit() throws Exception {

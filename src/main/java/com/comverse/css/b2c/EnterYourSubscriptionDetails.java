@@ -75,7 +75,7 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public void selectTitle(String title) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("title"))).selectByVisibleText(title);
+        new Select(tool.searchUsingID(tool, "title")).selectByVisibleText(title);
 
     }
 
@@ -130,13 +130,13 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public void enterHomeCountry(String homeCountry) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_country"))).selectByVisibleText(homeCountry);
+        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(homeCountry);
 
     }
 
     public void enterHomeState(String homeState) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("home_state"))).selectByVisibleText(homeState);
+        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(homeState);
 
     }
 

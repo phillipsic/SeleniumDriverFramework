@@ -37,7 +37,7 @@ public class ConfigureServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void selectTopLevelContainerType(String containerType) throws Exception {
-        new Select(tool.driver.findElement(By.id("p-advInvSearch-L4:17000"))).selectByVisibleText(containerType);
+        new Select(tool.searchUsingID(tool, "p-advInvSearch-L4:17000")).selectByVisibleText(containerType);
     }
 
     public ServiceConnectionDetailsCommon clickOK() throws Exception {

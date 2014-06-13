@@ -49,7 +49,7 @@ public class AddressAdd extends AddressAddCommon {
     @Override
 	public void selectCountry(String country) throws Exception {
 
-        new Select(tool.driver.findElement(By.id("countryCode"))).selectByVisibleText(country);
+        new Select(tool.searchUsingID(tool, "countryCode")).selectByVisibleText(country);
 
     }
 
