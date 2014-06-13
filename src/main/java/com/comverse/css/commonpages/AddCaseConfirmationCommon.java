@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -32,12 +30,12 @@ public class AddCaseConfirmationCommon extends CommonMenu {
 
     public String getConfirmationMessage() throws Exception {
 
-        return tool.driver.findElement(By.cssSelector("BODY")).getText();
+        return tool.getTextUsingCssSelector(tool, "BODY");
     }
 
     public String getCaseID() throws Exception {
 
-        String caseID = tool.driver.findElement(By.cssSelector("div.txt > span")).getText();
+        String caseID = tool.getTextUsingCssSelector(tool, "div.txt > span");
 
         caseID = caseID.replaceAll("[a-zA-Z \\.]", "");
         System.out.println("New Case ID : " + caseID);

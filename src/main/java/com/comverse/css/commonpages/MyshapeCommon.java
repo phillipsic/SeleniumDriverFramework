@@ -133,6 +133,6 @@ public class MyshapeCommon extends CommonMenu {
     public String getChangePasswordOnFirstLoginMessage() throws Exception {
         System.out.println(">>" + tool.driver.findElement(By.cssSelector("span")).getText());
 
-        return tool.driver.findElement(By.cssSelector("span")).getText();
+        return tool.getTextUsingCssSelector(tool, "span");
     }
 }

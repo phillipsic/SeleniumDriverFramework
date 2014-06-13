@@ -216,7 +216,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public String getAccountNumber() throws Exception {
         String temp1[];
-        String temp = tool.driver.findElement(By.cssSelector("div.navContextMain")).getText();
+        String temp = tool.getTextUsingCssSelector(tool, "div.navContextMain");
         temp1 = temp.split("-");
         return Common.cleanStringOfIllegalChars(temp1[0]);
     }

@@ -1,7 +1,5 @@
 package com.comverse.common;
 
-import org.openqa.selenium.By;
-
 import com.comverse.css.common.PropertyHelper;
 
 public class Application extends Main {
@@ -85,9 +83,9 @@ public class Application extends Main {
         return Version;
     }
 
-    public void setVersion(AutomationTool tool) {
+    public void setVersion(AutomationTool tool) throws Exception {
         tool.driver.get(this.versionURL() + "/jfn?entry=status");
-        String bodyText = tool.driver.findElement(By.cssSelector("body")).getText();
+        String bodyText = tool.getTextUsingCssSelector(tool, "body");
         String[] temp = bodyText.split("\\r?\\n");
         String[] temp2 = temp[0].split("Service");
 
