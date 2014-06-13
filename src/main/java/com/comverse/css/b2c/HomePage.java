@@ -140,13 +140,13 @@ public class HomePage extends B2CMenu {
 
     public String getLogoffMessage() throws Exception {
 
-        return tool.driver.findElement(By.cssSelector("span")).getText();
+        return tool.getTextUsingCssSelector(tool, "span");
 
     }
 
     public String getSignMeUpMessage() throws Exception {
 
-        return tool.driver.findElement(By.cssSelector("span")).getText();
+        return tool.getTextUsingCssSelector(tool, "span");
 
     }
 
@@ -205,13 +205,13 @@ public class HomePage extends B2CMenu {
 
     public String getActivateAccountMessage() throws Exception {
 
-        return tool.driver.findElement(By.cssSelector("span")).getText();
+        return tool.getTextUsingCssSelector(tool, "span");
 
     }
 
     public String getMessageFromTheSignMeUpPage() throws Exception {
         System.out.println(">>" + tool.driver.findElement(By.cssSelector("span")).getText());
-        return tool.driver.findElement(By.cssSelector("span")).getText();
+        return tool.getTextUsingCssSelector(tool, "span");
 
     }
 
@@ -228,7 +228,7 @@ public class HomePage extends B2CMenu {
 
     public String getSuccesfulSignMeUpMessage() throws Exception {
         System.out.println(">>" + tool.driver.findElement(By.cssSelector("span")).getText());
-        return tool.driver.findElement(By.cssSelector("span")).getText();
+        return tool.getTextUsingCssSelector(tool, "span");
 
     }
 

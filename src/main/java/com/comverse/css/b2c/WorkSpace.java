@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,7 +25,7 @@ public class WorkSpace extends B2CMenu {
 
     public String getMyLinesText() throws Exception {
 
-        return tool.driver.findElement(By.cssSelector("div.dashboardLineName")).getText();
+        return tool.getTextUsingCssSelector(tool, "div.dashboardLineName");
     }
 
     public PrimaryOfferDetails clickOnOfferLink(String offerNamer) throws Exception {
