@@ -23,14 +23,14 @@ public class CustomerSearchResultCommon extends CommonMenu {
 
     public AccountDetailsCommon clickPersonNameLink(String lastName) throws Exception {
 
-        tool.driver.findElement(By.partialLinkText(lastName)).click();
+        tool.clickUsingPartialLinkText(tool, lastName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickAccountLink(String accountNumber) throws Exception {
 
-        tool.driver.findElement(By.partialLinkText(accountNumber)).click();
+        tool.clickUsingPartialLinkText(tool, accountNumber);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
@@ -51,7 +51,7 @@ public class CustomerSearchResultCommon extends CommonMenu {
 
     public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {
 
-        tool.driver.findElement(By.partialLinkText(MSISDN)).click();
+        tool.clickUsingPartialLinkText(tool, MSISDN);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }

@@ -33,7 +33,6 @@ public class SearchMember extends B2CMenu {
 
     public void enterLastName(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-L1:8-L3:1470", lastName);
     }
 
@@ -51,7 +50,7 @@ public class SearchMember extends B2CMenu {
 
     public void clickOnCustomerNameLink(String lastname) throws Exception {
 
-        tool.driver.findElement(By.partialLinkText(lastname)).click();
+        tool.clickUsingPartialLinkText(tool, lastname);
 
     }
 

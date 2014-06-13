@@ -25,7 +25,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "accountId", accountID);
         tool.driver.findElement(By.name("accountButton")).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -43,19 +43,19 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public void searchByPersonNatioanlIdMultiplePersons(String id) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "nationalId", id);
         tool.driver.findElement(By.name("personButton")).click();
     }
 
     public void searchByPersonDOBMultiplePersons(String DOB) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "dateOfBirth", DOB);
         tool.driver.findElement(By.name("personButton")).click();
     }
 
     public AccountDetailsCommon searchByCaseID(String caseID) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "caseId", caseID);
         tool.driver.findElement(By.name("caseButton")).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -63,7 +63,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public CustomerSearchResultCommon searchByCaseIDMultiplePersons(String caseID) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "caseId", caseID);
         tool.driver.findElement(By.name("caseButton")).click();
 
@@ -73,7 +73,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "accountId", accountID);
         tool.driver.findElement(By.name("accountButton")).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -91,7 +90,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public AccountDetailsCommon gotoAccountDashboardUsingAccountLastName(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "accountLastName", lastName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -109,7 +107,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "accountLastName", lastName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
 
@@ -119,7 +116,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public CustomerSearchResultCommon searchByAccountFirstNameMultiplePersons(String firstName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "accountFirstName", firstName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
 
@@ -129,7 +125,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public SubscriberDetailsCommon searchBySubscriberMSISDN(String MSISDN) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "subscriberId", MSISDN);
         tool.driver.findElement(By.name("subscriberButton")).click();
 
@@ -140,7 +135,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public CustomerSearchResultCommon searchBySubscriberMSISDNMultiplePersons(String MSISDN) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "subscriberId", MSISDN);
         tool.driver.findElement(By.name("subscriberButton")).click();
 
@@ -150,7 +144,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public AccountDetailsCommon searchByAccountLastNameSinglePerson(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "accountLastName", lastName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
 
@@ -160,7 +153,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public AccountDetailsCommon searchByAccountFirstNameSinglePerson(String firstName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "accountFirstName", firstName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
 
@@ -170,7 +162,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public AccountDetailsCommon searchByCompanyNameSinglePerson(String companyName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "companyName", companyName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
 
@@ -180,7 +171,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public CustomerSearchResultCommon searchByCompanyNameMultiplePersons(String companyName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "companyName", companyName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
 
@@ -190,7 +180,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public AccountDetailsCommon searchByPersonLastNameSinglePerson(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "personLastName", lastName);
         tool.driver.findElement(By.name("personButton")).click();
 
@@ -200,7 +189,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public AccountDetailsCommon searchByPersonFirstNameSinglePerson(String firstName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "personFirstName", firstName);
         tool.driver.findElement(By.name("personButton")).click();
 
@@ -210,7 +198,6 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public CustomerSearchResultCommon searchAccountWildCard() throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-L2:40-L3:2150", "*");
         tool.driver.findElement(By.cssSelector("input.submit")).click();
 
@@ -219,25 +206,21 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public void setPersonFirstName(String firstName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "personFirstName", firstName);
     }
 
     public void setPersonLastName(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "personLastName", lastName);
     }
 
     public void setNationalID(String nationID) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "nationalId", nationID);
     }
 
     public void setDateOfBirth(String dob) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "dateOfBirth", dob);
     }
 
@@ -272,7 +255,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {
 
-        tool.driver.findElement(By.partialLinkText(MSISDN)).click();
+        tool.clickUsingPartialLinkText(tool, MSISDN);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }

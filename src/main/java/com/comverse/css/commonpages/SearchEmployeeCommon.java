@@ -23,7 +23,6 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public SearchEmployeeCommon searchEmployeeByLastName(String ln) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-L2:10-L3:1470", ln);
         tool.driver.findElement(By.xpath("//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']")).click();
 
@@ -54,7 +53,7 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public ContactInformationCommon clickEmployeeNameLink(String FirstOrLastName) throws Exception {
 
-        tool.driver.findElement(By.partialLinkText(FirstOrLastName)).click();
+        tool.clickUsingPartialLinkText(tool, FirstOrLastName);
 
         return new ContactInformationCommon(tool, test, user);
 

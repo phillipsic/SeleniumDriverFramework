@@ -45,7 +45,7 @@ public class AutomationTool extends Main {
         return null;
     }
 
-    public void clickUsingLinkPartialText(AutomationTool tool, String partialLinkText) throws Exception {
+    public void clickUsingPartialLinkText(AutomationTool tool, String partialLinkText) throws Exception {
     }
 
     public void clickUsingTagName(AutomationTool tool, String tagName) throws Exception {

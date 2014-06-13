@@ -207,7 +207,7 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void clickUsingLinkPartialText(AutomationTool tool, String partialLinkText) throws Exception {
+    public void clickUsingPartialLinkText(AutomationTool tool, String partialLinkText) throws Exception {
         tool.driver.findElement(By.partialLinkText(partialLinkText)).click();
     }
 

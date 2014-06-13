@@ -27,7 +27,6 @@ public class SearchCustomer extends B2CMenu {
 
     public void enterLastName(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-L1:3-L3:1470", lastName);
     }
 
@@ -45,7 +44,7 @@ public class SearchCustomer extends B2CMenu {
 
     public ContactInformation clickOnCustomerNameLink(String lastname) throws Exception {
 
-        tool.driver.findElement(By.partialLinkText(lastname)).click();
+        tool.clickUsingPartialLinkText(tool, lastname);
         return new ContactInformation(tool, test, user);
     }
 

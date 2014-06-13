@@ -182,7 +182,7 @@ public class ShoppingCommon extends CommonMenu {
 
     public void clickAccessoriesTab() throws Exception {
 
-        tool.driver.findElement(By.partialLinkText("Accessories")).click();
+        tool.clickUsingPartialLinkText(tool, "Accessories");
         Common.waitForAccessoriesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
