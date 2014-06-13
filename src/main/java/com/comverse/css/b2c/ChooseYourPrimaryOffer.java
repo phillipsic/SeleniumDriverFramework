@@ -44,14 +44,14 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         tool.clickUsingCssSelector(tool, "#selectButton_" + offerID);
         // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
-        System.out.println("Checking for device page");
+       /* System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {
 
             tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
 
-        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());*/
         return new ChooseYourDevice(tool, test, user);
     }
 
