@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -28,13 +27,11 @@ public class AddEmployeeContactInformation extends B2BMenu {
 
     public void enterFirstName(String firstName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "first_name", firstName);
     }
 
     public void enterLastName(String lastName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "last_name", lastName);
     }
 

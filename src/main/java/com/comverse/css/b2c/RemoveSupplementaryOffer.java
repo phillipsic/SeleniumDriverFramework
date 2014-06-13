@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -14,7 +12,6 @@ public class RemoveSupplementaryOffer extends B2CMenu {
         String expectedScreen = "Remove supplementary offer";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }

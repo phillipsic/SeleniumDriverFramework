@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,7 +25,6 @@ public class AddEmployeeRegisterLogin extends B2BMenu {
 
     public void enterLogin(String login) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "login", login);
     }
 
