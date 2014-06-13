@@ -93,56 +93,56 @@ public class ModifyContactInformationCommon extends CommonMenu {
     }
 
     public void enterFirstName(String FN) throws Exception {
-        tool.driver.findElement(By.id("first_name")).clear();
-        tool.driver.findElement(By.id("first_name")).sendKeys(FN);
+        
+        tool.enterStringUsingId(tool, "first_name", FN);
     }
 
     public void enterLastName(String lastName) throws Exception {
-        tool.driver.findElement(By.id("last_name")).clear();
-        tool.driver.findElement(By.id("last_name")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "last_name", lastName);
 
     }
 
     public void enterDayPhone(String dayPhone) throws Exception {
-        tool.driver.findElement(By.id("home_phone")).clear();
-        tool.driver.findElement(By.id("home_phone")).sendKeys(dayPhone);
+        
+        tool.enterStringUsingId(tool, "home_phone", dayPhone);
 
     }
 
     public void enterEveningPhone(String eveningPhone) throws Exception {
-        tool.driver.findElement(By.id("work_phone")).clear();
-        tool.driver.findElement(By.id("work_phone")).sendKeys(eveningPhone);
+        
+        tool.enterStringUsingId(tool, "work_phone", eveningPhone);
 
     }
 
     public void enterEmail(String eMail) throws Exception {
-        tool.driver.findElement(By.id("email")).clear();
-        tool.driver.findElement(By.id("email")).sendKeys(eMail);
+        
+        tool.enterStringUsingId(tool, "email", eMail);
     }
 
     public void enterPhoneNumber(String phoneNumber) throws Exception {
-        tool.driver.findElement(By.id("home_phone")).clear();
-        tool.driver.findElement(By.id("home_phone")).sendKeys(phoneNumber);
+        
+        tool.enterStringUsingId(tool, "home_phone", phoneNumber);
     }
 
     public void enterFaxNumber(String faxNumber) throws Exception {
-        tool.driver.findElement(By.id("fax")).clear();
-        tool.driver.findElement(By.id("fax")).sendKeys(faxNumber);
+        
+        tool.enterStringUsingId(tool, "fax", faxNumber);
     }
 
     public void enterAddressLineOne(String addressLineOne) throws Exception {
-        tool.driver.findElement(By.id("address_line_1")).clear();
-        tool.driver.findElement(By.id("address_line_1")).sendKeys(addressLineOne);
+        
+        tool.enterStringUsingId(tool, "address_line_1", addressLineOne);
     }
 
     public void enterPostCode(String postCode) throws Exception {
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(postCode);
+        
+        tool.enterStringUsingId(tool, "home_zip", postCode);
     }
 
     public void enterCity(String city) throws Exception {
-        tool.driver.findElement(By.id("home_city")).clear();
-        tool.driver.findElement(By.id("home_city")).sendKeys(city);
+        
+        tool.enterStringUsingId(tool, "home_city", city);
     }
 
     public void enterState(String state) throws Exception {
@@ -161,8 +161,8 @@ public class ModifyContactInformationCommon extends CommonMenu {
 
     public void setLevelName(String uniqueString) throws Exception {
 
-        tool.driver.findElement(By.id("company_name")).clear();
-        tool.driver.findElement(By.id("company_name")).sendKeys(uniqueString);
+        
+        tool.enterStringUsingId(tool, "company_name", uniqueString);
     }
 
     public void setLevelState(String uniqueState) throws Exception {

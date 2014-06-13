@@ -76,8 +76,8 @@ public class SFAMenu extends SFATest {
         String textFieldID = temp[1].replaceAll("=", "");
         textFieldID = Common.cleanStringOfIllegalChars(textFieldID);
 
-        tool.driver.findElement(By.id(textFieldID)).clear();
-        tool.driver.findElement(By.id(textFieldID)).sendKeys(OrgName);
+        
+        tool.enterStringUsingId(tool, textFieldID, OrgName);
     }
 
     public void selectFindType(String value) throws Exception {

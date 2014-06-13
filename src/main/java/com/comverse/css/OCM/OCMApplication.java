@@ -112,10 +112,10 @@ public class OCMApplication extends Main {
         String deviceDesc = descCell.getContents();
 
         System.out.println("Starting creation of " + deviceName);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:name")).sendKeys(deviceName);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:code")).sendKeys(deviceCode);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:shortDesc")).sendKeys(deviceDesc);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:description")).sendKeys(deviceDesc);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", deviceName);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", deviceCode);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", deviceDesc);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", deviceDesc);
         tool.driver.findElement(By.id("mainPanel:edit:buttons:createProduct")).click();
 
         boolean ExistingDevice = false;
@@ -155,17 +155,17 @@ public class OCMApplication extends Main {
         String warehouse = warehouseCell.getContents();
         System.out.println(warehouse);
 
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":contentRef")).sendKeys(smallImagePath);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":contentRef", smallImagePath);
 
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":contentRef")).sendKeys(largeImagePath);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":contentRef", largeImagePath);
 
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer")).sendKeys(smallImagePath);
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer")).sendKeys(largeImagePath);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer", smallImagePath);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer", largeImagePath);
 
         new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
 
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString")).sendKeys(warehouse);
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString")).sendKeys(
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", 
                 "CSS_PQA Terms And Conditions");
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("Cable") + ":choiceMany:" + this.selectSecondIDs("Cable") + ":selected"))
                 .click();
@@ -222,15 +222,15 @@ public class OCMApplication extends Main {
 
         this.SelectUSDCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:price")).sendKeys(priceUSD);
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:startDate")).sendKeys(myformat.format(date));
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
 
         this.SelectEURCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:price")).sendKeys(priceEUR);
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:startDate")).sendKeys(myformat.format(date));
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
 
@@ -266,10 +266,10 @@ public class OCMApplication extends Main {
         // construct with good ID's
         tool.driver.findElement(By.xpath("//span[.= 'Residential - Ultra Postpaid']/../..//a")).click();
 
-        tool.driver.findElement(By.id("mainPanel:edit:fields:name")).sendKeys(deviceName + SubsidizeString);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:code")).sendKeys(deviceCode + SubsidizeString);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:shortDesc")).sendKeys(deviceDesc + SubsidizeString);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:description")).sendKeys(deviceDesc + SubsidizeString);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", deviceName + SubsidizeString);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", deviceCode + SubsidizeString);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", deviceDesc + SubsidizeString);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", deviceDesc + SubsidizeString);
         tool.driver.findElement(By.id("mainPanel:edit:buttons:createProduct")).click();
 
         // Click on Prices tab
@@ -277,15 +277,15 @@ public class OCMApplication extends Main {
 
         this.SelectUSDCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:price")).sendKeys(priceUSD);
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:startDate")).sendKeys(myformat.format(date));
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
 
         this.SelectEURCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:price")).sendKeys(priceEUR);
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:startDate")).sendKeys(myformat.format(date));
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
 
@@ -342,10 +342,10 @@ public class OCMApplication extends Main {
 
         System.out.println("Starting creation of " + accessoryName);
 
-        tool.driver.findElement(By.id("mainPanel:edit:fields:name")).sendKeys(accessoryName);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:code")).sendKeys(accessoryCode);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:shortDesc")).sendKeys(accessoryDesc);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:description")).sendKeys(accessoryDesc);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", accessoryName);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", accessoryCode);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", accessoryDesc);
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", accessoryDesc);
         tool.driver.findElement(By.id("mainPanel:edit:buttons:createProduct")).click();
 
         boolean ExistingAccessory = false;
@@ -377,17 +377,17 @@ public class OCMApplication extends Main {
         Cell warehouseCell = workSheet.getCell(9, rowCount);
         String warehouse = warehouseCell.getContents();
 
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":contentRef")).sendKeys(smallImagePath);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":contentRef", smallImagePath);
 
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":contentRef")).sendKeys(largeImagePath);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":contentRef", largeImagePath);
 
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer")).sendKeys(smallImagePath);
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer")).sendKeys(largeImagePath);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer", smallImagePath);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer", largeImagePath);
 
         new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
 
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString")).sendKeys(warehouse);
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString")).sendKeys(
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", 
                 "CSS_PQA Terms And Conditions");
 
         tool.driver.findElement(By.id("mainPanel:productForm:b_updateAttributes")).click();
@@ -413,15 +413,15 @@ public class OCMApplication extends Main {
 
         this.SelectUSDCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:price")).sendKeys(priceUSD);
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:startDate")).sendKeys(myformat.format(date));
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
 
         this.SelectEURCurrency();
         tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:price")).sendKeys(priceEUR);
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:0:startDate")).sendKeys(myformat.format(date));
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
+        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
         tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
 

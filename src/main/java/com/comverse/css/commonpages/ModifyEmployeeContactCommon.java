@@ -90,44 +90,44 @@ public class ModifyEmployeeContactCommon extends CommonMenu {
     }
 
     public void enterFirstName(String FN) throws Exception {
-        tool.driver.findElement(By.id("first_name")).clear();
-        tool.driver.findElement(By.id("first_name")).sendKeys(FN);
+        
+        tool.enterStringUsingId(tool, "first_name", FN);
     }
 
     public void enterLastName(String lastName) throws Exception {
-        tool.driver.findElement(By.id("last_name")).clear();
-        tool.driver.findElement(By.id("last_name")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "last_name", lastName);
 
     }
 
     public void enterEmail(String eMail) throws Exception {
-        tool.driver.findElement(By.id("email")).clear();
-        tool.driver.findElement(By.id("email")).sendKeys(eMail);
+        
+        tool.enterStringUsingId(tool, "email", eMail);
     }
 
     public void enterPhoneNumber(String phoneNumber) throws Exception {
-        tool.driver.findElement(By.id("home_phone")).clear();
-        tool.driver.findElement(By.id("home_phone")).sendKeys(phoneNumber);
+        
+        tool.enterStringUsingId(tool, "home_phone", phoneNumber);
     }
 
     public void enterFaxNumber(String faxNumber) throws Exception {
-        tool.driver.findElement(By.id("fax")).clear();
-        tool.driver.findElement(By.id("fax")).sendKeys(faxNumber);
+        
+        tool.enterStringUsingId(tool, "fax", faxNumber);
     }
 
     public void enterAddressLineOne(String addressLineOne) throws Exception {
-        tool.driver.findElement(By.id("address_line_1")).clear();
-        tool.driver.findElement(By.id("address_line_1")).sendKeys(addressLineOne);
+        
+        tool.enterStringUsingId(tool, "address_line_1", addressLineOne);
     }
 
     public void enterPostCode(String postCode) throws Exception {
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(postCode);
+        
+        tool.enterStringUsingId(tool, "home_zip", postCode);
     }
 
     public void enterCity(String city) throws Exception {
-        tool.driver.findElement(By.id("home_city")).clear();
-        tool.driver.findElement(By.id("home_city")).sendKeys(city);
+        
+        tool.enterStringUsingId(tool, "home_city", city);
     }
 
     public ModifyEmployeeContactConfirmationCommon clickOk() throws Exception {

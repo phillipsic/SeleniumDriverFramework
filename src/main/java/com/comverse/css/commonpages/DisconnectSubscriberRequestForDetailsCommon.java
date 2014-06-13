@@ -33,8 +33,8 @@ public class DisconnectSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public void setAnnotation(String annotation) throws Exception {
 
-        tool.driver.findElement(By.id("annotation")).clear();
-        tool.driver.findElement(By.id("annotation")).sendKeys(annotation);
+        
+        tool.enterStringUsingId(tool, "annotation", annotation);
     }
 
     public DisconnectSubscriberImpactsCommon clickContinue() throws Exception {

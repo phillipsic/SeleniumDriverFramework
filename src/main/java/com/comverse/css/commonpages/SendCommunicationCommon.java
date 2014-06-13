@@ -95,8 +95,8 @@ public class SendCommunicationCommon extends CommonMenu {
     }
 
     public void enterEmailTo(String value) throws Exception {
-        tool.driver.findElement(By.id("emailTo")).clear();
-        tool.driver.findElement(By.id("emailTo")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "emailTo", value);
 
     }
 

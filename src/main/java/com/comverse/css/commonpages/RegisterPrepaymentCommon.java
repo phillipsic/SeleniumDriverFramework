@@ -22,8 +22,8 @@ public class RegisterPrepaymentCommon extends CommonMenu {
 
     public void enterAmount(String amount) throws Exception {
 
-        tool.driver.findElement(By.id("amount")).clear();
-        tool.driver.findElement(By.id("amount")).sendKeys(amount);
+        
+        tool.enterStringUsingId(tool, "amount", amount);
     }
 
     public void selectPaymentMethod(String paymentMethod) throws Exception {
@@ -40,28 +40,28 @@ public class RegisterPrepaymentCommon extends CommonMenu {
     }
 
     public void enterCardNumber(String cardNumber) throws Exception {
-        tool.driver.findElement(By.id("cardNumber")).clear();
-        tool.driver.findElement(By.id("cardNumber")).sendKeys(cardNumber);
+        
+        tool.enterStringUsingId(tool, "cardNumber", cardNumber);
     }
 
     public void enterCardExpDate(String expirationDate) throws Exception {
-        tool.driver.findElement(By.id("cardExpirationDate")).clear();
-        tool.driver.findElement(By.id("cardExpirationDate")).sendKeys(expirationDate);
+        
+        tool.enterStringUsingId(tool, "cardExpirationDate", expirationDate);
     }
 
     public void enterCardHolderLastName(String lastName) throws Exception {
-        tool.driver.findElement(By.id("cardHolderName")).clear();
-        tool.driver.findElement(By.id("cardHolderName")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "cardHolderName", lastName);
     }
 
     public void enterCardHolderFirstName(String firstName) throws Exception {
-        tool.driver.findElement(By.id("cardHolderFName")).clear();
-        tool.driver.findElement(By.id("cardHolderFName")).sendKeys(firstName);
+        
+        tool.enterStringUsingId(tool, "cardHolderFName", firstName);
     }
 
     public void enterCardSecretCode(String secretCode) throws Exception {
-        tool.driver.findElement(By.id("cardSecretCode")).clear();
-        tool.driver.findElement(By.id("cardSecretCode")).sendKeys(secretCode);
+        
+        tool.enterStringUsingId(tool, "cardSecretCode", secretCode);
     }
 
     public RegisterPrepaymentConfirmCommon clickConfirm() throws Exception {
@@ -72,7 +72,7 @@ public class RegisterPrepaymentCommon extends CommonMenu {
     }
 
     public void enterZipPostalCode(String postalCode) throws Exception {
-        tool.driver.findElement(By.id("cardZipPostCode")).clear();
-        tool.driver.findElement(By.id("cardZipPostCode")).sendKeys(postalCode);
+        
+        tool.enterStringUsingId(tool, "cardZipPostCode", postalCode);
     }
 }

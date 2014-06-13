@@ -17,22 +17,18 @@ public class UploadToken extends CommonMenu {
         String expectedScreen = "Upload Token";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
 
     }
 
     public void selectFile(String filename) throws Exception {
-
         File file = new File(filename);
-        // tool.driver.findElement(By.id("fileUpload")).clear();
-        tool.driver.findElement(By.id("fileUpload")).sendKeys(file.getAbsolutePath());
+        tool.enterStringUsingId(tool, "fileUpload", file.getAbsolutePath());
 
     }
 
     public Tokensfound clickOk() throws Exception {
-
         tool.driver.findElement(By.xpath("//input[@value='Ok']")).click();
 
         return new Tokensfound(tool, test, user);

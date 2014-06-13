@@ -28,8 +28,8 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     }
 
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
-        tool.driver.findElement(By.id(limitName + "_limit")).clear();
-        tool.driver.findElement(By.id(limitName + "_limit")).sendKeys(limitAmount);
+        
+        tool.enterStringUsingId(tool, limitName + "_limit", limitAmount);
     }
 
     public void setLang(String lang) throws Exception {

@@ -23,8 +23,8 @@ public class RechargeWithFreeAmount extends B2CMenu {
 
     public void enterRechargeAmount(String rechargeAmount) throws Exception {
 
-        tool.driver.findElement(By.id("rechargeAmount")).clear();
-        tool.driver.findElement(By.id("rechargeAmount")).sendKeys(rechargeAmount);
+        
+        tool.enterStringUsingId(tool, "rechargeAmount", rechargeAmount);
     }
 
     public SelectRechargePaymentMethod clickContinue() throws Exception {

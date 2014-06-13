@@ -17,7 +17,7 @@ public class CaseUIAccounts extends CaseUITest {
     }
 
     public void clickSearch(String accountLastname) throws Exception {
-        tool.driver.findElement(By.id("Ih246r")).sendKeys("%" + accountLastname);
+        tool.enterStringUsingId(tool, "Ih246r", "%" + accountLastname);
         tool.driver.findElement(By.id("$79ot1w_filterbutton")).click();
         Thread.sleep(3000);
     }

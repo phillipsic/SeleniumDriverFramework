@@ -35,8 +35,8 @@ public class AddCase extends B2CMenu {
 
     public void enterDescription(String value) throws Exception {
 
-        tool.driver.findElement(By.id("description")).clear();
-        tool.driver.findElement(By.id("description")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "description", value);
     }
 
     public void selectSubjectRelativeToProblemSubscriber() throws Exception {

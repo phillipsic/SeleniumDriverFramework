@@ -259,8 +259,8 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public void clickSetAwardCounter() throws Exception {
-        tool.driver.findElement(By.id("awardCounter")).clear();
-        tool.driver.findElement(By.id("awardCounter")).sendKeys("2");
+        
+        tool.enterStringUsingId(tool, "awardCounter", "2");
     }
 
     public void clickConfirmAwardCounterReconfiguration() throws Exception {

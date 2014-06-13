@@ -23,8 +23,8 @@ public class AdjustBalanceDetailsCommon extends CommonMenu {
 
     public void enterAdjustmentAmount(String amount) throws Exception {
 
-        tool.driver.findElement(By.id("adjustmentValue")).clear();
-        tool.driver.findElement(By.id("adjustmentValue")).sendKeys(amount);
+        
+        tool.enterStringUsingId(tool, "adjustmentValue", amount);
     }
 
     public AdjustBalanceReviewCommon clickContinue() throws Exception {

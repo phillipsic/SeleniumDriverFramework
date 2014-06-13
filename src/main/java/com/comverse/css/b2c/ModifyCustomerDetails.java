@@ -28,43 +28,43 @@ public class ModifyCustomerDetails extends B2CMenu {
 
     public void enterAddressLineOne(String addressLine1) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_1")).clear();
-        tool.driver.findElement(By.id("address_line_1")).sendKeys(addressLine1);
+        
+        tool.enterStringUsingId(tool, "address_line_1", addressLine1);
 
     }
 
     public void enterAddressLineTwo(String addressLine2) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_2")).clear();
-        tool.driver.findElement(By.id("address_line_2")).sendKeys(addressLine2);
+        
+        tool.enterStringUsingId(tool, "address_line_2", addressLine2);
 
     }
 
     public void enterAddressLineThree(String addressLine3) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_3")).clear();
-        tool.driver.findElement(By.id("address_line_3")).sendKeys(addressLine3);
+        
+        tool.enterStringUsingId(tool, "address_line_3", addressLine3);
 
     }
 
     public void enterAddressLineFour(String addressLine4) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_4")).clear();
-        tool.driver.findElement(By.id("address_line_4")).sendKeys(addressLine4);
+        
+        tool.enterStringUsingId(tool, "address_line_4", addressLine4);
 
     }
 
     public void enterZipCode(String zipCode) throws Exception {
 
-        tool.driver.findElement(By.id("zip")).clear();
-        tool.driver.findElement(By.id("zip")).sendKeys(zipCode);
+        
+        tool.enterStringUsingId(tool, "zip", zipCode);
 
     }
 
     public void enterCity(String city) throws Exception {
 
-        tool.driver.findElement(By.id("city")).clear();
-        tool.driver.findElement(By.id("city")).sendKeys(city);
+        
+        tool.enterStringUsingId(tool, "city", city);
 
     }
 
@@ -76,45 +76,45 @@ public class ModifyCustomerDetails extends B2CMenu {
 
     public void enterFirstName(String firstName) throws Exception {
 
-        tool.driver.findElement(By.id("first_name")).clear();
-        tool.driver.findElement(By.id("first_name")).sendKeys(firstName);
+        
+        tool.enterStringUsingId(tool, "first_name", firstName);
 
     }
 
     public void enterLastName(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("last_name")).clear();
-        tool.driver.findElement(By.id("last_name")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "last_name", lastName);
 
     }
 
     public void enterEmailAddress(String emailAddress) throws Exception {
 
-        tool.driver.findElement(By.id("company_email")).clear();
-        tool.driver.findElement(By.id("company_email")).sendKeys(emailAddress);
+        
+        tool.enterStringUsingId(tool, "company_email", emailAddress);
 
     }
 
     public void enterLogin(String uniqueTimeStamp) throws Exception {
 
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(uniqueTimeStamp);
+        
+        tool.enterStringUsingId(tool, "login", uniqueTimeStamp);
         System.out.println("Login - " + uniqueTimeStamp);
 
     }
 
     public void enterPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password", password);
         System.out.println("Password - " + password);
 
     }
 
     public void enterConfirmPassword(String confirmPassword) throws Exception {
 
-        tool.driver.findElement(By.id("confirm_password")).clear();
-        tool.driver.findElement(By.id("confirm_password")).sendKeys(confirmPassword);
+        
+        tool.enterStringUsingId(tool, "confirm_password", confirmPassword);
 
     }
 
@@ -126,20 +126,20 @@ public class ModifyCustomerDetails extends B2CMenu {
 
     public void enterSecretAnswer(String secretAnswer) throws Exception {
 
-        tool.driver.findElement(By.id("secret_answer")).clear();
-        tool.driver.findElement(By.id("secret_answer")).sendKeys(secretAnswer);
+        
+        tool.enterStringUsingId(tool, "secret_answer", secretAnswer);
     }
 
     public void enterNationalId(String national_id) throws Exception {
 
-        tool.driver.findElement(By.id("national_id")).clear();
-        tool.driver.findElement(By.id("national_id")).sendKeys(national_id);
+        
+        tool.enterStringUsingId(tool, "national_id", national_id);
     }
 
     public void enterDateOfBirth(String dob) throws Exception {
 
-        tool.driver.findElement(By.id("date_of_birth")).clear();
-        tool.driver.findElement(By.id("date_of_birth")).sendKeys(dob);
+        
+        tool.enterStringUsingId(tool, "date_of_birth", dob);
     }
 
     public CustomerDetails clickConfirm() throws Exception {

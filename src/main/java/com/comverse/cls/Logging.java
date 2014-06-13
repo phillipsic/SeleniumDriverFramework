@@ -33,8 +33,8 @@ public class Logging extends CLSMenu {
 
     public void setDisplayUserName(String name) throws Exception {
         tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
-        tool.driver.findElement(By.id("displayUserName")).clear();
-        tool.driver.findElement(By.id("displayUserName")).sendKeys(name);
+        
+        tool.enterStringUsingId(tool, "displayUserName", name);
         tool.driver.switchTo().defaultContent();
     }
 

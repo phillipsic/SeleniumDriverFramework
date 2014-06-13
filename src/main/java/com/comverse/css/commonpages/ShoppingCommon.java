@@ -25,7 +25,7 @@ public class ShoppingCommon extends CommonMenu {
     public void filterSubscriberBundlePrimaryOfferByName(String offername) throws Exception {
 
         this.waitForOffersToLoadOnPage();
-        tool.driver.findElement(By.id("filter_str_plan_name")).sendKeys(offername);
+        tool.enterStringUsingId(tool, "filter_str_plan_name", offername);
 
     }
 
@@ -162,7 +162,7 @@ public class ShoppingCommon extends CommonMenu {
     public MyBasketCommon selectHandset(String value) throws Exception {
 
         tool.driver.findElement(By.id("lnk_ADVANCE_FILTER")).click();
-        tool.driver.findElement(By.id("filterByFreeText")).sendKeys(value);
+        tool.enterStringUsingId(tool, "filterByFreeText", value);
         Common.sleepForNumberOfSeconds(3);
         tool.driver.findElement(By.name("buy_outright")).click();
         return new MyBasketCommon(tool, test, user);
@@ -349,7 +349,7 @@ public class ShoppingCommon extends CommonMenu {
     }
 
     public MyBasketCommon selectAccessory(String value) throws Exception {
-        tool.driver.findElement(By.id("filter_acc_name")).sendKeys(value);
+        tool.enterStringUsingId(tool, "filter_acc_name", value);
         Common.sleepForNumberOfSeconds(3);
         tool.driver.findElement(By.linkText(value)).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

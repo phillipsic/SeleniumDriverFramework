@@ -20,13 +20,13 @@ public class LogonToTheWorkPointManagementConsole extends WPMCMenu {
     }
 
     public void setUserName(String login) throws Exception {
-        tool.driver.findElement(By.name("ResourceID")).clear();
-        tool.driver.findElement(By.name("ResourceID")).sendKeys(login);
+        
+        tool.enterStringUsingName(tool, "ResourceID", login);
     }
 
     public void setPassword(String password) throws Exception {
-        tool.driver.findElement(By.name("Password")).clear();
-        tool.driver.findElement(By.name("Password")).sendKeys(password);
+        
+        tool.enterStringUsingName(tool, "Password", password);
     }
 
     public void clickLogin() throws Exception {

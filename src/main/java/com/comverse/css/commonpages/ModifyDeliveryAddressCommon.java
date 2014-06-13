@@ -36,45 +36,39 @@ public class ModifyDeliveryAddressCommon extends CommonMenu {
 
     }
 
-    public void setAddressLine1(String addressline1) {
+    public void setAddressLine1(String addressline1) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_1")).clear();
-        tool.driver.findElement(By.id("address_line_1")).sendKeys(addressline1);
-
-    }
-
-    public void setAddressLine2(String addressline2) {
-
-        tool.driver.findElement(By.id("address_line_2")).clear();
-        tool.driver.findElement(By.id("address_line_2")).sendKeys(addressline2);
+        tool.enterStringUsingId(tool, "address_line_1", addressline1);
 
     }
 
-    public void setAddressLine3(String addressline3) {
+    public void setAddressLine2(String addressline2) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_3")).clear();
-        tool.driver.findElement(By.id("address_line_3")).sendKeys(addressline3);
-
-    }
-
-    public void setAddressLine4(String addressline4) {
-
-        tool.driver.findElement(By.id("address_line_4")).clear();
-        tool.driver.findElement(By.id("address_line_4")).sendKeys(addressline4);
+        tool.enterStringUsingId(tool, "address_line_2", addressline2);
 
     }
 
-    public void setZipCode(String zipcode) {
+    public void setAddressLine3(String addressline3) throws Exception {
 
-        tool.driver.findElement(By.id("zip_code")).clear();
-        tool.driver.findElement(By.id("zip_code")).sendKeys(zipcode);
+        tool.enterStringUsingId(tool, "address_line_3", addressline3);
 
     }
 
-    public void setCity(String city) {
+    public void setAddressLine4(String addressline4) throws Exception {
 
-        tool.driver.findElement(By.id("city")).clear();
-        tool.driver.findElement(By.id("city")).sendKeys(city);
+        tool.enterStringUsingId(tool, "address_line_4", addressline4);
+
+    }
+
+    public void setZipCode(String zipcode) throws Exception {
+
+        tool.enterStringUsingId(tool, "zip_code", zipcode);
+
+    }
+
+    public void setCity(String city) throws Exception {
+
+        tool.enterStringUsingId(tool, "city", city);
 
     }
 

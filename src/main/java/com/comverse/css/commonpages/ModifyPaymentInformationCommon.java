@@ -31,26 +31,26 @@ public class ModifyPaymentInformationCommon extends CommonMenu {
 
     public void setBankCode(String value) throws Exception {
 
-        tool.driver.findElement(By.id("p-L1:1-L3:1360")).clear();
-        tool.driver.findElement(By.id("p-L1:1-L3:1360")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "p-L1:1-L3:1360", value);
     }
 
     public void setBankAgencyCode(String value) throws Exception {
 
-        tool.driver.findElement(By.id("p-L1:1-L3:1370")).clear();
-        tool.driver.findElement(By.id("p-L1:1-L3:1370")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "p-L1:1-L3:1370", value);
     }
 
     public void setBankAccountNumber(String value) throws Exception {
 
-        tool.driver.findElement(By.id("p-L1:1-L3:1380")).clear();
-        tool.driver.findElement(By.id("p-L1:1-L3:1380")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "p-L1:1-L3:1380", value);
     }
 
     public void setOwnerlastName(String value) throws Exception {
 
-        tool.driver.findElement(By.id("p-L1:1-L3:1270")).clear();
-        tool.driver.findElement(By.id("p-L1:1-L3:1270")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "p-L1:1-L3:1270", value);
     }
 
     public ModifyPaymentMethodCommon clickModifyPaymentButton() throws Exception {

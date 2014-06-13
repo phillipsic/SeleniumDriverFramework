@@ -37,10 +37,10 @@ public class LoginPage extends CommonMenu {
             throw new MissingResourceException("Missing property " + user.getPassword(), "PASSWORD_PROPERTY_FILE", user.getPassword());
         }
 
-        tool.driver.findElement(By.id("login:fields:user")).clear();
-        tool.driver.findElement(By.id("login:fields:user")).sendKeys(user.getLogin());
-        tool.driver.findElement(By.id("login:fields:password")).clear();
-        tool.driver.findElement(By.id("login:fields:password")).sendKeys(user.getPassword());
+        
+        tool.enterStringUsingId(tool, "login:fields:user", user.getLogin());
+        
+        tool.enterStringUsingId(tool, "login:fields:password", user.getPassword());
         tool.driver.findElement(By.name("login:buttons:submit")).click();
 
         Common.assertTextOnPage(tool, "Login completed successfully.");

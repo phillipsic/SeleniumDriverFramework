@@ -55,15 +55,15 @@ public class ViewRCHistoryCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        tool.driver.findElement(By.id("startDate")).clear();
-        tool.driver.findElement(By.id("startDate")).sendKeys(fromDate);
+        
+        tool.enterStringUsingId(tool, "startDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
-        tool.driver.findElement(By.id("endDate")).clear();
-        tool.driver.findElement(By.id("endDate")).sendKeys(toDate);
+        
+        tool.enterStringUsingId(tool, "endDate", toDate);
 
     }
 

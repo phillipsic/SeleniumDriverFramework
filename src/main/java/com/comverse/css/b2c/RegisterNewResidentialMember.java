@@ -27,40 +27,40 @@ public class RegisterNewResidentialMember extends B2CMenu {
 
     public void enterFirstName(String firstName) throws Exception {
 
-        tool.driver.findElement(By.id("firstname")).clear();
-        tool.driver.findElement(By.id("firstname")).sendKeys(firstName);
+        
+        tool.enterStringUsingId(tool, "firstname", firstName);
         System.out.println("Login - " + firstName);
 
     }
 
     public void enterLastName(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("lastname")).clear();
-        tool.driver.findElement(By.id("lastname")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "lastname", lastName);
         System.out.println("Password - " + lastName);
 
     }
 
     public void enterLogin(String login) throws Exception {
 
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "login", login);
         System.out.println("Login - " + login);
 
     }
 
     public void enterPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password", password);
         System.out.println("Password - " + password);
 
     }
 
     public void enterConfirmPassword(String confirmPassword) throws Exception {
 
-        tool.driver.findElement(By.id("confirmPassword")).clear();
-        tool.driver.findElement(By.id("confirmPassword")).sendKeys(confirmPassword);
+        
+        tool.enterStringUsingId(tool, "confirmPassword", confirmPassword);
 
     }
 

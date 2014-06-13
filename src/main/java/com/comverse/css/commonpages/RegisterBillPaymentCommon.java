@@ -22,8 +22,8 @@ public class RegisterBillPaymentCommon extends CommonMenu {
 
     public void enterAmount(String amount) throws Exception {
 
-        tool.driver.findElement(By.id("amount")).clear();
-        tool.driver.findElement(By.id("amount")).sendKeys(amount);
+        
+        tool.enterStringUsingId(tool, "amount", amount);
     }
 
     public void selectPaymentMethod(String paymentmethod) throws Exception {

@@ -25,8 +25,8 @@ public class ManageAccountCommon extends CommonMenu {
 
     public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
 
-        tool.driver.findElement(By.id("p-L2:40-L3:2150")).clear();
-        tool.driver.findElement(By.id("p-L2:40-L3:2150")).sendKeys(accountID);
+        
+        tool.enterStringUsingId(tool, "p-L2:40-L3:2150", accountID);
         tool.driver.findElement(By.cssSelector("input.submit")).click();
 
         return new AccountDetailsCommon(tool, test, user);
@@ -34,8 +34,8 @@ public class ManageAccountCommon extends CommonMenu {
 
     public AccountDetailsCommon searchByAccountLastName(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("accountLastName")).clear();
-        tool.driver.findElement(By.id("accountLastName")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "accountLastName", lastName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -44,8 +44,8 @@ public class ManageAccountCommon extends CommonMenu {
 
     public SearchResultsCommon searchAccountWildCard() throws Exception {
 
-        tool.driver.findElement(By.id("p-L2:40-L3:2150")).clear();
-        tool.driver.findElement(By.id("p-L2:40-L3:2150")).sendKeys("*");
+        
+        tool.enterStringUsingId(tool, "p-L2:40-L3:2150", "*");
         tool.driver.findElement(By.cssSelector("input.submit")).click();
 
         return new SearchResultsCommon(tool, test, user);
@@ -54,8 +54,8 @@ public class ManageAccountCommon extends CommonMenu {
 
     public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("accountLastName")).clear();
-        tool.driver.findElement(By.id("accountLastName")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "accountLastName", lastName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -65,8 +65,8 @@ public class ManageAccountCommon extends CommonMenu {
 
     public AccountDetailsCommon searcByAccountLastNameSinglePerson(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("accountLastName")).clear();
-        tool.driver.findElement(By.id("accountLastName")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "accountLastName", lastName);
         tool.driver.findElement(By.name("accountExtendedButton")).click();
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -76,8 +76,8 @@ public class ManageAccountCommon extends CommonMenu {
 
     public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
 
-        tool.driver.findElement(By.id("accountId")).clear();
-        tool.driver.findElement(By.id("accountId")).sendKeys(accountID);
+        
+        tool.enterStringUsingId(tool, "accountId", accountID);
         tool.driver.findElement(By.name("accountButton")).click();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

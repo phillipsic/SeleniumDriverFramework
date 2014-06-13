@@ -56,20 +56,20 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public void enterFirstName(String firstName) throws Exception {
 
-        tool.driver.findElement(By.id("firstName")).clear();
-        tool.driver.findElement(By.id("firstName")).sendKeys(firstName);
+        
+        tool.enterStringUsingId(tool, "firstName", firstName);
     }
 
     public void enterDateOfBirth(String dob) throws Exception {
 
-        tool.driver.findElement(By.id("p-CONTRACT-L4:90070")).clear();
-        tool.driver.findElement(By.id("p-CONTRACT-L4:90070")).sendKeys(dob);
+        
+        tool.enterStringUsingId(tool, "p-CONTRACT-L4:90070", dob);
     }
 
     public void enterLastName(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("lastName")).clear();
-        tool.driver.findElement(By.id("lastName")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "lastName", lastName);
 
     }
 
@@ -102,29 +102,29 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public void enterstreetNumber(String streetNumber) throws Exception {
 
-        tool.driver.findElement(By.id("streetNumber")).clear();
-        tool.driver.findElement(By.id("streetNumber")).sendKeys(streetNumber);
+        
+        tool.enterStringUsingId(tool, "streetNumber", streetNumber);
 
     }
 
     public void enterHomeCity(String city) throws Exception {
 
-        tool.driver.findElement(By.id("home_city")).clear();
-        tool.driver.findElement(By.id("home_city")).sendKeys(city);
+        
+        tool.enterStringUsingId(tool, "home_city", city);
 
     }
 
     public void enterCounty(String county) throws Exception {
 
-        tool.driver.findElement(By.id("county")).clear();
-        tool.driver.findElement(By.id("county")).sendKeys(county);
+        
+        tool.enterStringUsingId(tool, "county", county);
 
     }
 
     public void enterPostCode(String postCode) throws Exception {
 
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(postCode);
+        
+        tool.enterStringUsingId(tool, "home_zip", postCode);
 
     }
 
@@ -142,22 +142,22 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public void enterPhoneNumber(String phoneNumber) throws Exception {
 
-        tool.driver.findElement(By.id("phoneNumber")).clear();
-        tool.driver.findElement(By.id("phoneNumber")).sendKeys(phoneNumber);
+        
+        tool.enterStringUsingId(tool, "phoneNumber", phoneNumber);
 
     }
 
     public void enterFaxNumber(String faxNumber) throws Exception {
 
-        tool.driver.findElement(By.id("fax")).clear();
-        tool.driver.findElement(By.id("fax")).sendKeys(faxNumber);
+        
+        tool.enterStringUsingId(tool, "fax", faxNumber);
 
     }
 
     public void enterEmail(String email) throws Exception {
 
-        tool.driver.findElement(By.id("email")).clear();
-        tool.driver.findElement(By.id("email")).sendKeys(email);
+        
+        tool.enterStringUsingId(tool, "email", email);
 
     }
 

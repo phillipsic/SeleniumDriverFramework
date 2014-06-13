@@ -31,8 +31,8 @@ public class ManageAccount extends IdentifyCustomerCommon {
     @Override
     public AccountDetails searchByAccountID(String accountID) throws Exception {
 
-        tool.driver.findElement(By.id("p-L2:40-L3:2150")).clear();
-        tool.driver.findElement(By.id("p-L2:40-L3:2150")).sendKeys(accountID);
+        
+        tool.enterStringUsingId(tool, "p-L2:40-L3:2150", accountID);
         tool.driver.findElement(By.cssSelector("input.submit")).click();
 
         return new AccountDetails(tool, test, user);
@@ -40,8 +40,8 @@ public class ManageAccount extends IdentifyCustomerCommon {
 
     public AccountDetails searchByLastName(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("p-L2:40-L2:520")).clear();
-        tool.driver.findElement(By.id("p-L2:40-L2:520")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "p-L2:40-L2:520", lastName);
         tool.driver.findElement(By.cssSelector("input.submit")).click();
 
         return new AccountDetails(tool, test, user);
@@ -49,8 +49,8 @@ public class ManageAccount extends IdentifyCustomerCommon {
 
     public SearchResults searchAccountIDWithWildCard() throws Exception {
 
-        tool.driver.findElement(By.id("accountId")).clear();
-        tool.driver.findElement(By.id("accountId")).sendKeys("*");
+        
+        tool.enterStringUsingId(tool, "accountId", "*");
         tool.driver.findElement(By.name("accountButton")).click();
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

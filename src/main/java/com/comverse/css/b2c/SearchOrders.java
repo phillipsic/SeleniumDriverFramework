@@ -72,18 +72,18 @@ public class SearchOrders extends B2CMenu {
     }
 
     public void setOrderNumber(String orderNumber) throws Exception {
-        tool.driver.findElement(By.id("orderNb")).clear();
-        tool.driver.findElement(By.id("orderNb")).sendKeys(orderNumber);
+        
+        tool.enterStringUsingId(tool, "orderNb", orderNumber);
     }
 
     public void setFromDate(String date) throws Exception {
-        tool.driver.findElement(By.id("startDate")).clear();
-        tool.driver.findElement(By.id("startDate")).sendKeys(date);
+        
+        tool.enterStringUsingId(tool, "startDate", date);
     }
 
     public void setToDate(String date) throws Exception {
-        tool.driver.findElement(By.id("endDate")).clear();
-        tool.driver.findElement(By.id("endDate")).sendKeys(date);
+        
+        tool.enterStringUsingId(tool, "endDate", date);
     }
 
     public String getOrderDate() throws Exception {

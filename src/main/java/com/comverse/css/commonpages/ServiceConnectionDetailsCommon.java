@@ -31,8 +31,8 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void SetEmailInventory(String email) throws Exception {
-        tool.driver.findElement(By.id("inputFields1414")).clear();
-        tool.driver.findElement(By.id("inputFields1414")).sendKeys(email);
+        
+        tool.enterStringUsingId(tool, "inputFields1414", email);
 
     }
 

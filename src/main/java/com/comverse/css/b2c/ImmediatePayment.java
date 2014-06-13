@@ -23,28 +23,28 @@ public class ImmediatePayment extends B2CMenu {
     }
 
     public void enterCardNumber(String cardNumber) throws Exception {
-        tool.driver.findElement(By.id("cardNumber")).clear();
-        tool.driver.findElement(By.id("cardNumber")).sendKeys(cardNumber);
+        
+        tool.enterStringUsingId(tool, "cardNumber", cardNumber);
     }
 
     public void enterCardExpDate(String expirationDate) throws Exception {
-        tool.driver.findElement(By.id("cardExpirationDate")).clear();
-        tool.driver.findElement(By.id("cardExpirationDate")).sendKeys(expirationDate);
+        
+        tool.enterStringUsingId(tool, "cardExpirationDate", expirationDate);
     }
 
     public void enterCardHolderLastName(String lastName) throws Exception {
-        tool.driver.findElement(By.id("cardHolderName")).clear();
-        tool.driver.findElement(By.id("cardHolderName")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "cardHolderName", lastName);
     }
 
     public void enterCardHolderFirstName(String firstName) throws Exception {
-        tool.driver.findElement(By.id("cardHolderFName")).clear();
-        tool.driver.findElement(By.id("cardHolderFName")).sendKeys(firstName);
+        
+        tool.enterStringUsingId(tool, "cardHolderFName", firstName);
     }
 
     public void enterCardSecretCode(String secretCode) throws Exception {
-        tool.driver.findElement(By.id("cardSecretCode")).clear();
-        tool.driver.findElement(By.id("cardSecretCode")).sendKeys(secretCode);
+        
+        tool.enterStringUsingId(tool, "cardSecretCode", secretCode);
     }
 
     public CheckoutConfirmation clickContinue() throws Exception {

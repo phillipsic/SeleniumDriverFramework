@@ -22,8 +22,8 @@ public class ParkTheCurrentBasketCommon extends CommonMenu {
 
     public void enterBasketID(String value) throws Exception {
 
-        tool.driver.findElement(By.id("basket")).clear();
-        tool.driver.findElement(By.id("basket")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "basket", value);
     }
 
     public void clickOk() throws Exception {

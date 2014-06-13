@@ -26,8 +26,8 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public void enterLogin(String login) throws Exception {
 
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "login", login);
     }
 
     public AddEmployeeConfirmation clickSubmit() throws Exception {

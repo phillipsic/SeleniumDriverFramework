@@ -20,8 +20,8 @@ public class PersonMergeCommon extends CommonMenu {
     }
 
     public void setLastName(String LN) throws Exception {
-        tool.driver.findElement(By.id("lastname")).clear();
-        tool.driver.findElement(By.id("lastname")).sendKeys(LN);
+        
+        tool.enterStringUsingId(tool, "lastname", LN);
     }
 
     public void clickPersonSearch() throws Exception {

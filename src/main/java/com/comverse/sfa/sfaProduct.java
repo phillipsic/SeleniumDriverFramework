@@ -26,8 +26,8 @@ public class sfaProduct extends SFAMenu {
 
         String curentWindow = Common.getCurrentWindowHandle(tool);
 
-        tool.driver.findElement(By.id("I7olilf")).clear();
-        tool.driver.findElement(By.id("I7olilf")).sendKeys(productName);
+        
+        tool.enterStringUsingId(tool, "I7olilf", productName);
         tool.driver.findElement(By.id("$n1almt_filterbutton")).click();
         Common.sleepForNumberOfSeconds(2);
         if (!driver.findElement(By.id("$n1almt_rowChkBox_0")).isSelected()) {
@@ -44,8 +44,8 @@ public class sfaProduct extends SFAMenu {
     sfaOpportunity selectProductForOpportunity(String productName) throws Exception {
         String curentWindow = Common.getCurrentWindowHandle(tool);
 
-        tool.driver.findElement(By.id("Imintjv")).clear();
-        tool.driver.findElement(By.id("Imintjv")).sendKeys(productName);
+        
+        tool.enterStringUsingId(tool, "Imintjv", productName);
         tool.driver.findElement(By.id("$ncrm6b_filterbutton")).click();
         Common.sleepForNumberOfSeconds(2);
         if (!driver.findElement(By.id("$ncrm6b_rowChkBox_0")).isSelected()) {

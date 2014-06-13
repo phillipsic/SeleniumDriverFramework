@@ -23,8 +23,8 @@ public class ViewPaymentsCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        tool.driver.findElement(By.id("startDate")).clear();
-        tool.driver.findElement(By.id("startDate")).sendKeys(fromDate);
+        
+        tool.enterStringUsingId(tool, "startDate", fromDate);
 
     }
 

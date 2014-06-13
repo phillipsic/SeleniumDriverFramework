@@ -37,22 +37,22 @@ public class SearchAddressCommon extends CommonMenu {
 
     public void setStreetName(String streetname) throws Exception {
 
-        tool.driver.findElement(By.id("streetName")).clear();
-        tool.driver.findElement(By.id("streetName")).sendKeys(streetname);
+        
+        tool.enterStringUsingId(tool, "streetName", streetname);
 
     }
 
     public void setCity(String city) throws Exception {
 
-        tool.driver.findElement(By.id("home_city")).clear();
-        tool.driver.findElement(By.id("home_city")).sendKeys(city);
+        
+        tool.enterStringUsingId(tool, "home_city", city);
 
     }
 
     public void setZipCode(String zipcode) throws Exception {
 
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(zipcode);
+        
+        tool.enterStringUsingId(tool, "home_zip", zipcode);
 
     }
 

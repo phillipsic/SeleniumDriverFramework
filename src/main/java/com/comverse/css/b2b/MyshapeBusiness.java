@@ -25,10 +25,10 @@ public class MyshapeBusiness extends MyshapeCommon {
     }
 
     public void login(User user) throws Exception {
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(user.getLogin());
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(user.getPassword());
+        
+        tool.enterStringUsingId(tool, "login", user.getLogin());
+        
+        tool.enterStringUsingId(tool, "password", user.getPassword());
         tool.driver.findElement(By.name("LoginButton")).click();
 
         if (tool.driver.getPageSource().contains("Please enter a valid user name and password.")) {
@@ -59,33 +59,33 @@ public class MyshapeBusiness extends MyshapeCommon {
     }
 
     public void enterLoginName(String loginName) throws Exception {
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(loginName);
+        
+        tool.enterStringUsingId(tool, "login", loginName);
     }
 
     public void enterNewPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("password_new")).clear();
-        tool.driver.findElement(By.id("password_new")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_new", password);
     }
 
     public void enterNewPasswordVerify(String password) throws Exception {
-        tool.driver.findElement(By.id("password_verify")).clear();
-        tool.driver.findElement(By.id("password_verify")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_verify", password);
     }
 
     public void enterOldPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("password_old")).clear();
-        tool.driver.findElement(By.id("password_old")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_old", password);
     }
 
     public void enterPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password", password);
     }
 
     public void enterSecretAnswer(String secretAnswer) throws Exception {
-        tool.driver.findElement(By.id("secretAnswer")).clear();
-        tool.driver.findElement(By.id("secretAnswer")).sendKeys(secretAnswer);
+        
+        tool.enterStringUsingId(tool, "secretAnswer", secretAnswer);
     }
 
     public WorkSpace clickLoginButton() throws Exception {

@@ -31,36 +31,36 @@ public class InsertInventory extends CommonMenu {
 
     public void setSerialNumber(String serialNumber) throws Exception {
 
-        tool.driver.findElement(By.id("serialNumber")).clear();
-        tool.driver.findElement(By.id("serialNumber")).sendKeys(serialNumber);
+        
+        tool.enterStringUsingId(tool, "serialNumber", serialNumber);
 
     }
 
     public void setPrimaryNumber(String primaryNumber) throws Exception {
 
-        tool.driver.findElement(By.id("primaryNumber")).clear();
-        tool.driver.findElement(By.id("primaryNumber")).sendKeys(primaryNumber);
+        
+        tool.enterStringUsingId(tool, "primaryNumber", primaryNumber);
 
     }
 
     public void setSecondaryNumber(String secondaryNumber) throws Exception {
 
-        tool.driver.findElement(By.id("secondaryNumber")).clear();
-        tool.driver.findElement(By.id("secondaryNumber")).sendKeys(secondaryNumber);
+        
+        tool.enterStringUsingId(tool, "secondaryNumber", secondaryNumber);
 
     }
 
     public void setTertiaryNumber(String tertiaryNumber) throws Exception {
 
-        tool.driver.findElement(By.id("tertiaryNumber")).clear();
-        tool.driver.findElement(By.id("tertiaryNumber")).sendKeys(tertiaryNumber);
+        
+        tool.enterStringUsingId(tool, "tertiaryNumber", tertiaryNumber);
 
     }
 
     public void setServiceNumber(String serviceNumber) throws Exception {
 
-        tool.driver.findElement(By.id("serviceNumber")).clear();
-        tool.driver.findElement(By.id("serviceNumber")).sendKeys(serviceNumber);
+        
+        tool.enterStringUsingId(tool, "serviceNumber", serviceNumber);
 
     }
 

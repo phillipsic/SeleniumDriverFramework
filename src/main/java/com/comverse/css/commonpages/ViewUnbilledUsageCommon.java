@@ -23,15 +23,15 @@ public class ViewUnbilledUsageCommon extends CommonMenu {
 
     public void enterToDate(String toDate) throws Exception {
 
-        tool.driver.findElement(By.id("toDate")).clear();
-        tool.driver.findElement(By.id("toDate")).sendKeys(toDate);
+        
+        tool.enterStringUsingId(tool, "toDate", toDate);
 
     }
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        tool.driver.findElement(By.id("fromDate")).clear();
-        tool.driver.findElement(By.id("fromDate")).sendKeys(fromDate);
+        
+        tool.enterStringUsingId(tool, "fromDate", fromDate);
 
     }
 

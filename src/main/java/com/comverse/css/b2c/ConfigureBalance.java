@@ -23,14 +23,14 @@ public class ConfigureBalance extends B2CMenu {
 
     public void configureBalance(String balanceName, String balanceValue) throws Exception {
 
-        tool.driver.findElement(By.id(balanceName + "_limit")).clear();
-        tool.driver.findElement(By.id(balanceName + "_limit")).sendKeys(balanceValue);
+        
+        tool.enterStringUsingId(tool, balanceName + "_limit", balanceValue);
     }
 
     public void setSpendingLimit(String spendingLimit) throws Exception {
 
-        tool.driver.findElement(By.id("configuredLimit")).clear();
-        tool.driver.findElement(By.id("configuredLimit")).sendKeys(spendingLimit);
+        
+        tool.enterStringUsingId(tool, "configuredLimit", spendingLimit);
     }
 
     public void selectTargetAccount(String targetBalance) throws Exception {

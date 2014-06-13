@@ -33,8 +33,8 @@ public class ConfigureServiceConnectionDetails extends B2CMenu {
 
     public void setServiceConnectionEmail(String Email) throws Exception {
 
-        // tool.driver.findElement(By.id("inputFields1180")).clear();
-        // tool.driver.findElement(By.id("inputFields1180")).sendKeys(Email);
+        // 
+        // tool.enterStringUsingId(tool, "inputFields1180", Email);
 
         
         tool.enterStringUsingXPath(tool, ".//span[contains(text(), 'Enter your Email address:')]/../../div[2]/input", Email);

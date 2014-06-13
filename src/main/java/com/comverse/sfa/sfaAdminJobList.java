@@ -25,8 +25,8 @@ public class sfaAdminJobList extends SFAMenu {
         Common.sleepForNumberOfSeconds(1);
     }
 
-    void setJobName(String jobName) {
-        tool.driver.findElement(By.id("Ise1y0g")).sendKeys(jobName);
+    void setJobName(String jobName) throws Exception {
+        tool.enterStringUsingId(tool, "Ise1y0g", jobName);
     }
 
     void selectJobType(String jobType) throws Exception {
@@ -42,17 +42,17 @@ public class sfaAdminJobList extends SFAMenu {
         new Select(tool.searchUsingID(tool, "I7g33k8")).selectByVisibleText(fileEncoding);
     }
 
-    void setImportFile(String fileName) {
+    void setImportFile(String fileName) throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
         String leadDirectory = propsHelper.getPasswordProperties("CRMMANAGED.LEADDIR");
         String fileFullPath = leadDirectory + "/" + fileName;
-        tool.driver.findElement(By.id("I6i4zfc")).sendKeys(fileFullPath);
+        tool.enterStringUsingId(tool, "I6i4zfc", fileFullPath);
     }
 
-    void setRejectDir(String rejectDir) {
+    void setRejectDir(String rejectDir) throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
         String leadDirectory = propsHelper.getPasswordProperties("CRMMANAGED.LEADDIR");
-        tool.driver.findElement(By.id("I52cbz6")).sendKeys(leadDirectory + "/" + rejectDir);
+        tool.enterStringUsingId(tool, "I52cbz6", leadDirectory + "/" + rejectDir);
     }
 
     void selectFileHasHeader() {

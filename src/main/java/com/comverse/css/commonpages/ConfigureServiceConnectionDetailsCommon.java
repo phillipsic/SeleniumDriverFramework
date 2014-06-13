@@ -46,8 +46,8 @@ public class ConfigureServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void setServiceConnectionEmail(String Email) throws Exception {
-        tool.driver.findElement(By.id("inputFields1178")).clear();
-        tool.driver.findElement(By.id("inputFields1178")).sendKeys(Email);
+        
+        tool.enterStringUsingId(tool, "inputFields1178", Email);
 
     }
 

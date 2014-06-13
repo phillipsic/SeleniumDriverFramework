@@ -27,14 +27,14 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
 
     public void setPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("password_old")).clear();
-        tool.driver.findElement(By.id("password_old")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_old", password);
     }
 
     public void setSecretAnswer(String answer) throws Exception {
 
-        tool.driver.findElement(By.id("secretAnswer")).clear();
-        tool.driver.findElement(By.id("secretAnswer")).sendKeys(answer);
+        
+        tool.enterStringUsingId(tool, "secretAnswer", answer);
     }
 
     public String getSecretAnswer() throws Exception {

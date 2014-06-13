@@ -47,13 +47,13 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public void enterBirthday(String birthday) throws Exception {
-        tool.driver.findElement(By.id("p-param-L4:90070")).clear();
-        tool.driver.findElement(By.id("p-param-L4:90070")).sendKeys(birthday);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:90070", birthday);
     }
 
     public void enterSecurityWord(String securityWord) throws Exception {
-        tool.driver.findElement(By.id("p-param-L4:91070")).clear();
-        tool.driver.findElement(By.id("p-param-L4:91070")).sendKeys(securityWord);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:91070", securityWord);
 
     }
 
@@ -62,14 +62,14 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public void enterHappyHourStart(String happyHourStart) throws Exception {
-        tool.driver.findElement(By.id("p-param-L4:91170")).clear();
-        tool.driver.findElement(By.id("p-param-L4:91170")).sendKeys(happyHourStart);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:91170", happyHourStart);
 
     }
 
     public void enterHappyHourEnd(String happyHourEnd) throws Exception {
-        tool.driver.findElement(By.id("p-param-L4:91180")).clear();
-        tool.driver.findElement(By.id("p-param-L4:91180")).sendKeys(happyHourEnd);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:91180", happyHourEnd);
 
     }
 

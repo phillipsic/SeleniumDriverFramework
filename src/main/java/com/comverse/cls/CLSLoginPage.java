@@ -20,13 +20,13 @@ public class CLSLoginPage extends CLSMenu {
     }
 
     public void setUserName(String login) throws Exception {
-        tool.driver.findElement(By.id("j_username")).clear();
-        tool.driver.findElement(By.id("j_username")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "j_username", login);
     }
 
     public void setPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("j_password")).clear();
-        tool.driver.findElement(By.id("j_password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "j_password", password);
     }
 
     public void clickLogin() throws Exception {

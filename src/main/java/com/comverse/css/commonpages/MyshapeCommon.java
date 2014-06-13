@@ -43,23 +43,23 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void setYourPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("password_old")).clear();
-        tool.driver.findElement(By.id("password_old")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_old", password);
     }
 
     public void setNewPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("password_new")).clear();
-        tool.driver.findElement(By.id("password_new")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_new", password);
     }
 
     public void setConfirmNewPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("password_verify")).clear();
-        tool.driver.findElement(By.id("password_verify")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_verify", password);
     }
 
     public void setSecretAnswer(String secretAnswer) throws Exception {
-        tool.driver.findElement(By.id("secretAnswer")).clear();
-        tool.driver.findElement(By.id("secretAnswer")).sendKeys(secretAnswer);
+        
+        tool.enterStringUsingId(tool, "secretAnswer", secretAnswer);
     }
 
     public void clickOk() throws Exception {
@@ -84,13 +84,13 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void setUserName(String login) throws Exception {
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "login", login);
     }
 
     public void setPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password", password);
     }
 
     public void selectRealm(String realm) throws Exception {

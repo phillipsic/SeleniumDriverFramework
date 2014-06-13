@@ -29,7 +29,7 @@ public class CaseUITasks extends CaseUITest {
     }
 
     public void clickSearch(String accountLastname) throws Exception {
-        tool.driver.findElement(By.id("Ilgmxak")).sendKeys("%" + accountLastname);
+        tool.enterStringUsingId(tool, "Ilgmxak", "%" + accountLastname);
         tool.driver.findElement(By.id("$as73pr_filterbutton")).click();
         Thread.sleep(3000);
     }
@@ -60,8 +60,8 @@ public class CaseUITasks extends CaseUITest {
         Thread.sleep(1000);
     }
 
-    public void setNoteDescription(String description) {
-        tool.driver.findElement(By.id("Irtjkff")).sendKeys(description);
+    public void setNoteDescription(String description) throws Exception {
+        tool.enterStringUsingId(tool, "Irtjkff", description);
     }
 
     public void clickViewListNote() throws Exception {
@@ -69,11 +69,11 @@ public class CaseUITasks extends CaseUITest {
         Thread.sleep(3000);
     }
 
-    public void setTaskName(String name) {
-        tool.driver.findElement(By.id("Iyky4iy")).sendKeys(name);
+    public void setTaskName(String name) throws Exception {
+        tool.enterStringUsingId(tool, "Iyky4iy", name);
     }
 
-    public void setTaskDescription(String description) {
-        tool.driver.findElement(By.id("Iigsi8h")).sendKeys(description);
+    public void setTaskDescription(String description) throws Exception {
+        tool.enterStringUsingId(tool, "Iigsi8h", description);
     }
 }

@@ -39,7 +39,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void clickSearch(String accountLastname) throws Exception {
-        tool.driver.findElement(By.id("Ilgmxak")).sendKeys("%" + accountLastname + "%");
+        tool.enterStringUsingId(tool, "Ilgmxak", "%" + accountLastname + "%");
         tool.driver.findElement(By.id("$as73pr_filterbutton")).click();
         Thread.sleep(3000);
     }
@@ -50,8 +50,8 @@ public class CaseUICases extends CaseUITest {
         Common.switchToThisWindow(tool, mainWindow);
     }
 
-    public void setCaseDescription(String description) {
-        tool.driver.findElement(By.id("Iigsi8h")).sendKeys(description);
+    public void setCaseDescription(String description) throws Exception {
+        tool.enterStringUsingId(tool, "Iigsi8h", description);
     }
 
     public void saveNewCase() throws Exception {
@@ -90,8 +90,8 @@ public class CaseUICases extends CaseUITest {
         Thread.sleep(1000);
     }
 
-    public void setNoteDescription(String description) {
-        tool.driver.findElement(By.id("Irtjkff")).sendKeys(description);
+    public void setNoteDescription(String description) throws Exception {
+        tool.enterStringUsingId(tool, "Irtjkff", description);
     }
 
     public void clickViewListNote() throws Exception {

@@ -28,16 +28,16 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
 
     public void setLevelName(String levelName) throws Exception {
 
-        tool.driver.findElement(By.id("company_name")).clear();
-        tool.driver.findElement(By.id("company_name")).sendKeys(levelName);
+        
+        tool.enterStringUsingId(tool, "company_name", levelName);
     }
 
     public void setLevelState(String levelState) throws Exception {
 
         new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(levelState);
         /*
-         * tool.driver.findElement(By.id("home_state")).clear();
-         * tool.driver.findElement(By.id("home_state")).sendKeys(levelState);
+         * 
+         * tool.enterStringUsingId(tool, "home_state", levelState);
          */
     }
 

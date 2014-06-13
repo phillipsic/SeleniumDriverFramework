@@ -37,13 +37,13 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void setFirstName(String value) throws Exception {
-        tool.driver.findElement(By.id("firstName")).clear();
-        tool.driver.findElement(By.id("firstName")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "firstName", value);
     }
 
     public void setLastName(String value) throws Exception {
-        tool.driver.findElement(By.id("lastName")).clear();
-        tool.driver.findElement(By.id("lastName")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "lastName", value);
     }
 
     public void setGender(String value) throws Exception {
@@ -63,48 +63,48 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void setEmailAddress(String value) throws Exception {
-        tool.driver.findElement(By.id("email")).clear();
-        tool.driver.findElement(By.id("email")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "email", value);
     }
 
     public void setPhoneNumber(String value) throws Exception {
-        tool.driver.findElement(By.id("phone")).clear();
-        tool.driver.findElement(By.id("phone")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "phone", value);
     }
 
     public void setMobileNumber(String value) throws Exception {
-        tool.driver.findElement(By.id("mobile")).clear();
-        tool.driver.findElement(By.id("mobile")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "mobile", value);
     }
 
     public void setFaxNumber(String value) throws Exception {
-        tool.driver.findElement(By.id("fax")).clear();
-        tool.driver.findElement(By.id("fax")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "fax", value);
     }
 
     public void setNationalID(String value) throws Exception {
-        tool.driver.findElement(By.id("nationalid")).clear();
-        tool.driver.findElement(By.id("nationalid")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "nationalid", value);
     }
 
     public void setDateOfBirth(String value) throws Exception {
-        tool.driver.findElement(By.id("dateOfBirth")).clear();
-        tool.driver.findElement(By.id("dateOfBirth")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "dateOfBirth", value);
     }
 
     public void setAddressLine1(String value) throws Exception {
-        tool.driver.findElement(By.id("address1")).clear();
-        tool.driver.findElement(By.id("address1")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "address1", value);
     }
 
     public void setPostCode(String value) throws Exception {
-        tool.driver.findElement(By.id("zipcode")).clear();
-        tool.driver.findElement(By.id("zipcode")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "zipcode", value);
     }
 
     public void setCity(String value) throws Exception {
-        tool.driver.findElement(By.id("city")).clear();
-        tool.driver.findElement(By.id("city")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "city", value);
     }
 
     public void selectHomeCountry(String value) throws Exception {

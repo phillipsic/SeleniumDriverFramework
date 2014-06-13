@@ -21,17 +21,17 @@ public class CreateAttachmentCommon extends CommonMenu {
     }
 
     public void addAttachmentName(String attachementName) throws Exception {
-        tool.driver.findElement(By.id("name")).sendKeys(attachementName);
+        tool.enterStringUsingId(tool, "name", attachementName);
     }
 
     public void addDescription(String description) throws Exception {
-        tool.driver.findElement(By.id("description")).clear();
-        tool.driver.findElement(By.id("description")).sendKeys(description);
+        
+        tool.enterStringUsingId(tool, "description", description);
     }
 
     public void uploadAttachment(String locationOfFile) throws Exception {
         String path = System.getProperty("user.dir");
-        tool.driver.findElement(By.id("fileUpload")).sendKeys(path + locationOfFile);
+        tool.enterStringUsingId(tool, "fileUpload", path + locationOfFile);
     }
 
     public void clickContinue() throws Exception {

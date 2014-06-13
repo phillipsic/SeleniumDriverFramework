@@ -41,52 +41,52 @@ public class HomePage extends B2CMenu {
 
     public void enterUsername(String username) throws Exception {
 
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(username);
+        
+        tool.enterStringUsingId(tool, "login", username);
 
     }
 
     public void enterPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password", password);
     }
 
     public void enterOldPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("password_old")).clear();
-        tool.driver.findElement(By.id("password_old")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_old", password);
     }
 
     public void enterNewPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("password_new")).clear();
-        tool.driver.findElement(By.id("password_new")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_new", password);
     }
 
     public void enterNewConfirmPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("password_verify")).clear();
-        tool.driver.findElement(By.id("password_verify")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password_verify", password);
     }
 
     public void enterChangePasswordSecretAnswer(String secretanswer) throws Exception {
 
-        tool.driver.findElement(By.id("secretAnswer")).clear();
-        tool.driver.findElement(By.id("secretAnswer")).sendKeys(secretanswer);
+        
+        tool.enterStringUsingId(tool, "secretAnswer", secretanswer);
     }
 
     public void enterConfirmPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("confirm_password")).clear();
-        tool.driver.findElement(By.id("confirm_password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "confirm_password", password);
 
     }
 
     public void enterSecretAnswer(String secretanswer) throws Exception {
 
-        tool.driver.findElement(By.id("secret_answer")).clear();
-        tool.driver.findElement(By.id("secret_answer")).sendKeys(secretanswer);
+        
+        tool.enterStringUsingId(tool, "secret_answer", secretanswer);
 
     }
 
@@ -185,15 +185,15 @@ public class HomePage extends B2CMenu {
 
     public void enterLastName(String lastname) throws Exception {
 
-        tool.driver.findElement(By.id("customer_last_name")).clear();
-        tool.driver.findElement(By.id("customer_last_name")).sendKeys(lastname);
+        
+        tool.enterStringUsingId(tool, "customer_last_name", lastname);
 
     }
 
     public void enterAccountNumber(String accountnumber) throws Exception {
 
-        tool.driver.findElement(By.name("customer_reference")).clear();
-        tool.driver.findElement(By.name("customer_reference")).sendKeys(accountnumber);
+        
+        tool.enterStringUsingName(tool, "customer_reference", accountnumber);
 
     }
 
@@ -221,8 +221,8 @@ public class HomePage extends B2CMenu {
 
     public void enterLogin(String login) throws Exception {
 
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "login", login);
 
     }
 

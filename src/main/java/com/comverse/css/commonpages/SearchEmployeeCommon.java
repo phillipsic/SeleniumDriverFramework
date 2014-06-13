@@ -23,8 +23,8 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public SearchEmployeeCommon searchEmployeeByLastName(String ln) throws Exception {
 
-        tool.driver.findElement(By.id("p-L2:10-L3:1470")).clear();
-        tool.driver.findElement(By.id("p-L2:10-L3:1470")).sendKeys(ln);
+        
+        tool.enterStringUsingId(tool, "p-L2:10-L3:1470", ln);
         tool.driver.findElement(By.xpath("//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']")).click();
 
         return new SearchEmployeeCommon(tool, test, user);
@@ -34,7 +34,7 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public SearchEmployeeCommon searchEmployeeByLogin(String lg) throws Exception {
 
-        tool.driver.findElement(By.id("p-L4:1014-L3:1640")).sendKeys(lg);
+        tool.enterStringUsingId(tool, "p-L4:1014-L3:1640", lg);
         tool.driver.findElement(By.xpath("//form[@id='form_SEARCH_MEMBERS_RESULT_1']//input[@value='Search']")).click();
 
         return new SearchEmployeeCommon(tool, test, user);

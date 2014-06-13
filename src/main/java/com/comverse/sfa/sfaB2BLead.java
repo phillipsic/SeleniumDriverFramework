@@ -24,9 +24,9 @@ public class sfaB2BLead extends SFAMenu {
         Common.sleepForNumberOfSeconds(3);
     }
 
-    void setB2BLeadName(String b2bLeadName) {
-        tool.driver.findElement(By.id("Ix18yor")).clear();
-        tool.driver.findElement(By.id("Ix18yor")).sendKeys(b2bLeadName);
+    void setB2BLeadName(String b2bLeadName) throws Exception {
+
+        tool.enterStringUsingId(tool, "Ix18yor", b2bLeadName);
         System.out.println("B2B Lead Name: " + b2bLeadName);
     }
 
@@ -65,8 +65,8 @@ public class sfaB2BLead extends SFAMenu {
 
     public void findAndOpenB2BLeadByName(String b2bLeadName) throws Exception {
         tool.driver.findElement(By.xpath("//nobr[contains(text(), 'More Fields')]")).click();
-        tool.driver.findElement(By.id("Iaw2djm")).clear();
-        tool.driver.findElement(By.id("Iaw2djm")).sendKeys(b2bLeadName);
+
+        tool.enterStringUsingId(tool, "Iaw2djm", b2bLeadName);
         tool.driver.findElement(By.id("$2mtu0_filterbutton")).click(); // Click
                                                                        // Search
         Common.sleepForNumberOfSeconds(2);

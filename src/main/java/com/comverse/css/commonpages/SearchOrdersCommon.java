@@ -45,8 +45,8 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public void setOrderNumber(String orderNumber) throws Exception {
-        tool.driver.findElement(By.id("orderNb")).clear();
-        tool.driver.findElement(By.id("orderNb")).sendKeys(orderNumber);
+        
+        tool.enterStringUsingId(tool, "orderNb", orderNumber);
     }
 
     public String getOrderStatus1() throws Exception {

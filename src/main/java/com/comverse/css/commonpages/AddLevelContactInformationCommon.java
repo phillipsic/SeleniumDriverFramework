@@ -27,14 +27,14 @@ public class AddLevelContactInformationCommon extends CommonMenu {
 
     public void setLevelZipCode(String zipCode) throws Exception {
 
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(zipCode);
+        
+        tool.enterStringUsingId(tool, "home_zip", zipCode);
     }
 
     public void setLevelName(String levelName) throws Exception {
 
-        tool.driver.findElement(By.id("company_name")).clear();
-        tool.driver.findElement(By.id("company_name")).sendKeys(levelName);
+        
+        tool.enterStringUsingId(tool, "company_name", levelName);
     }
 
     public AddLevelConfirmationCommon clickOk() throws Exception {
