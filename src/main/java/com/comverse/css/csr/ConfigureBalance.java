@@ -4,8 +4,6 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -38,8 +36,7 @@ public class ConfigureBalance extends ConfigureBalanceCommon {
 
     public void configureBalance(String balanceName, String balanceValue) throws Exception {
 
-        tool.driver.findElement(By.id(balanceName + "_limit")).clear();
-        tool.driver.findElement(By.id(balanceName + "_limit")).sendKeys(balanceValue);
+        tool.enterStringUsingId(tool, balanceName + "_limit", balanceValue);
     }
 
     @Override

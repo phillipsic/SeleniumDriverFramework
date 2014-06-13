@@ -28,13 +28,13 @@ public class sfaLoginPage extends Main {
     }
 
     public void setUserId(String login) throws Exception {
-        tool.driver.findElement(By.id("Iujgbo2")).clear();
-        tool.driver.findElement(By.id("Iujgbo2")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "Iujgbo2", login);
     }
 
     public void setPassword(String password) throws Exception {
-        tool.driver.findElement(By.id("I604i25")).clear();
-        tool.driver.findElement(By.id("I604i25")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "I604i25", password);
     }
 
     public sfaHomePage clickSignIn() throws Exception {

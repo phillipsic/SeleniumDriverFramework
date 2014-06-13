@@ -49,14 +49,14 @@ public class Identity extends B2CMenu {
 
     public void setFirstName(String firstName) throws Exception {
 
-        tool.driver.findElement(By.id("first_name")).clear();
-        tool.driver.findElement(By.id("first_name")).sendKeys(firstName);
+        
+        tool.enterStringUsingId(tool, "first_name", firstName);
     }
 
     public void setLastName(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("last_name")).clear();
-        tool.driver.findElement(By.id("last_name")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "last_name", lastName);
 
     }
 

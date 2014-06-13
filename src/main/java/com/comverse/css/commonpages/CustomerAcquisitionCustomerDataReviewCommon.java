@@ -90,17 +90,17 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setTitle(String TitleName) throws Exception {
 
-        tool.driver.findElement(By.id("titleString")).sendKeys(TitleName);
+        tool.enterStringUsingId(tool, "titleString", TitleName);
     }
 
     public void setFirstName(String FirstName) throws Exception {
 
-        tool.driver.findElement(By.id("first_name")).sendKeys(FirstName);
+        tool.enterStringUsingId(tool, "first_name", FirstName);
     }
 
     public void setLastName(String LastName) throws Exception {
 
-        tool.driver.findElement(By.id("last_name")).sendKeys(LastName);
+        tool.enterStringUsingId(tool, "last_name", LastName);
     }
 
     public void setGender(String Gender) throws Exception {
@@ -111,17 +111,17 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setEmail(String Email) throws Exception {
 
-        tool.driver.findElement(By.id("email")).sendKeys(Email);
+        tool.enterStringUsingId(tool, "email", Email);
     }
 
     public void setHomePhone(String HomePhone) throws Exception {
 
-        tool.driver.findElement(By.id("home_phone")).sendKeys(HomePhone);
+        tool.enterStringUsingId(tool, "home_phone", HomePhone);
     }
 
     public void setFax(String Fax) throws Exception {
 
-        tool.driver.findElement(By.id("fax")).sendKeys(Fax);
+        tool.enterStringUsingId(tool, "fax", Fax);
     }
 
     public UpdateAccountBillingAddressInformationsCommon clickEditAddressDetail() throws Exception {
@@ -133,43 +133,43 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setAddress1(String Address1) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_1")).clear();
-        tool.driver.findElement(By.id("address_line_1")).sendKeys(Address1);
+        
+        tool.enterStringUsingId(tool, "address_line_1", Address1);
     }
 
     public void setAddress2(String setAddress2) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_2")).clear();
-        tool.driver.findElement(By.id("address_line_2")).sendKeys(setAddress2);
+        
+        tool.enterStringUsingId(tool, "address_line_2", setAddress2);
     }
 
     public void setAddress3(String Address3) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_3")).clear();
-        tool.driver.findElement(By.id("address_line_3")).sendKeys(Address3);
+        
+        tool.enterStringUsingId(tool, "address_line_3", Address3);
     }
 
     public void setAddress4(String Address4) throws Exception {
 
-        tool.driver.findElement(By.id("address_line_4")).clear();
-        tool.driver.findElement(By.id("address_line_4")).sendKeys(Address4);
+        
+        tool.enterStringUsingId(tool, "address_line_4", Address4);
     }
 
     public void setHomeZip(String HomeZip) throws Exception {
 
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(HomeZip);
+        
+        tool.enterStringUsingId(tool, "home_zip", HomeZip);
     }
 
     public void setHomeCity(String HomeCity) throws Exception {
 
-        tool.driver.findElement(By.id("home_city")).clear();
-        tool.driver.findElement(By.id("home_city")).sendKeys(HomeCity);
+        
+        tool.enterStringUsingId(tool, "home_city", HomeCity);
     }
 
     public void setHomeCountry(String HomeCountry) throws Exception {
 
-        tool.driver.findElement(By.id("home_country")).sendKeys(HomeCountry);
+        tool.enterStringUsingId(tool, "home_country", HomeCountry);
     }
 
     public CustomerAcquisitionCustomerDataReviewCommon clickConfirm() throws Exception {
@@ -188,32 +188,32 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setSocialSecurityNumber(String SocialSecurityNumber) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91260")).clear();
-        tool.driver.findElement(By.id("p-param-L4:91260")).sendKeys(SocialSecurityNumber);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:91260", SocialSecurityNumber);
     }
 
     public void setPurchaseOrder(String PurchaseOrder) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91540")).clear();
-        tool.driver.findElement(By.id("p-param-L4:91540")).sendKeys(PurchaseOrder);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:91540", PurchaseOrder);
     }
 
     public void setSalesCode(String SalesCode) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91530")).clear();
-        tool.driver.findElement(By.id("p-param-L4:91530")).sendKeys(SalesCode);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:91530", SalesCode);
     }
 
     public void setSecurityWord(String SecurityWord) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91070")).clear();
-        tool.driver.findElement(By.id("p-param-L4:91070")).sendKeys(SecurityWord);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:91070", SecurityWord);
     }
 
     public void setSICCode(String SICCode) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91320")).clear();
-        tool.driver.findElement(By.id("p-param-L4:91320")).sendKeys(SICCode);
+        
+        tool.enterStringUsingId(tool, "p-param-L4:91320", SICCode);
     }
 
     public UpdateAdministrativeAccountInformationCommon clickBillingInformationEditButton() throws Exception {
@@ -225,17 +225,17 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setBillingBillDispatchMethod(String SocialSecurityNumber) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91310")).sendKeys(SocialSecurityNumber);
+        tool.enterStringUsingId(tool, "p-param-L4:91310", SocialSecurityNumber);
     }
 
     public void setBillingBillFormatOption(String PurchaseOrder) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91300")).sendKeys(PurchaseOrder);
+        tool.enterStringUsingId(tool, "p-param-L4:91300", PurchaseOrder);
     }
 
     public void setBillingExchangeRateClass(String SalesCode) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91380")).sendKeys(SalesCode);
+        tool.enterStringUsingId(tool, "p-param-L4:91380", SalesCode);
     }
 
     public void setBillingTML(String BillingTML) throws Exception {
@@ -245,12 +245,12 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setBillingVIPCode(String SICCode) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:80080")).sendKeys(SICCode);
+        tool.enterStringUsingId(tool, "p-param-L4:80080", SICCode);
     }
 
     public void setBillingBillPeriod(String SICCode) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:81010")).sendKeys(SICCode);
+        tool.enterStringUsingId(tool, "p-param-L4:81010", SICCode);
     }
 
 }

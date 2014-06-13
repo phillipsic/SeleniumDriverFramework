@@ -24,7 +24,7 @@ public class ReconfigureBalanceCommon extends CommonMenu {
 
     public ReconfigureBalanceCommon setMoreUnitsForThisPeriod(String unitsToAdd) throws Exception {
 
-        tool.driver.findElement(By.id("balanceValue")).sendKeys(unitsToAdd);
+        tool.enterStringUsingId(tool, "balanceValue", unitsToAdd);
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
@@ -36,7 +36,7 @@ public class ReconfigureBalanceCommon extends CommonMenu {
 
     public ReconfigureBalanceCommon setCreditSpendingLimit(String limitValue) throws Exception {
 
-        tool.driver.findElement(By.id("configuredLimit")).sendKeys(limitValue);
+        tool.enterStringUsingId(tool, "configuredLimit", limitValue);
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 

@@ -27,8 +27,8 @@ public class SearchCustomer extends B2CMenu {
 
     public void enterLastName(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("p-L1:3-L3:1470")).clear();
-        tool.driver.findElement(By.id("p-L1:3-L3:1470")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "p-L1:3-L3:1470", lastName);
     }
 
     public RequestSubmission clickSearch() throws Exception {

@@ -25,7 +25,7 @@ public class UploadToken extends CommonMenu {
     public void selectFile(String filename) throws Exception {
         File file = new File(filename);
 
-        tool.driver.findElement(By.id("fileUpload")).sendKeys(file.getAbsolutePath());
+        tool.enterStringUsingId(tool, "fileUpload", file.getAbsolutePath());
     }
 
     public TokenAdministration clickOk() throws Exception {

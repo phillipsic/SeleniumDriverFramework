@@ -28,8 +28,8 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
 	public void selectTemplate(String filename) throws Exception {
 
         File file = new File(filename);
-        // tool.driver.findElement(By.id("fileUpload")).clear();
-        tool.driver.findElement(By.id("templateFile")).sendKeys(file.getAbsolutePath());
+        // 
+        tool.enterStringUsingId(tool, "templateFile", file.getAbsolutePath());
 
     }
 
@@ -71,8 +71,8 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
     @Override
 	public void setDescription(String description) throws Exception {
 
-        tool.driver.findElement(By.id("description")).clear();
-        tool.driver.findElement(By.id("description")).sendKeys(description);
+        
+        tool.enterStringUsingId(tool, "description", description);
     }
 
     @Override

@@ -40,8 +40,8 @@ public class ConfigureBalanceCommon extends CommonMenu {
     }
 
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
-        tool.driver.findElement(By.id(limitName + "_limit")).clear();
-        tool.driver.findElement(By.id(limitName + "_limit")).sendKeys(limitAmount);
+        
+        tool.enterStringUsingId(tool, limitName + "_limit", limitAmount);
     }
 
     public void clickContinue() throws Exception {

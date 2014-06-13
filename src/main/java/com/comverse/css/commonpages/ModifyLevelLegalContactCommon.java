@@ -32,8 +32,8 @@ public class ModifyLevelLegalContactCommon extends CommonMenu {
 
     public void setNewLevelName(String uniqueString) throws Exception {
 
-        tool.driver.findElement(By.id("company_name")).clear();
-        tool.driver.findElement(By.id("company_name")).sendKeys(uniqueString);
+        
+        tool.enterStringUsingId(tool, "company_name", uniqueString);
     }
 
     public void setNewLevelState(String uniqueState) throws Exception {

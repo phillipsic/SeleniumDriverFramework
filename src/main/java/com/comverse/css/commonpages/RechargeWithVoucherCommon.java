@@ -25,8 +25,8 @@ public class RechargeWithVoucherCommon extends CommonMenu {
     }
 
     public void enterVoucherNumber(String voucherNumber) throws Exception {
-        tool.driver.findElement(By.id("pkgnumber")).clear();
-        tool.driver.findElement(By.id("pkgnumber")).sendKeys(voucherNumber);
+        
+        tool.enterStringUsingId(tool, "pkgnumber", voucherNumber);
     }
 
     public RechargeSubscriberCommon clickContinue() throws Exception {

@@ -34,28 +34,28 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void setFirstName(String value) throws Exception {
-        tool.driver.findElement(By.id("firstName")).clear();
-        tool.driver.findElement(By.id("firstName")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "firstName", value);
     }
 
     public void setLastName(String value) throws Exception {
-        tool.driver.findElement(By.id("lastName")).clear();
-        tool.driver.findElement(By.id("lastName")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "lastName", value);
     }
 
     public void setAddressLine1(String value) throws Exception {
-        tool.driver.findElement(By.id("address1")).clear();
-        tool.driver.findElement(By.id("address1")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "address1", value);
     }
 
     public void setPostalCode(String value) throws Exception {
-        tool.driver.findElement(By.id("zipcode")).clear();
-        tool.driver.findElement(By.id("zipcode")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "zipcode", value);
     }
 
     public void setCity(String value) throws Exception {
-        tool.driver.findElement(By.id("city")).clear();
-        tool.driver.findElement(By.id("city")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "city", value);
     }
 
     public void selectCountry(String value) throws Exception {
@@ -219,7 +219,7 @@ public class PersonManagementCommon extends CommonMenu {
         // + " "
         // + pers.getPersonLastNameProperty());
         new Select(tool.searchUsingID(tool, "title")).selectByVisibleText("Mr.");
-        tool.driver.findElement(By.id("firstName")).sendKeys("test*");
+        tool.enterStringUsingId(tool, "firstName", "test*");
         tool.driver.findElement(By.id("pm-button-search")).click();
         final List<WebElement> radios = tool.driver.findElements(By.name("pfr-selected-person"));
         radios.get(0).click();

@@ -42,8 +42,8 @@ public class OTGHome extends MyshapeCommon {
 
     @Override
     public void setUserName(String login) throws Exception {
-        tool.driver.findElement(By.id("username")).clear();
-        tool.driver.findElement(By.id("username")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "username", login);
     }
 
     @Override

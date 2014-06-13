@@ -138,28 +138,28 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void setFirstName(String value) throws Exception {
-        tool.driver.findElement(By.id("pm-field-fname")).clear();
-        tool.driver.findElement(By.id("pm-field-fname")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "pm-field-fname", value);
     }
 
     public void setLastName(String value) throws Exception {
-        tool.driver.findElement(By.id("pm-field-lname")).clear();
-        tool.driver.findElement(By.id("pm-field-lname")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "pm-field-lname", value);
     }
 
     public void setAddressLine1(String value) throws Exception {
-        tool.driver.findElement(By.id("pm-field-address1")).clear();
-        tool.driver.findElement(By.id("pm-field-address1")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "pm-field-address1", value);
     }
 
     public void setPostalCode(String value) throws Exception {
-        tool.driver.findElement(By.id("pm-field-zip")).clear();
-        tool.driver.findElement(By.id("pm-field-zip")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "pm-field-zip", value);
     }
 
     public void setCity(String value) throws Exception {
-        tool.driver.findElement(By.id("pm-field-city")).clear();
-        tool.driver.findElement(By.id("pm-field-city")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "pm-field-city", value);
     }
 
     public void selectCountry(String value) throws Exception {

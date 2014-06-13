@@ -30,7 +30,7 @@ public class AddDepositCommon extends CommonMenu {
 
     public void setDepositType(String depositType) throws Exception {
 
-        tool.driver.findElement(By.id("depositType")).sendKeys(depositType);
+        tool.enterStringUsingId(tool, "depositType", depositType);
     }
 
     public void setBalance(String balanceName) throws Exception {
@@ -41,8 +41,8 @@ public class AddDepositCommon extends CommonMenu {
 
     public void setDepositAmount(String depositAmount) throws Exception {
 
-        tool.driver.findElement(By.id("amount")).clear();
-        tool.driver.findElement(By.id("amount")).sendKeys(depositAmount);
+        
+        tool.enterStringUsingId(tool, "amount", depositAmount);
     }
 
     public void selectPaymentMethod() throws Exception {

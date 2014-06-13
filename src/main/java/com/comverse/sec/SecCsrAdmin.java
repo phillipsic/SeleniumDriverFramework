@@ -25,38 +25,38 @@ public class SecCsrAdmin extends CommonMenu {
 
     public void setFirstName(String firstName) throws Exception {
 
-        tool.driver.findElement(By.id("j_id44:j_id45:0:firstNameField:j_id97")).clear();
-        tool.driver.findElement(By.id("j_id44:j_id45:0:firstNameField:j_id97")).sendKeys(firstName);
+        
+        tool.enterStringUsingId(tool, "j_id44:j_id45:0:firstNameField:j_id97", firstName);
     }
 
     public void setLastName(String lastName) throws Exception {
 
-        tool.driver.findElement(By.id("j_id44:j_id45:0:lastNameField:j_id119")).clear();
-        tool.driver.findElement(By.id("j_id44:j_id45:0:lastNameField:j_id119")).sendKeys(lastName);
+        
+        tool.enterStringUsingId(tool, "j_id44:j_id45:0:lastNameField:j_id119", lastName);
     }
 
     public void setUserName(String userName) throws Exception {
 
-        tool.driver.findElement(By.id("j_id44:j_id45:0:userNameField:j_id59")).clear();
-        tool.driver.findElement(By.id("j_id44:j_id45:0:userNameField:j_id59")).sendKeys(userName);
+        
+        tool.enterStringUsingId(tool, "j_id44:j_id45:0:userNameField:j_id59", userName);
     }
 
     public void setPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("j_id44:j_id45:0:passwordField:j_id75")).clear();
-        tool.driver.findElement(By.id("j_id44:j_id45:0:passwordField:j_id75")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "j_id44:j_id45:0:passwordField:j_id75", password);
     }
 
     public void setRePassword(String repassword) throws Exception {
 
-        tool.driver.findElement(By.id("j_id44:j_id45:0:re-passwordField:j_id86")).clear();
-        tool.driver.findElement(By.id("j_id44:j_id45:0:re-passwordField:j_id86")).sendKeys(repassword);
+        
+        tool.enterStringUsingId(tool, "j_id44:j_id45:0:re-passwordField:j_id86", repassword);
     }
 
     public void setEmail(String email) throws Exception {
 
-        tool.driver.findElement(By.id("j_id44:j_id45:0:emailField:j_id163")).clear();
-        tool.driver.findElement(By.id("j_id44:j_id45:0:emailField:j_id163")).sendKeys(email);
+        
+        tool.enterStringUsingId(tool, "j_id44:j_id45:0:emailField:j_id163", email);
     }
 
     public void setGroups(String Group) throws Exception {

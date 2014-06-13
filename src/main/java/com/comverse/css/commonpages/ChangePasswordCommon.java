@@ -22,20 +22,20 @@ public class ChangePasswordCommon extends CommonMenu {
 
     public void setYourPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("oldPassword")).clear();
-        tool.driver.findElement(By.id("oldPassword")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "oldPassword", password);
     }
 
     public void setNewPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("newPassword")).clear();
-        tool.driver.findElement(By.id("newPassword")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "newPassword", password);
     }
 
     public void setConfirmNewPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("confirmPassword")).clear();
-        tool.driver.findElement(By.id("confirmPassword")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "confirmPassword", password);
     }
 
     public ModifyLoginPasswordCommon clickChange() throws Exception {

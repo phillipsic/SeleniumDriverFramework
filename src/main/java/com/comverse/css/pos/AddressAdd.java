@@ -25,24 +25,24 @@ public class AddressAdd extends AddressAddCommon {
     @Override
 	public void setStreetName(String streetname) throws Exception {
 
-        tool.driver.findElement(By.id("streetName")).clear();
-        tool.driver.findElement(By.id("streetName")).sendKeys(streetname);
+        
+        tool.enterStringUsingId(tool, "streetName", streetname);
 
     }
 
     @Override
 	public void setCity(String city) throws Exception {
 
-        tool.driver.findElement(By.id("city")).clear();
-        tool.driver.findElement(By.id("city")).sendKeys(city);
+        
+        tool.enterStringUsingId(tool, "city", city);
 
     }
 
     @Override
 	public void setZipCode(String zipcode) throws Exception {
 
-        tool.driver.findElement(By.id("postalCode")).clear();
-        tool.driver.findElement(By.id("postalCode")).sendKeys(zipcode);
+        
+        tool.enterStringUsingId(tool, "postalCode", zipcode);
 
     }
 

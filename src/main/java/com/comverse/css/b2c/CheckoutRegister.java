@@ -47,14 +47,14 @@ public class CheckoutRegister extends B2CMenu {
 
     public void setRegisteredLogin(String login) throws Exception {
 
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "login", login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "password", password);
     }
 
     public SignUpUser clickContinue() throws Exception {

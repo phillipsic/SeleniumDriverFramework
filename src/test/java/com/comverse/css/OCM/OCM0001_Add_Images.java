@@ -48,7 +48,7 @@ public class OCM0001_Add_Images extends CSSTest {
         tool.driver.findElement(By.id("mainPanel:treeForm:ContentMgtTree:0:_idJsp19_link")).click();
         // Click "Move this Folder"
         tool.driver.findElement(By.id("mainPanel:boxForm:folderSelection_ActionBox:actionList:folder:moveHierarchy")).click();
-        tool.driver.findElement(By.id("mainPanel:_idJsp28:mainfields:NewSubHierarchy")).sendKeys("/Images/");
+        tool.enterStringUsingId(tool, "mainPanel:_idJsp28:mainfields:NewSubHierarchy", "/Images/");
         tool.driver.findElement(By.id("mainPanel:_idJsp28:buttons:moveHierarchy")).click();
         Common.assertTextOnPage(tool, "Images");
 
@@ -78,9 +78,9 @@ public class OCM0001_Add_Images extends CSSTest {
             // Thread.sleep(4000);
             // => Line not converted yet:
             // selenium.focus("mainPanel:edit:mainfields:file");
-            // tool.driver.findElement(By.id("fileUpload")).sendKeys(path +
+            // tool.enterStringUsingId(tool, "fileUpload", path +
             // locationOfFile);
-            tool.driver.findElement(By.id("mainPanel:edit:mainfields:file")).sendKeys(ImageDetails);
+            tool.enterStringUsingId(tool, "mainPanel:edit:mainfields:file", ImageDetails);
             tool.driver.findElement(By.id("mainPanel:edit:buttons:upload")).click();
             Common.assertTextOnPage(tool, "1 media files uploaded successfully");
         }

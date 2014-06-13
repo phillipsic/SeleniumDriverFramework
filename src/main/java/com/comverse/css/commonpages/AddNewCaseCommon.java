@@ -43,8 +43,8 @@ public class AddNewCaseCommon extends CommonMenu {
 
     public void enterCaseDescription(String caseDescription) throws Exception {
 
-        tool.driver.findElement(By.id("description")).clear();
-        tool.driver.findElement(By.id("description")).sendKeys(caseDescription);
+        
+        tool.enterStringUsingId(tool, "description", caseDescription);
     }
 
     public void selectNoteType(String noteType) throws Exception {
@@ -55,8 +55,8 @@ public class AddNewCaseCommon extends CommonMenu {
 
     public void enterNoteDescription(String noteDescription) throws Exception {
 
-        tool.driver.findElement(By.id("note")).clear();
-        tool.driver.findElement(By.id("note")).sendKeys(noteDescription);
+        
+        tool.enterStringUsingId(tool, "note", noteDescription);
     }
 
     public AddCaseReviewCommon clickContinue() throws Exception {

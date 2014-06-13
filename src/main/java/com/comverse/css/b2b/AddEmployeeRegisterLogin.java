@@ -27,8 +27,8 @@ public class AddEmployeeRegisterLogin extends B2BMenu {
 
     public void enterLogin(String login) throws Exception {
 
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "login", login);
     }
 
     public AddEmployeeConfirmation clickSubmit() throws Exception {

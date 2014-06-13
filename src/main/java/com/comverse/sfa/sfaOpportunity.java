@@ -30,9 +30,9 @@ public class sfaOpportunity extends SFAMenu {
         Common.sleepForNumberOfSeconds(3);
     }
 
-    void setOpportunityName(String opportunityName) {
-        tool.driver.findElement(By.id("Iasykb7")).clear();
-        tool.driver.findElement(By.id("Iasykb7")).sendKeys(opportunityName);
+    void setOpportunityName(String opportunityName) throws Exception {
+
+        tool.enterStringUsingId(tool, "Iasykb7", opportunityName);
         System.out.println("New Opportunity Name: " + opportunityName);
     }
 
@@ -82,8 +82,8 @@ public class sfaOpportunity extends SFAMenu {
     }
 
     void findAndOpenOpportunityByName(String opportunityName) throws Exception {
-        tool.driver.findElement(By.id("Ia9cw75")).clear();
-        tool.driver.findElement(By.id("Ia9cw75")).sendKeys(opportunityName);
+
+        tool.enterStringUsingId(tool, "Ia9cw75", opportunityName);
         tool.driver.findElement(By.id("$xlphc4_filterbutton")).click(); // Click
                                                                         // Search
         Common.sleepForNumberOfSeconds(2);

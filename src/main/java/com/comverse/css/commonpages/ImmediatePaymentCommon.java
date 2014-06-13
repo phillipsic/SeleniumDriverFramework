@@ -26,32 +26,32 @@ public class ImmediatePaymentCommon extends CommonMenu {
 
     public void setCardNumber(String value) throws Exception {
 
-        tool.driver.findElement(By.id("cardNumber")).clear();
-        tool.driver.findElement(By.id("cardNumber")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "cardNumber", value);
     }
 
     public void setExpirationDate(String value) throws Exception {
 
-        tool.driver.findElement(By.id("cardExpirationDate")).clear();
-        tool.driver.findElement(By.id("cardExpirationDate")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "cardExpirationDate", value);
     }
 
     public void setCardHolderLastName(String value) throws Exception {
 
-        tool.driver.findElement(By.id("cardHolderName")).clear();
-        tool.driver.findElement(By.id("cardHolderName")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "cardHolderName", value);
     }
 
     public void setCardHolderFirstName(String value) throws Exception {
 
-        tool.driver.findElement(By.id("cardHolderFName")).clear();
-        tool.driver.findElement(By.id("cardHolderFName")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "cardHolderFName", value);
     }
 
     public void setCardSecretCode(String value) throws Exception {
 
-        tool.driver.findElement(By.id("cardSecretCode")).clear();
-        tool.driver.findElement(By.id("cardSecretCode")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "cardSecretCode", value);
     }
 
     public CheckoutConfirmationCommon clickContinue() throws Exception {

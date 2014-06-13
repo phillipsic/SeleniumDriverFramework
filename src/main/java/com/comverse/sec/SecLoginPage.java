@@ -42,14 +42,14 @@ public class SecLoginPage extends CommonMenu {
 
     public void setSecservUserName(String login) throws Exception {
 
-        tool.driver.findElement(By.id("loginForm:userName")).clear();
-        tool.driver.findElement(By.id("loginForm:userName")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "loginForm:userName", login);
     }
 
     public void setSecservPassword(String password) throws Exception {
 
-        tool.driver.findElement(By.id("loginForm:password")).clear();
-        tool.driver.findElement(By.id("loginForm:password")).sendKeys(password);
+        
+        tool.enterStringUsingId(tool, "loginForm:password", password);
     }
 
     public void clickSignIn() throws Exception {

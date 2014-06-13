@@ -34,17 +34,17 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
 
     public void setBillingBillDispatchMethod(String SocialSecurityNumber) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91310")).sendKeys(SocialSecurityNumber);
+        tool.enterStringUsingId(tool, "p-param-L4:91310", SocialSecurityNumber);
     }
 
     public void setBillingBillFormatOption(String PurchaseOrder) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91300")).sendKeys(PurchaseOrder);
+        tool.enterStringUsingId(tool, "p-param-L4:91300", PurchaseOrder);
     }
 
     public void setBillingExchangeRateClass(String SalesCode) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:91380")).sendKeys(SalesCode);
+        tool.enterStringUsingId(tool, "p-param-L4:91380", SalesCode);
     }
 
     public void setBillingTML(String BillingTML) throws Exception {
@@ -54,12 +54,12 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
 
     public void setBillingVIPCode(String SICCode) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:80080")).sendKeys(SICCode);
+        tool.enterStringUsingId(tool, "p-param-L4:80080", SICCode);
     }
 
     public void setBillingBillPeriod(String SICCode) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:81010")).sendKeys(SICCode);
+        tool.enterStringUsingId(tool, "p-param-L4:81010", SICCode);
     }
 
 }

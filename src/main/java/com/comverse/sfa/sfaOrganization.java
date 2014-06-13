@@ -24,8 +24,8 @@ public class sfaOrganization extends SFAMenu {
 
     public void setOrganizationName(String value) throws Exception {
 
-        tool.driver.findElement(By.id("Ixr0ht5")).clear();
-        tool.driver.findElement(By.id("Ixr0ht5")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "Ixr0ht5", value);
     }
 
     public void clickNewOrganization() throws Exception {
@@ -91,8 +91,8 @@ public class sfaOrganization extends SFAMenu {
 
     public sfaOrganization findOrganization(String orgName) throws Exception {
 
-        tool.driver.findElement(By.id("Ih246r")).clear();
-        tool.driver.findElement(By.id("Ih246r")).sendKeys(orgName); // Set
+        
+        tool.enterStringUsingId(tool, "Ih246r", orgName); // Set
                                                                     // organization
                                                                     // name
         tool.driver.findElement(By.id("$2bdpj3_filterbutton")).click(); // Click
@@ -107,8 +107,8 @@ public class sfaOrganization extends SFAMenu {
 
     public sfaB2BLead findAndSelectOrganizationForB2BLead(String orgName) throws Exception {
         String currentWindow = Common.getCurrentWindowHandle(tool);
-        tool.driver.findElement(By.id("Isildl1")).clear();
-        tool.driver.findElement(By.id("Isildl1")).sendKeys(orgName); // Set
+        
+        tool.enterStringUsingId(tool, "Isildl1", orgName); // Set
                                                                      // organization
                                                                      // name
         tool.driver.findElement(By.id("$1pcspz_filterbutton")).click(); // Click
@@ -127,8 +127,8 @@ public class sfaOrganization extends SFAMenu {
 
     sfaOpportunity findAndSelectOrganizationForOpportunity(String orgName) throws Exception {
         String currentWindow = Common.getCurrentWindowHandle(tool);
-        tool.driver.findElement(By.id("Iypr9j2")).clear();
-        tool.driver.findElement(By.id("Iypr9j2")).sendKeys(orgName); // Set
+        
+        tool.enterStringUsingId(tool, "Iypr9j2", orgName); // Set
                                                                      // organization
                                                                      // name
         tool.driver.findElement(By.id("$flh26m_filterbutton")).click(); // Click

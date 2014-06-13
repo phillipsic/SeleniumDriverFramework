@@ -19,18 +19,18 @@ public class TestServiceAbilityCommon extends CommonMenu {
     }
 
     public void setUnitnumber(String unitNumber) throws Exception {
-        tool.driver.findElement(By.id("unitNumber")).clear();
-        tool.driver.findElement(By.id("unitNumber")).sendKeys(unitNumber);
+        
+        tool.enterStringUsingId(tool, "unitNumber", unitNumber);
     }
 
     public void setCity(String city) throws Exception {
-        tool.driver.findElement(By.id("home_city")).clear();
-        tool.driver.findElement(By.id("home_city")).sendKeys(city);
+        
+        tool.enterStringUsingId(tool, "home_city", city);
     }
 
     public void setZipCode(String zipcode) throws Exception {
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(zipcode);
+        
+        tool.enterStringUsingId(tool, "home_zip", zipcode);
     }
 
     public ShoppingCommon clickOK() throws Exception {

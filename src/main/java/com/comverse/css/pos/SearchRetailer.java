@@ -23,8 +23,8 @@ public class SearchRetailer extends CommonMenu {
 
     public void setDealerName(String dealerName) throws Exception {
 
-        tool.driver.findElement(By.id("p-L1:2-L3:1480")).clear();
-        tool.driver.findElement(By.id("p-L1:2-L3:1480")).sendKeys(dealerName);
+        
+        tool.enterStringUsingId(tool, "p-L1:2-L3:1480", dealerName);
     }
 
     public void clickSearchDealerName() throws Exception {

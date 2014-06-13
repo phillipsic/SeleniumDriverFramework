@@ -25,17 +25,17 @@ public class sfaB2CLead extends SFAMenu {
 
     void findAndOpenB2CLeadByNameAndCreatedDate(String b2cLeadName, String createdDate) throws Exception {
         // Set B2C Lead Name
-        tool.driver.findElement(By.id("Iny33ei")).clear();
-        tool.driver.findElement(By.id("Iny33ei")).sendKeys(b2cLeadName);
+        
+        tool.enterStringUsingId(tool, "Iny33ei", b2cLeadName);
 
         // Set Created Date
         tool.driver.findElement(By.xpath("//nobr[contains(text(), 'More Fields')]")).click();
         if (createdDate.equals("Today")) {
-            tool.driver.findElement(By.id("Imcusxj")).clear();
-            tool.driver.findElement(By.id("Imcusxj")).sendKeys(Common.getSysdateDDMMYYYY());
+            
+            tool.enterStringUsingId(tool, "Imcusxj", Common.getSysdateDDMMYYYY());
         } else {
-            tool.driver.findElement(By.id("Imcusxj")).clear();
-            tool.driver.findElement(By.id("Imcusxj")).sendKeys(createdDate);
+            
+            tool.enterStringUsingId(tool, "Imcusxj", createdDate);
         }
 
         // Click Search

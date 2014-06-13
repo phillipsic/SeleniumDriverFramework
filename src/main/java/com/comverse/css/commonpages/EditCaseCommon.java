@@ -40,8 +40,8 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void enterReason(String Reason) throws Exception {
-        tool.driver.findElement(By.id("reason")).clear();
-        tool.driver.findElement(By.id("reason")).sendKeys(Reason);
+        
+        tool.enterStringUsingId(tool, "reason", Reason);
     }
 
     public void selectJustificationStatus(String status) throws Exception {
@@ -49,8 +49,8 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void updateDescription(String updatedDescription) throws Exception {
-        tool.driver.findElement(By.id("appendToDescription")).clear();
-        tool.driver.findElement(By.id("appendToDescription")).sendKeys(updatedDescription);
+        
+        tool.enterStringUsingId(tool, "appendToDescription", updatedDescription);
     }
 
     public ViewCase clickOK() throws Exception {

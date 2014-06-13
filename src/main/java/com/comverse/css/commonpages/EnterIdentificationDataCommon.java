@@ -58,33 +58,33 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setEmailAddress(String email) throws Exception {
-        tool.driver.findElement(By.id("email")).clear();
-        tool.driver.findElement(By.id("email")).sendKeys(email);
+        
+        tool.enterStringUsingId(tool, "email", email);
     }
 
     public void setPhoneNumber(String phonenumber) throws Exception {
-        tool.driver.findElement(By.id("home_phone")).clear();
-        tool.driver.findElement(By.id("home_phone")).sendKeys(phonenumber);
+        
+        tool.enterStringUsingId(tool, "home_phone", phonenumber);
     }
 
     public void setMobileNumber(String mobile_phone) throws Exception {
-        tool.driver.findElement(By.id("mobile_phone")).clear();
-        tool.driver.findElement(By.id("mobile_phone")).sendKeys(mobile_phone);
+        
+        tool.enterStringUsingId(tool, "mobile_phone", mobile_phone);
     }
 
     public void setFaxNumber(String fax) throws Exception {
-        tool.driver.findElement(By.id("fax")).clear();
-        tool.driver.findElement(By.id("fax")).sendKeys(fax);
+        
+        tool.enterStringUsingId(tool, "fax", fax);
     }
 
     public void setNationalID(String national_id) throws Exception {
-        tool.driver.findElement(By.id("national_id")).clear();
-        tool.driver.findElement(By.id("national_id")).sendKeys(national_id);
+        
+        tool.enterStringUsingId(tool, "national_id", national_id);
     }
 
     public void setDateOfBirth(String date_of_birth) throws Exception {
-        tool.driver.findElement(By.id("date_of_birth")).clear();
-        tool.driver.findElement(By.id("date_of_birth")).sendKeys(date_of_birth);
+        
+        tool.enterStringUsingId(tool, "date_of_birth", date_of_birth);
     }
 
     public void setBillingTitle(String title) throws Exception {
@@ -96,28 +96,28 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingFirstName(String billing_first_name) throws Exception {
-        tool.driver.findElement(By.id("billing_first_name")).clear();
-        tool.driver.findElement(By.id("billing_first_name")).sendKeys(billing_first_name);
+        
+        tool.enterStringUsingId(tool, "billing_first_name", billing_first_name);
     }
 
     public void setBusinessFirstName(String biz_first_name) throws Exception {
-        tool.driver.findElement(By.id("first_name")).clear();
-        tool.driver.findElement(By.id("first_name")).sendKeys(biz_first_name);
+        
+        tool.enterStringUsingId(tool, "first_name", biz_first_name);
     }
 
     public void setBillingLastName(String billing_last_name) throws Exception {
-        tool.driver.findElement(By.id("billing_last_name")).clear();
-        tool.driver.findElement(By.id("billing_last_name")).sendKeys(billing_last_name);
+        
+        tool.enterStringUsingId(tool, "billing_last_name", billing_last_name);
     }
 
     public void setBusinessLastName(String biz_last_name) throws Exception {
-        tool.driver.findElement(By.id("last_name")).clear();
-        tool.driver.findElement(By.id("last_name")).sendKeys(biz_last_name);
+        
+        tool.enterStringUsingId(tool, "last_name", biz_last_name);
     }
 
     public void setBillingStreetName(String billing_streetName) throws Exception {
-        tool.driver.findElement(By.id("billing_streetName")).clear();
-        tool.driver.findElement(By.id("billing_streetName")).sendKeys(billing_streetName);
+        
+        tool.enterStringUsingId(tool, "billing_streetName", billing_streetName);
     }
 
     public void setBillingStreetSuffix(String billing_streetSuffix) throws Exception {
@@ -125,13 +125,13 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingStreetNumber(String billing_streetNumber) throws Exception {
-        tool.driver.findElement(By.id("billing_streetNumber")).clear();
-        tool.driver.findElement(By.id("billing_streetNumber")).sendKeys(billing_streetNumber);
+        
+        tool.enterStringUsingId(tool, "billing_streetNumber", billing_streetNumber);
     }
 
     public void enterBillingPostCode(String billing_zip_code) throws Exception {
-        tool.driver.findElement(By.id("billing_zip_code")).clear();
-        tool.driver.findElement(By.id("billing_zip_code")).sendKeys(billing_zip_code);
+        
+        tool.enterStringUsingId(tool, "billing_zip_code", billing_zip_code);
     }
 
     public void enterBillingHomeCountry(String billing_country) throws Exception {
@@ -144,14 +144,14 @@ public class EnterIdentificationDataCommon extends CommonMenu {
 
     public void enterBillingCity(String billing_city) throws Exception {
 
-        tool.driver.findElement(By.id("billing_city")).clear();
-        tool.driver.findElement(By.id("billing_city")).sendKeys(billing_city);
+        
+        tool.enterStringUsingId(tool, "billing_city", billing_city);
     }
 
     public void enterBusinessPostCode(String billing_zip_code) throws Exception {
 
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(billing_zip_code);
+        
+        tool.enterStringUsingId(tool, "home_zip", billing_zip_code);
     }
 
     public void enterBusinessHomeCountry(String billing_country) throws Exception {
@@ -163,8 +163,8 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterBusinessCity(String billing_city) throws Exception {
-        tool.driver.findElement(By.id("home_city")).clear();
-        tool.driver.findElement(By.id("home_city")).sendKeys(billing_city);
+        
+        tool.enterStringUsingId(tool, "home_city", billing_city);
     }
 
     public void setCustomerTitle(String title) throws Exception {
@@ -172,18 +172,18 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setCustomerFirstName(String firstname) throws Exception {
-        tool.driver.findElement(By.id("first_name")).clear();
-        tool.driver.findElement(By.id("first_name")).sendKeys(firstname);
+        
+        tool.enterStringUsingId(tool, "first_name", firstname);
     }
 
     public void setCustomerLastName(String lastname) throws Exception {
-        tool.driver.findElement(By.id("last_name")).clear();
-        tool.driver.findElement(By.id("last_name")).sendKeys(lastname);
+        
+        tool.enterStringUsingId(tool, "last_name", lastname);
     }
 
     public void setCustomerStreetName(String streetName) throws Exception {
-        tool.driver.findElement(By.id("streetName")).clear();
-        tool.driver.findElement(By.id("streetName")).sendKeys(streetName);
+        
+        tool.enterStringUsingId(tool, "streetName", streetName);
     }
 
     public void setCustomerStreetSuffix(String streetSuffix) throws Exception {
@@ -191,8 +191,8 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setCustomerStreetNumber(String streetNumber) throws Exception {
-        tool.driver.findElement(By.id("streetNumber")).clear();
-        tool.driver.findElement(By.id("streetNumber")).sendKeys(streetNumber);
+        
+        tool.enterStringUsingId(tool, "streetNumber", streetNumber);
     }
 
     public String getCustomerStreetName() throws Exception {
@@ -200,8 +200,8 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterCustomerPostCode(String postCode) throws Exception {
-        tool.driver.findElement(By.id("home_zip")).clear();
-        tool.driver.findElement(By.id("home_zip")).sendKeys(postCode);
+        
+        tool.enterStringUsingId(tool, "home_zip", postCode);
     }
 
     public String getCustomerPostCode() throws Exception {
@@ -221,8 +221,8 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterCustomerCity(String city) throws Exception {
-        tool.driver.findElement(By.id("home_city")).clear();
-        tool.driver.findElement(By.id("home_city")).sendKeys(city);
+        
+        tool.enterStringUsingId(tool, "home_city", city);
     }
 
     public String getCustomerCity() throws Exception {
@@ -234,18 +234,18 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setServiceFirstName(String service_first_name) throws Exception {
-        tool.driver.findElement(By.id("service_first_name")).clear();
-        tool.driver.findElement(By.id("service_first_name")).sendKeys(service_first_name);
+        
+        tool.enterStringUsingId(tool, "service_first_name", service_first_name);
     }
 
     public void setServiceLastName(String service_last_name) throws Exception {
-        tool.driver.findElement(By.id("service_last_name")).clear();
-        tool.driver.findElement(By.id("service_last_name")).sendKeys(service_last_name);
+        
+        tool.enterStringUsingId(tool, "service_last_name", service_last_name);
     }
 
     public void setServiceStreetName(String service_streetName) throws Exception {
-        tool.driver.findElement(By.id("service_streetName")).clear();
-        tool.driver.findElement(By.id("service_streetName")).sendKeys(service_streetName);
+        
+        tool.enterStringUsingId(tool, "service_streetName", service_streetName);
     }
 
     public void setServiceSteetSuffix(String service_streetSuffix) throws Exception {
@@ -253,13 +253,13 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setServiceStreetNumber(String service_streetNumber) throws Exception {
-        tool.driver.findElement(By.id("service_streetNumber")).clear();
-        tool.driver.findElement(By.id("service_streetNumber")).sendKeys(service_streetNumber);
+        
+        tool.enterStringUsingId(tool, "service_streetNumber", service_streetNumber);
     }
 
     public void enterServicePostCode(String service_home_zip) throws Exception {
-        tool.driver.findElement(By.id("service_home_zip")).clear();
-        tool.driver.findElement(By.id("service_home_zip")).sendKeys(service_home_zip);
+        
+        tool.enterStringUsingId(tool, "service_home_zip", service_home_zip);
     }
 
     public void enterServiceHomeCountry(String service_home_country) throws Exception {
@@ -271,8 +271,8 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterServiceCity(String service_home_city) throws Exception {
-        tool.driver.findElement(By.id("service_home_city")).clear();
-        tool.driver.findElement(By.id("service_home_city")).sendKeys(service_home_city);
+        
+        tool.enterStringUsingId(tool, "service_home_city", service_home_city);
     }
 
     public UpdateAccountBillingAddressInformationsCommon clickEnterAdressButtonSelect() throws Exception {
@@ -297,28 +297,28 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingCompanyName(String companyName) throws Exception {
-        tool.driver.findElement(By.id("company_name")).clear();
-        tool.driver.findElement(By.id("company_name")).sendKeys(companyName);
+        
+        tool.enterStringUsingId(tool, "company_name", companyName);
     }
 
     public void setBankCode(String bankcode) throws Exception {
-        tool.driver.findElement(By.id("p-L1:1-L3:1360")).clear();
-        tool.driver.findElement(By.id("p-L1:1-L3:1360")).sendKeys(bankcode);
+        
+        tool.enterStringUsingId(tool, "p-L1:1-L3:1360", bankcode);
     }
 
     public void setBankAgencyCode(String bankagencycode) throws Exception {
-        tool.driver.findElement(By.id("p-L1:1-L3:1370")).clear();
-        tool.driver.findElement(By.id("p-L1:1-L3:1370")).sendKeys(bankagencycode);
+        
+        tool.enterStringUsingId(tool, "p-L1:1-L3:1370", bankagencycode);
     }
 
     public void setBankAccountNumber(String bankaccountnumber) throws Exception {
-        tool.driver.findElement(By.id("p-L1:1-L3:1380")).clear();
-        tool.driver.findElement(By.id("p-L1:1-L3:1380")).sendKeys(bankaccountnumber);
+        
+        tool.enterStringUsingId(tool, "p-L1:1-L3:1380", bankaccountnumber);
     }
 
     public void setBankLastName(String banklastname) throws Exception {
-        tool.driver.findElement(By.id("p-L1:1-L3:1270")).clear();
-        tool.driver.findElement(By.id("p-L1:1-L3:1270")).sendKeys(banklastname);
+        
+        tool.enterStringUsingId(tool, "p-L1:1-L3:1270", banklastname);
     }
 
     public ShoppingCommon clickContinue() throws Exception {

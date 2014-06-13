@@ -25,12 +25,12 @@ public class sfaContact extends SFAMenu {
                                                                // detail dialog
         Common.sleepForNumberOfSeconds(3);
         Common.switchToNewWindow(tool, mainWindow, contactWindow);
-        tool.driver.findElement(By.id("Ie5fc8b")).clear();
-        tool.driver.findElement(By.id("Ie5fc8b")).sendKeys(contactFN); // set
+        
+        tool.enterStringUsingId(tool, "Ie5fc8b", contactFN); // set
                                                                        // first
                                                                        // name
-        tool.driver.findElement(By.id("Ik35shv")).clear();
-        tool.driver.findElement(By.id("Ik35shv")).sendKeys(contactLN); // set
+        
+        tool.enterStringUsingId(tool, "Ik35shv", contactLN); // set
                                                                        // last
                                                                        // name
         tool.driver.findElement(By.id("Ab0lxf")).click(); // click save

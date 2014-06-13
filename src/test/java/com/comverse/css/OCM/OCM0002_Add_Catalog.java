@@ -40,12 +40,12 @@ public class OCM0002_Add_Catalog extends CSSTest {
         tool.driver.findElement(By.id("mainPanel:treeForm:catalog-tree:0:0:_idJsp18_link")).click();
         // click "Create New Catalog"
         tool.driver.findElement(By.id("mainPanel:boxForm:actionBox:actionList:entityType:add")).click();
-        tool.driver.findElement(By.id("mainPanel:edit:fields:name")).clear();
-        tool.driver.findElement(By.id("mainPanel:edit:fields:name")).sendKeys(productName);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:code")).clear();
-        tool.driver.findElement(By.id("mainPanel:edit:fields:code")).sendKeys(productCode);
-        tool.driver.findElement(By.id("mainPanel:edit:fields:description")).clear();
-        tool.driver.findElement(By.id("mainPanel:edit:fields:description")).sendKeys(productDescription);
+        
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", productName);
+        
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", productCode);
+        
+        tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", productDescription);
         tool.driver.findElement(By.id("mainPanel:edit:buttons:createProductCategory")).click();
 
         test.setResult("pass");

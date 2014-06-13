@@ -26,17 +26,17 @@ public class AddLoginCommon extends CommonMenu {
     }
 
     public void setLogin(String value) throws Exception {
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "login", value);
     }
 
     public void setPassword(String value) throws Exception {
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "password", value);
     }
 
     public void setConfirmPassword(String value) throws Exception {
-        tool.driver.findElement(By.id("confirmPassword")).clear();
-        tool.driver.findElement(By.id("confirmPassword")).sendKeys(value);
+        
+        tool.enterStringUsingId(tool, "confirmPassword", value);
     }
 }

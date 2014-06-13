@@ -23,8 +23,8 @@ public class ViewBilledUsageCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        tool.driver.findElement(By.id("fromDate")).clear();
-        tool.driver.findElement(By.id("fromDate")).sendKeys(fromDate);
+        
+        tool.enterStringUsingId(tool, "fromDate", fromDate);
 
     }
 

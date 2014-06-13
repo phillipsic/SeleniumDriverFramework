@@ -25,13 +25,13 @@ public class ComverseOneSingleSignOn extends Main {
     }
 
     public void setUserName(AutomationTool tool, User user) throws Exception {
-        tool.driver.findElement(By.id("username")).clear();
-        tool.driver.findElement(By.id("username")).sendKeys(user.getLogin());
+        
+        tool.enterStringUsingId(tool, "username", user.getLogin());
     }
 
     public void setPassword(AutomationTool tool, User user) throws Exception {
-        tool.driver.findElement(By.id("password")).clear();
-        tool.driver.findElement(By.id("password")).sendKeys(user.getPassword());
+        
+        tool.enterStringUsingId(tool, "password", user.getPassword());
     }
 
     public void setRealm(AutomationTool tool, User user) throws Exception {

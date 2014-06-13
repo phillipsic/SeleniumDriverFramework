@@ -27,8 +27,8 @@ public class RegisterLoginCommon extends CommonMenu {
 
     public void setLogin(String login) throws Exception {
 
-        tool.driver.findElement(By.id("login")).clear();
-        tool.driver.findElement(By.id("login")).sendKeys(login);
+        
+        tool.enterStringUsingId(tool, "login", login);
     }
 
     public void selectRole(String role) throws Exception {
