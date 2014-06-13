@@ -33,6 +33,13 @@ public class ChooseYourHandset extends B2CMenu {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
+    
+    public EnterYourSubscriptionDetails selectHandsetExpectingSubscriptionDetails(String Handset) throws Exception {
+
+        tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new EnterYourSubscriptionDetails(tool, test, user);
+    }
 
     public MyBasket selectHandsetExpectingMyBasket(String Handset) throws Exception {
 
