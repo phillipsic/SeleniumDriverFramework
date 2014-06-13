@@ -26,8 +26,8 @@ public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu
     }
 
     public void setPhoneNumber(String phoneNumber) throws Exception {
-        tool.driver.findElement(By.name("friendsAndFamilyListInputFieldsphone_number0")).clear();
-        tool.driver.findElement(By.name("friendsAndFamilyListInputFieldsphone_number0")).sendKeys(phoneNumber);
+        
+        tool.enterStringUsingName(tool, "friendsAndFamilyListInputFieldsphone_number0", phoneNumber);
     }
 
     public void clickOK() throws Exception {

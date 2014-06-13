@@ -47,9 +47,9 @@ public class DeliveryAddressesCommon extends CommonMenu {
         return new DeliveryAddressesCommon(tool, test, user);
     }
 
-    public void enterSearchString(String searchString) {
-        tool.driver.findElement(By.name("searchText")).clear();
-        tool.driver.findElement(By.name("searchText")).sendKeys(searchString);
+    public void enterSearchString(String searchString) throws Exception {
+        
+        tool.enterStringUsingName(tool, "searchText", searchString);
     }
 
     public AddDeliveryAddressCommon clickAdd() throws Exception {

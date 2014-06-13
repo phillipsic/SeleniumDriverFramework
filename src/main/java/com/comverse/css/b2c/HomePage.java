@@ -192,8 +192,8 @@ public class HomePage extends B2CMenu {
 
     public void enterAccountNumber(String accountnumber) throws Exception {
 
-        tool.driver.findElement(By.name("customer_reference")).clear();
-        tool.driver.findElement(By.name("customer_reference")).sendKeys(accountnumber);
+        
+        tool.enterStringUsingName(tool, "customer_reference", accountnumber);
 
     }
 
