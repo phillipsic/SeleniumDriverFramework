@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -39,7 +38,7 @@ public class LoginCommon extends CommonMenu {
     }
 
     public AddMemberConfirmationCommon clickCreateLoginLater() throws Exception {
-        tool.driver.findElement(By.id("ON_OK")).click();
+        tool.clickUsingID(tool, "ON_OK");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }

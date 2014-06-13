@@ -3,7 +3,6 @@ package com.comverse.css.OCM;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.css.common.CSSTest;
@@ -32,9 +31,9 @@ public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends CSS
         ocmApplication.clickMenuManageCatalogs(application);
 
         // Open "Catalogs"
-        tool.driver.findElement(By.id("mainPanel:treeForm:catalog-tree:0:t2")).click();
+        tool.clickUsingID(tool, "mainPanel:treeForm:catalog-tree:0:t2");
         // Open "Offer Series"
-        tool.driver.findElement(By.id("mainPanel:treeForm:catalog-tree:0:1:t2")).click();
+        tool.clickUsingID(tool, "mainPanel:treeForm:catalog-tree:0:1:t2");
         // Click "Postpaid GSM Mobile"
         tool.clickUsingLinkText(tool, "Postpaid GSM Mobile");
         // Click "Manage Relationships with Product Types"
@@ -47,11 +46,11 @@ public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends CSS
         new Select(tool.searchUsingID(tool, "mainPanel:ruleKindForm:RuleKind")).selectByVisibleText("Compatible Device Type with Primary Offer Series");
 
         // Check VOICE_DEVICE
-        tool.driver.findElement(By.id("mainPanel:productForm:productTypeList:0__57a:attach")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:productTypeList:0__57a:attach");
         // Check DATA_DEVICE
-        tool.driver.findElement(By.id("mainPanel:productForm:productTypeList:1__57b:attach")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:productTypeList:1__57b:attach");
         // Click Submit
-        tool.driver.findElement(By.id("mainPanel:productForm:productTypeList:buttons:modifyList")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:productTypeList:buttons:modifyList");
 
         test.setResult("pass");
     }

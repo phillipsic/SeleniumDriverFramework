@@ -43,7 +43,7 @@ public class MoveLevelCommon extends CommonMenu {
         /*
          * tool.clickUsingLinkText(tool, "Select");
          */
-        tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
+        tool.clickUsingID(tool, "mnu_HIERARCHY");
 
         return new ViewHierarchyCommon(tool, test, user);
 

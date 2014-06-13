@@ -1,6 +1,5 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -66,7 +65,7 @@ public class InsertInventory extends CommonMenu {
 
     public ActionDone clickInsert() throws Exception {
 
-        tool.driver.findElement(By.id("insertbtn")).click();
+        tool.clickUsingID(tool, "insertbtn");
 
         return new ActionDone(tool, test, user);
     }

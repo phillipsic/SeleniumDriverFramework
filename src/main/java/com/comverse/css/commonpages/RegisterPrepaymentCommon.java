@@ -26,7 +26,7 @@ public class RegisterPrepaymentCommon extends CommonMenu {
 
     public void selectPaymentMethod(String paymentMethod) throws Exception {
 
-        // tool.driver.findElement(By.id(paymentmethod)).click();
+        // tool.clickUsingID(tool, paymentmethod);
         tool.clickUsingXPath(tool, "//input[@value='" + paymentMethod + "']");
 
     }

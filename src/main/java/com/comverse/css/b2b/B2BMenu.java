@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.common.Test;
@@ -27,7 +25,7 @@ public class B2BMenu extends Main {
 
     public MyshapeBusiness clickLogout() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_LOGOUT")).click();
+        tool.clickUsingID(tool, "mnu_LOGOUT");
         return new MyshapeBusiness(tool, test, user);
     }
 }

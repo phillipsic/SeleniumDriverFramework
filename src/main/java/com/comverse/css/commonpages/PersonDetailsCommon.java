@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -28,7 +27,7 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void clickUpdate() throws Exception {
-        tool.driver.findElement(By.id("submitButton")).click();
+        tool.clickUsingID(tool, "submitButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 

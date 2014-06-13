@@ -72,7 +72,7 @@ public class DeliveryAddressesCommon extends CommonMenu {
 
     public RemoveDeliveryAddressCommon clickRemove() throws Exception {
 
-        tool.driver.findElement(By.id("lnk_REMOVE_0")).click();
+        tool.clickUsingID(tool, "lnk_REMOVE_0");
         return new RemoveDeliveryAddressCommon(tool, test, user);
     }
 

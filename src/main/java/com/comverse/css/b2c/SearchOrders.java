@@ -36,14 +36,14 @@ public class SearchOrders extends B2CMenu {
     public SubscriberDetail clickAccounts() throws Exception {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.id("mnu_ACCOUNTS")).click();
+        tool.clickUsingID(tool, "mnu_ACCOUNTS");
         return new SubscriberDetail(tool, test, user);
     }
 
     public SubscriberDetail clickDashboard() throws Exception {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.id("mnu_HOME")).click();
+        tool.clickUsingID(tool, "mnu_HOME");
         return new SubscriberDetail(tool, test, user);
     }
 
@@ -167,7 +167,7 @@ public class SearchOrders extends B2CMenu {
 
     public SearchRequests goToSearchRequests() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_VIEW")).click();
+        tool.clickUsingID(tool, "smnu_VIEW");
         return new SearchRequests(tool, test, user);
     }
 }

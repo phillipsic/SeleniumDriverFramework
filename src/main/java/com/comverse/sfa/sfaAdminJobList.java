@@ -21,7 +21,7 @@ public class sfaAdminJobList extends SFAMenu {
     }
 
     void clickNewJob() throws Exception {
-        tool.driver.findElement(By.id("Amknfne_label")).click();
+        tool.clickUsingID(tool, "Amknfne_label");
         Common.sleepForNumberOfSeconds(1);
     }
 
@@ -55,14 +55,14 @@ public class sfaAdminJobList extends SFAMenu {
         tool.enterStringUsingId(tool, "I52cbz6", leadDirectory + "/" + rejectDir);
     }
 
-    void selectFileHasHeader() {
+    void selectFileHasHeader() throws Exception {
         if (!driver.findElement(By.id("Ic5p3o7")).isSelected()) {
-            tool.driver.findElement(By.id("Ic5p3o7")).click();
+            tool.clickUsingID(tool, "Ic5p3o7");
         }
     }
 
-    void saveJob() {
-        tool.driver.findElement(By.id("Avbojgy_label")).click();
+    void saveJob() throws Exception {
+        tool.clickUsingID(tool, "Avbojgy_label");
     }
 
     void selectJobByName(String jobName) throws Exception {
@@ -74,18 +74,18 @@ public class sfaAdminJobList extends SFAMenu {
     }
 
     void runJob() throws Exception {
-        tool.driver.findElement(By.id("A3yirb3_label")).click();
+        tool.clickUsingID(tool, "A3yirb3_label");
         Common.sleepForNumberOfSeconds(10);
     }
 
     void deleteJob() throws Exception {
-        tool.driver.findElement(By.id("Adbgs6e_label")).click();
+        tool.clickUsingID(tool, "Adbgs6e_label");
         Common.sleepForNumberOfSeconds(1);
 
     }
 
-    void refreshJobList() {
-        tool.driver.findElement(By.id("${id}_refresh")).click();
+    void refreshJobList() throws Exception {
+        tool.clickUsingID(tool, "${id}_refresh");
     }
 
 }

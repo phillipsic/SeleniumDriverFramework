@@ -105,7 +105,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setGender(String Gender) throws Exception {
 
-        tool.driver.findElement(By.id(Gender)).click();
+        tool.clickUsingID(tool, Gender);
 
     }
 
@@ -240,7 +240,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setBillingTML(String BillingTML) throws Exception {
 
-        tool.driver.findElement(By.id("p-param-L4:81270" + BillingTML)).click();
+        tool.clickUsingID(tool, "p-param-L4:81270" + BillingTML);
     }
 
     public void setBillingVIPCode(String SICCode) throws Exception {

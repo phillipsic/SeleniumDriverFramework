@@ -23,7 +23,7 @@ public class WelcomeToYourWorkspace extends CommonMenu {
     }
 
     public SearchRetailer clickManageRetailer() throws Exception {
-        tool.driver.findElement(By.id("mnu_MANAGE_RETAILER")).click();
+        tool.clickUsingID(tool, "mnu_MANAGE_RETAILER");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchRetailer(tool, test, user);
 
@@ -35,7 +35,7 @@ public class WelcomeToYourWorkspace extends CommonMenu {
     }
 
     public ViewHierarchy clickManageTelco() throws Exception {
-        tool.driver.findElement(By.id("mnu_TELCO")).click();
+        tool.clickUsingID(tool, "mnu_TELCO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchy(tool, test, user);
     }

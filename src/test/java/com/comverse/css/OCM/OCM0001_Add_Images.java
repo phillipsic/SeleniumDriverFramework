@@ -11,7 +11,6 @@ import jxl.Workbook;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
@@ -45,11 +44,11 @@ public class OCM0001_Add_Images extends CSSTest {
         ocmApplication.clickMenuManageMediaFiles(application);
 
         // Click "Root Content"
-        tool.driver.findElement(By.id("mainPanel:treeForm:ContentMgtTree:0:_idJsp19_link")).click();
+        tool.clickUsingID(tool, "mainPanel:treeForm:ContentMgtTree:0:_idJsp19_link");
         // Click "Move this Folder"
-        tool.driver.findElement(By.id("mainPanel:boxForm:folderSelection_ActionBox:actionList:folder:moveHierarchy")).click();
+        tool.clickUsingID(tool, "mainPanel:boxForm:folderSelection_ActionBox:actionList:folder:moveHierarchy");
         tool.enterStringUsingId(tool, "mainPanel:_idJsp28:mainfields:NewSubHierarchy", "/Images/");
-        tool.driver.findElement(By.id("mainPanel:_idJsp28:buttons:moveHierarchy")).click();
+        tool.clickUsingID(tool, "mainPanel:_idJsp28:buttons:moveHierarchy");
         Common.assertTextOnPage(tool, "Images");
 
         this.inputFile = "test\\com\\comverse\\css\\OCM\\Data\\images.xls";
@@ -71,7 +70,7 @@ public class OCM0001_Add_Images extends CSSTest {
             contents[i][j] = cell.getContents();
             System.out.println("I got a label " + cell.getContents());
             // Click "Upload Media Files in this Folder"
-            tool.driver.findElement(By.id("mainPanel:boxForm:folderSelection_ActionBox:actionList:mediaFiles:uploadMediaFile")).click();
+            tool.clickUsingID(tool, "mainPanel:boxForm:folderSelection_ActionBox:actionList:mediaFiles:uploadMediaFile");
             ImageDetails = System.getProperty("user.dir") + "\\test\\com\\comverse\\css\\OCM\\Data\\Img\\" + cell.getContents();
             System.out.println(ImageDetails);
 
@@ -81,7 +80,7 @@ public class OCM0001_Add_Images extends CSSTest {
             // tool.enterStringUsingId(tool, "fileUpload", path +
             // locationOfFile);
             tool.enterStringUsingId(tool, "mainPanel:edit:mainfields:file", ImageDetails);
-            tool.driver.findElement(By.id("mainPanel:edit:buttons:upload")).click();
+            tool.clickUsingID(tool, "mainPanel:edit:buttons:upload");
             Common.assertTextOnPage(tool, "1 media files uploaded successfully");
         }
 

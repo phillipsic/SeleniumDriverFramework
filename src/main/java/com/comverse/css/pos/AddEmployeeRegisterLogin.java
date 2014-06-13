@@ -4,8 +4,6 @@
  */
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -32,12 +30,12 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public void selectRoleTelcoRetailerAdministrator() throws Exception {
 
-        tool.driver.findElement(By.id("roles_L3:111")).click();
+        tool.clickUsingID(tool, "roles_L3:111");
     }
 
     public void selectRoleTelcoRetailerSubscriber() throws Exception {
 
-        tool.driver.findElement(By.id("roles_L3:113")).click();
+        tool.clickUsingID(tool, "roles_L3:113");
     }
 
     public AddEmployeeConfirmation clickContinue() throws Exception {
@@ -49,7 +47,7 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public AddEmployeeConfirmation clickCreateLoginLater() throws Exception {
 
-        tool.driver.findElement(By.id("ON_OK")).click();
+        tool.clickUsingID(tool, "ON_OK");
 
         return new AddEmployeeConfirmation(tool, test, user);
     }

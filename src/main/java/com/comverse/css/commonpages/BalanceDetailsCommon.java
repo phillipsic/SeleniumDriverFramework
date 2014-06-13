@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -37,7 +35,7 @@ public class BalanceDetailsCommon extends CommonMenu {
     }
 
     public ViewBalanceCommon clickGoToListOfBalances() throws Exception {
-        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        tool.clickUsingID(tool, "youcan_ON_BACK");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewBalanceCommon(tool, test, user);
     }

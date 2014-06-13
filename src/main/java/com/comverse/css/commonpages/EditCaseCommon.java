@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -32,7 +31,7 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void clickSaveAndCloseCase() throws Exception {
-        tool.driver.findElement(By.id("cclose")).click();
+        tool.clickUsingID(tool, "cclose");
     }
 
     public void clickOKToCancelOrClose() throws Exception {

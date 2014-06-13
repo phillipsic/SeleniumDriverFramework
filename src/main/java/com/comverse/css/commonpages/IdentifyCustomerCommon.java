@@ -250,7 +250,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public void checkIncludeInactiveSubscriberID() throws Exception {
-        tool.driver.findElement(By.id("includeInactiveSubscribers")).click();
+        tool.clickUsingID(tool, "includeInactiveSubscribers");
     }
 
     public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {

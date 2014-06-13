@@ -91,7 +91,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
         System.out.println("link = #selectButton_" + temp[0]);
         tool.clickUsingCssSelector(tool, "#selectButton_" + temp[0]);
-        // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
+        // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {

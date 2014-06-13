@@ -33,7 +33,7 @@ public class SFAMenu extends SFATest {
     public sfaB2BLead clickNavigationB2BLead() throws Exception {
 
         if (!driver.findElement(By.xpath("//div[contains(text(), 'B2B Leads')]")).isDisplayed()) {
-            tool.driver.findElement(By.id("toggle_$20ee6m_image")).click();
+            tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'B2B Leads')]");
         return new sfaB2BLead(tool, test, user);
@@ -42,7 +42,7 @@ public class SFAMenu extends SFATest {
     public sfaB2CLead clickNavigationB2CLead() throws Exception {
 
         if (!driver.findElement(By.xpath("//div[contains(text(), 'B2C Leads')]")).isDisplayed()) {
-            tool.driver.findElement(By.id("toggle_$20ee6m_image")).click();
+            tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'B2C Leads')]");
         return new sfaB2CLead(tool, test, user);
@@ -51,7 +51,7 @@ public class SFAMenu extends SFATest {
     public sfaAdminJobList clickNavigationJobList() throws Exception {
 
         if (!driver.findElement(By.xpath("//div[contains(text(), 'Job List')]")).isDisplayed()) {
-            tool.driver.findElement(By.id("toggle_$dkat0h_image")).click();
+            tool.clickUsingID(tool, "toggle_$dkat0h_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'Job List')]");
         return new sfaAdminJobList(tool, test, user);
@@ -59,7 +59,7 @@ public class SFAMenu extends SFATest {
 
     public sfaOpportunity clickNavigationOpportunity() throws Exception {
         if (!driver.findElement(By.xpath("//div[contains(text(), 'Opportunities')]")).isDisplayed()) {
-            tool.driver.findElement(By.id("toggle_$20ee6m_image")).click();
+            tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'Opportunities')]");
         return new sfaOpportunity(tool, test, user);

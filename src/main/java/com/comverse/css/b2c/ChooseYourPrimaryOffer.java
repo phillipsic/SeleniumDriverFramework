@@ -24,7 +24,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + offerID);
         tool.clickUsingCssSelector(tool, "#selectButton_" + offerID);
-        // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
+        // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {
@@ -42,7 +42,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + offerID);
         tool.clickUsingCssSelector(tool, "#selectButton_" + offerID);
-        // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
+        // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {
@@ -61,7 +61,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + subscriberbundleID);
         tool.clickUsingCssSelector(tool, "#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID);
-        // tool.driver.findElement(By.id("selectButton_" + temp[0])).click();
+        // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.driver.getTitle())) {

@@ -80,7 +80,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void clickForgotYourPassword() throws Exception {
-        tool.driver.findElement(By.id("lnk_FORGOTTEN_PASSWORD")).click();
+        tool.clickUsingID(tool, "lnk_FORGOTTEN_PASSWORD");
     }
 
     public void setUserName(String login) throws Exception {

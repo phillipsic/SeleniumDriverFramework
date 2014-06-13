@@ -37,7 +37,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickOkAfterSetEmailInventory() throws Exception {
-        tool.driver.findElement(By.id("display_line_submit_button")).click();
+        tool.clickUsingID(tool, "display_line_submit_button");
         return new MyBasketCommon(tool, test, user);
     }
 

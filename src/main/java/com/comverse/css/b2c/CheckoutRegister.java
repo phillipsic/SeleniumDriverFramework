@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -42,7 +40,7 @@ public class CheckoutRegister extends B2CMenu {
 
     public void selectSignMeUp() throws Exception {
 
-        tool.driver.findElement(By.id("sign_up_anonymous")).click();
+        tool.clickUsingID(tool, "sign_up_anonymous");
     }
 
     public void setRegisteredLogin(String login) throws Exception {

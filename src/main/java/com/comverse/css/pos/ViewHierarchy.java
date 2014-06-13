@@ -2,8 +2,6 @@ package com.comverse.css.pos;
 
 import java.util.Calendar;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -37,7 +35,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public AddEmployeeContactInformation clickAddEmployee() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_REGISTER_EMPLOYEE")).click();
+        tool.clickUsingID(tool, "smnu_REGISTER_EMPLOYEE");
 
         return new AddEmployeeContactInformation(tool, test, user);
 
@@ -75,7 +73,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public AddLevelContactInformation clickAddLevel() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADD_LEVEL")).click();
+        tool.clickUsingID(tool, "smnu_ADD_LEVEL");
         return new AddLevelContactInformation(tool, test, user);
     }
 
@@ -112,25 +110,25 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public MoveLevel clickMoveLevel() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_MOVE_LEVEL")).click();
+        tool.clickUsingID(tool, "smnu_MOVE_LEVEL");
         return new MoveLevel(tool, test, user);
     }
 
     public RemoveLevel clickRemoveLevel() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_REMOVE_LEVEL")).click();
+        tool.clickUsingID(tool, "smnu_REMOVE_LEVEL");
         return new RemoveLevel(tool, test, user);
     }
 
     public ContactInformation clickViewContact() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADDRESS")).click();
+        tool.clickUsingID(tool, "smnu_ADDRESS");
         return new ContactInformation(tool, test, user);
     }
 
     public ProfileInformation clickViewProfile() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_PROFILE")).click();
+        tool.clickUsingID(tool, "smnu_PROFILE");
         return new ProfileInformation(tool, test, user);
     }
 }

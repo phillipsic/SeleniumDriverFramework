@@ -952,7 +952,7 @@ public class Common {
                 }
                 Common.sleepForNumberOfSeconds(2);
                 tool.clickUsingXPath(tool, "(//input[@value='+ Action'])[2]");
-                tool.driver.findElement(By.id(actionID)).click();
+                tool.clickUsingID(tool, actionID);
                 String pageTitle = tool.driver.getTitle();
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
@@ -985,7 +985,7 @@ public class Common {
                 if (actionIDTable != null) {
                     for (String actionID : actionIDTable) {
                         Common.sleepForNumberOfSeconds(1);
-                        tool.driver.findElement(By.id(actionID)).click();
+                        tool.clickUsingID(tool, actionID);
                     }
                 }
                 String pageTitle = tool.driver.getTitle();

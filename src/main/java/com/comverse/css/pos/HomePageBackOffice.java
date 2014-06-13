@@ -4,8 +4,6 @@
  */
 package com.comverse.css.pos;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -30,7 +28,7 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
     @Override
 	public AddressAdministration clickAddressAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADDRESS_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_ADDRESS_ADMINISTRATION");
 
         return new AddressAdministration(tool, test, user);
 
@@ -39,7 +37,7 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
     @Override
 	public TokensfoundCommon clickTokenAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_TOKEN_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_TOKEN_ADMINISTRATION");
 
         return new TokensfoundCommon(tool, test, user);
 
@@ -48,7 +46,7 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
     @Override
 	public OutboundCommunicationTemplate clickTemplateAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_TEMPLATE_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_TEMPLATE_ADMINISTRATION");
 
         return new OutboundCommunicationTemplate(tool, test, user);
 

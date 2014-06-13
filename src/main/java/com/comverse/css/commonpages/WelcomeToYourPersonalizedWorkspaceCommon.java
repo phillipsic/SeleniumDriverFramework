@@ -33,7 +33,7 @@ public class WelcomeToYourPersonalizedWorkspaceCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickManageTelco() throws Exception {
-        tool.driver.findElement(By.id("mnu_TELCO")).click();
+        tool.clickUsingID(tool, "mnu_TELCO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);
     }

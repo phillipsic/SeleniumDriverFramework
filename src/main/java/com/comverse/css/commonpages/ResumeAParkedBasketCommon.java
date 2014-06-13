@@ -43,7 +43,7 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
         // basketID = Common.cleanStringOfIllegalChars(temp[0]);
         // basketID = Common.removeHTMLTags(basketID);
         //
-        // tool.driver.findElement(By.id(basketID)).click();
+        // tool.clickUsingID(tool, basketID);
         //
         // tool.clickUsingXPath(tool, "//input[@td='checkbox']");
         //

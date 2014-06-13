@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.common.Test;
@@ -19,19 +17,19 @@ public class B2CMenu extends Main {
 
     public SearchOrders clickRequests() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_REQUESTS")).click();
+        tool.clickUsingID(tool, "mnu_REQUESTS");
         return new SearchOrders(tool, test, user);
     }
 
     public HomePage clickLogout() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_LOGOUT")).click();
+        tool.clickUsingID(tool, "mnu_LOGOUT");
         return new HomePage(tool, test, user);
     }
 
     public SearchMember clickFamilyMemeber() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_MEMBERS")).click();
+        tool.clickUsingID(tool, "mnu_MEMBERS");
         return new SearchMember(tool, test, user);
     }
 
@@ -39,7 +37,7 @@ public class B2CMenu extends Main {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
-        tool.driver.findElement(By.id("mnu_HOME")).click();
+        tool.clickUsingID(tool, "mnu_HOME");
         return new SubscriberDetail(tool, test, user);
     }
 
@@ -47,19 +45,19 @@ public class B2CMenu extends Main {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
-        tool.driver.findElement(By.id("mnu_HOME")).click();
+        tool.clickUsingID(tool, "mnu_HOME");
         return new WorkSpace(tool, test, user);
     }
 
     public SearchCustomer clickSearchCustomer() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_SEARCH_CUSTOMER")).click();
+        tool.clickUsingID(tool, "mnu_SEARCH_CUSTOMER");
         return new SearchCustomer(tool, test, user);
     }
 
     public SearchMember clickMyInformation() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_CUST_INFO")).click();
+        tool.clickUsingID(tool, "mnu_CUST_INFO");
         return new SearchMember(tool, test, user);
     }
 
@@ -71,7 +69,7 @@ public class B2CMenu extends Main {
 
     public ListCases clickSupport() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_PROBLEMS")).click();
+        tool.clickUsingID(tool, "mnu_PROBLEMS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCases(tool, test, user);
     }

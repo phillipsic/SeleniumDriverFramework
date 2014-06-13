@@ -1,7 +1,5 @@
 package com.comverse.caseui;
 
-import org.openqa.selenium.By;
-
 import com.comverse.caseui.common.CaseUITest;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -49,8 +47,8 @@ public class CaseUIMenu extends CaseUITest {
         tool.clickUsingXPath(tool, "//div[contains(text(), 'Tasks')]");
     }
 
-    public void clickSignOut() {
-        tool.driver.findElement(By.id("$azn666_label")).click();
+    public void clickSignOut() throws Exception {
+        tool.clickUsingID(tool, "$azn666_label");
 
     }
 }

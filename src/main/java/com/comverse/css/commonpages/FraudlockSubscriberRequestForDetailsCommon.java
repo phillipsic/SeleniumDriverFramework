@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -23,7 +22,7 @@ public class FraudlockSubscriberRequestForDetailsCommon extends CommonMenu {
     public void clickCheckBoxFraudlockNow() throws Exception {
 
         if (!Common.isCheckBoxSelected(tool, "propertyNow"))
-            tool.driver.findElement(By.id("propertyNow")).click();
+            tool.clickUsingID(tool, "propertyNow");
 
     }
 

@@ -105,11 +105,11 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void clickAcceptTermsAndConditions() throws Exception {
-        tool.driver.findElement(By.id("termsandconditionscheck")).click();
+        tool.clickUsingID(tool, "termsandconditionscheck");
     }
 
     public RemoveSelectionCommon removeSecondItemFromBasket() throws Exception {
-        tool.driver.findElement(By.id("remove_1")).click();
+        tool.clickUsingID(tool, "remove_1");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveSelectionCommon(tool, test, user);
     }
@@ -122,7 +122,7 @@ public class MyBasketCommon extends CommonMenu {
 
     public void clickAddPersonOrRole() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.driver.findElement(By.id("pm-button-add-person")).click();
+        tool.clickUsingID(tool, "pm-button-add-person");
     }
 
     public void clickUserOfNewSubscriber1() throws Exception {
@@ -138,27 +138,27 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void setFirstName(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "pm-field-fname", value);
     }
 
     public void setLastName(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "pm-field-lname", value);
     }
 
     public void setAddressLine1(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "pm-field-address1", value);
     }
 
     public void setPostalCode(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "pm-field-zip", value);
     }
 
     public void setCity(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "pm-field-city", value);
     }
 
@@ -174,17 +174,17 @@ public class MyBasketCommon extends CommonMenu {
         new Select(tool.searchUsingID(tool, "subscriber")).selectByIndex(1);
     }
 
-    public void clickAddRole() {
-        tool.driver.findElement(By.id("add_role")).click();
+    public void clickAddRole() throws Exception {
+        tool.clickUsingID(tool, "add_role");
     }
 
     public void clickAdd() throws Exception {
-        tool.driver.findElement(By.id("pm-button-add")).click();
+        tool.clickUsingID(tool, "pm-button-add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public ShoppingCommon changePrimaryOffer() throws Exception {
-        tool.driver.findElement(By.id("add_pp_0")).click();
+        tool.clickUsingID(tool, "add_pp_0");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
@@ -196,13 +196,13 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public SelectOffersForYourSubscriberCommon clickChangeSO() throws Exception {
-        tool.driver.findElement(By.id("add_srv_1")).click();
+        tool.clickUsingID(tool, "add_srv_1");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     public SelectOffersForYourAccountCommon clickAddAO() throws Exception {
-        tool.driver.findElement(By.id("add_srv_ACCOUNT_LEVEL_SELECTION")).click();
+        tool.clickUsingID(tool, "add_srv_ACCOUNT_LEVEL_SELECTION");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }
@@ -269,7 +269,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public ParkTheCurrentBasketCommon clickParkBasket() throws Exception {
-        tool.driver.findElement(By.id("lnk_SBE.PARK.ADD")).click();
+        tool.clickUsingID(tool, "lnk_SBE.PARK.ADD");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ParkTheCurrentBasketCommon(tool, test, user);
     }

@@ -94,7 +94,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     public ViewNRCTermDetailsCommon ViewNRCTermDetails() throws Exception {
 
-        tool.driver.findElement(By.id("transactionDetails")).click();
+        tool.clickUsingID(tool, "transactionDetails");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

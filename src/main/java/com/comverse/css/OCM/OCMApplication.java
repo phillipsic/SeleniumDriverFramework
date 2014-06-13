@@ -69,7 +69,7 @@ public class OCMApplication extends Main {
         if (test.getDebug())
             System.out.println(IDSubscriber[0]);
 
-        tool.driver.findElement(By.id("mainPanel:productForm2:publicationRequestList:" + IDSubscriber[0] + ":selectPublicationRequestDetails")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm2:publicationRequestList:" + IDSubscriber[0] + ":selectPublicationRequestDetails");
 
         Common.assertTextOnPage(tool, "Publication Request Details");
 
@@ -116,7 +116,7 @@ public class OCMApplication extends Main {
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", deviceCode);
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", deviceDesc);
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", deviceDesc);
-        tool.driver.findElement(By.id("mainPanel:edit:buttons:createProduct")).click();
+        tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
 
         boolean ExistingDevice = false;
         String pageSource = tool.driver.getPageSource();
@@ -172,7 +172,7 @@ public class OCMApplication extends Main {
         tool.driver.findElement(
                 By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("GSM Mobile") + ":choiceMany:" + this.selectSecondIDs("GSM Mobile") + ":selected")).click();
 
-        tool.driver.findElement(By.id("mainPanel:productForm:b_updateAttributes")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:b_updateAttributes");
 
         assertTrue(this.getAttributeState().matches("^[\\s\\S]*Attribute values updated[\\s\\S]*$"));
 
@@ -221,18 +221,18 @@ public class OCMApplication extends Main {
         tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
 
         this.SelectEURCurrency();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
 
         System.out.println("DevicePriceLists values updated");
     }
@@ -270,56 +270,56 @@ public class OCMApplication extends Main {
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", deviceCode + SubsidizeString);
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", deviceDesc + SubsidizeString);
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", deviceDesc + SubsidizeString);
-        tool.driver.findElement(By.id("mainPanel:edit:buttons:createProduct")).click();
+        tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
 
         // Click on Prices tab
         tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
 
         this.SelectEURCurrency();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
 
         System.out.println("Subsidized values updated");
     }
 
     public void SelectEURCurrency() throws Exception {
-        tool.driver.findElement(By.id("menu:mainForm:_idJsp5ToggleCollapsed")).click();
+        tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
         new Select(tool.searchUsingID(tool, "menu:mainForm:displayedCurrency")).selectByVisibleText("EUR");
-        tool.driver.findElement(By.id("menu:mainForm:_idJsp5ToggleCollapsed")).click();
+        tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
     }
 
     public void SelectUSDCurrency() throws Exception {
-        tool.driver.findElement(By.id("menu:mainForm:_idJsp5ToggleCollapsed")).click();
+        tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
         new Select(tool.searchUsingID(tool, "menu:mainForm:displayedCurrency")).selectByVisibleText("USD");
-        tool.driver.findElement(By.id("menu:mainForm:_idJsp5ToggleCollapsed")).click();
+        tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
     }
 
     public void editVoiceDeviceCategories() throws Exception {
         tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_VOICE_DEVICES_PC") + ":attach")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:buttons:modifyList")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_VOICE_DEVICES_PC") + ":attach");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:buttons:modifyList");
 
         System.out.println("VoiceDeviceCategories values updated");
     }
 
     public void editDataDeviceCategories() throws Exception {
         tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_DEVICES_PC") + ":attach")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:buttons:modifyList")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_DEVICES_PC") + ":attach");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:buttons:modifyList");
 
         System.out.println("DataDeviceCategories values updated");
     }
@@ -346,7 +346,7 @@ public class OCMApplication extends Main {
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", accessoryCode);
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", accessoryDesc);
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", accessoryDesc);
-        tool.driver.findElement(By.id("mainPanel:edit:buttons:createProduct")).click();
+        tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
 
         boolean ExistingAccessory = false;
         String pageSource = tool.driver.getPageSource();
@@ -390,7 +390,7 @@ public class OCMApplication extends Main {
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", 
                 "CSS_PQA Terms And Conditions");
 
-        tool.driver.findElement(By.id("mainPanel:productForm:b_updateAttributes")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:b_updateAttributes");
 
         assertTrue(this.getAttributeState().matches("^[\\s\\S]*Attribute values updated[\\s\\S]*$"));
 
@@ -412,29 +412,29 @@ public class OCMApplication extends Main {
         tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
 
         this.SelectEURCurrency();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
         tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:modifyPriceList")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:priceList:buttons:cancel")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
 
         System.out.println("DevicePriceLists values updated");
     }
 
     public void editAccessoryCategories() throws Exception {
         tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_ACCESSORIES_PC") + ":attach")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_PHONE_ACCESSORIES_PC") + ":attach")).click();
-        tool.driver.findElement(By.id("mainPanel:productForm:categoryList:buttons:modifyList")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_ACCESSORIES_PC") + ":attach");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_PHONE_ACCESSORIES_PC") + ":attach");
+        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:buttons:modifyList");
 
         System.out.println("AccessoryCategories values updated");
     }

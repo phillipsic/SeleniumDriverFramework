@@ -1,6 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -29,7 +28,7 @@ public class ModifyProfileInformation extends B2CMenu {
 
     public ConfirmModifyProfileInformation clickOK() throws Exception {
 
-        tool.driver.findElement(By.id("okButton")).click();
+        tool.clickUsingID(tool, "okButton");
         return new ConfirmModifyProfileInformation(tool, test, user);
 
     }

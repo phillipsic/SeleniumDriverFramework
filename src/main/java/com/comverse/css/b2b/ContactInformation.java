@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -51,7 +49,7 @@ public class ContactInformation extends ContactInformationCommon {
 
     public ViewHierarchy clickUserManagement() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
+        tool.clickUsingID(tool, "mnu_HIERARCHY");
         return new ViewHierarchy(tool, test, user);
     }
 }

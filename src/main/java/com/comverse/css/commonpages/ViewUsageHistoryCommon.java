@@ -84,7 +84,7 @@ public class ViewUsageHistoryCommon extends CommonMenu {
 
     public ViewUsageDetailsCommon ViewUsageDetails() throws Exception {
 
-        tool.driver.findElement(By.id("usageDetails")).click();
+        tool.clickUsingID(tool, "usageDetails");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUsageDetailsCommon(tool, test, user);
     }

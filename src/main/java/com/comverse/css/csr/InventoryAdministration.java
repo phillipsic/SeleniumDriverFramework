@@ -1,7 +1,5 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -30,7 +28,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public AddressAdministration clickAddressAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADDRESS_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_ADDRESS_ADMINISTRATION");
 
         return new AddressAdministration(tool, test, user);
 
@@ -38,7 +36,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public InventoryAdministration clickInventoryAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_INVENTORY_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_INVENTORY_ADMINISTRATION");
 
         return new InventoryAdministration(tool, test, user);
 
@@ -46,7 +44,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public TokenAdministration clickTokenAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_TOKEN_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_TOKEN_ADMINISTRATION");
 
         return new TokenAdministration(tool, test, user);
 
@@ -54,7 +52,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public OutboundCommunicationTemplate clickTemplateAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_TEMPLATE_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_TEMPLATE_ADMINISTRATION");
 
         return new OutboundCommunicationTemplate(tool, test, user);
 

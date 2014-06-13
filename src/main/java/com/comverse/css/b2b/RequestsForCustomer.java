@@ -16,7 +16,7 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
 
     @Override
     public AccountDetails clickAccounts() throws Exception {
-        tool.driver.findElement(By.id("mnu_ACCOUNTS")).click();
+        tool.clickUsingID(tool, "mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 

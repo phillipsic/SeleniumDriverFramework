@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,7 +26,7 @@ public class ListCases extends B2CMenu {
 
     public AddCase clickCreateCase() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_CASE_ADD")).click();
+        tool.clickUsingID(tool, "smnu_CASE_ADD");
         Common.sleepForNumberOfSeconds(1);
         return new AddCase(tool, test, user);
     }

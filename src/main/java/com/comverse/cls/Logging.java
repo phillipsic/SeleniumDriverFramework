@@ -27,7 +27,7 @@ public class Logging extends CLSMenu {
 
     public void clickTodayFilter() throws Exception {
         tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
-        tool.driver.findElement(By.id("useCustomTimeframe_period")).click();
+        tool.clickUsingID(tool, "useCustomTimeframe_period");
         tool.driver.switchTo().defaultContent();
     }
 

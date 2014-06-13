@@ -26,7 +26,7 @@ public class SubscriberDetail extends B2CMenu {
 
     public BillingAccountInformation clickManageBillingAccounts() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_PAYMENT_INFOS")).click();
+        tool.clickUsingID(tool, "smnu_PAYMENT_INFOS");
         return new BillingAccountInformation(tool, test, user);
     }
 

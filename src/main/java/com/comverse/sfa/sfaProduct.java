@@ -28,12 +28,12 @@ public class sfaProduct extends SFAMenu {
 
         
         tool.enterStringUsingId(tool, "I7olilf", productName);
-        tool.driver.findElement(By.id("$n1almt_filterbutton")).click();
+        tool.clickUsingID(tool, "$n1almt_filterbutton");
         Common.sleepForNumberOfSeconds(2);
         if (!driver.findElement(By.id("$n1almt_rowChkBox_0")).isSelected()) {
-            tool.driver.findElement(By.id("$n1almt_rowChkBox_0")).click();
+            tool.clickUsingID(tool, "$n1almt_rowChkBox_0");
         }
-        tool.driver.findElement(By.id("Af7fj1i")).click();
+        tool.clickUsingID(tool, "Af7fj1i");
         Common.sleepForNumberOfSeconds(3);
 
         Common.switchToNewWindow(tool, curentWindow);
@@ -46,12 +46,12 @@ public class sfaProduct extends SFAMenu {
 
         
         tool.enterStringUsingId(tool, "Imintjv", productName);
-        tool.driver.findElement(By.id("$ncrm6b_filterbutton")).click();
+        tool.clickUsingID(tool, "$ncrm6b_filterbutton");
         Common.sleepForNumberOfSeconds(2);
         if (!driver.findElement(By.id("$ncrm6b_rowChkBox_0")).isSelected()) {
-            tool.driver.findElement(By.id("$ncrm6b_rowChkBox_0")).click();
+            tool.clickUsingID(tool, "$ncrm6b_rowChkBox_0");
         }
-        tool.driver.findElement(By.id("Ar4pj4u")).click();
+        tool.clickUsingID(tool, "Ar4pj4u");
         Common.sleepForNumberOfSeconds(3);
 
         Common.switchToNewWindow(tool, curentWindow);

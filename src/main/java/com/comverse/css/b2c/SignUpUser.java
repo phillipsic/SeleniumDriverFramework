@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -169,7 +168,7 @@ public class SignUpUser extends B2CMenu {
 
     public void uncheckSameAsCustomerAddress() throws Exception {
 
-        tool.driver.findElement(By.id("linkAddress")).click();
+        tool.clickUsingID(tool, "linkAddress");
 
     }
 

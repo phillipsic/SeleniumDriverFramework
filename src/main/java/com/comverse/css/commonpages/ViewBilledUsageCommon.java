@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -36,7 +34,7 @@ public class ViewBilledUsageCommon extends CommonMenu {
 
     public ViewBilledUsageDetailsCommon clickFirstUsage() throws Exception {
 
-        tool.driver.findElement(By.id("invoiceUsageDetails")).click();
+        tool.clickUsingID(tool, "invoiceUsageDetails");
         return new ViewBilledUsageDetailsCommon(tool, test, user);
     }
 

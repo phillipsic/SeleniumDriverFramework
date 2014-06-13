@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,21 +23,21 @@ public class ViewInvoicesCommon extends CommonMenu {
 
     public ViewTransactionHistoryCommon clickTransactionHistory() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_HISTORIES")).click();
+        tool.clickUsingID(tool, "mnu_HISTORIES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewTransactionHistoryCommon(tool, test, user);
     }
 
     public UnbilledTransactionCommon clickUnbilledTransacations() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_UNBILLED_TRANSACTIONS")).click();
+        tool.clickUsingID(tool, "smnu_UNBILLED_TRANSACTIONS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new UnbilledTransactionCommon(tool, test, user);
     }
 
     public ViewPaymentsCommon clickPayments() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_PAYMENTS")).click();
+        tool.clickUsingID(tool, "smnu_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewPaymentsCommon(tool, test, user);
     }

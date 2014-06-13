@@ -18,7 +18,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void clickNewCase() throws Exception {
-        tool.driver.findElement(By.id("Arrza0b_label")).click();
+        tool.clickUsingID(tool, "Arrza0b_label");
         Thread.sleep(3000);
     }
 
@@ -33,19 +33,19 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void clickSearchAccount(String mainWindow) throws Exception {
-        tool.driver.findElement(By.id("Ifhjkr4_img")).click();
+        tool.clickUsingID(tool, "Ifhjkr4_img");
         Thread.sleep(3000);
         Common.switchToNewWindow(tool, mainWindow);
     }
 
     public void clickSearch(String accountLastname) throws Exception {
         tool.enterStringUsingId(tool, "Ilgmxak", "%" + accountLastname + "%");
-        tool.driver.findElement(By.id("$as73pr_filterbutton")).click();
+        tool.clickUsingID(tool, "$as73pr_filterbutton");
         Thread.sleep(3000);
     }
 
     public void selectFirstAccount(String mainWindow) throws Exception {
-        tool.driver.findElement(By.id("$as73pr_singleSelectImage_0")).click();
+        tool.clickUsingID(tool, "$as73pr_singleSelectImage_0");
         Thread.sleep(1000);
         Common.switchToThisWindow(tool, mainWindow);
     }
@@ -55,7 +55,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void saveNewCase() throws Exception {
-        tool.driver.findElement(By.id("A2my23m_label")).click();
+        tool.clickUsingID(tool, "A2my23m_label");
         Thread.sleep(3000);
     }
 
@@ -81,7 +81,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void clickNewNote() throws Exception {
-        tool.driver.findElement(By.id("Ad9csi6_label")).click();
+        tool.clickUsingID(tool, "Ad9csi6_label");
         Thread.sleep(3000);
     }
 

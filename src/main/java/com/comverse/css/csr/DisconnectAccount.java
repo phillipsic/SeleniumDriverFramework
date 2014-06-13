@@ -1,7 +1,5 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -15,7 +13,7 @@ public class DisconnectAccount extends DisconnectAccountCommon {
 
     @Override
     public void clickCheckBoxUnlockNow() throws Exception {
-        tool.driver.findElement(By.id("disconnectNow")).click();
+        tool.clickUsingID(tool, "disconnectNow");
     }
 
     @Override

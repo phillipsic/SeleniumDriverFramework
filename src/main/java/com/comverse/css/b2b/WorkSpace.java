@@ -1,7 +1,5 @@
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,24 +20,24 @@ public class WorkSpace extends WorkSpaceCommon {
     }
 
     public AccountDetails clickAccount() throws Exception {
-        tool.driver.findElement(By.id("mnu_ACCOUNTS")).click();
+        tool.clickUsingID(tool, "mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 
     public ListCases clickCustomerCare() throws Exception {
-        tool.driver.findElement(By.id("mnu_PROBLEMS")).click();
+        tool.clickUsingID(tool, "mnu_PROBLEMS");
         return new ListCases(tool, test, user);
     }
 
     public ViewHierarchy clickUserManagement() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
+        tool.clickUsingID(tool, "mnu_HIERARCHY");
         return new ViewHierarchy(tool, test, user);
     }
 
     public ContactInformation clickUsersName() throws Exception {
 
-        tool.driver.findElement(By.id("GLOBAL.MEMBER_CONTEXT")).click();
+        tool.clickUsingID(tool, "GLOBAL.MEMBER_CONTEXT");
         return new ContactInformation(tool, test, user);
     }
 

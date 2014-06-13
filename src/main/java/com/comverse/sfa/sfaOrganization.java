@@ -24,7 +24,6 @@ public class sfaOrganization extends SFAMenu {
 
     public void setOrganizationName(String value) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "Ixr0ht5", value);
     }
 
@@ -70,10 +69,10 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public sfaContact clickNewContact(String mainWindow) throws Exception {
-        tool.driver.findElement(By.id("tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_1")).click(); // click
-                                                                                                          // contact
-                                                                                                          // tab
-        tool.driver.findElement(By.id("Ab2u66_label")).click(); // click New
+        tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_1"); // click
+                                                                                           // contact
+                                                                                           // tab
+        tool.clickUsingID(tool, "Ab2u66_label"); // click New
 
         Common.sleepForNumberOfSeconds(3);
 
@@ -82,41 +81,40 @@ public class sfaOrganization extends SFAMenu {
         return new sfaContact(tool, test, user);
     }
 
-    public void checkPrimaryContact() {
+    public void checkPrimaryContact() throws Exception {
         if (!driver.findElement(By.id("Idrfpsj")).isSelected()) {
-            tool.driver.findElement(By.id("Idrfpsj")).click();
+            tool.clickUsingID(tool, "Idrfpsj");
         }
 
     }
 
     public sfaOrganization findOrganization(String orgName) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "Ih246r", orgName); // Set
-                                                                    // organization
-                                                                    // name
-        tool.driver.findElement(By.id("$2bdpj3_filterbutton")).click(); // Click
-                                                                        // Search
+                                                          // organization
+                                                          // name
+        tool.clickUsingID(tool, "$2bdpj3_filterbutton"); // Click
+                                                         // Search
         Common.sleepForNumberOfSeconds(2);
-        tool.driver.findElement(By.id("$2bdpj3_cell_0_0_Img")).click(); // Click
-                                                                        // View
-                                                                        // detail
+        tool.clickUsingID(tool, "$2bdpj3_cell_0_0_Img"); // Click
+                                                         // View
+                                                         // detail
 
         return new sfaOrganization(tool, test, user);
     }
 
     public sfaB2BLead findAndSelectOrganizationForB2BLead(String orgName) throws Exception {
         String currentWindow = Common.getCurrentWindowHandle(tool);
-        
+
         tool.enterStringUsingId(tool, "Isildl1", orgName); // Set
-                                                                     // organization
-                                                                     // name
-        tool.driver.findElement(By.id("$1pcspz_filterbutton")).click(); // Click
-                                                                        // Search
+                                                           // organization
+                                                           // name
+        tool.clickUsingID(tool, "$1pcspz_filterbutton"); // Click
+                                                         // Search
         Common.sleepForNumberOfSeconds(2);
-        tool.driver.findElement(By.id("$1pcspz_singleSelectImage_0")).click(); // Select
-                                                                               // the
-                                                                               // organization
+        tool.clickUsingID(tool, "$1pcspz_singleSelectImage_0"); // Select
+                                                                // the
+                                                                // organization
 
         Common.sleepForNumberOfSeconds(3);
 
@@ -127,16 +125,16 @@ public class sfaOrganization extends SFAMenu {
 
     sfaOpportunity findAndSelectOrganizationForOpportunity(String orgName) throws Exception {
         String currentWindow = Common.getCurrentWindowHandle(tool);
-        
+
         tool.enterStringUsingId(tool, "Iypr9j2", orgName); // Set
-                                                                     // organization
-                                                                     // name
-        tool.driver.findElement(By.id("$flh26m_filterbutton")).click(); // Click
-                                                                        // Search
+                                                           // organization
+                                                           // name
+        tool.clickUsingID(tool, "$flh26m_filterbutton"); // Click
+                                                         // Search
         Common.sleepForNumberOfSeconds(2);
-        tool.driver.findElement(By.id("$flh26m_singleSelectImage_0")).click(); // Select
-                                                                               // the
-                                                                               // organization
+        tool.clickUsingID(tool, "$flh26m_singleSelectImage_0"); // Select
+                                                                // the
+                                                                // organization
 
         Common.sleepForNumberOfSeconds(3);
 

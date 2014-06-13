@@ -1,6 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -40,7 +39,7 @@ public class AddCase extends B2CMenu {
     }
 
     public void selectSubjectRelativeToProblemSubscriber() throws Exception {
-        tool.driver.findElement(By.id("isContract")).click();
+        tool.clickUsingID(tool, "isContract");
     }
 
     public void selectFirstSubscriber() throws Exception {
@@ -56,7 +55,7 @@ public class AddCase extends B2CMenu {
 
     public ListCases clickListCases() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_CASE_LIST")).click();
+        tool.clickUsingID(tool, "smnu_CASE_LIST");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCases(tool, test, user);
     }

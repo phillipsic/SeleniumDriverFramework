@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,12 +25,12 @@ public class ProfileInformationCommon extends CommonMenu {
 
     @Override
     public ViewHierarchyCommon clickHierarchy() throws Exception {
-        tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
+        tool.clickUsingID(tool, "mnu_HIERARCHY");
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public ModifyProfileInformationCommon clickModify() throws Exception {
-        tool.driver.findElement(By.id("modifyCustomer")).click();
+        tool.clickUsingID(tool, "modifyCustomer");
         return new ModifyProfileInformationCommon(tool, test, user);
     }
 }

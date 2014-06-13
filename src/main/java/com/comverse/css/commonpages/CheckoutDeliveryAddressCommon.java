@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -24,7 +22,7 @@ public class CheckoutDeliveryAddressCommon extends CommonMenu {
     }
 
     public CheckoutReviewCommon clickNextPage() throws Exception {
-        tool.driver.findElement(By.id("nav_next_page")).click();
+        tool.clickUsingID(tool, "nav_next_page");
         return new CheckoutReviewCommon(tool, test, user);
     }
 

@@ -1,7 +1,5 @@
 package com.comverse.css.b2b;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,7 +27,7 @@ public class ParkTheCurrentBasket extends ParkTheCurrentBasketCommon {
     }
 
     public WorkSpace goToHome() throws Exception {
-        tool.driver.findElement(By.id("mnu_HOME")).click();
+        tool.clickUsingID(tool, "mnu_HOME");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpace(tool, test, user);
     }

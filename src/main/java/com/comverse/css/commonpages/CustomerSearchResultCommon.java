@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -37,7 +35,7 @@ public class CustomerSearchResultCommon extends CommonMenu {
 
     public AccountDetailsCommon clickFirstPersonLink() throws Exception {
 
-        tool.driver.findElement(By.id("value_person_0_0")).click();
+        tool.clickUsingID(tool, "value_person_0_0");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }

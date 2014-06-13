@@ -75,7 +75,7 @@ public class ViewBalanceCommon extends CommonMenu {
 
     public void clickBack() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        tool.clickUsingID(tool, "youcan_ON_BACK");
     }
 
     public Double getCoreBalance() throws Exception {

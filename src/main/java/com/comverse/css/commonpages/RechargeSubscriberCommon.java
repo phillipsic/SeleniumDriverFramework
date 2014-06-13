@@ -35,7 +35,7 @@ public class RechargeSubscriberCommon extends CommonMenu {
 
     public ViewBalanceCommon clickViewBalances() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_BACK_TO_BALANCE_VIEW")).click();
+        tool.clickUsingID(tool, "youcan_BACK_TO_BALANCE_VIEW");
 
         return new ViewBalanceCommon(tool, test, user);
     }

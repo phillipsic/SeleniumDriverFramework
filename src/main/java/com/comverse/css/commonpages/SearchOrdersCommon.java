@@ -35,7 +35,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public WorkSpaceCommon clickHomeMenu() throws Exception {
-        tool.driver.findElement(By.id("mnu_HOME")).click();
+        tool.clickUsingID(tool, "mnu_HOME");
         return new WorkSpaceCommon(tool, test, user);
     }
 

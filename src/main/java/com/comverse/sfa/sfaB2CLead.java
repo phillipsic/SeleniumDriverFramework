@@ -25,24 +25,24 @@ public class sfaB2CLead extends SFAMenu {
 
     void findAndOpenB2CLeadByNameAndCreatedDate(String b2cLeadName, String createdDate) throws Exception {
         // Set B2C Lead Name
-        
+
         tool.enterStringUsingId(tool, "Iny33ei", b2cLeadName);
 
         // Set Created Date
         tool.clickUsingXPath(tool, "//nobr[contains(text(), 'More Fields')]");
         if (createdDate.equals("Today")) {
-            
+
             tool.enterStringUsingId(tool, "Imcusxj", Common.getSysdateDDMMYYYY());
         } else {
-            
+
             tool.enterStringUsingId(tool, "Imcusxj", createdDate);
         }
 
         // Click Search
-        tool.driver.findElement(By.id("$ff0jf0_filterbutton")).click();
+        tool.clickUsingID(tool, "$ff0jf0_filterbutton");
 
         // Open B2C Lead
-        tool.driver.findElement(By.id("$ff0jf0_cell_0_0_Img")).click();
+        tool.clickUsingID(tool, "$ff0jf0_cell_0_0_Img");
     }
 
     String getB2CLeadName() {
@@ -66,8 +66,8 @@ public class sfaB2CLead extends SFAMenu {
         return new Select(tool.searchUsingID(tool, "I5nq7j6")).getFirstSelectedOption().getText();
     }
 
-    void openOfferList() {
-        tool.driver.findElement(By.id("tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_13")).click();
+    void openOfferList() throws Exception {
+        tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_13");
     }
 
     String getFirstOfferId() {

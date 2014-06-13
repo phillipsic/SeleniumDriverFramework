@@ -1,6 +1,5 @@
 package com.comverse.css.otg;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -48,7 +47,7 @@ public class OTGHome extends MyshapeCommon {
 
     @Override
     public void clickLogin() throws Exception {
-        tool.driver.findElement(By.id("login")).click();
+        tool.clickUsingID(tool, "login");
     }
 
     public void clickHomeBtn() throws Exception {

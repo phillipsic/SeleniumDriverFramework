@@ -9,7 +9,6 @@ import jxl.Workbook;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Prep;
@@ -47,8 +46,8 @@ public class OCM0004_Add_Device extends CSSTest {
         int rowCounter = 0;
 
         tool.driver.get(application.appURL() + "ocmweb/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
-        tool.driver.findElement(By.id("mainPanel:treeForm:type-tree:0:t2")).click();
-        tool.driver.findElement(By.id("mainPanel:treeForm:type-tree:0:1:t2")).click();
+        tool.clickUsingID(tool, "mainPanel:treeForm:type-tree:0:t2");
+        tool.clickUsingID(tool, "mainPanel:treeForm:type-tree:0:1:t2");
 
         for (rowCounter = 1; rowCounter < sheet.getRows(); rowCounter++) {
             System.out.println("****************************************************");

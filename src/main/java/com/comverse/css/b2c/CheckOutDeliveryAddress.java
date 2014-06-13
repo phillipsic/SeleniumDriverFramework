@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,7 +23,7 @@ public class CheckOutDeliveryAddress extends B2CMenu {
 
     public CheckOutBillingAccountInformation clickContinue() throws Exception {
 
-        tool.driver.findElement(By.id("nav_next_page")).click();
+        tool.clickUsingID(tool, "nav_next_page");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 

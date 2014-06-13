@@ -27,56 +27,56 @@ public class LoginInformationCommon extends CommonMenu {
 
     public ChangePasswordCommon clickChangePassword() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_CHANGE_PASSWORD")).click();
+        tool.clickUsingID(tool, "youcan_CHANGE_PASSWORD");
         return new ChangePasswordCommon(tool, test, user);
     }
 
     public ModifyLoginPasswordCommon clickChangePasswordOfAnotherUser() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_CHANGE_PASSWORD")).click();
+        tool.clickUsingID(tool, "youcan_CHANGE_PASSWORD");
         return new ModifyLoginPasswordCommon(tool, test, user);
     }
 
     public ChangeSecretAnswerCommon clickChangeYourSecretAnswer() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_CHANGE_SECRET_QUESTION")).click();
+        tool.clickUsingID(tool, "youcan_CHANGE_SECRET_QUESTION");
         return new ChangeSecretAnswerCommon(tool, test, user);
     }
 
     public ConfirmChangePasswordCommon clickChangePasswordOnFirstLogin() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_CHANGE_PASSWORD_ON_FIRST_LOGIN")).click();
+        tool.clickUsingID(tool, "youcan_CHANGE_PASSWORD_ON_FIRST_LOGIN");
 
         return new ConfirmChangePasswordCommon(tool, test, user);
     }
 
     public LockLoginCommon clickLockLogin() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_LOCK_LOGIN")).click();
+        tool.clickUsingID(tool, "youcan_LOCK_LOGIN");
         return new LockLoginCommon(tool, test, user);
     }
 
     public UnlockLoginCommon clickUnLockLogin() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_UNLOCK_LOGIN")).click();
+        tool.clickUsingID(tool, "youcan_UNLOCK_LOGIN");
         return new UnlockLoginCommon(tool, test, user);
     }
 
     public DeactivateLoginCommon clickDeactivateLogin() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_DISABLE_LOGIN")).click();
+        tool.clickUsingID(tool, "youcan_DISABLE_LOGIN");
         return new DeactivateLoginCommon(tool, test, user);
     }
 
     public ActivateLoginCommon clickActivateLogin() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_ENABLE_LOGIN")).click();
+        tool.clickUsingID(tool, "youcan_ENABLE_LOGIN");
         return new ActivateLoginCommon(tool, test, user);
     }
 
     public RegisterLoginCommon clickSetLogin() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_REGISTER_LOGIN")).click();
+        tool.clickUsingID(tool, "youcan_REGISTER_LOGIN");
         return new RegisterLoginCommon(tool, test, user);
     }
 
@@ -92,13 +92,13 @@ public class LoginInformationCommon extends CommonMenu {
 
     public ChangeRolesCommon clickChangeRoles() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_CHANGE_ROLES")).click();
+        tool.clickUsingID(tool, "youcan_CHANGE_ROLES");
         return new ChangeRolesCommon(tool, test, user);
     }
 
     public ChangeSecretAnswerCommon clickChangeYourSecretQuestionAndAnswer() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_CHANGE_SECRET_QUESTION")).click();
+        tool.clickUsingID(tool, "youcan_CHANGE_SECRET_QUESTION");
         return new ChangeSecretAnswerCommon(tool, test, user);
     }
 }

@@ -1,7 +1,5 @@
 package com.comverse.cls;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.common.Test;
@@ -15,8 +13,8 @@ public class CLSMenu extends Main {
         this.user = user;
     }
 
-    public void clickSignOut() {
-        tool.driver.findElement(By.id("$azn666_label")).click();
+    public void clickSignOut() throws Exception {
+        tool.clickUsingID(tool, "$azn666_label");
 
     }
 }

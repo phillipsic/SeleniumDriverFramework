@@ -1,6 +1,5 @@
 package com.comverse.sec;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -62,13 +61,13 @@ public class SecCsrAdmin extends CommonMenu {
     public void setGroups(String Group) throws Exception {
 
         new Select(tool.searchUsingID(tool, "j_id44:j_id45:0:tempGroupsUpdate:j_id245")).selectByVisibleText(Group);
-        tool.driver.findElement(By.id("j_id44:j_id45:0:tempGroupsUpdate:j_id247")).click();
+        tool.clickUsingID(tool, "j_id44:j_id45:0:tempGroupsUpdate:j_id247");
 
     }
 
     public void clickSave() throws Exception {
 
-        tool.driver.findElement(By.id("j_id44:j_id45:0:save")).click();
+        tool.clickUsingID(tool, "j_id44:j_id45:0:save");
 
     }
 

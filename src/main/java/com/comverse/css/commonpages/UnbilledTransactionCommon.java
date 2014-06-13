@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -23,35 +21,35 @@ public class UnbilledTransactionCommon extends CommonMenu {
 
     public ViewUnbilledRCNRCCommon clickUnbilledRCNRC() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_VIEW_RC_NRC")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_RC_NRC");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledRCNRCCommon(tool, test, user);
     }
 
     public ViewUnbilledUsageCommon clickUnbilledUsage() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_VIEW_USAGES")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_USAGES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledUsageCommon(tool, test, user);
     }
 
     public ViewUnbilledMTRCommon clickUnbilledMTR() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_VIEW_MTR")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_MTR");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledMTRCommon(tool, test, user);
     }
 
     public ViewUnbilledRechargeCommon clickUnbilledRecharge() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_VIEW_RECHARGES")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_RECHARGES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledRechargeCommon(tool, test, user);
     }
 
     public ViewUnbilledAdjustmentCommon clickUnbilledAdjustment() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_VIEW_ADJUSTMENTS")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_ADJUSTMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledAdjustmentCommon(tool, test, user);
     }

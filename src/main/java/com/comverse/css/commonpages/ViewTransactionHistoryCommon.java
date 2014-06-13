@@ -6,8 +6,6 @@ package com.comverse.css.commonpages;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,32 +26,32 @@ public class ViewTransactionHistoryCommon extends CommonMenu {
     }
 
     public ViewUsageHistoryCommon clickOnUsageHistory() throws Exception {
-        tool.driver.findElement(By.id("youcan_USAGE_HISTORY")).click();
+        tool.clickUsingID(tool, "youcan_USAGE_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUsageHistoryCommon(tool, test, user);
     }
 
     public ViewMTRHistoryCommon clickonMTRHistory() throws Exception {
         tool.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        tool.driver.findElement(By.id("youcan_MTR_HISTORY")).click();
+        tool.clickUsingID(tool, "youcan_MTR_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewMTRHistoryCommon(tool, test, user);
     }
 
     public ViewRCHistoryCommon clickonRCHistory() throws Exception {
-        tool.driver.findElement(By.id("youcan_RC_HISTORY")).click();
+        tool.clickUsingID(tool, "youcan_RC_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewRCHistoryCommon(tool, test, user);
     }
 
     public ViewNRCHistoryCommon clickonNRCHistory() throws Exception {
-        tool.driver.findElement(By.id("youcan_NRC_HISTORY")).click();
+        tool.clickUsingID(tool, "youcan_NRC_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewNRCHistoryCommon(tool, test, user);
     }
 
     public ViewCombinedHistoryCommon clickonCombinedHistory() throws Exception {
-        tool.driver.findElement(By.id("youcan_COMBINED_HISTORY")).click();
+        tool.clickUsingID(tool, "youcan_COMBINED_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCombinedHistoryCommon(tool, test, user);
     }

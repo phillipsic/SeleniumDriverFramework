@@ -4,8 +4,6 @@
  */
 package com.comverse.sec;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -69,7 +67,7 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickLogin() throws Exception {
 
-        tool.driver.findElement(By.id("loginForm:loginBtn")).click();
+        tool.clickUsingID(tool, "loginForm:loginBtn");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         String currentScreen = tool.driver.getTitle();

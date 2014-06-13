@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,7 +27,7 @@ public class SearchRequestsCommon extends CommonMenu {
 
     public SearchOrdersCommon clickSearchOrders() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ORDER")).click();
+        tool.clickUsingID(tool, "smnu_ORDER");
         return new SearchOrdersCommon(tool, test, user);
     }
 

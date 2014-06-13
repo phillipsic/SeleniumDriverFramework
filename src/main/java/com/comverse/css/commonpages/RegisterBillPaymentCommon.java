@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,7 +26,7 @@ public class RegisterBillPaymentCommon extends CommonMenu {
 
     public void selectPaymentMethod(String paymentmethod) throws Exception {
 
-        tool.driver.findElement(By.id(paymentmethod)).click();
+        tool.clickUsingID(tool, paymentmethod);
     }
 
     public RegisterBillPaymentCommon clickContinue() throws Exception {

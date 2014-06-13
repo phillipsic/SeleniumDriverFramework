@@ -86,12 +86,12 @@ public class ViewCaseCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickBack() throws Exception {
-        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        tool.clickUsingID(tool, "youcan_ON_BACK");
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public ListCasesCommon clickBackExpectingListCases() throws Exception {
-        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        tool.clickUsingID(tool, "youcan_ON_BACK");
         return new ListCasesCommon(tool, test, user);
     }
 }

@@ -161,7 +161,7 @@ public class ShoppingCommon extends CommonMenu {
 
     public MyBasketCommon selectHandset(String value) throws Exception {
 
-        tool.driver.findElement(By.id("lnk_ADVANCE_FILTER")).click();
+        tool.clickUsingID(tool, "lnk_ADVANCE_FILTER");
         tool.enterStringUsingId(tool, "filterByFreeText", value);
         Common.sleepForNumberOfSeconds(3);
         tool.clickUsingName(tool, "buy_outright");

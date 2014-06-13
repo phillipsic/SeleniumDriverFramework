@@ -25,8 +25,8 @@ public class PersonManagementCommon extends CommonMenu {
         }
     }
 
-    public void clickPersonAdd() {
-        tool.driver.findElement(By.id("personadd")).click();
+    public void clickPersonAdd() throws Exception {
+        tool.clickUsingID(tool, "personadd");
     }
 
     public void selectTitle(String value) throws Exception {
@@ -71,19 +71,19 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void clickOrdering() throws Exception {
-        tool.driver.findElement(By.id("ordering")).click();
+        tool.clickUsingID(tool, "ordering");
     }
 
-    public void clickAddRole() {
-        tool.driver.findElement(By.id("add_role")).click();
+    public void clickAddRole() throws Exception {
+        tool.clickUsingID(tool, "add_role");
     }
 
-    public void clickAdd() {
-        tool.driver.findElement(By.id("submitButton")).click();
+    public void clickAdd() throws Exception {
+        tool.clickUsingID(tool, "submitButton");
     }
 
-    public void clickAccountManager() {
-        tool.driver.findElement(By.id("roleCmp")).click();
+    public void clickAccountManager() throws Exception {
+        tool.clickUsingID(tool, "roleCmp");
     }
 
     public void clickActions(String FName) throws Exception {
@@ -108,8 +108,8 @@ public class PersonManagementCommon extends CommonMenu {
 
     }
 
-    public void selectCustomerManagerPersonRole() {
-        tool.driver.findElement(By.id("role_2")).click();
+    public void selectCustomerManagerPersonRole() throws Exception {
+        tool.clickUsingID(tool, "role_2");
     }
 
     public void clickOKFromSelectPersonaRole() throws Exception {
@@ -124,16 +124,16 @@ public class PersonManagementCommon extends CommonMenu {
         tool.clickUsingXPath(tool, "//input[@value='OK']");
     }
 
-    public void checkAccountManager() {
-        tool.driver.findElement(By.id("roleCmp")).click();
+    public void checkAccountManager() throws Exception {
+        tool.clickUsingID(tool, "roleCmp");
     }
 
     public void clickChangeOwner() throws Exception {
         tool.clickUsingXPath(tool, "//a[contains(text(),'Change Owner')]");
     }
 
-    public void clickSwap() {
-        tool.driver.findElement(By.id("submitButton")).click();
+    public void clickSwap() throws Exception {
+        tool.clickUsingID(tool, "submitButton");
     }
 
     public AddLoginCommon clickActionsAddLoginForPerson(String personLastName) throws Exception {
@@ -212,7 +212,7 @@ public class PersonManagementCommon extends CommonMenu {
         // + pers.getPersonLastNameProperty());
         new Select(tool.searchUsingID(tool, "title")).selectByVisibleText("Mr.");
         tool.enterStringUsingId(tool, "firstName", "test*");
-        tool.driver.findElement(By.id("pm-button-search")).click();
+        tool.clickUsingID(tool, "pm-button-search");
         final List<WebElement> radios = tool.driver.findElements(By.name("pfr-selected-person"));
         radios.get(0).click();
         tool.clickUsingXPath(tool, "//*[@id='personfind']/div[2]/div/form/div[2]/input[2]");

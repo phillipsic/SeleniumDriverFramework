@@ -28,7 +28,7 @@ public class SearchRequests extends B2CMenu {
 
     public SearchOrders clickSearchOrders() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ORDER")).click();
+        tool.clickUsingID(tool, "smnu_ORDER");
         return new SearchOrders(tool, test, user);
     }
 
@@ -77,7 +77,7 @@ public class SearchRequests extends B2CMenu {
 
     public void expandSearchCriteria() throws Exception {
 
-        tool.driver.findElement(By.id("searchCriteriaTrigger")).click();
+        tool.clickUsingID(tool, "searchCriteriaTrigger");
 
     }
 
@@ -85,7 +85,7 @@ public class SearchRequests extends B2CMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
-        tool.driver.findElement(By.id("mnu_HOME")).click();
+        tool.clickUsingID(tool, "mnu_HOME");
         return new SubscriberDetail(tool, test, user);
     }
 

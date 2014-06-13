@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -84,12 +83,12 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
         boolean correctGender = false;
 
         if (gender.equalsIgnoreCase("male")) {
-            tool.driver.findElement(By.id("sex_male")).click();
+            tool.clickUsingID(tool, "sex_male");
             correctGender = true;
         }
 
         if (gender.equalsIgnoreCase("female")) {
-            tool.driver.findElement(By.id("sex_fem")).click();
+            tool.clickUsingID(tool, "sex_fem");
             correctGender = true;
         }
 

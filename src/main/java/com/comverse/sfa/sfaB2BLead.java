@@ -20,7 +20,7 @@ public class sfaB2BLead extends SFAMenu {
     }
 
     void clickNewB2BLead() throws Exception {
-        tool.driver.findElement(By.id("Awrp1y3_label")).click();
+        tool.clickUsingID(tool, "Awrp1y3_label");
         Common.sleepForNumberOfSeconds(3);
     }
 
@@ -32,7 +32,7 @@ public class sfaB2BLead extends SFAMenu {
 
     sfaOrganization clickOrganization() throws Exception {
         String mainWindow = Common.getCurrentWindowHandle(tool);
-        tool.driver.findElement(By.id("Iqoirs7_img")).click();
+        tool.clickUsingID(tool, "Iqoirs7_img");
         Common.sleepForNumberOfSeconds(3);
 
         Common.switchToNewWindow(tool, mainWindow);
@@ -45,17 +45,17 @@ public class sfaB2BLead extends SFAMenu {
     }
 
     public void saveB2BLead() throws Exception {
-        tool.driver.findElement(By.id("Awoo4nv_label")).click();
+        tool.clickUsingID(tool, "Awoo4nv_label");
         Common.sleepForNumberOfSeconds(3);
     }
 
-    public void openProductList() {
-        tool.driver.findElement(By.id("tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_9")).click();
+    public void openProductList() throws Exception {
+        tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_9");
     }
 
     public sfaProduct addExistingProduct() throws Exception {
         String currentWindow = Common.getCurrentWindowHandle(tool);
-        tool.driver.findElement(By.id("A6oej4g_label")).click();
+        tool.clickUsingID(tool, "A6oej4g_label");
         Common.sleepForNumberOfSeconds(3);
 
         Common.switchToNewWindow(tool, currentWindow);
@@ -67,12 +67,12 @@ public class sfaB2BLead extends SFAMenu {
         tool.clickUsingXPath(tool, "//nobr[contains(text(), 'More Fields')]");
 
         tool.enterStringUsingId(tool, "Iaw2djm", b2bLeadName);
-        tool.driver.findElement(By.id("$2mtu0_filterbutton")).click(); // Click
-                                                                       // Search
+        tool.clickUsingID(tool, "$2mtu0_filterbutton"); // Click
+                                                        // Search
         Common.sleepForNumberOfSeconds(2);
-        tool.driver.findElement(By.id("$2mtu0_cell_0_0_Img")).click(); // Open
-                                                                       // B2B
-                                                                       // Lead
+        tool.clickUsingID(tool, "$2mtu0_cell_0_0_Img"); // Open
+                                                        // B2B
+                                                        // Lead
         Common.sleepForNumberOfSeconds(3);
     }
 

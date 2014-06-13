@@ -40,7 +40,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public AddNewCaseCommon clickLinkOfFirstCase() throws Exception {
-        tool.driver.findElement(By.id("value_case_0_0")).click();
+        tool.clickUsingID(tool, "value_case_0_0");
 
         return new AddNewCaseCommon(tool, test, user);
     }
@@ -73,7 +73,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public SubscriberDetailsCommon selectFirstSubscriberFromNavigationPanel() throws Exception {
         System.out.println("selectFirstSubscriberFromNavigationPanel");
-        tool.driver.findElement(By.id("NavigationLink")).click();
+        tool.clickUsingID(tool, "NavigationLink");
         Common.sleepForNumberOfSeconds(1);
         // tool.clickUsingXPath(tool, "(//a[contains(text(),'open')])[2]");
         tool.clickUsingXPath(tool, "(//td[4]//a[contains(text(), 'open')])[1]");
@@ -82,10 +82,10 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public SubscriberDetailsCommon clickSubscriberIDFromNavigationPanel() throws Exception {
-        tool.driver.findElement(By.id("SubscriberSearchLink")).click();
+        tool.clickUsingID(tool, "SubscriberSearchLink");
         Common.sleepForNumberOfSeconds(1);
         Common.assertTextOnPage(tool, "Please enter your criteria and press search");
-        tool.driver.findElement(By.id("subscriberSearchButton")).click();
+        tool.clickUsingID(tool, "subscriberSearchButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         tool.clickUsingXPath(tool, "//td[3]/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -93,8 +93,8 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public SubscriberDetailsCommon selectSubscriberByMSISDN(String MSISDN) throws Exception {
-        tool.driver.findElement(By.id("SubscriberSearchLink")).click();
-        tool.driver.findElement(By.id("subscriberSearchButton")).click();
+        tool.clickUsingID(tool, "SubscriberSearchLink");
+        tool.clickUsingID(tool, "subscriberSearchButton");
         Common.sleepForNumberOfSeconds(2);
         tool.clickUsingLinkText(tool, MSISDN);
         return new SubscriberDetailsCommon(tool, test, user);
@@ -132,14 +132,14 @@ public class AccountDetailsCommon extends CommonMenu {
 
     @Override
     public ViewInvoicesCommon clickBillsAndPayments() throws Exception {
-        tool.driver.findElement(By.id("mnu_BILLS_PAYMENTS")).click();
+        tool.clickUsingID(tool, "mnu_BILLS_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewInvoicesCommon(tool, test, user);
     }
 
     @Override
     public ViewTransactionHistoryCommon clickHistories() throws Exception {
-        tool.driver.findElement(By.id("mnu_HISTORIES")).click();
+        tool.clickUsingID(tool, "mnu_HISTORIES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewTransactionHistoryCommon(tool, test, user);
     }
@@ -210,7 +210,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public DeliveryAddressesCommon clickDeliveryAddresses() throws Exception {
-        tool.driver.findElement(By.id("mnu_DELIVERY_ADDRESSES")).click();
+        tool.clickUsingID(tool, "mnu_DELIVERY_ADDRESSES");
         return new DeliveryAddressesCommon(tool, test, user);
     }
 
@@ -335,7 +335,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public PersonDetailsCommon clickUpdatePerson() throws Exception {
-        tool.driver.findElement(By.id("add_update_person")).click();
+        tool.clickUsingID(tool, "add_update_person");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PersonDetailsCommon(tool, test, user);
     }

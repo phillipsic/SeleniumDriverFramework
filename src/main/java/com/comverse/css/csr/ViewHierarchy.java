@@ -2,8 +2,6 @@ package com.comverse.css.csr;
 
 import java.util.Calendar;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -18,19 +16,19 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public NewMemberLegalAddress clickAddEmployeeOCM() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADD_MEMBER")).click();
+        tool.clickUsingID(tool, "smnu_ADD_MEMBER");
         return new NewMemberLegalAddress(tool, test, user);
     }
 
     public NewMemberLegalAddress clickAddEmployee() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADD_MEMBER")).click();
+        tool.clickUsingID(tool, "smnu_ADD_MEMBER");
         return new NewMemberLegalAddress(tool, test, user);
     }
 
     public AddEmployeeContactInformation clickAddB2BEmployee() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_REGISTER_EMPLOYEE")).click();
+        tool.clickUsingID(tool, "smnu_REGISTER_EMPLOYEE");
         return new AddEmployeeContactInformation(tool, test, user);
     }
 
@@ -62,25 +60,25 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public AddSubLevelSelectLevelType clickAddLevel() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADD_LEVEL")).click();
+        tool.clickUsingID(tool, "smnu_ADD_LEVEL");
         return new AddSubLevelSelectLevelType(tool, test, user);
     }
 
     public MoveLevel clickMoveLevel() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_MOVE_LEVEL")).click();
+        tool.clickUsingID(tool, "smnu_MOVE_LEVEL");
         return new MoveLevel(tool, test, user);
     }
 
     public RemoveSelection clickRemoveLevel() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_REMOVE_LEVEL")).click();
+        tool.clickUsingID(tool, "smnu_REMOVE_LEVEL");
         return new RemoveSelection(tool, test, user);
     }
 
     public LevelLegalContact clickViewContact() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADDRESS")).click();
+        tool.clickUsingID(tool, "smnu_ADDRESS");
         return new LevelLegalContact(tool, test, user);
     }
 

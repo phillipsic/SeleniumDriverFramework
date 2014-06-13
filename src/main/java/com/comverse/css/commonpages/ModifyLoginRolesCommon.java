@@ -5,8 +5,6 @@
 
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -26,7 +24,7 @@ public class ModifyLoginRolesCommon extends CommonMenu {
 
     public LoginInformationCommon clickVeiwLoginInformationLink() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_LOGIN")).click();
+        tool.clickUsingID(tool, "smnu_LOGIN");
 
         return new LoginInformationCommon(tool, test, user);
     }

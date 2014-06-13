@@ -26,7 +26,7 @@ public class sfaOpportunity extends SFAMenu {
     }
 
     void clickNewOpportunity() throws Exception {
-        tool.driver.findElement(By.id("Ad9fbg6_label")).click();
+        tool.clickUsingID(tool, "Ad9fbg6_label");
         Common.sleepForNumberOfSeconds(3);
     }
 
@@ -46,7 +46,7 @@ public class sfaOpportunity extends SFAMenu {
 
     sfaOrganization clickOrganization() throws Exception {
         String mainWindow = Common.getCurrentWindowHandle(tool);
-        tool.driver.findElement(By.id("Iq6k9xi_img")).click();
+        tool.clickUsingID(tool, "Iq6k9xi_img");
         Common.sleepForNumberOfSeconds(3);
 
         Common.switchToNewWindow(tool, mainWindow);
@@ -63,17 +63,17 @@ public class sfaOpportunity extends SFAMenu {
     }
 
     void saveOpportunity() throws Exception {
-        tool.driver.findElement(By.id("Ajmprcu_label")).click();
+        tool.clickUsingID(tool, "Ajmprcu_label");
         Common.sleepForNumberOfSeconds(3);
     }
 
-    void openProductList() {
-        tool.driver.findElement(By.id("tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_1")).click();
+    void openProductList() throws Exception {
+        tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_1");
     }
 
     sfaProduct addExistingProduct() throws Exception {
         String currentWindow = Common.getCurrentWindowHandle(tool);
-        tool.driver.findElement(By.id("Ahur980_label")).click();
+        tool.clickUsingID(tool, "Ahur980_label");
         Common.sleepForNumberOfSeconds(3);
 
         Common.switchToNewWindow(tool, currentWindow);
@@ -84,12 +84,12 @@ public class sfaOpportunity extends SFAMenu {
     void findAndOpenOpportunityByName(String opportunityName) throws Exception {
 
         tool.enterStringUsingId(tool, "Ia9cw75", opportunityName);
-        tool.driver.findElement(By.id("$xlphc4_filterbutton")).click(); // Click
-                                                                        // Search
+        tool.clickUsingID(tool, "$xlphc4_filterbutton"); // Click
+                                                         // Search
         Common.sleepForNumberOfSeconds(2);
-        tool.driver.findElement(By.id("$xlphc4_cell_0_0_Img")).click(); // Open
-                                                                        // the
-                                                                        // opportunity
+        tool.clickUsingID(tool, "$xlphc4_cell_0_0_Img"); // Open
+                                                         // the
+                                                         // opportunity
         Common.sleepForNumberOfSeconds(3);
     }
 
@@ -105,8 +105,8 @@ public class sfaOpportunity extends SFAMenu {
         return tool.driver.findElement(By.id("$5rwlai_cell_0_1_span")).getText();
     }
 
-    void openSalesProcess() {
-        tool.driver.findElement(By.id("tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_0")).click();
+    void openSalesProcess() throws Exception {
+        tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_0");
     }
 
     String getCurrentSalesStage() {

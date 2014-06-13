@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,7 +23,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     public AddressAdministrationCommon clickAddressAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_ADDRESS_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_ADDRESS_ADMINISTRATION");
 
         return new AddressAdministrationCommon(tool, test, user);
 
@@ -33,7 +31,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     public TokensfoundCommon clickTokenAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_TOKEN_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_TOKEN_ADMINISTRATION");
 
         return new TokensfoundCommon(tool, test, user);
 
@@ -41,7 +39,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     public OutboundCommunicationTemplateCommon clickTemplateAdministration() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_TEMPLATE_ADMINISTRATION")).click();
+        tool.clickUsingID(tool, "smnu_TEMPLATE_ADMINISTRATION");
 
         return new OutboundCommunicationTemplateCommon(tool, test, user);
 

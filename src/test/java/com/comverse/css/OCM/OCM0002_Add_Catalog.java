@@ -3,7 +3,6 @@ package com.comverse.css.OCM;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Prep;
@@ -36,17 +35,17 @@ public class OCM0002_Add_Catalog extends CSSTest {
 
         ocmApplication.clickMenuManageCatalogs(application);
 
-        tool.driver.findElement(By.id("mainPanel:treeForm:catalog-tree:0:t2")).click();
-        tool.driver.findElement(By.id("mainPanel:treeForm:catalog-tree:0:0:_idJsp18_link")).click();
+        tool.clickUsingID(tool, "mainPanel:treeForm:catalog-tree:0:t2");
+        tool.clickUsingID(tool, "mainPanel:treeForm:catalog-tree:0:0:_idJsp18_link");
         // click "Create New Catalog"
-        tool.driver.findElement(By.id("mainPanel:boxForm:actionBox:actionList:entityType:add")).click();
+        tool.clickUsingID(tool, "mainPanel:boxForm:actionBox:actionList:entityType:add");
         
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", productName);
         
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", productCode);
         
         tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", productDescription);
-        tool.driver.findElement(By.id("mainPanel:edit:buttons:createProductCategory")).click();
+        tool.clickUsingID(tool, "mainPanel:edit:buttons:createProductCategory");
 
         test.setResult("pass");
     }

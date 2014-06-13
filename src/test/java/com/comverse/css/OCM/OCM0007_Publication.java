@@ -3,7 +3,6 @@ package com.comverse.css.OCM;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
@@ -34,7 +33,7 @@ public class OCM0007_Publication extends CSSTest {
         tool.clickUsingXPath(tool, "(//input[@name='mainPanel:edit:fields:CatalogPublication'])[2]");
         tool.clickUsingXPath(tool, "(//input[@name='mainPanel:edit:fields:ContentPublication'])[2]");
 
-        tool.driver.findElement(By.id("mainPanel:edit:buttons:publish")).click();
+        tool.clickUsingID(tool, "mainPanel:edit:buttons:publish");
 
         Common.assertTextOnPage(tool, "The publication request has been successfully created");
 

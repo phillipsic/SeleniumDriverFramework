@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -26,7 +25,7 @@ public class ModifyLevelLegalContactCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickBack() throws Exception {
-        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        tool.clickUsingID(tool, "youcan_ON_BACK");
         return new ViewHierarchyCommon(tool, test, user);
     }
 

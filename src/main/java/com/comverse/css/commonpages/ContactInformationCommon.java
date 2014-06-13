@@ -43,24 +43,24 @@ public class ContactInformationCommon extends CommonMenu {
 
     public MoveMemberCommon clickMoveMember() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_MOVE_MEMBER")).click();
+        tool.clickUsingID(tool, "youcan_MOVE_MEMBER");
         return new MoveMemberCommon(tool, test, user);
     }
 
     public ViewHierarchyCommon clickBack() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_ON_BACK")).click();
+        tool.clickUsingID(tool, "youcan_ON_BACK");
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public ModifyContactInformationCommon clickModifyContactInformation() throws Exception {
-        tool.driver.findElement(By.id("youcan_MODIFY_CONTACT")).click();
+        tool.clickUsingID(tool, "youcan_MODIFY_CONTACT");
         return new ModifyContactInformationCommon(tool, test, user);
     }
 
     public ModifyEmployeeContactCommon clickModifyContact() throws Exception {
 
-        tool.driver.findElement(By.id("youcan_MODIFY_CONTACT")).click();
+        tool.clickUsingID(tool, "youcan_MODIFY_CONTACT");
         return new ModifyEmployeeContactCommon(tool, test, user);
     }
 

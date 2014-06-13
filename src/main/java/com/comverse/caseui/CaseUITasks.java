@@ -1,6 +1,5 @@
 package com.comverse.caseui;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.caseui.common.CaseUITest;
@@ -18,30 +17,30 @@ public class CaseUITasks extends CaseUITest {
     }
 
     public void clickNewTask() throws Exception {
-        tool.driver.findElement(By.id("Alhzdry_label")).click();
+        tool.clickUsingID(tool, "Alhzdry_label");
         Thread.sleep(3000);
     }
 
     public void clickSearchAccount(String mainWindow) throws Exception {
-        tool.driver.findElement(By.id("Ifhjkr4_img")).click();
+        tool.clickUsingID(tool, "Ifhjkr4_img");
         Thread.sleep(3000);
         Common.switchToNewWindow(tool, mainWindow);
     }
 
     public void clickSearch(String accountLastname) throws Exception {
         tool.enterStringUsingId(tool, "Ilgmxak", "%" + accountLastname);
-        tool.driver.findElement(By.id("$as73pr_filterbutton")).click();
+        tool.clickUsingID(tool, "$as73pr_filterbutton");
         Thread.sleep(3000);
     }
 
     public void selectFirstAccount(String mainWindow) throws Exception {
-        tool.driver.findElement(By.id("$as73pr_singleSelectImage_0")).click();
+        tool.clickUsingID(tool, "$as73pr_singleSelectImage_0");
         Thread.sleep(1000);
         Common.switchToThisWindow(tool, mainWindow);
     }
 
     public void saveNewTask() throws Exception {
-        tool.driver.findElement(By.id("A4stqeq_label")).click();
+        tool.clickUsingID(tool, "A4stqeq_label");
         Thread.sleep(3000);
     }
 
@@ -51,7 +50,7 @@ public class CaseUITasks extends CaseUITest {
     }
 
     public void clickNewNote() throws Exception {
-        tool.driver.findElement(By.id("Ad9csi6_label")).click();
+        tool.clickUsingID(tool, "Ad9csi6_label");
         Thread.sleep(3000);
     }
 

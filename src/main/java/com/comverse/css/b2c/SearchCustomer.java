@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -38,7 +36,7 @@ public class SearchCustomer extends B2CMenu {
 
     public SearchMember clickSearchMemberLink() throws Exception {
 
-        tool.driver.findElement(By.id("smnu_SEARCH_BY_MEMBER")).click();
+        tool.clickUsingID(tool, "smnu_SEARCH_BY_MEMBER");
         return new SearchMember(tool, test, user);
     }
 

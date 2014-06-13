@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -32,32 +30,32 @@ public class ViewInvoiceDetailsCommon extends CommonMenu {
     }
 
     public BilledAdjustmentsCommon clickBilledAdjustments() throws Exception {
-        tool.driver.findElement(By.id("youcan_VIEW_ADJUSTMENTS")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_ADJUSTMENTS");
         return new BilledAdjustmentsCommon(tool, test, user);
     }
 
     public ViewPaymentDistributionsCommon clickPaymentDistribution() throws Exception {
-        tool.driver.findElement(By.id("youcan_VIEW_PAYMENT_DISTRIBUTIONS")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_PAYMENT_DISTRIBUTIONS");
         return new ViewPaymentDistributionsCommon(tool, test, user);
     }
 
     public ViewBilledRCNRCTermsCommon clickBilledRCNRC() throws Exception {
-        tool.driver.findElement(By.id("youcan_VIEW_RC_NRC")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_RC_NRC");
         return new ViewBilledRCNRCTermsCommon(tool, test, user);
     }
 
     public ViewBilledRechargesCommon clickBilledRecharges() throws Exception {
-        tool.driver.findElement(By.id("youcan_VIEW_INVOICE_RECHARGES")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_INVOICE_RECHARGES");
         return new ViewBilledRechargesCommon(tool, test, user);
     }
 
     public ViewBilledUsageCommon clickBilledUsages() throws Exception {
-        tool.driver.findElement(By.id("youcan_VIEW_USAGES")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_USAGES");
         return new ViewBilledUsageCommon(tool, test, user);
     }
 
     public ViewBilledMTRCommon clickBilledMTR() throws Exception {
-        tool.driver.findElement(By.id("youcan_VIEW_INVOICE_MTR")).click();
+        tool.clickUsingID(tool, "youcan_VIEW_INVOICE_MTR");
         return new ViewBilledMTRCommon(tool, test, user);
     }
 

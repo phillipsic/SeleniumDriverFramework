@@ -46,7 +46,7 @@ public class AddDepositCommon extends CommonMenu {
 
     public void selectPaymentMethod() throws Exception {
 
-        // tool.driver.findElement(By.id(paymentMethod)).click();
+        // tool.clickUsingID(tool, paymentMethod);
         tool.clickUsingXPath(tool, "(//input[@name='paymentMethod'])[1]");
 
     }

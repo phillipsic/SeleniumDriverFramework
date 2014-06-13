@@ -30,7 +30,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     @Override
     public ViewInvoicesCommon clickBillsAndPayments() throws Exception {
-        tool.driver.findElement(By.id("mnu_BILLS_PAYMENTS")).click();
+        tool.clickUsingID(tool, "mnu_BILLS_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ViewInvoicesCommon(tool, test, user);
@@ -44,7 +44,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     public ViewBalanceCommon viewBalanceAndRecharge() throws Exception {
         Common.clickAction1ItemIsAccessible(tool, ViewBalanceCommon.expectedScreen, "viewBalances");
-        // tool.driver.findElement(By.id("viewBalances")).click();
+        // tool.clickUsingID(tool, "viewBalances");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewBalanceCommon(tool, test, user);
     }
@@ -110,7 +110,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public SubscriberIdentifiersSwapCommon clickSubscriberIdentifiersSwap() throws Exception {
-        tool.driver.findElement(By.id("modify_lines_link")).click();
+        tool.clickUsingID(tool, "modify_lines_link");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberIdentifiersSwapCommon(tool, test, user);
     }
@@ -129,7 +129,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     public ResumeSubscriberRequestForDetailsCommon clickResumeSubscriber() throws Exception {
         Common.clickAction1ItemIsAccessible(tool, ResumeSubscriberRequestForDetailsCommon.expectedScreen, "resumeSubscriber");
-        // tool.driver.findElement(By.id("resumeSubscriber")).click();
+        // tool.clickUsingID(tool, "resumeSubscriber");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ResumeSubscriberRequestForDetailsCommon(tool, test, user);
     }
@@ -229,9 +229,9 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickAccountIDFromNavigationPanel() throws Exception {
-        tool.driver.findElement(By.id("AccountSearchLink")).click();
+        tool.clickUsingID(tool, "AccountSearchLink");
         Common.assertTextOnPage(tool, "Please enter your criteria and press search");
-        tool.driver.findElement(By.id("accountSearchButton")).click();
+        tool.clickUsingID(tool, "accountSearchButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         tool.clickUsingXPath(tool, "//td[3]/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -244,7 +244,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public void clickRefreshRPO() throws Exception {
-        tool.driver.findElement(By.id("rpoRefreshImage")).click();
+        tool.clickUsingID(tool, "rpoRefreshImage");
         Common.sleepForNumberOfSeconds(2);
     }
 

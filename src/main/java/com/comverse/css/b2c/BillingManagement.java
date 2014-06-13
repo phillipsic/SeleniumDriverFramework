@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,13 +26,13 @@ public class BillingManagement extends B2CMenu {
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForFirstSubscriber() throws Exception {
 
-        tool.driver.findElement(By.id("change_billing_contract_0")).click();
+        tool.clickUsingID(tool, "change_billing_contract_0");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForSecondSubscriber() throws Exception {
 
-        tool.driver.findElement(By.id("change_billing_contract_1")).click();
+        tool.clickUsingID(tool, "change_billing_contract_1");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 }

@@ -48,7 +48,7 @@ public class MyBasket extends B2CMenu {
     }
 
     public SelectOffersForYourSubscriber clickAddSupplementaryOffers() throws Exception {
-        tool.driver.findElement(By.id("add_srv_0")).click();
+        tool.clickUsingID(tool, "add_srv_0");
         return new SelectOffersForYourSubscriber(tool, test, user);
     }
 

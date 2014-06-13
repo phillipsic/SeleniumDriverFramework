@@ -34,12 +34,12 @@ public class EnterIdentificationDataCommon extends CommonMenu {
         boolean correctGender = false;
 
         if (gender.equalsIgnoreCase("male")) {
-            tool.driver.findElement(By.id("sex_male")).click();
+            tool.clickUsingID(tool, "sex_male");
             correctGender = true;
         }
 
         if (gender.equalsIgnoreCase("female")) {
-            tool.driver.findElement(By.id("sex_fem")).click();
+            tool.clickUsingID(tool, "sex_fem");
             correctGender = true;
         }
 
@@ -276,7 +276,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public UpdateAccountBillingAddressInformationsCommon clickEnterAdressButtonSelect() throws Exception {
-        tool.driver.findElement(By.id("enter_address")).click();
+        tool.clickUsingID(tool, "enter_address");
         return new UpdateAccountBillingAddressInformationsCommon(tool, test, user);
     }
 
@@ -289,7 +289,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void uncheckSameAsCustomerAddress() throws Exception {
-        tool.driver.findElement(By.id("link_addresschecked")).click();
+        tool.clickUsingID(tool, "link_addresschecked");
     }
 
     public void clickPaymentMethodCheck() throws Exception {
@@ -329,7 +329,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public SearchAddressCommon clickSearchAddress() throws Exception {
-        tool.driver.findElement(By.id("search_address")).click();
+        tool.clickUsingID(tool, "search_address");
         return new SearchAddressCommon(tool, test, user);
     }
 
@@ -359,7 +359,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
         this.setFaxNumber(person.getPersonFaxNumberProperty());
 
         // Billing Account details
-        tool.driver.findElement(By.id("link_addresschecked")).click();
+        tool.clickUsingID(tool, "link_addresschecked");
         this.setBillingTitle(account.getBillingTitleProperty());
         this.setBillingFirstName(account.getBillingFirstNameProperty());
         this.setBillingLastName(account.getBillingLastNameProperty());

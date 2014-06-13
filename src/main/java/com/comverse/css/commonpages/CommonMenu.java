@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.common.Test;
@@ -35,7 +33,7 @@ public class CommonMenu extends Main {
     }
 
     public LoginInformationCommon clickMyInformation() throws Exception {
-        tool.driver.findElement(By.id("mnu_INFO")).click();
+        tool.clickUsingID(tool, "mnu_INFO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new LoginInformationCommon(tool, test, user);
     }
@@ -47,43 +45,43 @@ public class CommonMenu extends Main {
     }
 
     public ViewHierarchyCommon clickHierarchy() throws Exception {
-        tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
+        tool.clickUsingID(tool, "mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public LevelLegalContactCommon clickHierarchyCSR() throws Exception {
-        tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
+        tool.clickUsingID(tool, "mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new LevelLegalContactCommon(tool, test, user);
     }
 
     public MyshapeCommon clickLogout() throws Exception {
-        tool.driver.findElement(By.id("mnu_LOGOUT")).click();
+        tool.clickUsingID(tool, "mnu_LOGOUT");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyshapeCommon(tool, test, user);
     }
 
     public ComverseOneSingleSignOn clickLogoutExpectingSSO() throws Exception {
-        tool.driver.findElement(By.id("mnu_LOGOUT")).click();
+        tool.clickUsingID(tool, "mnu_LOGOUT");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ComverseOneSingleSignOn(tool, test, user);
     }
 
     public AccountDetailsCommon clickAccounts() throws Exception {
-        tool.driver.findElement(By.id("mnu_ACCOUNTS")).click();
+        tool.clickUsingID(tool, "mnu_ACCOUNTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public ResumeAParkedBasketCommon clickBasket() throws Exception {
-        tool.driver.findElement(By.id("mnu_BASKET")).click();
+        tool.clickUsingID(tool, "mnu_BASKET");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ResumeAParkedBasketCommon(tool, test, user);
     }
 
-    public void clickCartIcon() {
-        tool.driver.findElement(By.id("imIconShoppingCart")).click();
+    public void clickCartIcon() throws Exception {
+        tool.clickUsingID(tool, "imIconShoppingCart");
     }
 
     public MyBasketCommon clickViewBasket() throws Exception {
@@ -93,37 +91,37 @@ public class CommonMenu extends Main {
     }
 
     public PersonManagementCommon clickPersonManagement() throws Exception {
-        tool.driver.findElement(By.id("mnu_PERSON_VIEW")).click();
+        tool.clickUsingID(tool, "mnu_PERSON_VIEW");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PersonManagementCommon(tool, test, user);
     }
 
     public WorkSpaceCommon clickHome() throws Exception {
-        tool.driver.findElement(By.id("mnu_HOME")).click();
+        tool.clickUsingID(tool, "mnu_HOME");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpaceCommon(tool, test, user);
     }
 
     public ViewInvoicesCommon clickBillsAndPayments() throws Exception {
-        tool.driver.findElement(By.id("mnu_BILLS_PAYMENTS")).click();
+        tool.clickUsingID(tool, "mnu_BILLS_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewInvoicesCommon(tool, test, user);
     }
 
     public ContactInformationCommon clickUserInformation() throws Exception {
-        tool.driver.findElement(By.id("mnu_INFO")).click();
+        tool.clickUsingID(tool, "mnu_INFO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ContactInformationCommon(tool, test, user);
     }
 
     public ViewTransactionHistoryCommon clickHistories() throws Exception {
-        tool.driver.findElement(By.id("mnu_HISTORIES")).click();
+        tool.clickUsingID(tool, "mnu_HISTORIES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewTransactionHistoryCommon(tool, test, user);
     }
 
     public ViewHierarchyCommon clickCustomerHierarchy() throws Exception {
-        tool.driver.findElement(By.id("mnu_HIERARCHY")).click();
+        tool.clickUsingID(tool, "mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);
     }

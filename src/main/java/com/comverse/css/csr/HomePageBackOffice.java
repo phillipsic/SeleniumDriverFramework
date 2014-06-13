@@ -4,8 +4,6 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,7 +25,7 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
 
     public InventoryAdministration clickBackOffice() throws Exception {
 
-        tool.driver.findElement(By.id("mnu_BACK_OFFICE")).click();
+        tool.clickUsingID(tool, "mnu_BACK_OFFICE");
 
         return new InventoryAdministration(tool, test, user);
 
