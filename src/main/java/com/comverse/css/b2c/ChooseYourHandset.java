@@ -66,8 +66,7 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public void setSearchAttribute(String searchString) throws Exception {
-        tool.driver.findElement(By.cssSelector("input[type='text'][name='searchString']")).clear();
-        tool.driver.findElement(By.cssSelector("input[type='text'][name='searchString']")).sendKeys(searchString);
+        tool.enterStringUsingCssSelector(tool, "input[type='text'][name='searchString']", searchString);
     }
 
     public void clickFilter() throws Exception {
