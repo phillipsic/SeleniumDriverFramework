@@ -36,7 +36,7 @@
                 <configuration>
                     <systemPropertyVariables>
                         <selenium_browser>${selenium_browser}</selenium_browser>
-                        <suiteFile>${suiteFile}</suiteFile>
+                        <testSuite>${testSuite}</testSuite>
                     </systemPropertyVariables>
                     <excludes>
                         <exclude>**/*.java</exclude>
@@ -54,7 +54,7 @@
                                 <exclude>none</exclude>
                             </excludes>
                             <includes>
-                                <include>${suiteFile}</include>
+                                <include>${testSuite}</include>
                             </includes>
 
                         </configuration>
@@ -72,7 +72,7 @@
     </build>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <suiteFile>**/bct/*.java</suiteFile>
+        <testSuite>**/bct/*.java</testSuite>
         <selenium_browser>CH</selenium_browser>
     </properties>
 
