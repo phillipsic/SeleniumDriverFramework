@@ -121,7 +121,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public SearchOrdersCommon clickSearchOrders() throws Exception {
-        tool.driver.navigate().refresh();
+        tool.navigateRefresh();
         Common.sleepForNumberOfSeconds(1);
         tool.clickUsingCssSelector(tool, "#firstYouCan > input.submit");
         Common.sleepForNumberOfSeconds(1);

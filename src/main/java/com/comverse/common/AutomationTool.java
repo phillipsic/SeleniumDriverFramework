@@ -108,4 +108,10 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public void navigateBack(AutomationTool tool) throws Exception {
+    }
+
+    public void navigateRefresh(AutomationTool tool) throws Exception {
+    }
+
 }

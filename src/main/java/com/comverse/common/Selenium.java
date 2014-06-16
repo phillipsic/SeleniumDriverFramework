@@ -304,4 +304,14 @@ public class Selenium extends AutomationTool {
     public void quit(AutomationTool tool) throws Exception {
         tool.driver.quit();
     }
+
+    @Override
+    public void navigateBack(AutomationTool tool) throws Exception {
+        tool.driver.navigate().back();
+    }
+
+    @Override
+    public void navigateRefresh(AutomationTool tool) throws Exception {
+        tool.driver.navigate().refresh();
+    }
 }
