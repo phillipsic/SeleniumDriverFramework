@@ -74,7 +74,7 @@ public class ACCT0550Contract_Set_spending_limit_on_monetary_shadow_balance exte
 
             Common.assertTextOnPage(tool, "Units used from account balance");
             configureBalance = viewBalances.clickConfigure();
-            configureBalance.setSpendingLimit("120");
+            configureBalance.setSpendingLimit("limitName", "120");
             configureBalance.selectTargetAccount("Night and Weekend Minutes");
             ConfigureBalanceReview configureBalanceReview = configureBalance.clickConfigureBalance();
             configureBalanceReview.clickConfirm();

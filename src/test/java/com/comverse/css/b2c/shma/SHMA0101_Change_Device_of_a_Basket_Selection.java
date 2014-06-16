@@ -39,13 +39,13 @@ public class SHMA0101_Change_Device_of_a_Basket_Selection extends CSSTest {
             Shopping shopping = homePage.selectAccountSegmentAll();
 
             ChooseYourHandset chooseYourHandset = shopping.clickVoiceDevicesLink();
-            ChooseYourPrimaryOffer chooseYourPrimaryOffer = chooseYourHandset.selectHandset(voiceDevice2.getDeviceName());
+            ChooseYourPrimaryOffer chooseYourPrimaryOffer = chooseYourHandset.selectHandset(voiceDevice1.getDeviceName());
             EnterYourSubscriptionDetails enterYourSubscriptionDetails = chooseYourPrimaryOffer.selectPrimaryOfferByNameWithoutDevice(po_ResidentialUltraPostpaid.getOfferName());
             enterYourSubscriptionDetails.enterDefaultIdentityAddressPhoneEmail(uniqueTimeStamp);
             SelectOffersForYourSubscriber selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
             ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
             ConfigureBalance configureBalance = configureOffers.clickContinueExpectingConfigureBalance();
-            configureBalance.setSpendingLimit("120");
+            configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_GPRS_WAP_INTERNET().getBalanceName(), "120");
             MyBasket myBasket = configureBalance.clickContinueExpectingMyBasket();
             // Checking Device3 details in Basket.
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());

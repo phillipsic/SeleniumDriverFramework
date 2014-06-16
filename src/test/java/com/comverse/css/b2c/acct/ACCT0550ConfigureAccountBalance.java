@@ -79,7 +79,7 @@ public class ACCT0550ConfigureAccountBalance extends CSSTest {
 
             configureBalance = viewBalances.clickConfigure();
 
-            configureBalance.setSpendingLimit("360");
+            configureBalance.setSpendingLimit(sb_ResidentialBasicPrepaidBundle.getBAL_VoiceNightWeekendShared().getBalanceName(), "360");
             configureBalance.selectTargetAccount("Voice-Anytime");
             configureBalance.clickConfigureBalance();
 

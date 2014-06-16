@@ -14,6 +14,7 @@ import com.comverse.css.data.SO.SO_DIYeCountdownExtra;
 import com.comverse.data.apps.B2C;
 
 public class SHMA0001_Capture_Service_Connection_details extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -28,9 +29,6 @@ public class SHMA0001_Capture_Service_Connection_details extends CSSTest {
     public void testSHMA0001_Capture_Service_Connection_details() throws Exception {
         try {
             PO_DIYInteractiveTVOfferforAll po_DIYInteractiveTVOfferforAll = new PO_DIYInteractiveTVOfferforAll();
-            // AO_GenerallyAvailableAccountlevelWithSharedBalances
-            // ao_GenerallyAvailableAccountlevelWithSharedBalances = new
-            // AO_GenerallyAvailableAccountlevelWithSharedBalances();
             SO_DIYeCountdownExtra so_DIYeCountDownExtra = new SO_DIYeCountdownExtra();
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
@@ -52,10 +50,6 @@ public class SHMA0001_Capture_Service_Connection_details extends CSSTest {
             ChooseAccessories chooseAccessories = configureOffers.clickContinue();
             ConfigureServiceConnectionDetails configureServiceConnectionDetails = chooseAccessories.clickContinueExpectingConnectionServiceDetails();
 
-            // configureBalance.configureBalance(sb_ResidentialBasicPrepaidBundle.getBAL_VoiceNightWeekendShared().getBalanceName(),
-            // sb_ResidentialBasicPrepaidBundle
-            // .getBAL_VoiceNightWeekendShared().getBalanceValue());
-
             MyBasket myBasket = configureServiceConnectionDetails.clickContinue();
             Common.assertTextOnPage(tool, po_DIYInteractiveTVOfferforAll.getOfferName());
             TermsAndConditions termsAndConditions = myBasket.clickCheckOutExpectingTermsAndConditions();
@@ -71,26 +65,15 @@ public class SHMA0001_Capture_Service_Connection_details extends CSSTest {
             CheckoutReview checkoutReview = billingManagement.clickContinue();
             CheckoutConfirmation checkoutConfirmation = checkoutReview.clickContinue();
             String orderNumber = checkoutConfirmation.getOrderNumberFromPage();
-            SearchOrders searchOrders = checkoutConfirmation.clickOk();
+
             Common.assertTextOnPage(tool, "Your order has been submitted.");
             Common.assertTextOnPage(tool, orderNumber);
-            // searchOrders.clickRequests();
-            // bugId = "CBS00165217";
+
+            SearchOrders searchOrders = checkoutConfirmation.clickOk();
+
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(orderNumber);
 
-            // SubscriberDetail subscriberDetail =
-            // searchOrders.clickDashbaord();
 
-            // ViewBalances viewBalances =
-            // subscriberDetail.clickSharedBalances();
-
-            // configureBalance = viewBalances.clickConfigure();
-
-            // configureBalance.setSpendingLimit("360");
-            // configureBalance.selectTargetAccount("Voice-Anytime");
-            // configureBalance.clickConfigureBalance();
-
-            // bugId = "NoBug";
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {

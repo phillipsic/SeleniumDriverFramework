@@ -8,7 +8,7 @@ import com.comverse.common.User;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Prep;
 import com.comverse.data.apps.SEC;
-import com.comverse.data.users.CSRAdmin;
+import com.comverse.data.users.CSRUser;
 import com.comverse.data.users.SECAdmin;
 import com.comverse.sec.SecLoginPage;
 
@@ -29,7 +29,7 @@ public class SEC0003_CreateCSRUser extends CSSTest {
         SecLoginPage loginPage = new SecLoginPage(tool, test, user);
         loginPage.loginSecservAsSecadmin();
 
-        User user2 = new CSRAdmin();
+        User user2 = new CSRUser();
         loginPage.clickIdentity();
         loginPage.clickCSS_CSR();
         loginPage.clickAddUser();

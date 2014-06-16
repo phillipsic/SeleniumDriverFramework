@@ -26,10 +26,9 @@ public class ConfigureBalance extends B2CMenu {
         tool.enterStringUsingId(tool, balanceName + "_limit", balanceValue);
     }
 
-    public void setSpendingLimit(String spendingLimit) throws Exception {
-
+    public void setSpendingLimit(String limitName, String spendingLimit) throws Exception {
         
-        tool.enterStringUsingId(tool, "configuredLimit", spendingLimit);
+        tool.enterStringUsingId(tool, limitName + "_limit", spendingLimit);
     }
 
     public void selectTargetAccount(String targetBalance) throws Exception {
