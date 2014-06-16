@@ -94,6 +94,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public String getAttributeUsingXpath(AutomationTool tool, String xpath, String attribute) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath)).getAttribute(attribute);
+    }
+
+    @Override
     public String getTitle(AutomationTool tool) throws Exception {
         return tool.driver.getTitle();
     }
@@ -266,8 +271,23 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public String searchUsingIDandGetTextUsingXpath(AutomationTool tool, String id, String Xpath) throws Exception {
+        return tool.driver.findElement(By.id(id)).findElement(By.xpath(Xpath)).getText();
+    }
+
+    @Override
     public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
         return tool.driver.findElement(By.name(name));
+    }
+
+    @Override
+    public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
+        return tool.driver.findElements(By.linkText(linkText)).isEmpty();
+    }
+
+    @Override
+    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+        return tool.driver.findElement(By.cssSelector(cssSelector));
     }
 
     @Override
@@ -293,5 +313,15 @@ public class Selenium extends AutomationTool {
     @Override
     public void quit(AutomationTool tool) throws Exception {
         tool.driver.quit();
+    }
+
+    @Override
+    public void navigateBack(AutomationTool tool) throws Exception {
+        tool.driver.navigate().back();
+    }
+
+    @Override
+    public void navigateRefresh(AutomationTool tool) throws Exception {
+        tool.driver.navigate().refresh();
     }
 }

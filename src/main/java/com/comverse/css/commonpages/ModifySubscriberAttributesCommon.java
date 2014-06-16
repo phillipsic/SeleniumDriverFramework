@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -35,7 +34,7 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public String getLanguage() throws Exception {
-        return tool.driver.findElement(By.id("p-param-L4:80000")).findElement(By.xpath(".//option[@selected='selected']")).getText();
+        return tool.searchUsingIDandGetTextUsingXpath(tool, "p-param-L4:80000", ".//option[@selected='selected']");
     }
 
     public String getHappyHourStart() throws Exception {
@@ -47,12 +46,12 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public void enterBirthday(String birthday) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "p-param-L4:90070", birthday);
     }
 
     public void enterSecurityWord(String securityWord) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "p-param-L4:91070", securityWord);
 
     }
@@ -62,13 +61,13 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public void enterHappyHourStart(String happyHourStart) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "p-param-L4:91170", happyHourStart);
 
     }
 
     public void enterHappyHourEnd(String happyHourEnd) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "p-param-L4:91180", happyHourEnd);
 
     }

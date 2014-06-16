@@ -4,9 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -43,10 +40,7 @@ public class ChooseAccessories extends B2CMenu {
     }
 
     public void setQuantityForAccessory(String Accessory, String Quantity) throws Exception {
-        WebElement quantityInputText = tool.driver.findElement(By.xpath(".//a[contains(text(),'" + Accessory + "')]//../preceding-sibling::td[2]//input"));
-        quantityInputText.clear();
-        quantityInputText.sendKeys(Quantity);
-
+        tool.enterStringUsingXPath(tool, ".//a[contains(text(),'" + Accessory + "')]//../preceding-sibling::td[2]//input", Quantity);
     }
 
 }

@@ -2,8 +2,6 @@ package com.comverse.css.commonpages;
 
 import static org.junit.Assert.assertTrue;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,7 +25,8 @@ public class SearchEmployeeCommon extends CommonMenu {
         tool.clickUsingXPath(tool, "//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']");
 
         return new SearchEmployeeCommon(tool, test, user);
-        // sends keys to the last name field in the searchpage and clicks Search
+        // sends keys to the last name field in the search page and clicks
+        // Search
         // button of the same section. Expects the same page when completed.
     }
 
@@ -37,13 +36,13 @@ public class SearchEmployeeCommon extends CommonMenu {
         tool.clickUsingXPath(tool, "//form[@id='form_SEARCH_MEMBERS_RESULT_1']//input[@value='Search']");
 
         return new SearchEmployeeCommon(tool, test, user);
-        // sends keys to the login field in the searchpage and clicks Search
+        // sends keys to the login field in the search page and clicks Search
         // button of the same section. Expects the same page when completed.
     }
 
     public SearchEmployeeCommon checkIfResultIsCorrect(String numberOfCustomersDisplayed) throws Exception {
 
-        assertTrue(tool.driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*" + numberOfCustomersDisplayed + " employee\\(s\\) found[\\s\\S]*$"));
+        assertTrue(tool.getTextUsingCssSelector(tool, "BODY").matches("^[\\s\\S]*" + numberOfCustomersDisplayed + " employee\\(s\\) found[\\s\\S]*$"));
 
         return new SearchEmployeeCommon(tool, test, user);
         // Asserts that the given numberOfCustomersDisplayd is equal to the

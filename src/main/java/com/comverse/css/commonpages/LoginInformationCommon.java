@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -15,14 +13,12 @@ public class LoginInformationCommon extends CommonMenu {
         String expectedScreen = "Login Information";
 
         if (!expectedScreen.equals(tool.getTitle(tool))) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public String getCurrentRoleFromPage() throws Exception {
-
-        return tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[2]/div/table/tbody/tr/td")).getText().replace(",", "");
+        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[2]/div/table/tbody/tr/td").replace(",", "");
     }
 
     public ChangePasswordCommon clickChangePassword() throws Exception {

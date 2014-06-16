@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -259,7 +257,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public void clickSetAwardCounter() throws Exception {
-        
+
         tool.enterStringUsingId(tool, "awardCounter", "2");
     }
 
@@ -277,8 +275,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     public void clickRefreshUntilRPOActive(String RPO) throws Exception {
         this.clickRefreshRPO();
         while (true) {
-
-            if (tool.driver.findElement(By.xpath("//a[contains(text(),'" + RPO + "')]/../../following-sibling::td[1]/div")).getText().contains("Active")) {
+            if (tool.getTextUsingXPath(tool, "//a[contains(text(),'" + RPO + "')]/../../following-sibling::td[1]/div").contains("Active")) {
                 break;
             } else {
                 this.clickRefreshRPO();

@@ -1,6 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -33,7 +32,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public void clickMoreLink() throws Exception {
-        tool.driver.findElement(By.id("More >>"));
+        tool.searchUsingID(tool, "More >>");
 
     }
 

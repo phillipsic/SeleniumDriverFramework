@@ -1,7 +1,5 @@
 package com.comverse.sfa;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -17,11 +15,10 @@ public class sfaProduct extends SFAMenu {
 
         String curentWindow = Common.getCurrentWindowHandle(tool);
 
-        
         tool.enterStringUsingId(tool, "I7olilf", productName);
         tool.clickUsingID(tool, "$n1almt_filterbutton");
         Common.sleepForNumberOfSeconds(2);
-        if (!tool.driver.findElement(By.id("$n1almt_rowChkBox_0")).isSelected()) {
+        if (!tool.searchUsingID(tool, "$n1almt_rowChkBox_0").isSelected()) {
             tool.clickUsingID(tool, "$n1almt_rowChkBox_0");
         }
         tool.clickUsingID(tool, "Af7fj1i");
@@ -35,11 +32,10 @@ public class sfaProduct extends SFAMenu {
     sfaOpportunity selectProductForOpportunity(String productName) throws Exception {
         String curentWindow = Common.getCurrentWindowHandle(tool);
 
-        
         tool.enterStringUsingId(tool, "Imintjv", productName);
         tool.clickUsingID(tool, "$ncrm6b_filterbutton");
         Common.sleepForNumberOfSeconds(2);
-        if (!tool.driver.findElement(By.id("$ncrm6b_rowChkBox_0")).isSelected()) {
+        if (!tool.searchUsingID(tool, "$ncrm6b_rowChkBox_0").isSelected()) {
             tool.clickUsingID(tool, "$ncrm6b_rowChkBox_0");
         }
         tool.clickUsingID(tool, "Ar4pj4u");
@@ -49,5 +45,4 @@ public class sfaProduct extends SFAMenu {
 
         return new sfaOpportunity(tool, test, user);
     }
-
 }

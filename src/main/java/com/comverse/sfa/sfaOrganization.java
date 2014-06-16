@@ -1,6 +1,5 @@
 package com.comverse.sfa;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -82,7 +81,7 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public void checkPrimaryContact() throws Exception {
-        if (!tool.driver.findElement(By.id("Idrfpsj")).isSelected()) {
+        if (!tool.searchUsingID(tool, "Idrfpsj").isSelected()) {
             tool.clickUsingID(tool, "Idrfpsj");
         }
 

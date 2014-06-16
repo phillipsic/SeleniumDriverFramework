@@ -46,6 +46,10 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public String getAttributeUsingXpath(AutomationTool tool, String xpath, String attribute) throws Exception {
+        return null;
+    }
+
     public String getTextUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
         return null;
     }
@@ -98,6 +102,24 @@ public class AutomationTool extends Main {
     }
 
     public void quit(AutomationTool tool) throws Exception {
+    }
+
+    public String searchUsingIDandGetTextUsingXpath(AutomationTool tool, String id, String Xpath) throws Exception {
+        return null;
+    }
+
+    public void navigateBack(AutomationTool tool) throws Exception {
+    }
+
+    public void navigateRefresh(AutomationTool tool) throws Exception {
+    }
+
+    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+        return null;
+    }
+
+    public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
+        return false;
     }
 
 }

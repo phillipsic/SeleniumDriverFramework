@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import java.util.concurrent.TimeUnit;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -18,7 +16,6 @@ public class ViewTransactionHistoryCommon extends CommonMenu {
         super(tool, test, user);
 
         String currentScreen = tool.getTitle(tool);
-
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -32,7 +29,7 @@ public class ViewTransactionHistoryCommon extends CommonMenu {
     }
 
     public ViewMTRHistoryCommon clickonMTRHistory() throws Exception {
-        tool.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        Thread.sleep(5000);
         tool.clickUsingID(tool, "youcan_MTR_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewMTRHistoryCommon(tool, test, user);

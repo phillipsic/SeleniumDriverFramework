@@ -57,7 +57,7 @@ public class Common {
 
     public static Boolean isCheckBoxSelected(AutomationTool tool, String idOfCheckBox) throws Exception {
 
-        return (tool.driver.findElement(By.id(idOfCheckBox)).isSelected());
+        return (tool.searchUsingID(tool, idOfCheckBox)).isSelected();
     }
 
     public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
@@ -947,7 +947,7 @@ public class Common {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.driver.navigate().refresh();
+                    tool.navigateRefresh(tool);
                 }
             } catch (Exception e) {
                 System.out.println("Menu item not selectable");
@@ -982,7 +982,7 @@ public class Common {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.driver.navigate().refresh();
+                    tool.navigateRefresh(tool);
                     System.out.println("Trying browser refresh");
                 }
             } catch (Exception e) {

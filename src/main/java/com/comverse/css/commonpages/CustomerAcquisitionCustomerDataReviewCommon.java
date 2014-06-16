@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -56,30 +54,29 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public String getAddressLine1() throws Exception {
-
-        String cleanString = Common.cleanStringOfIllegalChars(tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset[2]/p")).getText());
+        String cleanString = Common.cleanStringOfIllegalChars(tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset[2]/p"));
 
         return cleanString;
     }
 
     public String getZipCode() throws Exception {
 
-        return Common.cleanStringOfIllegalChars(tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset[2]/p[5]")).getText());
+        return Common.cleanStringOfIllegalChars(tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset[2]/p[5]"));
     }
 
     public String getCity() throws Exception {
 
-        return Common.cleanStringOfIllegalChars(tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset[2]/p[6]")).getText());
+        return Common.cleanStringOfIllegalChars(tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset[2]/p[6]"));
     }
 
     public String getState() throws Exception {
 
-        return Common.cleanStringOfIllegalChars(tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset[2]/p[7]")).getText());
+        return Common.cleanStringOfIllegalChars(tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset[2]/p[7]"));
     }
 
     public String getCountry() throws Exception {
 
-        return Common.cleanStringOfIllegalChars(tool.driver.findElement(By.xpath("//div[@id='mainContents']/div[5]/fieldset[2]/p[8]")).getText());
+        return Common.cleanStringOfIllegalChars(tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div[5]/fieldset[2]/p[8]"));
     }
 
     public UpdateAccountContactInformationsCommon clickEditCustomerIdentityAndContact() throws Exception {
@@ -133,37 +130,31 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setAddress1(String Address1) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "address_line_1", Address1);
     }
 
     public void setAddress2(String setAddress2) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "address_line_2", setAddress2);
     }
 
     public void setAddress3(String Address3) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "address_line_3", Address3);
     }
 
     public void setAddress4(String Address4) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "address_line_4", Address4);
     }
 
     public void setHomeZip(String HomeZip) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "home_zip", HomeZip);
     }
 
     public void setHomeCity(String HomeCity) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "home_city", HomeCity);
     }
 
@@ -188,31 +179,26 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public void setSocialSecurityNumber(String SocialSecurityNumber) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-param-L4:91260", SocialSecurityNumber);
     }
 
     public void setPurchaseOrder(String PurchaseOrder) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-param-L4:91540", PurchaseOrder);
     }
 
     public void setSalesCode(String SalesCode) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-param-L4:91530", SalesCode);
     }
 
     public void setSecurityWord(String SecurityWord) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-param-L4:91070", SecurityWord);
     }
 
     public void setSICCode(String SICCode) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "p-param-L4:91320", SICCode);
     }
 
