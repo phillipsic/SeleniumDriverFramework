@@ -21,10 +21,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
     public EnterYourSubscriptionDetails selectPrimaryOfferByNameWithoutDevice(String primaryOfferName) throws Exception {
 
-        String offerID = this.getPrimaryOfferID(primaryOfferName);
-        System.out.println("link = #selectButton_" + offerID);
-        tool.clickUsingCssSelector(tool, "#selectButton_" + offerID);
-        // tool.clickUsingID(tool, "selectButton_" + temp[0]);
+        this.clickSelectPrimaryOffer(primaryOfferName);
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.getTitle(tool))) {
@@ -37,21 +34,32 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
-    public ChooseYourDevice selectPrimaryOfferByNameWithDevice(String primaryOfferName) throws Exception {
+    public void clickSelectPrimaryOffer(String primaryOfferName) throws Exception {
 
-        String offerID = this.getPrimaryOfferID(primaryOfferName);
-        System.out.println("link = #selectButton_" + offerID);
-        tool.clickUsingCssSelector(tool, "#selectButton_" + offerID);
-        // tool.clickUsingID(tool, "selectButton_" + temp[0]);
+        int pageCounter = 2;
 
-       /* System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.getTitle(tool))) {
+        boolean beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
+        System.out.println("Found offer?  - " + beresult);
 
-            tool.clickUsingCssSelector(tool, "input[name='nothanks']");
-            System.out.println("Checking for device page - found - No Thanks");
+        while (beresult == false) {
+
+            System.out.println("Result - " + beresult + "page - " + pageCounter);
+            System.out.println("Now trying to navigate to page - " + pageCounter);
+
+            tool.clickUsingXPath(tool, "//img[@alt='Next Page (" + pageCounter + ")']");
+            //tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
+            beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
+            System.out.println("Found offer? - " + beresult);
+            pageCounter++;
         }
 
-        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());*/
+        tool.clickUsingXPath(tool, "//p[text()[normalize-space(.)='" + primaryOfferName + "']]/../..//input[@value='Select']");
+
+    }
+
+    public ChooseYourDevice selectPrimaryOfferByNameWithDevice(String primaryOfferName) throws Exception {
+
+        this.clickSelectPrimaryOffer(primaryOfferName);
         return new ChooseYourDevice(tool, test, user);
     }
 
@@ -136,6 +144,8 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             System.out.println("Found bundle? - " + beresult);
             pageCounter++;
         }
+
+        tool.clickUsingXPath(tool, "//p[text()[normalize-space(.)='Residential - Basic Prepaid']]/../..//input[@value='Select']");
 
         String temp[];
 
