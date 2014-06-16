@@ -114,4 +114,8 @@ public class AutomationTool extends Main {
     public void navigateRefresh(AutomationTool tool) throws Exception {
     }
 
+    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+        return null;
+    }
+
 }

@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.comverse.common.AutomationTool;
@@ -21,8 +20,6 @@ public class ChooseYourHandset extends B2CMenu {
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(tool.getTitle(tool))) {
-            // Alternatively, we could navigate to the login page, perhaps
-            // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
@@ -33,7 +30,7 @@ public class ChooseYourHandset extends B2CMenu {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
-    
+
     public EnterYourSubscriptionDetails selectHandsetExpectingSubscriptionDetails(String Handset) throws Exception {
 
         tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']");
@@ -49,25 +46,25 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public void selectManufacturer1() throws Exception {
-        WebElement manufacturer1 = tool.driver.findElement(By.cssSelector("input[value='Manufacturer 1']"));
+        WebElement manufacturer1 = tool.searchUsingCssSelector(tool, "input[value='Manufacturer 1']");
         if (!(manufacturer1.isSelected()))
             manufacturer1.click();
     }
 
     public void unSelectManufacturer1() throws Exception {
-        WebElement manufacturer1 = tool.driver.findElement(By.cssSelector("input[value='Manufacturer 1']"));
+        WebElement manufacturer1 = tool.searchUsingCssSelector(tool, "input[value='Manufacturer 1']");
         if (manufacturer1.isSelected())
             manufacturer1.click();
     }
 
     public void selectManufacturer2() throws Exception {
-        WebElement manufacturer2 = tool.driver.findElement(By.cssSelector("input[value='Manufacturer 2']"));
+        WebElement manufacturer2 = tool.searchUsingCssSelector(tool, "input[value='Manufacturer 2']");
         if (!(manufacturer2.isSelected()))
             manufacturer2.click();
     }
 
     public void unSelectManufacturer2() throws Exception {
-        WebElement manufacturer2 = tool.driver.findElement(By.cssSelector("input[value='Manufacturer 2']"));
+        WebElement manufacturer2 = tool.searchUsingCssSelector(tool, "input[value='Manufacturer 2']");
         if (manufacturer2.isSelected())
             manufacturer2.click();
     }

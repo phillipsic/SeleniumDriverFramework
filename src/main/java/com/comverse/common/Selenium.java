@@ -281,6 +281,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+        return tool.driver.findElement(By.cssSelector(cssSelector));
+    }
+
+    @Override
     public List<WebElement> searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
         return tool.driver.findElements(By.tagName(tagName));
     }
