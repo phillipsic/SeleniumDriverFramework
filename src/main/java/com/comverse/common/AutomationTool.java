@@ -73,4 +73,8 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public String getTextUsingId(AutomationTool tool, String Id) throws Exception {
+        return null;
+    }
+
 }

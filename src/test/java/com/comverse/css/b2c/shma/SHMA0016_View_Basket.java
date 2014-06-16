@@ -10,10 +10,9 @@ import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.data.ACC.ACC_CSSPQABatteryPhoneACC1;
-import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
-import com.comverse.css.data.SO.SO_DIYeCountdownExtra;
-import com.comverse.data.apps.B2C;
 import com.comverse.css.data.DEV.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
+import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
+import com.comverse.data.apps.B2C;
 
 public class SHMA0016_View_Basket extends CSSTest {
 
@@ -32,7 +31,8 @@ public class SHMA0016_View_Basket extends CSSTest {
         try {
             PO_ResidentialUltraPostpaid po_ResidentialUltraPostpaid = new PO_ResidentialUltraPostpaid();
             ACC_CSSPQABatteryPhoneACC1 accBatteryPhone1 = new ACC_CSSPQABatteryPhoneACC1();
-            SO_DIYeCountdownExtra so_DIYeCountDownExtra = new SO_DIYeCountdownExtra();
+            // SO_DIYeCountdownExtra so_DIYeCountDownExtra = new
+            // SO_DIYeCountdownExtra();
             VD_CSSPQAVoiceDeviceStandardPhonesDEV1 vd_StandardPhoneDEV1 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV1();
 
             launchCSSApplication();
@@ -53,7 +53,7 @@ public class SHMA0016_View_Basket extends CSSTest {
 
             enterYourSubscriptionDetails.enterDefaultIdentityAddressPhoneEmail(uniqueTimeStamp);
             SelectOffersForYourSubscriber selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
-  
+
             ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
             ConfigureBalance configureBalance = configureOffers.clickContinueExpectingConfigureBalance();
             configureBalance.setSpendingLimit("120");

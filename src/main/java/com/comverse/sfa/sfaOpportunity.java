@@ -101,8 +101,8 @@ public class sfaOpportunity extends SFAMenu {
         return new Select(tool.searchUsingID(tool, "I4nxoi8")).getFirstSelectedOption().getText();
     }
 
-    String getFirstProductName() {
-        return tool.driver.findElement(By.id("$5rwlai_cell_0_1_span")).getText();
+    String getFirstProductName() throws Exception {
+        return tool.getTextUsingId(tool, "$5rwlai_cell_0_1_span");
     }
 
     void openSalesProcess() throws Exception {
@@ -113,8 +113,8 @@ public class sfaOpportunity extends SFAMenu {
         return tool.getAttributeUsingId(tool, "If7o2b9", "value");
     }
 
-    String getFirstTaskName() {
-        return tool.driver.findElement(By.id("$35tloe_cell_0_2_span")).getText();
+    String getFirstTaskName() throws Exception {
+        return tool.getTextUsingId(tool, "$35tloe_cell_0_2_span");
     }
 
 }

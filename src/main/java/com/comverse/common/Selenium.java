@@ -177,6 +177,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public String getTextUsingId(AutomationTool tool, String Id) throws Exception {
+        return tool.driver.findElement(By.id(Id)).getText();
+    }
+
+    @Override
     public String getTextUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
         return tool.driver.findElement(By.cssSelector(cssSelector)).getText();
     }
