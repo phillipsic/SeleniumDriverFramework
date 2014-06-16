@@ -48,11 +48,11 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
 
             enterYourSubscriptionDetails.enterDefaultIdentityAddressPhoneEmail(uniqueTimeStamp);
             SelectOffersForYourSubscriber selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
-            selectOffersForYourSubscriber.selectOffersForSubscriber(so_DIYeCountDownExtra.getOfferName());
+ 
 
             ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
             ConfigureBalance configureBalance = configureOffers.clickContinueExpectingConfigureBalance();
-            configureBalance.setSpendingLimit("120");
+            configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_GPRS_WAP_INTERNET().getBalanceName(), "120");
             ChooseAccessories chooseAccessories = configureBalance.clickContinue();
 
             MyBasket myBasket = chooseAccessories.clickContinue();
@@ -60,11 +60,11 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
             // Verification of added PO & SO .
 
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
-            Common.assertTextOnPage(tool, so_DIYeCountDownExtra.getOfferName());
+           // Common.assertTextOnPage(tool, so_DIYeCountDownExtra.getOfferName());
             // Changing added PO
             chooseYourPrimaryOffer = myBasket.clickChangePO();
-            chooseYourDevice = chooseYourPrimaryOffer.selectPrimaryOfferByNameWithDevice(po_ResidentialBasicPrepaid.getOfferName());
-            enterYourSubscriptionDetails = chooseYourDevice.clickNoThanks();
+            enterYourSubscriptionDetails = chooseYourPrimaryOffer.selectPrimaryOfferByNameWithoutDevice(po_ResidentialBasicPrepaid.getOfferName());
+        
             selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
             selectOffersForYourSubscriber.selectOffersForSubscriber(so_ResidentialSMSMMSPack.getOfferName());
             configureOffers = selectOffersForYourSubscriber.clickContinue();
@@ -75,7 +75,7 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
             Common.assertTextOnPage(tool, po_ResidentialBasicPrepaid.getOfferName());
             Common.assertTextOnPage(tool, so_ResidentialSMSMMSPack.getOfferName());
             Common.assertTextNotOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
-            Common.assertTextNotOnPage(tool, so_DIYeCountDownExtra.getOfferName());
+            //Common.assertTextNotOnPage(tool, so_DIYeCountDownExtra.getOfferName());
 
             // bugId = "NoBug";
             test.setResult("pass");
