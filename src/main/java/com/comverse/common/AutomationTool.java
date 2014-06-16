@@ -81,4 +81,13 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public void switchTo(AutomationTool tool) throws Exception {
+    }
+
+    public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
+    }
+
+    public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
+    }
+
 }

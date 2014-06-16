@@ -265,4 +265,18 @@ public class Selenium extends AutomationTool {
         return tool.driver.findElements(By.tagName(tagName));
     }
 
+    @Override
+    public void switchTo(AutomationTool tool) throws Exception {
+        tool.driver.switchTo().defaultContent();
+    }
+
+    @Override
+    public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
+        tool.driver.switchTo().window(windowHandle);
+    }
+
+    @Override
+    public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
+        tool.driver.switchTo().frame(webElement);
+    }
 }

@@ -1019,16 +1019,16 @@ public class Common {
         return tool.driver.getWindowHandle();
     }
 
-    public static void switchToThisWindow(AutomationTool tool, String windowHandle) {
-        tool.driver.switchTo().window(windowHandle);
+    public static void switchToThisWindow(AutomationTool tool, String windowHandle) throws Exception {
+        tool.switchToWindow(tool, windowHandle);
     }
 
-    public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) {
+    public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) throws Exception {
         Set<String> windows = tool.driver.getWindowHandles();
         for (String window : windows) {
             for (String windowHandle : windowHandleTable) {
                 if (!window.equals(windowHandle)) {
-                    tool.driver.switchTo().window(window);
+                    tool.switchToWindow(tool, window);
                     break;
                 }
             }
