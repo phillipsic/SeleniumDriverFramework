@@ -93,6 +93,11 @@ public class Selenium extends AutomationTool {
         return tool.getTitle(tool);
     }
 
+    @Override
+    public String getPageSource(AutomationTool tool) throws Exception {
+        return tool.driver.getPageSource();
+    }
+
     public WebDriver getDriver() {
         return driver;
     }

@@ -41,7 +41,7 @@ public class MyShapeChannel extends MyshapeCommon {
         super.successfulLogin(user);
 
         // Terms and Conditions page for dealer
-        if (tool.driver.getPageSource().contains("Welcome to Shape Telecom")) {
+        if (tool.getPageSource(tool).contains("Welcome to Shape Telecom")) {
             this.clickAgreeTermsAndConditions();
         }
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -66,7 +66,7 @@ public class MyShapeChannel extends MyshapeCommon {
 
     public RestorePreviousBasket loginToChannelAsTelcoAdminWithPreviousBasket() throws Exception {
         successfulLogin(user);
-        if (tool.driver.getPageSource().contains("Welcome to Shape Telecom")) {
+        if (tool.getPageSource(tool).contains("Welcome to Shape Telecom")) {
             this.clickAgreeTermsAndConditionsWithoutBasketCheck();
         }
         return new RestorePreviousBasket(tool, test, user);
@@ -74,7 +74,7 @@ public class MyShapeChannel extends MyshapeCommon {
 
     public RestorePreviousBasket loginToChannelAsTelcoUserWithPreviousBasket() throws Exception {
         successfulLogin(user);
-        if (tool.driver.getPageSource().contains("Welcome to Shape Telecom")) {
+        if (tool.getPageSource(tool).contains("Welcome to Shape Telecom")) {
             this.clickAgreeTermsAndConditionsWithoutBasketCheck();
         }
         return new RestorePreviousBasket(tool, test, user);

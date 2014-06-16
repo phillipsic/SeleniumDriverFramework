@@ -91,7 +91,7 @@ public class ViewBalanceCommon extends CommonMenu {
     private String retrieveBalanceID(String balanceName) throws Exception {
 
         /*
-         * String pageSource = tool.driver.getPageSource(); String temp[]; String
+         * String pageSource = tool.getPageSource(tool); String temp[]; String
          * cleanString;
          * 
          * temp = pageSource.split("abtr:" + balanceName); temp =

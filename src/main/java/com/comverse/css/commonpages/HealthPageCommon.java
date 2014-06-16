@@ -17,7 +17,7 @@ public class HealthPageCommon extends CommonMenu {
 
         tool.driver.get(baseUrl);
 
-        boolean sapi = tool.driver.getPageSource().contains("SAPI Information");
+        boolean sapi = tool.getPageSource(tool).contains("SAPI Information");
 
         if (sapi == false) {
             throw new IllegalStateException("SAPI page is not available");
@@ -27,11 +27,11 @@ public class HealthPageCommon extends CommonMenu {
 
     }
 
-    public boolean crmhealthcheck(String baseUrl, String Text) {
+    public boolean crmhealthcheck(String baseUrl, String Text) throws Exception {
 
         tool.driver.get(baseUrl);
 
-        boolean crm = tool.driver.getPageSource().contains(Text);
+        boolean crm = tool.getPageSource(tool).contains(Text);
 
         if (crm == true) {
 
@@ -45,11 +45,11 @@ public class HealthPageCommon extends CommonMenu {
         return crm;
     }
 
-    public boolean rcsHealthCheck(String baseUrl, String Text) {
+    public boolean rcsHealthCheck(String baseUrl, String Text) throws Exception {
 
         tool.driver.get(baseUrl);
 
-        boolean rcs = tool.driver.getPageSource().contains(Text);
+        boolean rcs = tool.getPageSource(tool).contains(Text);
 
         if (rcs == true) {
 
@@ -63,11 +63,11 @@ public class HealthPageCommon extends CommonMenu {
         return rcs;
     }
 
-    public boolean rhtHealthCheck(String baseUrl, String Text) {
+    public boolean rhtHealthCheck(String baseUrl, String Text) throws Exception {
 
         tool.driver.get(baseUrl);
 
-        boolean rht = tool.driver.getPageSource().contains(Text);
+        boolean rht = tool.getPageSource(tool).contains(Text);
 
         if (rht == true) {
 
@@ -80,10 +80,10 @@ public class HealthPageCommon extends CommonMenu {
         return rht;
     }
 
-    public boolean obcHealthcheck(String baseUrl, String Text) {
+    public boolean obcHealthcheck(String baseUrl, String Text) throws Exception {
         tool.driver.get(baseUrl);
 
-        boolean OBC = tool.driver.getPageSource().contains(Text);
+        boolean OBC = tool.getPageSource(tool).contains(Text);
 
         if (OBC == true) {
 
@@ -98,11 +98,11 @@ public class HealthPageCommon extends CommonMenu {
 
     }
 
-    public boolean dbHealthCheck(String baseUrl, String Text) {
+    public boolean dbHealthCheck(String baseUrl, String Text) throws Exception {
 
         tool.driver.get(baseUrl);
 
-        boolean db = tool.driver.getPageSource().contains(Text);
+        boolean db = tool.getPageSource(tool).contains(Text);
 
         if (db == true) {
 

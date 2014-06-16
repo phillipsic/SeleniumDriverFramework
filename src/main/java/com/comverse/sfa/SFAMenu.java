@@ -66,7 +66,7 @@ public class SFAMenu extends SFATest {
     }
 
     public void enterFindText(String OrgName) throws Exception {
-        String htmlSource = tool.driver.getPageSource();
+        String htmlSource = tool.getPageSource(tool);
         String temp[];
 
         temp = htmlSource.split("Enter text");
@@ -81,7 +81,7 @@ public class SFAMenu extends SFATest {
 
     public void selectFindType(String value) throws Exception {
 
-        String htmlSource = tool.driver.getPageSource();
+        String htmlSource = tool.getPageSource(tool);
         String temp[];
 
         temp = htmlSource.split("Select One");

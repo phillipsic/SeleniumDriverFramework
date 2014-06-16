@@ -90,4 +90,8 @@ public class AutomationTool extends Main {
     public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
     }
 
+    public String getPageSource(AutomationTool tool) throws Exception {
+        return null;
+    }
+
 }

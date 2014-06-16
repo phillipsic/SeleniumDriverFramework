@@ -29,11 +29,11 @@ public class MyshapeBusiness extends MyshapeCommon {
         tool.enterStringUsingId(tool, "password", user.getPassword());
         tool.clickUsingName(tool, "LoginButton");
 
-        if (tool.driver.getPageSource().contains("Please enter a valid user name and password.")) {
+        if (tool.getPageSource(tool).contains("Please enter a valid user name and password.")) {
             throw new Exception("Invalid username or password - IS USER CREATED? ");
         }
 
-        if (tool.driver.getPageSource().contains("Synchronization Failed")) {
+        if (tool.getPageSource(tool).contains("Synchronization Failed")) {
             throw new Exception("Synchronization Failed - ENVIRONMENT PROBLEM?");
         }
 

@@ -12,7 +12,7 @@ public class HealthPage extends CommonMenu {
 
         System.out.println("baseUrl:" + baseUrl);
         tool.driver.get(baseUrl);
-        boolean sapi = tool.driver.getPageSource().contains("SAPI Information");
+        boolean sapi = tool.getPageSource(tool).contains("SAPI Information");
         if (sapi == false) {
             throw new IllegalStateException("SAPI page is not available");
         } else {
@@ -20,9 +20,9 @@ public class HealthPage extends CommonMenu {
         }
     }
 
-    public boolean crmhealthcheck(String baseUrl, String Text) {
+    public boolean crmhealthcheck(String baseUrl, String Text) throws Exception {
         tool.driver.get(baseUrl);
-        boolean crm = tool.driver.getPageSource().contains(Text);
+        boolean crm = tool.getPageSource(tool).contains(Text);
         if (crm == true) {
             System.out.println("crmhealthcheck  FAILED - " + baseUrl);
         } else {
@@ -32,9 +32,9 @@ public class HealthPage extends CommonMenu {
         return crm;
     }
 
-    public boolean rcsHealthCheck(String baseUrl, String Text) {
+    public boolean rcsHealthCheck(String baseUrl, String Text) throws Exception {
         tool.driver.get(baseUrl);
-        boolean rcs = tool.driver.getPageSource().contains(Text);
+        boolean rcs = tool.getPageSource(tool).contains(Text);
         if (rcs == true) {
             System.out.println("rcsHealthCheck  FAILED - " + baseUrl);
         } else {
@@ -45,9 +45,9 @@ public class HealthPage extends CommonMenu {
         return rcs;
     }
 
-    public boolean rhtHealthCheck(String baseUrl, String Text) {
+    public boolean rhtHealthCheck(String baseUrl, String Text) throws Exception {
         tool.driver.get(baseUrl);
-        boolean rht = tool.driver.getPageSource().contains(Text);
+        boolean rht = tool.getPageSource(tool).contains(Text);
         if (rht == true) {
             System.out.println("rhtHealthCheck  FAILED - " + baseUrl);
         } else {
@@ -57,9 +57,9 @@ public class HealthPage extends CommonMenu {
         return rht;
     }
 
-    public boolean obcHealthcheck(String baseUrl, String Text) {
+    public boolean obcHealthcheck(String baseUrl, String Text) throws Exception {
         tool.driver.get(baseUrl);
-        boolean OBC = tool.driver.getPageSource().contains(Text);
+        boolean OBC = tool.getPageSource(tool).contains(Text);
         if (OBC == true) {
             System.out.println("obcHealthcheck  FAILED - " + baseUrl);
         } else {
@@ -69,9 +69,9 @@ public class HealthPage extends CommonMenu {
         return OBC;
     }
 
-    public boolean dbHealthCheck(String baseUrl, String Text) {
+    public boolean dbHealthCheck(String baseUrl, String Text) throws Exception {
         tool.driver.get(baseUrl);
-        boolean db = tool.driver.getPageSource().contains(Text);
+        boolean db = tool.getPageSource(tool).contains(Text);
         if (db == true) {
             System.out.println("dbHealthCheck  FAILED - " + baseUrl);
         } else {

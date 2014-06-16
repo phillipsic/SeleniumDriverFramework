@@ -60,7 +60,7 @@ public class Logging extends CLSMenu {
             }
             try {
                 tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
-                String pageSource = tool.driver.getPageSource();
+                String pageSource = tool.getPageSource(tool);
                 if (pageSource.contains("Rows per page")) {
                     foundElement = true;
                     System.out.println("FoundElement =  ..." + foundElement);

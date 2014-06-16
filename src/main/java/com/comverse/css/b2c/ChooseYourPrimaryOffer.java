@@ -99,7 +99,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         String temp[];
 
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
 
         temp = str.split(primaryOfferName + " </[pP]>"); // works in IE
 
@@ -139,7 +139,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         String temp[];
 
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
 
         temp = str.split(subscriberBundleName + " </[pP]>"); // works in IE
 

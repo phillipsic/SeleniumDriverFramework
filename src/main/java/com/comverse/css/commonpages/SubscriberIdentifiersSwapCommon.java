@@ -32,7 +32,7 @@ public class SubscriberIdentifiersSwapCommon extends CommonMenu {
     public void clickSwapButton(String firstDelimiterString, String secondDelimiterString) throws Exception {
         String tempString[];
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
 
         tempString = pageSource.split(firstDelimiterString);
         tempString = tempString[1].split(secondDelimiterString);

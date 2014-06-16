@@ -51,7 +51,7 @@ public class Common {
 
     public static Boolean isTextOnPage(AutomationTool tool, String searchText) throws Exception {
 
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
         return pageSource.contains(searchText);
     }
 
@@ -91,7 +91,7 @@ public class Common {
     }
 
     public static String returnCleanPageSource(AutomationTool tool) throws Exception {
-        String dirtyString = tool.driver.getPageSource();
+        String dirtyString = tool.getPageSource(tool);
         dirtyString = removeHTMLTags(dirtyString);
         return cleanStringOfIllegalChars(dirtyString);
     }
@@ -113,7 +113,7 @@ public class Common {
         Boolean foundIt = false;
         int startOfOfferIndex = 1;
 
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
 
         while (startOfOfferIndex > 0 && foundIt == false) {
 

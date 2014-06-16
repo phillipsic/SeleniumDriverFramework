@@ -40,7 +40,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
         // String temp[];
-        // String str = tool.driver.getPageSource();
+        // String str = tool.getPageSource(tool);
         // temp = str.split("Order Number:");
         // temp = temp[1].split("</span>");
         // temp = temp[0].split("<span>");
@@ -54,7 +54,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
     public String getNCAOrderNumberFromPage() throws Exception {
         String orderNumber;
         // String temp[];
-        // String str = tool.driver.getPageSource();
+        // String str = tool.getPageSource(tool);
         // temp = str.split("Order Number:");
         // temp = temp[1].split("</span>");
         // temp = temp[0].split("<span>");

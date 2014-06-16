@@ -159,7 +159,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(10);
 
-        if (!tool.driver.getPageSource().contains("Successfully created")) {
+        if (!tool.getPageSource(tool).contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -183,7 +183,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(30);
 
-        if (!tool.driver.getPageSource().contains("Successfully created")) {
+        if (!tool.getPageSource(tool).contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -207,7 +207,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(10);
 
-        if (!tool.driver.getPageSource().contains("Successfully created")) {
+        if (!tool.getPageSource(tool).contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -257,7 +257,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        if (!tool.driver.getPageSource().contains("Successfully created")) {
+        if (!tool.getPageSource(tool).contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }

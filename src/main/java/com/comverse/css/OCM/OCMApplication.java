@@ -58,7 +58,7 @@ public class OCMApplication extends Main {
     }
 
     public void clickLatestPropagationResult() throws Exception {
-        String source = tool.driver.getPageSource();
+        String source = tool.getPageSource(tool);
         String IDSubscriber[];
 
         IDSubscriber = source.split("PC Propagation");
@@ -119,7 +119,7 @@ public class OCMApplication extends Main {
         tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
 
         boolean ExistingDevice = false;
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
         ExistingDevice = pageSource.contains("Product code must be unique");
         System.out.println("ExistingDevice = " + ExistingDevice);
 
@@ -179,7 +179,7 @@ public class OCMApplication extends Main {
     }
 
     public String selectFirstIDs(String OfferName) throws Exception {
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
         String temp[];
 
         temp = str.split(OfferName);
@@ -193,7 +193,7 @@ public class OCMApplication extends Main {
     }
 
     public String selectSecondIDs(String OfferName) throws Exception {
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
         String temp[];
 
         temp = str.split(OfferName);
@@ -348,7 +348,7 @@ public class OCMApplication extends Main {
         tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
 
         boolean ExistingAccessory = false;
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
         ExistingAccessory = pageSource.contains("Product code must be unique");
         System.out.println("ExistingAccessory = " + ExistingAccessory);
 
