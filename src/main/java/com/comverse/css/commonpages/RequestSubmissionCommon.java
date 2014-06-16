@@ -13,7 +13,7 @@ public class RequestSubmissionCommon extends CommonMenu {
     public RequestSubmissionCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Request Submission";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

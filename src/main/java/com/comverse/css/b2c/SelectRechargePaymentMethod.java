@@ -7,9 +7,9 @@ import com.comverse.css.common.Common;
 
 public class SelectRechargePaymentMethod extends B2CMenu {
 
-    public SelectRechargePaymentMethod(AutomationTool tool, Test test, User user) {
+    public SelectRechargePaymentMethod(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Select recharge payment method";
 
         // Check that we're on the right page.

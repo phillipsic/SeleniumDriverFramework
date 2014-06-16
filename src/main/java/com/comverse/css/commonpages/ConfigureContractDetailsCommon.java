@@ -12,7 +12,7 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     public ConfigureContractDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Configure Contract Details";
 
         if (!expectedScreen.equals(currentScreen)) {

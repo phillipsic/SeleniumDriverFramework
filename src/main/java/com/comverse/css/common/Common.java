@@ -941,7 +941,7 @@ public class Common {
                 Common.sleepForNumberOfSeconds(2);
                 tool.clickUsingXPath(tool, "(//input[@value='+ Action'])[2]");
                 tool.clickUsingID(tool, actionID);
-                String pageTitle = tool.driver.getTitle();
+                String pageTitle = tool.getTitle(tool);
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
                     successfullyDisplayed = true;
@@ -976,7 +976,7 @@ public class Common {
                         tool.clickUsingID(tool, actionID);
                     }
                 }
-                String pageTitle = tool.driver.getTitle();
+                String pageTitle = tool.getTitle(tool);
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
                     successfullyDisplayed = true;

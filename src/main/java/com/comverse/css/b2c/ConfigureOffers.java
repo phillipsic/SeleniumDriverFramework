@@ -10,9 +10,9 @@ import com.comverse.common.User;
 
 public class ConfigureOffers extends B2CMenu {
 
-    public ConfigureOffers(AutomationTool tool, Test test, User user) {
+    public ConfigureOffers(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Configure Offers";
 
         // Check that we're on the right page.

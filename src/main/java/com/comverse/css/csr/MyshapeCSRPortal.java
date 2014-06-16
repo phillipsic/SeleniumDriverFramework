@@ -14,7 +14,7 @@ public class MyshapeCSRPortal extends MyshapeCommon {
     public MyshapeCSRPortal(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Myshape CSR Portal";
 
         if (!expectedScreen.equals(currentScreen)) {

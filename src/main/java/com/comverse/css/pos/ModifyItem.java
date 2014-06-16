@@ -13,7 +13,7 @@ public class ModifyItem extends ModifyItemCommon {
 
     public ModifyItem(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Item";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

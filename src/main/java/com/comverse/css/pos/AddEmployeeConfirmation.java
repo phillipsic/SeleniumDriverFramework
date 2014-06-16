@@ -14,7 +14,7 @@ public class AddEmployeeConfirmation extends CommonMenu {
     public AddEmployeeConfirmation(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Add Employee - Confirmation";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

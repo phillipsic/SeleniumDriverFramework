@@ -12,7 +12,7 @@ public class DeliveryAddressesCommon extends CommonMenu {
 
     public DeliveryAddressesCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Delivery Addresses";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

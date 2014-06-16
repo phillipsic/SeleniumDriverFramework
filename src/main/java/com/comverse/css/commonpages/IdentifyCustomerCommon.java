@@ -13,7 +13,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     public IdentifyCustomerCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Identify Customer";
 
         // Check that we're on the right page.
@@ -77,7 +77,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         tool.clickUsingName(tool, "accountButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         if (currentScreen.equals("Customer search result")) {
 
@@ -94,7 +94,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         tool.clickUsingName(tool, "accountExtendedButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         if (currentScreen.equals("Customer search result")) {
 

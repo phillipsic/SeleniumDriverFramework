@@ -8,7 +8,7 @@ public class PrimaryOfferDetailsCommon extends CommonMenu {
 
     public PrimaryOfferDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Primary Offer Details";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

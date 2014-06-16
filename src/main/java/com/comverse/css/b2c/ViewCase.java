@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class ViewCase extends B2CMenu {
 
-    public ViewCase(AutomationTool tool, Test test, User user) {
+    public ViewCase(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "View Case";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

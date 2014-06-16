@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class RemoveOffer extends B2CMenu {
 
-    public RemoveOffer(AutomationTool tool, Test test, User user) {
+    public RemoveOffer(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Remove Offer";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

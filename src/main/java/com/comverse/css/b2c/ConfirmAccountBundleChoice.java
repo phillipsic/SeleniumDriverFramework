@@ -10,9 +10,9 @@ import com.comverse.common.User;
 
 public class ConfirmAccountBundleChoice extends B2CMenu {
 
-    public ConfirmAccountBundleChoice(AutomationTool tool, Test test, User user) {
+    public ConfirmAccountBundleChoice(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Confirm Account Bundle Choice";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

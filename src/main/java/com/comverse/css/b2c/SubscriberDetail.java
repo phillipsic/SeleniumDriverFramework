@@ -13,9 +13,9 @@ import com.comverse.css.common.Common;
 
 public class SubscriberDetail extends B2CMenu {
 
-    public SubscriberDetail(AutomationTool tool, Test test, User user) {
+    public SubscriberDetail(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Subscriber detail";
 
         if (!expectedScreen.equals(currentScreen)) {

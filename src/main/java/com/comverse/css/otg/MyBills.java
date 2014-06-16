@@ -12,7 +12,7 @@ public class MyBills extends MyshapeCommon {
 
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "billing";
         for (String currentScreenSplitted : currentScreen.split("/")) {
             currentScreen = currentScreenSplitted;

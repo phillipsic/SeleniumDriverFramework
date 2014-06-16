@@ -15,7 +15,7 @@ public class ModifyLoginRoles extends CommonMenu {
     public ModifyLoginRoles(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Login Roles";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class HandsetDetails extends B2CMenu {
 
-    public HandsetDetails(AutomationTool tool, Test test, User user) {
+    public HandsetDetails(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Handset Details";
 
         // Check that we're on the right page.

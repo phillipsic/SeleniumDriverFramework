@@ -15,7 +15,7 @@ public class ManageAccount extends IdentifyCustomerCommon {
     public ManageAccount(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Identify Customer";
 
         // Check that we're on the right page.

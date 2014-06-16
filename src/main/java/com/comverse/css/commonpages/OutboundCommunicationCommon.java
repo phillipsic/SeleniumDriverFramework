@@ -13,7 +13,7 @@ public class OutboundCommunicationCommon extends CommonMenu {
 
     public OutboundCommunicationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Outbound Communication";
 
         // Check that we're on the right page.

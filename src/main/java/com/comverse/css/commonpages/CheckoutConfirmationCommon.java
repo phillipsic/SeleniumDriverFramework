@@ -9,7 +9,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
 
     public CheckoutConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Checkout Confirmation";
 
         if (!expectedScreen.equals(currentScreen)) {

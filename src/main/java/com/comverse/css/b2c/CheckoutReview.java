@@ -10,9 +10,9 @@ import com.comverse.common.User;
 
 public class CheckoutReview extends B2CMenu {
 
-    public CheckoutReview(AutomationTool tool, Test test, User user) {
+    public CheckoutReview(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Checkout Review";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

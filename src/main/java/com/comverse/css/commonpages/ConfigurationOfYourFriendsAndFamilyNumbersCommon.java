@@ -13,7 +13,7 @@ public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu
     public ConfigurationOfYourFriendsAndFamilyNumbersCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         // Check that we're on the right page.
         if (!"Configuration of your Friends and Family numbers".equals(currentScreen)) {

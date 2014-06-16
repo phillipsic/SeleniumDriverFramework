@@ -13,7 +13,7 @@ public class ModifyPaymentMethodCommon extends CommonMenu {
     public ModifyPaymentMethodCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify payment method";
 
         if (!expectedScreen.equals(currentScreen)) {

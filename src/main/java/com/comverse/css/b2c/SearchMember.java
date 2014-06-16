@@ -10,10 +10,10 @@ import com.comverse.common.User;
 
 public class SearchMember extends B2CMenu {
 
-    public SearchMember(AutomationTool tool, Test test, User user) {
+    public SearchMember(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Search Member";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

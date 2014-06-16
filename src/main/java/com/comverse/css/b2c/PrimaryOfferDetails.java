@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class PrimaryOfferDetails extends B2CMenu {
 
-    public PrimaryOfferDetails(AutomationTool tool, Test test, User user) {
+    public PrimaryOfferDetails(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Primary Offer Details";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

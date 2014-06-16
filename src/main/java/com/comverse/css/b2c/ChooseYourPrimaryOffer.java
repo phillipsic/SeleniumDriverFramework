@@ -7,9 +7,9 @@ import com.comverse.css.common.Common;
 
 public class ChooseYourPrimaryOffer extends B2CMenu {
 
-    public ChooseYourPrimaryOffer(AutomationTool tool, Test test, User user) {
+    public ChooseYourPrimaryOffer(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Choose Your Primary Offer";
 
         if (!expectedScreen.equals(currentScreen)) {

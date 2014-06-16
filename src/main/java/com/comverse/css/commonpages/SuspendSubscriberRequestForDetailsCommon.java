@@ -12,7 +12,7 @@ public class SuspendSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public SuspendSubscriberRequestForDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);

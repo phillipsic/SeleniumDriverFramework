@@ -13,7 +13,7 @@ public class SelectOffersForYourAccountCommon extends CommonMenu {
 
     public SelectOffersForYourAccountCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Select offers for your Account";
 
         if (!expectedScreen.equals(currentScreen)) {

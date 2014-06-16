@@ -6,8 +6,8 @@ import com.comverse.sfa.sfaHomePage;
 
 public class UpmLoginPage extends Main {
 
-    public UpmLoginPage(AutomationTool tool) {
-        String currentScreen = tool.driver.getTitle();
+    public UpmLoginPage(AutomationTool tool) throws Exception {
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Comverse ONE Unified Platform";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,13 +19,11 @@ public class UpmLoginPage extends Main {
 
     public void setUserId(String login) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "userName", login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "password", password);
     }
 

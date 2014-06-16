@@ -17,7 +17,7 @@ public class SearchAddressCommon extends CommonMenu {
     public SearchAddressCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Search Address";
 
         // Check that we're on the right page.

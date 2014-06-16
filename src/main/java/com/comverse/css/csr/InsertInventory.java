@@ -12,7 +12,7 @@ public class InsertInventory extends CommonMenu {
 
     public InsertInventory(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Insert Inventory";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

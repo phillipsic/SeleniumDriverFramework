@@ -13,7 +13,7 @@ public class MoveLevelStatusCommon extends CommonMenu {
     public MoveLevelStatusCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Move Level - Status";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

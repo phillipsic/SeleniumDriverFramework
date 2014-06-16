@@ -7,9 +7,9 @@ import com.comverse.css.common.PropertyHelper;
 
 public class LogonToTheWorkPointManagementConsole extends WPMCMenu {
 
-    public LogonToTheWorkPointManagementConsole(AutomationTool tool, Test test, User user) {
+    public LogonToTheWorkPointManagementConsole(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Logon to the WorkPoint Management Console";
 
         if (!expectedScreen.equals(currentScreen)) {

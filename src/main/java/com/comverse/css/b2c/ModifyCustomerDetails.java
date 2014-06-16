@@ -12,9 +12,9 @@ import com.comverse.common.User;
 
 public class ModifyCustomerDetails extends B2CMenu {
 
-    public ModifyCustomerDetails(AutomationTool tool, Test test, User user) {
+    public ModifyCustomerDetails(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Customer Details";
 
         // Check that we're on the right page.

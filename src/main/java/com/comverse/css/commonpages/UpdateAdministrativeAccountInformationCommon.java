@@ -13,7 +13,7 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
     public UpdateAdministrativeAccountInformationCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Update administrative account information";
 
         // Check that we're on the right page.

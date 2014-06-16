@@ -13,7 +13,7 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public AddEmployeeRegisterLogin(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Add Employee - Register Login";
 
         if (!expectedScreen.equals(currentScreen)) {

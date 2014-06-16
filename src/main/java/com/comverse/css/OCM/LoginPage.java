@@ -15,7 +15,7 @@ public class LoginPage extends CommonMenu {
     public LoginPage(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "OCM Application";
 
         // Check that we're on the right page.

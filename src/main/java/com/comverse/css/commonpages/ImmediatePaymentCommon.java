@@ -13,7 +13,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
 
     public ImmediatePaymentCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Immediate Payment";
 
         if (!expectedScreen.equals(currentScreen)) {

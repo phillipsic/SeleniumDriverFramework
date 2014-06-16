@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class SelectModeOfRecharge extends B2CMenu {
 
-    public SelectModeOfRecharge(AutomationTool tool, Test test, User user) {
+    public SelectModeOfRecharge(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Select mode of recharge";
 
         // Check that we're on the right page.

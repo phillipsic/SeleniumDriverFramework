@@ -9,7 +9,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public InventoryAdministration(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Inventory Administration";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

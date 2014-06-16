@@ -11,9 +11,9 @@ import com.comverse.css.common.Common;
 
 public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
-    public ChooseYourPrimaryOfferInThisAccountBundle(AutomationTool tool, Test test, User user) {
+    public ChooseYourPrimaryOfferInThisAccountBundle(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Choose Your Primary Offer in This Account Bundle";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

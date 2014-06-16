@@ -10,10 +10,10 @@ import com.comverse.common.User;
 
 public class SearchCustomer extends B2CMenu {
 
-    public SearchCustomer(AutomationTool tool, Test test, User user) {
+    public SearchCustomer(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Search Customer";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

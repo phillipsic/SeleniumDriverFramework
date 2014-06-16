@@ -16,10 +16,10 @@ import com.comverse.css.common.Prep;
 public class HomePage extends B2CMenu {
     Prep preparation;
 
-    public HomePage(AutomationTool tool, Test test, User user) {
+    public HomePage(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Myshape Consumer";
 
         if (!expectedScreen.equals(currentScreen)) {

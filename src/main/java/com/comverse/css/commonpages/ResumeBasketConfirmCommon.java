@@ -13,7 +13,7 @@ public class ResumeBasketConfirmCommon extends CommonMenu {
     public ResumeBasketConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Resume Basket Confirm";
 
         if (!expectedScreen.equals(currentScreen)) {

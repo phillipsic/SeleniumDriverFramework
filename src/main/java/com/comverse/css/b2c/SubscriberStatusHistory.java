@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class SubscriberStatusHistory extends B2CMenu {
 
-    public SubscriberStatusHistory(AutomationTool tool, Test test, User user) {
+    public SubscriberStatusHistory(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Subscriber Status History";
 
         if (!expectedScreen.equals(currentScreen)) {

@@ -9,7 +9,7 @@ public class DeleteBasketConfirmCommon extends CommonMenu {
     public DeleteBasketConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Delete Basket Confirm";
 
         if (!expectedScreen.equals(currentScreen)) {

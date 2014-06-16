@@ -8,7 +8,7 @@ public class RegisterPrepaymentConfirmCommon extends CommonMenu {
 
     public RegisterPrepaymentConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Register PrePayment";
 
         if (!expectedScreen.equals(currentScreen)) {

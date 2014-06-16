@@ -13,7 +13,7 @@ public class UpdateAccountBillingAddressInformationsCommon extends CommonMenu {
     public UpdateAccountBillingAddressInformationsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Update account billing address informations";
 
         // Check that we're on the right page.

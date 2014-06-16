@@ -10,9 +10,9 @@ import com.comverse.common.User;
 
 public class CustomerPrerequisite extends B2CMenu {
 
-    public CustomerPrerequisite(AutomationTool tool, Test test, User user) {
+    public CustomerPrerequisite(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         // Check that we're on the right page.
         if (!"Myshape Consumer".equals(tool.driver.getTitle())) {

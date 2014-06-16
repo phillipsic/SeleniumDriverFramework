@@ -13,7 +13,7 @@ public class ModifyItemOfSubscriberCommon extends CommonMenu {
 
     public ModifyItemOfSubscriberCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Item of Subscriber";
 
         // Check that we're on the right page.

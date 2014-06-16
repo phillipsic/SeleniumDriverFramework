@@ -19,7 +19,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
 
     public EnterIdentificationDataCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Customer Acquisition - Identification Data";
 
         if (!expectedScreen.equals(currentScreen)) {

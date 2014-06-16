@@ -9,7 +9,7 @@ public class ViewUnbilledAdjustmentCommon extends CommonMenu {
     public ViewUnbilledAdjustmentCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "View Unbilled Adjustments";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {

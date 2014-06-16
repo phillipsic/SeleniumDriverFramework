@@ -9,9 +9,9 @@ import com.comverse.css.common.Common;
 
 public class AddCase extends B2CMenu {
 
-    public AddCase(AutomationTool tool, Test test, User user) {
+    public AddCase(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Add Case";
 
         // Check that we're on the right page.

@@ -24,7 +24,7 @@ public class AccountDetailsCommon extends CommonMenu {
     public AccountDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {
 

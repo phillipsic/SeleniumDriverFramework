@@ -15,9 +15,9 @@ import com.comverse.css.common.Common;
 
 public class Logging extends CLSMenu {
 
-    public Logging(AutomationTool tool, Test test, User user) {
+    public Logging(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "logging";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -33,7 +33,7 @@ public class Logging extends CLSMenu {
 
     public void setDisplayUserName(String name) throws Exception {
         tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
-        
+
         tool.enterStringUsingId(tool, "displayUserName", name);
         tool.driver.switchTo().defaultContent();
     }

@@ -12,9 +12,9 @@ import com.comverse.common.User;
 
 public class SignUpUser extends B2CMenu {
 
-    public SignUpUser(AutomationTool tool, Test test, User user) {
+    public SignUpUser(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Sign Up User";
 
         // Check that we're on the right page.

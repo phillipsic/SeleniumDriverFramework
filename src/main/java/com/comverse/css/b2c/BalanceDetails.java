@@ -7,9 +7,9 @@ import com.comverse.css.common.Common;
 
 public class BalanceDetails extends B2CMenu {
 
-    public BalanceDetails(AutomationTool tool, Test test, User user) {
+    public BalanceDetails(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Balance Details";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

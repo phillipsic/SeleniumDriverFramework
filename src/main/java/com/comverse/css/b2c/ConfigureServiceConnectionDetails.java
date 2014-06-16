@@ -11,10 +11,10 @@ import com.comverse.css.common.Common;
 
 public class ConfigureServiceConnectionDetails extends B2CMenu {
 
-    public ConfigureServiceConnectionDetails(AutomationTool tool, Test test, User user) {
+    public ConfigureServiceConnectionDetails(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Configure Service Connection Details";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

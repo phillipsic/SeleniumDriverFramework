@@ -10,9 +10,9 @@ import com.comverse.common.User;
 
 public class CheckOutDeliveryAddress extends B2CMenu {
 
-    public CheckOutDeliveryAddress(AutomationTool tool, Test test, User user) {
+    public CheckOutDeliveryAddress(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Checkout - Delivery Address";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

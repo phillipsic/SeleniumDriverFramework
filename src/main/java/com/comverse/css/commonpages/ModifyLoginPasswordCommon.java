@@ -13,7 +13,7 @@ public class ModifyLoginPasswordCommon extends CommonMenu {
     public ModifyLoginPasswordCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Login Password";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

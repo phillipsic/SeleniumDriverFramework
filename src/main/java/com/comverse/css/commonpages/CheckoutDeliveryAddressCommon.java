@@ -12,7 +12,7 @@ public class CheckoutDeliveryAddressCommon extends CommonMenu {
 
     public CheckoutDeliveryAddressCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Checkout - Delivery Address";
 
         if (!expectedScreen.equals(currentScreen)) {

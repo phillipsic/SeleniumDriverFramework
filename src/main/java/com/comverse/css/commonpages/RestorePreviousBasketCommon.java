@@ -10,7 +10,7 @@ public class RestorePreviousBasketCommon extends CommonMenu {
     public RestorePreviousBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Restore Previous Basket";
 
         if (!expectedScreen.equals(currentScreen)) {

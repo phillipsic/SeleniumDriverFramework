@@ -12,9 +12,9 @@ import com.comverse.common.User;
 
 public class AddEmployeeContactInformation extends B2BMenu {
 
-    public AddEmployeeContactInformation(AutomationTool tool, Test test, User user) {
+    public AddEmployeeContactInformation(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Add Employee - Contact Information";
 
         // Check that we're on the right page.

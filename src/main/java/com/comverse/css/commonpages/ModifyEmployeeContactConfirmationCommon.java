@@ -12,7 +12,7 @@ public class ModifyEmployeeContactConfirmationCommon extends CommonMenu {
 
     public ModifyEmployeeContactConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Confirm Contact Information";
 
         // Check that we're on the right page.

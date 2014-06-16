@@ -5,9 +5,9 @@ import com.comverse.common.Test;
 import com.comverse.common.User;
 
 public class SelectOffers extends B2CMenu {
-    public SelectOffers(AutomationTool tool, Test test, User user) {
+    public SelectOffers(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Select offers for your Subscriber";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

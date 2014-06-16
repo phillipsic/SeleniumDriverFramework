@@ -13,7 +13,7 @@ public class EnterYourSubscriptionDetailsCommon extends CommonMenu {
 
     public EnterYourSubscriptionDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Enter your subscription details";
 
         if (!expectedScreen.equals(currentScreen)) {

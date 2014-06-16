@@ -11,9 +11,9 @@ import com.comverse.css.common.Common;
 
 public class SelectOffersForYourSubscriber extends B2CMenu {
 
-    public SelectOffersForYourSubscriber(AutomationTool tool, Test test, User user) {
+    public SelectOffersForYourSubscriber(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Select offers for your Subscriber";
 
         // Check that we're on the right page.

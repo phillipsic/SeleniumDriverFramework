@@ -12,9 +12,9 @@ import com.comverse.common.User;
 
 public class ModifySubscriberAttributes extends B2CMenu {
 
-    public ModifySubscriberAttributes(AutomationTool tool, Test test, User user) {
+    public ModifySubscriberAttributes(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Subscriber Attributes";
 
         if (!expectedScreen.equals(currentScreen)) {

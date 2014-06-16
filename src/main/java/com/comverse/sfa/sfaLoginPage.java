@@ -11,12 +11,12 @@ import com.comverse.common.User;
 
 public class sfaLoginPage extends Main {
 
-    public sfaLoginPage(AutomationTool tool, Test test, User user) {
+    public sfaLoginPage(AutomationTool tool, Test test, User user) throws Exception {
 
         this.tool = tool;
         this.test = test;
         this.user = user;
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Comverse ONE Billing and Active Customer Management";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -26,12 +26,12 @@ public class sfaLoginPage extends Main {
     }
 
     public void setUserId(String login) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "Iujgbo2", login);
     }
 
     public void setPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "I604i25", password);
     }
 

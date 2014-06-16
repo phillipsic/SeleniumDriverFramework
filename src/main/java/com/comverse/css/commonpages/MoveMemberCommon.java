@@ -23,7 +23,7 @@ public class MoveMemberCommon extends CommonMenu {
     public MoveMemberCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Move Member";
 
         if (!expectedScreen.equals(currentScreen)) {

@@ -16,7 +16,7 @@ public class ModifyAccountAttributesCommon extends CommonMenu {
     public ModifyAccountAttributesCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Account Attributes";
 
         if (!expectedScreen.equals(currentScreen)) {

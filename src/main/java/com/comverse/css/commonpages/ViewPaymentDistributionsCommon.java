@@ -9,7 +9,7 @@ public class ViewPaymentDistributionsCommon extends CommonMenu {
     public ViewPaymentDistributionsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "View payment distributions";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {

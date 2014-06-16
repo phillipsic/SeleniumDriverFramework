@@ -9,7 +9,7 @@ public class TokenAdministration extends CommonMenu {
 
     public TokenAdministration(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Token Administration";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

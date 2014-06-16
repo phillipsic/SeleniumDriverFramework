@@ -11,9 +11,9 @@ import com.comverse.css.common.Common;
 
 public class ChooseYourDevice extends B2CMenu {
 
-    public ChooseYourDevice(AutomationTool tool, Test test, User user) {
+    public ChooseYourDevice(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Choose Your Device";
 
         // Check that we're on the right page.

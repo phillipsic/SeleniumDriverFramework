@@ -6,10 +6,10 @@ import com.comverse.common.User;
 
 public class CompareDevices extends B2CMenu {
 
-    public CompareDevices(AutomationTool tool, Test test, User user) {
+    public CompareDevices(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Compare Devices";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {

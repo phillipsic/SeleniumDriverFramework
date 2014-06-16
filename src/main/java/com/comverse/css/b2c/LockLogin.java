@@ -11,9 +11,9 @@ import com.comverse.css.common.Common;
 
 public class LockLogin extends B2CMenu {
 
-    public LockLogin(AutomationTool tool, Test test, User user) {
+    public LockLogin(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Lock Login";
 
         if (!expectedScreen.equals(currentScreen)) {

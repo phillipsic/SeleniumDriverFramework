@@ -9,7 +9,7 @@ public class ViewBilledUsageDetailsCommon extends CommonMenu {
     public ViewBilledUsageDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "View Billed Usage Details";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {

@@ -15,7 +15,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
     public AddStandaloneChargeCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -53,7 +53,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
                     successfullyDisplayed = true;
                 }
 
-                String pageTitle = tool.driver.getTitle();
+                String pageTitle = tool.getTitle(tool);
 
                 if (pageTitle.equals("Add Standalone Charge - Confirmation")) {
                     successfullyDisplayed = true;
@@ -83,7 +83,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
                     successfullyDisplayed = true;
                 }
 
-                String pageTitle = tool.driver.getTitle();
+                String pageTitle = tool.getTitle(tool);
 
                 if (pageTitle.equals("Action Done")) {
                     successfullyDisplayed = true;

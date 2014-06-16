@@ -9,7 +9,7 @@ public class FraudlockSubscriberFraudlockSuccessfulCommon extends CommonMenu {
 
     public FraudlockSubscriberFraudlockSuccessfulCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Fraud lock subscriber - Fraud lock successful";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);

@@ -25,10 +25,10 @@ import com.comverse.css.common.Common;
 
 public class OCMApplication extends Main {
 
-    public OCMApplication(AutomationTool tool, Test test) {
+    public OCMApplication(AutomationTool tool, Test test) throws Exception {
         this.tool = tool;
         this.test = test;
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "OCM Application";
 
         if (!expectedScreen.equals(tool.driver.getTitle())) {
@@ -165,8 +165,7 @@ public class OCMApplication extends Main {
         new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
 
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", 
-                "CSS_PQA Terms And Conditions");
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("Cable") + ":choiceMany:" + this.selectSecondIDs("Cable") + ":selected"))
                 .click();
         tool.driver.findElement(
@@ -387,8 +386,7 @@ public class OCMApplication extends Main {
         new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
 
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", 
-                "CSS_PQA Terms And Conditions");
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
 
         tool.clickUsingID(tool, "mainPanel:productForm:b_updateAttributes");
 
