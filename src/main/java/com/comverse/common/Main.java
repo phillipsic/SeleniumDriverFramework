@@ -204,7 +204,7 @@ public class Main {
 
     @After
     public void tearDown() throws Exception {
-        tool.driver.quit();
+        tool.quit(tool);
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

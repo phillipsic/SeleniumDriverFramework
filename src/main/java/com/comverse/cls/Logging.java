@@ -19,7 +19,6 @@ public class Logging extends CLSMenu {
         super(tool, test, user);
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "logging";
-
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

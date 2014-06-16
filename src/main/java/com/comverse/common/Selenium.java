@@ -289,4 +289,9 @@ public class Selenium extends AutomationTool {
     public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
         tool.driver.switchTo().frame(webElement);
     }
+
+    @Override
+    public void quit(AutomationTool tool) throws Exception {
+        tool.driver.quit();
+    }
 }
