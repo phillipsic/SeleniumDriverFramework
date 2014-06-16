@@ -21,4 +21,10 @@ public class ModifyLoginPassword extends ModifyLoginPasswordCommon {
         super.clickLogout();
         return new MyshapeCSRPortal(tool, test, user);
     }
+
+    @Override
+    public UnlockLogin clickOk() throws Exception {
+        super.clickOk();
+        return new UnlockLogin(tool, test, user);
+    }
 }
