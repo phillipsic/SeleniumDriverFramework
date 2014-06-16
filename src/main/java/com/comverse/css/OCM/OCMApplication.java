@@ -166,8 +166,7 @@ public class OCMApplication extends Main {
 
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
-        tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("Cable") + ":choiceMany:" + this.selectSecondIDs("Cable") + ":selected"))
-                .click();
+        tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("Cable") + ":choiceMany:" + this.selectSecondIDs("Cable") + ":selected").click();
         tool.driver.findElement(
                 By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("GSM Mobile") + ":choiceMany:" + this.selectSecondIDs("GSM Mobile") + ":selected")).click();
 

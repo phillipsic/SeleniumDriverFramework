@@ -266,6 +266,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public String searchUsingIDandGetTextUsingXpath(AutomationTool tool, String id, String Xpath) throws Exception {
+        return tool.driver.findElement(By.id(id)).findElement(By.xpath(Xpath)).getText();
+    }
+
+    @Override
     public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
         return tool.driver.findElement(By.name(name));
     }

@@ -25,19 +25,19 @@ public class Logging extends CLSMenu {
     }
 
     public void clickTodayFilter() throws Exception {
-        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
         tool.clickUsingID(tool, "useCustomTimeframe_period");
         tool.switchTo(tool);
     }
 
     public void setDisplayUserName(String name) throws Exception {
-        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
         tool.enterStringUsingId(tool, "displayUserName", name);
         tool.switchTo(tool);
     }
 
     public void clickSearch() throws Exception {
-        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
         tool.clickUsingXPath(tool, "//input[@value='Submit']");
         tool.switchTo(tool);
     }
@@ -58,7 +58,7 @@ public class Logging extends CLSMenu {
                 throw new Exception("Timeout");
             }
             try {
-                tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+                tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
                 String pageSource = tool.getPageSource(tool);
                 if (pageSource.contains("Rows per page")) {
                     foundElement = true;
@@ -82,7 +82,7 @@ public class Logging extends CLSMenu {
 
     public void selectRecordPerPage(String value) throws Exception {
 
-        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
         new Select(tool.searchUsingID(tool, "yui-pg0-0-rpp81")).selectByVisibleText(value);
         tool.switchTo(tool);
         Common.sleepForNumberOfSeconds(10);
@@ -91,9 +91,9 @@ public class Logging extends CLSMenu {
     private boolean checkDropDownForValue(String dropDownID, String value) throws Exception {
 
         boolean optionFound = false;
-        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
 
-        WebElement dropDown = tool.driver.findElement(By.id("clusterNameFilter"));
+        WebElement dropDown = tool.searchUsingID(tool, "clusterNameFilter");
         List<WebElement> options = dropDown.findElements(By.tagName("option"));
 
         for (WebElement el : options) {

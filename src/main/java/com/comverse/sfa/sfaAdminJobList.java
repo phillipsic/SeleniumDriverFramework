@@ -56,7 +56,7 @@ public class sfaAdminJobList extends SFAMenu {
     }
 
     void selectFileHasHeader() throws Exception {
-        if (!tool.driver.findElement(By.id("Ic5p3o7")).isSelected()) {
+        if (!tool.searchUsingID(tool, "Ic5p3o7").isSelected()) {
             tool.clickUsingID(tool, "Ic5p3o7");
         }
     }

@@ -100,4 +100,8 @@ public class AutomationTool extends Main {
     public void quit(AutomationTool tool) throws Exception {
     }
 
+    public String searchUsingIDandGetTextUsingXpath(AutomationTool tool, String id, String Xpath) throws Exception {
+        return null;
+    }
+
 }

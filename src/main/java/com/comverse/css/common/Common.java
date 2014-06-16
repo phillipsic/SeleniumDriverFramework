@@ -57,7 +57,7 @@ public class Common {
 
     public static Boolean isCheckBoxSelected(AutomationTool tool, String idOfCheckBox) throws Exception {
 
-        return (tool.driver.findElement(By.id(idOfCheckBox)).isSelected());
+        return (tool.searchUsingID(tool, idOfCheckBox)).isSelected();
     }
 
     public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
