@@ -22,9 +22,9 @@ public class ModifyLoginPasswordCommon extends CommonMenu {
         }
     }
 
-    public void clickOk() throws Exception {
+    public UnlockLoginCommon clickOk() throws Exception {
         tool.clickUsingXPath(tool, "//input[@value='OK']");
-
+        return new UnlockLoginCommon(tool, test, user);
     }
 
     public String getNewPassword() throws Exception {
