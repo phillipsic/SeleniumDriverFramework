@@ -64,10 +64,10 @@ public class SHMA0010_Checkout_Basket extends CSSTest {
             enterYourSubscriptionDetails.enterDefaultIdentityAddressPhoneEmail(uniqueTimeStamp);
             selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
             selectOffersForYourSubscriber.selectOffersForSubscriber(so_DIYeCountDownExtra.getOfferName());
-            configureOffers = selectOffersForYourSubscriber.clickContinue();
-            chooseAccessories = configureOffers.clickContinue();
-            configureServiceConnectionDetails = chooseAccessories.clickContinueExpectingConnectionServiceDetails();
-            myBasket = configureServiceConnectionDetails.clickContinue();
+            chooseAccessories = selectOffersForYourSubscriber.clickContinueExpectingChooseAccessories();
+          
+            myBasket = chooseAccessories.clickContinue();
+     
 
             Common.assertTextOnPage(tool, po_DIYInteractiveTVOfferforAll.getOfferName());
             Common.assertTextOnPage(tool, so_DIYeCountDownExtra.getOfferName());
