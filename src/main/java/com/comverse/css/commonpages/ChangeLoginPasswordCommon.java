@@ -16,7 +16,7 @@ public class ChangeLoginPasswordCommon extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Change Login Password";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

@@ -16,7 +16,7 @@ public class OutboundCommunicationTemplateCommon extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Outbound Communication Template";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

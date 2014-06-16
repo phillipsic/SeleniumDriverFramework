@@ -17,7 +17,7 @@ public class AddEmployeeConfirmation extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Add Employee - Confirmation";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

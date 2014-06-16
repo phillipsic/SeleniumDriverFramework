@@ -16,7 +16,7 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Welcome to Your Workspace";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

@@ -18,7 +18,7 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
 
         String currentScreen = tool.getTitle(tool);
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

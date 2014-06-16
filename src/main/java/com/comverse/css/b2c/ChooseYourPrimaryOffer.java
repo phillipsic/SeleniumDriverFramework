@@ -27,7 +27,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.getTitle(tool))) {
 
             tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
@@ -45,7 +45,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
        /* System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.getTitle(tool))) {
 
             tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
@@ -64,7 +64,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.getTitle(tool))) {
 
             tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");

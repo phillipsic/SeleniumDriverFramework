@@ -15,7 +15,7 @@ public class RegisterLoginCommon extends CommonMenu {
     public RegisterLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle().toLowerCase();
+        String currentScreen = tool.getTitle(tool).toLowerCase();
         String expectedScreen = "Register login".toLowerCase();
 
         if (!expectedScreen.equals(currentScreen)) {

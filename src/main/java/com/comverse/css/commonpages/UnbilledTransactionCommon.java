@@ -13,7 +13,7 @@ public class UnbilledTransactionCommon extends CommonMenu {
         String expectedScreen = "View Unbilled Transactions";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

@@ -14,7 +14,7 @@ public class WelcomeToYourPersonalizedWorkspace extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Welcome to Your Personalized Workspace";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

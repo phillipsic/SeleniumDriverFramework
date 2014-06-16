@@ -11,7 +11,7 @@ public class ContactInformation extends B2CMenu {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Contact Information";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
 

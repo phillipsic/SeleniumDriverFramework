@@ -12,7 +12,7 @@ public class ViewBalances extends B2CMenu {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "View Balances";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

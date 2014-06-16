@@ -14,7 +14,7 @@ public class AddressAdd extends AddressAddCommon {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Address Add";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

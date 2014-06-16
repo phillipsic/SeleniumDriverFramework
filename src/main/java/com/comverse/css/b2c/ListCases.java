@@ -17,7 +17,7 @@ public class ListCases extends B2CMenu {
         String expectedScreen = "List Cases";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);

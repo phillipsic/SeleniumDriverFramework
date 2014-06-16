@@ -16,7 +16,7 @@ public class ModifyDeliveryAddressConfirmationCommon extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Delivery Address - Confirmation";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

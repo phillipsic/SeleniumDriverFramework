@@ -18,7 +18,7 @@ public class AddCaseReviewCommon extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

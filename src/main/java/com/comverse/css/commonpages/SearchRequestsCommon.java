@@ -19,7 +19,7 @@ public class SearchRequestsCommon extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Search RequestsView Requests";
 
-        if (!expectedScreen.contains(tool.driver.getTitle())) {
+        if (!expectedScreen.contains(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

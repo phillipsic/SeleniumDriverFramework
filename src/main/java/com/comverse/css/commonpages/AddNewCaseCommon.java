@@ -17,7 +17,7 @@ public class AddNewCaseCommon extends CommonMenu {
         super(tool, test, user);
 
         // Check that we're on the right page.
-        if (!"Add case".equals(tool.driver.getTitle())) {
+        if (!"Add case".equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("This is not the Add case page");
         }

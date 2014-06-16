@@ -16,7 +16,7 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Add Outbound Communication Template";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

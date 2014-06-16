@@ -31,7 +31,7 @@ public class OCMApplication extends Main {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "OCM Application";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

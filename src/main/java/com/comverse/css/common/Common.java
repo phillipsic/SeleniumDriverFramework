@@ -31,7 +31,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
 
-            if (tool.driver.getTitle().matches("Waiting Page")) {
+            if (tool.getTitle(tool).matches("Waiting Page")) {
                 // System.out.println("Please Wait present");
                 Thread.sleep(3000);
             } else {
@@ -165,7 +165,7 @@ public class Common {
     }
 
     public static void checkForExistingBasketAndDiscard(AutomationTool tool) throws Exception {
-        if (tool.driver.getTitle().equals("Restore Previous Basket")) {
+        if (tool.getTitle(tool).equals("Restore Previous Basket")) {
             tool.clickUsingXPath(tool, "//input[@value='Discard']");
             tool.clickUsingCssSelector(tool, "input.submit");
         }

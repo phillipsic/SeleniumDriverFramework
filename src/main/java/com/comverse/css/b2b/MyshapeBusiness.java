@@ -17,7 +17,7 @@ public class MyshapeBusiness extends MyshapeCommon {
         String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Myshape Business";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }

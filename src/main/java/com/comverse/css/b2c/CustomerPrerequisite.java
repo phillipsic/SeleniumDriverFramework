@@ -15,7 +15,7 @@ public class CustomerPrerequisite extends B2CMenu {
         String currentScreen = tool.getTitle(tool);
 
         // Check that we're on the right page.
-        if (!"Myshape Consumer".equals(tool.driver.getTitle())) {
+        if (!"Myshape Consumer".equals(tool.getTitle(tool))) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: CustomerPrerequisite, but got: " + currentScreen);
