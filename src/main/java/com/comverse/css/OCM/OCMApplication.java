@@ -14,7 +14,6 @@ import java.util.Date;
 import jxl.Cell;
 import jxl.Sheet;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.Application;
@@ -167,8 +166,7 @@ public class OCMApplication extends Main {
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
         tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("Cable") + ":choiceMany:" + this.selectSecondIDs("Cable") + ":selected").click();
-        tool.driver.findElement(
-                By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("GSM Mobile") + ":choiceMany:" + this.selectSecondIDs("GSM Mobile") + ":selected")).click();
+        tool.clickUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("GSM Mobile") + ":choiceMany:" + this.selectSecondIDs("GSM Mobile") + ":selected");
 
         tool.clickUsingID(tool, "mainPanel:productForm:b_updateAttributes");
 

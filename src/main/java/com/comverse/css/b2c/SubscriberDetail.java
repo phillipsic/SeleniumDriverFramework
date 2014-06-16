@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -111,9 +109,7 @@ public class SubscriberDetail extends B2CMenu {
     }
 
     public String getOfferName() throws Exception {
-
-        return tool.driver.findElement(By.xpath("//div[@id='mainContentsGrey']/div[1]/div[2]/div[3]/div[1]/div[1]/a")).getAttribute("value");
-
+        return tool.getAttributeUsingXpath(tool, "//div[@id='mainContentsGrey']/div[1]/div[2]/div[3]/div[1]/div[1]/a", "value");
     }
 
     public ChooseYourPrimaryOffer clickChangeOffer() throws Exception {

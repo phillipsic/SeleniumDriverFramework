@@ -94,6 +94,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public String getAttributeUsingXpath(AutomationTool tool, String xpath, String attribute) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath)).getAttribute(attribute);
+    }
+
+    @Override
     public String getTitle(AutomationTool tool) throws Exception {
         return tool.driver.getTitle();
     }

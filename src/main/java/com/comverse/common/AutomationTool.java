@@ -46,6 +46,10 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public String getAttributeUsingXpath(AutomationTool tool, String xpath, String attribute) throws Exception {
+        return null;
+    }
+
     public String getTextUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
         return null;
     }

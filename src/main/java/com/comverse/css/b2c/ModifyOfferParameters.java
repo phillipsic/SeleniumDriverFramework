@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -31,7 +29,7 @@ public class ModifyOfferParameters extends B2CMenu {
     }
 
     public void enterVoiceMailSize(String voiceMailSize) throws Exception {
-        
+
         tool.enterStringUsingXPath(tool, "//label[contains(text(),'Voice Mail Size')]/../input", voiceMailSize);
     }
 
@@ -42,7 +40,6 @@ public class ModifyOfferParameters extends B2CMenu {
     }
 
     public String getVoiceMailSize() throws Exception {
-
-        return tool.driver.findElement(By.xpath("//label[contains(text(),'Voice Mail Size')]/../input")).getAttribute("value");
+        return tool.getAttributeUsingXpath(tool, "//label[contains(text(),'Voice Mail Size')]/../input", "value");
     }
 }
