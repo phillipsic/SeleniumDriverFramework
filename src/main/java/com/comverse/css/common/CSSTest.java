@@ -35,7 +35,7 @@ public class CSSTest extends Main {
         tool.get(tool, application.appURL());
         loginSSOUser();
         application.setVersion(tool);
-        tool.navigateBack();
+        tool.navigateBack(tool);
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }

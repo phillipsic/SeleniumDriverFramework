@@ -947,7 +947,7 @@ public class Common {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.navigateRefresh();
+                    tool.navigateRefresh(tool);
                 }
             } catch (Exception e) {
                 System.out.println("Menu item not selectable");
@@ -982,7 +982,7 @@ public class Common {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.navigateRefresh();
+                    tool.navigateRefresh(tool);
                     System.out.println("Trying browser refresh");
                 }
             } catch (Exception e) {

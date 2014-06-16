@@ -59,7 +59,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.navigateRefresh();
+                    tool.navigateRefresh(tool);
                 }
             } catch (Exception e) {
                 System.out.println("Menu item not selectable");
@@ -89,7 +89,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.navigateRefresh();
+                    tool.navigateRefresh(tool);
                 }
             } catch (Exception e) {
                 System.out.println("Menu item not selectable");
