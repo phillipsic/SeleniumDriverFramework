@@ -356,7 +356,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public AccountDetails removeAccountOfferIfPresent(String accountOfferName) throws Exception {
 
-        if (!driver.findElements(By.linkText(accountOfferName)).isEmpty()) {
+        if (!tool.driver.findElements(By.linkText(accountOfferName)).isEmpty()) {
             System.out.println("Account offer found so need to remove it...");
 
             AccountDetails accountDetails = new AccountDetails(tool, test, user);

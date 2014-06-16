@@ -82,7 +82,7 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public void checkPrimaryContact() throws Exception {
-        if (!driver.findElement(By.id("Idrfpsj")).isSelected()) {
+        if (!tool.driver.findElement(By.id("Idrfpsj")).isSelected()) {
             tool.clickUsingID(tool, "Idrfpsj");
         }
 
