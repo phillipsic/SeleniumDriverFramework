@@ -14,6 +14,8 @@ import com.comverse.css.data.ACC.ACC_CSSPQABatteryPhoneACC2;
 import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
 import com.comverse.css.data.SO.SO_DIYeCountdownExtra;
 import com.comverse.data.apps.B2C;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();
@@ -49,11 +51,11 @@ public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends C
 
             enterYourSubscriptionDetails.enterDefaultIdentityAddressPhoneEmail(uniqueTimeStamp);
             SelectOffersForYourSubscriber selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
-            selectOffersForYourSubscriber.selectOffersForSubscriber(so_DIYeCountDownExtra.getOfferName());
+            
 
             ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
             ConfigureBalance configureBalance = configureOffers.clickContinueExpectingConfigureBalance();
-            configureBalance.setSpendingLimit("120");
+            configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_GPRS_WAP_INTERNET().getBalanceName(), "120");
             ChooseAccessories chooseAccessories = configureBalance.clickContinue();
             int accessory1Quantity = 1;
             chooseAccessories.setQuantityForAccessory(accBatteryPhone1.getAccessoryName(), String.valueOf(accessory1Quantity));
@@ -66,7 +68,13 @@ public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends C
             Common.assertTextOnPage(tool, String.valueOf(poNRC));
             Common.assertTextOnPage(tool, accBatteryPhone1.getAccessoryName());
             Common.assertTextOnPage(tool, String.valueOf(accessory1TotalPrice));
-            Common.assertTextOnPage(tool, String.valueOf(poNRC + accessory1TotalPrice));
+            
+            BigDecimal bd_poNRC = new BigDecimal(poNRC);            
+            BigDecimal bd_accessory1TotalPrice = new BigDecimal(accessory1TotalPrice);            
+            BigDecimal totalPrice = bd_poNRC.add(bd_accessory1TotalPrice );            
+            totalPrice = totalPrice.setScale(2, RoundingMode.CEILING);
+            
+            Common.assertTextOnPage(tool, String.valueOf(totalPrice));
 
             // Adding accessory.
             chooseAccessories = myBasket.clickAddAccessory();
