@@ -4,7 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -12,10 +11,6 @@ import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
-/**
- * 
- * @author gmaroth
- */
 public class SendCommunicationCommon extends CommonMenu {
     static String expectedScreen = "Send communication";
 
@@ -24,14 +19,13 @@ public class SendCommunicationCommon extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
 
         if (!expectedScreen.equals(tool.getTitle(tool))) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public boolean IsTemplatePresent() throws Exception {
-        System.out.println(tool.driver.findElement(By.cssSelector("BODY")).getText());
-        if (tool.driver.findElement(By.cssSelector("span")).getText().equals("No templates found.")) {
+        System.out.println(tool.searchUsingCssSelector(tool, "BODY"));
+        if (tool.getTextUsingCssSelector(tool, "span").equals("No templates found.")) {
             System.out.println("Please upload the desired template");
             return false;
         }
@@ -95,7 +89,7 @@ public class SendCommunicationCommon extends CommonMenu {
     }
 
     public void enterEmailTo(String value) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "emailTo", value);
 
     }

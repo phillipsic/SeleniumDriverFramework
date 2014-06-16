@@ -281,6 +281,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
+        return tool.driver.findElements(By.linkText(linkText)).isEmpty();
+    }
+
+    @Override
     public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
         return tool.driver.findElement(By.cssSelector(cssSelector));
     }

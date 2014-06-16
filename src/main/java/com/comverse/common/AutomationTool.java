@@ -118,4 +118,8 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
+        return false;
+    }
+
 }

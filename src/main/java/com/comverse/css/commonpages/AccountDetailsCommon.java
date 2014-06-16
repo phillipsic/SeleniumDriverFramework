@@ -6,8 +6,6 @@ package com.comverse.css.commonpages;
 
 import static org.junit.Assert.assertTrue;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -355,8 +353,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public AccountDetails removeAccountOfferIfPresent(String accountOfferName) throws Exception {
-
-        if (!tool.driver.findElements(By.linkText(accountOfferName)).isEmpty()) {
+        if (!tool.searchUsingLinkTextIsEmpty(tool, accountOfferName)) {
             System.out.println("Account offer found so need to remove it...");
 
             AccountDetails accountDetails = new AccountDetails(tool, test, user);
