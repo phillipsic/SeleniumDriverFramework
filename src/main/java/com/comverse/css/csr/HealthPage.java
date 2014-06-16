@@ -11,7 +11,7 @@ public class HealthPage extends CommonMenu {
         super(tool, test, user);
 
         System.out.println("baseUrl:" + baseUrl);
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
         boolean sapi = tool.getPageSource(tool).contains("SAPI Information");
         if (sapi == false) {
             throw new IllegalStateException("SAPI page is not available");
@@ -21,7 +21,7 @@ public class HealthPage extends CommonMenu {
     }
 
     public boolean crmhealthcheck(String baseUrl, String Text) throws Exception {
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
         boolean crm = tool.getPageSource(tool).contains(Text);
         if (crm == true) {
             System.out.println("crmhealthcheck  FAILED - " + baseUrl);
@@ -33,7 +33,7 @@ public class HealthPage extends CommonMenu {
     }
 
     public boolean rcsHealthCheck(String baseUrl, String Text) throws Exception {
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
         boolean rcs = tool.getPageSource(tool).contains(Text);
         if (rcs == true) {
             System.out.println("rcsHealthCheck  FAILED - " + baseUrl);
@@ -46,7 +46,7 @@ public class HealthPage extends CommonMenu {
     }
 
     public boolean rhtHealthCheck(String baseUrl, String Text) throws Exception {
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
         boolean rht = tool.getPageSource(tool).contains(Text);
         if (rht == true) {
             System.out.println("rhtHealthCheck  FAILED - " + baseUrl);
@@ -58,7 +58,7 @@ public class HealthPage extends CommonMenu {
     }
 
     public boolean obcHealthcheck(String baseUrl, String Text) throws Exception {
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
         boolean OBC = tool.getPageSource(tool).contains(Text);
         if (OBC == true) {
             System.out.println("obcHealthcheck  FAILED - " + baseUrl);
@@ -70,7 +70,7 @@ public class HealthPage extends CommonMenu {
     }
 
     public boolean dbHealthCheck(String baseUrl, String Text) throws Exception {
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
         boolean db = tool.getPageSource(tool).contains(Text);
         if (db == true) {
             System.out.println("dbHealthCheck  FAILED - " + baseUrl);

@@ -16,7 +16,7 @@ public class HealthPage extends CommonMenu {
 
         System.out.println("baseUrl:" + baseUrl);
 
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
 
         boolean sapi = tool.getPageSource(tool).contains("SAPI Information");
 
@@ -34,7 +34,7 @@ public class HealthPage extends CommonMenu {
 
     public boolean crmhealthcheck(String baseUrl, String Text) throws Exception {
 
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
 
         boolean crm = tool.getPageSource(tool).contains(Text);
 
@@ -52,7 +52,7 @@ public class HealthPage extends CommonMenu {
 
     public boolean rcsHealthCheck(String baseUrl, String Text) throws Exception {
 
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
 
         boolean rcs = tool.getPageSource(tool).contains(Text);
 
@@ -70,7 +70,7 @@ public class HealthPage extends CommonMenu {
 
     public boolean rhtHealthCheck(String baseUrl, String Text) throws Exception {
 
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
 
         boolean rht = tool.getPageSource(tool).contains(Text);
 
@@ -86,7 +86,7 @@ public class HealthPage extends CommonMenu {
     }
 
     public boolean obcHealthcheck(String baseUrl, String Text) throws Exception {
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
 
         boolean OBC = tool.getPageSource(tool).contains(Text);
 
@@ -105,7 +105,7 @@ public class HealthPage extends CommonMenu {
 
     public boolean dbHealthCheck(String baseUrl, String Text) throws Exception {
 
-        tool.driver.get(baseUrl);
+        tool.get(tool, baseUrl);
 
         boolean db = tool.getPageSource(tool).contains(Text);
 

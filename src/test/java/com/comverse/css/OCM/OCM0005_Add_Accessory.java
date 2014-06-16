@@ -45,7 +45,7 @@ public class OCM0005_Add_Accessory extends CSSTest {
 
         int rowCounter = 0;
 
-        tool.driver.get(application.appURL() + "ocmweb/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "ocmweb/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
         tool.clickUsingID(tool, "mainPanel:treeForm:type-tree:0:t2");
         tool.clickUsingID(tool, "mainPanel:treeForm:type-tree:0:0:t2");
 

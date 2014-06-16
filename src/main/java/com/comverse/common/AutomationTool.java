@@ -94,4 +94,7 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public void get(AutomationTool tool, String URL) throws Exception {
+    }
+
 }

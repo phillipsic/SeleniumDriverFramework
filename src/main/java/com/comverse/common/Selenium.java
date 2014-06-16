@@ -84,13 +84,18 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void get(AutomationTool tool, String URL) throws Exception {
+        tool.driver.get(URL);
+    }
+
+    @Override
     public String getAttributeUsingId(AutomationTool tool, String id, String attribute) throws Exception {
         return tool.driver.findElement(By.id(id)).getAttribute(attribute);
     }
 
     @Override
     public String getTitle(AutomationTool tool) throws Exception {
-        return tool.getTitle(tool);
+        return tool.driver.getTitle();
     }
 
     @Override

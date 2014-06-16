@@ -223,7 +223,7 @@ public class HomePage extends B2CMenu {
         String TelcoAdmin_password = preparation.readUsersPasswordFromIniFile("TelcoAdmin");
         String TelcoAdmin_login = preparation.readUsersUserNameFromIniFile("TelcoAdmin");
 
-        tool.driver.get(application.appURL() + "jfn?entry=admin_login");
+        tool.get(tool, application.appURL() + "jfn?entry=admin_login");
 
         this.enterLogin(TelcoAdmin_login);
         this.enterPassword(TelcoAdmin_password);

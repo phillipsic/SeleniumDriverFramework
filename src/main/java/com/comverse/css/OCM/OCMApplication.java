@@ -38,22 +38,22 @@ public class OCMApplication extends Main {
     }
 
     public void clickMenuPublicationsManagePublications(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "faces/publication/manage_publication.jsp;" + this.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "faces/publication/manage_publication.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Manage Publications");
     }
 
     public void clickMenuManageMediaFiles(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "faces/content/browse_content.jsp;" + this.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "faces/content/browse_content.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Browse Media Files");
     }
 
     public void clickMenuManageCatalogs(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "faces/catalog/product_by_catalog.jsp;" + this.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "faces/catalog/product_by_catalog.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Browse Products by Catalog");
     }
 
     public void clickMenuNewPublication(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "faces/publication/create_publication.jsp;" + this.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "faces/publication/create_publication.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "New Publication");
     }
 

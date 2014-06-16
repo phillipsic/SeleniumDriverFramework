@@ -76,7 +76,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void clickAdminLogin(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "/jfn?entry=admin_login");
+        tool.get(tool, application.appURL() + "/jfn?entry=admin_login");
     }
 
     public void clickForgotYourPassword() throws Exception {
