@@ -22,4 +22,20 @@ public class UnlockLogin extends UnlockLoginCommon {
         return new UnlockDone(tool, test, user);
     }
 
+    public String getNewPassword() throws Exception {
+
+        String password = tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div/div[2]/div/div/span");
+
+        String temp[] = password.split(":");
+        password = temp[1];
+        System.out.println("Temporary password: " + password.trim());
+        return password.trim();
+    }
+
+    @Override
+    public LoginInformation clickOK() throws Exception {
+        super.clickOK();
+        return new LoginInformation(tool, test, user);
+    }
+
 }
