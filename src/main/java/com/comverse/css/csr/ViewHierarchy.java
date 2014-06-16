@@ -7,6 +7,7 @@ import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ViewHierarchyCommon;
+import com.comverse.data.users.OCMPub;
 
 public class ViewHierarchy extends ViewHierarchyCommon {
 
@@ -128,20 +129,23 @@ public class ViewHierarchy extends ViewHierarchyCommon {
         return tempPassword;
     }
 
-    public String addOCMPublisherEmployee(String uniqueCode) throws Exception {
-
+    public User addOCMPublisherEmployee(String uniqueCode) throws Exception {
+        User OCMPubUser = new OCMPub();
         NewMemberLegalAddress newMemberLegalAddress = this.clickAddEmployeeOCM();
         newMemberLegalAddress.setFirstName("FN" + uniqueCode);
         newMemberLegalAddress.setLastName("LN" + uniqueCode);
         Login login = newMemberLegalAddress.clickContinue();
         login.enterLogin(uniqueCode);
-        login.setRoles("OCM Publisher");
+        OCMPubUser.setNewLogin(uniqueCode);
+
+        login.setRoles(OCMPubUser.getRole());
 
         AddMemberConfirmation addMemberConfirmation = login.clickContinue();
         AddMember AddMember = addMemberConfirmation.clickOk();
         String tempPassword = AddMember.getTempPasswordFromPage();
+        OCMPubUser.setNewPassword(tempPassword);
         AddMember.clickOk();
 
-        return tempPassword;
+        return OCMPubUser;
     }
 }
