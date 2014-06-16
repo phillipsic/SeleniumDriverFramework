@@ -7,9 +7,9 @@ import com.comverse.css.common.Common;
 
 public class ChooseYourPrimaryOffer extends B2CMenu {
 
-    public ChooseYourPrimaryOffer(AutomationTool tool, Test test, User user) {
+    public ChooseYourPrimaryOffer(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Choose Your Primary Offer";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,7 +27,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.getTitle(tool))) {
 
             tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
@@ -45,7 +45,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
        /* System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.getTitle(tool))) {
 
             tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
@@ -64,7 +64,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.getTitle(tool))) {
 
             tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
@@ -99,7 +99,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         String temp[];
 
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
 
         temp = str.split(primaryOfferName + " </[pP]>"); // works in IE
 
@@ -139,7 +139,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         String temp[];
 
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
 
         temp = str.split(subscriberBundleName + " </[pP]>"); // works in IE
 

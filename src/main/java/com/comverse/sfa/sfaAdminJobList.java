@@ -56,7 +56,7 @@ public class sfaAdminJobList extends SFAMenu {
     }
 
     void selectFileHasHeader() throws Exception {
-        if (!driver.findElement(By.id("Ic5p3o7")).isSelected()) {
+        if (!tool.driver.findElement(By.id("Ic5p3o7")).isSelected()) {
             tool.clickUsingID(tool, "Ic5p3o7");
         }
     }
@@ -66,7 +66,7 @@ public class sfaAdminJobList extends SFAMenu {
     }
 
     void selectJobByName(String jobName) throws Exception {
-        if (!driver.findElement(By.xpath("//div[contains(text(), '" + jobName + "')]/../../td/input")).isSelected()) {
+        if (!tool.driver.findElement(By.xpath("//div[contains(text(), '" + jobName + "')]/../../td/input")).isSelected()) {
             tool.clickUsingXPath(tool, "//div[contains(text(), '" + jobName + "')]/../../td/input");
         }
         Common.sleepForNumberOfSeconds(1);

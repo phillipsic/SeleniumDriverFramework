@@ -13,7 +13,7 @@ public class RemoveLevelCommon extends CommonMenu {
     public RemoveLevelCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Remove Level";
 
         if (!expectedScreen.equals(currentScreen)) {

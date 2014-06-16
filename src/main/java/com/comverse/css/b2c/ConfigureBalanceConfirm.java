@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class ConfigureBalanceConfirm extends B2CMenu {
 
-    public ConfigureBalanceConfirm(AutomationTool tool, Test test, User user) {
+    public ConfigureBalanceConfirm(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Configure balance - Confirm";
 
         if (!expectedScreen.equals(currentScreen)) {

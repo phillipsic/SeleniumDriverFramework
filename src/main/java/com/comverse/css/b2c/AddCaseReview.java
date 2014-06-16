@@ -7,12 +7,12 @@ import com.comverse.css.common.Common;
 
 public class AddCaseReview extends B2CMenu {
 
-    public AddCaseReview(AutomationTool tool, Test test, User user) {
+    public AddCaseReview(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Add case - review";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

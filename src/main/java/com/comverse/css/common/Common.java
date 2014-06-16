@@ -31,7 +31,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
 
-            if (tool.driver.getTitle().matches("Waiting Page")) {
+            if (tool.getTitle(tool).matches("Waiting Page")) {
                 // System.out.println("Please Wait present");
                 Thread.sleep(3000);
             } else {
@@ -51,7 +51,7 @@ public class Common {
 
     public static Boolean isTextOnPage(AutomationTool tool, String searchText) throws Exception {
 
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
         return pageSource.contains(searchText);
     }
 
@@ -91,7 +91,7 @@ public class Common {
     }
 
     public static String returnCleanPageSource(AutomationTool tool) throws Exception {
-        String dirtyString = tool.driver.getPageSource();
+        String dirtyString = tool.getPageSource(tool);
         dirtyString = removeHTMLTags(dirtyString);
         return cleanStringOfIllegalChars(dirtyString);
     }
@@ -113,7 +113,7 @@ public class Common {
         Boolean foundIt = false;
         int startOfOfferIndex = 1;
 
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
 
         while (startOfOfferIndex > 0 && foundIt == false) {
 
@@ -165,7 +165,7 @@ public class Common {
     }
 
     public static void checkForExistingBasketAndDiscard(AutomationTool tool) throws Exception {
-        if (tool.driver.getTitle().equals("Restore Previous Basket")) {
+        if (tool.getTitle(tool).equals("Restore Previous Basket")) {
             tool.clickUsingXPath(tool, "//input[@value='Discard']");
             tool.clickUsingCssSelector(tool, "input.submit");
         }
@@ -941,7 +941,7 @@ public class Common {
                 Common.sleepForNumberOfSeconds(2);
                 tool.clickUsingXPath(tool, "(//input[@value='+ Action'])[2]");
                 tool.clickUsingID(tool, actionID);
-                String pageTitle = tool.driver.getTitle();
+                String pageTitle = tool.getTitle(tool);
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
                     successfullyDisplayed = true;
@@ -976,7 +976,7 @@ public class Common {
                         tool.clickUsingID(tool, actionID);
                     }
                 }
-                String pageTitle = tool.driver.getTitle();
+                String pageTitle = tool.getTitle(tool);
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
                     successfullyDisplayed = true;
@@ -1019,16 +1019,16 @@ public class Common {
         return tool.driver.getWindowHandle();
     }
 
-    public static void switchToThisWindow(AutomationTool tool, String windowHandle) {
-        tool.driver.switchTo().window(windowHandle);
+    public static void switchToThisWindow(AutomationTool tool, String windowHandle) throws Exception {
+        tool.switchToWindow(tool, windowHandle);
     }
 
-    public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) {
+    public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) throws Exception {
         Set<String> windows = tool.driver.getWindowHandles();
         for (String window : windows) {
             for (String windowHandle : windowHandleTable) {
                 if (!window.equals(windowHandle)) {
-                    tool.driver.switchTo().window(window);
+                    tool.switchToWindow(tool, window);
                     break;
                 }
             }

@@ -11,9 +11,9 @@ import com.comverse.css.common.Common;
 
 public class LoginInformation extends B2CMenu {
 
-    public LoginInformation(AutomationTool tool, Test test, User user) {
+    public LoginInformation(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Login Information";
 
         if (!expectedScreen.equals(currentScreen)) {

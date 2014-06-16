@@ -11,12 +11,12 @@ import com.comverse.css.common.Common;
 
 public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
-    public ChooseYourPrimaryOfferInThisAccountBundle(AutomationTool tool, Test test, User user) {
+    public ChooseYourPrimaryOfferInThisAccountBundle(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Choose Your Primary Offer in This Account Bundle";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -61,7 +61,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
         String temp[];
 
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
 
         temp = str.split(primaryOfferName + " </[pP]>"); // works in IE
 
@@ -88,7 +88,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
         // tool.clickUsingID(tool, "selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.driver.getTitle())) {
+        if ("Choose Your Device".equals(tool.getTitle(tool))) {
 
             tool.clickUsingCssSelector(tool, "input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");

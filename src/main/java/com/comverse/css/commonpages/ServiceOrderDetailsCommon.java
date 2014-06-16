@@ -14,7 +14,7 @@ public class ServiceOrderDetailsCommon extends CommonMenu {
     public ServiceOrderDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Service Order Details";
 
         if (!expectedScreen.equals(currentScreen)) {

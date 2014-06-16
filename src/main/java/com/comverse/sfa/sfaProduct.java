@@ -21,7 +21,7 @@ public class sfaProduct extends SFAMenu {
         tool.enterStringUsingId(tool, "I7olilf", productName);
         tool.clickUsingID(tool, "$n1almt_filterbutton");
         Common.sleepForNumberOfSeconds(2);
-        if (!driver.findElement(By.id("$n1almt_rowChkBox_0")).isSelected()) {
+        if (!tool.driver.findElement(By.id("$n1almt_rowChkBox_0")).isSelected()) {
             tool.clickUsingID(tool, "$n1almt_rowChkBox_0");
         }
         tool.clickUsingID(tool, "Af7fj1i");
@@ -39,7 +39,7 @@ public class sfaProduct extends SFAMenu {
         tool.enterStringUsingId(tool, "Imintjv", productName);
         tool.clickUsingID(tool, "$ncrm6b_filterbutton");
         Common.sleepForNumberOfSeconds(2);
-        if (!driver.findElement(By.id("$ncrm6b_rowChkBox_0")).isSelected()) {
+        if (!tool.driver.findElement(By.id("$ncrm6b_rowChkBox_0")).isSelected()) {
             tool.clickUsingID(tool, "$ncrm6b_rowChkBox_0");
         }
         tool.clickUsingID(tool, "Ar4pj4u");

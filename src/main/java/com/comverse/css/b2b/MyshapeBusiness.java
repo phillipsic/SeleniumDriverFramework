@@ -14,10 +14,10 @@ public class MyshapeBusiness extends MyshapeCommon {
 
     public MyshapeBusiness(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Myshape Business";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
@@ -29,11 +29,11 @@ public class MyshapeBusiness extends MyshapeCommon {
         tool.enterStringUsingId(tool, "password", user.getPassword());
         tool.clickUsingName(tool, "LoginButton");
 
-        if (tool.driver.getPageSource().contains("Please enter a valid user name and password.")) {
+        if (tool.getPageSource(tool).contains("Please enter a valid user name and password.")) {
             throw new Exception("Invalid username or password - IS USER CREATED? ");
         }
 
-        if (tool.driver.getPageSource().contains("Synchronization Failed")) {
+        if (tool.getPageSource(tool).contains("Synchronization Failed")) {
             throw new Exception("Synchronization Failed - ENVIRONMENT PROBLEM?");
         }
 

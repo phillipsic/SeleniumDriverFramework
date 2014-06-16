@@ -10,10 +10,10 @@ import com.comverse.css.common.Common;
 
 public class sfaOrganization extends SFAMenu {
 
-    public sfaOrganization(AutomationTool tool, Test test, User user) {
+    public sfaOrganization(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Comverse ONE Billing and Active Customer Management";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -82,7 +82,7 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public void checkPrimaryContact() throws Exception {
-        if (!driver.findElement(By.id("Idrfpsj")).isSelected()) {
+        if (!tool.driver.findElement(By.id("Idrfpsj")).isSelected()) {
             tool.clickUsingID(tool, "Idrfpsj");
         }
 

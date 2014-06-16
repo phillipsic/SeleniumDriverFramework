@@ -15,10 +15,10 @@ public class ModifyContactInformationCommon extends CommonMenu {
     public ModifyContactInformationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Contact Information";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

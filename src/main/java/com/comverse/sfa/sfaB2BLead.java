@@ -84,8 +84,8 @@ public class sfaB2BLead extends SFAMenu {
         return new Select(tool.searchUsingID(tool, "I8ea3x9")).getFirstSelectedOption().getText();
     }
 
-    public String getFirstProductName() {
-        return tool.driver.findElement(By.id("$5rwlaq_cell_0_1_span")).getText();
+    public String getFirstProductName() throws Exception {
+        return tool.getTextUsingId(tool, "$5rwlaq_cell_0_1_span");
     }
 
 }

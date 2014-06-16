@@ -12,7 +12,7 @@ public class SecCsrAdmin extends CommonMenu {
     public SecCsrAdmin(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Security | Add User";
 
         if (!expectedScreen.equals(currentScreen)) {

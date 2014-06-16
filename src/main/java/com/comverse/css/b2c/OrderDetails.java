@@ -6,12 +6,12 @@ import com.comverse.common.User;
 
 public class OrderDetails extends B2CMenu {
 
-    public OrderDetails(AutomationTool tool, Test test, User user) {
+    public OrderDetails(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Order Details";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

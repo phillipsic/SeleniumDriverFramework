@@ -89,70 +89,6 @@ public class Main {
         }
     }
 
-    // public void launchHealthCheckApplication() throws Exception {
-    // Platform platform = new Platform();
-    // PropertyHelper propsHelper = new PropertyHelper();
-    // DesiredCapabilities capabilities = new DesiredCapabilities();
-    // String intBrowser = System.getProperty("selenium_browser");
-    //
-    // if (intBrowser == null) {
-    // intBrowser = propsHelper.getInitProperties("BROWSER.type");
-    // }
-    //
-    // if (intBrowser.equalsIgnoreCase("IE")) {
-    // driver = new InternetExplorerDriver();
-    // }
-    //
-    // if (intBrowser.equalsIgnoreCase("FF")) {
-    // driver = new FirefoxDriver();
-    // }
-    //
-    // if (intBrowser.equalsIgnoreCase("CH")) {
-    // platform.CH(capabilities);
-    // driver = new ChromeDriver();
-    // }
-    //
-    // if (tool.driver == null) {
-    // throw new
-    // IllegalStateException("Browser not supported. Please use IE, FF or CH");
-    // }
-    //
-    // tool.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    //
-    // sapiUrl = propsHelper.getInitProperties("sapi_url");
-    // System.out.println("baseUrl:" + sapiUrl);
-    //
-    // String userAgent = (String) ((JavascriptExecutor)
-    // driver).executeScript("return navigator.userAgent;");
-    //
-    // if (intBrowser.equalsIgnoreCase("IE")) {
-    // String delimiter = ";";
-    // String[] temp = userAgent.split(delimiter);
-    // browser = temp[1];
-    // OS = temp[2];
-    // }
-    //
-    // if (intBrowser.equalsIgnoreCase("FF")) {
-    // String[] temp1 = userAgent.split("\\(");
-    // String[] temp2 = temp1[1].split(";");
-    // String[] temp3 = temp2[1].split(" ");
-    // browser = temp3[3];
-    // OS = temp2[0];
-    // }
-    //
-    // if (intBrowser.equalsIgnoreCase("CH")) {
-    // String[] temp1 = userAgent.split("\\(");
-    // String[] temp2 = temp1[1].split("\\)");
-    // String[] temp3 = temp1[2].split(" ");
-    // browser = temp3[3];
-    // OS = temp2[0];
-    // }
-    //
-    // System.out.println("OS : " + OS);
-    // System.out.println("Browser : " + browser);
-    //
-    // }
-
     public void loginSSOUser() throws Exception {
         ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
         ssoLoginPage.setUserName(tool, user);
@@ -268,7 +204,7 @@ public class Main {
 
     @After
     public void tearDown() throws Exception {
-        tool.driver.quit();
+        tool.quit(tool);
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

@@ -19,7 +19,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
 
     public EnterIdentificationDataCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Customer Acquisition - Identification Data";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -411,7 +411,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public ClearTheCurrentBasketCommon enterCTIURL(Application application, String External_id) throws Exception {
-        tool.driver.get(application.appURL() + "ctiAccess?subscriberExternalId=" + External_id + "&subscriberExternalIdType=3&ctiSessionId=123456");
+        tool.get(tool, application.appURL() + "ctiAccess?subscriberExternalId=" + External_id + "&subscriberExternalIdType=3&ctiSessionId=123456");
         return new ClearTheCurrentBasketCommon(tool, test, user);
     }
 }

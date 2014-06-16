@@ -9,7 +9,7 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
     public ResumeAParkedBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Resume a Parked Basket";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -31,7 +31,7 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
 
     public DeleteBasketConfirmCommon deleteParkedBasket(String basketName) throws Exception {
         //
-        // String pageSource = tool.driver.getPageSource();
+        // String pageSource = tool.getPageSource(tool);
         // String temp[];
         // String basketID;
         //

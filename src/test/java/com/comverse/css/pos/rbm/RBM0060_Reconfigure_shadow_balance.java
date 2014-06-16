@@ -3,7 +3,6 @@ package com.comverse.css.pos.rbm;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.*;
 import com.comverse.css.data.AB.AB_ResidentialEnhanceFamilyAccountBundle;

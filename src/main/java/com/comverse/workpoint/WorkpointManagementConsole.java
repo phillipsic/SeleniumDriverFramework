@@ -6,10 +6,10 @@ import com.comverse.common.User;
 
 public class WorkpointManagementConsole extends WPMCMenu {
 
-    public WorkpointManagementConsole(AutomationTool tool, Test test, User user) {
+    public WorkpointManagementConsole(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Workpoint Management Console";
 
         if (!expectedScreen.equals(currentScreen)) {

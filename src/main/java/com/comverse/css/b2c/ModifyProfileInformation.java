@@ -8,13 +8,13 @@ import com.comverse.common.User;
 
 public class ModifyProfileInformation extends B2CMenu {
 
-    public ModifyProfileInformation(AutomationTool tool, Test test, User user) {
+    public ModifyProfileInformation(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Profile Information";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

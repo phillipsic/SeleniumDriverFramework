@@ -13,7 +13,7 @@ public class OfferCancellationCommon extends CommonMenu {
     public OfferCancellationCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Offer Cancellation";
 
         if (!expectedScreen.equals(currentScreen)) {

@@ -14,11 +14,11 @@ public class WelcomeToYourPersonalizedWorkspaceCommon extends CommonMenu {
     public WelcomeToYourPersonalizedWorkspaceCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Welcome to Your Personalized Workspace";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);

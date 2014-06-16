@@ -13,7 +13,7 @@ public class SubscriberDashboard extends MyshapeCommon {
     public SubscriberDashboard(AutomationTool tool, Test test, User user, String subscriberID) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = subscriberID;
         for (String currentScreenSplitted : currentScreen.split("/")) {
             currentScreen = currentScreenSplitted;

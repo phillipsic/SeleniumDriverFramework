@@ -2,10 +2,10 @@ package com.comverse.upm.upmPages;
 
 import com.comverse.common.AutomationTool;
 
-public class upmHomePage {
+public class UpmHomePage {
 
-    public upmHomePage(AutomationTool tool) {
-        String currentScreen = tool.driver.getTitle();
+    public UpmHomePage(AutomationTool tool) throws Exception {
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Comverse ONE Unified Platform";
 
         if (!expectedScreen.equals(currentScreen)) {

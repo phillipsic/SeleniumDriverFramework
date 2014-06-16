@@ -8,7 +8,7 @@ import com.comverse.css.common.Common;
 
 public class B2CMenu extends Main {
 
-    public B2CMenu(AutomationTool tool, Test test, User user) {
+    public B2CMenu(AutomationTool tool, Test test, User user) throws Exception {
         this.tool = tool;
         this.test = test;
         this.user = user;

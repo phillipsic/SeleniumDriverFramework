@@ -9,7 +9,7 @@ public class RegisterBillPaymentCommon extends CommonMenu {
 
     public RegisterBillPaymentCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Register Bill Payment";
 
         if (!expectedScreen.equals(currentScreen)) {

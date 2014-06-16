@@ -18,7 +18,7 @@ public class SecLoginPage extends CommonMenu {
         super(tool, test, user);
         this.user = user;
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Security | Home";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -55,7 +55,7 @@ public class SecLoginPage extends CommonMenu {
         tool.clickUsingLinkText(tool, "Sign In");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "|Welcome | Please Login";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -70,7 +70,7 @@ public class SecLoginPage extends CommonMenu {
         tool.clickUsingID(tool, "loginForm:loginBtn");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Security | Home";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -86,7 +86,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -102,7 +102,7 @@ public class SecLoginPage extends CommonMenu {
         Common.sleepForNumberOfSeconds(3);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -117,7 +117,7 @@ public class SecLoginPage extends CommonMenu {
         tool.clickUsingXPath(tool, "//a[@id='j_id42:j_id45:n-7:j_id51']/span");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -132,7 +132,7 @@ public class SecLoginPage extends CommonMenu {
         tool.clickUsingCssSelector(tool, "input[type='button'][value='Add User']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Security | Add User";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -159,7 +159,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(10);
 
-        if (!driver.getPageSource().contains("Successfully created")) {
+        if (!tool.getPageSource(tool).contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -183,7 +183,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(30);
 
-        if (!driver.getPageSource().contains("Successfully created")) {
+        if (!tool.getPageSource(tool).contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -207,7 +207,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(10);
 
-        if (!driver.getPageSource().contains("Successfully created")) {
+        if (!tool.getPageSource(tool).contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -257,7 +257,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        if (!driver.getPageSource().contains("Successfully created")) {
+        if (!tool.getPageSource(tool).contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }

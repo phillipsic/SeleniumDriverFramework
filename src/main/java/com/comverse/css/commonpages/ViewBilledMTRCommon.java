@@ -9,7 +9,7 @@ public class ViewBilledMTRCommon extends CommonMenu {
     public ViewBilledMTRCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "View billed MTR";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {

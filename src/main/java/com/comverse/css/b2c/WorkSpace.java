@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class WorkSpace extends B2CMenu {
 
-    public WorkSpace(AutomationTool tool, Test test, User user) {
+    public WorkSpace(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Welcome to Your Personalized Workspace";
 
         if (!expectedScreen.equals(currentScreen)) {

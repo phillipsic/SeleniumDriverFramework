@@ -25,40 +25,40 @@ import com.comverse.css.common.Common;
 
 public class OCMApplication extends Main {
 
-    public OCMApplication(AutomationTool tool, Test test) {
+    public OCMApplication(AutomationTool tool, Test test) throws Exception {
         this.tool = tool;
         this.test = test;
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "OCM Application";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickMenuPublicationsManagePublications(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "faces/publication/manage_publication.jsp;" + this.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "faces/publication/manage_publication.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Manage Publications");
     }
 
     public void clickMenuManageMediaFiles(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "faces/content/browse_content.jsp;" + this.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "faces/content/browse_content.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Browse Media Files");
     }
 
     public void clickMenuManageCatalogs(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "faces/catalog/product_by_catalog.jsp;" + this.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "faces/catalog/product_by_catalog.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Browse Products by Catalog");
     }
 
     public void clickMenuNewPublication(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "faces/publication/create_publication.jsp;" + this.getSessionIDFromUrl());
+        tool.get(tool, application.appURL() + "faces/publication/create_publication.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "New Publication");
     }
 
     public void clickLatestPropagationResult() throws Exception {
-        String source = tool.driver.getPageSource();
+        String source = tool.getPageSource(tool);
         String IDSubscriber[];
 
         IDSubscriber = source.split("PC Propagation");
@@ -119,7 +119,7 @@ public class OCMApplication extends Main {
         tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
 
         boolean ExistingDevice = false;
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
         ExistingDevice = pageSource.contains("Product code must be unique");
         System.out.println("ExistingDevice = " + ExistingDevice);
 
@@ -165,8 +165,7 @@ public class OCMApplication extends Main {
         new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
 
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", 
-                "CSS_PQA Terms And Conditions");
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
         tool.driver.findElement(By.id("mainPanel:productForm:attributeList:" + this.selectFirstIDs("Cable") + ":choiceMany:" + this.selectSecondIDs("Cable") + ":selected"))
                 .click();
         tool.driver.findElement(
@@ -180,7 +179,7 @@ public class OCMApplication extends Main {
     }
 
     public String selectFirstIDs(String OfferName) throws Exception {
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
         String temp[];
 
         temp = str.split(OfferName);
@@ -194,7 +193,7 @@ public class OCMApplication extends Main {
     }
 
     public String selectSecondIDs(String OfferName) throws Exception {
-        String str = tool.driver.getPageSource();
+        String str = tool.getPageSource(tool);
         String temp[];
 
         temp = str.split(OfferName);
@@ -349,7 +348,7 @@ public class OCMApplication extends Main {
         tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
 
         boolean ExistingAccessory = false;
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
         ExistingAccessory = pageSource.contains("Product code must be unique");
         System.out.println("ExistingAccessory = " + ExistingAccessory);
 
@@ -387,8 +386,7 @@ public class OCMApplication extends Main {
         new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
 
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", 
-                "CSS_PQA Terms And Conditions");
+        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
 
         tool.clickUsingID(tool, "mainPanel:productForm:b_updateAttributes");
 

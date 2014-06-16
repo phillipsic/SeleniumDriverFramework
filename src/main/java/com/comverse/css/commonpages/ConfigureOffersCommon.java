@@ -13,7 +13,7 @@ public class ConfigureOffersCommon extends CommonMenu {
     public ConfigureOffersCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Configure Offers";
 
         if (!expectedScreen.equals(currentScreen)) {

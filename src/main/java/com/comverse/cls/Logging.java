@@ -15,33 +15,31 @@ import com.comverse.css.common.Common;
 
 public class Logging extends CLSMenu {
 
-    public Logging(AutomationTool tool, Test test, User user) {
+    public Logging(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "logging";
-
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickTodayFilter() throws Exception {
-        tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
         tool.clickUsingID(tool, "useCustomTimeframe_period");
-        tool.driver.switchTo().defaultContent();
+        tool.switchTo(tool);
     }
 
     public void setDisplayUserName(String name) throws Exception {
-        tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
-        
+        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
         tool.enterStringUsingId(tool, "displayUserName", name);
-        tool.driver.switchTo().defaultContent();
+        tool.switchTo(tool);
     }
 
     public void clickSearch() throws Exception {
-        tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
         tool.clickUsingXPath(tool, "//input[@value='Submit']");
-        tool.driver.switchTo().defaultContent();
+        tool.switchTo(tool);
     }
 
     public void clickLogut() throws Exception {
@@ -60,15 +58,15 @@ public class Logging extends CLSMenu {
                 throw new Exception("Timeout");
             }
             try {
-                tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
-                String pageSource = tool.driver.getPageSource();
+                tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+                String pageSource = tool.getPageSource(tool);
                 if (pageSource.contains("Rows per page")) {
                     foundElement = true;
                     System.out.println("FoundElement =  ..." + foundElement);
-                    tool.driver.switchTo().defaultContent();
+                    tool.switchTo(tool);
                     break;
                 }
-                tool.driver.switchTo().defaultContent();
+                tool.switchTo(tool);
                 System.out.println("FoundElement =  ..." + foundElement);
                 Common.sleepForNumberOfSeconds(1);
 
@@ -84,16 +82,16 @@ public class Logging extends CLSMenu {
 
     public void selectRecordPerPage(String value) throws Exception {
 
-        tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
         new Select(tool.searchUsingID(tool, "yui-pg0-0-rpp81")).selectByVisibleText(value);
-        tool.driver.switchTo().defaultContent();
+        tool.switchTo(tool);
         Common.sleepForNumberOfSeconds(10);
     }
 
     private boolean checkDropDownForValue(String dropDownID, String value) throws Exception {
 
         boolean optionFound = false;
-        tool.driver.switchTo().frame(tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
+        tool.switchToFrame(tool, tool.driver.findElement(By.id("_ddajaxtabsiframe-loggingTabContent")));
 
         WebElement dropDown = tool.driver.findElement(By.id("clusterNameFilter"));
         List<WebElement> options = dropDown.findElements(By.tagName("option"));
@@ -106,7 +104,7 @@ public class Logging extends CLSMenu {
             }
         }
 
-        tool.driver.switchTo().defaultContent();
+        tool.switchTo(tool);
 
         return optionFound;
     }

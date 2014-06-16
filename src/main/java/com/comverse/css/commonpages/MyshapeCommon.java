@@ -32,11 +32,11 @@ public class MyshapeCommon extends CommonMenu {
             this.selectRealm(user.getRealm());
         this.clickLogin();
 
-        if (tool.driver.getPageSource().contains("Please enter a valid user name and password.")) {
+        if (tool.getPageSource(tool).contains("Please enter a valid user name and password.")) {
             throw new Exception("Invalid username or password - IS USER CREATED? ");
         }
 
-        if (tool.driver.getPageSource().contains("Synchronization Failed")) {
+        if (tool.getPageSource(tool).contains("Synchronization Failed")) {
             throw new Exception("Synchronization Failed - ENVIRONMENT PROBLEM?");
         }
 
@@ -76,7 +76,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void clickAdminLogin(Application application) throws Exception {
-        tool.driver.get(application.appURL() + "/jfn?entry=admin_login");
+        tool.get(tool, application.appURL() + "/jfn?entry=admin_login");
     }
 
     public void clickForgotYourPassword() throws Exception {
@@ -94,7 +94,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void selectRealm(String realm) throws Exception {
-        if (tool.driver.getPageSource().contains("Domain")) {
+        if (tool.getPageSource(tool).contains("Domain")) {
             new Select(tool.searchUsingID(tool, "realm")).selectByVisibleText(realm);
         }
     }

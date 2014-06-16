@@ -10,13 +10,13 @@ import com.comverse.common.User;
 
 public class CheckoutRegister extends B2CMenu {
 
-    public CheckoutRegister(AutomationTool tool, Test test, User user) {
+    public CheckoutRegister(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Checkout Register";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);

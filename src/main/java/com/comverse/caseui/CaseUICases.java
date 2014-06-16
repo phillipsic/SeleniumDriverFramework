@@ -1,6 +1,5 @@
 package com.comverse.caseui;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.caseui.common.CaseUITest;
@@ -60,7 +59,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public String getCaseID() throws Exception {
-        String caseID = tool.driver.findElement(By.xpath("//span[contains(text(), 'ID: ')]")).getText().substring(4);
+        String caseID = tool.getTextUsingXPath(tool, "//span[contains(text(), 'ID: ')]").substring(4);
         System.out.println("CaseId=" + caseID);
         return caseID;
     }

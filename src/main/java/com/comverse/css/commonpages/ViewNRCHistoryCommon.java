@@ -21,7 +21,7 @@ public class ViewNRCHistoryCommon extends CommonMenu {
     public ViewNRCHistoryCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "View NRC history";
 
         if (!expectedScreen.equals(currentScreen)) {

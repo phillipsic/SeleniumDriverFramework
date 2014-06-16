@@ -15,7 +15,7 @@ public class ModifyLevelLegalContactCommon extends CommonMenu {
     public ModifyLevelLegalContactCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Modify Level Legal Contact";
 
         if (!expectedScreen.equals(currentScreen)) {

@@ -12,9 +12,9 @@ import com.comverse.common.User;
 
 public class CheckOutBillingAccountInformation extends B2CMenu {
 
-    public CheckOutBillingAccountInformation(AutomationTool tool, Test test, User user) {
+    public CheckOutBillingAccountInformation(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Checkout - Billing Account Information";
 
         if (!expectedScreen.equals(currentScreen)) {

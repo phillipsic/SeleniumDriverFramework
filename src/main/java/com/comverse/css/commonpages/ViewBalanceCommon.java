@@ -18,7 +18,7 @@ public class ViewBalanceCommon extends CommonMenu {
     public ViewBalanceCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -91,7 +91,7 @@ public class ViewBalanceCommon extends CommonMenu {
     private String retrieveBalanceID(String balanceName) throws Exception {
 
         /*
-         * String pageSource = tool.driver.getPageSource(); String temp[]; String
+         * String pageSource = tool.getPageSource(tool); String temp[]; String
          * cleanString;
          * 
          * temp = pageSource.split("abtr:" + balanceName); temp =

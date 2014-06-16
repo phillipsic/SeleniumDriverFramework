@@ -9,7 +9,7 @@ public class SuspendSubscriberSuspendSuccessfulCommon extends CommonMenu {
 
     public SuspendSubscriberSuspendSuccessfulCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Suspend subscriber - Suspend successful";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);

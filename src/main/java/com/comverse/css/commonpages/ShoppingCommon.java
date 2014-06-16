@@ -14,7 +14,7 @@ public class ShoppingCommon extends CommonMenu {
     public ShoppingCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -63,7 +63,7 @@ public class ShoppingCommon extends CommonMenu {
 
     public void clickAccountBundleOfferName(String accountBundle) throws Exception {
 
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
         String temp[];
         String cleanString;
 
@@ -195,7 +195,7 @@ public class ShoppingCommon extends CommonMenu {
 
         /*
          * String temp[]; String temp2[]; String tokenizedOfferName; String
-         * accountOfferID; String pageSource = tool.driver.getPageSource();
+         * accountOfferID; String pageSource = tool.getPageSource(tool);
          * 
          * temp = pageSource.split(accountBundleID + "_selectiveService\"");
          * 
@@ -224,7 +224,7 @@ public class ShoppingCommon extends CommonMenu {
 
     private String retrieveAccountBundleID(String accountBundleName) throws Exception {
 
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
         String temp[];
         String cleanString;
 

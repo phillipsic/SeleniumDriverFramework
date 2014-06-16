@@ -16,10 +16,10 @@ public class SearchRequestsCommon extends CommonMenu {
 
     public SearchRequestsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Search RequestsView Requests";
 
-        if (!expectedScreen.contains(tool.driver.getTitle())) {
+        if (!expectedScreen.contains(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

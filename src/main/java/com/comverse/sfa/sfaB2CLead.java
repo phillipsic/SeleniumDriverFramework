@@ -70,11 +70,11 @@ public class sfaB2CLead extends SFAMenu {
         tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_13");
     }
 
-    String getFirstOfferId() {
-        return tool.driver.findElement(By.id("$l9ifba_cell_0_1_span")).getText();
+    String getFirstOfferId() throws Exception {
+        return tool.getTextUsingId(tool, "$l9ifba_cell_0_1_span");
     }
 
-    String getFirstOfferName() {
-        return tool.driver.findElement(By.id("$l9ifba_cell_0_3_span")).getText();
+    String getFirstOfferName() throws Exception {
+        return tool.getTextUsingId(tool, "$l9ifba_cell_0_3_span");
     }
 }

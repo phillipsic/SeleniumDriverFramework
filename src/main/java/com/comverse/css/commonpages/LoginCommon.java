@@ -14,7 +14,7 @@ public class LoginCommon extends CommonMenu {
 
     public LoginCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Login";
 
         if (!expectedScreen.equals(currentScreen)) {

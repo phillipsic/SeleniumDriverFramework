@@ -24,9 +24,9 @@ public class AccountDetailsCommon extends CommonMenu {
     public AccountDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -356,7 +356,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public AccountDetails removeAccountOfferIfPresent(String accountOfferName) throws Exception {
 
-        if (!driver.findElements(By.linkText(accountOfferName)).isEmpty()) {
+        if (!tool.driver.findElements(By.linkText(accountOfferName)).isEmpty()) {
             System.out.println("Account offer found so need to remove it...");
 
             AccountDetails accountDetails = new AccountDetails(tool, test, user);

@@ -7,9 +7,9 @@ import com.comverse.css.common.Common;
 
 public class sfaContact extends SFAMenu {
 
-    public sfaContact(AutomationTool tool, Test test, User user) {
+    public sfaContact(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Comverse ONE Billing and Active Customer Management";
 
         if (!expectedScreen.equals(currentScreen)) {

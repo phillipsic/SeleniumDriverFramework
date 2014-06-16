@@ -6,9 +6,9 @@ import com.comverse.common.User;
 
 public class Shopping extends B2CMenu {
 
-    public Shopping(AutomationTool tool, Test test, User user) {
+    public Shopping(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectScreen = "Shopping";
 
         if (!expectScreen.equals(currentScreen)) {

@@ -4,10 +4,10 @@ import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.sfa.sfaHomePage;
 
-public class upmLoginPage extends Main {
+public class UpmLoginPage extends Main {
 
-    public upmLoginPage(AutomationTool tool) {
-        String currentScreen = tool.driver.getTitle();
+    public UpmLoginPage(AutomationTool tool) throws Exception {
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Comverse ONE Unified Platform";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,14 +19,12 @@ public class upmLoginPage extends Main {
 
     public void setUserId(String login) throws Exception {
 
-        
-        tool.enterStringUsingId(tool, "Iujgbo2", login);
+        tool.enterStringUsingId(tool, "userName", login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        
-        tool.enterStringUsingId(tool, "I604i25", password);
+        tool.enterStringUsingId(tool, "password", password);
     }
 
     public sfaHomePage clickSignIn() throws Exception {

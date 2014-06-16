@@ -10,7 +10,7 @@ public class AddMemberCommon extends CommonMenu {
     public AddMemberCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
 
         if (!expectedScreen.equals(currentScreen)) {
 

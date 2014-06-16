@@ -9,7 +9,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
 
     public CheckoutConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Checkout Confirmation";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -40,7 +40,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
         // String temp[];
-        // String str = tool.driver.getPageSource();
+        // String str = tool.getPageSource(tool);
         // temp = str.split("Order Number:");
         // temp = temp[1].split("</span>");
         // temp = temp[0].split("<span>");
@@ -54,7 +54,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
     public String getNCAOrderNumberFromPage() throws Exception {
         String orderNumber;
         // String temp[];
-        // String str = tool.driver.getPageSource();
+        // String str = tool.getPageSource(tool);
         // temp = str.split("Order Number:");
         // temp = temp[1].split("</span>");
         // temp = temp[0].split("<span>");

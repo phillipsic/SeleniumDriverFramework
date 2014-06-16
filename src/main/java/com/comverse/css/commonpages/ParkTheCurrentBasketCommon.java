@@ -9,7 +9,7 @@ public class ParkTheCurrentBasketCommon extends CommonMenu {
     public ParkTheCurrentBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Park the Current Basket";
 
         if (!expectedScreen.equals(currentScreen)) {

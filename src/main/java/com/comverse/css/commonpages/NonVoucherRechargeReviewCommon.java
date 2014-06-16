@@ -14,11 +14,11 @@ public class NonVoucherRechargeReviewCommon extends CommonMenu {
 
     public NonVoucherRechargeReviewCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Non voucher recharge review";
 
         // Check that we're on the right page.
-        if (!"Non voucher recharge review".equals(tool.driver.getTitle())) {
+        if (!"Non voucher recharge review".equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

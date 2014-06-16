@@ -24,8 +24,102 @@ public class Selenium extends AutomationTool {
     public Selenium() throws Exception {
     }
 
+    @Override
+    public void clickUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+        tool.driver.findElement(By.cssSelector(cssSelector)).click();
+    }
+
+    @Override
+    public void clickUsingID(AutomationTool tool, String id) throws Exception {
+        tool.driver.findElement(By.id(id)).click();
+    }
+
+    @Override
+    public void clickUsingLinkText(AutomationTool tool, String linkText) throws Exception {
+        tool.driver.findElement(By.linkText(linkText)).click();
+    }
+
+    @Override
+    public void clickUsingName(AutomationTool tool, String name) throws Exception {
+        tool.driver.findElement(By.name(name)).click();
+    }
+
+    @Override
+    public void clickUsingPartialLinkText(AutomationTool tool, String partialLinkText) throws Exception {
+        tool.driver.findElement(By.partialLinkText(partialLinkText)).click();
+    }
+
+    @Override
+    public void clickUsingTagName(AutomationTool tool, String tagName) throws Exception {
+        tool.driver.findElement(By.tagName(tagName)).click();
+    }
+
+    @Override
+    public void clickUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        tool.driver.findElement(By.xpath(xpath)).click();
+    }
+
+    @Override
+    public void enterStringUsingCssSelector(AutomationTool tool, String cssSelector, String data) throws Exception {
+        tool.driver.findElement(By.cssSelector(cssSelector)).clear();
+        tool.driver.findElement(By.cssSelector(cssSelector)).sendKeys(data);
+    }
+
+    @Override
+    public void enterStringUsingId(AutomationTool tool, String id, String data) throws Exception {
+        tool.driver.findElement(By.id(id)).clear();
+        tool.driver.findElement(By.id(id)).sendKeys(data);
+    }
+
+    @Override
+    public void enterStringUsingName(AutomationTool tool, String name, String data) throws Exception {
+        tool.driver.findElement(By.name(name)).clear();
+        tool.driver.findElement(By.name(name)).sendKeys(data);
+    }
+
+    @Override
+    public void enterStringUsingXPath(AutomationTool tool, String xpath, String data) throws Exception {
+        tool.driver.findElement(By.xpath(xpath)).clear();
+        tool.driver.findElement(By.xpath(xpath)).sendKeys(data);
+    }
+
+    @Override
+    public void get(AutomationTool tool, String URL) throws Exception {
+        tool.driver.get(URL);
+    }
+
+    @Override
+    public String getAttributeUsingId(AutomationTool tool, String id, String attribute) throws Exception {
+        return tool.driver.findElement(By.id(id)).getAttribute(attribute);
+    }
+
+    @Override
+    public String getTitle(AutomationTool tool) throws Exception {
+        return tool.driver.getTitle();
+    }
+
+    @Override
+    public String getPageSource(AutomationTool tool) throws Exception {
+        return tool.driver.getPageSource();
+    }
+
     public WebDriver getDriver() {
         return driver;
+    }
+
+    @Override
+    public String getTextUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+        return tool.driver.findElement(By.cssSelector(cssSelector)).getText();
+    }
+
+    @Override
+    public String getTextUsingId(AutomationTool tool, String Id) throws Exception {
+        return tool.driver.findElement(By.id(Id)).getText();
+    }
+
+    @Override
+    public String getTextUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath)).getText();
     }
 
     @Override
@@ -167,46 +261,6 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void clickUsingXPath(AutomationTool tool, String xpath) throws Exception {
-        tool.driver.findElement(By.xpath(xpath)).click();
-    }
-
-    @Override
-    public String getTextUsingXPath(AutomationTool tool, String xpath) throws Exception {
-        return tool.driver.findElement(By.xpath(xpath)).getText();
-    }
-
-    @Override
-    public String getTextUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
-        return tool.driver.findElement(By.cssSelector(cssSelector)).getText();
-    }
-
-    @Override
-    public String getAttributeUsingId(AutomationTool tool, String id, String attribute) throws Exception {
-        return tool.driver.findElement(By.id(id)).getAttribute(attribute);
-    }
-
-    @Override
-    public void clickUsingID(AutomationTool tool, String id) throws Exception {
-        tool.driver.findElement(By.id(id)).click();
-    }
-
-    @Override
-    public void clickUsingName(AutomationTool tool, String name) throws Exception {
-        tool.driver.findElement(By.name(name)).click();
-    }
-
-    @Override
-    public void clickUsingTagName(AutomationTool tool, String tagName) throws Exception {
-        tool.driver.findElement(By.tagName(tagName)).click();
-    }
-
-    @Override
-    public List<WebElement> searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
-        return tool.driver.findElements(By.tagName(tagName));
-    }
-
-    @Override
     public WebElement searchUsingID(AutomationTool tool, String id) throws Exception {
         return tool.driver.findElement(By.id(id));
     }
@@ -217,42 +271,27 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void clickUsingLinkText(AutomationTool tool, String linkText) throws Exception {
-        tool.driver.findElement(By.linkText(linkText)).click();
+    public List<WebElement> searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
+        return tool.driver.findElements(By.tagName(tagName));
     }
 
     @Override
-    public void clickUsingPartialLinkText(AutomationTool tool, String partialLinkText) throws Exception {
-        tool.driver.findElement(By.partialLinkText(partialLinkText)).click();
+    public void switchTo(AutomationTool tool) throws Exception {
+        tool.driver.switchTo().defaultContent();
     }
 
     @Override
-    public void clickUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
-        tool.driver.findElement(By.cssSelector(cssSelector)).click();
+    public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
+        tool.driver.switchTo().window(windowHandle);
     }
 
     @Override
-    public void enterStringUsingId(AutomationTool tool, String id, String data) throws Exception {
-        tool.driver.findElement(By.id(id)).clear();
-        tool.driver.findElement(By.id(id)).sendKeys(data);
+    public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
+        tool.driver.switchTo().frame(webElement);
     }
 
     @Override
-    public void enterStringUsingName(AutomationTool tool, String name, String data) throws Exception {
-        tool.driver.findElement(By.name(name)).clear();
-        tool.driver.findElement(By.name(name)).sendKeys(data);
+    public void quit(AutomationTool tool) throws Exception {
+        tool.driver.quit();
     }
-
-    @Override
-    public void enterStringUsingXPath(AutomationTool tool, String xpath, String data) throws Exception {
-        tool.driver.findElement(By.xpath(xpath)).clear();
-        tool.driver.findElement(By.xpath(xpath)).sendKeys(data);
-    }
-
-    @Override
-    public void enterStringUsingCssSelector(AutomationTool tool, String cssSelector, String data) throws Exception {
-        tool.driver.findElement(By.cssSelector(cssSelector)).clear();
-        tool.driver.findElement(By.cssSelector(cssSelector)).sendKeys(data);
-    }
-
 }

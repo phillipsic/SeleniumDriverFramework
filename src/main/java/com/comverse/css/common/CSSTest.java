@@ -20,19 +20,19 @@ public class CSSTest extends Main {
 
     public void launchCSSApplication() throws Exception {
         application.setVersion(tool);
-        tool.driver.get(application.appURL());
+        tool.get(tool, application.appURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
     }
 
     public void launchAnotherCSSApplication(Application application2) throws Exception {
-        tool.driver.get(application2.appURL());
+        tool.get(tool, application2.appURL());
         Thread.sleep(1000);
     }
 
     public void launchCSSApplicationAndSSOLogin() throws Exception {
-        tool.driver.get(application.appURL());
+        tool.get(tool, application.appURL());
         loginSSOUser();
         application.setVersion(tool);
         tool.driver.navigate().back();
@@ -46,7 +46,7 @@ public class CSSTest extends Main {
         application.setVersion(tool);
         // Launch OCM with Direct URL
         application.setMainURLKey(application.getDirectURLKey());
-        tool.driver.get(application.appOCMURL());
+        tool.get(tool, application.appOCMURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
@@ -55,16 +55,16 @@ public class CSSTest extends Main {
     public void launchOCMApplication() throws Exception {
         // Launch OCM with Direct URL
         application.setMainURLKey(application.getDirectURLKey());
-        tool.driver.get(application.appOCMURL());
+        tool.get(tool, application.appOCMURL());
     }
 
     public void launchSecurityApplication() throws Exception {
         application.setVersion(tool);
-        tool.driver.get(application.appFullURL());
+        tool.get(tool, application.appFullURL());
     }
 
     public void launchOTGApplication() throws Exception {
-        tool.driver.get(application.appFullURL());
+        tool.get(tool, application.appFullURL());
         Thread.sleep(4000);
     }
 }

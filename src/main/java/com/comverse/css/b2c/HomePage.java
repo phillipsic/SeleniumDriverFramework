@@ -4,7 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.Application;
@@ -15,17 +14,15 @@ import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 
 public class HomePage extends B2CMenu {
-
     Prep preparation;
 
-    public HomePage(AutomationTool tool, Test test, User user) {
+    public HomePage(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Myshape Consumer";
 
         if (!expectedScreen.equals(currentScreen)) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
         System.out.println(">>" + currentScreen);
@@ -41,51 +38,43 @@ public class HomePage extends B2CMenu {
 
     public void enterUsername(String username) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "login", username);
 
     }
 
     public void enterPassword(String password) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "password", password);
     }
 
     public void enterOldPassword(String password) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "password_old", password);
     }
 
     public void enterNewPassword(String password) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "password_new", password);
     }
 
     public void enterNewConfirmPassword(String password) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "password_verify", password);
     }
 
     public void enterChangePasswordSecretAnswer(String secretanswer) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "secretAnswer", secretanswer);
     }
 
     public void enterConfirmPassword(String password) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "confirm_password", password);
 
     }
 
     public void enterSecretAnswer(String secretanswer) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "secret_answer", secretanswer);
 
     }
@@ -185,14 +174,12 @@ public class HomePage extends B2CMenu {
 
     public void enterLastName(String lastname) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "customer_last_name", lastname);
 
     }
 
     public void enterAccountNumber(String accountnumber) throws Exception {
 
-        
         tool.enterStringUsingName(tool, "customer_reference", accountnumber);
 
     }
@@ -210,7 +197,7 @@ public class HomePage extends B2CMenu {
     }
 
     public String getMessageFromTheSignMeUpPage() throws Exception {
-        System.out.println(">>" + tool.driver.findElement(By.cssSelector("span")).getText());
+        System.out.println(">>" + tool.getTextUsingCssSelector(tool, "span"));
         return tool.getTextUsingCssSelector(tool, "span");
 
     }
@@ -221,13 +208,12 @@ public class HomePage extends B2CMenu {
 
     public void enterLogin(String login) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "login", login);
 
     }
 
     public String getSuccesfulSignMeUpMessage() throws Exception {
-        System.out.println(">>" + tool.driver.findElement(By.cssSelector("span")).getText());
+        System.out.println(">>" + tool.getTextUsingCssSelector(tool, "span"));
         return tool.getTextUsingCssSelector(tool, "span");
 
     }
@@ -237,7 +223,7 @@ public class HomePage extends B2CMenu {
         String TelcoAdmin_password = preparation.readUsersPasswordFromIniFile("TelcoAdmin");
         String TelcoAdmin_login = preparation.readUsersUserNameFromIniFile("TelcoAdmin");
 
-        tool.driver.get(application.appURL() + "jfn?entry=admin_login");
+        tool.get(tool, application.appURL() + "jfn?entry=admin_login");
 
         this.enterLogin(TelcoAdmin_login);
         this.enterPassword(TelcoAdmin_password);

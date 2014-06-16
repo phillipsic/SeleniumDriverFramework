@@ -9,9 +9,9 @@ import com.comverse.css.common.Common;
 
 public class ConfigureBalance extends B2CMenu {
 
-    public ConfigureBalance(AutomationTool tool, Test test, User user) {
+    public ConfigureBalance(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Configure Balance";
 
         if (!expectedScreen.equals(currentScreen)) {

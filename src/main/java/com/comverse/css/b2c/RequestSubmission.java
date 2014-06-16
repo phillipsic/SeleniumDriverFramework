@@ -10,13 +10,13 @@ import com.comverse.common.User;
 
 public class RequestSubmission extends B2CMenu {
 
-    public RequestSubmission(AutomationTool tool, Test test, User user) {
+    public RequestSubmission(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Request Submission";
 
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }

@@ -12,7 +12,7 @@ public class ModifyEmployeeContactCommon extends CommonMenu {
     public ModifyEmployeeContactCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Change Contact Information";
 
         if (!expectedScreen.equals(currentScreen)) {

@@ -9,7 +9,7 @@ public class ViewRechargeDetailsCommon extends CommonMenu {
     public ViewRechargeDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "View Recharge Details";
 
         if (!expectedScreen.equals(currentScreen)) {

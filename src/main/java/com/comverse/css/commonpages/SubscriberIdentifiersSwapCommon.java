@@ -14,8 +14,8 @@ public class SubscriberIdentifiersSwapCommon extends CommonMenu {
 
     public SubscriberIdentifiersSwapCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
-        if (!expectedScreen.equals(tool.driver.getTitle())) {
+        String currentScreen = tool.getTitle(tool);
+        if (!expectedScreen.equals(tool.getTitle(tool))) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
@@ -32,7 +32,7 @@ public class SubscriberIdentifiersSwapCommon extends CommonMenu {
     public void clickSwapButton(String firstDelimiterString, String secondDelimiterString) throws Exception {
         String tempString[];
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        String pageSource = tool.driver.getPageSource();
+        String pageSource = tool.getPageSource(tool);
 
         tempString = pageSource.split(firstDelimiterString);
         tempString = tempString[1].split(secondDelimiterString);

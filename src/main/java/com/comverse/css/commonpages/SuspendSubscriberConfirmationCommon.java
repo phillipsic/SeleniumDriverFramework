@@ -9,7 +9,7 @@ public class SuspendSubscriberConfirmationCommon extends CommonMenu {
 
     public SuspendSubscriberConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Suspend subscriber - Confirmation";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);

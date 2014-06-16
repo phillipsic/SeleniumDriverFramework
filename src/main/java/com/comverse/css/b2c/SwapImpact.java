@@ -11,10 +11,10 @@ import com.comverse.css.common.Common;
 
 public class SwapImpact extends B2CMenu {
 
-    public SwapImpact(AutomationTool tool, Test test, User user) {
+    public SwapImpact(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Swap Impact";
 
         if (!expectedScreen.equals(currentScreen)) {

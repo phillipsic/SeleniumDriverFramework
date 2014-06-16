@@ -32,7 +32,7 @@ public class SFAMenu extends SFATest {
 
     public sfaB2BLead clickNavigationB2BLead() throws Exception {
 
-        if (!driver.findElement(By.xpath("//div[contains(text(), 'B2B Leads')]")).isDisplayed()) {
+        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'B2B Leads')]")).isDisplayed()) {
             tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'B2B Leads')]");
@@ -41,7 +41,7 @@ public class SFAMenu extends SFATest {
 
     public sfaB2CLead clickNavigationB2CLead() throws Exception {
 
-        if (!driver.findElement(By.xpath("//div[contains(text(), 'B2C Leads')]")).isDisplayed()) {
+        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'B2C Leads')]")).isDisplayed()) {
             tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'B2C Leads')]");
@@ -50,7 +50,7 @@ public class SFAMenu extends SFATest {
 
     public sfaAdminJobList clickNavigationJobList() throws Exception {
 
-        if (!driver.findElement(By.xpath("//div[contains(text(), 'Job List')]")).isDisplayed()) {
+        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'Job List')]")).isDisplayed()) {
             tool.clickUsingID(tool, "toggle_$dkat0h_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'Job List')]");
@@ -58,7 +58,7 @@ public class SFAMenu extends SFATest {
     }
 
     public sfaOpportunity clickNavigationOpportunity() throws Exception {
-        if (!driver.findElement(By.xpath("//div[contains(text(), 'Opportunities')]")).isDisplayed()) {
+        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'Opportunities')]")).isDisplayed()) {
             tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'Opportunities')]");
@@ -66,7 +66,7 @@ public class SFAMenu extends SFATest {
     }
 
     public void enterFindText(String OrgName) throws Exception {
-        String htmlSource = tool.driver.getPageSource();
+        String htmlSource = tool.getPageSource(tool);
         String temp[];
 
         temp = htmlSource.split("Enter text");
@@ -81,7 +81,7 @@ public class SFAMenu extends SFATest {
 
     public void selectFindType(String value) throws Exception {
 
-        String htmlSource = tool.driver.getPageSource();
+        String htmlSource = tool.getPageSource(tool);
         String temp[];
 
         temp = htmlSource.split("Select One");

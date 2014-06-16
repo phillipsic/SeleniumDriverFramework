@@ -13,7 +13,7 @@ public class LevelLegalContactCommon extends CommonMenu {
     public LevelLegalContactCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.driver.getTitle();
+        String currentScreen = tool.getTitle(tool);
         String expectedScreen = "Level Legal Contact";
 
         if (!expectedScreen.equals(currentScreen)) {
