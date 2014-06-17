@@ -2,7 +2,6 @@ package com.comverse.css.csr.uam;
 
 import com.comverse.common.User;
 import com.comverse.css.OCM.LoginPage;
-import com.comverse.css.OCM.OCMApplication;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
@@ -15,7 +14,6 @@ import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
-import com.comverse.data.users.OCMPub;
 import com.comverse.data.users.TelcoAdmin;
 import com.comverse.sec.ComverseOneSingleSignOn;
 
