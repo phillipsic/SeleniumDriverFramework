@@ -9,7 +9,7 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.data.AO.AO_DataWebMoneytaryChargingServices;
+import com.comverse.css.data.AO.AO_DIYeDirectShopping;
 import com.comverse.data.apps.B2B;
 import com.comverse.data.users.B2BAdmin;
 
@@ -29,7 +29,7 @@ public class BAM0110_Reconfigure_account_selective_offers extends CSSTest {
     public void testBAM0110_Reconfigure_account_selective_offers() throws Exception {
         try {
             launchCSSApplication();
-            AO_DataWebMoneytaryChargingServices accountOffer = new AO_DataWebMoneytaryChargingServices();
+            AO_DIYeDirectShopping accountOffer = new AO_DIYeDirectShopping();
             MyshapeBusiness loginPage = new MyshapeBusiness(tool, test, user);
             WorkSpace workSpace = loginPage.loginToB2B(user);
 
