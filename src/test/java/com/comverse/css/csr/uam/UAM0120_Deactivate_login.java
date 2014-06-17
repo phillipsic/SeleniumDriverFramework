@@ -4,6 +4,8 @@
  */
 package com.comverse.css.csr.uam;
 
+import com.comverse.common.User;
+import com.comverse.css.OCM.LoginPage;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
@@ -17,8 +19,10 @@ import com.comverse.css.common.Prep;
 import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.TelcoAdmin;
+import static org.junit.Assert.assertEquals;
 
 public class UAM0120_Deactivate_login extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -35,23 +39,30 @@ public class UAM0120_Deactivate_login extends CSSTest {
         try {
             launchCSSApplicationAndSSOLogin();
             String uniqueCode = Common.generateTimeStamp();
-            String role = "OCM Publisher";
 
-            WelcomeToYourPersonalizedWorkspace personalizedWorkSpace = new WelcomeToYourPersonalizedWorkspace(tool, test, user);
-            ViewHierarchy viewHierarchy = personalizedWorkSpace.clickManageTelco();
+            WorkSpace workSpace = new WorkSpace(tool, test, user);
+            ViewHierarchy viewHierarchy = workSpace.clickManageTelco();
 
-            viewHierarchy.addEmployee(uniqueCode, role);
+            User OCMUser = viewHierarchy.addOCMPublisherEmployee(uniqueCode);
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
             assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
             assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals(role, loginInformation.getCurrentRoleFromPage());
+            assertEquals(OCMUser.getRole(), loginInformation.getCurrentRoleFromPage());
 
             DeactivateLogin deactivateLogin = loginInformation.clickDeactivateLogin();
             deactivateLogin.clickConfirm();
 
             loginInformation.clickLogoutExpectingSSO();
+
+            launchOCMApplication();
+            LoginPage loginPage = new LoginPage(tool, test, OCMUser);
+            loginPage.loginToOCMAndFail(OCMUser);
+
+            Common.assertTextOnPage(tool, "User is disabled");
+
+            test.setResult("pass");
 
         } catch (AlreadyRunException e) {
         } catch (Exception e) {

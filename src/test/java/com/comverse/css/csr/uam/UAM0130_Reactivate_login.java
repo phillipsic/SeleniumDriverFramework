@@ -1,10 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.comverse.css.csr.uam;
 
-import static org.junit.Assert.assertEquals;
+import com.comverse.common.User;
+import com.comverse.css.OCM.LoginPage;
 
 import org.junit.After;
 import org.junit.Before;
@@ -17,11 +14,13 @@ import com.comverse.css.common.Prep;
 import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.TelcoAdmin;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author mkumar
  */
 public class UAM0130_Reactivate_login extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -38,45 +37,47 @@ public class UAM0130_Reactivate_login extends CSSTest {
         try {
             launchCSSApplicationAndSSOLogin();
             String uniqueCode = Common.generateTimeStamp();
-            String role = "OCM Publisher";
 
-            WelcomeToYourPersonalizedWorkspace personalizedWorkSpace = new WelcomeToYourPersonalizedWorkspace(tool, test, user);
-            ViewHierarchy viewHierarchy = personalizedWorkSpace.clickManageTelco();
+            WorkSpace workSpace = new WorkSpace(tool, test, user);
+            ViewHierarchy viewHierarchy = workSpace.clickManageTelco();
 
-            viewHierarchy.addEmployee(uniqueCode, role);
+            User OCMUser = viewHierarchy.addOCMPublisherEmployee(uniqueCode);
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
             assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
             assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals(role, loginInformation.getCurrentRoleFromPage());
+            assertEquals(OCMUser.getRole(), loginInformation.getCurrentRoleFromPage());
 
             DeactivateLogin deactivateLogin = loginInformation.clickDeactivateLogin();
             deactivateLogin.clickConfirm();
 
             loginInformation.clickLogoutExpectingSSO();
 
-            launchCSSApplicationAndSSOLogin();
-            viewHierarchy = personalizedWorkSpace.clickManageTelco();
+            launchOCMApplication();
+            LoginPage loginPage = new LoginPage(tool, test, OCMUser);
+            loginPage.loginToOCMAndFail(OCMUser);
 
-            viewHierarchy.clickWeeklyLevel();
+            Common.assertTextOnPage(tool, "User is disabled");
+
+            launchCSSApplicationAndSSOLogin();
+            viewHierarchy = workSpace.clickManageTelco();
+
             contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
             loginInformation = contactInformation.clickViewLoginInformationLink();
-
             ActivateLogin activateLogin = loginInformation.clickActivateLogin();
-            activateLogin.clickConfirm();
-            // ChangePassword changePassword = unlockDone.clickChangePassword();
 
-            // changePassword.setYourPassword(preparation.readUsersPasswordFromIniFile("TelcoAdmin"));
-            // ModifyLoginPassword modifyLoginPassword =
-            // changePassword.clickChange();
-            // modifyLoginPassword.clickOk();
-            // String newPassword = modifyLoginPassword.getNewPassword();
-            // modifyLoginPassword.clickLogoutExpectingSSO();
+            LoginActivated loginActivated = activateLogin.clickConfirmExpectingLoginActivated();
+            ModifyLoginPassword modifyLoginPassword = loginActivated.clickChangePassword();
+            modifyLoginPassword.clickOk();
+            OCMUser.setNewPassword(modifyLoginPassword.getNewPassword());
 
-            // myshapeCSRPortal.successfulLogin(uniqueCode, newPassword);
-            //
-            // test.setResult("pass");
+            modifyLoginPassword.clickLogoutExpectingSSO();
+
+            launchOCMApplication();
+            loginPage.loginToOCMAndChangePassword(OCMUser);
+
+            test.setResult("pass");
 
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
