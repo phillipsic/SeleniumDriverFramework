@@ -24,10 +24,10 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
         }
     }
 
-    public EnterIdentificationDataCommon clickConfirm() throws Exception {
+    public CustomerAcquisitionCustomerDataReviewCommon clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
-        return new EnterIdentificationDataCommon(tool, test, user);
+        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
     }
 
     public void setBillingBillDispatchMethod(String SocialSecurityNumber) throws Exception {
@@ -40,14 +40,19 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
         tool.enterStringUsingId(tool, "p-param-L4:91300", PurchaseOrder);
     }
 
-    public void setBillingExchangeRateClass(String SalesCode) throws Exception {
+    public void setBillingExchangeRateClass(String rateClass) throws Exception {
 
-        tool.enterStringUsingId(tool, "p-param-L4:91380", SalesCode);
+        tool.selectVisibleTextByID(tool, "p-param-L4:91520", rateClass);
+    }
+
+    public void setRateClass(String rateClass) throws Exception {
+
+        tool.enterStringUsingId(tool, "p-param-L4:91520", rateClass);
     }
 
     public void setBillingTML(String BillingTML) throws Exception {
 
-        tool.clickUsingID(tool, "p-param-L4:81270" + BillingTML);
+        tool.enterStringUsingId(tool, "p-param-L4:81280", BillingTML);
     }
 
     public void setBillingVIPCode(String SICCode) throws Exception {
@@ -58,6 +63,11 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
     public void setBillingBillPeriod(String SICCode) throws Exception {
 
         tool.enterStringUsingId(tool, "p-param-L4:81010", SICCode);
+    }
+
+    public void setMarketCode(String marketCode) throws Exception {
+
+        tool.selectVisibleTextByID(tool, "p-param-L4:80060", marketCode);
     }
 
 }
