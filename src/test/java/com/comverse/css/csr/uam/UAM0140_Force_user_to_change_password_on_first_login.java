@@ -16,8 +16,11 @@ import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.OCMPub;
 import com.comverse.data.users.TelcoAdmin;
+import com.comverse.sec.ComverseOneSingleSignOn;
+import static org.junit.Assert.assertEquals;
 
 public class UAM0140_Force_user_to_change_password_on_first_login extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -34,55 +37,19 @@ public class UAM0140_Force_user_to_change_password_on_first_login extends CSSTes
         try {
             launchCSSApplicationAndSSOLogin();
             String uniqueCode = Common.generateTimeStamp();
-            String role = "OCM Publisher";
 
-            WelcomeToYourPersonalizedWorkspace personalizedWorkSpace = new WelcomeToYourPersonalizedWorkspace(tool, test, user);
-            ViewHierarchy viewHierarchy = personalizedWorkSpace.clickManageTelco();
+            WorkSpace workSpace = new WorkSpace(tool, test, user);
+            ViewHierarchy viewHierarchy = workSpace.clickManageTelco();
 
-            String tempPassword = viewHierarchy.addEmployee(uniqueCode, role);
+            User OCMUser = viewHierarchy.addOCMPublisherEmployee(uniqueCode);
 
-            ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
-            LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals(role, loginInformation.getCurrentRoleFromPage());
-            loginInformation.clickLogoutExpectingSSO();
+            ComverseOneSingleSignOn comverseOneSingleSignOn = viewHierarchy.clickLogoutExpectingSSO();
 
             launchOCMApplication();
-            LoginPage loginPage = new LoginPage(tool, test, user);
-            User user2 = new OCMPub();
-            user2.setNewLogin(uniqueCode);
-            user2.setNewPassword(tempPassword);
-            loginPage.loginToOCM(user2);
-            // OCMApplication
-            // myshapeCSRPortal.successfulLogin(uniqueCode, tempPassword);
-            //
-            // myshapeCSRPortal.setYourPassword(tempPassword);
-            // myshapeCSRPortal.setNewPassword("Passw0rd!");
-            // myshapeCSRPortal.setConfirmNewPassword("Passw0rd!");
-            // myshapeCSRPortal.setSecretAnswer("Passw0rd!");
-            // WorkSpace workSpace = myshapeCSRPortal.clickChange();
-            // myshapeCSRPortal = workSpace.clickLogout();
-            launchCSSApplicationAndSSOLogin();
-            viewHierarchy = personalizedWorkSpace.clickManageTelco();
+            LoginPage loginPage = new LoginPage(tool, test, OCMUser);
+            loginPage.loginToOCMAndChangePassword(OCMUser);
 
-            contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            loginInformation = contactInformation.clickViewLoginInformationLink();
-
-            ConfirmChangePassword confirmChangePassword = loginInformation.clickChangePasswordOnFirstLogin();
-
-            confirmChangePassword.clickOk();
-            loginInformation.clickLogoutExpectingSSO();
-
-            //
-            // myshapeCSRPortal.successfulLogin(uniqueCode, "Passw0rd!");
-            // myshapeCSRPortal.setYourPassword("Passw0rd!");
-            // myshapeCSRPortal.setNewPassword("AbCd3gf!");
-            // myshapeCSRPortal.setConfirmNewPassword("AbCd3gf!");
-            // myshapeCSRPortal.setSecretAnswer("AbCd3gf!");
-            // workSpace = myshapeCSRPortal.clickChange();
-
-            // test.setResult("pass");
+            test.setResult("pass");
 
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
