@@ -30,7 +30,7 @@ public class HomePage extends B2CMenu {
 
     public CustomerPrerequisite selectUSDCurrency() throws Exception {
 
-        new Select(tool.searchUsingName(tool, "currency")).selectByVisibleText("USD");
+        tool.selectVisibleTextByName(tool, "currency", "USD");
         tool.clickUsingName(tool, "submit");
 
         return new CustomerPrerequisite(tool, test, user);

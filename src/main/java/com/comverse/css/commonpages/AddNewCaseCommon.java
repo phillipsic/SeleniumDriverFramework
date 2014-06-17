@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -18,48 +16,31 @@ public class AddNewCaseCommon extends CommonMenu {
 
         // Check that we're on the right page.
         if (!"Add case".equals(tool.getTitle(tool))) {
-
             throw new IllegalStateException("This is not the Add case page");
         }
     }
 
     public void selectCaseType(String caseType) throws Exception {
-
-        // new
-        // Select(tool.searchUsingID(tool, "categoryId")).selectByVisibleText(caseType);
-
-        Select select = new Select(tool.searchUsingID(tool, "categoryId"));
-        // select.deselectAll();
-        select.selectByVisibleText(caseType);
-
+        tool.selectVisibleTextByID(tool, "categoryId", caseType);
     }
 
     public void selectCaseProblemArea(String problemArea) throws Exception {
-
         tool.selectVisibleTextByID(tool, "subCategoryId", problemArea);
-
     }
 
     public void enterCaseDescription(String caseDescription) throws Exception {
-
-        
         tool.enterStringUsingId(tool, "description", caseDescription);
     }
 
     public void selectNoteType(String noteType) throws Exception {
-
         tool.selectVisibleTextByID(tool, "noteType", noteType);
-
     }
 
     public void enterNoteDescription(String noteDescription) throws Exception {
-
-        
         tool.enterStringUsingId(tool, "note", noteDescription);
     }
 
     public AddCaseReviewCommon clickContinue() throws Exception {
-
         tool.clickUsingName(tool, "ok");
         return new AddCaseReviewCommon(tool, test, user);
     }
