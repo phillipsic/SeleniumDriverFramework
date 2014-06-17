@@ -69,7 +69,7 @@ public class SignUpUser extends B2CMenu {
 
     public void selectState(String state) throws Exception {
 
-        new Select(tool.searchUsingName(tool, "state")).selectByVisibleText(state);
+        tool.selectVisibleTextByName(tool, "state", state);
 
     }
 
@@ -119,7 +119,7 @@ public class SignUpUser extends B2CMenu {
 
     public void selectSecretQuestion(String secretQuestion) throws Exception {
 
-        new Select(tool.searchUsingName(tool, "secret_question")).selectByVisibleText(secretQuestion);
+        tool.selectVisibleTextByName(tool, "secret_question", secretQuestion);
 
     }
 
@@ -216,7 +216,7 @@ public class SignUpUser extends B2CMenu {
 
     public void selectBillingState(String state) throws Exception {
 
-        new Select(tool.searchUsingName(tool, "billingState")).selectByVisibleText(state);
+        tool.selectVisibleTextByName(tool, "billingState", state);
 
     }
 
