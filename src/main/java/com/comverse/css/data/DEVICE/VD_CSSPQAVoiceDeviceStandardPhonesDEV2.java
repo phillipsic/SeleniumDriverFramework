@@ -1,4 +1,4 @@
-package com.comverse.css.data.DEV;
+package com.comverse.css.data.DEVICE;
 import com.comverse.css.data.Device;
 public class VD_CSSPQAVoiceDeviceStandardPhonesDEV2 extends Device {
 

@@ -11,6 +11,7 @@ import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.data.apps.B2B;
 import com.comverse.data.users.B2BAdmin;
+import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
 
 public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();

@@ -1,4 +1,4 @@
-package com.comverse.css.data.DEV;
+package com.comverse.css.data.DEVICE;
 import com.comverse.css.data.Device;
 public class DD_CSSPQADataDeviceSmartPhonesDEV7 extends Device {
 

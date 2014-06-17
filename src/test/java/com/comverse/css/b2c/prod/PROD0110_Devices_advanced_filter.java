@@ -11,8 +11,8 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.data.DEV.DD_CSSPQADataDeviceSmartPhonesDEV3;
-import com.comverse.css.data.DEV.DD_CSSPQADataDeviceSmartPhonesDEV4;
+import com.comverse.css.data.DEVICE.DD_CSSPQADataDeviceSmartPhonesDEV3;
+import com.comverse.css.data.DEVICE.DD_CSSPQADataDeviceSmartPhonesDEV4;
 import com.comverse.data.apps.B2C;
 
 public class PROD0110_Devices_advanced_filter extends CSSTest {

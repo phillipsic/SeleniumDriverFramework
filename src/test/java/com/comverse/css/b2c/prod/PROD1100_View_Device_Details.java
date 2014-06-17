@@ -12,7 +12,7 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.data.DEV.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
+import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
 import com.comverse.data.apps.B2C;
 
 public class PROD1100_View_Device_Details extends CSSTest {

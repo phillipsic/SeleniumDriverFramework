@@ -9,12 +9,12 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.data.ACC.ACC_CSSPQABatteryPhoneACC1;
-import com.comverse.css.data.DEV.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
+import com.comverse.css.data.ACCESSORY.ACC_CSSPQABatteryPhoneACC1;
+import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
 import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
 import com.comverse.css.data.SO.SO_DIYeCountdownExtra;
 import com.comverse.data.apps.B2C;
-import com.comverse.css.data.DEV.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
+import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
 
 public class SHMA0016_View_Basket extends CSSTest {
 

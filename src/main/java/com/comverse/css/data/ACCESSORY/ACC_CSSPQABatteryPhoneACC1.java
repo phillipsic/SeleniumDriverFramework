@@ -1,4 +1,4 @@
-package com.comverse.css.data.ACC;
+package com.comverse.css.data.ACCESSORY;
 import com.comverse.css.data.Accessory;
 
 public class ACC_CSSPQABatteryPhoneACC1 extends Accessory {
