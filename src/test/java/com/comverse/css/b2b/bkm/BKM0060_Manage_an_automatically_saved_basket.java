@@ -60,10 +60,9 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
             loginPage.clickHomePage();
 
             RestorePreviousBasket restorePreviousBasket = loginPage.loginToB2BWithPreviousBasket();
-
-            test.setBugId("CBS00163088");
+         
             myBasket = restorePreviousBasket.clickRestoreSavedBasket();
-            test.setBugId("NoBug");
+          
 
             // test fails at following line - Defect to be entered for 3.7.7 NOT
             // 3.7.6
