@@ -1,5 +1,6 @@
 package com.comverse.css.csr.uam;
 
+import com.comverse.common.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,9 +11,11 @@ import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
+import com.comverse.data.users.OCMPub;
 import com.comverse.data.users.TelcoAdmin;
 
 public class UAM0080_Register_login extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -29,37 +32,27 @@ public class UAM0080_Register_login extends CSSTest {
         try {
             launchCSSApplicationAndSSOLogin();
             String uniqueCode = Common.generateTimeStamp();
-            // String role = "OCM Publisher";
 
-            WelcomeToYourPersonalizedWorkspace personalizedWorkSpace = new WelcomeToYourPersonalizedWorkspace(tool, test, user);
-            ViewHierarchy viewHierarchy = personalizedWorkSpace.clickManageTelco();
+            WorkSpace workSpace = new WorkSpace(tool, test, user);
+            ViewHierarchy viewHierarchy = workSpace.clickManageTelco();
 
-            // NewMemberLegalAddress newMemberLegalAddress = viewHierarchy.();
+            User OCMPubUser = new OCMPub();
+            NewMemberLegalAddress newMemberLegalAddress = viewHierarchy.clickAddEmployeeOCM();
+            newMemberLegalAddress.setFirstName("FN" + uniqueCode);
+            newMemberLegalAddress.setLastName("LN" + uniqueCode);
+            Login login = newMemberLegalAddress.clickContinue();
+            login.enterLogin(uniqueCode);
+            OCMPubUser.setNewLogin(uniqueCode);
 
-            // newMemberLegalAddress.setFirstName("FN" + uniqueCode);
-            // newMemberLegalAddress.setLastName("LN" + uniqueCode);
-            // Login login = newMemberLegalAddress.clickContinue();
-            // AddMemberConfirmation addMemberConfirmation =
-            // login.clickCreateLoginLater();
-            // AddMember addMember = addMemberConfirmation.clickOk();
-            // viewHierarchy = addMember.clickOk();
-            ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
+            login.setRoles(OCMPubUser.getRole());
 
-            RegisterLogin registerLogin = loginInformation.clickSetLogin();
-            registerLogin.setLogin(uniqueCode);
-            registerLogin.clickRadioButtonOCMUser();
+            AddMemberConfirmation addMemberConfirmation = login.clickContinue();
 
-            registerLogin = registerLogin.clickRegisterLoginContinue();
+            Common.assertTextOnPage(tool, "Login:  " + OCMPubUser.getLogin());
+            Common.assertTextOnPage(tool, "Roles: " + OCMPubUser.getRole());
 
-            loginInformation = registerLogin.clickConfirm();
-
-            loginInformation.getTempPasswordFromPage();
-            loginInformation.clickLogout();
-            // myshapeCSRPortal.successfulLogin(uniqueCode, password);
-
-            // test.setResult("pass");
-
+            test.setResult("pass");
+            
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
             verificationErrors.append(e.getMessage());
