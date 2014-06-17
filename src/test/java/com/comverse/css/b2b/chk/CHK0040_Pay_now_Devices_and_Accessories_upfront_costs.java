@@ -12,8 +12,10 @@ import com.comverse.css.common.Prep;
 import com.comverse.data.apps.B2B;
 import com.comverse.data.users.B2BAdmin;
 import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
+import com.comverse.css.data.ACCESSORY.ACC_CSSPQABatteryPhoneACC1;
 
 public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -29,6 +31,8 @@ public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTe
     public void testCHK0040_Pay_now_Devices_and_Accessories_upfront_costs() throws Exception {
 
         try {
+            VD_CSSPQAVoiceDeviceStandardPhonesDEV1 vd_CSSPQAVoiceDeviceStandardPhonesDEV1 = new VD_CSSPQAVoiceDeviceStandardPhonesDEV1();
+            ACC_CSSPQABatteryPhoneACC1 acc_CSSPQABatteryPhoneACC1 = new ACC_CSSPQABatteryPhoneACC1();
             launchCSSApplication();
 
             MyshapeBusiness loginPage = new MyshapeBusiness(tool, test, user);
@@ -37,17 +41,17 @@ public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTe
             AccountDetails accountDetails = workSpace.clickAccount();
             Shopping shopping = accountDetails.clickShopForDevicesAndAccessories();
 
-            MyBasket myBasket = shopping.selectHandset("CSS-PQA-VoiceDevice-StandardPhones-DEV1");
+            MyBasket myBasket = shopping.selectHandset(vd_CSSPQAVoiceDeviceStandardPhonesDEV1.getDeviceName());
 
             myBasket.clickContinueShopping();
             shopping.clickAccessoriesTab();
-            myBasket = shopping.selectAccessory("CSS-PQA-Battery-Phone-ACC1");
+            myBasket = shopping.selectAccessory(acc_CSSPQABatteryPhoneACC1.getAccessoryName());
 
-            Common.assertTextOnPage(tool, "CSS-PQA-VoiceDevice-StandardPhones-DEV1");
-            Common.assertTextOnPage(tool, "CSS-PQA-Battery-Phone-ACC1");
-            test.setBugId("CBS00153652");
+            Common.assertTextOnPage(tool, vd_CSSPQAVoiceDeviceStandardPhonesDEV1.getDeviceName());
+            Common.assertTextOnPage(tool, acc_CSSPQABatteryPhoneACC1.getAccessoryName());
+       
             myBasket.clickAcceptTermsAndConditions();
-            test.setBugId("NoBug");
+           
             CheckoutDeliveryAddress checkoutDeliveryAddress = myBasket.clickCheckOutWithGoods();
             CheckoutReview checkoutReview = checkoutDeliveryAddress.clickNextPage();
             ImmediatePayment immediatePayment = checkoutReview.clickConfirmWithGoods();
