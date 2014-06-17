@@ -51,7 +51,7 @@ public class sfaB2CLead extends SFAMenu {
     }
 
     String getB2CLeadType() throws Exception {
-        return new Select(tool.searchUsingID(tool, "Ircc1q4")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "Ircc1q4");
     }
 
     String getNewProspectFlag() throws Exception {
@@ -59,11 +59,11 @@ public class sfaB2CLead extends SFAMenu {
     }
 
     String getPriority() throws Exception {
-        return new Select(tool.searchUsingID(tool, "Ifn7a0g")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "Ifn7a0g");
     }
 
     String getStatus() throws Exception {
-        return new Select(tool.searchUsingID(tool, "I5nq7j6")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "I5nq7j6");
     }
 
     void openOfferList() throws Exception {

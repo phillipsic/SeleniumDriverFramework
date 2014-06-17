@@ -55,22 +55,21 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public String getResellerId() throws Exception {
-
-        return new Select(tool.searchUsingID(tool, "Igtpzy6")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "Igtpzy6");
     }
 
     public String getStatus() throws Exception {
-        return new Select(tool.searchUsingID(tool, "Iyoe69h")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "Iyoe69h");
     }
 
     public String getCustomerCategory() throws Exception {
-        return new Select(tool.searchUsingID(tool, "Iomthof")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "Iomthof");
     }
 
     public sfaContact clickNewContact(String mainWindow) throws Exception {
         tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_1"); // click
-                                                                                           // contact
-                                                                                           // tab
+        // contact
+        // tab
         tool.clickUsingID(tool, "Ab2u66_label"); // click New
 
         Common.sleepForNumberOfSeconds(3);
@@ -90,14 +89,14 @@ public class sfaOrganization extends SFAMenu {
     public sfaOrganization findOrganization(String orgName) throws Exception {
 
         tool.enterStringUsingId(tool, "Ih246r", orgName); // Set
-                                                          // organization
-                                                          // name
+        // organization
+        // name
         tool.clickUsingID(tool, "$2bdpj3_filterbutton"); // Click
-                                                         // Search
+        // Search
         Common.sleepForNumberOfSeconds(2);
         tool.clickUsingID(tool, "$2bdpj3_cell_0_0_Img"); // Click
-                                                         // View
-                                                         // detail
+        // View
+        // detail
 
         return new sfaOrganization(tool, test, user);
     }
@@ -106,14 +105,14 @@ public class sfaOrganization extends SFAMenu {
         String currentWindow = Common.getCurrentWindowHandle(tool);
 
         tool.enterStringUsingId(tool, "Isildl1", orgName); // Set
-                                                           // organization
-                                                           // name
+        // organization
+        // name
         tool.clickUsingID(tool, "$1pcspz_filterbutton"); // Click
-                                                         // Search
+        // Search
         Common.sleepForNumberOfSeconds(2);
         tool.clickUsingID(tool, "$1pcspz_singleSelectImage_0"); // Select
-                                                                // the
-                                                                // organization
+        // the
+        // organization
 
         Common.sleepForNumberOfSeconds(3);
 
@@ -126,14 +125,14 @@ public class sfaOrganization extends SFAMenu {
         String currentWindow = Common.getCurrentWindowHandle(tool);
 
         tool.enterStringUsingId(tool, "Iypr9j2", orgName); // Set
-                                                           // organization
-                                                           // name
+        // organization
+        // name
         tool.clickUsingID(tool, "$flh26m_filterbutton"); // Click
-                                                         // Search
+        // Search
         Common.sleepForNumberOfSeconds(2);
         tool.clickUsingID(tool, "$flh26m_singleSelectImage_0"); // Select
-                                                                // the
-                                                                // organization
+        // the
+        // organization
 
         Common.sleepForNumberOfSeconds(3);
 

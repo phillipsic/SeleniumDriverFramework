@@ -68,11 +68,11 @@ public class sfaB2BLead extends SFAMenu {
 
         tool.enterStringUsingId(tool, "Iaw2djm", b2bLeadName);
         tool.clickUsingID(tool, "$2mtu0_filterbutton"); // Click
-                                                        // Search
+        // Search
         Common.sleepForNumberOfSeconds(2);
         tool.clickUsingID(tool, "$2mtu0_cell_0_0_Img"); // Open
-                                                        // B2B
-                                                        // Lead
+        // B2B
+        // Lead
         Common.sleepForNumberOfSeconds(3);
     }
 
@@ -81,7 +81,7 @@ public class sfaB2BLead extends SFAMenu {
     }
 
     public String getPriceList() throws Exception {
-        return new Select(tool.searchUsingID(tool, "I8ea3x9")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "I8ea3x9");
     }
 
     public String getFirstProductName() throws Exception {

@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.comverse.sfa;
 
 import org.openqa.selenium.By;
@@ -85,11 +84,11 @@ public class sfaOpportunity extends SFAMenu {
 
         tool.enterStringUsingId(tool, "Ia9cw75", opportunityName);
         tool.clickUsingID(tool, "$xlphc4_filterbutton"); // Click
-                                                         // Search
+        // Search
         Common.sleepForNumberOfSeconds(2);
         tool.clickUsingID(tool, "$xlphc4_cell_0_0_Img"); // Open
-                                                         // the
-                                                         // opportunity
+        // the
+        // opportunity
         Common.sleepForNumberOfSeconds(3);
     }
 
@@ -98,7 +97,7 @@ public class sfaOpportunity extends SFAMenu {
     }
 
     String getPriceList() throws Exception {
-        return new Select(tool.searchUsingID(tool, "I4nxoi8")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "I4nxoi8");
     }
 
     String getFirstProductName() throws Exception {
