@@ -46,7 +46,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
         // temp = temp[0].split("<span>");
         // orderNumber = temp[1];
 
-        orderNumber = tool.getTextUsingXPath(tool, "//div[4]/div/div[2]/div/div/span[2]");
+        orderNumber = tool.getTextUsingXPath(tool, "//*[@id=\"mainContents\"]/div/div/div[2]/div/div/span[2]");
         System.out.println("Order Number = '" + orderNumber + "'");
         return orderNumber;
     }
