@@ -17,8 +17,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.comverse.css.common.PropertyHelper;
+import org.openqa.selenium.support.ui.Select;
 
 public class Selenium extends AutomationTool {
+
     private WebDriver driver;
 
     public Selenium() throws Exception {
@@ -228,8 +230,9 @@ public class Selenium extends AutomationTool {
     public void parseUserAgent(AutomationTool tool, Test test, String intBrowser) {
         String userAgent = (String) ((JavascriptExecutor) tool.driver).executeScript("return navigator.userAgent;");
 
-        if (test.getDebug())
+        if (test.getDebug()) {
             System.out.println("userAgent : " + userAgent);
+        }
 
         if (intBrowser.equalsIgnoreCase("IE")) {
             String delimiter = ";";
@@ -323,5 +326,10 @@ public class Selenium extends AutomationTool {
     @Override
     public void navigateRefresh(AutomationTool tool) throws Exception {
         tool.driver.navigate().refresh();
+    }
+
+    @Override
+    public void selectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
+        new Select(tool.driver.findElement(By.id(id))).selectByVisibleText(visibleText);
     }
 }
