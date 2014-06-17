@@ -332,4 +332,14 @@ public class Selenium extends AutomationTool {
     public void selectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
         new Select(tool.driver.findElement(By.id(id))).selectByVisibleText(visibleText);
     }
+
+    @Override
+    public String getSelectedTextByID(AutomationTool tool, String id) throws Exception {
+        return new Select(tool.driver.findElement(By.id(id))).getFirstSelectedOption().getText();
+    }
+
+    @Override
+    public void selectVisibleTextByName(AutomationTool tool, String name, String visibleText) throws Exception {
+        new Select(tool.driver.findElement(By.name(name))).selectByVisibleText(visibleText);
+    }
 }
