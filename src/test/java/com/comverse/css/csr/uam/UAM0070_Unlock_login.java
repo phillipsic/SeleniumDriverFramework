@@ -71,7 +71,7 @@ public class UAM0070_Unlock_login extends CSSTest {
             UnlockDone unlockDone = unlockLogin.clickConfirm();
 
             ModifyLoginPassword modifyLoginPassword = unlockDone.clickChangePassword();
-            unlockLogin = modifyLoginPassword.clickOk();
+            unlockLogin = modifyLoginPassword.clickOkToModifyPassword();
 
             OCMUser.setNewPassword(unlockLogin.getNewPassword());
             loginInformation = unlockLogin.clickOK();
