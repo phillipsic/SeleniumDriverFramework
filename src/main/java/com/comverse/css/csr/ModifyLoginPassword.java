@@ -22,9 +22,15 @@ public class ModifyLoginPassword extends ModifyLoginPasswordCommon {
         return new MyshapeCSRPortal(tool, test, user);
     }
 
-    @Override
-    public UnlockLogin clickOk() throws Exception {
+    public UnlockLogin clickOkToModifyPassword() throws Exception {
         super.clickOk();
         return new UnlockLogin(tool, test, user);
+    }
+
+    @Override
+    public String getNewPassword() throws Exception {
+
+        String password = super.getNewPassword();
+        return password.trim();
     }
 }
