@@ -57,32 +57,32 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setEmailAddress(String email) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "email", email);
     }
 
     public void setPhoneNumber(String phonenumber) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "home_phone", phonenumber);
     }
 
     public void setMobileNumber(String mobile_phone) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "mobile_phone", mobile_phone);
     }
 
     public void setFaxNumber(String fax) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "fax", fax);
     }
 
     public void setNationalID(String national_id) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "national_id", national_id);
     }
 
     public void setDateOfBirth(String date_of_birth) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "date_of_birth", date_of_birth);
     }
 
@@ -95,27 +95,27 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingFirstName(String billing_first_name) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "billing_first_name", billing_first_name);
     }
 
     public void setBusinessFirstName(String biz_first_name) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "first_name", biz_first_name);
     }
 
     public void setBillingLastName(String billing_last_name) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "billing_last_name", billing_last_name);
     }
 
     public void setBusinessLastName(String biz_last_name) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "last_name", biz_last_name);
     }
 
     public void setBillingStreetName(String billing_streetName) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "billing_streetName", billing_streetName);
     }
 
@@ -124,12 +124,12 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingStreetNumber(String billing_streetNumber) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "billing_streetNumber", billing_streetNumber);
     }
 
     public void enterBillingPostCode(String billing_zip_code) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "billing_zip_code", billing_zip_code);
     }
 
@@ -143,13 +143,11 @@ public class EnterIdentificationDataCommon extends CommonMenu {
 
     public void enterBillingCity(String billing_city) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "billing_city", billing_city);
     }
 
     public void enterBusinessPostCode(String billing_zip_code) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "home_zip", billing_zip_code);
     }
 
@@ -162,7 +160,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterBusinessCity(String billing_city) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "home_city", billing_city);
     }
 
@@ -171,17 +169,17 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setCustomerFirstName(String firstname) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "first_name", firstname);
     }
 
     public void setCustomerLastName(String lastname) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "last_name", lastname);
     }
 
     public void setCustomerStreetName(String streetName) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "streetName", streetName);
     }
 
@@ -190,7 +188,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setCustomerStreetNumber(String streetNumber) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "streetNumber", streetNumber);
     }
 
@@ -199,7 +197,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterCustomerPostCode(String postCode) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "home_zip", postCode);
     }
 
@@ -212,7 +210,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public String getCustomerHomeCountry() throws Exception {
-        return new Select(tool.searchUsingID(tool, "home_country")).getFirstSelectedOption().getText();
+        return tool.getSelectedTextByID(tool, "home_country");
     }
 
     public void enterCustomerHomeState(String homeState) throws Exception {
@@ -220,7 +218,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterCustomerCity(String city) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "home_city", city);
     }
 
@@ -233,17 +231,17 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setServiceFirstName(String service_first_name) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "service_first_name", service_first_name);
     }
 
     public void setServiceLastName(String service_last_name) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "service_last_name", service_last_name);
     }
 
     public void setServiceStreetName(String service_streetName) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "service_streetName", service_streetName);
     }
 
@@ -252,12 +250,12 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setServiceStreetNumber(String service_streetNumber) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "service_streetNumber", service_streetNumber);
     }
 
     public void enterServicePostCode(String service_home_zip) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "service_home_zip", service_home_zip);
     }
 
@@ -270,7 +268,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterServiceCity(String service_home_city) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "service_home_city", service_home_city);
     }
 
@@ -296,27 +294,27 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingCompanyName(String companyName) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "company_name", companyName);
     }
 
     public void setBankCode(String bankcode) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "p-L1:1-L3:1360", bankcode);
     }
 
     public void setBankAgencyCode(String bankagencycode) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "p-L1:1-L3:1370", bankagencycode);
     }
 
     public void setBankAccountNumber(String bankaccountnumber) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "p-L1:1-L3:1380", bankaccountnumber);
     }
 
     public void setBankLastName(String banklastname) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "p-L1:1-L3:1270", banklastname);
     }
 

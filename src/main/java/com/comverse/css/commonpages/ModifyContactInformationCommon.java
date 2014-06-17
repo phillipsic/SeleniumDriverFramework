@@ -65,9 +65,7 @@ public class ModifyContactInformationCommon extends CommonMenu {
     }
 
     public String getState() throws Exception {
-
-        return new Select(tool.searchUsingID(tool, "home_state")).getFirstSelectedOption().getText();
-
+        return tool.getSelectedTextByID(tool, "home_state");
     }
 
     public String getEmail() throws Exception {
@@ -92,55 +90,55 @@ public class ModifyContactInformationCommon extends CommonMenu {
     }
 
     public void enterFirstName(String FN) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "first_name", FN);
     }
 
     public void enterLastName(String lastName) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "last_name", lastName);
 
     }
 
     public void enterDayPhone(String dayPhone) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "home_phone", dayPhone);
 
     }
 
     public void enterEveningPhone(String eveningPhone) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "work_phone", eveningPhone);
 
     }
 
     public void enterEmail(String eMail) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "email", eMail);
     }
 
     public void enterPhoneNumber(String phoneNumber) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "home_phone", phoneNumber);
     }
 
     public void enterFaxNumber(String faxNumber) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "fax", faxNumber);
     }
 
     public void enterAddressLineOne(String addressLineOne) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "address_line_1", addressLineOne);
     }
 
     public void enterPostCode(String postCode) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "home_zip", postCode);
     }
 
     public void enterCity(String city) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "home_city", city);
     }
 
@@ -160,7 +158,6 @@ public class ModifyContactInformationCommon extends CommonMenu {
 
     public void setLevelName(String uniqueString) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "company_name", uniqueString);
     }
 
