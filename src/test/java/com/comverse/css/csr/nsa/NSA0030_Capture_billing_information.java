@@ -11,6 +11,7 @@ import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
 public class NSA0030_Capture_billing_information extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -43,19 +44,15 @@ public class NSA0030_Capture_billing_information extends CSSTest {
 
             UpdateAdministrativeAccountInformation updateAdministrativeAccountInformation = customerAcquisitionCustomerDataReview.clickBillingInformationEditButton();
 
-            updateAdministrativeAccountInformation.setBillingBillDispatchMethod("Print Bill on Paper");
-            updateAdministrativeAccountInformation.setBillingBillFormatOption("Convergent Invoice");
-            updateAdministrativeAccountInformation.setBillingExchangeRateClass("Exchange Rate 2");
-            updateAdministrativeAccountInformation.setBillingTML(account.getBillingTMLProperty());
-            updateAdministrativeAccountInformation.setBillingVIPCode("VIP");
-            updateAdministrativeAccountInformation.setBillingBillPeriod("Monthly - begin on 15th");
+            updateAdministrativeAccountInformation.setBillingExchangeRateClass("DIY - RateClass3");
+            updateAdministrativeAccountInformation.setMarketCode("Employee");
+            updateAdministrativeAccountInformation.setBillingTML("3.75");
 
             // EnterIdentificationData
-            // updateAdministrativeAccountInformation.clickConfirm();
-
-            Common.assertTextOnPage(tool, "Customer Acquisition - Customer Data Review");
+            customerAcquisitionCustomerDataReview = updateAdministrativeAccountInformation.clickConfirm();
 
             Shopping shopping = customerAcquisitionCustomerDataReview.clickContinue();
+
             shopping.filterSubscriberBundlePrimaryOfferByName(po_ResidentialUltraPostpaid15DiscountICB.getOfferName());
             shopping.clickSubscriberBundlePrimaryOfferName(po_ResidentialUltraPostpaid15DiscountICB.getOfferName());
             ConfigureBalance configureBalance = shopping.clickSelectOfferInPopUpWindowExpectingConfigureBalance();
