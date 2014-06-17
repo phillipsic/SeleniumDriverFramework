@@ -15,7 +15,7 @@ import com.comverse.css.csr.uam.*;
     UAM0060_Lock_login_manually.class,
     UAM0070_Unlock_login.class,
     UAM0080_Register_login.class,
-    UAM0100_Get_forgotten_password.class,
+    UAM0100_Get_my_forgotten_password.class,
     UAM0110_Change_password_on_first_login.class,
     UAM0120_Deactivate_login.class,
     UAM0130_Reactivate_login.class,
