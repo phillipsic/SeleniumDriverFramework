@@ -15,4 +15,11 @@ public class UpdateAdministrativeAccountInformation extends UpdateAdministrative
         super(tool, test, user);
     }
 
+    @Override
+    public CustomerAcquisitionCustomerDataReview clickConfirm() throws Exception {
+
+        super.clickConfirm();
+        return new CustomerAcquisitionCustomerDataReview(tool, test, user);
+    }
+
 }
