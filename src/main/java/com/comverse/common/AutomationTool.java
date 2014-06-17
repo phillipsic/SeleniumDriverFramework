@@ -121,5 +121,7 @@ public class AutomationTool extends Main {
     public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
         return false;
     }
+     public void selectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
+    }
 
 }
