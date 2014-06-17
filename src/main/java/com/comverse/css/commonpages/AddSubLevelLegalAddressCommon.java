@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -33,7 +31,7 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
 
     public void setLevelState(String levelState) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(levelState);
+        tool.selectVisibleTextByID(tool, "home_state", levelState);
         /*
          * 
          * tool.enterStringUsingId(tool, "home_state", levelState);

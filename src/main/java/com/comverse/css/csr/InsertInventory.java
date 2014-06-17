@@ -1,7 +1,5 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -24,7 +22,7 @@ public class InsertInventory extends CommonMenu {
 
     public void selectInventoryType(String inventoryType) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "inventoryType")).selectByVisibleText(inventoryType);
+        tool.selectVisibleTextByID(tool, "inventoryType", inventoryType);
         Common.sleepForNumberOfSeconds(10);
     }
 

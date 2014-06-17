@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -34,7 +32,7 @@ public class AddDepositCommon extends CommonMenu {
 
     public void setBalance(String balanceName) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "balance")).selectByVisibleText(balanceName);
+        tool.selectVisibleTextByID(tool, "balance", balanceName);
 
     }
 

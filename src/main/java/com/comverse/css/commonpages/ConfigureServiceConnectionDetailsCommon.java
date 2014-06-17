@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -36,7 +34,7 @@ public class ConfigureServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void selectTopLevelContainerType(String containerType) throws Exception {
-        new Select(tool.searchUsingID(tool, "p-advInvSearch-L4:17000")).selectByVisibleText(containerType);
+        tool.selectVisibleTextByID(tool, "p-advInvSearch-L4:17000", containerType);
     }
 
     public ServiceConnectionDetailsCommon clickOK() throws Exception {

@@ -1,7 +1,5 @@
 package com.comverse.css.csr;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -48,7 +46,7 @@ public class AddressAdd extends AddressAddCommon {
     @Override
 	public void selectCountry(String country) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "add_countryCode")).selectByVisibleText(country);
+        tool.selectVisibleTextByID(tool, "add_countryCode", country);
 
     }
 

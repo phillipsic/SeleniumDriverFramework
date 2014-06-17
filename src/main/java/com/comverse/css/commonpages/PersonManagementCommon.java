@@ -30,7 +30,7 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void selectTitle(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "title")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "title", value);
     }
 
     public void setFirstName(String value) throws Exception {
@@ -59,11 +59,11 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void selectCountry(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "country")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "country", value);
     }
 
     public void selectRegion(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "state")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "state", value);
     }
 
     public void selectFirstUserinDropDown() throws Exception {
@@ -210,7 +210,7 @@ public class PersonManagementCommon extends CommonMenu {
         // "custPerson")).selectByVisibleText(pers.getPersonFirstNameProperty()
         // + " "
         // + pers.getPersonLastNameProperty());
-        new Select(tool.searchUsingID(tool, "title")).selectByVisibleText("Mr.");
+        tool.selectVisibleTextByID(tool, "title", "Mr.");
         tool.enterStringUsingId(tool, "firstName", "test*");
         tool.clickUsingID(tool, "pm-button-search");
         final List<WebElement> radios = tool.driver.findElements(By.name("pfr-selected-person"));

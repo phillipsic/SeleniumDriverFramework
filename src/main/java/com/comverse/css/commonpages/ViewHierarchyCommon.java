@@ -2,8 +2,6 @@ package com.comverse.css.commonpages;
 
 import java.util.Calendar;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;

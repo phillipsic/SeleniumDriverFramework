@@ -4,8 +4,6 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -45,6 +43,6 @@ public class Login extends LoginCommon {
     }
 
     public void setRoles(String roles) throws Exception {
-        new Select(tool.searchUsingID(tool, "roles")).selectByVisibleText(roles);
+        tool.selectVisibleTextByID(tool, "roles", roles);
     }
 }

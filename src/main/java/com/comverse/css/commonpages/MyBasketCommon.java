@@ -133,7 +133,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void selectTitle(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "pm-field-title")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "pm-field-title", value);
     }
 
     public void setFirstName(String value) throws Exception {
@@ -162,11 +162,11 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void selectCountry(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "pm-field-country")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "pm-field-country", value);
     }
 
     public void selectRegion(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "pm-field-region")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "pm-field-region", value);
     }
 
     public void selectFirstUserinDropDown() throws Exception {

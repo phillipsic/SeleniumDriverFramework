@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -245,7 +243,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public void selectShadowOnly() throws Exception {
-        new Select(tool.searchUsingID(tool, "subscriberType")).selectByVisibleText("Shadow Only");
+        tool.selectVisibleTextByID(tool, "subscriberType", "Shadow Only");
     }
 
     public void checkIncludeInactiveSubscriberID() throws Exception {

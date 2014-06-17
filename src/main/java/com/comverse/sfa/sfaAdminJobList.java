@@ -1,7 +1,6 @@
 package com.comverse.sfa;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -30,16 +29,16 @@ public class sfaAdminJobList extends SFAMenu {
     }
 
     void selectJobType(String jobType) throws Exception {
-        new Select(tool.searchUsingID(tool, "Ishs3hd")).selectByVisibleText(jobType);
+        tool.selectVisibleTextByID(tool, "Ishs3hd", jobType);
         Common.sleepForNumberOfSeconds(1);
     }
 
     void selectImportMap(String importMap) throws Exception {
-        new Select(tool.searchUsingID(tool, "Iftqn20")).selectByVisibleText(importMap);
+        tool.selectVisibleTextByID(tool, "Iftqn20", importMap);
     }
 
     void selectFileEncoding(String fileEncoding) throws Exception {
-        new Select(tool.searchUsingID(tool, "I7g33k8")).selectByVisibleText(fileEncoding);
+        tool.selectVisibleTextByID(tool, "I7g33k8", fileEncoding);
     }
 
     void setImportFile(String fileName) throws Exception {

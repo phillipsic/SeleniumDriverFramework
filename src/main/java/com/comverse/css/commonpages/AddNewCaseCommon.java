@@ -36,7 +36,7 @@ public class AddNewCaseCommon extends CommonMenu {
 
     public void selectCaseProblemArea(String problemArea) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "subCategoryId")).selectByVisibleText(problemArea);
+        tool.selectVisibleTextByID(tool, "subCategoryId", problemArea);
 
     }
 
@@ -48,7 +48,7 @@ public class AddNewCaseCommon extends CommonMenu {
 
     public void selectNoteType(String noteType) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "noteType")).selectByVisibleText(noteType);
+        tool.selectVisibleTextByID(tool, "noteType", noteType);
 
     }
 

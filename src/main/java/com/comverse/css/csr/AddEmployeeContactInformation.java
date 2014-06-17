@@ -4,8 +4,6 @@
  */
 package com.comverse.css.csr;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -44,7 +42,7 @@ public class AddEmployeeContactInformation extends CommonMenu {
      */
     public void selectState(String homeState) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(homeState);
+        tool.selectVisibleTextByID(tool, "home_state", homeState);
     }
 
     public AddEmployeeRegisterLogin clickContinue() throws Exception {

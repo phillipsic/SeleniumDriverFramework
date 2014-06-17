@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -27,7 +25,7 @@ public class DisconnectSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public void setReason(String reason) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "reason")).selectByVisibleText(reason);
+        tool.selectVisibleTextByID(tool, "reason", reason);
     }
 
     public void setAnnotation(String annotation) throws Exception {

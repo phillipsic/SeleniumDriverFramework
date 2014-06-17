@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -37,7 +35,7 @@ public class ModifyLevelLegalContactCommon extends CommonMenu {
 
     public void setNewLevelState(String uniqueState) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(uniqueState);
+        tool.selectVisibleTextByID(tool, "home_state", uniqueState);
 
     }
 

@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -44,7 +42,7 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void selectJustificationStatus(String status) throws Exception {
-        new Select(tool.searchUsingID(tool, "case_justification_status")).selectByVisibleText(status);
+        tool.selectVisibleTextByID(tool, "case_justification_status", status);
     }
 
     public void updateDescription(String updatedDescription) throws Exception {
@@ -61,7 +59,7 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void changePriorityToLow() throws Exception {
-        new Select(tool.searchUsingID(tool, "case_priority")).selectByVisibleText("Low");
+        tool.selectVisibleTextByID(tool, "case_priority", "Low");
     }
 
 }

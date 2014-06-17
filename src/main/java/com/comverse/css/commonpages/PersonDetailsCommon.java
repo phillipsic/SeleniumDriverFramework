@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -32,7 +30,7 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void selectTitle(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "title")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "title", value);
     }
 
     public void setFirstName(String value) throws Exception {
@@ -54,11 +52,11 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void setNationality(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "nationality")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "nationality", value);
     }
 
     public void setLanguage(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "language")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "language", value);
     }
 
     public void setEmailAddress(String value) throws Exception {
@@ -107,7 +105,7 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void selectHomeCountry(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "country")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "country", value);
     }
 
 }

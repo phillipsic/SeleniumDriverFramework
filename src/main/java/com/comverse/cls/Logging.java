@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -83,7 +82,7 @@ public class Logging extends CLSMenu {
     public void selectRecordPerPage(String value) throws Exception {
 
         tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
-        new Select(tool.searchUsingID(tool, "yui-pg0-0-rpp81")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "yui-pg0-0-rpp81", value);
         tool.switchTo(tool);
         Common.sleepForNumberOfSeconds(10);
     }

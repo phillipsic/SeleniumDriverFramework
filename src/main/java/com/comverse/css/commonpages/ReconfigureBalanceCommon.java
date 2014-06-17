@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -46,7 +44,7 @@ public class ReconfigureBalanceCommon extends CommonMenu {
     }
 
     public void selectUseAccountUnitsFrom(String selectOption) throws Exception {
-        new Select(tool.searchUsingID(tool, "targetBalance")).selectByVisibleText(selectOption);
+        tool.selectVisibleTextByID(tool, "targetBalance", selectOption);
     }
 
     public ReconfigureBalanceReviewCommon clickReconfigureBalance() throws Exception {

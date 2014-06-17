@@ -14,8 +14,6 @@ import java.util.Date;
 import jxl.Cell;
 import jxl.Sheet;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.Application;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
@@ -161,7 +159,7 @@ public class OCMApplication extends Main {
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer", smallImagePath);
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer", largeImagePath);
 
-        new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
+        tool.selectVisibleTextByID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne", manufacturer);
 
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
@@ -290,13 +288,13 @@ public class OCMApplication extends Main {
 
     public void SelectEURCurrency() throws Exception {
         tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
-        new Select(tool.searchUsingID(tool, "menu:mainForm:displayedCurrency")).selectByVisibleText("EUR");
+        tool.selectVisibleTextByID(tool, "menu:mainForm:displayedCurrency", "EUR");
         tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
     }
 
     public void SelectUSDCurrency() throws Exception {
         tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
-        new Select(tool.searchUsingID(tool, "menu:mainForm:displayedCurrency")).selectByVisibleText("USD");
+        tool.selectVisibleTextByID(tool, "menu:mainForm:displayedCurrency", "USD");
         tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
     }
 
@@ -380,7 +378,7 @@ public class OCMApplication extends Main {
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer", smallImagePath);
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer", largeImagePath);
 
-        new Select(tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne")).selectByVisibleText(manufacturer);
+        tool.selectVisibleTextByID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne", manufacturer);
 
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
         tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");

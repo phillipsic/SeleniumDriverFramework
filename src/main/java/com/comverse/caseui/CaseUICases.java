@@ -1,7 +1,5 @@
 package com.comverse.caseui;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.caseui.common.CaseUITest;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -22,12 +20,12 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void selectCaseType(String caseType) throws Exception {
-        new Select(tool.searchUsingID(tool, "Ih4kclq")).selectByVisibleText(caseType);
+        tool.selectVisibleTextByID(tool, "Ih4kclq", caseType);
         Thread.sleep(1000);
     }
 
     public void selectProblemArea(String problemArea) throws Exception {
-        new Select(tool.searchUsingID(tool, "Ii5gdu9")).selectByVisibleText(problemArea);
+        tool.selectVisibleTextByID(tool, "Ii5gdu9", problemArea);
         Thread.sleep(1000);
     }
 
@@ -65,12 +63,12 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void changeCaseStatusToClose() throws Exception {
-        new Select(tool.searchUsingID(tool, "Igdju7d")).selectByVisibleText("Closed");
+        tool.selectVisibleTextByID(tool, "Igdju7d", "Closed");
         Thread.sleep(1000);
     }
 
     public void changeJustificationStatusToProblemSolved() throws Exception {
-        new Select(tool.searchUsingID(tool, "Iru5lh3")).selectByVisibleText("Problem Solved");
+        tool.selectVisibleTextByID(tool, "Iru5lh3", "Problem Solved");
         Thread.sleep(1000);
     }
 
@@ -85,7 +83,7 @@ public class CaseUICases extends CaseUITest {
     }
 
     public void selectNoteType(String noteType) throws Exception {
-        new Select(tool.searchUsingID(tool, "Inl0w6r")).selectByVisibleText(noteType);
+        tool.selectVisibleTextByID(tool, "Inl0w6r", noteType);
         Thread.sleep(1000);
     }
 

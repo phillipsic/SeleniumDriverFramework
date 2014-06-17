@@ -145,12 +145,12 @@ public class ModifyContactInformationCommon extends CommonMenu {
     }
 
     public void enterState(String state) throws Exception {
-        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(state);
+        tool.selectVisibleTextByID(tool, "home_state", state);
 
     }
 
     public void enterCountry(String country) throws Exception {
-        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(country);
+        tool.selectVisibleTextByID(tool, "home_country", country);
     }
 
     public ModifyContactInformationConfirmationCommon clickOk() throws Exception {
@@ -166,6 +166,6 @@ public class ModifyContactInformationCommon extends CommonMenu {
 
     public void setLevelState(String uniqueState) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(uniqueState);
+        tool.selectVisibleTextByID(tool, "home_state", uniqueState);
     }
 }

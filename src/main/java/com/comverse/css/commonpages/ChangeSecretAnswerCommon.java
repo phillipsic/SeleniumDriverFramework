@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -43,7 +41,7 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
 
     public void setSecretQuestion(String question) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "secretQuestionId")).selectByVisibleText(question);
+        tool.selectVisibleTextByID(tool, "secretQuestionId", question);
     }
 
     public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {

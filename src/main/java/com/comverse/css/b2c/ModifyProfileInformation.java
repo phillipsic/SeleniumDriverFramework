@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -22,7 +20,7 @@ public class ModifyProfileInformation extends B2CMenu {
 
     public void selectApprovalSequencing(String choice) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "approval_sequencing_field")).selectByVisibleText(choice);
+        tool.selectVisibleTextByID(tool, "approval_sequencing_field", choice);
 
     }
 

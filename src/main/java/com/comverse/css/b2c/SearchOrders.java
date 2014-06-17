@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -92,7 +90,7 @@ public class SearchOrders extends B2CMenu {
     }
 
     public void setOrderStatus(String orderStatus) throws Exception {
-        new Select(tool.searchUsingID(tool, "orderStatus")).selectByVisibleText(orderStatus);
+        tool.selectVisibleTextByID(tool, "orderStatus", orderStatus);
     }
 
     public OrderDetails clickOrderNumber(String orderNumber) throws Exception {

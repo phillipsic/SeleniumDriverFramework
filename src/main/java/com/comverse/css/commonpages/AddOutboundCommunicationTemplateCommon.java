@@ -2,8 +2,6 @@ package com.comverse.css.commonpages;
 
 import java.io.File;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -32,31 +30,31 @@ public class AddOutboundCommunicationTemplateCommon extends CommonMenu {
 
     public void selectLanguage(String language) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "languageCode")).selectByVisibleText(language);
+        tool.selectVisibleTextByID(tool, "languageCode", language);
 
     }
 
     public void selectChannel(String channel) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "channel")).selectByVisibleText(channel);
+        tool.selectVisibleTextByID(tool, "channel", channel);
 
     }
 
     public void selectEventType(String eventType) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "eventType")).selectByVisibleText(eventType);
+        tool.selectVisibleTextByID(tool, "eventType", eventType);
 
     }
 
     public void selectCaseType(String caseType) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "caseType")).selectByVisibleText(caseType);
+        tool.selectVisibleTextByID(tool, "caseType", caseType);
 
     }
 
     public void selectProblemArea(String problemArea) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "problemArea")).selectByVisibleText(problemArea);
+        tool.selectVisibleTextByID(tool, "problemArea", problemArea);
 
     }
 

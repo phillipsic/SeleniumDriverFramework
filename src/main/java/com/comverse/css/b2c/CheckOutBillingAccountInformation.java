@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -66,7 +64,7 @@ public class CheckOutBillingAccountInformation extends B2CMenu {
     }
 
     public void selectAccountAttributeLanguage(String language) throws Exception {
-        new Select(tool.searchUsingID(tool, "p-ACCOUNT-L4:80000")).selectByVisibleText(language);
+        tool.selectVisibleTextByID(tool, "p-ACCOUNT-L4:80000", language);
     }
 
     public void enterCity(String city) throws Exception {
@@ -92,7 +90,7 @@ public class CheckOutBillingAccountInformation extends B2CMenu {
 
     public void enterState(String state) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "state")).selectByVisibleText(state);
+        tool.selectVisibleTextByID(tool, "state", state);
 
     }
 }

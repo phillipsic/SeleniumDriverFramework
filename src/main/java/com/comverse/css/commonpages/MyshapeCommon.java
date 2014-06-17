@@ -3,7 +3,6 @@ package com.comverse.css.commonpages;
 import java.util.MissingResourceException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.Application;
 import com.comverse.common.AutomationTool;
@@ -95,7 +94,7 @@ public class MyshapeCommon extends CommonMenu {
 
     public void selectRealm(String realm) throws Exception {
         if (tool.getPageSource(tool).contains("Domain")) {
-            new Select(tool.searchUsingID(tool, "realm")).selectByVisibleText(realm);
+            tool.selectVisibleTextByID(tool, "realm", realm);
         }
     }
 

@@ -32,15 +32,15 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public void selectStatus(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "Iyoe69h")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "Iyoe69h", value);
     }
 
     public void selectCustomerCategory(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "Iomthof")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "Iomthof", value);
     }
 
     public void selectResellerId(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "Igtpzy6")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "Igtpzy6", value);
     }
 
     public void clickSaveOrganization() throws Exception {

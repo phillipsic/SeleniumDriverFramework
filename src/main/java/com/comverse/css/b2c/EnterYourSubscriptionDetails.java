@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -74,7 +72,7 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public void selectTitle(String title) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "title")).selectByVisibleText(title);
+        tool.selectVisibleTextByID(tool, "title", title);
 
     }
 
@@ -129,13 +127,13 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public void enterHomeCountry(String homeCountry) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(homeCountry);
+        tool.selectVisibleTextByID(tool, "home_country", homeCountry);
 
     }
 
     public void enterHomeState(String homeState) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "home_state")).selectByVisibleText(homeState);
+        tool.selectVisibleTextByID(tool, "home_state", homeState);
 
     }
 

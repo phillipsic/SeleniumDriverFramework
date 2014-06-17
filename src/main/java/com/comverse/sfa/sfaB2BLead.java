@@ -41,7 +41,7 @@ public class sfaB2BLead extends SFAMenu {
     }
 
     public void selectPriceList(String priceList) throws Exception {
-        new Select(tool.searchUsingID(tool, "I8ea3x9")).selectByVisibleText(priceList);
+        tool.selectVisibleTextByID(tool, "I8ea3x9", priceList);
     }
 
     public void saveB2BLead() throws Exception {

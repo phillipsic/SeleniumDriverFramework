@@ -1,7 +1,5 @@
 package com.comverse.caseui;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.caseui.common.CaseUITest;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -55,7 +53,7 @@ public class CaseUITasks extends CaseUITest {
     }
 
     public void selectNoteType(String noteType) throws Exception {
-        new Select(tool.searchUsingID(tool, "Inl0w6r")).selectByVisibleText(noteType);
+        tool.selectVisibleTextByID(tool, "Inl0w6r", noteType);
         Thread.sleep(1000);
     }
 

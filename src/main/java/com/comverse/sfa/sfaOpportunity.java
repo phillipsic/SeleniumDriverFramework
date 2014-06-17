@@ -37,11 +37,11 @@ public class sfaOpportunity extends SFAMenu {
     }
 
     void selectSalesProcess(String salesProcess) throws Exception {
-        new Select(tool.searchUsingID(tool, "Iat2w3m")).selectByVisibleText(salesProcess);
+        tool.selectVisibleTextByID(tool, "Iat2w3m", salesProcess);
     }
 
     void selectPriority(String priority) throws Exception {
-        new Select(tool.searchUsingID(tool, "Ix779fi")).selectByVisibleText(priority);
+        tool.selectVisibleTextByID(tool, "Ix779fi", priority);
     }
 
     sfaOrganization clickOrganization() throws Exception {
@@ -55,11 +55,11 @@ public class sfaOpportunity extends SFAMenu {
     }
 
     void selectCurrency(String currency) throws Exception {
-        new Select(tool.searchUsingID(tool, "Iqovuoj")).selectByVisibleText(currency);
+        tool.selectVisibleTextByID(tool, "Iqovuoj", currency);
     }
 
     void selectPriceList(String priceList) throws Exception {
-        new Select(tool.searchUsingID(tool, "I4nxoi8")).selectByVisibleText(priceList);
+        tool.selectVisibleTextByID(tool, "I4nxoi8", priceList);
     }
 
     void saveOpportunity() throws Exception {

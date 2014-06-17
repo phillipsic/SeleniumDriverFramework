@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -26,7 +24,7 @@ public class ModifyProfileInformationCommon extends CommonMenu {
 
     public void setTimeZone(String timeZone) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "timezone_field")).selectByVisibleText(timeZone);
+        tool.selectVisibleTextByID(tool, "timezone_field", timeZone);
     }
 
     public ModifyProfileInformationConfirmationCommon clickOkToModify() throws Exception {

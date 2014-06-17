@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -59,7 +57,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public void setOrderStatusToAll() throws Exception {
-        new Select(tool.searchUsingID(tool, "orderStatus")).selectByVisibleText("All");
+        tool.selectVisibleTextByID(tool, "orderStatus", "All");
     }
 
     public void waitUntilOrderCompletedOrFailed(String orderNumber) throws Exception {

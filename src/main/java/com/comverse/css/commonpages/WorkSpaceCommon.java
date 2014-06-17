@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -372,7 +370,7 @@ public class WorkSpaceCommon extends CommonMenu {
     }
 
     public void selectCustomerType(String customerType) throws Exception {
-        new Select(tool.searchUsingID(tool, "orgTypeId")).selectByVisibleText(customerType);
+        tool.selectVisibleTextByID(tool, "orgTypeId", customerType);
     }
 
     public ShoppingCommon clickSubmit() throws Exception {

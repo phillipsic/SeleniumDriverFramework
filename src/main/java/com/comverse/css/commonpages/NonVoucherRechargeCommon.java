@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -26,7 +24,7 @@ public class NonVoucherRechargeCommon extends CommonMenu {
     public NonVoucherRechargeReviewCommon nonVoucherRechargeByCheck(String rechargeAmount) throws Exception {
 
         this.enterRechargeAmount(rechargeAmount);
-        new Select(tool.searchUsingID(tool, "rechargeClass")).selectByVisibleText("Check");
+        tool.selectVisibleTextByID(tool, "rechargeClass", "Check");
         tool.clickUsingName(tool, "payment_type");
         tool.clickUsingXPath(tool, "//input[@value='Continue']");
         return new NonVoucherRechargeReviewCommon(tool, test, user);

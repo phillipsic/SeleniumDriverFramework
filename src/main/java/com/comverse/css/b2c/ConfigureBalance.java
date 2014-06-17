@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -32,7 +30,7 @@ public class ConfigureBalance extends B2CMenu {
     }
 
     public void selectTargetAccount(String targetBalance) throws Exception {
-        new Select(tool.searchUsingID(tool, "targetBalance")).selectByVisibleText(targetBalance);
+        tool.selectVisibleTextByID(tool, "targetBalance", targetBalance);
     }
 
     public ChooseAccessories clickContinue() throws Exception {

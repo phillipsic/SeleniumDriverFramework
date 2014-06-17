@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -32,7 +30,7 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     }
 
     public void setLang(String lang) throws Exception {
-        new Select(tool.searchUsingID(tool, "p-param-L4:80000")).selectByVisibleText(lang);
+        tool.selectVisibleTextByID(tool, "p-param-L4:80000", lang);
     }
 
     public ConfigureBalanceCommon clickContinueExpectingConfigureBalance() throws Exception {

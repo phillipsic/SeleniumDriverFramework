@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,13 +23,13 @@ public class ModifyDeliveryAddressCommon extends CommonMenu {
 
     public void selectCountry(String country) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "country")).selectByVisibleText(country);
+        tool.selectVisibleTextByID(tool, "country", country);
 
     }
 
     public void selectState(String state) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "state_region")).selectByVisibleText(state);
+        tool.selectVisibleTextByID(tool, "state_region", state);
 
     }
 

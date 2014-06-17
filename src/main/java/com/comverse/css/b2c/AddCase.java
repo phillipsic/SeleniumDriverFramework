@@ -24,12 +24,12 @@ public class AddCase extends B2CMenu {
 
     public void selectCategory(String value) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "categoryId")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "categoryId", value);
     }
 
     public void selectSubCategory(String value) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "subCategoryId")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "subCategoryId", value);
     }
 
     public void enterDescription(String value) throws Exception {

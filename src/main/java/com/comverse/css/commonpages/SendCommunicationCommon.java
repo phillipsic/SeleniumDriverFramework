@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -45,33 +43,33 @@ public class SendCommunicationCommon extends CommonMenu {
     }
 
     public void selectTemplateEventType(String value) throws Exception {
-        new Select(tool.searchUsingID(tool, "eventType")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "eventType", value);
 
     }
 
     public void selectTemplateCaseType(String value) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "caseType")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "caseType", value);
     }
 
     public void selectTemplateProblemArea(String value) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "problemArea")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "problemArea", value);
     }
 
     public void selectAvailableCommunicationChannel(String value) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "preferredChannelId")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "preferredChannelId", value);
     }
 
     public void selectTemplateName(String value) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "templateList")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "templateList", value);
     }
 
     public void selectMessageFormat(String value) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "formatList")).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, "formatList", value);
     }
 
     public void clickReviewCommunication() throws Exception {

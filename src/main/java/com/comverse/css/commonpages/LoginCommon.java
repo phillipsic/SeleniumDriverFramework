@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -28,7 +26,7 @@ public class LoginCommon extends CommonMenu {
     }
 
     public void selectRole(String role) throws Exception {
-        new Select(tool.searchUsingID(tool, "roles")).selectByVisibleText(role);
+        tool.selectVisibleTextByID(tool, "roles", role);
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {

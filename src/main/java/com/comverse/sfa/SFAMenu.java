@@ -1,7 +1,6 @@
 package com.comverse.sfa;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -91,7 +90,7 @@ public class SFAMenu extends SFATest {
         String dropDownID = temp[1].replaceAll("=", "");
         dropDownID = Common.cleanStringOfIllegalChars(dropDownID);
 
-        new Select(tool.searchUsingID(tool, dropDownID)).selectByVisibleText(value);
+        tool.selectVisibleTextByID(tool, dropDownID, value);
     }
 
     public void clickFindGo() throws Exception {

@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -57,7 +55,7 @@ public class ModifySubscriberAttributesCommon extends CommonMenu {
     }
 
     public void enterLanguage(String language) throws Exception {
-        new Select(tool.searchUsingID(tool, "p-param-L4:80000")).selectByVisibleText(language);
+        tool.selectVisibleTextByID(tool, "p-param-L4:80000", language);
     }
 
     public void enterHappyHourStart(String happyHourStart) throws Exception {

@@ -1,7 +1,5 @@
 package com.comverse.sec;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.common.Test;
@@ -34,7 +32,7 @@ public class ComverseOneSingleSignOn extends Main {
     }
 
     public void setRealm(AutomationTool tool, User user) throws Exception {
-        new Select(tool.searchUsingID(tool, "realmselect")).selectByVisibleText(user.getRealm());
+        tool.selectVisibleTextByID(tool, "realmselect", user.getRealm());
     }
 
     public void clickLogin(AutomationTool tool) throws Exception {

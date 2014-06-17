@@ -5,8 +5,6 @@
 
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -30,7 +28,7 @@ public class SearchAddressCommon extends CommonMenu {
 
     public void setCountry(String country) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "home_country")).selectByVisibleText(country);
+        tool.selectVisibleTextByID(tool, "home_country", country);
 
     }
 

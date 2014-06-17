@@ -31,7 +31,7 @@ public class ModifySubscriberAttributes extends B2CMenu {
 
     public void selectLanguage(String language) throws Exception {
 
-        new Select(tool.searchUsingID(tool, "p-param-L4:80000")).selectByVisibleText(language);
+        tool.selectVisibleTextByID(tool, "p-param-L4:80000", language);
 
     }
 
