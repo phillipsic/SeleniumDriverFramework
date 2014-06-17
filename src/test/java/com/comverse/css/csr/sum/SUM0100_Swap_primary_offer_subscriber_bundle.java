@@ -8,8 +8,7 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.commonpages.*;
-import com.comverse.css.csr.WorkSpace;
+import com.comverse.css.csr.*;
 import com.comverse.css.data.PO.PO_DIYMonthlyPayPerView;
 import com.comverse.css.data.SB.SB_DIYWeek7_7Bundle;
 import com.comverse.data.apps.CSR;
@@ -36,39 +35,39 @@ public class SUM0100_Swap_primary_offer_subscriber_bundle extends CSSTest {
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
 
-            EnterIdentificationDataCommon enterIdentificationData = workSpace.startNewConvergentResidentialCustomer();
+            EnterIdentificationData enterIdentificationData = workSpace.startNewConvergentResidentialCustomer();
             workSpace.account = enterIdentificationData.enterDefaultIdentificationData();
             workSpace.person = enterIdentificationData.getPerson();
             workSpace.subscriber = enterIdentificationData.getSubscriber();
-            ShoppingCommon shopping = enterIdentificationData.clickContinue();
+            Shopping shopping = enterIdentificationData.clickContinue();
             shopping.clickSubscriberBundlePrimaryOfferName(po_DIYMonthlyPayPerView.getOfferName());
-            MyBasketCommon myBasket = shopping.clickSelectOfferInPopUpWindow();
-            ServiceConnectionDetailsCommon serviceConnectionDetails = myBasket.clickFirstActionsIcon();
+            MyBasket myBasket = shopping.clickSelectOfferInPopUpWindow();
+            ServiceConnectionDetails serviceConnectionDetails = myBasket.clickFirstActionsIcon();
             serviceConnectionDetails.clickSetIMSIInventory(workSpace.subscriber);
             serviceConnectionDetails.clickOk();
             myBasket.addConsumerUserPersonOrdering();
             myBasket.clickAcceptTermsAndConditions();
-            CheckoutReviewCommon checkoutReview = myBasket.clickCheckOut();
-            CheckoutConfirmationCommon checkoutConfirmation = checkoutReview.clickConfirm();
+            CheckoutReview checkoutReview = myBasket.clickCheckOut();
+            CheckoutConfirmation checkoutConfirmation = checkoutReview.clickConfirm();
             String orderNumber = checkoutConfirmation.getOrderNumberFromPage();
-            WorkSpaceCommon workSpaceCommon = checkoutConfirmation.clickOk();
+             workSpace = checkoutConfirmation.clickOk();
             workSpace.setAccount(workSpace.account);
             workSpace.setPerson(workSpace.person);
             workSpace.setSubscriber(workSpace.subscriber);
-            SearchRequestsCommon searchRequests = workSpaceCommon.clickRequests();
-            SearchOrdersCommon searchOrders = searchRequests.clickSearchOrders();
+            SearchRequests searchRequests = workSpace.clickRequests();
+            SearchOrders searchOrders = searchRequests.clickSearchOrders();
             searchOrders.waitUntilOrderCompletedOrFailedWithGetAccountID(orderNumber, workSpace.account);
             searchOrders.clickHomeMenu();
-            IdentifyCustomerCommon identifyCustomer = workSpace.gotoManageAccount();
-            AccountDetailsCommon accountDetails = identifyCustomer.searchByPersonLastNameSinglePerson(workSpace.getPerson().getPersonLastNameProperty());
+            IdentifyCustomer identifyCustomer = workSpace.gotoManageAccount();
+            AccountDetails accountDetails = identifyCustomer.searchByPersonLastNameSinglePerson(workSpace.getPerson().getPersonLastNameProperty());
 
-            SubscriberDetailsCommon subscriberDashboard = accountDetails.selectFirstSubscriberFromNavigationPanel();
+            SubscriberDetails subscriberDashboard = accountDetails.selectFirstSubscriberFromNavigationPanel();
             subscriberDashboard.clickChangePO_SBAndSO();
             shopping.clickSubscriberBundlePrimaryOfferName(sb_DIYWeek7_7Bundle.getOfferName());
-            EnterYourSubscriptionDetailsCommon enterYourSubscriptionDetails = shopping.clickSelectOfferInPopUpWindowExpectingEnterYourSubscriptionDetails();
-            SelectOffersForYourSubscriberCommon selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickContinue();
-            ConfigureOffersCommon configureOffers = selectOffersForYourSubscriber.clickContinue();
-            SwapImpactCommon swapImpact = configureOffers.clickContinueExpectingSwapImpact();
+            EnterYourSubscriptionDetails enterYourSubscriptionDetails = shopping.clickSelectOfferInPopUpWindowExpectingEnterYourSubscriptionDetails();
+            SelectOffersForYourSubscriber selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickContinue();
+            ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
+            SwapImpact swapImpact = configureOffers.clickContinueExpectingSwapImpact();
             swapImpact.clickOK();
             myBasket.clickAcceptTermsAndConditions();
             Common.assertTextOnPage(tool, sb_DIYWeek7_7Bundle.getOfferName());
@@ -76,7 +75,7 @@ public class SUM0100_Swap_primary_offer_subscriber_bundle extends CSSTest {
             checkoutReview.clickConfirm();
             checkoutConfirmation.clickOkExpectingSubscriberDashboard();
             subscriberDashboard.clickAccountIDFromNavigationPanel();
-            RequestsForCustomerCommon requestsForCustomer = accountDetails.clickViewRequestsForThisCustomer();
+            RequestsForCustomer requestsForCustomer = accountDetails.clickViewRequestsForThisCustomer();
 
             requestsForCustomer.waitUntilFirstRequestCompletedOrFailed();
 
