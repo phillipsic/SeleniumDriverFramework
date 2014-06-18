@@ -1,7 +1,5 @@
 package com.comverse.css.csr.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,12 +10,10 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.csr.*;
+import com.comverse.css.csr.ViewHierarchy;
+import com.comverse.css.csr.WorkSpace;
 import com.comverse.data.apps.CSR;
-import com.comverse.data.users.OCMPub;
 import com.comverse.data.users.TelcoAdmin;
-import com.comverse.sec.ComverseOneSingleSignOn;
-import static org.junit.Assert.assertEquals;
 
 public class UAM0140_Force_user_to_change_password_on_first_login extends CSSTest {
 
@@ -43,7 +39,7 @@ public class UAM0140_Force_user_to_change_password_on_first_login extends CSSTes
 
             User OCMUser = viewHierarchy.addOCMPublisherEmployee(uniqueCode);
 
-            ComverseOneSingleSignOn comverseOneSingleSignOn = viewHierarchy.clickLogoutExpectingSSO();
+            viewHierarchy.clickLogoutExpectingSSO();
 
             launchOCMApplication();
             LoginPage loginPage = new LoginPage(tool, test, OCMUser);

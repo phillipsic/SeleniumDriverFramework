@@ -199,9 +199,8 @@ public class Common {
                 throw new Exception("Timeout");
             }
             try {
-                tool.driver.findElement(By.cssSelector("img[title=\" Action\"]"));
+                tool.searchUsingCssSelector(tool, "img[title=\" Action\"]");
                 foundElement = true;
-
                 System.out.println("FoundElement =  ..." + foundElement);
                 break;
             } catch (Exception e) {

@@ -1,10 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.comverse.css.b2c;
-
-import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.Application;
 import com.comverse.common.AutomationTool;

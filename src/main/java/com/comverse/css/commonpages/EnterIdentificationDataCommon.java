@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.Application;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;

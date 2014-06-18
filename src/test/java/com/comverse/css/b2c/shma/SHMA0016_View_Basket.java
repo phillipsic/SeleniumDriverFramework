@@ -9,12 +9,9 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.data.ACCESSORY.ACC_CSSPQABatteryPhoneACC1;
 import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
 import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
-import com.comverse.css.data.SO.SO_DIYeCountdownExtra;
 import com.comverse.data.apps.B2C;
-import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
 
 public class SHMA0016_View_Basket extends CSSTest {
 
@@ -58,8 +55,7 @@ public class SHMA0016_View_Basket extends CSSTest {
             ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
             ConfigureBalance configureBalance = configureOffers.clickContinueExpectingConfigureBalance();
             configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_GPRS_WAP_INTERNET().getBalanceName(), "120");
-            MyBasket myBasket = configureBalance.clickContinueExpectingMyBasket();
-         
+            configureBalance.clickContinueExpectingMyBasket();
 
             // Verification of added PO & Accessory with total price .
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());

@@ -1,22 +1,23 @@
 package com.comverse.css.csr.uam;
 
-import com.comverse.common.User;
-import com.comverse.css.OCM.LoginPage;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.comverse.common.User;
+import com.comverse.css.OCM.LoginPage;
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.csr.*;
+import com.comverse.css.csr.ContactInformation;
+import com.comverse.css.csr.LoginInformation;
+import com.comverse.css.csr.ViewHierarchy;
+import com.comverse.css.csr.WorkSpace;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.TelcoAdmin;
-import com.comverse.sec.ComverseOneSingleSignOn;
-import static org.junit.Assert.assertEquals;
 
 public class UAM0110_Change_password_on_first_login extends CSSTest {
 
@@ -48,14 +49,14 @@ public class UAM0110_Change_password_on_first_login extends CSSTest {
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
             assertEquals(OCMUser.getRole(), loginInformation.getCurrentRoleFromPage());
 
-            ComverseOneSingleSignOn comverseOneSingleSignOn = loginInformation.clickLogoutExpectingSSO();
+            loginInformation.clickLogoutExpectingSSO();
 
             launchOCMApplication();
             LoginPage loginPage = new LoginPage(tool, test, OCMUser);
             loginPage.loginToOCMAndChangePassword(OCMUser);
 
             test.setResult("pass");
-            
+
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
             verificationErrors.append(e.getMessage());
