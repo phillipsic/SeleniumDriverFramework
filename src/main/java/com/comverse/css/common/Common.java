@@ -758,6 +758,47 @@ public class Common {
         storePropertyInDB("business_account_id", accountID, comment);
     }
 
+    public static void storeBusinessAdminLogin(String login, String comment) throws Exception {
+
+        storePropertyInDB("business_login", login, comment);
+    }
+
+    public static void storeBusinessAdminPassword(String password, String comment) throws Exception {
+
+        storePropertyInDB("business_password", password, comment);
+    }
+
+    public static String getBusinessAdminLogin(String login, String comment) throws Exception {
+        String propertyValue = "";
+
+        try {
+            propertyValue = getPropertyValueFromDB("business_login");
+        } catch (Exception e) {
+            System.out.println("[ERROR]");
+            System.out.println("Property value business_login does not exist");
+            System.out.println("Please run CSR 'DATA009_CreateB2BAccountAndAdmin' \n");
+            throw e;
+        }
+        return propertyValue;
+
+    }
+
+    public static String getBusinessAdminPassword(String password, String comment) throws Exception {
+
+        String propertyValue = "";
+
+        try {
+            propertyValue = getPropertyValueFromDB("business_password");
+        } catch (Exception e) {
+            System.out.println("[ERROR]");
+            System.out.println("Property value business_password does not exist");
+            System.out.println("Please run CSR 'DATA009_CreateB2BAccountAndAdmin' \n");
+            throw e;
+        }
+        return propertyValue;
+
+    }
+
     public static String getBusinessAccountID() throws Exception {
 
         String propertyValue = "";
