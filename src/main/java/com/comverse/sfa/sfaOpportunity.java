@@ -4,8 +4,6 @@
  */
 package com.comverse.sfa;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -13,11 +11,11 @@ import com.comverse.css.common.Common;
 
 public class sfaOpportunity extends SFAMenu {
 
-    public sfaOpportunity(AutomationTool tool, Test test, User user) {
+    public sfaOpportunity(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
 
-        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'Opportunities')]")).isDisplayed()) {
+        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'Opportunities')]")) {
             throw new IllegalStateException("Expected Opportunities screen doesn't show");
 
         }

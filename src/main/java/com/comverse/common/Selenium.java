@@ -15,15 +15,25 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.css.common.PropertyHelper;
-import org.openqa.selenium.support.ui.Select;
 
 public class Selenium extends AutomationTool {
 
     private WebDriver driver;
 
     public Selenium() throws Exception {
+    }
+
+    @Override
+    public boolean checkDisplayedUsingXpath(AutomationTool tool, String xpath) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath)).isDisplayed();
+    }
+
+    @Override
+    public boolean checkSelectedUsingXpath(AutomationTool tool, String xpath) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath)).isSelected();
     }
 
     @Override
@@ -100,9 +110,8 @@ public class Selenium extends AutomationTool {
         return tool.driver.findElement(By.xpath(xpath)).getAttribute(attribute);
     }
 
-    @Override
-    public String getTitle(AutomationTool tool) throws Exception {
-        return tool.driver.getTitle();
+    public WebDriver getDriver() {
+        return driver;
     }
 
     @Override
@@ -110,8 +119,14 @@ public class Selenium extends AutomationTool {
         return tool.driver.getPageSource();
     }
 
-    public WebDriver getDriver() {
-        return driver;
+    @Override
+    public String getSelectedTextByID(AutomationTool tool, String id) throws Exception {
+        return new Select(tool.driver.findElement(By.id(id))).getFirstSelectedOption().getText();
+    }
+
+    @Override
+    public String getTextUsingClassName(AutomationTool tool, String className) throws Exception {
+        return tool.driver.findElement(By.className(className)).getText();
     }
 
     @Override
@@ -125,8 +140,18 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public String getTextUsingName(AutomationTool tool, String name) throws Exception {
+        return tool.driver.findElement(By.name(name)).getText();
+    }
+
+    @Override
     public String getTextUsingXPath(AutomationTool tool, String xpath) throws Exception {
         return tool.driver.findElement(By.xpath(xpath)).getText();
+    }
+
+    @Override
+    public String getTitle(AutomationTool tool) throws Exception {
+        return tool.driver.getTitle();
     }
 
     @Override
@@ -227,6 +252,16 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void navigateBack(AutomationTool tool) throws Exception {
+        tool.driver.navigate().back();
+    }
+
+    @Override
+    public void navigateRefresh(AutomationTool tool) throws Exception {
+        tool.driver.navigate().refresh();
+    }
+
+    @Override
     public void parseUserAgent(AutomationTool tool, Test test, String intBrowser) {
         String userAgent = (String) ((JavascriptExecutor) tool.driver).executeScript("return navigator.userAgent;");
 
@@ -269,6 +304,16 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void quit(AutomationTool tool) throws Exception {
+        tool.driver.quit();
+    }
+
+    @Override
+    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+        return tool.driver.findElement(By.cssSelector(cssSelector));
+    }
+
+    @Override
     public WebElement searchUsingID(AutomationTool tool, String id) throws Exception {
         return tool.driver.findElement(By.id(id));
     }
@@ -279,18 +324,13 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
-        return tool.driver.findElement(By.name(name));
-    }
-
-    @Override
     public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
         return tool.driver.findElements(By.linkText(linkText)).isEmpty();
     }
 
     @Override
-    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
-        return tool.driver.findElement(By.cssSelector(cssSelector));
+    public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
+        return tool.driver.findElement(By.name(name));
     }
 
     @Override
@@ -299,33 +339,8 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void switchTo(AutomationTool tool) throws Exception {
-        tool.driver.switchTo().defaultContent();
-    }
-
-    @Override
-    public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
-        tool.driver.switchTo().window(windowHandle);
-    }
-
-    @Override
-    public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
-        tool.driver.switchTo().frame(webElement);
-    }
-
-    @Override
-    public void quit(AutomationTool tool) throws Exception {
-        tool.driver.quit();
-    }
-
-    @Override
-    public void navigateBack(AutomationTool tool) throws Exception {
-        tool.driver.navigate().back();
-    }
-
-    @Override
-    public void navigateRefresh(AutomationTool tool) throws Exception {
-        tool.driver.navigate().refresh();
+    public WebElement searchUsingXpath(AutomationTool tool, String xpath) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath));
     }
 
     @Override
@@ -334,12 +349,22 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public String getSelectedTextByID(AutomationTool tool, String id) throws Exception {
-        return new Select(tool.driver.findElement(By.id(id))).getFirstSelectedOption().getText();
+    public void selectVisibleTextByName(AutomationTool tool, String name, String visibleText) throws Exception {
+        new Select(tool.driver.findElement(By.name(name))).selectByVisibleText(visibleText);
     }
 
     @Override
-    public void selectVisibleTextByName(AutomationTool tool, String name, String visibleText) throws Exception {
-        new Select(tool.driver.findElement(By.name(name))).selectByVisibleText(visibleText);
+    public void switchTo(AutomationTool tool) throws Exception {
+        tool.driver.switchTo().defaultContent();
+    }
+
+    @Override
+    public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
+        tool.driver.switchTo().frame(webElement);
+    }
+
+    @Override
+    public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
+        tool.driver.switchTo().window(windowHandle);
     }
 }

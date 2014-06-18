@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
@@ -55,14 +54,12 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "fromDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "toDate", toDate);
 
     }
@@ -86,8 +83,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
     }
 
     public String getSearchResults() throws Exception {
-
-        String text = tool.driver.findElement(By.className("inverseHeaderText")).getText();
+        String text = tool.getTextUsingClassName(tool, "inverseHeaderText");
         System.out.println("Output:" + text);
         return text;
     }

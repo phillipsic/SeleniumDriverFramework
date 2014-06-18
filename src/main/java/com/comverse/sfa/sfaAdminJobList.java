@@ -1,7 +1,5 @@
 package com.comverse.sfa;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -10,12 +8,11 @@ import com.comverse.css.common.PropertyHelper;
 
 public class sfaAdminJobList extends SFAMenu {
 
-    public sfaAdminJobList(AutomationTool tool, Test test, User user) {
+    public sfaAdminJobList(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'Jobs')]")).isDisplayed()) {
+        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'Jobs')]")) {
             throw new IllegalStateException("Expected Jobs screen doesn't show");
-
         }
     }
 
@@ -65,7 +62,7 @@ public class sfaAdminJobList extends SFAMenu {
     }
 
     void selectJobByName(String jobName) throws Exception {
-        if (!tool.driver.findElement(By.xpath("//div[contains(text(), '" + jobName + "')]/../../td/input")).isSelected()) {
+        if (!tool.checkSelectedUsingXpath(tool, "//div[contains(text(), '" + jobName + "')]/../../td/input")) {
             tool.clickUsingXPath(tool, "//div[contains(text(), '" + jobName + "')]/../../td/input");
         }
         Common.sleepForNumberOfSeconds(1);

@@ -1,7 +1,5 @@
 package com.comverse.sfa;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -9,12 +7,11 @@ import com.comverse.css.common.Common;
 
 public class sfaB2BLead extends SFAMenu {
 
-    public sfaB2BLead(AutomationTool tool, Test test, User user) {
+    public sfaB2BLead(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'B2B Lead')]")).isDisplayed()) {
+        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'B2B Lead')]")) {
             throw new IllegalStateException("Expected B2B Lead screen doesn't show");
-
         }
     }
 
