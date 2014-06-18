@@ -1,7 +1,5 @@
 package com.comverse.sfa;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -31,7 +29,7 @@ public class SFAMenu extends SFATest {
 
     public sfaB2BLead clickNavigationB2BLead() throws Exception {
 
-        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'B2B Leads')]")).isDisplayed()) {
+        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'B2B Leads')]")) {
             tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'B2B Leads')]");
@@ -40,7 +38,7 @@ public class SFAMenu extends SFATest {
 
     public sfaB2CLead clickNavigationB2CLead() throws Exception {
 
-        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'B2C Leads')]")).isDisplayed()) {
+        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'B2C Leads')]")) {
             tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'B2C Leads')]");
@@ -49,7 +47,7 @@ public class SFAMenu extends SFATest {
 
     public sfaAdminJobList clickNavigationJobList() throws Exception {
 
-        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'Job List')]")).isDisplayed()) {
+        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'Job List')]")) {
             tool.clickUsingID(tool, "toggle_$dkat0h_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'Job List')]");
@@ -57,7 +55,7 @@ public class SFAMenu extends SFATest {
     }
 
     public sfaOpportunity clickNavigationOpportunity() throws Exception {
-        if (!tool.driver.findElement(By.xpath("//div[contains(text(), 'Opportunities')]")).isDisplayed()) {
+        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'Opportunities')]")) {
             tool.clickUsingID(tool, "toggle_$20ee6m_image");
         }
         tool.clickUsingXPath(tool, "//div[contains(text(), 'Opportunities')]");

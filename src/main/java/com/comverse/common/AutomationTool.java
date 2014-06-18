@@ -9,6 +9,14 @@ public class AutomationTool extends Main {
     public AutomationTool() {
     }
 
+    public boolean checkDisplayedUsingXpath(AutomationTool tool, String xpath) throws Exception {
+        return false;
+    }
+
+    public boolean checkSelectedUsingXpath(AutomationTool tool, String xpath) throws Exception {
+        return false;
+    }
+
     public void clickUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
     }
 

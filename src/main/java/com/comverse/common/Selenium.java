@@ -27,6 +27,16 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public boolean checkDisplayedUsingXpath(AutomationTool tool, String xpath) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath)).isDisplayed();
+    }
+
+    @Override
+    public boolean checkSelectedUsingXpath(AutomationTool tool, String xpath) throws Exception {
+        return tool.driver.findElement(By.xpath(xpath)).isSelected();
+    }
+
+    @Override
     public void clickUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
         tool.driver.findElement(By.cssSelector(cssSelector)).click();
     }
