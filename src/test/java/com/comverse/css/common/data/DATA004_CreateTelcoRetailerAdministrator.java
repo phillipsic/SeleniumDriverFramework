@@ -15,7 +15,7 @@ import com.comverse.data.apps.POS;
 import com.comverse.data.users.TelcoAdmin;
 import com.comverse.data.users.TelcoRetailerAdmin;
 
-public class POS0001_CreateTelcoRetailerAdministrator extends CSSTest {
+public class DATA004_CreateTelcoRetailerAdministrator extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -28,7 +28,7 @@ public class POS0001_CreateTelcoRetailerAdministrator extends CSSTest {
     }
 
     @Test
-    public void testPOS0001_CreateTelcoRetailerAdministrator() throws Exception {
+    public void testDATA004_CreateTelcoRetailerAdministrator() throws Exception {
 
         try {
             launchCSSApplication();

@@ -13,7 +13,7 @@ import com.comverse.css.csr.InventoryAdministration;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.BOGAdmin;
 
-public class BO0003_AddReferentialAddress extends CSSTest {
+public class DATA003_AddReferentialAddress extends CSSTest {
 
     @Before
     @Override
@@ -25,7 +25,7 @@ public class BO0003_AddReferentialAddress extends CSSTest {
     }
 
     @Test
-    public void testBO0003_AddReferentialAddress() throws Exception {
+    public void testDATA003_AddReferentialAddress() throws Exception {
 
         launchCSSApplicationAndSSOLogin();
 

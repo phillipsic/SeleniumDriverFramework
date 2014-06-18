@@ -13,7 +13,7 @@ import com.comverse.css.csr.UploadToken;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.BOGAdmin;
 
-public class BO0001_UploadOBCTokens extends CSSTest {
+public class DATA001_UploadOBCTokens extends CSSTest {
 
     @Before
     @Override
@@ -25,7 +25,7 @@ public class BO0001_UploadOBCTokens extends CSSTest {
     }
 
     @Test
-    public void testBO0001_UploadOBCTokens() throws Exception {
+    public void testDATA001_UploadOBCTokens() throws Exception {
 
         // Make sure OUTBOUND_COMM is enabled before running this test.
 

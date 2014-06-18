@@ -14,7 +14,7 @@ import com.comverse.css.csr.OutboundCommunicationTemplate;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.BOGAdmin;
 
-public class BO0002_UploadOBCTemplate extends CSSTest {
+public class DATA002_UploadOBCTemplate extends CSSTest {
 
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -28,7 +28,7 @@ public class BO0002_UploadOBCTemplate extends CSSTest {
     }
 
     @Test
-    public void testBO0002_UploadOBCTemplate() throws Exception {
+    public void testDATA002_UploadOBCTemplate() throws Exception {
 
         try {
             launchCSSApplicationAndSSOLogin();

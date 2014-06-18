@@ -12,7 +12,7 @@ import com.comverse.data.users.CSRAdmin;
 import com.comverse.data.users.SECAdmin;
 import com.comverse.sec.SecLoginPage;
 
-public class SEC0002_CreateCSRAdmin extends CSSTest {
+public class DATA007_CreateCSRAdmin extends CSSTest {
 
     @Before
     @Override
@@ -24,7 +24,7 @@ public class SEC0002_CreateCSRAdmin extends CSSTest {
     }
 
     @Test
-    public void testSEC0002_CreateCSRAdmin() throws Exception {
+    public void testDATA007_CreateCSRAdmin() throws Exception {
         launchSecurityApplication();
         SecLoginPage loginPage = new SecLoginPage(tool, test, user);
         loginPage.loginSecservAsSecadmin();
