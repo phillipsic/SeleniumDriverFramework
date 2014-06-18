@@ -9,8 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -75,7 +73,7 @@ public class ViewRCHistoryCommon extends CommonMenu {
 
     public String getSearchResults() throws Exception {
 
-        String text = tool.driver.findElement(By.className("resultListTabTitle")).getText();
+        String text = tool.getTextUsingClassName(tool, "resultListTabTitle");
 
         System.out.println("Output:" + text);
 

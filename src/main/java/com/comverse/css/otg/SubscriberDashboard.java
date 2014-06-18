@@ -1,7 +1,5 @@
 package com.comverse.css.otg;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -30,7 +28,8 @@ public class SubscriberDashboard extends MyshapeCommon {
     }
 
     public void swipeTOLeftSubscriber(OTGHome otg) throws Exception {
-        otg.dragAndDrop(tool.driver.findElement(By.cssSelector("h3.page-title.ng-binding")), tool.driver.findElement(By.xpath("//div[3]/div/img")));
+        otg.dragAndDrop(tool.searchUsingCssSelector(tool, "h3.page-title.ng-binding"), tool.searchUsingXpath(tool, "//div[3]/div/img"));
+
     }
 
     public void clickRecharge() throws Exception {
@@ -43,7 +42,7 @@ public class SubscriberDashboard extends MyshapeCommon {
     }
 
     public void setFreeAmount(int freeAmount) throws Exception {
-        
+
         tool.enterStringUsingXPath(tool, "//input[@type='text']", Integer.toString(freeAmount));
     }
 

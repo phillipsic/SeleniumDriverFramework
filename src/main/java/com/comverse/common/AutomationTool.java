@@ -42,11 +42,26 @@ public class AutomationTool extends Main {
     public void enterStringUsingXPath(AutomationTool tool, String xpath, String data) throws Exception {
     }
 
+    public void get(AutomationTool tool, String URL) throws Exception {
+    }
+
     public String getAttributeUsingId(AutomationTool tool, String id, String attribute) throws Exception {
         return null;
     }
 
     public String getAttributeUsingXpath(AutomationTool tool, String xpath, String attribute) throws Exception {
+        return null;
+    }
+
+    public String getPageSource(AutomationTool tool) throws Exception {
+        return null;
+    }
+
+    public String getSelectedTextByID(AutomationTool tool, String id) throws Exception {
+        return null;
+    }
+
+    public String getTextUsingClassName(AutomationTool tool, String className) throws Exception {
         return null;
     }
 
@@ -58,7 +73,15 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public String getTextUsingName(AutomationTool tool, String name) throws Exception {
+        return null;
+    }
+
     public String getTextUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        return null;
+    }
+
+    public String getTitle(AutomationTool tool) throws Exception {
         return null;
     }
 
@@ -66,11 +89,32 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public void navigateBack(AutomationTool tool) throws Exception {
+    }
+
+    public void navigateRefresh(AutomationTool tool) throws Exception {
+    }
+
     public void parseUserAgent(AutomationTool tool, Test test, String intBrowser) {
+    }
+
+    public void quit(AutomationTool tool) throws Exception {
+    }
+
+    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+        return null;
     }
 
     public WebElement searchUsingID(AutomationTool tool, String id) throws Exception {
         return null;
+    }
+
+    public String searchUsingIDandGetTextUsingXpath(AutomationTool tool, String id, String Xpath) throws Exception {
+        return null;
+    }
+
+    public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
+        return false;
     }
 
     public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
@@ -81,55 +125,23 @@ public class AutomationTool extends Main {
         return null;
     }
 
-    public String getTitle(AutomationTool tool) throws Exception {
+    public WebElement searchUsingXpath(AutomationTool tool, String xpath) throws Exception {
         return null;
-    }
-
-    public void switchTo(AutomationTool tool) throws Exception {
-    }
-
-    public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
-    }
-
-    public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
-    }
-
-    public String getPageSource(AutomationTool tool) throws Exception {
-        return null;
-    }
-
-    public void get(AutomationTool tool, String URL) throws Exception {
-    }
-
-    public void quit(AutomationTool tool) throws Exception {
-    }
-
-    public String searchUsingIDandGetTextUsingXpath(AutomationTool tool, String id, String Xpath) throws Exception {
-        return null;
-    }
-
-    public void navigateBack(AutomationTool tool) throws Exception {
-    }
-
-    public void navigateRefresh(AutomationTool tool) throws Exception {
-    }
-
-    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
-        return null;
-    }
-
-    public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
-        return false;
     }
 
     public void selectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
     }
 
-    public String getSelectedTextByID(AutomationTool tool, String id) throws Exception {
-        return null;
+    public void selectVisibleTextByName(AutomationTool tool, String name, String visibleText) throws Exception {
     }
 
-    public void selectVisibleTextByName(AutomationTool tool, String name, String visibleText) throws Exception {
+    public void switchTo(AutomationTool tool) throws Exception {
+    }
+
+    public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
+    }
+
+    public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
     }
 
 }

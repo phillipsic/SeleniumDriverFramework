@@ -29,14 +29,12 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public NonVoucherRechargeCommon clickNonVoucherRechargeFreeAmount() throws Exception {
-
         tool.clickUsingLinkText(tool, "Non voucher Recharge (free amount)");
 
         return new NonVoucherRechargeCommon(tool, test, user);
     }
 
     public RechargeWithVoucherCommon clickRechargeByVoucher() throws Exception {
-
         tool.clickUsingLinkText(tool, "Recharge by voucher");
 
         return new RechargeWithVoucherCommon(tool, test, user);
@@ -49,14 +47,12 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public ReconfigureBalanceCommon clickConfigureSharedBalance(String balanceName) throws Exception {
-
         String balanceID = retrieveBalanceID(balanceName);
         tool.clickUsingXPath(tool, "//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon clickConfigureLimit(String balanceName) throws Exception {
-
         String balanceID = retrieveBalanceID(balanceName);
 
         Actions action = new Actions(tool.driver);
@@ -104,7 +100,7 @@ public class ViewBalanceCommon extends CommonMenu {
          * cleanString.replaceAll(">", "");
          */
         String temp[];
-        String balanceIdDirty = tool.driver.findElement(By.xpath("//a[contains(text(), '" + balanceName + "')]")).getAttribute("id");
+        String balanceIdDirty = tool.getAttributeUsingXpath(tool, "//a[contains(text(), '" + balanceName + "')]", "id");
         temp = balanceIdDirty.split("_");
         int tempSize = temp.length;
         String balanceID = temp[tempSize - 1].trim();

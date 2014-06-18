@@ -1,23 +1,18 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class ShoppingCommon extends CommonMenu {
-
     static String expectedScreen = "Shopping";
 
     public ShoppingCommon(AutomationTool tool, Test test, User user) throws Exception {
-
         super(tool, test, user);
         String currentScreen = tool.getTitle(tool);
 
         if (!expectedScreen.equals(currentScreen)) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
@@ -212,14 +207,11 @@ public class ShoppingCommon extends CommonMenu {
     }
 
     public void selectOptionalSubscriberBundle(String accountBundleID, String optionalSubscriberBundle) throws Exception {
-
-        tool.driver.findElement(By.xpath("(//input[@type='checkbox' and @name='" + accountBundleID + "_subs_bundle' and contains(@id,'" + optionalSubscriberBundle + "')])"))
-                .click();
+        tool.clickUsingXPath(tool, "(//input[@type='checkbox' and @name='" + accountBundleID + "_subs_bundle' and contains(@id,'" + optionalSubscriberBundle + "')])");
     }
 
     public void selectOptionalSupplementaryOffers(String accountBundleID, String optionalSupplementaryOffers) throws Exception {
-        tool.driver.findElement(By.xpath("//td[@class = 'oddRow' and contains(.,'" + optionalSupplementaryOffers + "')]/../td/input[@parentabid = '" + accountBundleID + "']"))
-                .click();
+        tool.clickUsingXPath(tool, "//td[@class = 'oddRow' and contains(.,'" + optionalSupplementaryOffers + "')]/../td/input[@parentabid = '" + accountBundleID + "']");
     }
 
     private String retrieveAccountBundleID(String accountBundleName) throws Exception {
@@ -294,9 +286,8 @@ public class ShoppingCommon extends CommonMenu {
             }
         }
 
-        tool.driver.findElement(
-                By.xpath("(//input[@type='button' and @value='Subscribe' and contains( @onclick, '" + accountBundleID + "') and contains( @onclick,'" + accountBundle + "')])"))
-                .click();
+        tool.clickUsingXPath(tool, "(//input[@type='button' and @value='Subscribe' and contains( @onclick, '" + accountBundleID + "') and contains( @onclick,'" + accountBundle
+                + "')])");
 
         // return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
