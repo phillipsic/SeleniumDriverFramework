@@ -1,5 +1,8 @@
 package com.comverse.css.b2c.shma;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,10 +15,7 @@ import com.comverse.css.common.Prep;
 import com.comverse.css.data.ACCESSORY.ACC_CSSPQABatteryPhoneACC1;
 import com.comverse.css.data.ACCESSORY.ACC_CSSPQABatteryPhoneACC2;
 import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
-import com.comverse.css.data.SO.SO_DIYeCountdownExtra;
 import com.comverse.data.apps.B2C;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();
@@ -34,7 +34,8 @@ public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends C
             PO_ResidentialUltraPostpaid po_ResidentialUltraPostpaid = new PO_ResidentialUltraPostpaid();
             ACC_CSSPQABatteryPhoneACC1 accBatteryPhone1 = new ACC_CSSPQABatteryPhoneACC1();
             ACC_CSSPQABatteryPhoneACC2 accBatteryPhone2 = new ACC_CSSPQABatteryPhoneACC2();
-            SO_DIYeCountdownExtra so_DIYeCountDownExtra = new SO_DIYeCountdownExtra();
+            // SO_DIYeCountdownExtra so_DIYeCountDownExtra = new
+            // SO_DIYeCountdownExtra();
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
             double poNRC = Double.parseDouble(po_ResidentialUltraPostpaid.getNRC());
@@ -51,7 +52,6 @@ public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends C
 
             enterYourSubscriptionDetails.enterDefaultIdentityAddressPhoneEmail(uniqueTimeStamp);
             SelectOffersForYourSubscriber selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
-            
 
             ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
             ConfigureBalance configureBalance = configureOffers.clickContinueExpectingConfigureBalance();
@@ -68,12 +68,12 @@ public class SHMA0100_Change_Accessories_Related_to_a_Basket_Selection extends C
             Common.assertTextOnPage(tool, String.valueOf(poNRC));
             Common.assertTextOnPage(tool, accBatteryPhone1.getAccessoryName());
             Common.assertTextOnPage(tool, String.valueOf(accessory1TotalPrice));
-            
-            BigDecimal bd_poNRC = new BigDecimal(poNRC);            
-            BigDecimal bd_accessory1TotalPrice = new BigDecimal(accessory1TotalPrice);            
-            BigDecimal totalPrice = bd_poNRC.add(bd_accessory1TotalPrice );            
+
+            BigDecimal bd_poNRC = new BigDecimal(poNRC);
+            BigDecimal bd_accessory1TotalPrice = new BigDecimal(accessory1TotalPrice);
+            BigDecimal totalPrice = bd_poNRC.add(bd_accessory1TotalPrice);
             totalPrice = totalPrice.setScale(2, RoundingMode.CEILING);
-            
+
             Common.assertTextOnPage(tool, String.valueOf(totalPrice));
 
             // Adding accessory.

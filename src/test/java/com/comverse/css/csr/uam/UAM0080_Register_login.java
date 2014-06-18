@@ -1,15 +1,18 @@
 package com.comverse.css.csr.uam;
 
-import com.comverse.common.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.comverse.common.User;
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.csr.*;
+import com.comverse.css.csr.Login;
+import com.comverse.css.csr.NewMemberLegalAddress;
+import com.comverse.css.csr.ViewHierarchy;
+import com.comverse.css.csr.WorkSpace;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.OCMPub;
 import com.comverse.data.users.TelcoAdmin;
@@ -46,13 +49,13 @@ public class UAM0080_Register_login extends CSSTest {
 
             login.setRoles(OCMPubUser.getRole());
 
-            AddMemberConfirmation addMemberConfirmation = login.clickContinue();
+            login.clickContinue();
 
             Common.assertTextOnPage(tool, "Login:  " + OCMPubUser.getLogin());
             Common.assertTextOnPage(tool, "Roles: " + OCMPubUser.getRole());
 
             test.setResult("pass");
-            
+
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
             verificationErrors.append(e.getMessage());

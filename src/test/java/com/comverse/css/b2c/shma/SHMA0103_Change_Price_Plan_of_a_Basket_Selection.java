@@ -11,7 +11,6 @@ import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.data.PO.PO_ResidentialBasicPrepaid;
 import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
-import com.comverse.css.data.SO.SO_DIYeCountdownExtra;
 import com.comverse.css.data.SO.SO_ResdientialSMSMMSPack;
 import com.comverse.data.apps.B2C;
 
@@ -31,7 +30,8 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
         try {
             PO_ResidentialUltraPostpaid po_ResidentialUltraPostpaid = new PO_ResidentialUltraPostpaid();
             PO_ResidentialBasicPrepaid po_ResidentialBasicPrepaid = new PO_ResidentialBasicPrepaid();
-            SO_DIYeCountdownExtra so_DIYeCountDownExtra = new SO_DIYeCountdownExtra();
+            // SO_DIYeCountdownExtra so_DIYeCountDownExtra = new
+            // SO_DIYeCountdownExtra();
             SO_ResdientialSMSMMSPack so_ResidentialSMSMMSPack = new SO_ResdientialSMSMMSPack();
             launchCSSApplication();
             String uniqueTimeStamp = Common.generateTimeStamp();
@@ -48,7 +48,6 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
 
             enterYourSubscriptionDetails.enterDefaultIdentityAddressPhoneEmail(uniqueTimeStamp);
             SelectOffersForYourSubscriber selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
- 
 
             ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
             ConfigureBalance configureBalance = configureOffers.clickContinueExpectingConfigureBalance();
@@ -60,11 +59,12 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
             // Verification of added PO & SO .
 
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
-           // Common.assertTextOnPage(tool, so_DIYeCountDownExtra.getOfferName());
+            // Common.assertTextOnPage(tool,
+            // so_DIYeCountDownExtra.getOfferName());
             // Changing added PO
             chooseYourPrimaryOffer = myBasket.clickChangePO();
             enterYourSubscriptionDetails = chooseYourPrimaryOffer.selectPrimaryOfferByNameWithoutDevice(po_ResidentialBasicPrepaid.getOfferName());
-        
+
             selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
             selectOffersForYourSubscriber.selectOffersForSubscriber(so_ResidentialSMSMMSPack.getOfferName());
             configureOffers = selectOffersForYourSubscriber.clickContinue();
@@ -75,7 +75,8 @@ public class SHMA0103_Change_Price_Plan_of_a_Basket_Selection extends CSSTest {
             Common.assertTextOnPage(tool, po_ResidentialBasicPrepaid.getOfferName());
             Common.assertTextOnPage(tool, so_ResidentialSMSMMSPack.getOfferName());
             Common.assertTextNotOnPage(tool, po_ResidentialUltraPostpaid.getOfferName());
-            //Common.assertTextNotOnPage(tool, so_DIYeCountDownExtra.getOfferName());
+            // Common.assertTextNotOnPage(tool,
+            // so_DIYeCountDownExtra.getOfferName());
 
             // bugId = "NoBug";
             test.setResult("pass");
