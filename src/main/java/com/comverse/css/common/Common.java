@@ -767,7 +767,7 @@ public class Common {
         storePropertyInDB("business_password", password, comment);
     }
 
-    public static String getBusinessAdminLogin(String login, String comment) throws Exception {
+    public static String getBusinessAdminLogin() throws Exception {
         String propertyValue = "";
 
         try {
@@ -782,7 +782,7 @@ public class Common {
 
     }
 
-    public static String getBusinessAdminPassword(String password, String comment) throws Exception {
+    public static String getBusinessAdminPassword() throws Exception {
 
         String propertyValue = "";
 
