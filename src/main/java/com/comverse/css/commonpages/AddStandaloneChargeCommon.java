@@ -24,12 +24,9 @@ public class AddStandaloneChargeCommon extends CommonMenu {
     }
 
     public void selectEventTypeDispatch() throws Exception {
-
-        Select select = new Select(tool.searchUsingID(tool, "eventType"));
-        select.selectByVisibleText("Dispatch");
+        tool.selectVisibleTextByID(tool, "eventType", "Dispatch");
         selectedValue = tool.getTextUsingXPath(tool, "//option[@selected='selected']");
         System.out.println(selectedValue);
-
     }
 
     public void selectNRCTypeDispatchFee() throws Exception {

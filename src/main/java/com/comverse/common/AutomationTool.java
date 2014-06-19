@@ -41,6 +41,9 @@ public class AutomationTool extends Main {
     public void clickUsingXPath(AutomationTool tool, String xpath) throws Exception {
     }
 
+    public void deselectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
+    }
+
     public void enterStringUsingCssSelector(AutomationTool tool, String cssSelector, String data) throws Exception {
     }
 
@@ -146,6 +149,9 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public void selectByIndexByID(AutomationTool tool, String id, int index) throws Exception {
+    }
+
     public void selectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
     }
 
@@ -159,8 +165,5 @@ public class AutomationTool extends Main {
     }
 
     public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
-    }
-
-    public void selectByIndexByID(AutomationTool tool, String id, int index) throws Exception {
     }
 }
