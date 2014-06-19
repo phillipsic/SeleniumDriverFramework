@@ -4,9 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -55,9 +52,8 @@ public class ViewBalanceCommon extends CommonMenu {
     public ReconfigureBalanceCommon clickConfigureLimit(String balanceName) throws Exception {
         String balanceID = retrieveBalanceID(balanceName);
 
-        Actions action = new Actions(tool.driver);
-        action.moveToElement(tool.driver.findElement(By.xpath("//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]"))).perform();
-        action.moveToElement(tool.driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]"))).click().perform();
+        tool.performUsingXPath(tool, "//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]");
+        tool.clickPerformUsingXPath(tool, "//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
         Common.sleepForNumberOfSeconds(3);
 
         return new ReconfigureBalanceCommon(tool, test, user);

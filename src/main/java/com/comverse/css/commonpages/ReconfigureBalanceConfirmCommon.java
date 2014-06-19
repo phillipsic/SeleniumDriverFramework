@@ -19,7 +19,6 @@ public class ReconfigureBalanceConfirmCommon extends CommonMenu {
     }
 
     public ViewBalanceCommon clickBack() throws Exception {
-
         tool.clickUsingXPath(tool, "//input[@value='Back']");
         return new ViewBalanceCommon(tool, test, user);
     }

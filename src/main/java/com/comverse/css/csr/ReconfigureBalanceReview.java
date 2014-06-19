@@ -13,7 +13,6 @@ public class ReconfigureBalanceReview extends ReconfigureBalanceReviewCommon {
 
     @Override
     public ReconfigureBalanceConfirm clickConfirm() throws Exception {
-
         super.clickConfirm();
         return new ReconfigureBalanceConfirm(tool, test, user);
     }

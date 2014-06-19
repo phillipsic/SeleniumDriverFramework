@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ReconfigureBalanceReviewCommon extends CommonMenu {
 
@@ -19,8 +20,8 @@ public class ReconfigureBalanceReviewCommon extends CommonMenu {
     }
 
     public ReconfigureBalanceConfirmCommon clickConfirm() throws Exception {
-
         tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ReconfigureBalanceConfirmCommon(tool, test, user);
     }
 
