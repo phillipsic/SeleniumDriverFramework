@@ -109,6 +109,9 @@ public class AutomationTool extends Main {
     public void parseUserAgent(AutomationTool tool, Test test, String intBrowser) {
     }
 
+    public void performDragAndDrop(AutomationTool tool, WebElement from, WebElement to) throws Exception {
+    }
+
     public void performUsingXPath(AutomationTool tool, String xpath) throws Exception {
     }
 
