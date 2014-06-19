@@ -3,6 +3,7 @@ package com.comverse.common;
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -128,6 +129,11 @@ public class Selenium extends AutomationTool {
         return tool.driver.findElement(By.xpath(xpath)).getAttribute(attribute);
     }
 
+    @Override
+    public String getCurrentUrl(AutomationTool tool) throws Exception {
+        return tool.driver.getCurrentUrl();
+    }
+
     public WebDriver getDriver() {
         return driver;
     }
@@ -170,6 +176,16 @@ public class Selenium extends AutomationTool {
     @Override
     public String getTitle(AutomationTool tool) throws Exception {
         return tool.driver.getTitle();
+    }
+
+    @Override
+    public String getWindowHandle(AutomationTool tool) throws Exception {
+        return tool.driver.getWindowHandle();
+    }
+
+    @Override
+    public Set<String> getWindowHandles(AutomationTool tool) {
+        return tool.driver.getWindowHandles();
     }
 
     @Override

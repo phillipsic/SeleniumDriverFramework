@@ -455,38 +455,6 @@ public class Common {
 
     }
 
-    /*
-     * private static String getUnusedPropertyValueFromDB(String key) throws
-     * Exception {
-     * 
-     * PropertyHelper propsHelper = new PropertyHelper();
-     * 
-     * String testEnvironment = propsHelper.getEnvProperties();
-     * 
-     * PreparedStatement statement = null; ResultSet resultSet = null; String
-     * propertyValue; Connection connection = null; connection =
-     * DriverManager.getConnection(url + dbName, userName, password);
-     * 
-     * try { // Class.forName(tool.driver).newInstance();
-     * 
-     * System.out.println("Connected to the database");
-     * 
-     * statement = connection.prepareStatement("SELECT property_value FROM
-     * dynamic_test_data WHERE property_key = ? AND environment = ? AND
-     * property_used = false");
-     * 
-     * statement.setString(1, key); statement.setString(2, testEnvironment);
-     * 
-     * resultSet = statement.executeQuery(); resultSet.next(); propertyValue =
-     * resultSet.getString("property_value");
-     * 
-     * 
-     * } finally { resultSet.close(); statement.close(); connection.close(); }
-     * 
-     * return propertyValue;
-     * 
-     * }
-     */
     private static void storePropertyInDB(String key, String value, String comment) throws Exception {
 
         if (checkPropertyExistsInDB(key)) {
@@ -1055,8 +1023,8 @@ public class Common {
         storePropertyInDB(fieldName, opportunityName, comment);
     }
 
-    public static String getCurrentWindowHandle(AutomationTool tool) {
-        return tool.driver.getWindowHandle();
+    public static String getCurrentWindowHandle(AutomationTool tool) throws Exception {
+        return tool.getWindowHandle(tool);
     }
 
     public static void switchToThisWindow(AutomationTool tool, String windowHandle) throws Exception {
@@ -1064,7 +1032,7 @@ public class Common {
     }
 
     public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) throws Exception {
-        Set<String> windows = tool.driver.getWindowHandles();
+        Set<String> windows = tool.getWindowHandles(tool);
         for (String window : windows) {
             for (String windowHandle : windowHandleTable) {
                 if (!window.equals(windowHandle)) {

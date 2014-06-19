@@ -433,10 +433,7 @@ public class OCMApplication extends Main {
     }
 
     public String getSessionIDFromUrl() throws Exception {
-        String currentURL = tool.driver.getCurrentUrl();
-        String sessionID[];
-
-        sessionID = currentURL.split(";");
+        String sessionID[] = tool.getCurrentUrl(tool).split(";");
 
         return sessionID[1];
     }

@@ -1,6 +1,7 @@
 package com.comverse.common;
 
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.WebElement;
 
@@ -70,6 +71,10 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public String getCurrentUrl(AutomationTool tool) throws Exception {
+        return null;
+    }
+
     public String getPageSource(AutomationTool tool) throws Exception {
         return null;
     }
@@ -99,6 +104,14 @@ public class AutomationTool extends Main {
     }
 
     public String getTitle(AutomationTool tool) throws Exception {
+        return null;
+    }
+
+    public String getWindowHandle(AutomationTool tool) throws Exception {
+        return null;
+    }
+
+    public Set<String> getWindowHandles(AutomationTool tool) {
         return null;
     }
 
