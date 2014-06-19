@@ -160,4 +160,7 @@ public class AutomationTool extends Main {
 
     public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
     }
+
+    public void selectByIndexByID(AutomationTool tool, String id, int index) throws Exception {
+    }
 }

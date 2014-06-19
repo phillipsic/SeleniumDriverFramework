@@ -1,7 +1,5 @@
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -34,7 +32,6 @@ public class AddCase extends B2CMenu {
 
     public void enterDescription(String value) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "description", value);
     }
 
@@ -43,8 +40,7 @@ public class AddCase extends B2CMenu {
     }
 
     public void selectFirstSubscriber() throws Exception {
-
-        new Select(tool.searchUsingID(tool, "contract")).selectByIndex(1);
+        tool.selectByIndexByID(tool, "contract", 1);
     }
 
     public AddCaseReview clickSubmit() throws Exception {

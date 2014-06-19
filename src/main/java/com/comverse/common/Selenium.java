@@ -133,6 +133,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void selectByIndexByID(AutomationTool tool, String id, int index) throws Exception {
+        new Select(tool.driver.findElement(By.id(id))).selectByIndex(index);
+    }
+
+    @Override
     public String getTextUsingClassName(AutomationTool tool, String className) throws Exception {
         return tool.driver.findElement(By.className(className)).getText();
     }
