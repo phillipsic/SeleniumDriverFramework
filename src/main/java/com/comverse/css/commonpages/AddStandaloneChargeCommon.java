@@ -1,14 +1,11 @@
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class AddStandaloneChargeCommon extends CommonMenu {
-
     static String expectedScreen = "Add Standalone Charge";
     static String selectedValue = null;
 
@@ -18,7 +15,6 @@ public class AddStandaloneChargeCommon extends CommonMenu {
         String currentScreen = tool.getTitle(tool);
 
         if (!expectedScreen.equals(currentScreen)) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
@@ -30,9 +26,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
     }
 
     public void selectNRCTypeDispatchFee() throws Exception {
-
-        Select select = new Select(tool.searchUsingID(tool, "charge"));
-        select.selectByVisibleText("Dispatch Fee");
+        tool.selectVisibleTextByID(tool, "charge", "Dispatch Fee");
 
         tool.clickUsingXPath(tool, "//input[@value='Confirm']");
 
