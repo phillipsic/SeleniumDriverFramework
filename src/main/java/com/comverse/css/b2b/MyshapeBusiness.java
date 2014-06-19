@@ -40,9 +40,12 @@ public class MyshapeBusiness extends MyshapeCommon {
     }
 
     public WorkSpace loginToB2B(User user) throws Exception {
-         tool.enterStringUsingId(tool, "login", Common.getBusinessAdminLogin());
 
-        tool.enterStringUsingId(tool, "password", Common.getBusinessAdminPassword());
+        user.setNewLogin(Common.getBusinessAdminLogin());
+        user.setNewPassword(Common.getBusinessAdminPassword());
+
+        tool.enterStringUsingId(tool, "login", user.getLogin());
+        tool.enterStringUsingId(tool, "password", user.getPassword());
         tool.clickUsingName(tool, "LoginButton");
 
         if (tool.getPageSource(tool).contains("Please enter a valid user name and password.")) {
@@ -53,6 +56,7 @@ public class MyshapeBusiness extends MyshapeCommon {
             throw new Exception("Synchronization Failed - ENVIRONMENT PROBLEM?");
         }
         Common.checkForExistingBasketAndDiscard(tool);
+
         return new WorkSpace(tool, test, user);
     }
 
