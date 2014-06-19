@@ -59,7 +59,7 @@ public class MyBasket extends B2CMenu {
     }
 
     public ConfirmOffersSelection clickModifyOnSO(String SO) throws Exception {
-        List<WebElement> Cols = (List<WebElement>) tool.searchUsingTagName(tool, "td");
+        List<WebElement> Cols = (List<WebElement>) tool.searchListUsingTagName(tool, "td");
         for (WebElement eachCol : Cols) {
             if (eachCol.getText().contains(SO)) {
                 eachCol.findElement(By.linkText("Modify...")).click();
@@ -71,7 +71,7 @@ public class MyBasket extends B2CMenu {
     }
 
     public RemoveSupplementaryOffer clickRemoveOnSO(String SO) throws Exception {
-        List<WebElement> Cols = (List<WebElement>) tool.searchUsingTagName(tool, "td");
+        List<WebElement> Cols = (List<WebElement>) tool.searchListUsingTagName(tool, "td");
         int cnter = 0;
         for (WebElement eachCol : Cols) {
             cnter++;

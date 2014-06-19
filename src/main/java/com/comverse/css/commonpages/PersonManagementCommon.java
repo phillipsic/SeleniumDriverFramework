@@ -1,10 +1,5 @@
 package com.comverse.css.commonpages;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -89,12 +84,9 @@ public class PersonManagementCommon extends CommonMenu {
         tool.clickUsingXPath(tool, "//div[contains(text(),'" + FName + "')]/../..//button");
     }
 
-    public void clickActionstoChangeOwner() {
-        // tool.clickUsingXPath(tool, "//*[@id='yui-gen16-button']");
-        tool.driver
-                .findElement(
-                        By.xpath(" //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button"))
-                .click();
+    public void clickActionstoChangeOwner() throws Exception {
+        tool.clickUsingXPath(tool,
+                " //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button");
     }
 
     public void clickActions3() throws Exception {
@@ -207,14 +199,12 @@ public class PersonManagementCommon extends CommonMenu {
         tool.selectVisibleTextByID(tool, "title", "Mr.");
         tool.enterStringUsingId(tool, "firstName", "test*");
         tool.clickUsingID(tool, "pm-button-search");
-        final List<WebElement> radios = tool.driver.findElements(By.name("pfr-selected-person"));
-        radios.get(0).click();
+        tool.clickListUsingName(tool, "pfr-selected-person");
         tool.clickUsingXPath(tool, "//*[@id='personfind']/div[2]/div/form/div[2]/input[2]");
         tool.clickUsingCssSelector(tool, "input[id=submitButton][value='Swap']");
     }
 
     public void clickDissociate() throws Exception {
-
         tool.clickUsingLinkText(tool, "Disassociate Role");
     }
 
@@ -223,8 +213,6 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void clickAssociateRoleToSubscriber() throws Exception {
-        // tool.clickUsingXPath(tool,
-        // "//a[contains(text(),'Associate Role to Subscriber')]");
         tool.clickUsingLinkText(tool, "Associate Role to Subscriber");
     }
 
@@ -233,7 +221,6 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public String getLastNameOfCOP() throws Exception {
-
         String cop_fullName = tool.getTextUsingXPath(tool, "//div[contains(text(),'Customer Owner Person')]/../../td[1]");
 
         String temp[] = cop_fullName.split(" ");
@@ -243,7 +230,6 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public PersonMergeCommon clickPersonMerge() throws Exception {
-
         tool.clickUsingLinkText(tool, "Person Merge");
 
         return new PersonMergeCommon(tool, test, user);

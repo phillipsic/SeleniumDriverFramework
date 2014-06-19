@@ -39,6 +39,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void clickListUsingName(AutomationTool tool, String name) throws Exception {
+        tool.driver.findElements(By.name(name)).get(0).click();
+    }
+
+    @Override
     public void clickPerformUsingXPath(AutomationTool tool, String xpath) throws Exception {
         action = new Actions(tool.driver);
         this.action.moveToElement(tool.driver.findElement(By.xpath(xpath))).click().perform();
@@ -334,6 +339,21 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public boolean searchListUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
+        return tool.driver.findElements(By.linkText(linkText)).isEmpty();
+    }
+
+    @Override
+    public List<WebElement> searchListUsingTagName(AutomationTool tool, String tagName) throws Exception {
+        return tool.driver.findElements(By.tagName(tagName));
+    }
+
+    @Override
+    public List<WebElement> searchListUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        return tool.driver.findElements(By.xpath(xpath));
+    }
+
+    @Override
     public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
         return tool.driver.findElement(By.cssSelector(cssSelector));
     }
@@ -349,18 +369,8 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
-        return tool.driver.findElements(By.linkText(linkText)).isEmpty();
-    }
-
-    @Override
     public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
         return tool.driver.findElement(By.name(name));
-    }
-
-    @Override
-    public List<WebElement> searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
-        return tool.driver.findElements(By.tagName(tagName));
     }
 
     @Override

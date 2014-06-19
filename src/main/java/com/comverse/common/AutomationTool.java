@@ -17,6 +17,9 @@ public class AutomationTool extends Main {
         return false;
     }
 
+    public void clickListUsingName(AutomationTool tool, String name) throws Exception {
+    }
+
     public void clickPerformUsingXPath(AutomationTool tool, String xpath) throws Exception {
     }
 
@@ -121,6 +124,18 @@ public class AutomationTool extends Main {
     public void quit(AutomationTool tool) throws Exception {
     }
 
+    public boolean searchListUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
+        return false;
+    }
+
+    public List<WebElement> searchListUsingTagName(AutomationTool tool, String tagName) throws Exception {
+        return null;
+    }
+
+    public List<WebElement> searchListUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        return null;
+    }
+
     public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
         return null;
     }
@@ -133,15 +148,7 @@ public class AutomationTool extends Main {
         return null;
     }
 
-    public boolean searchUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
-        return false;
-    }
-
     public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
-        return null;
-    }
-
-    public List<WebElement> searchUsingTagName(AutomationTool tool, String tagName) throws Exception {
         return null;
     }
 

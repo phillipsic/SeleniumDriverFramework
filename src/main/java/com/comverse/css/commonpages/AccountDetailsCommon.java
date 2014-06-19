@@ -353,7 +353,7 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public AccountDetails removeAccountOfferIfPresent(String accountOfferName) throws Exception {
-        if (!tool.searchUsingLinkTextIsEmpty(tool, accountOfferName)) {
+        if (!tool.searchListUsingLinkTextIsEmpty(tool, accountOfferName)) {
             System.out.println("Account offer found so need to remove it...");
 
             AccountDetails accountDetails = new AccountDetails(tool, test, user);
