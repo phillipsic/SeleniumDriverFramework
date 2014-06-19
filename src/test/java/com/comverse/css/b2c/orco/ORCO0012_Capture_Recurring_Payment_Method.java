@@ -72,8 +72,6 @@ public class ORCO0012_Capture_Recurring_Payment_Method extends CSSTest {
 
             Common.assertTextOnPage(tool, "Direct Debit");
 
-            // assertTrue(selenium.isTextPresent("Billing Account Currency: US Dollar"));
-
             test.setResult("pass");
         } catch (AlreadyRunException e) {
         } catch (Exception e) {

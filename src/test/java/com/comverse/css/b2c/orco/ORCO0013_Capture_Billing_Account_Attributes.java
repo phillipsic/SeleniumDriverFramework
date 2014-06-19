@@ -72,8 +72,6 @@ public class ORCO0013_Capture_Billing_Account_Attributes extends CSSTest {
             Common.assertTextOnPage(tool, "Check");
             Common.assertTextOnPage(tool, "French (Standard)");
 
-            // assertTrue(selenium.isTextPresent("Billing Account Currency: US Dollar"));
-
             test.setResult("pass");
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
