@@ -23,32 +23,32 @@ public class ImmediatePaymentCommon extends CommonMenu {
     }
 
     public void setCardNumber(String value) throws Exception {
-
-        
         tool.enterStringUsingId(tool, "cardNumber", value);
     }
 
-    public void setExpirationDate(String value) throws Exception {
+    public void setEmail(String value) throws Exception {
+        tool.enterStringUsingId(tool, "cardEmail", value);
+    }
 
-        
+    public void setAddress(String value) throws Exception {
+        tool.enterStringUsingId(tool, "cardAddresLine1", value);
+    }
+
+    public void setExpirationDate(String value) throws Exception {
         tool.enterStringUsingId(tool, "cardExpirationDate", value);
     }
 
     public void setCardHolderLastName(String value) throws Exception {
-
-        
         tool.enterStringUsingId(tool, "cardHolderName", value);
     }
 
     public void setCardHolderFirstName(String value) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "cardHolderFName", value);
     }
 
     public void setCardSecretCode(String value) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "cardSecretCode", value);
     }
 
@@ -61,21 +61,22 @@ public class ImmediatePaymentCommon extends CommonMenu {
 
     public void checkForExistingCreditCardDetailsAndClickNew() throws Exception {
 
-        String existingCreditCard;
+        boolean existingCreditCard;
 
         existingCreditCard = this.isCreditCardNew();
 
-        if (existingCreditCard.equals("New")) {
+        if (existingCreditCard) {
             this.clickCreditCardNew();
         }
 
     }
 
-    public String isCreditCardNew() throws Exception {
+    public boolean isCreditCardNew() throws Exception {
 
-        String creditCard = tool.getTextUsingXPath(tool, ".//*/div[3]/form/fieldset[1]/div/div/div[2]/span");
-        System.out.println("Text is:" + creditCard);
-        return creditCard;
+        boolean creditCardExists = Common.isTextOnPage(tool, "************1111");
+        //String creditCard = tool.getTextUsingXPath(tool, ".//*/div[3]/form/fieldset[1]/div/div/div[2]/span");
+        System.out.println("Existing Credit Card:" + creditCardExists);
+        return creditCardExists;
 
     }
 
