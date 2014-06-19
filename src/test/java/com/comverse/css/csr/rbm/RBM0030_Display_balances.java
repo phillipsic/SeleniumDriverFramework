@@ -3,7 +3,6 @@ package com.comverse.css.csr.rbm;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.*;
 import com.comverse.css.csr.*;
@@ -80,16 +79,16 @@ public class RBM0030_Display_balances extends CSSTest {
             subscriberDetails.viewBalanceAndRecharge();
 
             // Balances table
-            Common.isElementPresent(tool, By.id("listBalances"));
+            tool.isElementPresentByID(tool, "listBalances");
             Common.assertTextOnPage(tool, ab_AccountBundle.getBAL_GPRS_WAP_INTERNET().getBalanceName());
             // Shadow balances table
-            Common.isElementPresent(tool, By.id("listShadowBalances"));
+            tool.isElementPresentByID(tool, "listShadowBalances");
             Common.assertTextOnPage(tool, balanceAnytimeName);
             Common.assertTextOnPage(tool, Common.formatToHHmmss(balanceAnytimeValue));
             Common.assertTextOnPage(tool, balanceNightWeekendName);
             Common.assertTextOnPage(tool, Common.formatToHHmmss(balanceNightWeekendValue));
             // Balances limits table
-            Common.isElementPresent(tool, By.id("listLimits"));
+            tool.isElementPresentByID(tool, "listLimits");
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceName());
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getBAL_InternationalRoaming().getBalanceName());
             Common.assertTextOnPage(tool, "This value will be applied to your next bill cycle");

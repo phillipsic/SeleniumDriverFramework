@@ -3,7 +3,6 @@ package com.comverse.css.csr.bkm;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
@@ -53,7 +52,7 @@ public class BKM0040_Change_primary_offer_of_a_selection extends CSSTest {
             configureContractDetails.setSpendingLimit(sb_ResidentialUltraPostpaidBundle.getPO_ResidentialUltraPostpaid().getBAL_GPRS_WAP_INTERNET().getBalanceName(),
                     sb_ResidentialUltraPostpaidBundle.getPO_ResidentialUltraPostpaid().getBAL_GPRS_WAP_INTERNET().getBalanceValue());
 
-            if (Common.isElementPresent(tool, By.xpath("xpath=//*[contains(@id, 'Subscriber DetailsBlock') and contains(@style, 'display: none;')]"))) {
+            if (tool.isElementPresentByXPath(tool, "xpath=//*[contains(@id, 'Subscriber DetailsBlock') and contains(@style, 'display: none;')]")) {
                 tool.clickUsingCssSelector(tool, "img.floatLeft");
             }
 

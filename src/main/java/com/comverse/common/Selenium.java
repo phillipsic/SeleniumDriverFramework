@@ -286,6 +286,26 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public boolean isElementPresentByID(AutomationTool tool, String id) throws Exception {
+        try {
+            tool.driver.findElements(By.id(id));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean isElementPresentByXPath(AutomationTool tool, String xpath) throws Exception {
+        try {
+            tool.driver.findElements(By.xpath(xpath));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
     public void navigateBack(AutomationTool tool) throws Exception {
         tool.driver.navigate().back();
     }

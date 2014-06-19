@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.Set;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.DB;
 import com.jcraft.jsch.Channel;
@@ -70,15 +68,6 @@ public class Common {
 
         String pageSource = Common.returnCleanPageSource(tool);
         assertFalse(pageSource.contains(searchText));
-    }
-
-    public static boolean isElementPresent(AutomationTool tool, By by) {
-        try {
-            tool.driver.findElements(by);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 
     public static String removeHTMLTags(String dirtyString) throws Exception {

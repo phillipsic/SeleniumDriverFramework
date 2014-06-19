@@ -119,6 +119,14 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public boolean isElementPresentByID(AutomationTool tool, String id) throws Exception {
+        return false;
+    }
+
+    public boolean isElementPresentByXPath(AutomationTool tool, String xpath) throws Exception {
+        return false;
+    }
+
     public void navigateBack(AutomationTool tool) throws Exception {
     }
 
