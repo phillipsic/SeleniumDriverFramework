@@ -17,6 +17,9 @@ public class AutomationTool extends Main {
         return false;
     }
 
+    public void clickPerformUsingXPath(AutomationTool tool, String xpath) throws Exception {
+    }
+
     public void clickUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
     }
 
@@ -106,6 +109,9 @@ public class AutomationTool extends Main {
     public void parseUserAgent(AutomationTool tool, Test test, String intBrowser) {
     }
 
+    public void performUsingXPath(AutomationTool tool, String xpath) throws Exception {
+    }
+
     public void quit(AutomationTool tool) throws Exception {
     }
 
@@ -151,5 +157,4 @@ public class AutomationTool extends Main {
 
     public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
     }
-
 }
