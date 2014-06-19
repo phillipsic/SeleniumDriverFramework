@@ -80,6 +80,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void deselectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
+        new Select(tool.driver.findElement(By.id(id))).deselectByVisibleText(visibleText);
+    }
+
+    @Override
     public void enterStringUsingCssSelector(AutomationTool tool, String cssSelector, String data) throws Exception {
         tool.driver.findElement(By.cssSelector(cssSelector)).clear();
         tool.driver.findElement(By.cssSelector(cssSelector)).sendKeys(data);
@@ -312,6 +317,12 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void performDragAndDrop(AutomationTool tool, WebElement from, WebElement to) throws Exception {
+        action = new Actions(tool.driver);
+        this.action.dragAndDrop(from, to).perform();
+    }
+
+    @Override
     public void performUsingXPath(AutomationTool tool, String xpath) throws Exception {
         action = new Actions(tool.driver);
         this.action.moveToElement(tool.driver.findElement(By.xpath(xpath))).perform();
@@ -358,6 +369,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void selectByIndexByID(AutomationTool tool, String id, int index) throws Exception {
+        new Select(tool.driver.findElement(By.id(id))).selectByIndex(index);
+    }
+
+    @Override
     public void selectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
         new Select(tool.driver.findElement(By.id(id))).selectByVisibleText(visibleText);
     }
@@ -380,11 +396,5 @@ public class Selenium extends AutomationTool {
     @Override
     public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
         tool.driver.switchTo().window(windowHandle);
-    }
-
-    @Override
-    public void performDragAndDrop(AutomationTool tool, WebElement from, WebElement to) throws Exception {
-        action = new Actions(tool.driver);
-        this.action.dragAndDrop(from, to).perform();
     }
 }

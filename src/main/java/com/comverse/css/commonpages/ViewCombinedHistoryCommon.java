@@ -9,8 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -65,14 +63,11 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
     }
 
     public void deselectbox() throws Exception {
-
-        Select selectBox = new Select(tool.searchUsingID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT"));
-        selectBox.deselectByVisibleText("Adjustment");
-        selectBox.deselectByVisibleText("MTR");
-        selectBox.deselectByVisibleText("RC");
-        selectBox.deselectByVisibleText("Recharge");
-        selectBox.deselectByVisibleText("Usage");
-
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Adjustment");
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "MTR");
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "RC");
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Recharge");
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Usage");
     }
 
     public void clickSearch() throws Exception {
