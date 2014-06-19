@@ -381,4 +381,10 @@ public class Selenium extends AutomationTool {
     public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
         tool.driver.switchTo().window(windowHandle);
     }
+
+    @Override
+    public void performDragAndDrop(AutomationTool tool, WebElement from, WebElement to) throws Exception {
+        action = new Actions(tool.driver);
+        this.action.dragAndDrop(from, to).perform();
+    }
 }
