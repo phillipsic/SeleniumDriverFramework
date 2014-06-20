@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.comverse.css.b2c;
 
 import java.util.List;
@@ -29,19 +25,16 @@ public class MyBasket extends B2CMenu {
     }
 
     public CheckoutRegister clickCheckOut() throws Exception {
-
         tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         return new CheckoutRegister(tool, test, user);
     }
 
     public TermsAndConditions clickCheckOutExpectingTermsAndConditions() throws Exception {
-
         tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         return new TermsAndConditions(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickCheckOutExpectingCheckOutBillingAccountInformation() throws Exception {
-
         tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckOutBillingAccountInformation(tool, test, user);
@@ -53,7 +46,6 @@ public class MyBasket extends B2CMenu {
     }
 
     public TermsAndConditions clickCheckOutWithDevices() throws Exception {
-
         tool.clickUsingXPath(tool, "//input[@value='Checkout']");
         return new TermsAndConditions(tool, test, user);
     }

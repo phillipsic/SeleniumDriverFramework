@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.comverse.common.AutomationTool;
@@ -75,12 +74,10 @@ public class Logging extends CLSMenu {
     }
 
     public void assertClusterNameDropDownContains(String value) throws Exception {
-
         assertEquals(true, this.checkDropDownForValue("clusterNameFilter", value));
     }
 
     public void selectRecordPerPage(String value) throws Exception {
-
         tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
         tool.selectVisibleTextByID(tool, "yui-pg0-0-rpp81", value);
         tool.switchTo(tool);
@@ -88,12 +85,10 @@ public class Logging extends CLSMenu {
     }
 
     private boolean checkDropDownForValue(String dropDownID, String value) throws Exception {
-
         boolean optionFound = false;
         tool.switchToFrame(tool, tool.searchUsingID(tool, "_ddajaxtabsiframe-loggingTabContent"));
 
-        WebElement dropDown = tool.searchUsingID(tool, "clusterNameFilter");
-        List<WebElement> options = dropDown.findElements(By.tagName("option"));
+        List<WebElement> options = ((AutomationTool) tool.searchUsingID(tool, "clusterNameFilter")).searchListUsingTagName(tool, "option");
 
         for (WebElement el : options) {
             System.out.println(el.getText());
@@ -102,12 +97,10 @@ public class Logging extends CLSMenu {
                 optionFound = true;
             }
         }
-
         tool.switchTo(tool);
 
         return optionFound;
     }
-
     /*
      * clusterNameFilter
      * 

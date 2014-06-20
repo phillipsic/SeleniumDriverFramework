@@ -4,8 +4,6 @@
  */
 package com.comverse.css.b2c;
 
-import org.openqa.selenium.WebElement;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -25,48 +23,41 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public ChooseYourPrimaryOffer selectHandset(String Handset) throws Exception {
-
         tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public EnterYourSubscriptionDetails selectHandsetExpectingSubscriptionDetails(String Handset) throws Exception {
-
         tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public MyBasket selectHandsetExpectingMyBasket(String Handset) throws Exception {
-
         tool.clickUsingXPath(tool, ".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Select']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public void selectManufacturer1() throws Exception {
-        WebElement manufacturer1 = tool.searchUsingCssSelector(tool, "input[value='Manufacturer 1']");
-        if (!(manufacturer1.isSelected()))
-            manufacturer1.click();
+        if (!(tool.searchUsingCssSelector(tool, "input[value='Manufacturer 1']").isSelected()))
+            tool.searchUsingCssSelector(tool, "input[value='Manufacturer 1']").click();
     }
 
     public void unSelectManufacturer1() throws Exception {
-        WebElement manufacturer1 = tool.searchUsingCssSelector(tool, "input[value='Manufacturer 1']");
-        if (manufacturer1.isSelected())
-            manufacturer1.click();
+        if (tool.searchUsingCssSelector(tool, "input[value='Manufacturer 1']").isSelected())
+            tool.searchUsingCssSelector(tool, "input[value='Manufacturer 1']").click();
     }
 
     public void selectManufacturer2() throws Exception {
-        WebElement manufacturer2 = tool.searchUsingCssSelector(tool, "input[value='Manufacturer 2']");
-        if (!(manufacturer2.isSelected()))
-            manufacturer2.click();
+        if (!(tool.searchUsingCssSelector(tool, "input[value='Manufacturer 2']").isSelected()))
+            tool.searchUsingCssSelector(tool, "input[value='Manufacturer 2']").click();
     }
 
     public void unSelectManufacturer2() throws Exception {
-        WebElement manufacturer2 = tool.searchUsingCssSelector(tool, "input[value='Manufacturer 2']");
-        if (manufacturer2.isSelected())
-            manufacturer2.click();
+        if (tool.searchUsingCssSelector(tool, "input[value='Manufacturer 2']").isSelected())
+            tool.searchUsingCssSelector(tool, "input[value='Manufacturer 2']").click();
     }
 
     public void setSearchAttribute(String searchString) throws Exception {
