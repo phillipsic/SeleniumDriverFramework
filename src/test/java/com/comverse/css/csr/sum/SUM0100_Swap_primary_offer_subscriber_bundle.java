@@ -50,7 +50,7 @@ public class SUM0100_Swap_primary_offer_subscriber_bundle extends CSSTest {
             CheckoutReview checkoutReview = myBasket.clickCheckOut();
             CheckoutConfirmation checkoutConfirmation = checkoutReview.clickConfirm();
             String orderNumber = checkoutConfirmation.getOrderNumberFromPage();
-             workSpace = checkoutConfirmation.clickOk();
+            checkoutConfirmation.clickOk();
             workSpace.setAccount(workSpace.account);
             workSpace.setPerson(workSpace.person);
             workSpace.setSubscriber(workSpace.subscriber);
