@@ -44,11 +44,11 @@ public class OCM0001_Add_Images extends CSSTest {
         ocmApplication.clickMenuManageMediaFiles(application);
 
         // Click "Root Content"
-        tool.clickUsingID(tool, "mainPanel:treeForm:ContentMgtTree:0:_idJsp19_link");
+        tool.clickUsingID("mainPanel:treeForm:ContentMgtTree:0:_idJsp19_link");
         // Click "Move this Folder"
-        tool.clickUsingID(tool, "mainPanel:boxForm:folderSelection_ActionBox:actionList:folder:moveHierarchy");
-        tool.enterStringUsingId(tool, "mainPanel:_idJsp28:mainfields:NewSubHierarchy", "/Images/");
-        tool.clickUsingID(tool, "mainPanel:_idJsp28:buttons:moveHierarchy");
+        tool.clickUsingID("mainPanel:boxForm:folderSelection_ActionBox:actionList:folder:moveHierarchy");
+        tool.enterStringUsingId("mainPanel:_idJsp28:mainfields:NewSubHierarchy", "/Images/");
+        tool.clickUsingID("mainPanel:_idJsp28:buttons:moveHierarchy");
         Common.assertTextOnPage(tool, "Images");
 
         this.inputFile = "test\\com\\comverse\\css\\OCM\\Data\\images.xls";
@@ -70,12 +70,12 @@ public class OCM0001_Add_Images extends CSSTest {
             contents[i][j] = cell.getContents();
             System.out.println("I got a label " + cell.getContents());
             // Click "Upload Media Files in this Folder"
-            tool.clickUsingID(tool, "mainPanel:boxForm:folderSelection_ActionBox:actionList:mediaFiles:uploadMediaFile");
+            tool.clickUsingID("mainPanel:boxForm:folderSelection_ActionBox:actionList:mediaFiles:uploadMediaFile");
             ImageDetails = System.getProperty("user.dir") + "\\test\\com\\comverse\\css\\OCM\\Data\\Img\\" + cell.getContents();
             System.out.println(ImageDetails);
 
-            tool.enterStringUsingId(tool, "mainPanel:edit:mainfields:file", ImageDetails);
-            tool.clickUsingID(tool, "mainPanel:edit:buttons:upload");
+            tool.enterStringUsingId("mainPanel:edit:mainfields:file", ImageDetails);
+            tool.clickUsingID("mainPanel:edit:buttons:upload");
             Common.assertTextOnPage(tool, "1 media files uploaded successfully");
         }
 

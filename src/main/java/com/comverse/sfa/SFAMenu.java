@@ -16,54 +16,54 @@ public class SFAMenu extends SFATest {
 
     public void clickSalesOpportunities() throws Exception {
 
-        tool.clickUsingXPath(tool, "//div[10]/div/table/tbody/tr/td[2]/div");
-        tool.clickUsingXPath(tool, "//div[@id='$bicusp']/div/table/tbody/tr/td[2]/div");
+        tool.clickUsingXPath("//div[10]/div/table/tbody/tr/td[2]/div");
+        tool.clickUsingXPath("//div[@id='$bicusp']/div/table/tbody/tr/td[2]/div");
         // return new sfaOpportunities(tool, test, user);
     }
 
     public sfaOrganization clickNavigationOrganization() throws Exception {
 
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'Organizations')]");
+        tool.clickUsingXPath("//div[contains(text(), 'Organizations')]");
         return new sfaOrganization(tool, test, user);
     }
 
     public sfaB2BLead clickNavigationB2BLead() throws Exception {
 
-        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'B2B Leads')]")) {
-            tool.clickUsingID(tool, "toggle_$20ee6m_image");
+        if (!tool.checkDisplayedUsingXpath("//div[contains(text(), 'B2B Leads')]")) {
+            tool.clickUsingID("toggle_$20ee6m_image");
         }
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'B2B Leads')]");
+        tool.clickUsingXPath("//div[contains(text(), 'B2B Leads')]");
         return new sfaB2BLead(tool, test, user);
     }
 
     public sfaB2CLead clickNavigationB2CLead() throws Exception {
 
-        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'B2C Leads')]")) {
-            tool.clickUsingID(tool, "toggle_$20ee6m_image");
+        if (!tool.checkDisplayedUsingXpath("//div[contains(text(), 'B2C Leads')]")) {
+            tool.clickUsingID("toggle_$20ee6m_image");
         }
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'B2C Leads')]");
+        tool.clickUsingXPath("//div[contains(text(), 'B2C Leads')]");
         return new sfaB2CLead(tool, test, user);
     }
 
     public sfaAdminJobList clickNavigationJobList() throws Exception {
 
-        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'Job List')]")) {
-            tool.clickUsingID(tool, "toggle_$dkat0h_image");
+        if (!tool.checkDisplayedUsingXpath("//div[contains(text(), 'Job List')]")) {
+            tool.clickUsingID("toggle_$dkat0h_image");
         }
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'Job List')]");
+        tool.clickUsingXPath("//div[contains(text(), 'Job List')]");
         return new sfaAdminJobList(tool, test, user);
     }
 
     public sfaOpportunity clickNavigationOpportunity() throws Exception {
-        if (!tool.checkDisplayedUsingXpath(tool, "//div[contains(text(), 'Opportunities')]")) {
-            tool.clickUsingID(tool, "toggle_$20ee6m_image");
+        if (!tool.checkDisplayedUsingXpath("//div[contains(text(), 'Opportunities')]")) {
+            tool.clickUsingID("toggle_$20ee6m_image");
         }
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'Opportunities')]");
+        tool.clickUsingXPath("//div[contains(text(), 'Opportunities')]");
         return new sfaOpportunity(tool, test, user);
     }
 
     public void enterFindText(String OrgName) throws Exception {
-        String htmlSource = tool.getPageSource(tool);
+        String htmlSource = tool.getPageSource();
         String temp[];
 
         temp = htmlSource.split("Enter text");
@@ -73,12 +73,12 @@ public class SFAMenu extends SFATest {
         String textFieldID = temp[1].replaceAll("=", "");
         textFieldID = Common.cleanStringOfIllegalChars(textFieldID);
 
-        tool.enterStringUsingId(tool, textFieldID, OrgName);
+        tool.enterStringUsingId(textFieldID, OrgName);
     }
 
     public void selectFindType(String value) throws Exception {
 
-        String htmlSource = tool.getPageSource(tool);
+        String htmlSource = tool.getPageSource();
         String temp[];
 
         temp = htmlSource.split("Select One");
@@ -88,11 +88,11 @@ public class SFAMenu extends SFATest {
         String dropDownID = temp[1].replaceAll("=", "");
         dropDownID = Common.cleanStringOfIllegalChars(dropDownID);
 
-        tool.selectVisibleTextByID(tool, dropDownID, value);
+        tool.selectVisibleTextByID(dropDownID, value);
     }
 
     public void clickFindGo() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Go']");
+        tool.clickUsingXPath("//input[@value='Go']");
     }
 
 }

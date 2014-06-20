@@ -20,7 +20,7 @@ public class ViewNRCHistory extends ViewNRCHistoryCommon {
     @Override
     public void clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Search']");
+        tool.clickUsingXPath("//input[@value='Search']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 

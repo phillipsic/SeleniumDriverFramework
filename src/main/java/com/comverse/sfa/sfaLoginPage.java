@@ -16,7 +16,7 @@ public class sfaLoginPage extends Main {
         this.tool = tool;
         this.test = test;
         this.user = user;
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse ONE Billing and Active Customer Management";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,21 +27,21 @@ public class sfaLoginPage extends Main {
 
     public void setUserId(String login) throws Exception {
 
-        tool.enterStringUsingId(tool, "Iujgbo2", login);
+        tool.enterStringUsingId("Iujgbo2", login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "I604i25", password);
+        tool.enterStringUsingId("I604i25", password);
     }
 
     public sfaHomePage clickSignIn() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='SIGN IN']");
+        tool.clickUsingXPath("//input[@value='SIGN IN']");
         return new sfaHomePage(tool, test, user);
     }
 
     public String getMessage() throws Exception {
-        return tool.getTextUsingXPath(tool, "//span");
+        return tool.getTextUsingXPath("//span");
     }
 
 }

@@ -19,7 +19,7 @@ public class ViewUsageHistoryCommon extends CommonMenu {
     public ViewUsageHistoryCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!"View usage history".equals(currentScreen)) {
@@ -54,26 +54,26 @@ public class ViewUsageHistoryCommon extends CommonMenu {
     public void enterFromDate(String fromDate) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "fromDate", fromDate);
+        tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "toDate", toDate);
+        tool.enterStringUsingId("toDate", toDate);
 
     }
 
     public void clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
+        tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public String getSearchResults() throws Exception {
 
-        String text = tool.getTextUsingXPath(tool, "//table[2]/tbody/tr[3]/td");
+        String text = tool.getTextUsingXPath("//table[2]/tbody/tr[3]/td");
 
         System.out.println("Output:" + text);
 
@@ -82,7 +82,7 @@ public class ViewUsageHistoryCommon extends CommonMenu {
 
     public ViewUsageDetailsCommon ViewUsageDetails() throws Exception {
 
-        tool.clickUsingID(tool, "usageDetails");
+        tool.clickUsingID("usageDetails");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUsageDetailsCommon(tool, test, user);
     }

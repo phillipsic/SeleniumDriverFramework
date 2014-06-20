@@ -14,10 +14,10 @@ public class ModifyLoginRoles extends CommonMenu {
 
     public ModifyLoginRoles(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Login Roles";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -25,7 +25,7 @@ public class ModifyLoginRoles extends CommonMenu {
 
     public LoginInformation clickVeiwLoginInformationLink() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_LOGIN");
+        tool.clickUsingID("smnu_LOGIN");
 
         return new LoginInformation(tool, test, user);
     }

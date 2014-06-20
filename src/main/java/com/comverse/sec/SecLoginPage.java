@@ -18,7 +18,7 @@ public class SecLoginPage extends CommonMenu {
         super(tool, test, user);
         this.user = user;
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Security | Home";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -40,22 +40,20 @@ public class SecLoginPage extends CommonMenu {
 
     public void setSecservUserName(String login) throws Exception {
 
-        
-        tool.enterStringUsingId(tool, "loginForm:userName", login);
+        tool.enterStringUsingId("loginForm:userName", login);
     }
 
     public void setSecservPassword(String password) throws Exception {
 
-        
-        tool.enterStringUsingId(tool, "loginForm:password", password);
+        tool.enterStringUsingId("loginForm:password", password);
     }
 
     public void clickSignIn() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Sign In");
+        tool.clickUsingLinkText("Sign In");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "|Welcome | Please Login";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -67,10 +65,10 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickLogin() throws Exception {
 
-        tool.clickUsingID(tool, "loginForm:loginBtn");
+        tool.clickUsingID("loginForm:loginBtn");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Security | Home";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -82,11 +80,11 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickIdentity() throws Exception {
 
-        tool.clickUsingXPath(tool, "//a[@id='j_id29']/span");
+        tool.clickUsingXPath("//a[@id='j_id29']/span");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -98,11 +96,11 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickCSS_CSR() throws Exception {
         Common.sleepForNumberOfSeconds(2);
-        tool.clickUsingXPath(tool, "//span[contains(text(),'CSS_CSR')]");
+        tool.clickUsingXPath("//span[contains(text(),'CSS_CSR')]");
         Common.sleepForNumberOfSeconds(3);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -114,10 +112,10 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickCSS_DEALER() throws Exception {
 
-        tool.clickUsingXPath(tool, "//a[@id='j_id42:j_id45:n-7:j_id51']/span");
+        tool.clickUsingXPath("//a[@id='j_id42:j_id45:n-7:j_id51']/span");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Security | Identity";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -129,10 +127,10 @@ public class SecLoginPage extends CommonMenu {
 
     public void clickAddUser() throws Exception {
 
-        tool.clickUsingCssSelector(tool, "input[type='button'][value='Add User']");
+        tool.clickUsingCssSelector("input[type='button'][value='Add User']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Security | Add User";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -159,7 +157,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(10);
 
-        if (!tool.getPageSource(tool).contains("Successfully created")) {
+        if (!tool.getPageSource().contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -183,7 +181,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(30);
 
-        if (!tool.getPageSource(tool).contains("Successfully created")) {
+        if (!tool.getPageSource().contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -207,7 +205,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.sleepForNumberOfSeconds(10);
 
-        if (!tool.getPageSource(tool).contains("Successfully created")) {
+        if (!tool.getPageSource().contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }
@@ -257,7 +255,7 @@ public class SecLoginPage extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        if (!tool.getPageSource(tool).contains("Successfully created")) {
+        if (!tool.getPageSource().contains("Successfully created")) {
 
             throw new Exception("Failed create");
         }

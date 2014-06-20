@@ -24,7 +24,7 @@ public class RegisterLogin extends RegisterLoginCommon {
 
     public LoginInformation clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         return new LoginInformation(tool, test, user);
     }
 

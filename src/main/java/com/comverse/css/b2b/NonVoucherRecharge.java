@@ -19,7 +19,7 @@ public class NonVoucherRecharge extends NonVoucherRechargeCommon {
     @Override
     public void selectPaymentMethodCreditCard() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='CREDIT_CARD']");
+        tool.clickUsingXPath("//input[@value='CREDIT_CARD']");
     }
 
     @Override

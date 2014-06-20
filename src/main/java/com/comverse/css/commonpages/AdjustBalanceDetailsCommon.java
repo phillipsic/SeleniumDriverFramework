@@ -10,7 +10,7 @@ public class AdjustBalanceDetailsCommon extends CommonMenu {
     public AdjustBalanceDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -22,12 +22,12 @@ public class AdjustBalanceDetailsCommon extends CommonMenu {
     public void enterAdjustmentAmount(String amount) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "adjustmentValue", amount);
+        tool.enterStringUsingId("adjustmentValue", amount);
     }
 
     public AdjustBalanceReviewCommon clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         return new AdjustBalanceReviewCommon(tool, test, user);
     }
 }

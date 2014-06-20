@@ -11,7 +11,7 @@ public class WorkSpace extends WorkSpaceCommon {
     public WorkSpace(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Welcome to Your Workspace";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -20,30 +20,30 @@ public class WorkSpace extends WorkSpaceCommon {
     }
 
     public AccountDetails clickAccount() throws Exception {
-        tool.clickUsingID(tool, "mnu_ACCOUNTS");
+        tool.clickUsingID("mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 
     public ListCases clickCustomerCare() throws Exception {
-        tool.clickUsingID(tool, "mnu_PROBLEMS");
+        tool.clickUsingID("mnu_PROBLEMS");
         return new ListCases(tool, test, user);
     }
 
     public ViewHierarchy clickUserManagement() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_HIERARCHY");
+        tool.clickUsingID("mnu_HIERARCHY");
         return new ViewHierarchy(tool, test, user);
     }
 
     public ContactInformation clickUsersName() throws Exception {
 
-        tool.clickUsingID(tool, "GLOBAL.MEMBER_CONTEXT");
+        tool.clickUsingID("GLOBAL.MEMBER_CONTEXT");
         return new ContactInformation(tool, test, user);
     }
 
     public ResumeAParkedBasket clickViewParkedBaskets() throws Exception {
 
-        tool.clickUsingLinkText(tool, "View Parked Baskets");
+        tool.clickUsingLinkText("View Parked Baskets");
         return new ResumeAParkedBasket(tool, test, user);
     }
 
@@ -54,7 +54,7 @@ public class WorkSpace extends WorkSpaceCommon {
     }
 
     public ManageAccount clickManageAccount() throws Exception {
-        tool.clickUsingLinkText(tool, "Manage Account");
+        tool.clickUsingLinkText("Manage Account");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ManageAccount(tool, test, user);
     }

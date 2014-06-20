@@ -20,22 +20,22 @@ public class CSSTest extends Main {
 
     public void launchCSSApplication() throws Exception {
         application.setVersion(tool);
-        tool.get(tool, application.appURL());
+        tool.get(application.appURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
     }
 
     public void launchAnotherCSSApplication(Application application2) throws Exception {
-        tool.get(tool, application2.appURL());
+        tool.get(application2.appURL());
         Thread.sleep(1000);
     }
 
     public void launchCSSApplicationAndSSOLogin() throws Exception {
-        tool.get(tool, application.appURL());
+        tool.get(application.appURL());
         loginSSOUser();
         application.setVersion(tool);
-        tool.navigateBack(tool);
+        tool.navigateBack();
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
@@ -46,7 +46,7 @@ public class CSSTest extends Main {
         application.setVersion(tool);
         // Launch OCM with Direct URL
         application.setMainURLKey(application.getDirectURLKey());
-        tool.get(tool, application.appOCMURL());
+        tool.get(application.appOCMURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
@@ -55,16 +55,16 @@ public class CSSTest extends Main {
     public void launchOCMApplication() throws Exception {
         // Launch OCM with Direct URL
         application.setMainURLKey(application.getDirectURLKey());
-        tool.get(tool, application.appOCMURL());
+        tool.get(application.appOCMURL());
     }
 
     public void launchSecurityApplication() throws Exception {
         application.setVersion(tool);
-        tool.get(tool, application.appFullURL());
+        tool.get(application.appFullURL());
     }
 
     public void launchOTGApplication() throws Exception {
-        tool.get(tool, application.appFullURL());
+        tool.get(application.appFullURL());
         Thread.sleep(4000);
     }
 }

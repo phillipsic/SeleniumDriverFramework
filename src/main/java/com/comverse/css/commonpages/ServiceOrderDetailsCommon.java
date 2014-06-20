@@ -14,7 +14,7 @@ public class ServiceOrderDetailsCommon extends CommonMenu {
     public ServiceOrderDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Service Order Details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,13 +24,13 @@ public class ServiceOrderDetailsCommon extends CommonMenu {
     }
 
     public void getAccountID(Account account) throws Exception {
-        String accountID = tool.getTextUsingXPath(tool, "//td[2]/a");
+        String accountID = tool.getTextUsingXPath("//td[2]/a");
         System.out.println("AccountID = " + accountID);
         account.setBillingAccountIDProperty(accountID);
     }
 
     public SearchOrdersCommon clickBack() throws Exception {
-        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Back']");
+        tool.clickUsingCssSelector("input[type='submit'][value='Back']");
         return new SearchOrdersCommon(tool, test, user);
     }
 }

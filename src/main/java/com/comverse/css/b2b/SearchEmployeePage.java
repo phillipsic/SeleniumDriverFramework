@@ -9,11 +9,11 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
 
     public SearchEmployeePage(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Search Employee";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);

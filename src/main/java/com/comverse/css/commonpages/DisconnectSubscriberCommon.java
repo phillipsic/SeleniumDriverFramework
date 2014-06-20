@@ -9,7 +9,7 @@ public class DisconnectSubscriberCommon extends CommonMenu {
 
     public DisconnectSubscriberCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Disconnect subscriber";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -18,7 +18,7 @@ public class DisconnectSubscriberCommon extends CommonMenu {
 
     public DisconnectSubscriberDisconnectionSuccessfulCommon clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new DisconnectSubscriberDisconnectionSuccessfulCommon(tool, test, user);

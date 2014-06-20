@@ -9,7 +9,7 @@ public class ViewRechargeDetailsCommon extends CommonMenu {
     public ViewRechargeDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View Recharge Details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,13 +22,13 @@ public class ViewRechargeDetailsCommon extends CommonMenu {
 
     public ViewUnbilledRechargeCommon clickBack() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
         return new ViewUnbilledRechargeCommon(tool, test, user);
     }
 
     public ViewBilledRechargesCommon clickBackToBiledRecharges() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
         return new ViewBilledRechargesCommon(tool, test, user);
     }
 

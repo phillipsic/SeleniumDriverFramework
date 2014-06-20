@@ -24,7 +24,7 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
     @Override
     public String getFirstRequestStatus() throws Exception {
 
-        String requestStatus = tool.getTextUsingXPath(tool, "//div[6]/table/tbody[2]/tr/td[6]/div");
+        String requestStatus = tool.getTextUsingXPath("//div[6]/table/tbody[2]/tr/td[6]/div");
         return requestStatus;
     }
 

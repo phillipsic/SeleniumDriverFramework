@@ -13,11 +13,11 @@ public class ChooseYourDevice extends B2CMenu {
 
     public ChooseYourDevice(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Choose Your Device";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -26,14 +26,14 @@ public class ChooseYourDevice extends B2CMenu {
 
     public EnterYourSubscriptionDetails clickNoThanks() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='No Thanks']");
+        tool.clickUsingXPath("//input[@value='No Thanks']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public ChooseYourHandset clickSelectVoiceDevices() throws Exception {
 
-        tool.clickUsingXPath(tool, "//form[@id = 'chooseHandset_Voice_Devices']//input");
+        tool.clickUsingXPath("//form[@id = 'chooseHandset_Voice_Devices']//input");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourHandset(tool, test, user);
     }

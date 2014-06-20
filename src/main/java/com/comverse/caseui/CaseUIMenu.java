@@ -15,20 +15,20 @@ public class CaseUIMenu extends CaseUITest {
     }
 
     public void clickCaseManagement() throws Exception {
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'Case Management')]");
+        tool.clickUsingXPath("//div[contains(text(), 'Case Management')]");
     }
 
     public CaseUICases clickCases() throws Exception {
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'Cases')]");
+        tool.clickUsingXPath("//div[contains(text(), 'Cases')]");
         return new CaseUICases(tool, test, user);
     }
 
     public void clickAccounts() throws Exception {
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'Accounts')]");
+        tool.clickUsingXPath("//div[contains(text(), 'Accounts')]");
     }
 
     public CaseUIAccounts clickAccountsSub() throws Exception {
-        tool.clickUsingXPath(tool, "//div[8]/div[2]/div/table/tbody/tr/td[2]/div");
+        tool.clickUsingXPath("//div[8]/div[2]/div/table/tbody/tr/td[2]/div");
 
         return new CaseUIAccounts(tool, test, user);
     }
@@ -40,15 +40,15 @@ public class CaseUIMenu extends CaseUITest {
     }
 
     public void clickActivities() throws Exception {
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'Activities')]");
+        tool.clickUsingXPath("//div[contains(text(), 'Activities')]");
     }
 
     public void clickTasks() throws Exception {
-        tool.clickUsingXPath(tool, "//div[contains(text(), 'Tasks')]");
+        tool.clickUsingXPath("//div[contains(text(), 'Tasks')]");
     }
 
     public void clickSignOut() throws Exception {
-        tool.clickUsingID(tool, "$azn666_label");
+        tool.clickUsingID("$azn666_label");
 
     }
 }

@@ -17,7 +17,7 @@ public class ModifyEmpContactConf extends ModifyEmpContactConfCommon {
 
     public void clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
 }

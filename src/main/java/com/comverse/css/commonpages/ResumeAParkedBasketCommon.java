@@ -9,7 +9,7 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
     public ResumeAParkedBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Resume a Parked Basket";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -20,18 +20,18 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
 
     public String getMessage() throws Exception {
 
-        return tool.getTextUsingXPath(tool, "//span");
+        return tool.getTextUsingXPath("//span");
     }
 
     public ResumeBasketConfirmCommon resumeParkedBasket(String value) throws Exception {
 
-        tool.clickUsingLinkText(tool, value);
+        tool.clickUsingLinkText(value);
         return new ResumeBasketConfirmCommon(tool, test, user);
     }
 
     public DeleteBasketConfirmCommon deleteParkedBasket(String basketName) throws Exception {
         //
-        // String pageSource = tool.getPageSource(tool);
+        // String pageSource = tool.getPageSource();
         // String temp[];
         // String basketID;
         //
@@ -41,13 +41,13 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
         // basketID = Common.cleanStringOfIllegalChars(temp[0]);
         // basketID = Common.removeHTMLTags(basketID);
         //
-        // tool.clickUsingID(tool, basketID);
+        // tool.clickUsingID(basketID);
         //
-        // tool.clickUsingXPath(tool, "//input[@td='checkbox']");
+        // tool.clickUsingXPath("//input[@td='checkbox']");
         //
-        tool.clickUsingXPath(tool, "//td[contains(.,'" + basketName + "')]/../td[2]/span/input");
+        tool.clickUsingXPath("//td[contains(.,'" + basketName + "')]/../td[2]/span/input");
 
-        tool.clickUsingXPath(tool, "//input[@value='Delete']");
+        tool.clickUsingXPath("//input[@value='Delete']");
         return new DeleteBasketConfirmCommon(tool, test, user);
     }
 }

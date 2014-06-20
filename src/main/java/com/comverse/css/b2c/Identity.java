@@ -12,7 +12,7 @@ public class Identity extends B2CMenu {
 
     public Identity(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Identity";
 
         // Check that we're on the right page.
@@ -25,36 +25,36 @@ public class Identity extends B2CMenu {
 
     public String getFirstName() throws Exception {
 
-        return tool.getAttributeUsingId(tool, "first_name", "value");
+        return tool.getAttributeUsingId("first_name", "value");
     }
 
     public String getLastName() throws Exception {
 
-        return tool.getAttributeUsingId(tool, "last_name", "value");
+        return tool.getAttributeUsingId("last_name", "value");
     }
 
     public SubscriberDetail clickCancel() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Cancel']");
+        tool.clickUsingXPath("//input[@value='Cancel']");
         return new SubscriberDetail(tool, test, user);
     }
 
     public RequestSubmission clickModify() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Modify']");
+        tool.clickUsingXPath("//input[@value='Modify']");
         return new RequestSubmission(tool, test, user);
     }
 
     public void setFirstName(String firstName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "first_name", firstName);
+        tool.enterStringUsingId("first_name", firstName);
     }
 
     public void setLastName(String lastName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "last_name", lastName);
+        tool.enterStringUsingId("last_name", lastName);
 
     }
 

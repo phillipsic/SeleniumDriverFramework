@@ -9,7 +9,7 @@ public class CheckoutConfirmationCommon extends CommonMenu {
 
     public CheckoutConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Checkout Confirmation";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -20,19 +20,19 @@ public class CheckoutConfirmationCommon extends CommonMenu {
 
     public WorkSpaceCommon clickOk() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpaceCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickOkExpectingAccountDashboard() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickOkExpectingSubscriberDashboard() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }
@@ -40,13 +40,13 @@ public class CheckoutConfirmationCommon extends CommonMenu {
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
         // String temp[];
-        // String str = tool.getPageSource(tool);
+        // String str = tool.getPageSource();
         // temp = str.split("Order Number:");
         // temp = temp[1].split("</span>");
         // temp = temp[0].split("<span>");
         // orderNumber = temp[1];
 
-        orderNumber = tool.getTextUsingXPath(tool, "//*[@id=\"mainContents\"]/div/div/div[2]/div/div/span[2]");
+        orderNumber = tool.getTextUsingXPath("//*[@id=\"mainContents\"]/div/div/div[2]/div/div/span[2]");
         System.out.println("Order Number = '" + orderNumber + "'");
         return orderNumber;
     }
@@ -54,13 +54,13 @@ public class CheckoutConfirmationCommon extends CommonMenu {
     public String getNCAOrderNumberFromPage() throws Exception {
         String orderNumber;
         // String temp[];
-        // String str = tool.getPageSource(tool);
+        // String str = tool.getPageSource();
         // temp = str.split("Order Number:");
         // temp = temp[1].split("</span>");
         // temp = temp[0].split("<span>");
         // orderNumber = temp[1];
 
-        orderNumber = tool.getTextUsingXPath(tool, "//span[2]");
+        orderNumber = tool.getTextUsingXPath("//span[2]");
         System.out.println("Order Number = '" + orderNumber + "'");
         return orderNumber;
     }

@@ -18,7 +18,7 @@ public class CaseUITest extends Main {
 
     public void launchCaseUIApplicationWithSSO() throws Exception {
         application.setVersion(tool);
-        tool.get(tool, application.appFullURL());
+        tool.get(application.appFullURL());
         loginSSOUser();
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
@@ -27,7 +27,7 @@ public class CaseUITest extends Main {
 
     public void launchCSSApplication() throws Exception {
         Application CSR = new CSR();
-        tool.get(tool, CSR.appURL());
+        tool.get(CSR.appURL());
         loginSSOUser();
     }
 }

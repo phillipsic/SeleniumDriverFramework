@@ -10,7 +10,7 @@ public class RestorePreviousBasketCommon extends CommonMenu {
     public RestorePreviousBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Restore Previous Basket";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,7 +21,7 @@ public class RestorePreviousBasketCommon extends CommonMenu {
 
     public MyBasketCommon clickRestoreSavedBasket() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Restore the basket']");
+        tool.clickUsingXPath("//input[@value='Restore the basket']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }

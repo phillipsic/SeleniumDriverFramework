@@ -14,26 +14,26 @@ public class MyshapeBusiness extends MyshapeCommon {
 
     public MyshapeBusiness(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Myshape Business";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void login(User user) throws Exception {
 
-        tool.enterStringUsingId(tool, "login", user.getLogin());
+        tool.enterStringUsingId("login", user.getLogin());
 
-        tool.enterStringUsingId(tool, "password", user.getPassword());
-        tool.clickUsingName(tool, "LoginButton");
+        tool.enterStringUsingId("password", user.getPassword());
+        tool.clickUsingName("LoginButton");
 
-        if (tool.getPageSource(tool).contains("Please enter a valid user name and password.")) {
+        if (tool.getPageSource().contains("Please enter a valid user name and password.")) {
             throw new Exception("Invalid username or password - IS USER CREATED? ");
         }
 
-        if (tool.getPageSource(tool).contains("Synchronization Failed")) {
+        if (tool.getPageSource().contains("Synchronization Failed")) {
             throw new Exception("Synchronization Failed - ENVIRONMENT PROBLEM?");
         }
 
@@ -58,46 +58,46 @@ public class MyshapeBusiness extends MyshapeCommon {
 
     public void enterLoginName(String loginName) throws Exception {
 
-        tool.enterStringUsingId(tool, "login", loginName);
+        tool.enterStringUsingId("login", loginName);
     }
 
     public void enterNewPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_new", password);
+        tool.enterStringUsingId("password_new", password);
     }
 
     public void enterNewPasswordVerify(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_verify", password);
+        tool.enterStringUsingId("password_verify", password);
     }
 
     public void enterOldPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_old", password);
+        tool.enterStringUsingId("password_old", password);
     }
 
     public void enterPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password", password);
+        tool.enterStringUsingId("password", password);
     }
 
     public void enterSecretAnswer(String secretAnswer) throws Exception {
 
-        tool.enterStringUsingId(tool, "secretAnswer", secretAnswer);
+        tool.enterStringUsingId("secretAnswer", secretAnswer);
     }
 
     public WorkSpace clickLoginButton() throws Exception {
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickChangeButton() throws Exception {
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.clickUsingCssSelector("input.submit");
         return new WorkSpace(tool, test, user);
     }
 
     public void clickLoginButtonForFirstTime() throws Exception {
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
     }
 
     @Override

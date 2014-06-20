@@ -9,10 +9,10 @@ public class InventoryAdministration extends CommonMenu {
 
     public InventoryAdministration(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Inventory Administration";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -21,14 +21,14 @@ public class InventoryAdministration extends CommonMenu {
 
     public InsertInventory clickInsertInventory() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Insert Inventory");
+        tool.clickUsingLinkText("Insert Inventory");
 
         return new InsertInventory(tool, test, user);
     }
 
     public AddressAdministration clickAddressAdministration() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ADDRESS_ADMINISTRATION");
+        tool.clickUsingID("smnu_ADDRESS_ADMINISTRATION");
 
         return new AddressAdministration(tool, test, user);
 
@@ -36,7 +36,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public InventoryAdministration clickInventoryAdministration() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_INVENTORY_ADMINISTRATION");
+        tool.clickUsingID("smnu_INVENTORY_ADMINISTRATION");
 
         return new InventoryAdministration(tool, test, user);
 
@@ -44,7 +44,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public TokenAdministration clickTokenAdministration() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_TOKEN_ADMINISTRATION");
+        tool.clickUsingID("smnu_TOKEN_ADMINISTRATION");
 
         return new TokenAdministration(tool, test, user);
 
@@ -52,7 +52,7 @@ public class InventoryAdministration extends CommonMenu {
 
     public OutboundCommunicationTemplate clickTemplateAdministration() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_TEMPLATE_ADMINISTRATION");
+        tool.clickUsingID("smnu_TEMPLATE_ADMINISTRATION");
 
         return new OutboundCommunicationTemplate(tool, test, user);
 

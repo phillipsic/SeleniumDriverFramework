@@ -10,7 +10,7 @@ public class SwapImpactCommon extends CommonMenu {
     public SwapImpactCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,12 +19,12 @@ public class SwapImpactCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickOK() throws Exception {
-        tool.clickUsingName(tool, "ON_OK");
+        tool.clickUsingName("ON_OK");
         return new MyBasketCommon(tool, test, user);
     }
 
     public ConfigureBalanceCommon clickOKExpectingConfigureBalance() throws Exception {
-        tool.clickUsingName(tool, "ON_OK");
+        tool.clickUsingName("ON_OK");
         return new ConfigureBalanceCommon(tool, test, user);
     }
 }

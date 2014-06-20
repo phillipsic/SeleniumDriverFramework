@@ -14,16 +14,16 @@ public class SendCommunicationCommon extends CommonMenu {
 
     public SendCommunicationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public boolean IsTemplatePresent() throws Exception {
-        System.out.println(tool.searchUsingCssSelector(tool, "BODY"));
-        if (tool.getTextUsingCssSelector(tool, "span").equals("No templates found.")) {
+        System.out.println(tool.searchUsingCssSelector("BODY"));
+        if (tool.getTextUsingCssSelector("span").equals("No templates found.")) {
             System.out.println("Please upload the desired template");
             return false;
         }
@@ -33,54 +33,54 @@ public class SendCommunicationCommon extends CommonMenu {
 
     public SendCommunicationCommon clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         return new SendCommunicationCommon(tool, test, user);
     }
 
     public void clickSearchTemplate() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Search template']");
+        tool.clickUsingXPath("//input[@value='Search template']");
     }
 
     public void selectTemplateEventType(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "eventType", value);
+        tool.selectVisibleTextByID("eventType", value);
 
     }
 
     public void selectTemplateCaseType(String value) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "caseType", value);
+        tool.selectVisibleTextByID("caseType", value);
     }
 
     public void selectTemplateProblemArea(String value) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "problemArea", value);
+        tool.selectVisibleTextByID("problemArea", value);
     }
 
     public void selectAvailableCommunicationChannel(String value) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "preferredChannelId", value);
+        tool.selectVisibleTextByID("preferredChannelId", value);
     }
 
     public void selectTemplateName(String value) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "templateList", value);
+        tool.selectVisibleTextByID("templateList", value);
     }
 
     public void selectMessageFormat(String value) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "formatList", value);
+        tool.selectVisibleTextByID("formatList", value);
     }
 
     public void clickReviewCommunication() throws Exception {
 
-        tool.clickUsingName(tool, "ok");
+        tool.clickUsingName("ok");
 
     }
 
     public OutboundCommunicationCommon clickSendCommunication() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Send communication']");
+        tool.clickUsingXPath("//input[@value='Send communication']");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new OutboundCommunicationCommon(tool, test, user);
@@ -88,13 +88,13 @@ public class SendCommunicationCommon extends CommonMenu {
 
     public void enterEmailTo(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "emailTo", value);
+        tool.enterStringUsingId("emailTo", value);
 
     }
 
     public void clickClosePopUp() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Close");
+        tool.clickUsingLinkText("Close");
 
     }
 }

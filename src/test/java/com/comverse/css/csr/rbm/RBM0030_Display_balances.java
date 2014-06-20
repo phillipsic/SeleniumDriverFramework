@@ -79,16 +79,16 @@ public class RBM0030_Display_balances extends CSSTest {
             subscriberDetails.viewBalanceAndRecharge();
 
             // Balances table
-            tool.isElementPresentByID(tool, "listBalances");
+            tool.isElementPresentByID("listBalances");
             Common.assertTextOnPage(tool, ab_AccountBundle.getBAL_GPRS_WAP_INTERNET().getBalanceName());
             // Shadow balances table
-            tool.isElementPresentByID(tool, "listShadowBalances");
+            tool.isElementPresentByID("listShadowBalances");
             Common.assertTextOnPage(tool, balanceAnytimeName);
             Common.assertTextOnPage(tool, Common.formatToHHmmss(balanceAnytimeValue));
             Common.assertTextOnPage(tool, balanceNightWeekendName);
             Common.assertTextOnPage(tool, Common.formatToHHmmss(balanceNightWeekendValue));
             // Balances limits table
-            tool.isElementPresentByID(tool, "listLimits");
+            tool.isElementPresentByID("listLimits");
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceName());
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getBAL_InternationalRoaming().getBalanceName());
             Common.assertTextOnPage(tool, "This value will be applied to your next bill cycle");

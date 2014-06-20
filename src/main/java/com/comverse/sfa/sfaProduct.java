@@ -15,13 +15,13 @@ public class sfaProduct extends SFAMenu {
 
         String curentWindow = Common.getCurrentWindowHandle(tool);
 
-        tool.enterStringUsingId(tool, "I7olilf", productName);
-        tool.clickUsingID(tool, "$n1almt_filterbutton");
+        tool.enterStringUsingId("I7olilf", productName);
+        tool.clickUsingID("$n1almt_filterbutton");
         Common.sleepForNumberOfSeconds(2);
-        if (!tool.searchUsingID(tool, "$n1almt_rowChkBox_0").isSelected()) {
-            tool.clickUsingID(tool, "$n1almt_rowChkBox_0");
+        if (!tool.searchUsingID("$n1almt_rowChkBox_0").isSelected()) {
+            tool.clickUsingID("$n1almt_rowChkBox_0");
         }
-        tool.clickUsingID(tool, "Af7fj1i");
+        tool.clickUsingID("Af7fj1i");
         Common.sleepForNumberOfSeconds(3);
 
         Common.switchToNewWindow(tool, curentWindow);
@@ -32,13 +32,13 @@ public class sfaProduct extends SFAMenu {
     sfaOpportunity selectProductForOpportunity(String productName) throws Exception {
         String curentWindow = Common.getCurrentWindowHandle(tool);
 
-        tool.enterStringUsingId(tool, "Imintjv", productName);
-        tool.clickUsingID(tool, "$ncrm6b_filterbutton");
+        tool.enterStringUsingId("Imintjv", productName);
+        tool.clickUsingID("$ncrm6b_filterbutton");
         Common.sleepForNumberOfSeconds(2);
-        if (!tool.searchUsingID(tool, "$ncrm6b_rowChkBox_0").isSelected()) {
-            tool.clickUsingID(tool, "$ncrm6b_rowChkBox_0");
+        if (!tool.searchUsingID("$ncrm6b_rowChkBox_0").isSelected()) {
+            tool.clickUsingID("$ncrm6b_rowChkBox_0");
         }
-        tool.clickUsingID(tool, "Ar4pj4u");
+        tool.clickUsingID("Ar4pj4u");
         Common.sleepForNumberOfSeconds(3);
 
         Common.switchToNewWindow(tool, curentWindow);

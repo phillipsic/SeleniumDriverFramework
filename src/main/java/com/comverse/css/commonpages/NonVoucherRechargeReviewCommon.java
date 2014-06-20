@@ -14,11 +14,11 @@ public class NonVoucherRechargeReviewCommon extends CommonMenu {
 
     public NonVoucherRechargeReviewCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Non voucher recharge review";
 
         // Check that we're on the right page.
-        if (!"Non voucher recharge review".equals(tool.getTitle(tool))) {
+        if (!"Non voucher recharge review".equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -26,7 +26,7 @@ public class NonVoucherRechargeReviewCommon extends CommonMenu {
 
     public RechargeSubscriberCommon confirmNonVoucherRecharge() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -35,7 +35,7 @@ public class NonVoucherRechargeReviewCommon extends CommonMenu {
 
     public RechargeSubscriberCommon confirmNonVoucherRechargeByCreditCard() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@name='select']");
+        tool.clickUsingXPath("//input[@name='select']");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

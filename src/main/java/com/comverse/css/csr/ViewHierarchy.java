@@ -17,19 +17,19 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public NewMemberLegalAddress clickAddEmployeeOCM() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ADD_MEMBER");
+        tool.clickUsingID("smnu_ADD_MEMBER");
         return new NewMemberLegalAddress(tool, test, user);
     }
 
     public NewMemberLegalAddress clickAddEmployee() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ADD_MEMBER");
+        tool.clickUsingID("smnu_ADD_MEMBER");
         return new NewMemberLegalAddress(tool, test, user);
     }
 
     public AddEmployeeContactInformation clickAddB2BEmployee() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_REGISTER_EMPLOYEE");
+        tool.clickUsingID("smnu_REGISTER_EMPLOYEE");
         return new AddEmployeeContactInformation(tool, test, user);
     }
 
@@ -61,25 +61,25 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public AddSubLevelSelectLevelType clickAddLevel() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ADD_LEVEL");
+        tool.clickUsingID("smnu_ADD_LEVEL");
         return new AddSubLevelSelectLevelType(tool, test, user);
     }
 
     public MoveLevel clickMoveLevel() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_MOVE_LEVEL");
+        tool.clickUsingID("smnu_MOVE_LEVEL");
         return new MoveLevel(tool, test, user);
     }
 
     public RemoveSelection clickRemoveLevel() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_REMOVE_LEVEL");
+        tool.clickUsingID("smnu_REMOVE_LEVEL");
         return new RemoveSelection(tool, test, user);
     }
 
     public LevelLegalContact clickViewContact() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ADDRESS");
+        tool.clickUsingID("smnu_ADDRESS");
         return new LevelLegalContact(tool, test, user);
     }
 

@@ -10,7 +10,7 @@ public class MyShapeChannel extends MyshapeCommon {
 
     public MyShapeChannel(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Myshape Channel";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -25,14 +25,14 @@ public class MyShapeChannel extends MyshapeCommon {
     }
 
     public WorkSpace clickAgreeTermsAndConditions() throws Exception {
-        tool.clickUsingName(tool, "continue");
+        tool.clickUsingName("continue");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.checkForExistingBasketAndDiscard(tool);
         return new WorkSpace(tool, test, user);
     }
 
     public RestorePreviousBasket clickAgreeTermsAndConditionsWithoutBasketCheck() throws Exception {
-        tool.clickUsingName(tool, "continue");
+        tool.clickUsingName("continue");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RestorePreviousBasket(tool, test, user);
     }
@@ -41,7 +41,7 @@ public class MyShapeChannel extends MyshapeCommon {
         super.successfulLogin(user);
 
         // Terms and Conditions page for dealer
-        if (tool.getPageSource(tool).contains("Welcome to Shape Telecom")) {
+        if (tool.getPageSource().contains("Welcome to Shape Telecom")) {
             this.clickAgreeTermsAndConditions();
         }
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -56,17 +56,17 @@ public class MyShapeChannel extends MyshapeCommon {
     }
 
     public void clickChange() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Change']");
+        tool.clickUsingXPath("//input[@value='Change']");
     }
 
     @Override
 	public void clickHomePage() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Home Page']");
+        tool.clickUsingXPath("//input[@value='Home Page']");
     }
 
     public RestorePreviousBasket loginToChannelAsTelcoAdminWithPreviousBasket() throws Exception {
         successfulLogin(user);
-        if (tool.getPageSource(tool).contains("Welcome to Shape Telecom")) {
+        if (tool.getPageSource().contains("Welcome to Shape Telecom")) {
             this.clickAgreeTermsAndConditionsWithoutBasketCheck();
         }
         return new RestorePreviousBasket(tool, test, user);
@@ -74,7 +74,7 @@ public class MyShapeChannel extends MyshapeCommon {
 
     public RestorePreviousBasket loginToChannelAsTelcoUserWithPreviousBasket() throws Exception {
         successfulLogin(user);
-        if (tool.getPageSource(tool).contains("Welcome to Shape Telecom")) {
+        if (tool.getPageSource().contains("Welcome to Shape Telecom")) {
             this.clickAgreeTermsAndConditionsWithoutBasketCheck();
         }
         return new RestorePreviousBasket(tool, test, user);

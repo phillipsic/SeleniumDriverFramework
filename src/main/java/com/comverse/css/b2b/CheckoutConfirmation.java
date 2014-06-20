@@ -14,7 +14,7 @@ public class CheckoutConfirmation extends CheckoutConfirmationCommon {
 
     @Override
     public AccountDetails clickAccounts() throws Exception {
-        tool.clickUsingID(tool, "mnu_ACCOUNTS");
+        tool.clickUsingID("mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 

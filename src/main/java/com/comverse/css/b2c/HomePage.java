@@ -13,7 +13,7 @@ public class HomePage extends B2CMenu {
     public HomePage(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Myshape Consumer";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,137 +24,137 @@ public class HomePage extends B2CMenu {
 
     public CustomerPrerequisite selectUSDCurrency() throws Exception {
 
-        tool.selectVisibleTextByName(tool, "currency", "USD");
-        tool.clickUsingName(tool, "submit");
+        tool.selectVisibleTextByName("currency", "USD");
+        tool.clickUsingName("submit");
 
         return new CustomerPrerequisite(tool, test, user);
     }
 
     public void enterUsername(String username) throws Exception {
 
-        tool.enterStringUsingId(tool, "login", username);
+        tool.enterStringUsingId("login", username);
 
     }
 
     public void enterPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password", password);
+        tool.enterStringUsingId("password", password);
     }
 
     public void enterOldPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_old", password);
+        tool.enterStringUsingId("password_old", password);
     }
 
     public void enterNewPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_new", password);
+        tool.enterStringUsingId("password_new", password);
     }
 
     public void enterNewConfirmPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_verify", password);
+        tool.enterStringUsingId("password_verify", password);
     }
 
     public void enterChangePasswordSecretAnswer(String secretanswer) throws Exception {
 
-        tool.enterStringUsingId(tool, "secretAnswer", secretanswer);
+        tool.enterStringUsingId("secretAnswer", secretanswer);
     }
 
     public void enterConfirmPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "confirm_password", password);
+        tool.enterStringUsingId("confirm_password", password);
 
     }
 
     public void enterSecretAnswer(String secretanswer) throws Exception {
 
-        tool.enterStringUsingId(tool, "secret_answer", secretanswer);
+        tool.enterStringUsingId("secret_answer", secretanswer);
 
     }
 
     public HomePage clickSignMeUp() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Sign Me Up']");
+        tool.clickUsingXPath("//input[@value='Sign Me Up']");
         return new HomePage(tool, test, user);
     }
 
     public SubscriberDetail clickLogIn() throws Exception {
 
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
         return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInExpectingWorkSpace() throws Exception {
 
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickLogInAsTelcoAdmin() throws Exception {
 
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickChange() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Change']");
+        tool.clickUsingXPath("//input[@value='Change']");
         return new WorkSpace(tool, test, user);
     }
 
     public SubscriberDetail clickChangeExpectingSubscriberDetail() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Change']");
+        tool.clickUsingXPath("//input[@value='Change']");
         return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInWithCUP() throws Exception {
 
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public void clickHomePage() throws Exception {
 
-        tool.clickUsingName(tool, "gohome");
+        tool.clickUsingName("gohome");
 
     }
 
     public String getLogoffMessage() throws Exception {
 
-        return tool.getTextUsingCssSelector(tool, "span");
+        return tool.getTextUsingCssSelector("span");
 
     }
 
     public String getSignMeUpMessage() throws Exception {
 
-        return tool.getTextUsingCssSelector(tool, "span");
+        return tool.getTextUsingCssSelector("span");
 
     }
 
     public void clickLogInExpectingFail() throws Exception {
 
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
 
     }
 
     public void clickLogInExpectingChangePassword() throws Exception {
 
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
 
     }
 
     public void clickShoppingLink() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Shopping");
+        tool.clickUsingLinkText("Shopping");
 
     }
 
     public Shopping selectAccountSegmentAll() throws Exception {
 
-        tool.selectVisibleTextByID(tool, "p-ACCOUNT-L4:80070", "All Segments");
-        tool.clickUsingName(tool, "submit");
+        tool.selectVisibleTextByID("p-ACCOUNT-L4:80070", "All Segments");
+        tool.clickUsingName("submit");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new Shopping(tool, test, user);
@@ -162,53 +162,53 @@ public class HomePage extends B2CMenu {
 
     public void clickActivateAccount() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Activate your account now");
+        tool.clickUsingLinkText("Activate your account now");
 
     }
 
     public void enterLastName(String lastname) throws Exception {
 
-        tool.enterStringUsingId(tool, "customer_last_name", lastname);
+        tool.enterStringUsingId("customer_last_name", lastname);
 
     }
 
     public void enterAccountNumber(String accountnumber) throws Exception {
 
-        tool.enterStringUsingName(tool, "customer_reference", accountnumber);
+        tool.enterStringUsingName("customer_reference", accountnumber);
 
     }
 
     public void clickContinueActivateAccount() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
 
     }
 
     public String getActivateAccountMessage() throws Exception {
 
-        return tool.getTextUsingCssSelector(tool, "span");
+        return tool.getTextUsingCssSelector("span");
 
     }
 
     public String getMessageFromTheSignMeUpPage() throws Exception {
-        System.out.println(">>" + tool.getTextUsingCssSelector(tool, "span"));
-        return tool.getTextUsingCssSelector(tool, "span");
+        System.out.println(">>" + tool.getTextUsingCssSelector("span"));
+        return tool.getTextUsingCssSelector("span");
 
     }
 
     public void clickOK() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
     public void enterLogin(String login) throws Exception {
 
-        tool.enterStringUsingId(tool, "login", login);
+        tool.enterStringUsingId("login", login);
 
     }
 
     public String getSuccesfulSignMeUpMessage() throws Exception {
-        System.out.println(">>" + tool.getTextUsingCssSelector(tool, "span"));
-        return tool.getTextUsingCssSelector(tool, "span");
+        System.out.println(">>" + tool.getTextUsingCssSelector("span"));
+        return tool.getTextUsingCssSelector("span");
 
     }
 
@@ -217,7 +217,7 @@ public class HomePage extends B2CMenu {
         String TelcoAdmin_password = preparation.readUsersPasswordFromIniFile("TelcoAdmin");
         String TelcoAdmin_login = preparation.readUsersUserNameFromIniFile("TelcoAdmin");
 
-        tool.get(tool, application.appURL() + "jfn?entry=admin_login");
+        tool.get(application.appURL() + "jfn?entry=admin_login");
 
         this.enterLogin(TelcoAdmin_login);
         this.enterPassword(TelcoAdmin_password);

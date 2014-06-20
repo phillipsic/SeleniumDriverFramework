@@ -17,7 +17,7 @@ public class CLSTest extends Main {
 
     public void launchCLSApplication() throws Exception {
         application.setVersion(tool);
-        tool.get(tool, application.appFullURL());
+        tool.get(application.appFullURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }

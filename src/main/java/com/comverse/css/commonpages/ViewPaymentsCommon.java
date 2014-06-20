@@ -9,7 +9,7 @@ public class ViewPaymentsCommon extends CommonMenu {
     public ViewPaymentsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View Payments";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,13 +22,13 @@ public class ViewPaymentsCommon extends CommonMenu {
     public void enterFromDate(String fromDate) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "startDate", fromDate);
+        tool.enterStringUsingId("startDate", fromDate);
 
     }
 
     public ViewPaymentsCommon clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
+        tool.clickUsingXPath("(//input[@value='Search'])[3]");
         return new ViewPaymentsCommon(tool, test, user);
     }
 }

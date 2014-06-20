@@ -13,7 +13,7 @@ public class OfferCancellationCommon extends CommonMenu {
     public OfferCancellationCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Offer Cancellation";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,12 +23,12 @@ public class OfferCancellationCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickOk() throws Exception {
-        tool.clickUsingXPath(tool, "(//input[@value='OK'])");
+        tool.clickUsingXPath("(//input[@value='OK'])");
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickOkGoToSubscriberDashboard() throws Exception {
-        tool.clickUsingXPath(tool, "(//input[@value='OK'])");
+        tool.clickUsingXPath("(//input[@value='OK'])");
         return new SubscriberDetailsCommon(tool, test, user);
     }
 }

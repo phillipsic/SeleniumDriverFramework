@@ -13,7 +13,7 @@ public class LevelLegalContactCommon extends CommonMenu {
     public LevelLegalContactCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Level Legal Contact";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,12 +23,12 @@ public class LevelLegalContactCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickBack() throws Exception {
-        tool.clickUsingID(tool, "youcan_ON_BACK");
+        tool.clickUsingID("youcan_ON_BACK");
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public ModifyLevelLegalContactCommon clickModifyLevelLegalContact() throws Exception {
-        tool.clickUsingID(tool, "youcan_MODIFY_CONTACT");
+        tool.clickUsingID("youcan_MODIFY_CONTACT");
         return new ModifyLevelLegalContactCommon(tool, test, user);
     }
 }

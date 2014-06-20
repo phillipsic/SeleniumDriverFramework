@@ -45,9 +45,9 @@ public class OCM0005_Add_Accessory extends CSSTest {
 
         int rowCounter = 0;
 
-        tool.get(tool, application.appURL() + "ocmweb/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
-        tool.clickUsingID(tool, "mainPanel:treeForm:type-tree:0:t2");
-        tool.clickUsingID(tool, "mainPanel:treeForm:type-tree:0:0:t2");
+        tool.get(application.appURL() + "ocmweb/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
+        tool.clickUsingID("mainPanel:treeForm:type-tree:0:t2");
+        tool.clickUsingID("mainPanel:treeForm:type-tree:0:0:t2");
 
         for (rowCounter = 1; rowCounter < sheet.getRows(); rowCounter++) {
             System.out.println("****************************************************");
@@ -59,14 +59,14 @@ public class OCM0005_Add_Accessory extends CSSTest {
             accessoryAlreadyExists = false;
 
             if (accessoryType.equals("Headset")) {
-                tool.clickUsingLinkText(tool, "Headset");
-                tool.clickUsingLinkText(tool, "Create New Headset");
+                tool.clickUsingLinkText("Headset");
+                tool.clickUsingLinkText("Create New Headset");
                 System.out.println("Starting creation of Create New Headset");
             }
 
             if (accessoryType.equals("Battery")) {
-                tool.clickUsingLinkText(tool, "Battery");
-                tool.clickUsingLinkText(tool, "Create New Battery");
+                tool.clickUsingLinkText("Battery");
+                tool.clickUsingLinkText("Create New Battery");
                 System.out.println("Starting creation of Create New Battery");
             }
 

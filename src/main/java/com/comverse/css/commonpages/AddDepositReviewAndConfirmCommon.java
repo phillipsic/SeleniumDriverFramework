@@ -16,7 +16,7 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
     public AddDepositReviewAndConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,21 +27,21 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
 
     public AddDepositReviewAndConfirmCommon clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddDepositReviewAndConfirmCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDepositsCommon clickOkToViewDeposits() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDepositsCommon(tool, test, user);
     }

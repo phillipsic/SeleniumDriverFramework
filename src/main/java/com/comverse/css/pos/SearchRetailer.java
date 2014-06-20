@@ -10,10 +10,10 @@ public class SearchRetailer extends CommonMenu {
     public SearchRetailer(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Search Retailer";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -22,18 +22,18 @@ public class SearchRetailer extends CommonMenu {
     public void setDealerName(String dealerName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "p-L1:2-L3:1480", dealerName);
+        tool.enterStringUsingId("p-L1:2-L3:1480", dealerName);
     }
 
     public void clickSearchDealerName() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Search']");
+        tool.clickUsingXPath("//input[@value='Search']");
 
     }
 
     public ViewHierarchy clickDealerLink(String dealerName) throws Exception {
 
-        tool.clickUsingLinkText(tool, dealerName);
+        tool.clickUsingLinkText(dealerName);
 
         return new ViewHierarchy(tool, test, user);
     }

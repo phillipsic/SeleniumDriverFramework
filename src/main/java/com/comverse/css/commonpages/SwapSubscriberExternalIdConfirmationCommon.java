@@ -11,7 +11,7 @@ public class SwapSubscriberExternalIdConfirmationCommon extends CommonMenu {
 
     public SwapSubscriberExternalIdConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -19,13 +19,13 @@ public class SwapSubscriberExternalIdConfirmationCommon extends CommonMenu {
     }
 
     public SubscriberExternalIDSwapDoneCommon clickContinue() throws Exception {
-        tool.clickUsingName(tool, "submit");
+        tool.clickUsingName("submit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberExternalIDSwapDoneCommon(tool, test, user);
     }
 
     public void setNewMSISDNInventory(Subscriber subscriber) throws Exception {
-        String MSISDN = tool.getTextUsingXPath(tool, "//tr[3]/td/span[2]");
+        String MSISDN = tool.getTextUsingXPath("//tr[3]/td/span[2]");
         subscriber.setSubscriberMSISDNProperty(MSISDN);
     }
 }

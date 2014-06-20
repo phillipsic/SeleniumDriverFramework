@@ -10,108 +10,108 @@ public class AutomationTool extends Main {
     public AutomationTool() {
     }
 
-    public boolean checkDisplayedUsingXpath(AutomationTool tool, String xpath) throws Exception {
+    public boolean checkDisplayedUsingXpath(String xpath) throws Exception {
         return false;
     }
 
-    public boolean checkSelectedUsingXpath(AutomationTool tool, String xpath) throws Exception {
+    public boolean checkSelectedUsingXpath(String xpath) throws Exception {
         return false;
     }
 
-    public void clickListUsingName(AutomationTool tool, String name) throws Exception {
+    public void clickListUsingName(String name) throws Exception {
     }
 
-    public void clickPerformUsingXPath(AutomationTool tool, String xpath) throws Exception {
+    public void clickPerformUsingXPath(String xpath) throws Exception {
     }
 
-    public void clickUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+    public void clickUsingCssSelector(String cssSelector) throws Exception {
     }
 
-    public void clickUsingID(AutomationTool tool, String id) throws Exception {
+    public void clickUsingID(String id) throws Exception {
     }
 
-    public void clickUsingLinkText(AutomationTool tool, String string) throws Exception {
+    public void clickUsingLinkText(String string) throws Exception {
     }
 
-    public void clickUsingName(AutomationTool tool, String name) throws Exception {
+    public void clickUsingName(String name) throws Exception {
     }
 
-    public void clickUsingPartialLinkText(AutomationTool tool, String partialLinkText) throws Exception {
+    public void clickUsingPartialLinkText(String partialLinkText) throws Exception {
     }
 
-    public void clickUsingTagName(AutomationTool tool, String tagName) throws Exception {
+    public void clickUsingTagName(String tagName) throws Exception {
     }
 
-    public void clickUsingXPath(AutomationTool tool, String xpath) throws Exception {
+    public void clickUsingXPath(String xpath) throws Exception {
     }
 
-    public void deselectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
+    public void deselectVisibleTextByID(String id, String visibleText) throws Exception {
     }
 
-    public void enterStringUsingCssSelector(AutomationTool tool, String cssSelector, String data) throws Exception {
+    public void enterStringUsingCssSelector(String cssSelector, String data) throws Exception {
     }
 
-    public void enterStringUsingId(AutomationTool tool, String id, String data) throws Exception {
+    public void enterStringUsingId(String id, String data) throws Exception {
     }
 
-    public void enterStringUsingName(AutomationTool tool, String name, String data) throws Exception {
+    public void enterStringUsingName(String name, String data) throws Exception {
     }
 
-    public void enterStringUsingXPath(AutomationTool tool, String xpath, String data) throws Exception {
+    public void enterStringUsingXPath(String xpath, String data) throws Exception {
     }
 
-    public void get(AutomationTool tool, String URL) throws Exception {
+    public void get(String URL) throws Exception {
     }
 
-    public String getAttributeUsingId(AutomationTool tool, String id, String attribute) throws Exception {
+    public String getAttributeUsingId(String id, String attribute) throws Exception {
         return null;
     }
 
-    public String getAttributeUsingXpath(AutomationTool tool, String xpath, String attribute) throws Exception {
+    public String getAttributeUsingXpath(String xpath, String attribute) throws Exception {
         return null;
     }
 
-    public String getCurrentUrl(AutomationTool tool) throws Exception {
+    public String getCurrentUrl() throws Exception {
         return null;
     }
 
-    public String getPageSource(AutomationTool tool) throws Exception {
+    public String getPageSource() throws Exception {
         return null;
     }
 
-    public String getSelectedTextByID(AutomationTool tool, String id) throws Exception {
+    public String getSelectedTextByID(String id) throws Exception {
         return null;
     }
 
-    public String getTextUsingClassName(AutomationTool tool, String className) throws Exception {
+    public String getTextUsingClassName(String className) throws Exception {
         return null;
     }
 
-    public String getTextUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+    public String getTextUsingCssSelector(String cssSelector) throws Exception {
         return null;
     }
 
-    public String getTextUsingId(AutomationTool tool, String Id) throws Exception {
+    public String getTextUsingId(String Id) throws Exception {
         return null;
     }
 
-    public String getTextUsingName(AutomationTool tool, String name) throws Exception {
+    public String getTextUsingName(String name) throws Exception {
         return null;
     }
 
-    public String getTextUsingXPath(AutomationTool tool, String xpath) throws Exception {
+    public String getTextUsingXPath(String xpath) throws Exception {
         return null;
     }
 
-    public String getTitle(AutomationTool tool) throws Exception {
+    public String getTitle() throws Exception {
         return null;
     }
 
-    public String getWindowHandle(AutomationTool tool) throws Exception {
+    public String getWindowHandle() throws Exception {
         return null;
     }
 
-    public Set<String> getWindowHandles(AutomationTool tool) {
+    public Set<String> getWindowHandles() {
         return null;
     }
 
@@ -119,79 +119,79 @@ public class AutomationTool extends Main {
         return null;
     }
 
-    public boolean isElementPresentByID(AutomationTool tool, String id) throws Exception {
+    public boolean isElementPresentByID(String id) throws Exception {
         return false;
     }
 
-    public boolean isElementPresentByXPath(AutomationTool tool, String xpath) throws Exception {
+    public boolean isElementPresentByXPath(String xpath) throws Exception {
         return false;
     }
 
-    public void navigateBack(AutomationTool tool) throws Exception {
+    public void navigateBack() throws Exception {
     }
 
-    public void navigateRefresh(AutomationTool tool) throws Exception {
+    public void navigateRefresh() throws Exception {
     }
 
     public void parseUserAgent(AutomationTool tool, Test test, String intBrowser) {
     }
 
-    public void performDragAndDrop(AutomationTool tool, WebElement from, WebElement to) throws Exception {
+    public void performDragAndDrop(WebElement from, WebElement to) throws Exception {
     }
 
-    public void performUsingXPath(AutomationTool tool, String xpath) throws Exception {
+    public void performUsingXPath(String xpath) throws Exception {
     }
 
-    public void quit(AutomationTool tool) throws Exception {
+    public void quit() throws Exception {
     }
 
-    public boolean searchListUsingLinkTextIsEmpty(AutomationTool tool, String linkText) throws Exception {
+    public boolean searchListUsingLinkTextIsEmpty(String linkText) throws Exception {
         return false;
     }
 
-    public List<WebElement> searchListUsingTagName(AutomationTool tool, String tagName) throws Exception {
+    public List<WebElement> searchListUsingTagName(String tagName) throws Exception {
         return null;
     }
 
-    public List<WebElement> searchListUsingXPath(AutomationTool tool, String xpath) throws Exception {
+    public List<WebElement> searchListUsingXPath(String xpath) throws Exception {
         return null;
     }
 
-    public WebElement searchUsingCssSelector(AutomationTool tool, String cssSelector) throws Exception {
+    public WebElement searchUsingCssSelector(String cssSelector) throws Exception {
         return null;
     }
 
-    public WebElement searchUsingID(AutomationTool tool, String id) throws Exception {
+    public WebElement searchUsingID(String id) throws Exception {
         return null;
     }
 
-    public String searchUsingIDandGetTextUsingXpath(AutomationTool tool, String id, String Xpath) throws Exception {
+    public String searchUsingIDandGetTextUsingXpath(String id, String Xpath) throws Exception {
         return null;
     }
 
-    public WebElement searchUsingName(AutomationTool tool, String name) throws Exception {
+    public WebElement searchUsingName(String name) throws Exception {
         return null;
     }
 
-    public WebElement searchUsingXpath(AutomationTool tool, String xpath) throws Exception {
+    public WebElement searchUsingXpath(String xpath) throws Exception {
         return null;
     }
 
-    public void selectByIndexByID(AutomationTool tool, String id, int index) throws Exception {
+    public void selectByIndexByID(String id, int index) throws Exception {
     }
 
-    public void selectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
+    public void selectVisibleTextByID(String id, String visibleText) throws Exception {
     }
 
-    public void selectVisibleTextByName(AutomationTool tool, String name, String visibleText) throws Exception {
+    public void selectVisibleTextByName(String name, String visibleText) throws Exception {
     }
 
-    public void switchTo(AutomationTool tool) throws Exception {
+    public void switchTo() throws Exception {
     }
 
-    public void switchToFrame(AutomationTool tool, WebElement webElement) throws Exception {
+    public void switchToFrame(WebElement webElement) throws Exception {
     }
 
-    public void switchToWindow(AutomationTool tool, String windowHandle) throws Exception {
+    public void switchToWindow(String windowHandle) throws Exception {
     }
 }

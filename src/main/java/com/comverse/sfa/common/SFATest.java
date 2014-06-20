@@ -21,7 +21,7 @@ public class SFATest extends Main {
 
     public void launchSFAApplication() throws Exception {
         application.setVersion(tool);
-        tool.get(tool, application.appFullURL());
+        tool.get(application.appFullURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
@@ -29,7 +29,7 @@ public class SFATest extends Main {
 
     public void launchSFAApplicationWithSSO() throws Exception {
         application.setVersion(tool);
-        tool.get(tool, application.appFullURL());
+        tool.get(application.appFullURL());
         loginSSOUser();
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
@@ -38,13 +38,13 @@ public class SFATest extends Main {
 
     public void launchSFAApplicationWithExistingSSOSession() throws Exception {
         Application application2 = new SFA();
-        tool.get(tool, application2.appFullURL());
+        tool.get(application2.appFullURL());
         Common.sleepForNumberOfSeconds(3);
     }
 
     public void launchAdminUIWithSSO() throws Exception {
         application.setVersion(tool);
-        tool.get(tool, application.appFullURL());
+        tool.get(application.appFullURL());
         loginSSOUser();
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
@@ -67,7 +67,7 @@ public class SFATest extends Main {
         PropertyHelper propsHelper = new PropertyHelper();
         String URL_SSO_LOGOUT = propsHelper.getInitProperties("ssologout_url");
 
-        tool.get(tool, URL_SSO_LOGOUT);
+        tool.get(URL_SSO_LOGOUT);
         super.tearDown();
     }
 }

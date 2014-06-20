@@ -12,7 +12,7 @@ public class MoveMemberCommon extends CommonMenu {
 
     public MoveMemberCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Move Member";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,12 +21,12 @@ public class MoveMemberCommon extends CommonMenu {
     }
 
     public MoveMemberCommon clickSelectByLevelName(String levelName) throws Exception {
-        tool.clickUsingXPath(tool, "//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]");
+        tool.clickUsingXPath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]");
         return new MoveMemberCommon(tool, test, user);
     }
 
     public MoveMemberCommon findSelectByLevelName(String levelName) throws Exception {
-        if (tool.searchListUsingXPath(tool, "//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]").size() > 0) {
+        if (tool.searchListUsingXPath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]").size() > 0) {
             throw new IllegalStateException("Expecting:No Select Link but got: Select Link");
         } else {
             System.out.println("Value of Unique code is MK");
@@ -35,7 +35,7 @@ public class MoveMemberCommon extends CommonMenu {
     }
 
     public ContactInformationCommon clickOk() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new ContactInformationCommon(tool, test, user);
     }
 }

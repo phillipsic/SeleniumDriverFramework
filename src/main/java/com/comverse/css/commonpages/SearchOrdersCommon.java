@@ -15,10 +15,10 @@ public class SearchOrdersCommon extends CommonMenu {
 
     public SearchOrdersCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -27,37 +27,37 @@ public class SearchOrdersCommon extends CommonMenu {
 
     public void clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Search']");
+        tool.clickUsingXPath("//input[@value='Search']");
 
     }
 
     public WorkSpaceCommon clickHomeMenu() throws Exception {
-        tool.clickUsingID(tool, "mnu_HOME");
+        tool.clickUsingID("mnu_HOME");
         return new WorkSpaceCommon(tool, test, user);
     }
 
     public SearchRequestsCommon clickSearchRequests() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Search']");
+        tool.clickUsingXPath("//input[@value='Search']");
         return new SearchRequestsCommon(tool, test, user);
     }
 
     public void setOrderNumber(String orderNumber) throws Exception {
         
-        tool.enterStringUsingId(tool, "orderNb", orderNumber);
+        tool.enterStringUsingId("orderNb", orderNumber);
     }
 
     public String getOrderStatus1() throws Exception {
-        String orderStatus = tool.getTextUsingXPath(tool, "//table[@id='orderList']/tbody/tr/td[5]");
+        String orderStatus = tool.getTextUsingXPath("//table[@id='orderList']/tbody/tr/td[5]");
         return orderStatus;
     }
 
     public String getOrderStatus2() throws Exception {
-        String orderStatus = tool.getTextUsingXPath(tool, "//table[@id='orderList']/tbody/tr/td[4]");
+        String orderStatus = tool.getTextUsingXPath("//table[@id='orderList']/tbody/tr/td[4]");
         return orderStatus;
     }
 
     public void setOrderStatusToAll() throws Exception {
-        tool.selectVisibleTextByID(tool, "orderStatus", "All");
+        tool.selectVisibleTextByID("orderStatus", "All");
     }
 
     public void waitUntilOrderCompletedOrFailed(String orderNumber) throws Exception {
@@ -132,7 +132,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public ServiceOrderDetailsCommon clickViewDetails() throws Exception {
-        tool.clickUsingLinkText(tool, "View Details");
+        tool.clickUsingLinkText("View Details");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceOrderDetailsCommon(tool, test, user);
     }

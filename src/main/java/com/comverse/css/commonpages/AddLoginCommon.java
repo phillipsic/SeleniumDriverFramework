@@ -10,31 +10,31 @@ public class AddLoginCommon extends CommonMenu {
     public AddLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public PersonManagementCommon clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         return new PersonManagementCommon(tool, test, user);
     }
 
     public void setLogin(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "login", value);
+        tool.enterStringUsingId("login", value);
     }
 
     public void setPassword(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "password", value);
+        tool.enterStringUsingId("password", value);
     }
 
     public void setConfirmPassword(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "confirmPassword", value);
+        tool.enterStringUsingId("confirmPassword", value);
     }
 }

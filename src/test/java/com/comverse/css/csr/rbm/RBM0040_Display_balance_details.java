@@ -52,8 +52,8 @@ public class RBM0040_Display_balance_details extends CSSTest {
             configureContractDetails.setSpendingLimit(balanceAnytimeName, balanceAnytimeValue);
             configureContractDetails.setSpendingLimit(ab_AccountBundle.getBAL_GPRS_WAP_INTERNET().getBalanceName(), ab_AccountBundle.getBAL_GPRS_WAP_INTERNET().getBalanceValue());
 
-            String acctBalanceNightWeekendName = tool.getAttributeUsingId(tool, balanceNightWeekendName + "_target", "value");
-            String acctBalanceAnytimeName = tool.getAttributeUsingId(tool, balanceAnytimeName + "_target", "value");
+            String acctBalanceNightWeekendName = tool.getAttributeUsingId(balanceNightWeekendName + "_target", "value");
+            String acctBalanceAnytimeName = tool.getAttributeUsingId(balanceAnytimeName + "_target", "value");
             MyBasket myBasket = configureContractDetails.clickContinue();
 
             myBasket.assign3InventoriesFirstOffer(subscriber);

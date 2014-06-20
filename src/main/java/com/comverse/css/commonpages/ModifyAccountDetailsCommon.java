@@ -14,7 +14,7 @@ public class ModifyAccountDetailsCommon extends CommonMenu {
     public ModifyAccountDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Account Details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -25,13 +25,13 @@ public class ModifyAccountDetailsCommon extends CommonMenu {
 
     public void selectCheck() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@name='method'])[2]");
+        tool.clickUsingXPath("(//input[@name='method'])[2]");
 
     }
 
     public ShoppingCommon clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ShoppingCommon(tool, test, user);

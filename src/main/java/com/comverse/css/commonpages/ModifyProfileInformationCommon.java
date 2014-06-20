@@ -13,7 +13,7 @@ public class ModifyProfileInformationCommon extends CommonMenu {
     public ModifyProfileInformationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Profile Information";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,12 +24,12 @@ public class ModifyProfileInformationCommon extends CommonMenu {
 
     public void setTimeZone(String timeZone) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "timezone_field", timeZone);
+        tool.selectVisibleTextByID("timezone_field", timeZone);
     }
 
     public ModifyProfileInformationConfirmationCommon clickOkToModify() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new ModifyProfileInformationConfirmationCommon(tool, test, user);
     }
 }

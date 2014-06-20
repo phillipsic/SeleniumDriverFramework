@@ -27,101 +27,101 @@ public class CommonMenu extends Main {
     }
 
     public IdentifyCustomerCommon gotoManageAccount() throws Exception {
-        tool.clickUsingLinkText(tool, "Manage Account");
+        tool.clickUsingLinkText("Manage Account");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new IdentifyCustomerCommon(tool, test, user);
     }
 
     public LoginInformationCommon clickMyInformation() throws Exception {
-        tool.clickUsingID(tool, "mnu_INFO");
+        tool.clickUsingID("mnu_INFO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new LoginInformationCommon(tool, test, user);
     }
 
     public SearchRequestsCommon clickRequests() throws Exception {
-        tool.clickUsingLinkText(tool, "Requests");
+        tool.clickUsingLinkText("Requests");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchRequestsCommon(tool, test, user);
     }
 
     public ViewHierarchyCommon clickHierarchy() throws Exception {
-        tool.clickUsingID(tool, "mnu_HIERARCHY");
+        tool.clickUsingID("mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public LevelLegalContactCommon clickHierarchyCSR() throws Exception {
-        tool.clickUsingID(tool, "mnu_HIERARCHY");
+        tool.clickUsingID("mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new LevelLegalContactCommon(tool, test, user);
     }
 
     public MyshapeCommon clickLogout() throws Exception {
-        tool.clickUsingID(tool, "mnu_LOGOUT");
+        tool.clickUsingID("mnu_LOGOUT");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyshapeCommon(tool, test, user);
     }
 
     public ComverseOneSingleSignOn clickLogoutExpectingSSO() throws Exception {
-        tool.clickUsingID(tool, "mnu_LOGOUT");
+        tool.clickUsingID("mnu_LOGOUT");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ComverseOneSingleSignOn(tool, test, user);
     }
 
     public AccountDetailsCommon clickAccounts() throws Exception {
-        tool.clickUsingID(tool, "mnu_ACCOUNTS");
+        tool.clickUsingID("mnu_ACCOUNTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public ResumeAParkedBasketCommon clickBasket() throws Exception {
-        tool.clickUsingID(tool, "mnu_BASKET");
+        tool.clickUsingID("mnu_BASKET");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ResumeAParkedBasketCommon(tool, test, user);
     }
 
     public void clickCartIcon() throws Exception {
-        tool.clickUsingID(tool, "imIconShoppingCart");
+        tool.clickUsingID("imIconShoppingCart");
     }
 
     public MyBasketCommon clickViewBasket() throws Exception {
-        tool.clickUsingLinkText(tool, "View Basket");
+        tool.clickUsingLinkText("View Basket");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }
 
     public PersonManagementCommon clickPersonManagement() throws Exception {
-        tool.clickUsingID(tool, "mnu_PERSON_VIEW");
+        tool.clickUsingID("mnu_PERSON_VIEW");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PersonManagementCommon(tool, test, user);
     }
 
     public WorkSpaceCommon clickHome() throws Exception {
-        tool.clickUsingID(tool, "mnu_HOME");
+        tool.clickUsingID("mnu_HOME");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpaceCommon(tool, test, user);
     }
 
     public ViewInvoicesCommon clickBillsAndPayments() throws Exception {
-        tool.clickUsingID(tool, "mnu_BILLS_PAYMENTS");
+        tool.clickUsingID("mnu_BILLS_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewInvoicesCommon(tool, test, user);
     }
 
     public ContactInformationCommon clickUserInformation() throws Exception {
-        tool.clickUsingID(tool, "mnu_INFO");
+        tool.clickUsingID("mnu_INFO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ContactInformationCommon(tool, test, user);
     }
 
     public ViewTransactionHistoryCommon clickHistories() throws Exception {
-        tool.clickUsingID(tool, "mnu_HISTORIES");
+        tool.clickUsingID("mnu_HISTORIES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewTransactionHistoryCommon(tool, test, user);
     }
 
     public ViewHierarchyCommon clickCustomerHierarchy() throws Exception {
-        tool.clickUsingID(tool, "mnu_HIERARCHY");
+        tool.clickUsingID("mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);
     }

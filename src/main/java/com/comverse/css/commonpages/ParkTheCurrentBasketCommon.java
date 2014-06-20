@@ -9,7 +9,7 @@ public class ParkTheCurrentBasketCommon extends CommonMenu {
     public ParkTheCurrentBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Park the Current Basket";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,11 +21,11 @@ public class ParkTheCurrentBasketCommon extends CommonMenu {
     public void enterBasketID(String value) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "basket", value);
+        tool.enterStringUsingId("basket", value);
     }
 
     public void clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 }

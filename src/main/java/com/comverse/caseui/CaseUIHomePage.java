@@ -8,7 +8,7 @@ public class CaseUIHomePage extends CaseUIMenu {
 
     public CaseUIHomePage(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse ONE Billing and Active Customer Management";
 
         if (!expectedScreen.equals(currentScreen)) {

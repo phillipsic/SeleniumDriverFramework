@@ -13,7 +13,7 @@ public class ViewUsageDetailsCommon extends CommonMenu {
     public ViewUsageDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View usage details";
 
         if (!expectedScreen.equals(currentScreen)) {

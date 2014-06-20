@@ -14,12 +14,12 @@ public class WPMCMenu extends WPMCTest {
     }
 
     public void clickLogOff() throws Exception {
-        tool.clickUsingLinkText(tool, "//a/img[@title='Log Off']");
+        tool.clickUsingLinkText("//a/img[@title='Log Off']");
 
     }
 
     public WorkpointManagementConsole clickManageMonitors() throws Exception {
-        tool.clickUsingXPath(tool, "//a/img[@title='Manage Monitors']");
+        tool.clickUsingXPath("//a/img[@title='Manage Monitors']");
         return new WorkpointManagementConsole(tool, test, user);
     }
 }

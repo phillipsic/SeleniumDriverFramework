@@ -21,7 +21,7 @@ public class UPMTest extends Main {
 
     public void launchUPMApplication() throws Exception {
         application.setVersion(tool);
-        tool.get(tool, application.appFullURL());
+        tool.get(application.appFullURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }

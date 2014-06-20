@@ -10,10 +10,10 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public SearchEmployeeCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Search Employee";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -21,8 +21,8 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public SearchEmployeeCommon searchEmployeeByLastName(String ln) throws Exception {
 
-        tool.enterStringUsingId(tool, "p-L2:10-L3:1470", ln);
-        tool.clickUsingXPath(tool, "//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']");
+        tool.enterStringUsingId("p-L2:10-L3:1470", ln);
+        tool.clickUsingXPath("//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']");
 
         return new SearchEmployeeCommon(tool, test, user);
         // sends keys to the last name field in the search page and clicks
@@ -32,8 +32,8 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public SearchEmployeeCommon searchEmployeeByLogin(String lg) throws Exception {
 
-        tool.enterStringUsingId(tool, "p-L4:1014-L3:1640", lg);
-        tool.clickUsingXPath(tool, "//form[@id='form_SEARCH_MEMBERS_RESULT_1']//input[@value='Search']");
+        tool.enterStringUsingId("p-L4:1014-L3:1640", lg);
+        tool.clickUsingXPath("//form[@id='form_SEARCH_MEMBERS_RESULT_1']//input[@value='Search']");
 
         return new SearchEmployeeCommon(tool, test, user);
         // sends keys to the login field in the search page and clicks Search
@@ -42,7 +42,7 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public SearchEmployeeCommon checkIfResultIsCorrect(String numberOfCustomersDisplayed) throws Exception {
 
-        assertTrue(tool.getTextUsingCssSelector(tool, "BODY").matches("^[\\s\\S]*" + numberOfCustomersDisplayed + " employee\\(s\\) found[\\s\\S]*$"));
+        assertTrue(tool.getTextUsingCssSelector("BODY").matches("^[\\s\\S]*" + numberOfCustomersDisplayed + " employee\\(s\\) found[\\s\\S]*$"));
 
         return new SearchEmployeeCommon(tool, test, user);
         // Asserts that the given numberOfCustomersDisplayd is equal to the
@@ -52,7 +52,7 @@ public class SearchEmployeeCommon extends CommonMenu {
 
     public ContactInformationCommon clickEmployeeNameLink(String FirstOrLastName) throws Exception {
 
-        tool.clickUsingPartialLinkText(tool, FirstOrLastName);
+        tool.clickUsingPartialLinkText(FirstOrLastName);
 
         return new ContactInformationCommon(tool, test, user);
 

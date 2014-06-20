@@ -10,7 +10,7 @@ public class DisconnectSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public DisconnectSubscriberRequestForDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -19,24 +19,24 @@ public class DisconnectSubscriberRequestForDetailsCommon extends CommonMenu {
 
     public void clickCheckBoxUnlockNow() throws Exception {
 
-        tool.clickUsingID(tool, "propertyNow");
+        tool.clickUsingID("propertyNow");
 
     }
 
     public void setReason(String reason) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "reason", reason);
+        tool.selectVisibleTextByID("reason", reason);
     }
 
     public void setAnnotation(String annotation) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "annotation", annotation);
+        tool.enterStringUsingId("annotation", annotation);
     }
 
     public DisconnectSubscriberImpactsCommon clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new DisconnectSubscriberImpactsCommon(tool, test, user);

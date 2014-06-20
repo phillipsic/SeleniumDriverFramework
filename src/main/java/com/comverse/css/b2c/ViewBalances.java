@@ -9,10 +9,10 @@ public class ViewBalances extends B2CMenu {
 
     public ViewBalances(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View Balances";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -20,28 +20,28 @@ public class ViewBalances extends B2CMenu {
 
     public double getBalanceValue(String balanceName) throws Exception {
 
-        String balanceValue = tool.getTextUsingXPath(tool, "//a[contains(text(),'" + balanceName + "')]/../../td[2]");
+        String balanceValue = tool.getTextUsingXPath("//a[contains(text(),'" + balanceName + "')]/../../td[2]");
 
         double balanceValueDouble = Common.removeCurrencyAndConvertToDouble(balanceValue);
         return balanceValueDouble;
     }
 
     public void clickRefreshButton() throws Exception {
-        tool.clickUsingXPath(tool, "//img[@id='refreshCacheImg']");
+        tool.clickUsingXPath("//img[@id='refreshCacheImg']");
     }
 
     public ConfigureBalance clickConfigure() throws Exception {
-        tool.clickUsingLinkText(tool, "Configure");
+        tool.clickUsingLinkText("Configure");
         return new ConfigureBalance(tool, test, user);
     }
 
     public BalanceDetails clickBalanceDetails(String balanceName) throws Exception {
-        tool.clickUsingXPath(tool, "//tr[td/a[contains(text(),'" + balanceName + "')]]/td/a[contains(text(),'Details')]");
+        tool.clickUsingXPath("//tr[td/a[contains(text(),'" + balanceName + "')]]/td/a[contains(text(),'Details')]");
         return new BalanceDetails(tool, test, user);
     }
 
     public SubscriberDetail clickBack() throws Exception {
-        tool.clickUsingID(tool, "youcan_ON_BACK");
+        tool.clickUsingID("youcan_ON_BACK");
         return new SubscriberDetail(tool, test, user);
     }
 }

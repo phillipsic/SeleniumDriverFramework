@@ -13,7 +13,7 @@ public class TermsAndConditionsCommon extends CommonMenu {
     public TermsAndConditionsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Terms and Conditions";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,7 +24,7 @@ public class TermsAndConditionsCommon extends CommonMenu {
 
     public CheckoutDeliveryAddressCommon clickAccept() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Accept']");
+        tool.clickUsingXPath("//input[@value='Accept']");
         return new CheckoutDeliveryAddressCommon(tool, test, user);
     }
 }

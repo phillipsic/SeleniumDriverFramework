@@ -14,7 +14,7 @@ public class CLSMenu extends Main {
     }
 
     public void clickSignOut() throws Exception {
-        tool.clickUsingID(tool, "$azn666_label");
+        tool.clickUsingID("$azn666_label");
 
     }
 }

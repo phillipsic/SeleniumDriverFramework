@@ -14,7 +14,7 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
 
     @Override
     public AccountDetails clickAccounts() throws Exception {
-        tool.clickUsingID(tool, "mnu_ACCOUNTS");
+        tool.clickUsingID("mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 
@@ -52,7 +52,7 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
 
     public String getBizFirstRequestStatus() throws Exception {
 
-        String requestStatus = tool.getTextUsingXPath(tool, "//div[5]/table/tbody[2]/tr/td[6]/div");
+        String requestStatus = tool.getTextUsingXPath("//div[5]/table/tbody[2]/tr/td[6]/div");
         return requestStatus;
     }
 

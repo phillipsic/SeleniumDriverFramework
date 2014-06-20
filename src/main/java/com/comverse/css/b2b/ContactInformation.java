@@ -14,7 +14,7 @@ public class ContactInformation extends ContactInformationCommon {
     public ContactInformation(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!"Contact Information".equals(currentScreen)) {
@@ -49,7 +49,7 @@ public class ContactInformation extends ContactInformationCommon {
 
     public ViewHierarchy clickUserManagement() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_HIERARCHY");
+        tool.clickUsingID("mnu_HIERARCHY");
         return new ViewHierarchy(tool, test, user);
     }
 }

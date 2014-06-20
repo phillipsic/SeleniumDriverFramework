@@ -13,7 +13,7 @@ public class ViewRCTermDetailsCommon extends CommonMenu {
     public ViewRCTermDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View RC term details";
 
         if (!expectedScreen.equals(currentScreen)) {

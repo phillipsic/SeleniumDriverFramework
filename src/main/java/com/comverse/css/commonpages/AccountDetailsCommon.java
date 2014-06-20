@@ -22,9 +22,9 @@ public class AccountDetailsCommon extends CommonMenu {
     public AccountDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -32,30 +32,30 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public AddNewCaseCommon addNewCase() throws Exception {
-        tool.clickUsingLinkText(tool, "Add");
+        tool.clickUsingLinkText("Add");
 
         return new AddNewCaseCommon(tool, test, user);
     }
 
     public AddNewCaseCommon clickLinkOfFirstCase() throws Exception {
-        tool.clickUsingID(tool, "value_case_0_0");
+        tool.clickUsingID("value_case_0_0");
 
         return new AddNewCaseCommon(tool, test, user);
     }
 
     public void clickHomeMenu() throws Exception {
-        tool.clickUsingLinkText(tool, "Home");
+        tool.clickUsingLinkText("Home");
     }
 
     public SelectOffersForYourAccountCommon clickAddNewAccountOffer() throws Exception {
-        tool.clickUsingXPath(tool, "//p[contains(text(),'Bundle/Offers')]/../../div/a[contains(text(),'Add')]");
+        tool.clickUsingXPath("//p[contains(text(),'Bundle/Offers')]/../../div/a[contains(text(),'Add')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }
 
     public SelectOffersForYourAccountCommon clickReconfigure() throws Exception {
-        tool.clickUsingLinkText(tool, "Reconfigure");
+        tool.clickUsingLinkText("Reconfigure");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SelectOffersForYourAccountCommon(tool, test, user);
@@ -63,7 +63,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public ViewCaseCommon clickLinkOfCaseID(String caseID) throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingXPath(tool, "//span[text()=" + caseID + "]");
+        tool.clickUsingXPath("//span[text()=" + caseID + "]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);
@@ -71,30 +71,30 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public SubscriberDetailsCommon selectFirstSubscriberFromNavigationPanel() throws Exception {
         System.out.println("selectFirstSubscriberFromNavigationPanel");
-        tool.clickUsingID(tool, "NavigationLink");
+        tool.clickUsingID("NavigationLink");
         Common.sleepForNumberOfSeconds(1);
-        // tool.clickUsingXPath(tool, "(//a[contains(text(),'open')])[2]");
-        tool.clickUsingXPath(tool, "(//td[4]//a[contains(text(), 'open')])[1]");
+        // tool.clickUsingXPath("(//a[contains(text(),'open')])[2]");
+        tool.clickUsingXPath("(//td[4]//a[contains(text(), 'open')])[1]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickSubscriberIDFromNavigationPanel() throws Exception {
-        tool.clickUsingID(tool, "SubscriberSearchLink");
+        tool.clickUsingID("SubscriberSearchLink");
         Common.sleepForNumberOfSeconds(1);
         Common.assertTextOnPage(tool, "Please enter your criteria and press search");
-        tool.clickUsingID(tool, "subscriberSearchButton");
+        tool.clickUsingID("subscriberSearchButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingXPath(tool, "//td[3]/div/a");
+        tool.clickUsingXPath("//td[3]/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon selectSubscriberByMSISDN(String MSISDN) throws Exception {
-        tool.clickUsingID(tool, "SubscriberSearchLink");
-        tool.clickUsingID(tool, "subscriberSearchButton");
+        tool.clickUsingID("SubscriberSearchLink");
+        tool.clickUsingID("subscriberSearchButton");
         Common.sleepForNumberOfSeconds(2);
-        tool.clickUsingLinkText(tool, MSISDN);
+        tool.clickUsingLinkText(MSISDN);
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
@@ -119,36 +119,36 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public SearchOrdersCommon clickSearchOrders() throws Exception {
-        tool.navigateRefresh(tool);
+        tool.navigateRefresh();
         Common.sleepForNumberOfSeconds(1);
-        tool.clickUsingCssSelector(tool, "#firstYouCan > input.submit");
+        tool.clickUsingCssSelector("#firstYouCan > input.submit");
         Common.sleepForNumberOfSeconds(1);
-        tool.clickUsingLinkText(tool, "Search Orders");
+        tool.clickUsingLinkText("Search Orders");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchOrdersCommon(tool, test, user);
     }
 
     @Override
     public ViewInvoicesCommon clickBillsAndPayments() throws Exception {
-        tool.clickUsingID(tool, "mnu_BILLS_PAYMENTS");
+        tool.clickUsingID("mnu_BILLS_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewInvoicesCommon(tool, test, user);
     }
 
     @Override
     public ViewTransactionHistoryCommon clickHistories() throws Exception {
-        tool.clickUsingID(tool, "mnu_HISTORIES");
+        tool.clickUsingID("mnu_HISTORIES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewTransactionHistoryCommon(tool, test, user);
     }
 
     public ModifyContactInformationCommon clickModifyBillingContact() throws Exception {
-        tool.clickUsingXPath(tool, "//div[@id='tab1']/table/tbody/tr/td[2]/div[5]/a/u");
+        tool.clickUsingXPath("//div[@id='tab1']/table/tbody/tr/td[2]/div[5]/a/u");
         return new ModifyContactInformationCommon(tool, test, user);
     }
 
     public ModifyPaymentInformationCommon clickModifyPaymentMethod() throws Exception {
-        tool.clickUsingXPath(tool, "//div[8]/a/u");
+        tool.clickUsingXPath("//div[8]/a/u");
         return new ModifyPaymentInformationCommon(tool, test, user);
     }
 
@@ -167,54 +167,54 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public void clickLinkOfOfferName(String offerName) throws Exception {
-        tool.clickUsingLinkText(tool, offerName);
+        tool.clickUsingLinkText(offerName);
     }
 
     public void clickCloseOfferDetailsBox() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Close']");
+        tool.clickUsingXPath("//input[@value='Close']");
     }
 
     public void clickAccountAttributesTab() throws Exception {
-        tool.clickUsingXPath(tool, "//a[@href='#tab2']");
+        tool.clickUsingXPath("//a[@href='#tab2']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public SwapBundleCommon clickUpgrade() throws Exception {
-        tool.clickUsingLinkText(tool, "Upgrade");
+        tool.clickUsingLinkText("Upgrade");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SwapBundleCommon(tool, test, user);
     }
 
     public ModifyAccountAttributesCommon clickModifyAccountContact() throws Exception {
-        tool.clickUsingXPath(tool, "//div[2]/a/u");
+        tool.clickUsingXPath("//div[2]/a/u");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyAccountAttributesCommon(tool, test, user);
     }
 
     public RemoveOfferCommon clickRemoveFirstAccountOffer() throws Exception {
-        tool.clickUsingLinkText(tool, "Remove");
+        tool.clickUsingLinkText("Remove");
         return new RemoveOfferCommon(tool, test, user);
     }
 
     public RemoveOfferCommon clickRemoveAccountOffer(String newOfferName) throws Exception {
-        tool.clickUsingXPath(tool, "//tr[td/a[contains(text(),'" + newOfferName + "')]]/td/a[contains(text(), 'Remove')]");
+        tool.clickUsingXPath("//tr[td/a[contains(text(),'" + newOfferName + "')]]/td/a[contains(text(), 'Remove')]");
         return new RemoveOfferCommon(tool, test, user);
     }
 
     public SelectOffersForYourAccountCommon clickReconfigureAccountOffer() throws Exception {
-        tool.clickUsingLinkText(tool, "Reconfigure");
+        tool.clickUsingLinkText("Reconfigure");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }
 
     public DeliveryAddressesCommon clickDeliveryAddresses() throws Exception {
-        tool.clickUsingID(tool, "mnu_DELIVERY_ADDRESSES");
+        tool.clickUsingID("mnu_DELIVERY_ADDRESSES");
         return new DeliveryAddressesCommon(tool, test, user);
     }
 
     public String getAccountNumber() throws Exception {
         String temp1[];
-        String temp = tool.getTextUsingCssSelector(tool, "div.navContextMain");
+        String temp = tool.getTextUsingCssSelector("div.navContextMain");
         temp1 = temp.split("-");
         return Common.cleanStringOfIllegalChars(temp1[0]);
     }
@@ -245,7 +245,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public void clickListAllCases() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingXPath(tool, "//p[contains(text(),'Cases (last 4 by date)')]/../../div/a[contains(text(),'More...')]");
+        tool.clickUsingXPath("//p[contains(text(),'Cases (last 4 by date)')]/../../div/a[contains(text(),'More...')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
@@ -316,7 +316,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public String getAccountStatus() throws Exception {
 
-        String orderStatus = tool.getTextUsingXPath(tool, "//div[@id='navigationContext']/div/div/div[2]");
+        String orderStatus = tool.getTextUsingXPath("//div[@id='navigationContext']/div/div/div[2]");
         return orderStatus;
     }
 
@@ -333,13 +333,13 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public PersonDetailsCommon clickUpdatePerson() throws Exception {
-        tool.clickUsingID(tool, "add_update_person");
+        tool.clickUsingID("add_update_person");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PersonDetailsCommon(tool, test, user);
     }
 
     public void clickSelectOtherPerson() throws Exception {
-        tool.clickUsingXPath(tool, "//div[@id='personaSelectContainer']/img");
+        tool.clickUsingXPath("//div[@id='personaSelectContainer']/img");
     }
 
     public AddStandaloneChargeCommon clickAddStandaloneCharge() throws Exception {
@@ -349,11 +349,11 @@ public class AccountDetailsCommon extends CommonMenu {
     }
 
     public void clickNavigate() throws Exception {
-        tool.clickUsingLinkText(tool, "Navigate");
+        tool.clickUsingLinkText("Navigate");
     }
 
     public AccountDetails removeAccountOfferIfPresent(String accountOfferName) throws Exception {
-        if (!tool.searchListUsingLinkTextIsEmpty(tool, accountOfferName)) {
+        if (!tool.searchListUsingLinkTextIsEmpty(accountOfferName)) {
             System.out.println("Account offer found so need to remove it...");
 
             AccountDetails accountDetails = new AccountDetails(tool, test, user);

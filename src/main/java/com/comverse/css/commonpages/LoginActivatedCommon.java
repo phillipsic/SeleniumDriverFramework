@@ -13,7 +13,7 @@ public class LoginActivatedCommon extends CommonMenu {
 
     public LoginActivatedCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Login activated";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,7 +23,7 @@ public class LoginActivatedCommon extends CommonMenu {
     
      public ModifyLoginPasswordCommon clickChangePassword() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Change Password']");
+        tool.clickUsingXPath("//input[@value='Change Password']");
         return new ModifyLoginPasswordCommon(tool, test, user);
     }
 

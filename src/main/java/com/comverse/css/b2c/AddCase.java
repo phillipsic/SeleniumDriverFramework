@@ -9,11 +9,11 @@ public class AddCase extends B2CMenu {
 
     public AddCase(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Add Case";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -22,36 +22,36 @@ public class AddCase extends B2CMenu {
 
     public void selectCategory(String value) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "categoryId", value);
+        tool.selectVisibleTextByID("categoryId", value);
     }
 
     public void selectSubCategory(String value) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "subCategoryId", value);
+        tool.selectVisibleTextByID("subCategoryId", value);
     }
 
     public void enterDescription(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "description", value);
+        tool.enterStringUsingId("description", value);
     }
 
     public void selectSubjectRelativeToProblemSubscriber() throws Exception {
-        tool.clickUsingID(tool, "isContract");
+        tool.clickUsingID("isContract");
     }
 
     public void selectFirstSubscriber() throws Exception {
-        tool.selectByIndexByID(tool, "contract", 1);
+        tool.selectByIndexByID("contract", 1);
     }
 
     public AddCaseReview clickSubmit() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Submit']");
+        tool.clickUsingXPath("//input[@value='Submit']");
         return new AddCaseReview(tool, test, user);
     }
 
     public ListCases clickListCases() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_CASE_LIST");
+        tool.clickUsingID("smnu_CASE_LIST");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCases(tool, test, user);
     }

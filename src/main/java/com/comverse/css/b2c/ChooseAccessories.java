@@ -13,11 +13,11 @@ public class ChooseAccessories extends B2CMenu {
 
     public ChooseAccessories(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Choose Accessories";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -26,21 +26,21 @@ public class ChooseAccessories extends B2CMenu {
 
     public MyBasket clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public ConfigureServiceConnectionDetails clickContinueExpectingConnectionServiceDetails() throws Exception {
 
-        // tool.clickUsingXPath(tool, "//input[@value='Continue']");
-        tool.clickUsingName(tool, "doSubmit");
+        // tool.clickUsingXPath("//input[@value='Continue']");
+        tool.clickUsingName("doSubmit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureServiceConnectionDetails(tool, test, user);
     }
 
     public void setQuantityForAccessory(String Accessory, String Quantity) throws Exception {
-        tool.enterStringUsingXPath(tool, ".//a[contains(text(),'" + Accessory + "')]//../preceding-sibling::td[2]//input", Quantity);
+        tool.enterStringUsingXPath(".//a[contains(text(),'" + Accessory + "')]//../preceding-sibling::td[2]//input", Quantity);
     }
 
 }

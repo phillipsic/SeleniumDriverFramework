@@ -9,10 +9,10 @@ public class AddressAdd extends AddressAddCommon {
 
     public AddressAdd(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Address Add";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -23,7 +23,7 @@ public class AddressAdd extends AddressAddCommon {
 	public void setStreetName(String streetname) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "add_streetName", streetname);
+        tool.enterStringUsingId("add_streetName", streetname);
 
     }
 
@@ -31,7 +31,7 @@ public class AddressAdd extends AddressAddCommon {
 	public void setCity(String city) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "add_city", city);
+        tool.enterStringUsingId("add_city", city);
 
     }
 
@@ -39,21 +39,21 @@ public class AddressAdd extends AddressAddCommon {
 	public void setZipCode(String zipcode) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "add_postalCode", zipcode);
+        tool.enterStringUsingId("add_postalCode", zipcode);
 
     }
 
     @Override
 	public void selectCountry(String country) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "add_countryCode", country);
+        tool.selectVisibleTextByID("add_countryCode", country);
 
     }
 
     @Override
 	public AddressAdministration clickOK() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Ok']");
+        tool.clickUsingXPath("//input[@value='Ok']");
 
         return new AddressAdministration(tool, test, user);
     }

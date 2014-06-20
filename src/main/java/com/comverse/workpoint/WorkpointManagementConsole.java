@@ -9,7 +9,7 @@ public class WorkpointManagementConsole extends WPMCMenu {
     public WorkpointManagementConsole(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Workpoint Management Console";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -18,7 +18,7 @@ public class WorkpointManagementConsole extends WPMCMenu {
     }
 
     public String getStatusOfMonitorQueue(String queueName) throws Exception {
-        return tool.getTextUsingXPath(tool, "//a[contains( text(),'" + queueName + "')]/../../../../../../../../td[2]/font");
+        return tool.getTextUsingXPath("//a[contains( text(),'" + queueName + "')]/../../../../../../../../td[2]/font");
 
     }
 

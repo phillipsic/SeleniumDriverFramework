@@ -16,7 +16,7 @@ public class ChangePassword extends ChangePasswordCommon {
     @Override
     public ModifyLoginPassword clickChange() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Change']");
+        tool.clickUsingXPath("//input[@value='Change']");
         return new ModifyLoginPassword(tool, test, user);
     }
 }

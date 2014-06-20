@@ -52,8 +52,8 @@ public class BKM0040_Change_primary_offer_of_a_selection extends CSSTest {
             configureContractDetails.setSpendingLimit(sb_ResidentialUltraPostpaidBundle.getPO_ResidentialUltraPostpaid().getBAL_GPRS_WAP_INTERNET().getBalanceName(),
                     sb_ResidentialUltraPostpaidBundle.getPO_ResidentialUltraPostpaid().getBAL_GPRS_WAP_INTERNET().getBalanceValue());
 
-            if (tool.isElementPresentByXPath(tool, "xpath=//*[contains(@id, 'Subscriber DetailsBlock') and contains(@style, 'display: none;')]")) {
-                tool.clickUsingCssSelector(tool, "img.floatLeft");
+            if (tool.isElementPresentByXPath("xpath=//*[contains(@id, 'Subscriber DetailsBlock') and contains(@style, 'display: none;')]")) {
+                tool.clickUsingCssSelector("img.floatLeft");
             }
 
             configureContractDetails.setLang("French (Standard)");

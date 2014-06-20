@@ -59,7 +59,7 @@ public class IdentifyCustomer extends IdentifyCustomerCommon {
     }
 
     public String getAccountId(String Fname) throws Exception {
-        return tool.getTextUsingXPath(tool, "//td[contains(text(),'" + Fname + "')]/following-sibling::td");
+        return tool.getTextUsingXPath("//td[contains(text(),'" + Fname + "')]/following-sibling::td");
     }
 
     @Override

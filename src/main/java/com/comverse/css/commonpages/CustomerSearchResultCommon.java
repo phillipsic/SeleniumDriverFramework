@@ -10,10 +10,10 @@ public class CustomerSearchResultCommon extends CommonMenu {
     public CustomerSearchResultCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Customer search result";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -21,35 +21,35 @@ public class CustomerSearchResultCommon extends CommonMenu {
 
     public AccountDetailsCommon clickPersonNameLink(String lastName) throws Exception {
 
-        tool.clickUsingPartialLinkText(tool, lastName);
+        tool.clickUsingPartialLinkText(lastName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickAccountLink(String accountNumber) throws Exception {
 
-        tool.clickUsingPartialLinkText(tool, accountNumber);
+        tool.clickUsingPartialLinkText(accountNumber);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickFirstPersonLink() throws Exception {
 
-        tool.clickUsingID(tool, "value_person_0_0");
+        tool.clickUsingID("value_person_0_0");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickFirstAccountLink() throws Exception {
 
-        tool.clickUsingXPath(tool, "//td[3]/a");
+        tool.clickUsingXPath("//td[3]/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {
 
-        tool.clickUsingPartialLinkText(tool, MSISDN);
+        tool.clickUsingPartialLinkText(MSISDN);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }

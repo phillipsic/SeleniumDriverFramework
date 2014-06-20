@@ -13,10 +13,10 @@ public class SearchMember extends B2CMenu {
     public SearchMember(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Search Member";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -25,42 +25,42 @@ public class SearchMember extends B2CMenu {
 
     public RegisterNewResidentialMember clickRegisterNewMember() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_REGISTER_MEMBER");
+        tool.clickUsingID("smnu_REGISTER_MEMBER");
         return new RegisterNewResidentialMember(tool, test, user);
     }
 
     public void enterLastName(String lastName) throws Exception {
 
-        tool.enterStringUsingId(tool, "p-L1:8-L3:1470", lastName);
+        tool.enterStringUsingId("p-L1:8-L3:1470", lastName);
     }
 
     public void clickSearchFirstLastNameButton() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Search']");
+        tool.clickUsingXPath("//input[@value='Search']");
 
     }
 
     public void clickFirstFoundMember() throws Exception {
 
-        tool.clickUsingID(tool, "lnk_MEMBER_0");
+        tool.clickUsingID("lnk_MEMBER_0");
 
     }
 
     public void clickOnCustomerNameLink(String lastname) throws Exception {
 
-        tool.clickUsingPartialLinkText(tool, lastname);
+        tool.clickUsingPartialLinkText(lastname);
 
     }
 
     public LoginInformation clickManageLogin() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Manage Login");
+        tool.clickUsingLinkText("Manage Login");
         return new LoginInformation(tool, test, user);
     }
 
     public CustomerProfile clickChangeProfile() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Change Profile");
+        tool.clickUsingLinkText("Change Profile");
         return new CustomerProfile(tool, test, user);
     }
 

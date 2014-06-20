@@ -12,7 +12,7 @@ public class LoginCommon extends CommonMenu {
 
     public LoginCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Login";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,21 +22,21 @@ public class LoginCommon extends CommonMenu {
 
     public void setLogin(String login) throws Exception {
         
-        tool.enterStringUsingId(tool, "login", login);
+        tool.enterStringUsingId("login", login);
     }
 
     public void selectRole(String role) throws Exception {
-        tool.selectVisibleTextByID(tool, "roles", role);
+        tool.selectVisibleTextByID("roles", role);
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }
 
     public AddMemberConfirmationCommon clickCreateLoginLater() throws Exception {
-        tool.clickUsingID(tool, "ON_OK");
+        tool.clickUsingID("ON_OK");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }

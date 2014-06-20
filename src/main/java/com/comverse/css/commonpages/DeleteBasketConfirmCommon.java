@@ -9,7 +9,7 @@ public class DeleteBasketConfirmCommon extends CommonMenu {
     public DeleteBasketConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Delete Basket Confirm";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -20,7 +20,7 @@ public class DeleteBasketConfirmCommon extends CommonMenu {
 
     public ResumeAParkedBasketCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new ResumeAParkedBasketCommon(tool, test, user);
     }
 }

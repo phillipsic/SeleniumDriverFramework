@@ -14,7 +14,7 @@ public class RemoveBasket extends RemoveBasketCommon {
 
     public AccountDetails clickYes() throws Exception {
 
-        tool.clickUsingXPath(tool, "//form[@id='form_YES']/div/input");
+        tool.clickUsingXPath("//form[@id='form_YES']/div/input");
         return new AccountDetails(tool, test, user);
     }
 }

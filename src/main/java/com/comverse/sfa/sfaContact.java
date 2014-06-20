@@ -9,7 +9,7 @@ public class sfaContact extends SFAMenu {
 
     public sfaContact(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse ONE Billing and Active Customer Management";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,24 +19,24 @@ public class sfaContact extends SFAMenu {
     }
 
     public void setFirstNameLastnameForContact(String contactFN, String contactLN, String mainWindow, String contactWindow) throws Exception {
-        tool.clickUsingID(tool, "Iyz46co_img"); // open name
+        tool.clickUsingID("Iyz46co_img"); // open name
                                                 // detail dialog
         Common.sleepForNumberOfSeconds(3);
         Common.switchToNewWindow(tool, mainWindow, contactWindow);
 
-        tool.enterStringUsingId(tool, "Ie5fc8b", contactFN); // set
+        tool.enterStringUsingId("Ie5fc8b", contactFN); // set
                                                              // first
                                                              // name
 
-        tool.enterStringUsingId(tool, "Ik35shv", contactLN); // set
+        tool.enterStringUsingId("Ik35shv", contactLN); // set
                                                              // last
                                                              // name
-        tool.clickUsingID(tool, "Ab0lxf"); // click save
+        tool.clickUsingID("Ab0lxf"); // click save
         Common.sleepForNumberOfSeconds(3);
     }
 
     public void clickSaveContact() throws Exception {
-        tool.clickUsingID(tool, "Aowwzkq");
+        tool.clickUsingID("Aowwzkq");
         Common.sleepForNumberOfSeconds(3);
     }
 

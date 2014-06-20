@@ -11,7 +11,7 @@ public class EditCaseCommon extends CommonMenu {
     public EditCaseCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!"Edit Case".equals(currentScreen)) {
@@ -21,45 +21,45 @@ public class EditCaseCommon extends CommonMenu {
     }
 
     public void clickSave() throws Exception {
-        tool.clickUsingName(tool, "closeonly");
+        tool.clickUsingName("closeonly");
     }
 
     public void clickCancelCase() throws Exception {
-        tool.clickUsingName(tool, "cancelcase");
+        tool.clickUsingName("cancelcase");
     }
 
     public void clickSaveAndCloseCase() throws Exception {
-        tool.clickUsingID(tool, "cclose");
+        tool.clickUsingID("cclose");
     }
 
     public void clickOKToCancelOrClose() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
     public void enterReason(String Reason) throws Exception {
         
-        tool.enterStringUsingId(tool, "reason", Reason);
+        tool.enterStringUsingId("reason", Reason);
     }
 
     public void selectJustificationStatus(String status) throws Exception {
-        tool.selectVisibleTextByID(tool, "case_justification_status", status);
+        tool.selectVisibleTextByID("case_justification_status", status);
     }
 
     public void updateDescription(String updatedDescription) throws Exception {
         
-        tool.enterStringUsingId(tool, "appendToDescription", updatedDescription);
+        tool.enterStringUsingId("appendToDescription", updatedDescription);
     }
 
     public ViewCase clickOK() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.assertTextOnPage(tool, "Case has been successfully updated.");
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCase(tool, test, user);
     }
 
     public void changePriorityToLow() throws Exception {
-        tool.selectVisibleTextByID(tool, "case_priority", "Low");
+        tool.selectVisibleTextByID("case_priority", "Low");
     }
 
 }

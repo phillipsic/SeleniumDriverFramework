@@ -8,7 +8,7 @@ import com.comverse.sfa.sfaHomePage;
 public class UpmLoginPage extends Main {
 
     public UpmLoginPage(AutomationTool tool) throws Exception {
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse ONE Unified Platform| Please Sign-In";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -20,22 +20,22 @@ public class UpmLoginPage extends Main {
 
     public void setUserName(String login) throws Exception {
 
-        tool.enterStringUsingId(tool, "userName", login);
+        tool.enterStringUsingId("userName", login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password", password);
+        tool.enterStringUsingId("password", password);
     }
 
     public sfaHomePage clickSignIn() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='SIGN IN']");
+        tool.clickUsingXPath("//input[@value='SIGN IN']");
         return new sfaHomePage(tool, test, user);
     }
 
     public String getMessage() throws Exception {
 
-        return tool.getTextUsingXPath(tool, "//span");
+        return tool.getTextUsingXPath("//span");
     }
 
     public UpmHomePage successfulsecAdminLogin() throws Exception {

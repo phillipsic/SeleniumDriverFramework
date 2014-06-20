@@ -15,7 +15,7 @@ public class SelectOffersForYourSubscriberCommon extends CommonMenu {
 
     public SelectOffersForYourSubscriberCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -25,55 +25,55 @@ public class SelectOffersForYourSubscriberCommon extends CommonMenu {
     public void selectOffersForSubscriber(String... SOTable) throws Exception {
         if (SOTable != null) {
             for (String SOName : SOTable) {
-                tool.clickUsingXPath(tool, "//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../../td/input");
+                tool.clickUsingXPath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../../td/input");
             }
         }
     }
 
     public SupplementaryOfferDetailsCommon clickOfferDetail(String SOName) throws Exception {
-        tool.clickUsingXPath(tool, "//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../a");
+        tool.clickUsingXPath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../a");
         return new SupplementaryOfferDetailsCommon(tool, test, user);
     }
 
     public ConfigureOffersCommon clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         return new ConfigureOffersCommon(tool, test, user);
     }
 
     public MyBasketCommon clickContinueExpectingMyBasket() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         return new MyBasketCommon(tool, test, user);
     }
 
     public SwapImpactCommon clickContinueExpectingSwapImpact() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         return new SwapImpactCommon(tool, test, user);
     }
 
     public ServiceConnectionDetailsCommon clickContinueExpectingServiceConnectionDetails() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
     public MyBasketCommon clickPrevious() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='< Previous'");
+        tool.clickUsingXPath("//input[@value='< Previous'");
         return new MyBasketCommon(tool, test, user);
     }
 
     public MyBasketCommon clickCancel() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Cancel'");
+        tool.clickUsingXPath("//input[@value='Cancel'");
         return new MyBasketCommon(tool, test, user);
     }
 
     public void clickOfferDetailOnPopUp(String SOName) throws Exception {
-        tool.clickUsingXPath(tool, "//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../a");
+        tool.clickUsingXPath("//div[@class = 'objectName' and contains(.,'" + SOName + "')]/../a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickClose() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Close']");
+        tool.clickUsingXPath("//input[@value='Close']");
 
     }
 

@@ -9,10 +9,10 @@ public class ChangePasswordCommon extends CommonMenu {
     public ChangePasswordCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Change Password";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -21,24 +21,24 @@ public class ChangePasswordCommon extends CommonMenu {
     public void setYourPassword(String password) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "oldPassword", password);
+        tool.enterStringUsingId("oldPassword", password);
     }
 
     public void setNewPassword(String password) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "newPassword", password);
+        tool.enterStringUsingId("newPassword", password);
     }
 
     public void setConfirmNewPassword(String password) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "confirmPassword", password);
+        tool.enterStringUsingId("confirmPassword", password);
     }
 
     public ModifyLoginPasswordCommon clickChange() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Change']");
+        tool.clickUsingXPath("//input[@value='Change']");
         return new ModifyLoginPasswordCommon(tool, test, user);
     }
 }

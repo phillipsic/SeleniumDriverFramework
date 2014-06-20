@@ -13,7 +13,7 @@ public class SubscribeToRechargePromotionalOffersCommon extends CommonMenu {
 
     public SubscribeToRechargePromotionalOffersCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -22,15 +22,15 @@ public class SubscribeToRechargePromotionalOffersCommon extends CommonMenu {
 
     public void selectOffersForSubscriber(String RPO) throws Exception {
         
-        tool.enterStringUsingId(tool, "nameFilterField0", RPO);
-        tool.clickUsingName(tool, "rechargePromotionalOffers");
+        tool.enterStringUsingId("nameFilterField0", RPO);
+        tool.clickUsingName("rechargePromotionalOffers");
 
     }
 
     public MyBasketCommon clickContinue() throws Exception {
 
-        tool.clickUsingCssSelector(tool, "input[name='rechargePromotionalOffers']");
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingCssSelector("input[name='rechargePromotionalOffers']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         return new MyBasketCommon(tool, test, user);
     }
 

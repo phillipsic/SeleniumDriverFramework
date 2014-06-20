@@ -9,7 +9,7 @@ public class ViewBilledMTRCommon extends CommonMenu {
     public ViewBilledMTRCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View billed MTR";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,13 +21,13 @@ public class ViewBilledMTRCommon extends CommonMenu {
 
     public ViewBilledMTRDetailsCommon clickFirstMTR() throws Exception {
 
-        tool.clickUsingXPath(tool, "//fieldset/div/table/tbody[2]/tr/td/div/a");
+        tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
         return new ViewBilledMTRDetailsCommon(tool, test, user);
     }
 
     public ViewInvoiceDetailsCommon clickBack() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);
     }
 }

@@ -11,7 +11,7 @@ public class SubscriberDashboard extends MyshapeCommon {
     public SubscriberDashboard(AutomationTool tool, Test test, User user, String subscriberID) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = subscriberID;
         for (String currentScreenSplitted : currentScreen.split("/")) {
             currentScreen = currentScreenSplitted;
@@ -28,31 +28,31 @@ public class SubscriberDashboard extends MyshapeCommon {
     }
 
     public void swipeTOLeftSubscriber(OTGHome otg) throws Exception {
-        tool.performDragAndDrop(tool, tool.searchUsingCssSelector(tool, "h3.page-title.ng-binding"), tool.searchUsingXpath(tool, "//div[3]/div/img"));
+        tool.performDragAndDrop(tool.searchUsingCssSelector("h3.page-title.ng-binding"), tool.searchUsingXpath("//div[3]/div/img"));
         Thread.sleep(1000);
     }
 
     public void clickRecharge() throws Exception {
-        tool.clickUsingLinkText(tool, "Recharge");
+        tool.clickUsingLinkText("Recharge");
         Thread.sleep(1000);
     }
 
     public void clickOther() throws Exception {
-        tool.clickUsingLinkText(tool, "Other");
+        tool.clickUsingLinkText("Other");
     }
 
     public void setFreeAmount(int freeAmount) throws Exception {
 
-        tool.enterStringUsingXPath(tool, "//input[@type='text']", Integer.toString(freeAmount));
+        tool.enterStringUsingXPath("//input[@type='text']", Integer.toString(freeAmount));
     }
 
     public void clickConfirm() throws Exception {
-        tool.clickUsingCssSelector(tool, "button.btn.btn-primary");
+        tool.clickUsingCssSelector("button.btn.btn-primary");
         Thread.sleep(2000);
     }
 
     public int getRemainingCredits() throws Exception {
-        String remainingCredits = tool.getTextUsingXPath(tool, "//html/body/div/div[3]/div[3]/div[1]/div[2]/div/div[2]/h1/span[2]");
+        String remainingCredits = tool.getTextUsingXPath("//html/body/div/div[3]/div[3]/div[1]/div[2]/div/div[2]/h1/span[2]");
         System.out.println("Remaining Credits : " + remainingCredits);
         return Integer.valueOf(remainingCredits.substring(1));
     }

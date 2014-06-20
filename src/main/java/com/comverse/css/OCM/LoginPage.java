@@ -14,11 +14,11 @@ public class LoginPage extends CommonMenu {
     public LoginPage(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "OCM Application";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -34,10 +34,10 @@ public class LoginPage extends CommonMenu {
             throw new MissingResourceException("Missing property " + user.getPassword(), "PASSWORD_PROPERTY_FILE", user.getPassword());
         }
 
-        tool.enterStringUsingId(tool, "login:fields:user", user.getLogin());
+        tool.enterStringUsingId("login:fields:user", user.getLogin());
 
-        tool.enterStringUsingId(tool, "login:fields:password", user.getPassword());
-        tool.clickUsingName(tool, "login:buttons:submit");
+        tool.enterStringUsingId("login:fields:password", user.getPassword());
+        tool.clickUsingName("login:buttons:submit");
 
         Common.assertTextOnPage(tool, "Login completed successfully.");
 
@@ -52,10 +52,10 @@ public class LoginPage extends CommonMenu {
             throw new MissingResourceException("Missing property " + user.getPassword(), "PASSWORD_PROPERTY_FILE", user.getPassword());
         }
 
-        tool.enterStringUsingId(tool, "login:fields:user", user.getLogin());
+        tool.enterStringUsingId("login:fields:user", user.getLogin());
 
-        tool.enterStringUsingId(tool, "login:fields:password", user.getPassword());
-        tool.clickUsingName(tool, "login:buttons:submit");
+        tool.enterStringUsingId("login:fields:password", user.getPassword());
+        tool.clickUsingName("login:buttons:submit");
 
         Common.assertTextNotOnPage(tool, "Login completed successfully.");
 
@@ -69,17 +69,17 @@ public class LoginPage extends CommonMenu {
             throw new MissingResourceException("Missing property " + user.getPassword(), "PASSWORD_PROPERTY_FILE", user.getPassword());
         }
 
-        tool.enterStringUsingId(tool, "login:fields:user", user.getLogin());
+        tool.enterStringUsingId("login:fields:user", user.getLogin());
 
-        tool.enterStringUsingId(tool, "login:fields:password", user.getPassword());
-        tool.clickUsingName(tool, "login:buttons:submit");
+        tool.enterStringUsingId("login:fields:password", user.getPassword());
+        tool.clickUsingName("login:buttons:submit");
         Common.assertTextOnPage(tool, "Temporary password must be changed.");
 
-        tool.enterStringUsingId(tool, "mainPanel:changePasswordForm:fields:oldPassword", user.getPassword());
-        tool.enterStringUsingId(tool, "mainPanel:changePasswordForm:fields:newPassword", "P@ssw0rd");
-        tool.enterStringUsingId(tool, "mainPanel:changePasswordForm:fields:repeatPassword", "P@ssw0rd");
+        tool.enterStringUsingId("mainPanel:changePasswordForm:fields:oldPassword", user.getPassword());
+        tool.enterStringUsingId("mainPanel:changePasswordForm:fields:newPassword", "P@ssw0rd");
+        tool.enterStringUsingId("mainPanel:changePasswordForm:fields:repeatPassword", "P@ssw0rd");
 
-        tool.clickUsingName(tool, "mainPanel:changePasswordForm:buttons:change");
+        tool.clickUsingName("mainPanel:changePasswordForm:buttons:change");
 
         Common.assertTextOnPage(tool, "Your password has been changed");
 

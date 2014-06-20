@@ -9,7 +9,7 @@ public class SwapBundleCommon extends CommonMenu {
 
     public SwapBundleCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Swap Bundle";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -17,16 +17,16 @@ public class SwapBundleCommon extends CommonMenu {
     }
 
     public void clickToAccountBundle(String accountBundle) throws Exception {
-        tool.clickUsingXPath(tool, "//tr[@id='abtr:" + accountBundle + "']/td/input");
+        tool.clickUsingXPath("//tr[@id='abtr:" + accountBundle + "']/td/input");
     }
 
     public void clickAdditionalParticipants() throws Exception {
-        tool.clickUsingName(tool, "additionalPartChk");
+        tool.clickUsingName("additionalPartChk");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public AccountBundleDistributionConfigurationCommon clickContinue() throws Exception {
-        tool.clickUsingID(tool, "futureDistContinueBtn");
+        tool.clickUsingID("futureDistContinueBtn");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountBundleDistributionConfigurationCommon(tool, test, user);
     }

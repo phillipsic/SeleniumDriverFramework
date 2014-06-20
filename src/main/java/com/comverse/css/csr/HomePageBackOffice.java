@@ -13,10 +13,10 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
 
     public HomePageBackOffice(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Welcome to Your Workspace";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -25,7 +25,7 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
 
     public InventoryAdministration clickBackOffice() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_BACK_OFFICE");
+        tool.clickUsingID("mnu_BACK_OFFICE");
 
         return new InventoryAdministration(tool, test, user);
 

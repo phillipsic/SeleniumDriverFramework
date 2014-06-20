@@ -11,7 +11,7 @@ public class ReconfigureBalanceCommon extends CommonMenu {
     public ReconfigureBalanceCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!currentScreen.equals(expectedScreen)) {
             throw new IllegalStateException("Expected: " + expectedScreen + " but got: " + currentScreen);
@@ -21,35 +21,35 @@ public class ReconfigureBalanceCommon extends CommonMenu {
 
     public ReconfigureBalanceCommon setMoreUnitsForThisPeriod(String unitsToAdd) throws Exception {
 
-        tool.enterStringUsingId(tool, "balanceValue", unitsToAdd);
+        tool.enterStringUsingId("balanceValue", unitsToAdd);
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public ReconfigureBalanceReviewCommon clickAddUnits() throws Exception {
 
-        tool.clickUsingName(tool, "submit_add_units");
+        tool.clickUsingName("submit_add_units");
         return new ReconfigureBalanceReviewCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon setCreditSpendingLimit(String limitValue) throws Exception {
 
-        tool.enterStringUsingId(tool, "configuredLimit", limitValue);
+        tool.enterStringUsingId("configuredLimit", limitValue);
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon setCreditSpendingLimitUnlimited() throws Exception {
 
-        tool.clickUsingName(tool, "isUnlimitedCheckBox");
+        tool.clickUsingName("isUnlimitedCheckBox");
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public void selectUseAccountUnitsFrom(String selectOption) throws Exception {
-        tool.selectVisibleTextByID(tool, "targetBalance", selectOption);
+        tool.selectVisibleTextByID("targetBalance", selectOption);
     }
 
     public ReconfigureBalanceReviewCommon clickReconfigureBalance() throws Exception {
 
-        tool.clickUsingName(tool, "submit_reconfigure_limit");
+        tool.clickUsingName("submit_reconfigure_limit");
         return new ReconfigureBalanceReviewCommon(tool, test, user);
     }
 

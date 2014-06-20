@@ -29,7 +29,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
 
-            if (tool.getTitle(tool).matches("Waiting Page")) {
+            if (tool.getTitle().matches("Waiting Page")) {
                 // System.out.println("Please Wait present");
                 Thread.sleep(3000);
             } else {
@@ -49,13 +49,13 @@ public class Common {
 
     public static Boolean isTextOnPage(AutomationTool tool, String searchText) throws Exception {
 
-        String pageSource = tool.getPageSource(tool);
+        String pageSource = tool.getPageSource();
         return pageSource.contains(searchText);
     }
 
     public static Boolean isCheckBoxSelected(AutomationTool tool, String idOfCheckBox) throws Exception {
 
-        return (tool.searchUsingID(tool, idOfCheckBox)).isSelected();
+        return (tool.searchUsingID(idOfCheckBox)).isSelected();
     }
 
     public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
@@ -80,7 +80,7 @@ public class Common {
     }
 
     public static String returnCleanPageSource(AutomationTool tool) throws Exception {
-        String dirtyString = tool.getPageSource(tool);
+        String dirtyString = tool.getPageSource();
         dirtyString = removeHTMLTags(dirtyString);
         return cleanStringOfIllegalChars(dirtyString);
     }
@@ -102,7 +102,7 @@ public class Common {
         Boolean foundIt = false;
         int startOfOfferIndex = 1;
 
-        String pageSource = tool.getPageSource(tool);
+        String pageSource = tool.getPageSource();
 
         while (startOfOfferIndex > 0 && foundIt == false) {
 
@@ -154,9 +154,9 @@ public class Common {
     }
 
     public static void checkForExistingBasketAndDiscard(AutomationTool tool) throws Exception {
-        if (tool.getTitle(tool).equals("Restore Previous Basket")) {
-            tool.clickUsingXPath(tool, "//input[@value='Discard']");
-            tool.clickUsingCssSelector(tool, "input.submit");
+        if (tool.getTitle().equals("Restore Previous Basket")) {
+            tool.clickUsingXPath("//input[@value='Discard']");
+            tool.clickUsingCssSelector("input.submit");
         }
     }
 
@@ -188,7 +188,7 @@ public class Common {
                 throw new Exception("Timeout");
             }
             try {
-                tool.searchUsingCssSelector(tool, "img[title=\" Action\"]");
+                tool.searchUsingCssSelector("img[title=\" Action\"]");
                 foundElement = true;
                 System.out.println("FoundElement =  ..." + foundElement);
                 break;
@@ -936,15 +936,15 @@ public class Common {
                     successfullyDisplayed = true;
                 }
                 Common.sleepForNumberOfSeconds(2);
-                tool.clickUsingXPath(tool, "(//input[@value='+ Action'])[2]");
-                tool.clickUsingID(tool, actionID);
-                String pageTitle = tool.getTitle(tool);
+                tool.clickUsingXPath("(//input[@value='+ Action'])[2]");
+                tool.clickUsingID(actionID);
+                String pageTitle = tool.getTitle();
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.navigateRefresh(tool);
+                    tool.navigateRefresh();
                 }
             } catch (Exception e) {
                 System.out.println("Menu item not selectable");
@@ -966,20 +966,20 @@ public class Common {
                     successfullyDisplayed = true;
                 }
                 Common.sleepForNumberOfSeconds(2);
-                tool.clickUsingXPath(tool, "//input[@value='+ Action']");
+                tool.clickUsingXPath("//input[@value='+ Action']");
                 if (actionIDTable != null) {
                     for (String actionID : actionIDTable) {
                         Common.sleepForNumberOfSeconds(1);
-                        tool.clickUsingID(tool, actionID);
+                        tool.clickUsingID(actionID);
                     }
                 }
-                String pageTitle = tool.getTitle(tool);
+                String pageTitle = tool.getTitle();
 
                 if (pageTitle.equals(classTitle) || pageTitle.equals("Waiting Page")) {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.navigateRefresh(tool);
+                    tool.navigateRefresh();
                     System.out.println("Trying browser refresh");
                 }
             } catch (Exception e) {
@@ -1013,19 +1013,19 @@ public class Common {
     }
 
     public static String getCurrentWindowHandle(AutomationTool tool) throws Exception {
-        return tool.getWindowHandle(tool);
+        return tool.getWindowHandle();
     }
 
     public static void switchToThisWindow(AutomationTool tool, String windowHandle) throws Exception {
-        tool.switchToWindow(tool, windowHandle);
+        tool.switchToWindow(windowHandle);
     }
 
     public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) throws Exception {
-        Set<String> windows = tool.getWindowHandles(tool);
+        Set<String> windows = tool.getWindowHandles();
         for (String window : windows) {
             for (String windowHandle : windowHandleTable) {
                 if (!window.equals(windowHandle)) {
-                    tool.switchToWindow(tool, window);
+                    tool.switchToWindow(window);
                     break;
                 }
             }

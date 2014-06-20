@@ -10,7 +10,7 @@ public class AddSubLevelSelectLevelTypeCommon extends CommonMenu {
     public AddSubLevelSelectLevelTypeCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -21,7 +21,7 @@ public class AddSubLevelSelectLevelTypeCommon extends CommonMenu {
 
     public AddSubLevelLegalAddressCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new AddSubLevelLegalAddressCommon(tool, test, user);
     }
 }

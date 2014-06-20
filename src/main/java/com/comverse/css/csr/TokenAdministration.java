@@ -9,10 +9,10 @@ public class TokenAdministration extends CommonMenu {
 
     public TokenAdministration(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Token Administration";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -21,7 +21,7 @@ public class TokenAdministration extends CommonMenu {
 
     public UploadToken clickUpload() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Upload']");
+        tool.clickUsingXPath("//input[@value='Upload']");
 
         return new UploadToken(tool, test, user);
     }

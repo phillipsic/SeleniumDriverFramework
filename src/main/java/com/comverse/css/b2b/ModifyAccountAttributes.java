@@ -23,11 +23,11 @@ public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
 
     @Override
     public void enterSecurityNumber(String value) throws Exception {
-        tool.enterStringUsingXPath(tool, "//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", value);
+        tool.enterStringUsingXPath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", value);
     }
 
     @Override
     public String getSecurityNumber() throws Exception {
-        return tool.getAttributeUsingXpath(tool, "//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", "value");
+        return tool.getAttributeUsingXpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", "value");
     }
 }

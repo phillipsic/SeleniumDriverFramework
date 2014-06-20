@@ -9,7 +9,7 @@ public class ViewInvoiceDetailsCommon extends CommonMenu {
     public ViewInvoiceDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View invoice details";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -20,47 +20,47 @@ public class ViewInvoiceDetailsCommon extends CommonMenu {
     }
 
     public InvoiceImageInTextCommon clickAsciiImage() throws Exception {
-        tool.clickUsingXPath(tool, "//img[@title='Simple format - Ascii']");
+        tool.clickUsingXPath("//img[@title='Simple format - Ascii']");
         return new InvoiceImageInTextCommon(tool, test, user);
     }
 
     public ViewInvoiceBalanceDetailsCommon clickBalanceName() throws Exception {
-        tool.clickUsingXPath(tool, ".//a[contains(text(),'Balances')]//../../../../../../following::tbody[2]/tr[1]/td/div/a");
+        tool.clickUsingXPath(".//a[contains(text(),'Balances')]//../../../../../../following::tbody[2]/tr[1]/td/div/a");
         return new ViewInvoiceBalanceDetailsCommon(tool, test, user);
     }
 
     public BilledAdjustmentsCommon clickBilledAdjustments() throws Exception {
-        tool.clickUsingID(tool, "youcan_VIEW_ADJUSTMENTS");
+        tool.clickUsingID("youcan_VIEW_ADJUSTMENTS");
         return new BilledAdjustmentsCommon(tool, test, user);
     }
 
     public ViewPaymentDistributionsCommon clickPaymentDistribution() throws Exception {
-        tool.clickUsingID(tool, "youcan_VIEW_PAYMENT_DISTRIBUTIONS");
+        tool.clickUsingID("youcan_VIEW_PAYMENT_DISTRIBUTIONS");
         return new ViewPaymentDistributionsCommon(tool, test, user);
     }
 
     public ViewBilledRCNRCTermsCommon clickBilledRCNRC() throws Exception {
-        tool.clickUsingID(tool, "youcan_VIEW_RC_NRC");
+        tool.clickUsingID("youcan_VIEW_RC_NRC");
         return new ViewBilledRCNRCTermsCommon(tool, test, user);
     }
 
     public ViewBilledRechargesCommon clickBilledRecharges() throws Exception {
-        tool.clickUsingID(tool, "youcan_VIEW_INVOICE_RECHARGES");
+        tool.clickUsingID("youcan_VIEW_INVOICE_RECHARGES");
         return new ViewBilledRechargesCommon(tool, test, user);
     }
 
     public ViewBilledUsageCommon clickBilledUsages() throws Exception {
-        tool.clickUsingID(tool, "youcan_VIEW_USAGES");
+        tool.clickUsingID("youcan_VIEW_USAGES");
         return new ViewBilledUsageCommon(tool, test, user);
     }
 
     public ViewBilledMTRCommon clickBilledMTR() throws Exception {
-        tool.clickUsingID(tool, "youcan_VIEW_INVOICE_MTR");
+        tool.clickUsingID("youcan_VIEW_INVOICE_MTR");
         return new ViewBilledMTRCommon(tool, test, user);
     }
 
     public ViewInvoicesCommon clickBack() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoicesCommon(tool, test, user);
     }
 }

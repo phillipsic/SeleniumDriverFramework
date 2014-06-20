@@ -15,9 +15,9 @@ public class PersonDetailsCommon extends CommonMenu {
     public PersonDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -25,87 +25,87 @@ public class PersonDetailsCommon extends CommonMenu {
     }
 
     public void clickUpdate() throws Exception {
-        tool.clickUsingID(tool, "submitButton");
+        tool.clickUsingID("submitButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void selectTitle(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "title", value);
+        tool.selectVisibleTextByID("title", value);
     }
 
     public void setFirstName(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "firstName", value);
+        tool.enterStringUsingId("firstName", value);
     }
 
     public void setLastName(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "lastName", value);
+        tool.enterStringUsingId("lastName", value);
     }
 
     public void setGender(String value) throws Exception {
         if (value == "female") {
-            tool.clickUsingXPath(tool, "(//input[@name='gender'])[2]");
+            tool.clickUsingXPath("(//input[@name='gender'])[2]");
         } else {
-            tool.clickUsingXPath(tool, "//input[@name='gender']");
+            tool.clickUsingXPath("//input[@name='gender']");
         }
     }
 
     public void setNationality(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "nationality", value);
+        tool.selectVisibleTextByID("nationality", value);
     }
 
     public void setLanguage(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "language", value);
+        tool.selectVisibleTextByID("language", value);
     }
 
     public void setEmailAddress(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "email", value);
+        tool.enterStringUsingId("email", value);
     }
 
     public void setPhoneNumber(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "phone", value);
+        tool.enterStringUsingId("phone", value);
     }
 
     public void setMobileNumber(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "mobile", value);
+        tool.enterStringUsingId("mobile", value);
     }
 
     public void setFaxNumber(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "fax", value);
+        tool.enterStringUsingId("fax", value);
     }
 
     public void setNationalID(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "nationalid", value);
+        tool.enterStringUsingId("nationalid", value);
     }
 
     public void setDateOfBirth(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "dateOfBirth", value);
+        tool.enterStringUsingId("dateOfBirth", value);
     }
 
     public void setAddressLine1(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "address1", value);
+        tool.enterStringUsingId("address1", value);
     }
 
     public void setPostCode(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "zipcode", value);
+        tool.enterStringUsingId("zipcode", value);
     }
 
     public void setCity(String value) throws Exception {
         
-        tool.enterStringUsingId(tool, "city", value);
+        tool.enterStringUsingId("city", value);
     }
 
     public void selectHomeCountry(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "country", value);
+        tool.selectVisibleTextByID("country", value);
     }
 
 }

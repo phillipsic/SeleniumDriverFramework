@@ -13,11 +13,11 @@ public class ListCases extends B2CMenu {
 
     public ListCases(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "List Cases";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -26,14 +26,14 @@ public class ListCases extends B2CMenu {
 
     public AddCase clickCreateCase() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_CASE_ADD");
+        tool.clickUsingID("smnu_CASE_ADD");
         Common.sleepForNumberOfSeconds(1);
         return new AddCase(tool, test, user);
     }
 
     public ViewCase clickOnCaseIDLink(String caseID) throws Exception {
 
-        tool.clickUsingLinkText(tool, caseID);
+        tool.clickUsingLinkText(caseID);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCase(tool, test, user);
     }

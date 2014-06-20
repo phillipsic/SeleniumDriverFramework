@@ -10,10 +10,10 @@ public class UploadTokenCommon extends CommonMenu {
 
     public UploadTokenCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Upload Token";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,13 +24,13 @@ public class UploadTokenCommon extends CommonMenu {
 
         File file = new File(filename);
         // 
-        tool.enterStringUsingId(tool, "fileUpload", file.getAbsolutePath());
+        tool.enterStringUsingId("fileUpload", file.getAbsolutePath());
 
     }
 
     public TokensfoundCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Ok']");
+        tool.clickUsingXPath("//input[@value='Ok']");
 
         return new TokensfoundCommon(tool, test, user);
     }

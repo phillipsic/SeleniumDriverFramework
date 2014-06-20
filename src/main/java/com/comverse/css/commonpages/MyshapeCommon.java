@@ -29,11 +29,11 @@ public class MyshapeCommon extends CommonMenu {
             this.selectRealm(user.getRealm());
         this.clickLogin();
 
-        if (tool.getPageSource(tool).contains("Please enter a valid user name and password.")) {
+        if (tool.getPageSource().contains("Please enter a valid user name and password.")) {
             throw new Exception("Invalid username or password - IS USER CREATED? ");
         }
 
-        if (tool.getPageSource(tool).contains("Synchronization Failed")) {
+        if (tool.getPageSource().contains("Synchronization Failed")) {
             throw new Exception("Synchronization Failed - ENVIRONMENT PROBLEM?");
         }
 
@@ -41,67 +41,67 @@ public class MyshapeCommon extends CommonMenu {
 
     public void setYourPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_old", password);
+        tool.enterStringUsingId("password_old", password);
     }
 
     public void setNewPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_new", password);
+        tool.enterStringUsingId("password_new", password);
     }
 
     public void setConfirmNewPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password_verify", password);
+        tool.enterStringUsingId("password_verify", password);
     }
 
     public void setSecretAnswer(String secretAnswer) throws Exception {
 
-        tool.enterStringUsingId(tool, "secretAnswer", secretAnswer);
+        tool.enterStringUsingId("secretAnswer", secretAnswer);
     }
 
     public void clickOk() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
     public void clickSubmit() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Submit']");
+        tool.clickUsingXPath("//input[@value='Submit']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickHomePage() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Home Page']");
+        tool.clickUsingXPath("//input[@value='Home Page']");
     }
 
     public void clickAdminLogin(Application application) throws Exception {
-        tool.get(tool, application.appURL() + "/jfn?entry=admin_login");
+        tool.get(application.appURL() + "/jfn?entry=admin_login");
     }
 
     public void clickForgotYourPassword() throws Exception {
-        tool.clickUsingID(tool, "lnk_FORGOTTEN_PASSWORD");
+        tool.clickUsingID("lnk_FORGOTTEN_PASSWORD");
     }
 
     public void setUserName(String login) throws Exception {
 
-        tool.enterStringUsingId(tool, "login", login);
+        tool.enterStringUsingId("login", login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        tool.enterStringUsingId(tool, "password", password);
+        tool.enterStringUsingId("password", password);
     }
 
     public void selectRealm(String realm) throws Exception {
-        if (tool.getPageSource(tool).contains("Domain")) {
-            tool.selectVisibleTextByID(tool, "realm", realm);
+        if (tool.getPageSource().contains("Domain")) {
+            tool.selectVisibleTextByID("realm", realm);
         }
     }
 
     public void clickLogin() throws Exception {
-        tool.clickUsingName(tool, "LoginButton");
+        tool.clickUsingName("LoginButton");
     }
 
     public String getMessage() throws Exception {
-        return tool.getTextUsingXPath(tool, "//span");
+        return tool.getTextUsingXPath("//span");
     }
 
     public MyshapeCommon unsuccessfulLogin(User user) throws Exception {
@@ -113,7 +113,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public String getTempPasswordFromPage() throws Exception {
-        String password = tool.getTextUsingXPath(tool, "//span");
+        String password = tool.getTextUsingXPath("//span");
         String temp[] = password.split(":");
         password = temp[1];
         System.out.println("Temporary password: " + password.trim());
@@ -122,14 +122,14 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public WorkSpaceCommon clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
 
         return new WorkSpaceCommon(tool, test, user);
     }
 
     public String getChangePasswordOnFirstLoginMessage() throws Exception {
-        System.out.println(">>" + tool.getTextUsingCssSelector(tool, "span"));
+        System.out.println(">>" + tool.getTextUsingCssSelector("span"));
 
-        return tool.getTextUsingCssSelector(tool, "span");
+        return tool.getTextUsingCssSelector("span");
     }
 }

@@ -52,7 +52,7 @@ public class NCA0020_Capture_administrative_data extends CSSTest {
             enterIdentificationData.enterCustomerPostCode("11155");
 
             Common.assertTextOnPage(tool, "Billing Address details");
-            common.Assert.verify(tool.getAttributeUsingId(tool, "link_addresschecked", "value").equals("checked"));
+            common.Assert.verify(tool.getAttributeUsingId("link_addresschecked", "value").equals("checked"));
 
             Common.assertTextOnPage(tool, "Service Address");
             enterIdentificationData.clickCopyFromCustomerAddressButton();

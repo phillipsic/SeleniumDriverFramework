@@ -17,7 +17,7 @@ public class ChangeRoles extends ChangeRolesCommon {
 
     public LoginInformation clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         return new LoginInformation(tool, test, user);
 
     }

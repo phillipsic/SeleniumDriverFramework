@@ -9,7 +9,7 @@ public class RemoveBasketCommon extends CommonMenu {
     public RemoveBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Remove Basket";
 
         if (!expectedScreen.equals(currentScreen)) {

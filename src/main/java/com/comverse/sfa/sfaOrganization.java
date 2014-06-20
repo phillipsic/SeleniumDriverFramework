@@ -10,7 +10,7 @@ public class sfaOrganization extends SFAMenu {
     public sfaOrganization(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse ONE Billing and Active Customer Management";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,54 +21,54 @@ public class sfaOrganization extends SFAMenu {
 
     public void setOrganizationName(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "Ixr0ht5", value);
+        tool.enterStringUsingId("Ixr0ht5", value);
     }
 
     public void clickNewOrganization() throws Exception {
-        tool.clickUsingXPath(tool, "//td[contains(text(), 'New')]");
+        tool.clickUsingXPath("//td[contains(text(), 'New')]");
         Common.sleepForNumberOfSeconds(3);
     }
 
     public void selectStatus(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "Iyoe69h", value);
+        tool.selectVisibleTextByID("Iyoe69h", value);
     }
 
     public void selectCustomerCategory(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "Iomthof", value);
+        tool.selectVisibleTextByID("Iomthof", value);
     }
 
     public void selectResellerId(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "Igtpzy6", value);
+        tool.selectVisibleTextByID("Igtpzy6", value);
     }
 
     public void clickSaveOrganization() throws Exception {
-        tool.clickUsingXPath(tool, "//td[contains(text(), 'Save')]");
+        tool.clickUsingXPath("//td[contains(text(), 'Save')]");
 
         Common.sleepForNumberOfSeconds(3);
     }
 
     public String getOrganizationName() throws Exception {
 
-        return tool.getAttributeUsingId(tool, "Ixr0ht5", "value");
+        return tool.getAttributeUsingId("Ixr0ht5", "value");
     }
 
     public String getResellerId() throws Exception {
-        return tool.getSelectedTextByID(tool, "Igtpzy6");
+        return tool.getSelectedTextByID("Igtpzy6");
     }
 
     public String getStatus() throws Exception {
-        return tool.getSelectedTextByID(tool, "Iyoe69h");
+        return tool.getSelectedTextByID("Iyoe69h");
     }
 
     public String getCustomerCategory() throws Exception {
-        return tool.getSelectedTextByID(tool, "Iomthof");
+        return tool.getSelectedTextByID("Iomthof");
     }
 
     public sfaContact clickNewContact(String mainWindow) throws Exception {
-        tool.clickUsingID(tool, "tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_1"); // click
+        tool.clickUsingID("tab_2FF5365DFE2744C08BB6F37626432885:0~0~3~0~0_split_1"); // click
         // contact
         // tab
-        tool.clickUsingID(tool, "Ab2u66_label"); // click New
+        tool.clickUsingID("Ab2u66_label"); // click New
 
         Common.sleepForNumberOfSeconds(3);
 
@@ -78,21 +78,21 @@ public class sfaOrganization extends SFAMenu {
     }
 
     public void checkPrimaryContact() throws Exception {
-        if (!tool.searchUsingID(tool, "Idrfpsj").isSelected()) {
-            tool.clickUsingID(tool, "Idrfpsj");
+        if (!tool.searchUsingID("Idrfpsj").isSelected()) {
+            tool.clickUsingID("Idrfpsj");
         }
 
     }
 
     public sfaOrganization findOrganization(String orgName) throws Exception {
 
-        tool.enterStringUsingId(tool, "Ih246r", orgName); // Set
+        tool.enterStringUsingId("Ih246r", orgName); // Set
         // organization
         // name
-        tool.clickUsingID(tool, "$2bdpj3_filterbutton"); // Click
+        tool.clickUsingID("$2bdpj3_filterbutton"); // Click
         // Search
         Common.sleepForNumberOfSeconds(2);
-        tool.clickUsingID(tool, "$2bdpj3_cell_0_0_Img"); // Click
+        tool.clickUsingID("$2bdpj3_cell_0_0_Img"); // Click
         // View
         // detail
 
@@ -102,13 +102,13 @@ public class sfaOrganization extends SFAMenu {
     public sfaB2BLead findAndSelectOrganizationForB2BLead(String orgName) throws Exception {
         String currentWindow = Common.getCurrentWindowHandle(tool);
 
-        tool.enterStringUsingId(tool, "Isildl1", orgName); // Set
+        tool.enterStringUsingId("Isildl1", orgName); // Set
         // organization
         // name
-        tool.clickUsingID(tool, "$1pcspz_filterbutton"); // Click
+        tool.clickUsingID("$1pcspz_filterbutton"); // Click
         // Search
         Common.sleepForNumberOfSeconds(2);
-        tool.clickUsingID(tool, "$1pcspz_singleSelectImage_0"); // Select
+        tool.clickUsingID("$1pcspz_singleSelectImage_0"); // Select
         // the
         // organization
 
@@ -122,13 +122,13 @@ public class sfaOrganization extends SFAMenu {
     sfaOpportunity findAndSelectOrganizationForOpportunity(String orgName) throws Exception {
         String currentWindow = Common.getCurrentWindowHandle(tool);
 
-        tool.enterStringUsingId(tool, "Iypr9j2", orgName); // Set
+        tool.enterStringUsingId("Iypr9j2", orgName); // Set
         // organization
         // name
-        tool.clickUsingID(tool, "$flh26m_filterbutton"); // Click
+        tool.clickUsingID("$flh26m_filterbutton"); // Click
         // Search
         Common.sleepForNumberOfSeconds(2);
-        tool.clickUsingID(tool, "$flh26m_singleSelectImage_0"); // Select
+        tool.clickUsingID("$flh26m_singleSelectImage_0"); // Select
         // the
         // organization
 

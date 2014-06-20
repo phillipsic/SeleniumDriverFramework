@@ -12,11 +12,11 @@ public class AddEmployeeContactInformation extends B2BMenu {
 
     public AddEmployeeContactInformation(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Add Employee - Contact Information";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -25,28 +25,28 @@ public class AddEmployeeContactInformation extends B2BMenu {
 
     public void enterFirstName(String firstName) throws Exception {
 
-        tool.enterStringUsingId(tool, "first_name", firstName);
+        tool.enterStringUsingId("first_name", firstName);
     }
 
     public void enterLastName(String lastName) throws Exception {
 
-        tool.enterStringUsingId(tool, "last_name", lastName);
+        tool.enterStringUsingId("last_name", lastName);
     }
 
     public AddEmployeeRegisterLogin clickSubmit() throws Exception {
 
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.clickUsingCssSelector("input.submit");
         return new AddEmployeeRegisterLogin(tool, test, user);
     }
 
     public void selectState(String homeState) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "home_state", homeState);
+        tool.selectVisibleTextByID("home_state", homeState);
 
     }
 
     public void selectCountry(String country) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "home_country", country);
+        tool.selectVisibleTextByID("home_country", country);
     }
 }

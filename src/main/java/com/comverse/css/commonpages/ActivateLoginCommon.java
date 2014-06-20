@@ -14,7 +14,7 @@ public class ActivateLoginCommon extends CommonMenu {
     public ActivateLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 

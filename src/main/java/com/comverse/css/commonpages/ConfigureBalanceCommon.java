@@ -13,7 +13,7 @@ public class ConfigureBalanceCommon extends CommonMenu {
     public ConfigureBalanceCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Configure Balance";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -39,10 +39,10 @@ public class ConfigureBalanceCommon extends CommonMenu {
 
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
         
-        tool.enterStringUsingId(tool, limitName + "_limit", limitAmount);
+        tool.enterStringUsingId(limitName + "_limit", limitAmount);
     }
 
     public void clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
     }
 }

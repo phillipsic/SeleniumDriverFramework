@@ -9,7 +9,7 @@ public class EnableLoginCommon extends CommonMenu {
     public EnableLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!"Enable Login".equals(currentScreen)) {
 
@@ -18,7 +18,7 @@ public class EnableLoginCommon extends CommonMenu {
     }
 
     public LoginInformationCommon clickOk() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new LoginInformationCommon(tool, test, user);
     }
 }

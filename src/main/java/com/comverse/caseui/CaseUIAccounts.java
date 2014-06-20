@@ -15,19 +15,19 @@ public class CaseUIAccounts extends CaseUITest {
     }
 
     public void clickSearch(String accountLastname) throws Exception {
-        tool.enterStringUsingId(tool, "Ih246r", "%" + accountLastname);
-        tool.clickUsingID(tool, "$79ot1w_filterbutton");
+        tool.enterStringUsingId("Ih246r", "%" + accountLastname);
+        tool.clickUsingID("$79ot1w_filterbutton");
         Thread.sleep(3000);
     }
 
     public void selectFirstAccount(String mainWindow) throws Exception {
-        tool.clickUsingID(tool, "$79ot1w_cell_0_0_Img");
+        tool.clickUsingID("$79ot1w_cell_0_0_Img");
         Thread.sleep(1000);
         Common.switchToThisWindow(tool, mainWindow);
     }
 
     public void clickCasesTab() throws Exception {
-        tool.clickUsingXPath(tool, "//div[contains(text(),'Cases') and @class='tabsDarkTab']");
+        tool.clickUsingXPath("//div[contains(text(),'Cases') and @class='tabsDarkTab']");
 
         Thread.sleep(3000);
     }

@@ -35,17 +35,17 @@ public class OCM0002_Add_Catalog extends CSSTest {
 
         ocmApplication.clickMenuManageCatalogs(application);
 
-        tool.clickUsingID(tool, "mainPanel:treeForm:catalog-tree:0:t2");
-        tool.clickUsingID(tool, "mainPanel:treeForm:catalog-tree:0:0:_idJsp18_link");
+        tool.clickUsingID("mainPanel:treeForm:catalog-tree:0:t2");
+        tool.clickUsingID("mainPanel:treeForm:catalog-tree:0:0:_idJsp18_link");
         // click "Create New Catalog"
-        tool.clickUsingID(tool, "mainPanel:boxForm:actionBox:actionList:entityType:add");
+        tool.clickUsingID("mainPanel:boxForm:actionBox:actionList:entityType:add");
         
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", productName);
+        tool.enterStringUsingId("mainPanel:edit:fields:name", productName);
         
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", productCode);
+        tool.enterStringUsingId("mainPanel:edit:fields:code", productCode);
         
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", productDescription);
-        tool.clickUsingID(tool, "mainPanel:edit:buttons:createProductCategory");
+        tool.enterStringUsingId("mainPanel:edit:fields:description", productDescription);
+        tool.clickUsingID("mainPanel:edit:buttons:createProductCategory");
 
         test.setResult("pass");
     }

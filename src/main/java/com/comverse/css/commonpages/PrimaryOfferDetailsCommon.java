@@ -8,20 +8,20 @@ public class PrimaryOfferDetailsCommon extends CommonMenu {
 
     public PrimaryOfferDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Primary Offer Details";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickRPOCompatiblePrimaryOffersTab() throws Exception {
-        tool.clickUsingXPath(tool, "//em[contains(text(),'Compatible Offers')]");
+        tool.clickUsingXPath("//em[contains(text(),'Compatible Offers')]");
     }
 
     public void clickRPOTermsandConditionsTab() throws Exception {
-        tool.clickUsingXPath(tool, "//em[contains(text(),'Terms And Conditions')]");
+        tool.clickUsingXPath("//em[contains(text(),'Terms And Conditions')]");
     }
 }

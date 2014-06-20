@@ -12,7 +12,7 @@ public class MyBills extends MyshapeCommon {
 
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "billing";
         for (String currentScreenSplitted : currentScreen.split("/")) {
             currentScreen = currentScreenSplitted;
@@ -30,7 +30,7 @@ public class MyBills extends MyshapeCommon {
     }
 
     public void clickPDFInvoice() throws Exception {
-        tool.clickUsingCssSelector(tool, "a > img");
+        tool.clickUsingCssSelector("a > img");
         Thread.sleep(1000);
     }
 

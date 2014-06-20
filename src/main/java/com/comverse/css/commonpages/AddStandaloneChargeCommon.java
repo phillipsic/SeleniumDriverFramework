@@ -12,7 +12,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
     public AddStandaloneChargeCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -20,15 +20,15 @@ public class AddStandaloneChargeCommon extends CommonMenu {
     }
 
     public void selectEventTypeDispatch() throws Exception {
-        tool.selectVisibleTextByID(tool, "eventType", "Dispatch");
-        selectedValue = tool.getTextUsingXPath(tool, "//option[@selected='selected']");
+        tool.selectVisibleTextByID("eventType", "Dispatch");
+        selectedValue = tool.getTextUsingXPath("//option[@selected='selected']");
         System.out.println(selectedValue);
     }
 
     public void selectNRCTypeDispatchFee() throws Exception {
-        tool.selectVisibleTextByID(tool, "charge", "Dispatch Fee");
+        tool.selectVisibleTextByID("charge", "Dispatch Fee");
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
 
         boolean successfullyDisplayed = false;
 
@@ -44,13 +44,13 @@ public class AddStandaloneChargeCommon extends CommonMenu {
                     successfullyDisplayed = true;
                 }
 
-                String pageTitle = tool.getTitle(tool);
+                String pageTitle = tool.getTitle();
 
                 if (pageTitle.equals("Add Standalone Charge - Confirmation")) {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.navigateRefresh(tool);
+                    tool.navigateRefresh();
                 }
             } catch (Exception e) {
                 System.out.println("Menu item not selectable");
@@ -62,7 +62,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
         boolean successfullyDisplayed = false;
         int loopCounter = 0;
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
 
         while (!successfullyDisplayed) {
             try {
@@ -74,13 +74,13 @@ public class AddStandaloneChargeCommon extends CommonMenu {
                     successfullyDisplayed = true;
                 }
 
-                String pageTitle = tool.getTitle(tool);
+                String pageTitle = tool.getTitle();
 
                 if (pageTitle.equals("Action Done")) {
                     successfullyDisplayed = true;
                 } else {
 
-                    tool.navigateRefresh(tool);
+                    tool.navigateRefresh();
                 }
             } catch (Exception e) {
                 System.out.println("Menu item not selectable");
@@ -89,7 +89,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
 
         Common.assertTextOnPage(tool, "The Charge has been successfully provisioned .");
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
     }
 

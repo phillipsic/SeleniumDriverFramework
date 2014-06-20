@@ -9,7 +9,7 @@ public class ViewUnbilledMTRDetailsCommon extends CommonMenu {
     public ViewUnbilledMTRDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View unbilled MTR details";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,7 +21,7 @@ public class ViewUnbilledMTRDetailsCommon extends CommonMenu {
 
     public ViewUnbilledMTRCommon clickBack() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
         return new ViewUnbilledMTRCommon(tool, test, user);
     }
 }

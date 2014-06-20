@@ -82,12 +82,12 @@ public class PEM0020_Modify_existing_person_details extends CSSTest {
             Common.assertTextOnPage(tool, workSpace.getPerson().getPersonLanguageProperty());
             // Common.assertTextOnPage(tool,
             // workSpace.getPerson().getPersonNationalIDProperty());
-            assertEquals(tool.getAttributeUsingId(tool, "nationalid", "value"), workSpace.getPerson().getPersonNationalIDProperty());
-            assertEquals(tool.getAttributeUsingId(tool, "dateOfBirth", "value"), workSpace.getPerson().getPersonDateOfBirthProperty());
-            assertEquals(tool.getAttributeUsingId(tool, "email", "value"), workSpace.getPerson().getPersonEmailAddressProperty());
-            assertEquals(tool.getAttributeUsingId(tool, "phone", "value"), workSpace.getPerson().getPersonPhoneNumberProperty());
-            assertEquals(tool.getAttributeUsingId(tool, "mobile", "value"), workSpace.getPerson().getPersonMobileNumberProperty());
-            assertEquals(tool.getAttributeUsingId(tool, "fax", "value"), workSpace.getPerson().getPersonFaxNumberProperty());
+            assertEquals(tool.getAttributeUsingId("nationalid", "value"), workSpace.getPerson().getPersonNationalIDProperty());
+            assertEquals(tool.getAttributeUsingId("dateOfBirth", "value"), workSpace.getPerson().getPersonDateOfBirthProperty());
+            assertEquals(tool.getAttributeUsingId("email", "value"), workSpace.getPerson().getPersonEmailAddressProperty());
+            assertEquals(tool.getAttributeUsingId("phone", "value"), workSpace.getPerson().getPersonPhoneNumberProperty());
+            assertEquals(tool.getAttributeUsingId("mobile", "value"), workSpace.getPerson().getPersonMobileNumberProperty());
+            assertEquals(tool.getAttributeUsingId("fax", "value"), workSpace.getPerson().getPersonFaxNumberProperty());
 
             test.setResult("pass");
 

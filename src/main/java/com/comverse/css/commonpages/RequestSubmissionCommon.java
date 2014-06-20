@@ -13,10 +13,10 @@ public class RequestSubmissionCommon extends CommonMenu {
     public RequestSubmissionCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Request Submission";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,33 +24,33 @@ public class RequestSubmissionCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public AccountDetailsCommon clickOkModifyRequestGoTOAccountDashboard() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public ContactInformationCommon clickOkToSubmit() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new ContactInformationCommon(tool, test, user);
     }
 
     public SubscriberDetailsCommon clickOkModifyRequestGoTOSubscriberDashboard() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
     public ProfileInformationCommon clickOkToSubmitRequest() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new ProfileInformationCommon(tool, test, user);
     }

@@ -24,7 +24,7 @@ public class EnableLogin extends EnableLoginCommon {
 
     public String getNewPassword() throws Exception {
 
-        String password = tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div/div[2]/div/div/span");
+        String password = tool.getTextUsingXPath("//div[@id='mainContents']/div/div[2]/div/div/span");
 
         String temp[] = password.split(":");
         password = temp[1];

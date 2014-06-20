@@ -13,7 +13,7 @@ public class LockLoginCommon extends CommonMenu {
     public LockLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Lock Login";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,18 +24,18 @@ public class LockLoginCommon extends CommonMenu {
 
     public void clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
     }
 
     public UnlockLoginCommon clickConfirmUnlock() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         return new UnlockLoginCommon(tool, test, user);
     }
 
     public LoginInformationCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new LoginInformationCommon(tool, test, user);
     }
 }

@@ -13,7 +13,7 @@ public class RegisterLoginCommon extends CommonMenu {
     public RegisterLoginCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool).toLowerCase();
+        String currentScreen = tool.getTitle().toLowerCase();
         String expectedScreen = "Register login".toLowerCase();
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -25,43 +25,43 @@ public class RegisterLoginCommon extends CommonMenu {
     public void setLogin(String login) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "login", login);
+        tool.enterStringUsingId("login", login);
     }
 
     public void selectRole(String role) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "roles", role);
+        tool.selectVisibleTextByID("roles", role);
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }
 
     public RegisterLoginCommon clickRegisterLoginContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
 
         return new RegisterLoginCommon(tool, test, user);
     }
 
     public void clickRadioButtonTelcoCSRUser() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@name='roles'])[9]");
+        tool.clickUsingXPath("(//input[@name='roles'])[9]");
 
     }
 
     public void clickRadioButtonOCMUser() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@name='roles']");
+        tool.clickUsingXPath("//input[@name='roles']");
 
     }
 
     public String getTempPasswordFromPage() throws Exception {
 
-        String password = tool.getTextUsingXPath(tool, "//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
+        String password = tool.getTextUsingXPath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
         String temp[] = password.split(":");
         password = temp[1];
@@ -72,7 +72,7 @@ public class RegisterLoginCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new ViewHierarchyCommon(tool, test, user);
     }

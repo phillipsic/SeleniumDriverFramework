@@ -201,7 +201,7 @@ public class Main {
 
     @After
     public void tearDown() throws Exception {
-        tool.quit(tool);
+        tool.quit();
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

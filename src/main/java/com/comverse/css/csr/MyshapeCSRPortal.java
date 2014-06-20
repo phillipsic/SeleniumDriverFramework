@@ -14,7 +14,7 @@ public class MyshapeCSRPortal extends MyshapeCommon {
     public MyshapeCSRPortal(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Myshape CSR Portal";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,12 +23,12 @@ public class MyshapeCSRPortal extends MyshapeCommon {
     }
 
     public WorkSpace clickChange() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Change']");
+        tool.clickUsingXPath("//input[@value='Change']");
         return new WorkSpace(tool, test, user);
     }
 
     public HomePageBackOffice clickChangePassword() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Change']");
+        tool.clickUsingXPath("//input[@value='Change']");
         return new HomePageBackOffice(tool, test, user);
     }
 

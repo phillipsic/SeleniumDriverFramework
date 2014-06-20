@@ -15,7 +15,7 @@ public class ViewTransactionHistoryCommon extends CommonMenu {
     public ViewTransactionHistoryCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -23,32 +23,32 @@ public class ViewTransactionHistoryCommon extends CommonMenu {
     }
 
     public ViewUsageHistoryCommon clickOnUsageHistory() throws Exception {
-        tool.clickUsingID(tool, "youcan_USAGE_HISTORY");
+        tool.clickUsingID("youcan_USAGE_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUsageHistoryCommon(tool, test, user);
     }
 
     public ViewMTRHistoryCommon clickonMTRHistory() throws Exception {
         Thread.sleep(5000);
-        tool.clickUsingID(tool, "youcan_MTR_HISTORY");
+        tool.clickUsingID("youcan_MTR_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewMTRHistoryCommon(tool, test, user);
     }
 
     public ViewRCHistoryCommon clickonRCHistory() throws Exception {
-        tool.clickUsingID(tool, "youcan_RC_HISTORY");
+        tool.clickUsingID("youcan_RC_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewRCHistoryCommon(tool, test, user);
     }
 
     public ViewNRCHistoryCommon clickonNRCHistory() throws Exception {
-        tool.clickUsingID(tool, "youcan_NRC_HISTORY");
+        tool.clickUsingID("youcan_NRC_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewNRCHistoryCommon(tool, test, user);
     }
 
     public ViewCombinedHistoryCommon clickonCombinedHistory() throws Exception {
-        tool.clickUsingID(tool, "youcan_COMBINED_HISTORY");
+        tool.clickUsingID("youcan_COMBINED_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCombinedHistoryCommon(tool, test, user);
     }

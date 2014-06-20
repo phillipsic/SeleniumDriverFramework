@@ -11,7 +11,7 @@ public class ReconfigureBalanceConfirmCommon extends CommonMenu {
     public ReconfigureBalanceConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!currentScreen.equals(expectedScreen)) {
             throw new IllegalStateException("Expected: " + expectedScreen + " but got: " + currentScreen);
@@ -19,7 +19,7 @@ public class ReconfigureBalanceConfirmCommon extends CommonMenu {
     }
 
     public ViewBalanceCommon clickBack() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
         return new ViewBalanceCommon(tool, test, user);
     }
 

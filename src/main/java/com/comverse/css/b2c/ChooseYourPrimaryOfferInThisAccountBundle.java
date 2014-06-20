@@ -13,10 +13,10 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
     public ChooseYourPrimaryOfferInThisAccountBundle(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Choose Your Primary Offer in This Account Bundle";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -53,7 +53,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
         while (beresult == false) {
             System.out.println("Now trying to navigate to page - " + pageCounter);
-            tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
+            tool.clickUsingXPath("//a[@id='lnk_NAV_NEXT']/img");
             beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
             System.out.println("Found offer? - " + beresult);
             pageCounter++;
@@ -61,7 +61,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
 
         String temp[];
 
-        String str = tool.getPageSource(tool);
+        String str = tool.getPageSource();
 
         temp = str.split(primaryOfferName + " </[pP]>"); // works in IE
 
@@ -84,32 +84,32 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
         }
 
         System.out.println("link = #selectButton_" + temp[0]);
-        tool.clickUsingCssSelector(tool, "#selectButton_" + temp[0]);
-        // tool.clickUsingID(tool, "selectButton_" + temp[0]);
+        tool.clickUsingCssSelector("#selectButton_" + temp[0]);
+        // tool.clickUsingID("selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.getTitle(tool))) {
+        if ("Choose Your Device".equals(tool.getTitle())) {
 
-            tool.clickUsingCssSelector(tool, "input[name='nothanks']");
+            tool.clickUsingCssSelector("input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
 
     }
 
     public ChooseAccessories clickNoThanks() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@name='nothanks']");
+        tool.clickUsingXPath("//input[@name='nothanks']");
         return new ChooseAccessories(tool, test, user);
     }
 
     public SubscriberBundleDetails viewDetailsOfPrimaryOffer(String PO) throws Exception {
 
-        tool.clickUsingXPath(tool, ".//p[contains(text(),'" + PO + "')]/../following-sibling::div[1]//input[@type='submit' and @value='View Details']");
+        tool.clickUsingXPath(".//p[contains(text(),'" + PO + "')]/../following-sibling::div[1]//input[@type='submit' and @value='View Details']");
         return new SubscriberBundleDetails(tool, test, user);
     }
 
     public ChooseYourPrimaryOffer clickSwitchToBrowsePrimaryOffers() throws Exception {
 
-        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Switch to Browse Primary Offers']");
+        tool.clickUsingCssSelector("input[type='submit'][value='Switch to Browse Primary Offers']");
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 

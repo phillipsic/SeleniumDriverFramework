@@ -13,7 +13,7 @@ public class AccountOfferDetailsCommon extends CommonMenu {
 
     public AccountOfferDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -22,7 +22,7 @@ public class AccountOfferDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourAccountCommon clickReturnToList() throws Exception {
-        tool.clickUsingName(tool, "select");
+        tool.clickUsingName("select");
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }
 

@@ -14,7 +14,7 @@ public class WorkSpaceCommon extends CommonMenu {
 
     public WorkSpaceCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Welcome to Your Workspace";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,26 +24,26 @@ public class WorkSpaceCommon extends CommonMenu {
 
     public String getHomePageWelcomeMessage() throws Exception {
 
-        return tool.getTextUsingXPath(tool, "/html/body/h1");
+        return tool.getTextUsingXPath("/html/body/h1");
     }
 
     public EnterIdentificationDataCommon startNewConvergentResidentialCustomer() throws Exception {
 
-        tool.clickUsingLinkText(tool, "New Convergent Residential Customer");
+        tool.clickUsingLinkText("New Convergent Residential Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 
     public EnterIdentificationDataCommon startNewConvergentBusinessCustomer() throws Exception {
 
-        tool.clickUsingLinkText(tool, "New Convergent Business Customer");
+        tool.clickUsingLinkText("New Convergent Business Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 
     public EnterIdentificationDataCommon startNewPrePaidBusinessCustomer() throws Exception {
 
-        tool.clickUsingLinkText(tool, "New Pure Prepaid Business Customer");
+        tool.clickUsingLinkText("New Pure Prepaid Business Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }
@@ -320,7 +320,7 @@ public class WorkSpaceCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickManageTelco() throws Exception {
-        tool.clickUsingID(tool, "mnu_TELCO");
+        tool.clickUsingID("mnu_TELCO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);
     }
@@ -366,16 +366,16 @@ public class WorkSpaceCommon extends CommonMenu {
     }
 
     public void clickBrowseCatalog() throws Exception {
-        tool.clickUsingLinkText(tool, "Browse Catalog");
+        tool.clickUsingLinkText("Browse Catalog");
     }
 
     public void selectCustomerType(String customerType) throws Exception {
-        tool.selectVisibleTextByID(tool, "orgTypeId", customerType);
+        tool.selectVisibleTextByID("orgTypeId", customerType);
     }
 
     public ShoppingCommon clickSubmit() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Submit'])");
+        tool.clickUsingXPath("(//input[@value='Submit'])");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);

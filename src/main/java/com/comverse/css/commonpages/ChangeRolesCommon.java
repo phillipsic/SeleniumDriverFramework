@@ -13,10 +13,10 @@ public class ChangeRolesCommon extends CommonMenu {
     public ChangeRolesCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Change Roles";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,24 +24,24 @@ public class ChangeRolesCommon extends CommonMenu {
 
     public void clickRadioButtonOCMUser() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='L2:30']");
+        tool.clickUsingXPath("//input[@value='L2:30']");
 
     }
 
     public void clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
     }
 
     public String getConfirmationMessage() throws Exception {
 
-        return tool.getTextUsingCssSelector(tool, "span");
+        return tool.getTextUsingCssSelector("span");
     }
 
     public void clickRadioButtonRetailerSubscriber() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@name='roles'])[2]");
+        tool.clickUsingXPath("(//input[@name='roles'])[2]");
 
     }
 

@@ -84,8 +84,8 @@ public class Application extends Main {
     }
 
     public void setVersion(AutomationTool tool) throws Exception {
-        tool.get(tool, this.versionURL() + "/jfn?entry=status");
-        String bodyText = tool.getTextUsingCssSelector(tool, "body");
+        tool.get(this.versionURL() + "/jfn?entry=status");
+        String bodyText = tool.getTextUsingCssSelector("body");
         String[] temp = bodyText.split("\\r?\\n");
         String[] temp2 = temp[0].split("Service");
 

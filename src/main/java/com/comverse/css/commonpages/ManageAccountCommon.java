@@ -10,11 +10,11 @@ public class ManageAccountCommon extends CommonMenu {
     public ManageAccountCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Identify Customer";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -24,8 +24,8 @@ public class ManageAccountCommon extends CommonMenu {
     public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "p-L2:40-L3:2150", accountID);
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.enterStringUsingId("p-L2:40-L3:2150", accountID);
+        tool.clickUsingCssSelector("input.submit");
 
         return new AccountDetailsCommon(tool, test, user);
     }
@@ -33,8 +33,8 @@ public class ManageAccountCommon extends CommonMenu {
     public AccountDetailsCommon searchByAccountLastName(String lastName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.clickUsingName(tool, "accountExtendedButton");
+        tool.enterStringUsingId("accountLastName", lastName);
+        tool.clickUsingName("accountExtendedButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new AccountDetailsCommon(tool, test, user);
@@ -43,8 +43,8 @@ public class ManageAccountCommon extends CommonMenu {
     public SearchResultsCommon searchAccountWildCard() throws Exception {
 
         
-        tool.enterStringUsingId(tool, "p-L2:40-L3:2150", "*");
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.enterStringUsingId("p-L2:40-L3:2150", "*");
+        tool.clickUsingCssSelector("input.submit");
 
         return new SearchResultsCommon(tool, test, user);
 
@@ -53,8 +53,8 @@ public class ManageAccountCommon extends CommonMenu {
     public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.clickUsingName(tool, "accountExtendedButton");
+        tool.enterStringUsingId("accountLastName", lastName);
+        tool.clickUsingName("accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -64,8 +64,8 @@ public class ManageAccountCommon extends CommonMenu {
     public AccountDetailsCommon searcByAccountLastNameSinglePerson(String lastName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "accountLastName", lastName);
-        tool.clickUsingName(tool, "accountExtendedButton");
+        tool.enterStringUsingId("accountLastName", lastName);
+        tool.clickUsingName("accountExtendedButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -75,11 +75,11 @@ public class ManageAccountCommon extends CommonMenu {
     public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "accountId", accountID);
-        tool.clickUsingName(tool, "accountButton");
+        tool.enterStringUsingId("accountId", accountID);
+        tool.clickUsingName("accountButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (currentScreen.equals("Customer search result")) {
 

@@ -13,7 +13,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
 
     public ImmediatePaymentCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Immediate Payment";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,38 +23,38 @@ public class ImmediatePaymentCommon extends CommonMenu {
     }
 
     public void setCardNumber(String value) throws Exception {
-        tool.enterStringUsingId(tool, "cardNumber", value);
+        tool.enterStringUsingId("cardNumber", value);
     }
 
     public void setEmail(String value) throws Exception {
-        tool.enterStringUsingId(tool, "cardEmail", value);
+        tool.enterStringUsingId("cardEmail", value);
     }
 
     public void setAddress(String value) throws Exception {
-        tool.enterStringUsingId(tool, "cardAddresLine1", value);
+        tool.enterStringUsingId("cardAddresLine1", value);
     }
 
     public void setExpirationDate(String value) throws Exception {
-        tool.enterStringUsingId(tool, "cardExpirationDate", value);
+        tool.enterStringUsingId("cardExpirationDate", value);
     }
 
     public void setCardHolderLastName(String value) throws Exception {
-        tool.enterStringUsingId(tool, "cardHolderName", value);
+        tool.enterStringUsingId("cardHolderName", value);
     }
 
     public void setCardHolderFirstName(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "cardHolderFName", value);
+        tool.enterStringUsingId("cardHolderFName", value);
     }
 
     public void setCardSecretCode(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "cardSecretCode", value);
+        tool.enterStringUsingId("cardSecretCode", value);
     }
 
     public CheckoutConfirmationCommon clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutConfirmationCommon(tool, test, user);
     }
@@ -74,7 +74,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
     public boolean isCreditCardNew() throws Exception {
 
         boolean creditCardExists = Common.isTextOnPage(tool, "************1111");
-        //String creditCard = tool.getTextUsingXPath(tool, ".//*/div[3]/form/fieldset[1]/div/div/div[2]/span");
+        //String creditCard = tool.getTextUsingXPath(".//*/div[3]/form/fieldset[1]/div/div/div[2]/span");
         System.out.println("Existing Credit Card:" + creditCardExists);
         return creditCardExists;
 
@@ -82,7 +82,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
 
     public void clickCreditCardNew() throws Exception {
 
-        tool.clickUsingXPath(tool, "//fieldset/div/div/div/input[@value= 'CREDIT_CARD']");
+        tool.clickUsingXPath("//fieldset/div/div/div/input[@value= 'CREDIT_CARD']");
     }
 
 }

@@ -13,7 +13,7 @@ public class UnlockDoneCommon extends CommonMenu {
     public UnlockDoneCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Unlock done";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,7 +24,7 @@ public class UnlockDoneCommon extends CommonMenu {
 
     public ModifyLoginPasswordCommon clickChangePassword() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Change Password']");
+        tool.clickUsingXPath("//input[@value='Change Password']");
         return new ModifyLoginPasswordCommon(tool, test, user);
     }
 

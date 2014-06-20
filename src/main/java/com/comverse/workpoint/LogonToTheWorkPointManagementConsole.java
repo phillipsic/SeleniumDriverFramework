@@ -9,7 +9,7 @@ public class LogonToTheWorkPointManagementConsole extends WPMCMenu {
 
     public LogonToTheWorkPointManagementConsole(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Logon to the WorkPoint Management Console";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,16 +19,16 @@ public class LogonToTheWorkPointManagementConsole extends WPMCMenu {
 
     public void setUserName(String login) throws Exception {
 
-        tool.enterStringUsingName(tool, "ResourceID", login);
+        tool.enterStringUsingName("ResourceID", login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        tool.enterStringUsingName(tool, "Password", password);
+        tool.enterStringUsingName("Password", password);
     }
 
     public void clickLogin() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Submit']");
+        tool.clickUsingXPath("//input[@value='Submit']");
     }
 
     public WelcomeToTheWorkpointManagementConsole successfulWPMCAdminLogin() throws Exception {

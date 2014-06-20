@@ -17,19 +17,19 @@ public class B2CMenu extends Main {
 
     public SearchOrders clickRequests() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_REQUESTS");
+        tool.clickUsingID("mnu_REQUESTS");
         return new SearchOrders(tool, test, user);
     }
 
     public HomePage clickLogout() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_LOGOUT");
+        tool.clickUsingID("mnu_LOGOUT");
         return new HomePage(tool, test, user);
     }
 
     public SearchMember clickFamilyMemeber() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_MEMBERS");
+        tool.clickUsingID("mnu_MEMBERS");
         return new SearchMember(tool, test, user);
     }
 
@@ -37,7 +37,7 @@ public class B2CMenu extends Main {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
-        tool.clickUsingID(tool, "mnu_HOME");
+        tool.clickUsingID("mnu_HOME");
         return new SubscriberDetail(tool, test, user);
     }
 
@@ -45,43 +45,43 @@ public class B2CMenu extends Main {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
-        tool.clickUsingID(tool, "mnu_HOME");
+        tool.clickUsingID("mnu_HOME");
         return new WorkSpace(tool, test, user);
     }
 
     public SearchCustomer clickSearchCustomer() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_SEARCH_CUSTOMER");
+        tool.clickUsingID("mnu_SEARCH_CUSTOMER");
         return new SearchCustomer(tool, test, user);
     }
 
     public SearchMember clickMyInformation() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_CUST_INFO");
+        tool.clickUsingID("mnu_CUST_INFO");
         return new SearchMember(tool, test, user);
     }
 
     public SearchOrders clickMyOrders() throws Exception {
 
-        tool.clickUsingLinkText(tool, "My Orders");
+        tool.clickUsingLinkText("My Orders");
         return new SearchOrders(tool, test, user);
     }
 
     public ListCases clickSupport() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_PROBLEMS");
+        tool.clickUsingID("mnu_PROBLEMS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCases(tool, test, user);
     }
 
     public SubscriberDetail clickMyAccount() throws Exception {
 
-        tool.clickUsingLinkText(tool, "My Account");
+        tool.clickUsingLinkText("My Account");
         return new SubscriberDetail(tool, test, user);
     }
 
     public Shopping clickShopping() throws Exception {
-        tool.clickUsingLinkText(tool, "Shopping");
+        tool.clickUsingLinkText("Shopping");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new Shopping(tool, test, user);
     }

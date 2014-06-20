@@ -9,7 +9,7 @@ public class TestServiceAbilityCommon extends CommonMenu {
 
     public TestServiceAbilityCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Test Service Ability";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -18,21 +18,21 @@ public class TestServiceAbilityCommon extends CommonMenu {
 
     public void setUnitnumber(String unitNumber) throws Exception {
         
-        tool.enterStringUsingId(tool, "unitNumber", unitNumber);
+        tool.enterStringUsingId("unitNumber", unitNumber);
     }
 
     public void setCity(String city) throws Exception {
         
-        tool.enterStringUsingId(tool, "home_city", city);
+        tool.enterStringUsingId("home_city", city);
     }
 
     public void setZipCode(String zipcode) throws Exception {
         
-        tool.enterStringUsingId(tool, "home_zip", zipcode);
+        tool.enterStringUsingId("home_zip", zipcode);
     }
 
     public ShoppingCommon clickOK() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }

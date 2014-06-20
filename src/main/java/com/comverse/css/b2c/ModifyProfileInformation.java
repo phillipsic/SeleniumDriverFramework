@@ -9,10 +9,10 @@ public class ModifyProfileInformation extends B2CMenu {
     public ModifyProfileInformation(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Profile Information";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -20,13 +20,13 @@ public class ModifyProfileInformation extends B2CMenu {
 
     public void selectApprovalSequencing(String choice) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "approval_sequencing_field", choice);
+        tool.selectVisibleTextByID("approval_sequencing_field", choice);
 
     }
 
     public ConfirmModifyProfileInformation clickOK() throws Exception {
 
-        tool.clickUsingID(tool, "okButton");
+        tool.clickUsingID("okButton");
         return new ConfirmModifyProfileInformation(tool, test, user);
 
     }

@@ -13,7 +13,7 @@ public class LoginInformation extends B2CMenu {
 
     public LoginInformation(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Login Information";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,7 +23,7 @@ public class LoginInformation extends B2CMenu {
 
     public LockLogin clickLockLogin() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Lock Login");
+        tool.clickUsingLinkText("Lock Login");
         Common.sleepForNumberOfSeconds(1);
         return new LockLogin(tool, test, user);
     }

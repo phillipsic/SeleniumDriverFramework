@@ -13,10 +13,10 @@ public class RegisterNewResidentialMember extends B2CMenu {
     public RegisterNewResidentialMember(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Register New Residential Member";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -26,7 +26,7 @@ public class RegisterNewResidentialMember extends B2CMenu {
     public void enterFirstName(String firstName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "firstname", firstName);
+        tool.enterStringUsingId("firstname", firstName);
         System.out.println("Login - " + firstName);
 
     }
@@ -34,7 +34,7 @@ public class RegisterNewResidentialMember extends B2CMenu {
     public void enterLastName(String lastName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "lastname", lastName);
+        tool.enterStringUsingId("lastname", lastName);
         System.out.println("Password - " + lastName);
 
     }
@@ -42,7 +42,7 @@ public class RegisterNewResidentialMember extends B2CMenu {
     public void enterLogin(String login) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "login", login);
+        tool.enterStringUsingId("login", login);
         System.out.println("Login - " + login);
 
     }
@@ -50,7 +50,7 @@ public class RegisterNewResidentialMember extends B2CMenu {
     public void enterPassword(String password) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "password", password);
+        tool.enterStringUsingId("password", password);
         System.out.println("Password - " + password);
 
     }
@@ -58,24 +58,24 @@ public class RegisterNewResidentialMember extends B2CMenu {
     public void enterConfirmPassword(String confirmPassword) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "confirmPassword", confirmPassword);
+        tool.enterStringUsingId("confirmPassword", confirmPassword);
 
     }
 
     public void clickSubmit() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Submit']");
+        tool.clickUsingXPath("//input[@value='Submit']");
     }
 
     public RequestSubmission clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         return new RequestSubmission(tool, test, user);
     }
 
     public void clickResidentialSubscriber() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@name='role'])[2]");
+        tool.clickUsingXPath("(//input[@name='role'])[2]");
     }
 
     public RequestSubmission createResidentialSubscriber(String uniqueString, String password) throws Exception {

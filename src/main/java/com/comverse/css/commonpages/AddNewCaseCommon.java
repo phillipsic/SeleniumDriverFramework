@@ -15,33 +15,33 @@ public class AddNewCaseCommon extends CommonMenu {
         super(tool, test, user);
 
         // Check that we're on the right page.
-        if (!"Add case".equals(tool.getTitle(tool))) {
+        if (!"Add case".equals(tool.getTitle())) {
             throw new IllegalStateException("This is not the Add case page");
         }
     }
 
     public void selectCaseType(String caseType) throws Exception {
-        tool.selectVisibleTextByID(tool, "categoryId", caseType);
+        tool.selectVisibleTextByID("categoryId", caseType);
     }
 
     public void selectCaseProblemArea(String problemArea) throws Exception {
-        tool.selectVisibleTextByID(tool, "subCategoryId", problemArea);
+        tool.selectVisibleTextByID("subCategoryId", problemArea);
     }
 
     public void enterCaseDescription(String caseDescription) throws Exception {
-        tool.enterStringUsingId(tool, "description", caseDescription);
+        tool.enterStringUsingId("description", caseDescription);
     }
 
     public void selectNoteType(String noteType) throws Exception {
-        tool.selectVisibleTextByID(tool, "noteType", noteType);
+        tool.selectVisibleTextByID("noteType", noteType);
     }
 
     public void enterNoteDescription(String noteDescription) throws Exception {
-        tool.enterStringUsingId(tool, "note", noteDescription);
+        tool.enterStringUsingId("note", noteDescription);
     }
 
     public AddCaseReviewCommon clickContinue() throws Exception {
-        tool.clickUsingName(tool, "ok");
+        tool.clickUsingName("ok");
         return new AddCaseReviewCommon(tool, test, user);
     }
 }

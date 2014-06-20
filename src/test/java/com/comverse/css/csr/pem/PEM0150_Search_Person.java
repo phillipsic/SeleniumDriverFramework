@@ -39,12 +39,12 @@ public class PEM0150_Search_Person extends CSSTest {
             // manageAccount.searchByAccountLastNameMultiplePersons(workSpace.getAccount()
             // .getBillingLastNameProperty());
             AccountDetailsCommon accountDetails = manageAccount.searchByPersonLastNameSinglePerson(Common.getPersonLastName());
-            assertEquals("Account Details", tool.getTitle(tool));
+            assertEquals("Account Details", tool.getTitle());
             accountDetails.clickHomeMenu();
             manageAccount = workSpace.gotoManageAccount();
 
             accountDetails = manageAccount.searchByPersonFirstNameSinglePerson(Common.getPersonFirstName());
-            assertEquals("Account Details", tool.getTitle(tool));
+            assertEquals("Account Details", tool.getTitle());
             accountDetails.clickHomeMenu();
             manageAccount = workSpace.gotoManageAccount();
 

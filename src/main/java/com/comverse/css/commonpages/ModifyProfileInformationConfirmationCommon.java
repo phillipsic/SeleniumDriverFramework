@@ -13,7 +13,7 @@ public class ModifyProfileInformationConfirmationCommon extends CommonMenu {
     public ModifyProfileInformationConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Profile Information - Confirmation";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,7 +24,7 @@ public class ModifyProfileInformationConfirmationCommon extends CommonMenu {
 
     public RequestSubmissionCommon clickOkToConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new RequestSubmissionCommon(tool, test, user);
     }
 }

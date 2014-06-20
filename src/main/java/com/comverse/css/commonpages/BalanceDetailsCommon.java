@@ -12,7 +12,7 @@ public class BalanceDetailsCommon extends CommonMenu {
     public BalanceDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -23,19 +23,19 @@ public class BalanceDetailsCommon extends CommonMenu {
     // From Account shared balance details page
     public BalanceDetailsCommon viewSubscriberBalanceDetails(String balanceName) throws Exception {
 
-        tool.clickUsingLinkText(tool, balanceName);
+        tool.clickUsingLinkText(balanceName);
         return new BalanceDetailsCommon(tool, test, user);
     }
 
     // From Subscriber balance details page
     public ViewBalanceCommon viewAccountBalances() throws Exception {
 
-        tool.clickUsingLinkText(tool, "View account balances");
+        tool.clickUsingLinkText("View account balances");
         return new ViewBalanceCommon(tool, test, user);
     }
 
     public ViewBalanceCommon clickGoToListOfBalances() throws Exception {
-        tool.clickUsingID(tool, "youcan_ON_BACK");
+        tool.clickUsingID("youcan_ON_BACK");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewBalanceCommon(tool, test, user);
     }

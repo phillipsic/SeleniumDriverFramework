@@ -10,7 +10,7 @@ public class SubscriberExternalIDSwapDoneCommon extends CommonMenu {
 
     public SubscriberExternalIDSwapDoneCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -18,7 +18,7 @@ public class SubscriberExternalIDSwapDoneCommon extends CommonMenu {
     }
 
     public SubscriberDetailsCommon clickOK() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }

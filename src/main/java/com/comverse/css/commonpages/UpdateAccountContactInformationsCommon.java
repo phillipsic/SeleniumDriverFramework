@@ -9,23 +9,23 @@ public class UpdateAccountContactInformationsCommon extends CommonMenu {
     public UpdateAccountContactInformationsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Update account contact informations";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public String getLastName() throws Exception {
-        return tool.getAttributeUsingId(tool, "last_name", "value");
+        return tool.getAttributeUsingId("last_name", "value");
     }
 
     public String getFirstName() throws Exception {
-        return tool.getAttributeUsingXpath(tool, "first_name", "value");
+        return tool.getAttributeUsingXpath("first_name", "value");
     }
 
     public String getTitle() throws Exception {
-        return tool.getAttributeUsingXpath(tool, "titleString", "value");
+        return tool.getAttributeUsingXpath("titleString", "value");
     }
 }

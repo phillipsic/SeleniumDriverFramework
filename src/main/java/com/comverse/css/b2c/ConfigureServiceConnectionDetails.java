@@ -14,17 +14,17 @@ public class ConfigureServiceConnectionDetails extends B2CMenu {
     public ConfigureServiceConnectionDetails(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Configure Service Connection Details";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public MyBasket clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
@@ -32,10 +32,10 @@ public class ConfigureServiceConnectionDetails extends B2CMenu {
     public void setServiceConnectionEmail(String Email) throws Exception {
 
         // 
-        // tool.enterStringUsingId(tool, "inputFields1180", Email);
+        // tool.enterStringUsingId("inputFields1180", Email);
 
         
-        tool.enterStringUsingXPath(tool, ".//span[contains(text(), 'Enter your Email address:')]/../../div[2]/input", Email);
+        tool.enterStringUsingXPath(".//span[contains(text(), 'Enter your Email address:')]/../../div[2]/input", Email);
 
     }
 }

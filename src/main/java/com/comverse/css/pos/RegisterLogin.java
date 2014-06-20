@@ -25,7 +25,7 @@ public class RegisterLogin extends RegisterLoginCommon {
 
     public void clickRadioButtonTelcoRetailerUser() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@name='roles'])[2]");
+        tool.clickUsingXPath("(//input[@name='roles'])[2]");
     }
 
     @Override
@@ -37,6 +37,6 @@ public class RegisterLogin extends RegisterLoginCommon {
 
     public void clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
     }
 }

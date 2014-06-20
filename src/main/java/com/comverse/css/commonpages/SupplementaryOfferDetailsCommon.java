@@ -12,7 +12,7 @@ public class SupplementaryOfferDetailsCommon extends CommonMenu {
 
     public SupplementaryOfferDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Supplementary Offer Details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,7 +22,7 @@ public class SupplementaryOfferDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourSubscriberCommon clickReturnToList() throws Exception {
-        tool.clickUsingName(tool, "select");
+        tool.clickUsingName("select");
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 }

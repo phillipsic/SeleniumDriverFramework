@@ -13,7 +13,7 @@ public class ResumeBasketConfirmCommon extends CommonMenu {
     public ResumeBasketConfirmCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Resume Basket Confirm";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,7 +24,7 @@ public class ResumeBasketConfirmCommon extends CommonMenu {
 
     public MyBasketCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new MyBasketCommon(tool, test, user);
     }
 }

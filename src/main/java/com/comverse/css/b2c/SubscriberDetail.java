@@ -13,7 +13,7 @@ public class SubscriberDetail extends B2CMenu {
 
     public SubscriberDetail(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Subscriber detail";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,102 +24,102 @@ public class SubscriberDetail extends B2CMenu {
 
     public BillingAccountInformation clickManageBillingAccounts() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_PAYMENT_INFOS");
+        tool.clickUsingID("smnu_PAYMENT_INFOS");
         return new BillingAccountInformation(tool, test, user);
     }
 
     public SelectModeOfRecharge clickRecharge() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Recharge");
+        tool.clickUsingLinkText("Recharge");
         return new SelectModeOfRecharge(tool, test, user);
     }
 
     // public Shopping clickShopping() throws Exception {
-    // tool.clickUsingLinkText(tool, "Shopping");
+    // tool.clickUsingLinkText("Shopping");
     // Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     // return new Shopping(tool, test, user);
     // }
     public ViewBalances clickBalances() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Balances");
+        tool.clickUsingLinkText("Balances");
         return new ViewBalances(tool, test, user);
     }
 
     public ViewBalances clickSharedBalances() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Shared balances");
+        tool.clickUsingLinkText("Shared balances");
         return new ViewBalances(tool, test, user);
     }
 
     public SelectOffers clickAddSO() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Add Supplementary Offers");
+        tool.clickUsingLinkText("Add Supplementary Offers");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffers(tool, test, user);
     }
 
     public SearchMember clickMyInformationTab() throws Exception {
 
-        tool.clickUsingLinkText(tool, "My Information");
+        tool.clickUsingLinkText("My Information");
         return new SearchMember(tool, test, user);
     }
 
     public SearchOrders clickMyOrdersTab() throws Exception {
 
-        tool.clickUsingLinkText(tool, "My Orders");
+        tool.clickUsingLinkText("My Orders");
         return new SearchOrders(tool, test, user);
     }
 
     public RemoveOffer clickOfferRemove() throws Exception {
-        tool.clickUsingLinkText(tool, "Remove");
+        tool.clickUsingLinkText("Remove");
         return new RemoveOffer(tool, test, user);
     }
 
     public ModifyOfferParameters clickOfferConfigure(String offerName) throws Exception {
-        tool.clickUsingXPath(tool, "//a[contains(text(),'" + offerName + "')]/../..//a[contains(text(),'Configure')]");
+        tool.clickUsingXPath("//a[contains(text(),'" + offerName + "')]/../..//a[contains(text(),'Configure')]");
         return new ModifyOfferParameters(tool, test, user);
     }
 
     public Identity clickUpdateContact() throws Exception {
-        tool.clickUsingXPath(tool, "//*[contains(text(),'Contact')]/..//a[contains(text(), 'Update')]");
+        tool.clickUsingXPath("//*[contains(text(),'Contact')]/..//a[contains(text(), 'Update')]");
         return new Identity(tool, test, user);
     }
 
     public SelectOffersForYourAccount clickSubscribeToNewOffer() throws Exception {
-        tool.clickUsingXPath(tool, "//a[contains(text(), 'Subscribe to new offers')]");
+        tool.clickUsingXPath("//a[contains(text(), 'Subscribe to new offers')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccount(tool, test, user);
     }
 
     public RemoveOffer clickRemoveAO(String offerName) throws Exception {
-        tool.clickUsingXPath(tool, "//a[contains(text(), '" + offerName + "')]/../..//a[contains(text(), 'Remove')]");
+        tool.clickUsingXPath("//a[contains(text(), '" + offerName + "')]/../..//a[contains(text(), 'Remove')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveOffer(tool, test, user);
     }
 
     public ModifySubscriberAttributes clickConfigureAttributes() throws Exception {
-        tool.clickUsingXPath(tool, "//*[contains(text(),'Attributes')]/..//a[contains(text(), 'Configure')]");
+        tool.clickUsingXPath("//*[contains(text(),'Attributes')]/..//a[contains(text(), 'Configure')]");
         return new ModifySubscriberAttributes(tool, test, user);
     }
 
     public ChooseYourPrimaryOffer clickMigrateToPostpaidSubscriber() throws Exception {
-        tool.clickUsingXPath(tool, "//a[contains(text(), 'Migrate to postpaid subscriber')]");
+        tool.clickUsingXPath("//a[contains(text(), 'Migrate to postpaid subscriber')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public String getOfferName() throws Exception {
-        return tool.getAttributeUsingXpath(tool, "//div[@id='mainContentsGrey']/div[1]/div[2]/div[3]/div[1]/div[1]/a", "value");
+        return tool.getAttributeUsingXpath("//div[@id='mainContentsGrey']/div[1]/div[2]/div[3]/div[1]/div[1]/a", "value");
     }
 
     public ChooseYourPrimaryOffer clickChangeOffer() throws Exception {
-        tool.clickUsingXPath(tool, "//a[contains(text(), 'Change Offer')]");
+        tool.clickUsingXPath("//a[contains(text(), 'Change Offer')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 
     public SubscriberStatusHistory clickStatusHistory() throws Exception {
-        tool.clickUsingXPath(tool, "//a[contains(text(), 'View Status History')]");
+        tool.clickUsingXPath("//a[contains(text(), 'View Status History')]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberStatusHistory(tool, test, user);
     }

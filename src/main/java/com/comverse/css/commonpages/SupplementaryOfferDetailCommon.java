@@ -12,7 +12,7 @@ public class SupplementaryOfferDetailCommon extends CommonMenu {
 
     public SupplementaryOfferDetailCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Supplementary Offer Detail";
 
         if (!expectedScreen.equals(currentScreen)) {

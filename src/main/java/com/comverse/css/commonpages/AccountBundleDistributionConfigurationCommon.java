@@ -10,7 +10,7 @@ public class AccountBundleDistributionConfigurationCommon extends CommonMenu {
 
     public AccountBundleDistributionConfigurationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -19,11 +19,11 @@ public class AccountBundleDistributionConfigurationCommon extends CommonMenu {
 
     public void clickSBSelectiveOffers() throws Exception {
         // Need to remove xpath here
-        tool.clickUsingXPath(tool, "//tr[6]/td/input");
+        tool.clickUsingXPath("//tr[6]/td/input");
     }
 
     public ConfigureContractDetailsCommon clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureContractDetailsCommon(tool, test, user);
     }

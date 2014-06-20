@@ -13,14 +13,14 @@ public class DisconnectAccount extends DisconnectAccountCommon {
 
     @Override
     public void clickCheckBoxUnlockNow() throws Exception {
-        tool.clickUsingID(tool, "disconnectNow");
+        tool.clickUsingID("disconnectNow");
     }
 
     @Override
     public void setAnnotation(String annotation) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "annotation", annotation);
+        tool.enterStringUsingId("annotation", annotation);
     }
 
     @Override

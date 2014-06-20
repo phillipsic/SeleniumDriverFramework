@@ -19,13 +19,13 @@ public class B2BMenu extends Main {
 
     public ContactInformation clickMyInformation() throws Exception {
 
-        tool.clickUsingLinkText(tool, "mnu_INFO");
+        tool.clickUsingLinkText("mnu_INFO");
         return new ContactInformation(tool, test, user);
     }
 
     public MyshapeBusiness clickLogout() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_LOGOUT");
+        tool.clickUsingID("mnu_LOGOUT");
         return new MyshapeBusiness(tool, test, user);
     }
 }

@@ -10,7 +10,7 @@ public class CreateAttachmentCommon extends CommonMenu {
     public CreateAttachmentCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!"Create Attachment".equals(currentScreen)) {
 
@@ -19,29 +19,29 @@ public class CreateAttachmentCommon extends CommonMenu {
     }
 
     public void addAttachmentName(String attachementName) throws Exception {
-        tool.enterStringUsingId(tool, "name", attachementName);
+        tool.enterStringUsingId("name", attachementName);
     }
 
     public void addDescription(String description) throws Exception {
         
-        tool.enterStringUsingId(tool, "description", description);
+        tool.enterStringUsingId("description", description);
     }
 
     public void uploadAttachment(String locationOfFile) throws Exception {
         String path = System.getProperty("user.dir");
-        tool.enterStringUsingId(tool, "fileUpload", path + locationOfFile);
+        tool.enterStringUsingId("fileUpload", path + locationOfFile);
     }
 
     public void clickContinue() throws Exception {
-        tool.clickUsingName(tool, "ok");
+        tool.clickUsingName("ok");
     }
 
     public void clickOKFromAddAttachment() throws Exception {
-        tool.clickUsingName(tool, "ok");
+        tool.clickUsingName("ok");
     }
 
     public ViewCaseCommon clickOKFromCreateNewAttachmentResult() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);
     }

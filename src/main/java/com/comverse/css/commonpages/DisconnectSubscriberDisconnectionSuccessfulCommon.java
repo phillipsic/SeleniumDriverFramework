@@ -9,7 +9,7 @@ public class DisconnectSubscriberDisconnectionSuccessfulCommon extends CommonMen
 
     public DisconnectSubscriberDisconnectionSuccessfulCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Disconnect subscriber - Disconnection successful";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -18,7 +18,7 @@ public class DisconnectSubscriberDisconnectionSuccessfulCommon extends CommonMen
 
     public SubscriberDetailsCommon clickOK() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SubscriberDetailsCommon(tool, test, user);

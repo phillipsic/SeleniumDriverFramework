@@ -9,7 +9,7 @@ public class WelcomeToTheWorkpointManagementConsole extends WPMCMenu {
     public WelcomeToTheWorkpointManagementConsole(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Welcome to the Workpoint Management Console";
 
         if (!expectedScreen.equals(currentScreen)) {

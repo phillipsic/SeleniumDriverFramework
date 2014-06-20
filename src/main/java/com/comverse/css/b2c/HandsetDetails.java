@@ -8,11 +8,11 @@ public class HandsetDetails extends B2CMenu {
 
     public HandsetDetails(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Handset Details";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -20,17 +20,17 @@ public class HandsetDetails extends B2CMenu {
     }
 
     public MyBasket clickBuyOutRight() throws Exception {
-        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Buy Outright']");
+        tool.clickUsingCssSelector("input[type='submit'][value='Buy Outright']");
         return new MyBasket(tool, test, user);
     }
 
     public void clickTermsAndConditionsTab() throws Exception {
-        tool.clickUsingXPath(tool, " .//em[contains(.,'Terms and Conditions')]");
+        tool.clickUsingXPath(" .//em[contains(.,'Terms and Conditions')]");
 
     }
 
     public ChooseYourHandset clickReturnToList() throws Exception {
-        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Return to List']");
+        tool.clickUsingCssSelector("input[type='submit'][value='Return to List']");
         return new ChooseYourHandset(tool, test, user);
     }
 }

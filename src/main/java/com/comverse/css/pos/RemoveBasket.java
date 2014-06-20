@@ -18,7 +18,7 @@ public class RemoveBasket extends RemoveBasketCommon {
 
     public WorkSpace clickYes() throws Exception {
 
-        tool.clickUsingXPath(tool, "//form[@id='form_YES']/div/input");
+        tool.clickUsingXPath("//form[@id='form_YES']/div/input");
         return new WorkSpace(tool, test, user);
     }
 }

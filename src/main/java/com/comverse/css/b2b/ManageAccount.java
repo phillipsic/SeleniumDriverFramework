@@ -15,11 +15,11 @@ public class ManageAccount extends IdentifyCustomerCommon {
     public ManageAccount(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Identify Customer";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -29,24 +29,24 @@ public class ManageAccount extends IdentifyCustomerCommon {
     @Override
     public AccountDetails searchByAccountID(String accountID) throws Exception {
 
-        tool.enterStringUsingId(tool, "p-L2:40-L3:2150", accountID);
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.enterStringUsingId("p-L2:40-L3:2150", accountID);
+        tool.clickUsingCssSelector("input.submit");
 
         return new AccountDetails(tool, test, user);
     }
 
     public AccountDetails searchByLastName(String lastName) throws Exception {
 
-        tool.enterStringUsingId(tool, "p-L2:40-L2:520", lastName);
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.enterStringUsingId("p-L2:40-L2:520", lastName);
+        tool.clickUsingCssSelector("input.submit");
 
         return new AccountDetails(tool, test, user);
     }
 
     public SearchResults searchAccountIDWithWildCard() throws Exception {
 
-        tool.enterStringUsingId(tool, "accountId", "*");
-        tool.clickUsingName(tool, "accountButton");
+        tool.enterStringUsingId("accountId", "*");
+        tool.clickUsingName("accountButton");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchResults(tool, test, user);

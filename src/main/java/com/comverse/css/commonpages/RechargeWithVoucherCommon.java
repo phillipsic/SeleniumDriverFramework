@@ -13,7 +13,7 @@ public class RechargeWithVoucherCommon extends CommonMenu {
 
     public RechargeWithVoucherCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Recharge with voucher";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,11 +24,11 @@ public class RechargeWithVoucherCommon extends CommonMenu {
 
     public void enterVoucherNumber(String voucherNumber) throws Exception {
         
-        tool.enterStringUsingId(tool, "pkgnumber", voucherNumber);
+        tool.enterStringUsingId("pkgnumber", voucherNumber);
     }
 
     public RechargeSubscriberCommon clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RechargeSubscriberCommon(tool, test, user);
     }

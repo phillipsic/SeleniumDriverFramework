@@ -16,7 +16,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     public SubscriberDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -28,7 +28,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     @Override
     public ViewInvoicesCommon clickBillsAndPayments() throws Exception {
-        tool.clickUsingID(tool, "mnu_BILLS_PAYMENTS");
+        tool.clickUsingID("mnu_BILLS_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ViewInvoicesCommon(tool, test, user);
@@ -42,7 +42,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     public ViewBalanceCommon viewBalanceAndRecharge() throws Exception {
         Common.clickAction1ItemIsAccessible(tool, ViewBalanceCommon.expectedScreen, "viewBalances");
-        // tool.clickUsingID(tool, "viewBalances");
+        // tool.clickUsingID("viewBalances");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewBalanceCommon(tool, test, user);
     }
@@ -72,7 +72,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public SubscribeToRechargePromotionalOffersCommon clickAddRPO() throws Exception {
-        tool.clickUsingLinkText(tool, "Add");
+        tool.clickUsingLinkText("Add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscribeToRechargePromotionalOffersCommon(tool, test, user);
     }
@@ -102,19 +102,19 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public ModifyContactInformationCommon clickModifyContactInformation() throws Exception {
-        tool.clickUsingCssSelector(tool, "u");
+        tool.clickUsingCssSelector("u");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyContactInformationCommon(tool, test, user);
     }
 
     public SubscriberIdentifiersSwapCommon clickSubscriberIdentifiersSwap() throws Exception {
-        tool.clickUsingID(tool, "modify_lines_link");
+        tool.clickUsingID("modify_lines_link");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberIdentifiersSwapCommon(tool, test, user);
     }
 
     public ModifySubscriberAttributesCommon clickModifySubscriberDetails() throws Exception {
-        tool.clickUsingXPath(tool, "//div[2]/a/u");
+        tool.clickUsingXPath("//div[2]/a/u");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifySubscriberAttributesCommon(tool, test, user);
     }
@@ -127,7 +127,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     public ResumeSubscriberRequestForDetailsCommon clickResumeSubscriber() throws Exception {
         Common.clickAction1ItemIsAccessible(tool, ResumeSubscriberRequestForDetailsCommon.expectedScreen, "resumeSubscriber");
-        // tool.clickUsingID(tool, "resumeSubscriber");
+        // tool.clickUsingID("resumeSubscriber");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ResumeSubscriberRequestForDetailsCommon(tool, test, user);
     }
@@ -151,51 +151,51 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public PrimaryOfferDetailsCommon clickLinkOfPrimaryOfferName(String primaryOfferName) throws Exception {
-        tool.clickUsingLinkText(tool, primaryOfferName);
+        tool.clickUsingLinkText(primaryOfferName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
 
     public PrimaryOfferDetailsCommon clickImageOfPrimaryOfferName(String primaryOfferName) throws Exception {
-        tool.clickUsingCssSelector(tool, "a[title=\"View detail for " + primaryOfferName + "\"] > img");
+        tool.clickUsingCssSelector("a[title=\"View detail for " + primaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
 
     public SubscriberBundleDetailsCommon clickImageOfSubscriberBundleName(String subscriberBundleName) throws Exception {
-        tool.clickUsingCssSelector(tool, "a[title=\"View detail for " + subscriberBundleName + "\"] > img");
+        tool.clickUsingCssSelector("a[title=\"View detail for " + subscriberBundleName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberBundleDetailsCommon(tool, test, user);
     }
 
     public AccountOfferDetailsCommon clickImageOfSupplementaryOfferName(String supplementaryOfferName) throws Exception {
-        tool.clickUsingCssSelector(tool, "a[title=\"View detail for " + supplementaryOfferName + "\"] > img");
+        tool.clickUsingCssSelector("a[title=\"View detail for " + supplementaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountOfferDetailsCommon(tool, test, user);
     }
 
     public AccountOfferDetailsCommon clickImageOfPromotionalOfferName(String supplementaryOfferName) throws Exception {
-        tool.clickUsingCssSelector(tool, "a[title=\"View detail for " + supplementaryOfferName + "\"] > img");
+        tool.clickUsingCssSelector("a[title=\"View detail for " + supplementaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountOfferDetailsCommon(tool, test, user);
     }
 
     public ModifyOfferParametersCommon clickModifyOfferParameters() throws Exception {
-        tool.clickUsingCssSelector(tool, "a[title=\"Modify Offer Parameters\"]");
+        tool.clickUsingCssSelector("a[title=\"Modify Offer Parameters\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(3);
         return new ModifyOfferParametersCommon(tool, test, user);
     }
 
     public RemoveOfferCommon clickDeleteOffer() throws Exception {
-        tool.clickUsingLinkText(tool, "Remove");
+        tool.clickUsingLinkText("Remove");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveOfferCommon(tool, test, user);
     }
 
     public String getSubscriberStatus() throws Exception {
 
-        String orderStatus = tool.getTextUsingXPath(tool, "//div[@id='navigationContext']/div/div[2]/div[2]");
+        String orderStatus = tool.getTextUsingXPath("//div[@id='navigationContext']/div/div[2]/div[2]");
         return orderStatus;
     }
 
@@ -227,55 +227,55 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickAccountIDFromNavigationPanel() throws Exception {
-        tool.clickUsingID(tool, "AccountSearchLink");
+        tool.clickUsingID("AccountSearchLink");
         Common.assertTextOnPage(tool, "Please enter your criteria and press search");
-        tool.clickUsingID(tool, "accountSearchButton");
+        tool.clickUsingID("accountSearchButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingXPath(tool, "//td[3]/div/a");
+        tool.clickUsingXPath("//td[3]/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(2);
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public void clickSubscriberAttributesTab() throws Exception {
-        tool.clickUsingXPath(tool, "//div[@id='account_dashboard']/ul/li[2]/a/em");
+        tool.clickUsingXPath("//div[@id='account_dashboard']/ul/li[2]/a/em");
     }
 
     public void clickRefreshRPO() throws Exception {
-        tool.clickUsingID(tool, "rpoRefreshImage");
+        tool.clickUsingID("rpoRefreshImage");
         Common.sleepForNumberOfSeconds(2);
     }
 
     public PrimaryOfferDetailsCommon clickRPODetails(String RPO) throws Exception {
-        tool.clickUsingXPath(tool, "//a[@title='View detail for " + RPO + "']");
+        tool.clickUsingXPath("//a[@title='View detail for " + RPO + "']");
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
 
     public void clickReconfigureAwardCounter() throws Exception {
-        tool.clickUsingXPath(tool, "//div/a/img");
+        tool.clickUsingXPath("//div/a/img");
         Common.sleepForNumberOfSeconds(2);
     }
 
     public void clickSetAwardCounter() throws Exception {
 
-        tool.enterStringUsingId(tool, "awardCounter", "2");
+        tool.enterStringUsingId("awardCounter", "2");
     }
 
     public void clickConfirmAwardCounterReconfiguration() throws Exception {
-        tool.clickUsingXPath(tool, "//span[2]/span/button");
+        tool.clickUsingXPath("//span[2]/span/button");
         Common.sleepForNumberOfSeconds(2);
     }
 
     public void clickRPOStatus() throws Exception {
 
-        tool.clickUsingXPath(tool, "//div[contains(text(),'Active')]//img");
+        tool.clickUsingXPath("//div[contains(text(),'Active')]//img");
 
     }
 
     public void clickRefreshUntilRPOActive(String RPO) throws Exception {
         this.clickRefreshRPO();
         while (true) {
-            if (tool.getTextUsingXPath(tool, "//a[contains(text(),'" + RPO + "')]/../../following-sibling::td[1]/div").contains("Active")) {
+            if (tool.getTextUsingXPath("//a[contains(text(),'" + RPO + "')]/../../following-sibling::td[1]/div").contains("Active")) {
                 break;
             } else {
                 this.clickRefreshRPO();
@@ -286,12 +286,12 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     public void clickConfirmStatusExpire() throws Exception {
         Common.sleepForNumberOfSeconds(3);
-        tool.clickUsingXPath(tool, "//button[contains(text(),'Confirm')]");
+        tool.clickUsingXPath("//button[contains(text(),'Confirm')]");
         this.clickRefreshRPO();
     }
 
     public String returnRPOStatus() throws Exception {
-        return tool.getTextUsingXPath(tool, "//div[contains(text(),'DIY - Get')]/../../../following-sibling::tr//a");
+        return tool.getTextUsingXPath("//div[contains(text(),'DIY - Get')]/../../../following-sibling::tr//a");
     }
 
     public void doAddSO(String SUPPLEMENTARY_OFFER) throws Exception {

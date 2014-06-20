@@ -12,11 +12,11 @@ public class AddEmployeeRegisterLogin extends B2BMenu {
 
     public AddEmployeeRegisterLogin(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Add Employee - Register Login";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -25,12 +25,12 @@ public class AddEmployeeRegisterLogin extends B2BMenu {
 
     public void enterLogin(String login) throws Exception {
 
-        tool.enterStringUsingId(tool, "login", login);
+        tool.enterStringUsingId("login", login);
     }
 
     public AddEmployeeConfirmation clickSubmit() throws Exception {
 
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.clickUsingCssSelector("input.submit");
         return new AddEmployeeConfirmation(tool, test, user);
     }
 }

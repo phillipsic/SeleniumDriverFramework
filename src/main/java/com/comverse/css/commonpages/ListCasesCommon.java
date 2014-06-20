@@ -12,7 +12,7 @@ public class ListCasesCommon extends CommonMenu {
     public ListCasesCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,14 +23,14 @@ public class ListCasesCommon extends CommonMenu {
 
     public ListCasesCommon clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
+        tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCasesCommon(tool, test, user);
     }
 
     public ViewCaseCommon clickFirstCase() throws Exception {
 
-        tool.clickUsingXPath(tool, "//fieldset/div/table/tbody[2]/tr/td/div/a");
+        tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);
     }

@@ -9,11 +9,11 @@ public class ImmediatePayment extends B2CMenu {
 
     public ImmediatePayment(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Immediate Payment";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -22,32 +22,32 @@ public class ImmediatePayment extends B2CMenu {
 
     public void enterCardNumber(String cardNumber) throws Exception {
         
-        tool.enterStringUsingId(tool, "cardNumber", cardNumber);
+        tool.enterStringUsingId("cardNumber", cardNumber);
     }
 
     public void enterCardExpDate(String expirationDate) throws Exception {
         
-        tool.enterStringUsingId(tool, "cardExpirationDate", expirationDate);
+        tool.enterStringUsingId("cardExpirationDate", expirationDate);
     }
 
     public void enterCardHolderLastName(String lastName) throws Exception {
         
-        tool.enterStringUsingId(tool, "cardHolderName", lastName);
+        tool.enterStringUsingId("cardHolderName", lastName);
     }
 
     public void enterCardHolderFirstName(String firstName) throws Exception {
         
-        tool.enterStringUsingId(tool, "cardHolderFName", firstName);
+        tool.enterStringUsingId("cardHolderFName", firstName);
     }
 
     public void enterCardSecretCode(String secretCode) throws Exception {
         
-        tool.enterStringUsingId(tool, "cardSecretCode", secretCode);
+        tool.enterStringUsingId("cardSecretCode", secretCode);
     }
 
     public CheckoutConfirmation clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutConfirmation(tool, test, user);
     }

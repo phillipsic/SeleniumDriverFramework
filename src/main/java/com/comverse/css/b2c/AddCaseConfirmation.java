@@ -8,10 +8,10 @@ public class AddCaseConfirmation extends B2CMenu {
 
     public AddCaseConfirmation(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Add case - confirmation";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -19,13 +19,13 @@ public class AddCaseConfirmation extends B2CMenu {
 
     public AddCase clickOk() throws Exception {
 
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.clickUsingCssSelector("input.submit");
         return new AddCase(tool, test, user);
     }
 
     public String getCaseID() throws Exception {
 
-        String caseID = tool.getTextUsingXPath(tool, "//span");
+        String caseID = tool.getTextUsingXPath("//span");
 
         caseID = caseID.replaceAll("[a-zA-Z \\.]", "");
         System.out.println("New Case ID : " + caseID);

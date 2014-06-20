@@ -16,10 +16,10 @@ public class SearchRequestsCommon extends CommonMenu {
 
     public SearchRequestsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Search RequestsView Requests";
 
-        if (!expectedScreen.contains(tool.getTitle(tool))) {
+        if (!expectedScreen.contains(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -27,7 +27,7 @@ public class SearchRequestsCommon extends CommonMenu {
 
     public SearchOrdersCommon clickSearchOrders() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ORDER");
+        tool.clickUsingID("smnu_ORDER");
         return new SearchOrdersCommon(tool, test, user);
     }
 

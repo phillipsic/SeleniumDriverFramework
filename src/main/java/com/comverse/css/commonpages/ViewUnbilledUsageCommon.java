@@ -9,7 +9,7 @@ public class ViewUnbilledUsageCommon extends CommonMenu {
     public ViewUnbilledUsageCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View unbilled usage";
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,32 +22,32 @@ public class ViewUnbilledUsageCommon extends CommonMenu {
     public void enterToDate(String toDate) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "toDate", toDate);
+        tool.enterStringUsingId("toDate", toDate);
 
     }
 
     public void enterFromDate(String fromDate) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "fromDate", fromDate);
+        tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
     public ViewUnbilledUsageCommon clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
+        tool.clickUsingXPath("(//input[@value='Search'])[3]");
         return new ViewUnbilledUsageCommon(tool, test, user);
     }
 
     public ViewUnbilledUsageDetailsCommon clickFirstUsage() throws Exception {
 
-        tool.clickUsingID(tool, "usageDetails");
+        tool.clickUsingID("usageDetails");
         return new ViewUnbilledUsageDetailsCommon(tool, test, user);
     }
 
     public UnbilledTransactionCommon clickBack() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
         return new UnbilledTransactionCommon(tool, test, user);
     }
 }

@@ -15,11 +15,11 @@ public class SearchAddressCommon extends CommonMenu {
     public SearchAddressCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Search Address";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -28,39 +28,39 @@ public class SearchAddressCommon extends CommonMenu {
 
     public void setCountry(String country) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "home_country", country);
+        tool.selectVisibleTextByID("home_country", country);
 
     }
 
     public void setStreetName(String streetname) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "streetName", streetname);
+        tool.enterStringUsingId("streetName", streetname);
 
     }
 
     public void setCity(String city) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "home_city", city);
+        tool.enterStringUsingId("home_city", city);
 
     }
 
     public void setZipCode(String zipcode) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "home_zip", zipcode);
+        tool.enterStringUsingId("home_zip", zipcode);
 
     }
 
     public SearchAddressCommon clickOk() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchAddressCommon(tool, test, user);
     }
 
     public EnterIdentificationDataCommon clickSelectAddress() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Select']");
+        tool.clickUsingXPath("//input[@value='Select']");
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 

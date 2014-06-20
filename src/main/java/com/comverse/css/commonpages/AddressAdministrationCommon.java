@@ -9,9 +9,9 @@ public class AddressAdministrationCommon extends CommonMenu {
 
     public AddressAdministrationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -20,7 +20,7 @@ public class AddressAdministrationCommon extends CommonMenu {
 
     public AddressAddCommon clickAdd() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Add']");
+        tool.clickUsingXPath("//input[@value='Add']");
 
         return new AddressAddCommon(tool, test, user);
     }

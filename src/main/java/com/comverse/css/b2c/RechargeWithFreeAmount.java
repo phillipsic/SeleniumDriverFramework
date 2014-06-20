@@ -8,11 +8,11 @@ public class RechargeWithFreeAmount extends B2CMenu {
 
     public RechargeWithFreeAmount(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Recharge with free amount";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -22,12 +22,12 @@ public class RechargeWithFreeAmount extends B2CMenu {
     public void enterRechargeAmount(String rechargeAmount) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "rechargeAmount", rechargeAmount);
+        tool.enterStringUsingId("rechargeAmount", rechargeAmount);
     }
 
     public SelectRechargePaymentMethod clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         return new SelectRechargePaymentMethod(tool, test, user);
     }
 }

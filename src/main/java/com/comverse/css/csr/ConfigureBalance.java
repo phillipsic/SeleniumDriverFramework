@@ -36,7 +36,7 @@ public class ConfigureBalance extends ConfigureBalanceCommon {
 
     public void configureBalance(String balanceName, String balanceValue) throws Exception {
 
-        tool.enterStringUsingId(tool, balanceName + "_limit", balanceValue);
+        tool.enterStringUsingId(balanceName + "_limit", balanceValue);
     }
 
     @Override

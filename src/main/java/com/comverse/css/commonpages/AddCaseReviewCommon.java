@@ -15,10 +15,10 @@ public class AddCaseReviewCommon extends CommonMenu {
     public AddCaseReviewCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -26,7 +26,7 @@ public class AddCaseReviewCommon extends CommonMenu {
 
     public AddCaseConfirmationCommon clickCreateCase() throws Exception {
 
-        tool.clickUsingName(tool, "ACTION_CREATE");
+        tool.clickUsingName("ACTION_CREATE");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddCaseConfirmationCommon(tool, test, user);
@@ -35,7 +35,7 @@ public class AddCaseReviewCommon extends CommonMenu {
 
     public AddCaseConfirmationCommon clickCreateCaseAndClose() throws Exception {
 
-        tool.clickUsingName(tool, "ACTION_CREATE_AND_CLOSE");
+        tool.clickUsingName("ACTION_CREATE_AND_CLOSE");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddCaseConfirmationCommon(tool, test, user);

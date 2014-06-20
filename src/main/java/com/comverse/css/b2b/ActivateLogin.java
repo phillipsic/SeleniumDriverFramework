@@ -19,7 +19,7 @@ public class ActivateLogin extends ActivateLoginCommon {
 
     public UnlockDone clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         return new UnlockDone(tool, test, user);
     }
 

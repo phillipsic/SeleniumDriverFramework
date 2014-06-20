@@ -29,20 +29,20 @@ public class Login extends LoginCommon {
 
     public void enterLogin(String login) throws Exception {
         
-        tool.enterStringUsingId(tool, "login", login);
+        tool.enterStringUsingId("login", login);
     }
 
     public RegisterLogin clickOk() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new RegisterLogin(tool, test, user);
     }
 
     public AddMemberConfirmation clickSubmit() throws Exception {
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.clickUsingCssSelector("input.submit");
         return new AddMemberConfirmation(tool, test, user);
     }
 
     public void setRoles(String roles) throws Exception {
-        tool.selectVisibleTextByID(tool, "roles", roles);
+        tool.selectVisibleTextByID("roles", roles);
     }
 }

@@ -10,7 +10,7 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     public ConfigureContractDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Configure Contract Details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,22 +19,22 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }
 
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
         
-        tool.enterStringUsingId(tool, limitName + "_limit", limitAmount);
+        tool.enterStringUsingId(limitName + "_limit", limitAmount);
     }
 
     public void setLang(String lang) throws Exception {
-        tool.selectVisibleTextByID(tool, "p-param-L4:80000", lang);
+        tool.selectVisibleTextByID("p-param-L4:80000", lang);
     }
 
     public ConfigureBalanceCommon clickContinueExpectingConfigureBalance() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureBalanceCommon(tool, test, user);
     }

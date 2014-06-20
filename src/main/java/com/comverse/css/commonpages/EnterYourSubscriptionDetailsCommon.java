@@ -13,7 +13,7 @@ public class EnterYourSubscriptionDetailsCommon extends CommonMenu {
 
     public EnterYourSubscriptionDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Enter your subscription details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -22,7 +22,7 @@ public class EnterYourSubscriptionDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourSubscriberCommon clickContinue() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SelectOffersForYourSubscriberCommon(tool, test, user);

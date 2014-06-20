@@ -15,7 +15,7 @@ public class MyBasketCommon extends CommonMenu {
 
     public MyBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "My Basket";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -31,171 +31,171 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public CheckoutReviewCommon clickCheckOut() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
+        tool.clickUsingXPath("//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutReviewCommon(tool, test, user);
     }
 
     public CheckoutDeliveryAddressCommon clickCheckOutWithGoods() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
+        tool.clickUsingXPath("//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutDeliveryAddressCommon(tool, test, user);
     }
 
     public TermsAndConditionsCommon clickCheckOutWithTermsAndConditions() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Checkout']");
+        tool.clickUsingXPath("//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new TermsAndConditionsCommon(tool, test, user);
     }
 
     public ShoppingCommon clickContinueShopping() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Continue Shopping']");
+        tool.clickUsingXPath("//input[@value='Continue Shopping']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
 
     public ServiceConnectionDetailsCommon clickFirstActionsIcon() throws Exception {
-        tool.clickUsingCssSelector(tool, "img[title=\"Configure Service Connection Details\"]");
+        tool.clickUsingCssSelector("img[title=\"Configure Service Connection Details\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
     public ServiceConnectionDetailsCommon clickSecondActionsIcon() throws Exception {
-        tool.clickUsingCssSelector(tool, "#modify_lines_2 > img[title=\"Configure Service Connection Details\"]");
+        tool.clickUsingCssSelector("#modify_lines_2 > img[title=\"Configure Service Connection Details\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
     public String getTypeRole() throws Exception {
-        return tool.getTextUsingXPath(tool, "//td[2]/div/p");
+        return tool.getTextUsingXPath("//td[2]/div/p");
     }
 
     public String getAddress() throws Exception {
-        String address = tool.getTextUsingXPath(tool, "//td[4]/div/p");
+        String address = tool.getTextUsingXPath("//td[4]/div/p");
         return address.replaceAll("[^\\p{L}\\p{N}]", " ");
     }
 
     public String getOfferName() throws Exception {
-        return tool.getTextUsingXPath(tool, "//tr[9]/td");
+        return tool.getTextUsingXPath("//tr[9]/td");
     }
 
     public String getRecurringCharge() throws Exception {
-        return tool.getTextUsingXPath(tool, "//tr[9]/td[4]");
+        return tool.getTextUsingXPath("//tr[9]/td[4]");
     }
 
     public String getUpfrontCharge() throws Exception {
-        return tool.getTextUsingXPath(tool, "//tr[9]/td[5]");
+        return tool.getTextUsingXPath("//tr[9]/td[5]");
     }
 
     public String getQuantity() throws Exception {
-        return tool.getTextUsingXPath(tool, "//tr[9]/td[2]");
+        return tool.getTextUsingXPath("//tr[9]/td[2]");
     }
 
     public RemoveBasketCommon clickClear() throws Exception {
-        tool.clickUsingName(tool, "clear");
+        tool.clickUsingName("clear");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveBasketCommon(tool, test, user);
     }
 
     public void clickAcceptTermsAndConditions() throws Exception {
-        tool.clickUsingID(tool, "termsandconditionscheck");
+        tool.clickUsingID("termsandconditionscheck");
     }
 
     public RemoveSelectionCommon removeSecondItemFromBasket() throws Exception {
-        tool.clickUsingID(tool, "remove_1");
+        tool.clickUsingID("remove_1");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveSelectionCommon(tool, test, user);
     }
 
     public RemoveSelectionCommon removeFirstItemFromBasket() throws Exception {
-        tool.clickUsingLinkText(tool, "Remove");
+        tool.clickUsingLinkText("Remove");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveSelectionCommon(tool, test, user);
     }
 
     public void clickAddPersonOrRole() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingID(tool, "pm-button-add-person");
+        tool.clickUsingID("pm-button-add-person");
     }
 
     public void clickUserOfNewSubscriber1() throws Exception {
-        tool.clickUsingXPath(tool, "//td[@id='pm-role-fields']/p[2]/input");
+        tool.clickUsingXPath("//td[@id='pm-role-fields']/p[2]/input");
     }
 
     public void clickOrdering() throws Exception {
-        tool.clickUsingName(tool, "role_radio_group_selection_0");
+        tool.clickUsingName("role_radio_group_selection_0");
     }
 
     public void selectTitle(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "pm-field-title", value);
+        tool.selectVisibleTextByID("pm-field-title", value);
     }
 
     public void setFirstName(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "pm-field-fname", value);
+        tool.enterStringUsingId("pm-field-fname", value);
     }
 
     public void setLastName(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "pm-field-lname", value);
+        tool.enterStringUsingId("pm-field-lname", value);
     }
 
     public void setAddressLine1(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "pm-field-address1", value);
+        tool.enterStringUsingId("pm-field-address1", value);
     }
 
     public void setPostalCode(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "pm-field-zip", value);
+        tool.enterStringUsingId("pm-field-zip", value);
     }
 
     public void setCity(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "pm-field-city", value);
+        tool.enterStringUsingId("pm-field-city", value);
     }
 
     public void selectCountry(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "pm-field-country", value);
+        tool.selectVisibleTextByID("pm-field-country", value);
     }
 
     public void selectRegion(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "pm-field-region", value);
+        tool.selectVisibleTextByID("pm-field-region", value);
     }
 
     public void selectFirstUserinDropDown() throws Exception {
-        tool.selectByIndexByID(tool, "subscriber", 1);
+        tool.selectByIndexByID("subscriber", 1);
     }
 
     public void clickAddRole() throws Exception {
-        tool.clickUsingID(tool, "add_role");
+        tool.clickUsingID("add_role");
     }
 
     public void clickAdd() throws Exception {
-        tool.clickUsingID(tool, "pm-button-add");
+        tool.clickUsingID("pm-button-add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public ShoppingCommon changePrimaryOffer() throws Exception {
-        tool.clickUsingID(tool, "add_pp_0");
+        tool.clickUsingID("add_pp_0");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
 
     public SelectOffersForYourSubscriberCommon clickAddSO() throws Exception {
-        tool.clickUsingLinkText(tool, "Add Supplementary Offer(s)");
+        tool.clickUsingLinkText("Add Supplementary Offer(s)");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     public SelectOffersForYourSubscriberCommon clickChangeSO() throws Exception {
-        tool.clickUsingID(tool, "add_srv_1");
+        tool.clickUsingID("add_srv_1");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     public SelectOffersForYourAccountCommon clickAddAO() throws Exception {
-        tool.clickUsingID(tool, "add_srv_ACCOUNT_LEVEL_SELECTION");
+        tool.clickUsingID("add_srv_ACCOUNT_LEVEL_SELECTION");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }
@@ -262,7 +262,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public ParkTheCurrentBasketCommon clickParkBasket() throws Exception {
-        tool.clickUsingID(tool, "lnk_SBE.PARK.ADD");
+        tool.clickUsingID("lnk_SBE.PARK.ADD");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ParkTheCurrentBasketCommon(tool, test, user);
     }

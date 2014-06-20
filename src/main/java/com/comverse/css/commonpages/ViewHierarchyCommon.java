@@ -11,7 +11,7 @@ public class ViewHierarchyCommon extends CommonMenu {
     public ViewHierarchyCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View Hierarchy";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -28,24 +28,24 @@ public class ViewHierarchyCommon extends CommonMenu {
 
         String weeklyLevelName = "level" + week + "a";
 
-        tool.clickUsingLinkText(tool, weeklyLevelName);
+        tool.clickUsingLinkText(weeklyLevelName);
 
     }
 
     public void clickLevelLink(String linkName) throws Exception {
 
-        tool.clickUsingLinkText(tool, linkName);
+        tool.clickUsingLinkText(linkName);
     }
 
     public String getRootLevel() throws Exception {
-        System.out.println("Root Level " + tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div/table/tbody/tr/td/a"));
-        return tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div/table/tbody/tr/td/a");
+        System.out.println("Root Level " + tool.getTextUsingXPath("//div[@id='mainContents']/div/table/tbody/tr/td/a"));
+        return tool.getTextUsingXPath("//div[@id='mainContents']/div/table/tbody/tr/td/a");
 
     }
 
     public ContactInformationCommon clickEmployeeNameLink(String firstName, String lastName) throws Exception {
 
-        tool.clickUsingLinkText(tool, firstName + " " + lastName);
+        tool.clickUsingLinkText(firstName + " " + lastName);
         return new ContactInformationCommon(tool, test, user);
     }
 

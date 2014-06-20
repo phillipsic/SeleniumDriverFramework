@@ -16,11 +16,11 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public EnterYourSubscriptionDetails(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Enter your subscription details";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -54,25 +54,25 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
     public void enterFirstName(String firstName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "firstName", firstName);
+        tool.enterStringUsingId("firstName", firstName);
     }
 
     public void enterDateOfBirth(String dob) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "p-CONTRACT-L4:90070", dob);
+        tool.enterStringUsingId("p-CONTRACT-L4:90070", dob);
     }
 
     public void enterLastName(String lastName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "lastName", lastName);
+        tool.enterStringUsingId("lastName", lastName);
 
     }
 
     public void selectTitle(String title) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "title", title);
+        tool.selectVisibleTextByID("title", title);
 
     }
 
@@ -81,12 +81,12 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
         boolean correctGender = false;
 
         if (gender.equalsIgnoreCase("male")) {
-            tool.clickUsingID(tool, "sex_male");
+            tool.clickUsingID("sex_male");
             correctGender = true;
         }
 
         if (gender.equalsIgnoreCase("female")) {
-            tool.clickUsingID(tool, "sex_fem");
+            tool.clickUsingID("sex_fem");
             correctGender = true;
         }
 
@@ -100,67 +100,67 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
     public void enterstreetNumber(String streetNumber) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "streetNumber", streetNumber);
+        tool.enterStringUsingId("streetNumber", streetNumber);
 
     }
 
     public void enterHomeCity(String city) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "home_city", city);
+        tool.enterStringUsingId("home_city", city);
 
     }
 
     public void enterCounty(String county) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "county", county);
+        tool.enterStringUsingId("county", county);
 
     }
 
     public void enterPostCode(String postCode) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "home_zip", postCode);
+        tool.enterStringUsingId("home_zip", postCode);
 
     }
 
     public void enterHomeCountry(String homeCountry) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "home_country", homeCountry);
+        tool.selectVisibleTextByID("home_country", homeCountry);
 
     }
 
     public void enterHomeState(String homeState) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "home_state", homeState);
+        tool.selectVisibleTextByID("home_state", homeState);
 
     }
 
     public void enterPhoneNumber(String phoneNumber) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "phoneNumber", phoneNumber);
+        tool.enterStringUsingId("phoneNumber", phoneNumber);
 
     }
 
     public void enterFaxNumber(String faxNumber) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "fax", faxNumber);
+        tool.enterStringUsingId("fax", faxNumber);
 
     }
 
     public void enterEmail(String email) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "email", email);
+        tool.enterStringUsingId("email", email);
 
     }
 
     public SelectOffersForYourSubscriber clickOk() throws Exception {
 
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.clickUsingCssSelector("input.submit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriber(tool, test, user);
     }

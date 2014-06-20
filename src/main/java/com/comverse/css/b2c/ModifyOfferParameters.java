@@ -13,11 +13,11 @@ public class ModifyOfferParameters extends B2CMenu {
 
     public ModifyOfferParameters(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Offer Parameters";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -25,21 +25,21 @@ public class ModifyOfferParameters extends B2CMenu {
     }
 
     public void checkVoiceMailEnableToNo() throws Exception {
-        tool.clickUsingXPath(tool, "//label[contains(text(),'Voice Mail Enable')]/following-sibling::input");
+        tool.clickUsingXPath("//label[contains(text(),'Voice Mail Enable')]/following-sibling::input");
     }
 
     public void enterVoiceMailSize(String voiceMailSize) throws Exception {
 
-        tool.enterStringUsingXPath(tool, "//label[contains(text(),'Voice Mail Size')]/../input", voiceMailSize);
+        tool.enterStringUsingXPath("//label[contains(text(),'Voice Mail Size')]/../input", voiceMailSize);
     }
 
     public ModifyItemOfSubscriber clickModify() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Modify']");
+        tool.clickUsingXPath("//input[@value='Modify']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyItemOfSubscriber(tool, test, user);
     }
 
     public String getVoiceMailSize() throws Exception {
-        return tool.getAttributeUsingXpath(tool, "//label[contains(text(),'Voice Mail Size')]/../input", "value");
+        return tool.getAttributeUsingXpath("//label[contains(text(),'Voice Mail Size')]/../input", "value");
     }
 }

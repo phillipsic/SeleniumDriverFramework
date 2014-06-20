@@ -9,10 +9,10 @@ public class BillingManagement extends B2CMenu {
     public BillingManagement(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Billing Management";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -20,19 +20,19 @@ public class BillingManagement extends B2CMenu {
 
     public CheckoutReview clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         return new CheckoutReview(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForFirstSubscriber() throws Exception {
 
-        tool.clickUsingID(tool, "change_billing_contract_0");
+        tool.clickUsingID("change_billing_contract_0");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForSecondSubscriber() throws Exception {
 
-        tool.clickUsingID(tool, "change_billing_contract_1");
+        tool.clickUsingID("change_billing_contract_1");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 }

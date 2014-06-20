@@ -12,10 +12,10 @@ public class RemoveDeliveryAddressCommon extends CommonMenu {
 
     public RemoveDeliveryAddressCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Remove Delivery Address";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -23,7 +23,7 @@ public class RemoveDeliveryAddressCommon extends CommonMenu {
 
     public DeliveryAddressesCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new DeliveryAddressesCommon(tool, test, user);
     }
 }

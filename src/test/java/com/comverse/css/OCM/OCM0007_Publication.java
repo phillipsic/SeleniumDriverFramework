@@ -30,10 +30,10 @@ public class OCM0007_Publication extends CSSTest {
 
         ocmApplication.clickMenuNewPublication(application);
 
-        tool.clickUsingXPath(tool, "(//input[@name='mainPanel:edit:fields:CatalogPublication'])[2]");
-        tool.clickUsingXPath(tool, "(//input[@name='mainPanel:edit:fields:ContentPublication'])[2]");
+        tool.clickUsingXPath("(//input[@name='mainPanel:edit:fields:CatalogPublication'])[2]");
+        tool.clickUsingXPath("(//input[@name='mainPanel:edit:fields:ContentPublication'])[2]");
 
-        tool.clickUsingID(tool, "mainPanel:edit:buttons:publish");
+        tool.clickUsingID("mainPanel:edit:buttons:publish");
 
         Common.assertTextOnPage(tool, "The publication request has been successfully created");
 

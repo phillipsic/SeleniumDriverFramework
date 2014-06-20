@@ -11,7 +11,7 @@ public class RequestsForCustomerCommon extends CommonMenu {
     public RequestsForCustomerCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -20,12 +20,12 @@ public class RequestsForCustomerCommon extends CommonMenu {
     }
 
     public void clickSearch() throws Exception {
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
+        tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public OrderDetailsCommon clickOnOrderNumberLink(String orderNumber) throws Exception {
-        tool.clickUsingLinkText(tool, orderNumber);
+        tool.clickUsingLinkText(orderNumber);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new OrderDetailsCommon(tool, test, user);
     }
@@ -63,12 +63,12 @@ public class RequestsForCustomerCommon extends CommonMenu {
     }
 
     public String getFirstRequestStatus() throws Exception {
-        String requestStatus = tool.getTextUsingXPath(tool, "//div[@id='requestsContainer']//tr/td[7]/div");
+        String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr/td[7]/div");
         return requestStatus;
     }
 
     public void clickToSubscriberDashboard() throws Exception {
-        tool.clickUsingCssSelector(tool, "div.navContextMain > a[title=\"Go to Subscriber Dashboard\"]");
+        tool.clickUsingCssSelector("div.navContextMain > a[title=\"Go to Subscriber Dashboard\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 

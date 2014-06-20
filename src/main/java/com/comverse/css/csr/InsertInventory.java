@@ -10,10 +10,10 @@ public class InsertInventory extends CommonMenu {
 
     public InsertInventory(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Insert Inventory";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -22,48 +22,48 @@ public class InsertInventory extends CommonMenu {
 
     public void selectInventoryType(String inventoryType) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "inventoryType", inventoryType);
+        tool.selectVisibleTextByID("inventoryType", inventoryType);
         Common.sleepForNumberOfSeconds(10);
     }
 
     public void setSerialNumber(String serialNumber) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "serialNumber", serialNumber);
+        tool.enterStringUsingId("serialNumber", serialNumber);
 
     }
 
     public void setPrimaryNumber(String primaryNumber) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "primaryNumber", primaryNumber);
+        tool.enterStringUsingId("primaryNumber", primaryNumber);
 
     }
 
     public void setSecondaryNumber(String secondaryNumber) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "secondaryNumber", secondaryNumber);
+        tool.enterStringUsingId("secondaryNumber", secondaryNumber);
 
     }
 
     public void setTertiaryNumber(String tertiaryNumber) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "tertiaryNumber", tertiaryNumber);
+        tool.enterStringUsingId("tertiaryNumber", tertiaryNumber);
 
     }
 
     public void setServiceNumber(String serviceNumber) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "serviceNumber", serviceNumber);
+        tool.enterStringUsingId("serviceNumber", serviceNumber);
 
     }
 
     public ActionDone clickInsert() throws Exception {
 
-        tool.clickUsingID(tool, "insertbtn");
+        tool.clickUsingID("insertbtn");
 
         return new ActionDone(tool, test, user);
     }

@@ -13,10 +13,10 @@ public class SearchCustomer extends B2CMenu {
     public SearchCustomer(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Search Customer";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -25,28 +25,28 @@ public class SearchCustomer extends B2CMenu {
 
     public void enterLastName(String lastName) throws Exception {
 
-        tool.enterStringUsingId(tool, "p-L1:3-L3:1470", lastName);
+        tool.enterStringUsingId("p-L1:3-L3:1470", lastName);
     }
 
     public RequestSubmission clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])[2]");
+        tool.clickUsingXPath("(//input[@value='Search'])[2]");
         return new RequestSubmission(tool, test, user);
     }
 
     public SearchMember clickSearchMemberLink() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_SEARCH_BY_MEMBER");
+        tool.clickUsingID("smnu_SEARCH_BY_MEMBER");
         return new SearchMember(tool, test, user);
     }
 
     public ContactInformation clickOnCustomerNameLink(String lastname) throws Exception {
 
-        tool.clickUsingPartialLinkText(tool, lastname);
+        tool.clickUsingPartialLinkText(lastname);
         return new ContactInformation(tool, test, user);
     }
 
     public void clickSearchLastFirstName() throws Exception {
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])[2]");
+        tool.clickUsingXPath("(//input[@value='Search'])[2]");
     }
 }

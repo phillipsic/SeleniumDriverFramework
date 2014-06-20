@@ -10,7 +10,7 @@ public class AdjustmentDetailsCommon extends CommonMenu {
     public AdjustmentDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -22,7 +22,7 @@ public class AdjustmentDetailsCommon extends CommonMenu {
 
     public ViewUnbilledAdjustmentCommon clickBack() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
         return new ViewUnbilledAdjustmentCommon(tool, test, user);
     }
 }

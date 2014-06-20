@@ -13,10 +13,10 @@ public class OutboundCommunicationTemplate extends OutboundCommunicationTemplate
 
     public OutboundCommunicationTemplate(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Outbound Communication Template";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -29,19 +29,19 @@ public class OutboundCommunicationTemplate extends OutboundCommunicationTemplate
 
     private void clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, ".//*[@id='OutboundCommTemplateSearchForm']/fieldset[2]/input[3]");
+        tool.clickUsingXPath(".//*[@id='OutboundCommTemplateSearchForm']/fieldset[2]/input[3]");
     }
 
     @Override
     public AddOutboundCommunicationTemplate clickAdd() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Add']");
+        tool.clickUsingXPath("//input[@value='Add']");
         return new AddOutboundCommunicationTemplate(tool, test, user);
     }
 
     public void clickBack() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Back']");
+        tool.clickUsingXPath("//input[@value='Back']");
     }
 
 }

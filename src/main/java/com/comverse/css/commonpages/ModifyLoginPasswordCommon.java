@@ -13,23 +13,23 @@ public class ModifyLoginPasswordCommon extends CommonMenu {
     public ModifyLoginPasswordCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Login Password";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickOk() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
        
     }
 
     public String getNewPassword() throws Exception {
 
-        String password = tool.getTextUsingXPath(tool, "//div[@id='mainContents']/div/div[2]/div/div/span");
+        String password = tool.getTextUsingXPath("//div[@id='mainContents']/div/div[2]/div/div/span");
 
         String temp[] = password.split(":");
         password = temp[1];

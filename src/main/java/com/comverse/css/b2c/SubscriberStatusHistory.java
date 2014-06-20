@@ -8,7 +8,7 @@ public class SubscriberStatusHistory extends B2CMenu {
 
     public SubscriberStatusHistory(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Subscriber Status History";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,7 +19,7 @@ public class SubscriberStatusHistory extends B2CMenu {
 
     public SubscriberDetail clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         // Common.waitForEndOfWaitingPage(tool,
         // this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
@@ -27,7 +27,7 @@ public class SubscriberStatusHistory extends B2CMenu {
 
     public String getStatus() throws Exception {
         String subscriberStatus;
-        subscriberStatus = tool.getTextUsingXPath(tool, "//td[2]");
+        subscriberStatus = tool.getTextUsingXPath("//td[2]");
         return subscriberStatus;
 
     }

@@ -12,7 +12,7 @@ public class ModifySubscriberAttributes extends B2CMenu {
 
     public ModifySubscriberAttributes(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Subscriber Attributes";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,24 +23,24 @@ public class ModifySubscriberAttributes extends B2CMenu {
 
     public RequestSubmission clickModifyAttributes() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value= 'Modify Attributes']");
+        tool.clickUsingXPath("//input[@value= 'Modify Attributes']");
         return new RequestSubmission(tool, test, user);
     }
 
     public void selectLanguage(String language) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "p-param-L4:80000", language);
+        tool.selectVisibleTextByID("p-param-L4:80000", language);
 
     }
 
     public String getLanguage() throws Exception {
-        String language = tool.getSelectedTextByID(tool, "p-param-L4:80000");
+        String language = tool.getSelectedTextByID("p-param-L4:80000");
         return language;
     }
 
     public SubscriberDetail clickCancel() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value= 'Cancel']");
+        tool.clickUsingXPath("//input[@value= 'Cancel']");
         return new SubscriberDetail(tool, test, user);
     }
 

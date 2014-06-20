@@ -14,9 +14,9 @@ public class AddCaseConfirmationCommon extends CommonMenu {
     public AddCaseConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,18 +24,18 @@ public class AddCaseConfirmationCommon extends CommonMenu {
 
     public AccountDetailsCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public String getConfirmationMessage() throws Exception {
 
-        return tool.getTextUsingCssSelector(tool, "BODY");
+        return tool.getTextUsingCssSelector("BODY");
     }
 
     public String getCaseID() throws Exception {
 
-        String caseID = tool.getTextUsingCssSelector(tool, "div.txt > span");
+        String caseID = tool.getTextUsingCssSelector("div.txt > span");
 
         caseID = caseID.replaceAll("[a-zA-Z \\.]", "");
         System.out.println("New Case ID : " + caseID);

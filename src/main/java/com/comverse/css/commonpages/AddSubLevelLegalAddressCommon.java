@@ -14,9 +14,9 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
     public AddSubLevelLegalAddressCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -26,21 +26,21 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
     public void setLevelName(String levelName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "company_name", levelName);
+        tool.enterStringUsingId("company_name", levelName);
     }
 
     public void setLevelState(String levelState) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "home_state", levelState);
+        tool.selectVisibleTextByID("home_state", levelState);
         /*
          * 
-         * tool.enterStringUsingId(tool, "home_state", levelState);
+         * tool.enterStringUsingId("home_state", levelState);
          */
     }
 
     public RequestSubmissionCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new RequestSubmissionCommon(tool, test, user);
     }

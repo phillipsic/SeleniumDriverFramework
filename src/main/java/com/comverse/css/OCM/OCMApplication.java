@@ -25,37 +25,37 @@ public class OCMApplication extends Main {
     public OCMApplication(AutomationTool tool, Test test) throws Exception {
         this.tool = tool;
         this.test = test;
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "OCM Application";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickMenuPublicationsManagePublications(Application application) throws Exception {
-        tool.get(tool, application.appURL() + "faces/publication/manage_publication.jsp;" + this.getSessionIDFromUrl());
+        tool.get(application.appURL() + "faces/publication/manage_publication.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Manage Publications");
     }
 
     public void clickMenuManageMediaFiles(Application application) throws Exception {
-        tool.get(tool, application.appURL() + "faces/content/browse_content.jsp;" + this.getSessionIDFromUrl());
+        tool.get(application.appURL() + "faces/content/browse_content.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Browse Media Files");
     }
 
     public void clickMenuManageCatalogs(Application application) throws Exception {
-        tool.get(tool, application.appURL() + "faces/catalog/product_by_catalog.jsp;" + this.getSessionIDFromUrl());
+        tool.get(application.appURL() + "faces/catalog/product_by_catalog.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Browse Products by Catalog");
     }
 
     public void clickMenuNewPublication(Application application) throws Exception {
-        tool.get(tool, application.appURL() + "faces/publication/create_publication.jsp;" + this.getSessionIDFromUrl());
+        tool.get(application.appURL() + "faces/publication/create_publication.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "New Publication");
     }
 
     public void clickLatestPropagationResult() throws Exception {
-        String source = tool.getPageSource(tool);
+        String source = tool.getPageSource();
         String IDSubscriber[];
 
         IDSubscriber = source.split("PC Propagation");
@@ -66,14 +66,14 @@ public class OCMApplication extends Main {
         if (test.getDebug())
             System.out.println(IDSubscriber[0]);
 
-        tool.clickUsingID(tool, "mainPanel:productForm2:publicationRequestList:" + IDSubscriber[0] + ":selectPublicationRequestDetails");
+        tool.clickUsingID("mainPanel:productForm2:publicationRequestList:" + IDSubscriber[0] + ":selectPublicationRequestDetails");
 
         Common.assertTextOnPage(tool, "Publication Request Details");
 
     }
 
     public String getDateOfPropagationFromDetailsPage() throws Exception {
-        String creationDate = tool.getTextUsingXPath(tool, "//*[@id=\"mainPanel:publicationCreationDate_detail\"]");
+        String creationDate = tool.getTextUsingXPath("//*[@id=\"mainPanel:publicationCreationDate_detail\"]");
 
         String dateCreation[];
         dateCreation = creationDate.split(" ");
@@ -82,7 +82,7 @@ public class OCMApplication extends Main {
     }
 
     public String getStatusOfPropagationFromDetailsPage() throws Exception {
-        String success = tool.getTextUsingXPath(tool, "//*[@id=\"mainPanel:Status_detail\"]");
+        String success = tool.getTextUsingXPath("//*[@id=\"mainPanel:Status_detail\"]");
         return success;
     }
 
@@ -109,14 +109,14 @@ public class OCMApplication extends Main {
         String deviceDesc = descCell.getContents();
 
         System.out.println("Starting creation of " + deviceName);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", deviceName);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", deviceCode);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", deviceDesc);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", deviceDesc);
-        tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
+        tool.enterStringUsingId("mainPanel:edit:fields:name", deviceName);
+        tool.enterStringUsingId("mainPanel:edit:fields:code", deviceCode);
+        tool.enterStringUsingId("mainPanel:edit:fields:shortDesc", deviceDesc);
+        tool.enterStringUsingId("mainPanel:edit:fields:description", deviceDesc);
+        tool.clickUsingID("mainPanel:edit:buttons:createProduct");
 
         boolean ExistingDevice = false;
-        String pageSource = tool.getPageSource(tool);
+        String pageSource = tool.getPageSource();
         ExistingDevice = pageSource.contains("Product code must be unique");
         System.out.println("ExistingDevice = " + ExistingDevice);
 
@@ -131,7 +131,7 @@ public class OCMApplication extends Main {
 
     public String getAttributeState() throws Exception {
         String AttributeState = "";
-        AttributeState = tool.getTextUsingXPath(tool, "//html/body/table/tbody/tr[2]/td/div/div[2]/div/div/span");
+        AttributeState = tool.getTextUsingXPath("//html/body/table/tbody/tr[2]/td/div/div[2]/div/div/span");
         return AttributeState;
     }
 
@@ -152,21 +152,21 @@ public class OCMApplication extends Main {
         String warehouse = warehouseCell.getContents();
         System.out.println(warehouse);
 
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":contentRef", smallImagePath);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":contentRef", smallImagePath);
 
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":contentRef", largeImagePath);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":contentRef", largeImagePath);
 
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer", smallImagePath);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer", largeImagePath);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer", smallImagePath);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer", largeImagePath);
 
-        tool.selectVisibleTextByID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne", manufacturer);
+        tool.selectVisibleTextByID("mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne", manufacturer);
 
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
-        tool.searchUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("Cable") + ":choiceMany:" + this.selectSecondIDs("Cable") + ":selected").click();
-        tool.clickUsingID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("GSM Mobile") + ":choiceMany:" + this.selectSecondIDs("GSM Mobile") + ":selected");
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
+        tool.searchUsingID("mainPanel:productForm:attributeList:" + this.selectFirstIDs("Cable") + ":choiceMany:" + this.selectSecondIDs("Cable") + ":selected").click();
+        tool.clickUsingID("mainPanel:productForm:attributeList:" + this.selectFirstIDs("GSM Mobile") + ":choiceMany:" + this.selectSecondIDs("GSM Mobile") + ":selected");
 
-        tool.clickUsingID(tool, "mainPanel:productForm:b_updateAttributes");
+        tool.clickUsingID("mainPanel:productForm:b_updateAttributes");
 
         assertTrue(this.getAttributeState().matches("^[\\s\\S]*Attribute values updated[\\s\\S]*$"));
 
@@ -174,7 +174,7 @@ public class OCMApplication extends Main {
     }
 
     public String selectFirstIDs(String OfferName) throws Exception {
-        String str = tool.getPageSource(tool);
+        String str = tool.getPageSource();
         String temp[];
 
         temp = str.split(OfferName);
@@ -188,7 +188,7 @@ public class OCMApplication extends Main {
     }
 
     public String selectSecondIDs(String OfferName) throws Exception {
-        String str = tool.getPageSource(tool);
+        String str = tool.getPageSource();
         String temp[];
 
         temp = str.split(OfferName);
@@ -212,21 +212,21 @@ public class OCMApplication extends Main {
         Cell priceEURCell = workSheet.getCell(10, rowCount);
         String priceEUR = priceEURCell.getContents();
 
-        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
+        tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
-        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
+        tool.clickUsingID("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:price", priceUSD);
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:startDate", myformat.format(date));
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:cancel");
 
         this.SelectEURCurrency();
-        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
+        tool.clickUsingID("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:price", priceEUR);
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:startDate", myformat.format(date));
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:cancel");
 
         System.out.println("DevicePriceLists values updated");
     }
@@ -253,67 +253,67 @@ public class OCMApplication extends Main {
 
         String SubsidizeString = "-Subsidized";
 
-        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.5");
+        tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.5");
 
         // Click on "Residential - Ultra Postpaid"
         // @TODO this link needs to be fixed - need to do string chop to
         // construct with good ID's
-        tool.clickUsingXPath(tool, "//span[.= 'Residential - Ultra Postpaid']/../..//a");
+        tool.clickUsingXPath("//span[.= 'Residential - Ultra Postpaid']/../..//a");
 
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", deviceName + SubsidizeString);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", deviceCode + SubsidizeString);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", deviceDesc + SubsidizeString);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", deviceDesc + SubsidizeString);
-        tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
+        tool.enterStringUsingId("mainPanel:edit:fields:name", deviceName + SubsidizeString);
+        tool.enterStringUsingId("mainPanel:edit:fields:code", deviceCode + SubsidizeString);
+        tool.enterStringUsingId("mainPanel:edit:fields:shortDesc", deviceDesc + SubsidizeString);
+        tool.enterStringUsingId("mainPanel:edit:fields:description", deviceDesc + SubsidizeString);
+        tool.clickUsingID("mainPanel:edit:buttons:createProduct");
 
         // Click on Prices tab
-        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
+        tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
-        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
+        tool.clickUsingID("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:price", priceUSD);
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:startDate", myformat.format(date));
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:cancel");
 
         this.SelectEURCurrency();
-        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
+        tool.clickUsingID("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:price", priceEUR);
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:startDate", myformat.format(date));
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:cancel");
 
         System.out.println("Subsidized values updated");
     }
 
     public void SelectEURCurrency() throws Exception {
-        tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
-        tool.selectVisibleTextByID(tool, "menu:mainForm:displayedCurrency", "EUR");
-        tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
+        tool.clickUsingID("menu:mainForm:_idJsp5ToggleCollapsed");
+        tool.selectVisibleTextByID("menu:mainForm:displayedCurrency", "EUR");
+        tool.clickUsingID("menu:mainForm:_idJsp5ToggleCollapsed");
     }
 
     public void SelectUSDCurrency() throws Exception {
-        tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
-        tool.selectVisibleTextByID(tool, "menu:mainForm:displayedCurrency", "USD");
-        tool.clickUsingID(tool, "menu:mainForm:_idJsp5ToggleCollapsed");
+        tool.clickUsingID("menu:mainForm:_idJsp5ToggleCollapsed");
+        tool.selectVisibleTextByID("menu:mainForm:displayedCurrency", "USD");
+        tool.clickUsingID("menu:mainForm:_idJsp5ToggleCollapsed");
     }
 
     public void editVoiceDeviceCategories() throws Exception {
-        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_VOICE_DEVICES_PC") + ":attach");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:buttons:modifyList");
+        tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.9");
+        tool.clickUsingID("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
+        tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
+        tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_VOICE_DEVICES_PC") + ":attach");
+        tool.clickUsingID("mainPanel:productForm:categoryList:buttons:modifyList");
 
         System.out.println("VoiceDeviceCategories values updated");
     }
 
     public void editDataDeviceCategories() throws Exception {
-        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_DEVICES_PC") + ":attach");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:buttons:modifyList");
+        tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.9");
+        tool.clickUsingID("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
+        tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
+        tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_DEVICES_PC") + ":attach");
+        tool.clickUsingID("mainPanel:productForm:categoryList:buttons:modifyList");
 
         System.out.println("DataDeviceCategories values updated");
     }
@@ -336,14 +336,14 @@ public class OCMApplication extends Main {
 
         System.out.println("Starting creation of " + accessoryName);
 
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:name", accessoryName);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:code", accessoryCode);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:shortDesc", accessoryDesc);
-        tool.enterStringUsingId(tool, "mainPanel:edit:fields:description", accessoryDesc);
-        tool.clickUsingID(tool, "mainPanel:edit:buttons:createProduct");
+        tool.enterStringUsingId("mainPanel:edit:fields:name", accessoryName);
+        tool.enterStringUsingId("mainPanel:edit:fields:code", accessoryCode);
+        tool.enterStringUsingId("mainPanel:edit:fields:shortDesc", accessoryDesc);
+        tool.enterStringUsingId("mainPanel:edit:fields:description", accessoryDesc);
+        tool.clickUsingID("mainPanel:edit:buttons:createProduct");
 
         boolean ExistingAccessory = false;
-        String pageSource = tool.getPageSource(tool);
+        String pageSource = tool.getPageSource();
         ExistingAccessory = pageSource.contains("Product code must be unique");
         System.out.println("ExistingAccessory = " + ExistingAccessory);
 
@@ -371,19 +371,19 @@ public class OCMApplication extends Main {
         Cell warehouseCell = workSheet.getCell(9, rowCount);
         String warehouse = warehouseCell.getContents();
 
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":contentRef", smallImagePath);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":contentRef", smallImagePath);
 
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":contentRef", largeImagePath);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":contentRef", largeImagePath);
 
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer", smallImagePath);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer", largeImagePath);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("SMALL_IMAGE_PATH") + ":simpleDisclaimer", smallImagePath);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("LARGE_IMAGE_PATH") + ":simpleDisclaimer", largeImagePath);
 
-        tool.selectVisibleTextByID(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne", manufacturer);
+        tool.selectVisibleTextByID("mainPanel:productForm:attributeList:" + this.selectFirstIDs("MANUFACTURERS") + ":selectOne", manufacturer);
 
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("WAREHOUSE_NUMBER") + ":longString", warehouse);
+        tool.enterStringUsingId("mainPanel:productForm:attributeList:" + this.selectFirstIDs("TERMS_AND_CONDITIONS") + ":longString", "CSS_PQA Terms And Conditions");
 
-        tool.clickUsingID(tool, "mainPanel:productForm:b_updateAttributes");
+        tool.clickUsingID("mainPanel:productForm:b_updateAttributes");
 
         assertTrue(this.getAttributeState().matches("^[\\s\\S]*Attribute values updated[\\s\\S]*$"));
 
@@ -402,38 +402,38 @@ public class OCMApplication extends Main {
         Cell priceEURCell = workSheet.getCell(11, rowCount);
         String priceEUR = priceEURCell.getContents();
 
-        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.7");
+        tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.7");
 
         this.SelectUSDCurrency();
-        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceUSD);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
+        tool.clickUsingID("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:price", priceUSD);
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:startDate", myformat.format(date));
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:cancel");
 
         this.SelectEURCurrency();
-        tool.clickUsingID(tool, "mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:price", priceEUR);
-        tool.enterStringUsingId(tool, "mainPanel:productForm:priceList:0:startDate", myformat.format(date));
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:modifyPriceList");
-        tool.clickUsingID(tool, "mainPanel:productForm:priceList:buttons:cancel");
+        tool.clickUsingID("mainPanel:productForm:priceTab:view_product_prices:defaultPricesList:0:editDefaultPrices");
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:price", priceEUR);
+        tool.enterStringUsingId("mainPanel:productForm:priceList:0:startDate", myformat.format(date));
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:modifyPriceList");
+        tool.clickUsingID("mainPanel:productForm:priceList:buttons:cancel");
 
         System.out.println("DevicePriceLists values updated");
     }
 
     public void editAccessoryCategories() throws Exception {
-        tool.clickUsingName(tool, "mainPanel:productForm:productDetailsTabbedPane.9");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_ACCESSORIES_PC") + ":attach");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_PHONE_ACCESSORIES_PC") + ":attach");
-        tool.clickUsingID(tool, "mainPanel:productForm:categoryList:buttons:modifyList");
+        tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.9");
+        tool.clickUsingID("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
+        tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
+        tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_DATA_ACCESSORIES_PC") + ":attach");
+        tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("DS_PHONE_ACCESSORIES_PC") + ":attach");
+        tool.clickUsingID("mainPanel:productForm:categoryList:buttons:modifyList");
 
         System.out.println("AccessoryCategories values updated");
     }
 
     public String getSessionIDFromUrl() throws Exception {
-        String sessionID[] = tool.getCurrentUrl(tool).split(";");
+        String sessionID[] = tool.getCurrentUrl().split(";");
 
         return sessionID[1];
     }

@@ -20,7 +20,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
     public ViewCombinedHistoryCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -52,40 +52,40 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        tool.enterStringUsingId(tool, "fromDate", fromDate);
+        tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
-        tool.enterStringUsingId(tool, "toDate", toDate);
+        tool.enterStringUsingId("toDate", toDate);
 
     }
 
     public void deselectbox() throws Exception {
-        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Adjustment");
-        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "MTR");
-        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "RC");
-        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Recharge");
-        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Usage");
+        tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Adjustment");
+        tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "MTR");
+        tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "RC");
+        tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Recharge");
+        tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Usage");
     }
 
     public void clickSearch() throws Exception {
 
-        tool.clickUsingName(tool, "B1");
+        tool.clickUsingName("B1");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public String getSearchResults() throws Exception {
-        String text = tool.getTextUsingClassName(tool, "inverseHeaderText");
+        String text = tool.getTextUsingClassName("inverseHeaderText");
         System.out.println("Output:" + text);
         return text;
     }
 
     public ViewNRCTermDetailsCommon ViewNRCTermDetails() throws Exception {
 
-        tool.clickUsingID(tool, "transactionDetails");
+        tool.clickUsingID("transactionDetails");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

@@ -10,7 +10,7 @@ public class ShoppingCommon extends CommonMenu {
 
     public ShoppingCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -20,7 +20,7 @@ public class ShoppingCommon extends CommonMenu {
     public void filterSubscriberBundlePrimaryOfferByName(String offername) throws Exception {
 
         this.waitForOffersToLoadOnPage();
-        tool.enterStringUsingId(tool, "filter_str_plan_name", offername);
+        tool.enterStringUsingId("filter_str_plan_name", offername);
 
     }
 
@@ -32,33 +32,33 @@ public class ShoppingCommon extends CommonMenu {
     public void clickSubscriberBundlePrimaryOfferName(String offername) throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForOffersToLoadOnPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingLinkText(tool, offername);
+        tool.clickUsingLinkText(offername);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickPOCompatibleOffersTab() throws Exception {
-        tool.clickUsingXPath(tool, "//div[@id='planDetails']/ul/li[2]/a/em");
+        tool.clickUsingXPath("//div[@id='planDetails']/ul/li[2]/a/em");
     }
 
     public void clickPOTermsAndConditionsTab() throws Exception {
-        tool.clickUsingXPath(tool, "//div[@id='planDetails']/ul/li[3]/a/em");
+        tool.clickUsingXPath("//div[@id='planDetails']/ul/li[3]/a/em");
     }
 
     public void clickPOOfferPolicyDetailsTab() throws Exception {
-        tool.clickUsingXPath(tool, "//div[@id='planDetails']/ul/li[4]/a/em");
+        tool.clickUsingXPath("//div[@id='planDetails']/ul/li[4]/a/em");
     }
 
     public void clickABCompatibleOffersTab() throws Exception {
-        tool.clickUsingXPath(tool, "//div[@id='accountBundleDetails']/ul/li[2]/a/em");
+        tool.clickUsingXPath("//div[@id='accountBundleDetails']/ul/li[2]/a/em");
     }
 
     public void clickABTermsAndConditionsTab() throws Exception {
-        tool.clickUsingXPath(tool, "//div[@id='accountBundleDetails']/ul/li[3]/a/em");
+        tool.clickUsingXPath("//div[@id='accountBundleDetails']/ul/li[3]/a/em");
     }
 
     public void clickAccountBundleOfferName(String accountBundle) throws Exception {
 
-        String pageSource = tool.getPageSource(tool);
+        String pageSource = tool.getPageSource();
         String temp[];
         String cleanString;
 
@@ -74,7 +74,7 @@ public class ShoppingCommon extends CommonMenu {
         Common.waitForAccountBundlesToLoadOnPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        tool.clickUsingXPath(tool, "//b[@onclick=\"javascript: accountBundleDetails('" + accountBundleID + "')\"]");
+        tool.clickUsingXPath("//b[@onclick=\"javascript: accountBundleDetails('" + accountBundleID + "')\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
@@ -82,7 +82,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingName(tool, "select");
+        tool.clickUsingName("select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new MyBasketCommon(tool, test, user);
@@ -92,7 +92,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingName(tool, "select");
+        tool.clickUsingName("select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ConfigureBalanceCommon(tool, test, user);
@@ -102,7 +102,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingName(tool, "select");
+        tool.clickUsingName("select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new TestServiceAbilityCommon(tool, test, user);
@@ -112,7 +112,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingXPath(tool, "//a/span");
+        tool.clickUsingXPath("//a/span");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new TestServiceAbilityCommon(tool, test, user);
@@ -122,7 +122,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingName(tool, "select");
+        tool.clickUsingName("select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ConfigureContractDetailsCommon(tool, test, user);
@@ -132,7 +132,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingName(tool, "select");
+        tool.clickUsingName("select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new EnterYourSubscriptionDetailsCommon(tool, test, user);
@@ -142,7 +142,7 @@ public class ShoppingCommon extends CommonMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingName(tool, "select");
+        tool.clickUsingName("select");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
@@ -150,47 +150,47 @@ public class ShoppingCommon extends CommonMenu {
 
     public EnterYourSubscriptionDetailsCommon clickNoThankstoHandsets() throws Exception {
 
-        tool.clickUsingName(tool, "nothanks");
+        tool.clickUsingName("nothanks");
         return new EnterYourSubscriptionDetailsCommon(tool, test, user);
     }
 
     public MyBasketCommon selectHandset(String value) throws Exception {
 
-        tool.clickUsingID(tool, "lnk_ADVANCE_FILTER");
-        tool.enterStringUsingId(tool, "filterByFreeText", value);
+        tool.clickUsingID("lnk_ADVANCE_FILTER");
+        tool.enterStringUsingId("filterByFreeText", value);
         Common.sleepForNumberOfSeconds(3);
-        tool.clickUsingName(tool, "buy_outright");
+        tool.clickUsingName("buy_outright");
         return new MyBasketCommon(tool, test, user);
     }
 
     public void clickAccountBundlesTab() throws Exception {
 
-        tool.clickUsingXPath(tool, "//div[@id='shoppingTabs']/ul/li[2]/a/em");
+        tool.clickUsingXPath("//div[@id='shoppingTabs']/ul/li[2]/a/em");
         Common.waitForAccountBundlesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickHandsetsTab() throws Exception {
 
-        tool.clickUsingXPath(tool, "//div[@id='shoppingTabs']/ul/li[3]/a/em");
+        tool.clickUsingXPath("//div[@id='shoppingTabs']/ul/li[3]/a/em");
         Common.waitForDevicesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
     public void clickAccessoriesTab() throws Exception {
 
-        tool.clickUsingPartialLinkText(tool, "Accessories");
+        tool.clickUsingPartialLinkText("Accessories");
         Common.waitForAccessoriesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
     public void selectBundleByName(String bundleName) throws Exception {
 
-        tool.clickUsingXPath(tool, "//tr[@id='abtr:" + bundleName + "']/td/input");
+        tool.clickUsingXPath("//tr[@id='abtr:" + bundleName + "']/td/input");
     }
 
     public void selectAccountOffer(String accountBundleID, String accountOfferName) throws Exception {
 
         /*
          * String temp[]; String temp2[]; String tokenizedOfferName; String
-         * accountOfferID; String pageSource = tool.getPageSource(tool);
+         * accountOfferID; String pageSource = tool.getPageSource();
          * 
          * temp = pageSource.split(accountBundleID + "_selectiveService\"");
          * 
@@ -203,20 +203,20 @@ public class ShoppingCommon extends CommonMenu {
          */
         // div[contains(text(),'DIYe - extended Interactivity (Your
         // account).')]/../..//input
-        tool.clickUsingXPath(tool, "//div[contains(text(),'" + accountOfferName + "')]/../..//input");
+        tool.clickUsingXPath("//div[contains(text(),'" + accountOfferName + "')]/../..//input");
     }
 
     public void selectOptionalSubscriberBundle(String accountBundleID, String optionalSubscriberBundle) throws Exception {
-        tool.clickUsingXPath(tool, "(//input[@type='checkbox' and @name='" + accountBundleID + "_subs_bundle' and contains(@id,'" + optionalSubscriberBundle + "')])");
+        tool.clickUsingXPath("(//input[@type='checkbox' and @name='" + accountBundleID + "_subs_bundle' and contains(@id,'" + optionalSubscriberBundle + "')])");
     }
 
     public void selectOptionalSupplementaryOffers(String accountBundleID, String optionalSupplementaryOffers) throws Exception {
-        tool.clickUsingXPath(tool, "//td[@class = 'oddRow' and contains(.,'" + optionalSupplementaryOffers + "')]/../td/input[@parentabid = '" + accountBundleID + "']");
+        tool.clickUsingXPath("//td[@class = 'oddRow' and contains(.,'" + optionalSupplementaryOffers + "')]/../td/input[@parentabid = '" + accountBundleID + "']");
     }
 
     private String retrieveAccountBundleID(String accountBundleName) throws Exception {
 
-        String pageSource = tool.getPageSource(tool);
+        String pageSource = tool.getPageSource();
         String temp[];
         String cleanString;
 
@@ -286,7 +286,7 @@ public class ShoppingCommon extends CommonMenu {
             }
         }
 
-        tool.clickUsingXPath(tool, "(//input[@type='button' and @value='Subscribe' and contains( @onclick, '" + accountBundleID + "') and contains( @onclick,'" + accountBundle
+        tool.clickUsingXPath("(//input[@type='button' and @value='Subscribe' and contains( @onclick, '" + accountBundleID + "') and contains( @onclick,'" + accountBundle
                 + "')])");
 
         // return new SelectOffersForYourSubscriberCommon(tool, test, user);
@@ -294,35 +294,35 @@ public class ShoppingCommon extends CommonMenu {
 
     public ConfigureContractDetailsCommon clickSubscribe() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Subscribe'])[2]");
+        tool.clickUsingXPath("(//input[@value='Subscribe'])[2]");
         return new ConfigureContractDetailsCommon(tool, test, user);
     }
 
     public MyBasketCommon clickSubscribeNoConfiguration() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Subscribe'])[3]");
+        tool.clickUsingXPath("(//input[@value='Subscribe'])[3]");
 
         return new MyBasketCommon(tool, test, user);
     }
 
     public SelectOffersForYourSubscriberCommon clickSubscribeAccountBundle() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Subscribe'])[3]");
+        tool.clickUsingXPath("(//input[@value='Subscribe'])[3]");
 
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
     public void clickClose() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Close'])");
+        tool.clickUsingXPath("(//input[@value='Close'])");
     }
 
     public MyBasketCommon selectAccessory(String value) throws Exception {
-        tool.enterStringUsingId(tool, "filter_acc_name", value);
+        tool.enterStringUsingId("filter_acc_name", value);
         Common.sleepForNumberOfSeconds(3);
-        tool.clickUsingLinkText(tool, value);
+        tool.clickUsingLinkText(value);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        tool.clickUsingXPath(tool, "//input[@value='Select']");
+        tool.clickUsingXPath("//input[@value='Select']");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

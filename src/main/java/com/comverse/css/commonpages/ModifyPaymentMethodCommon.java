@@ -13,7 +13,7 @@ public class ModifyPaymentMethodCommon extends CommonMenu {
     public ModifyPaymentMethodCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify payment method";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,7 +24,7 @@ public class ModifyPaymentMethodCommon extends CommonMenu {
 
     public AccountDetailsCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }
 }

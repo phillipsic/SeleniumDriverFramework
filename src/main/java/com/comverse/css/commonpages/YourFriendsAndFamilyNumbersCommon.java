@@ -15,7 +15,7 @@ public class YourFriendsAndFamilyNumbersCommon extends CommonMenu {
     public YourFriendsAndFamilyNumbersCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,7 +24,7 @@ public class YourFriendsAndFamilyNumbersCommon extends CommonMenu {
     }
 
     public ConfigurationOfYourFriendsAndFamilyNumbersCommon clickReconfigure() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='Reconfigure']");
+        tool.clickUsingXPath("//input[@value='Reconfigure']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigurationOfYourFriendsAndFamilyNumbersCommon(tool, test, user);
     }
@@ -34,7 +34,7 @@ public class YourFriendsAndFamilyNumbersCommon extends CommonMenu {
     }
 
     public void clickOK() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
 }

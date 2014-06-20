@@ -14,7 +14,7 @@ public class CoherencyCheckCommon extends CommonMenu {
     public CoherencyCheckCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,13 +23,13 @@ public class CoherencyCheckCommon extends CommonMenu {
     }
 
     public String getOrderNumber() throws Exception {
-        String orderNumber = tool.getTextUsingXPath(tool, "//span");
+        String orderNumber = tool.getTextUsingXPath("//span");
         orderNumber = orderNumber.substring(orderNumber.lastIndexOf(" ") + 1);
         return orderNumber;
     }
 
     public void clickOK() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
 }

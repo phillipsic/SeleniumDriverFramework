@@ -9,9 +9,9 @@ public class AddressAddCommon extends CommonMenu {
 
     public AddressAddCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -21,33 +21,33 @@ public class AddressAddCommon extends CommonMenu {
     public void setStreetName(String streetname) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "streetName", streetname);
+        tool.enterStringUsingId("streetName", streetname);
 
     }
 
     public void setCity(String city) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "city", city);
+        tool.enterStringUsingId("city", city);
 
     }
 
     public void setZipCode(String zipcode) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "postalCode", zipcode);
+        tool.enterStringUsingId("postalCode", zipcode);
 
     }
 
     public void selectCountry(String country) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "countryCode", country);
+        tool.selectVisibleTextByID("countryCode", country);
 
     }
 
     public AddressAdministrationCommon clickOK() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Ok']");
+        tool.clickUsingXPath("//input[@value='Ok']");
 
         return new AddressAdministrationCommon(tool, test, user);
     }

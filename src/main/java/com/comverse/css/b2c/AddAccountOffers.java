@@ -13,7 +13,7 @@ public class AddAccountOffers extends B2CMenu {
 
     public AddAccountOffers(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Add Account Offers";
 
         // Check that we're on the right page.
@@ -26,7 +26,7 @@ public class AddAccountOffers extends B2CMenu {
 
     public SubscriberDetail clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
     }
@@ -34,7 +34,7 @@ public class AddAccountOffers extends B2CMenu {
     public String getAOOrderNumberFromPage() throws Exception {
         String orderNumber;
 
-        orderNumber = tool.getTextUsingXPath(tool, "//div[@class='txt']/span");
+        orderNumber = tool.getTextUsingXPath("//div[@class='txt']/span");
         orderNumber = orderNumber.substring(orderNumber.lastIndexOf(' ') + 1).replace(".", "");
         System.out.println("Order Number = '" + orderNumber + "'");
 

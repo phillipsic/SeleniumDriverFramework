@@ -13,10 +13,10 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
     public ChangeSecretAnswerCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Change secret question and answer";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -25,28 +25,28 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
     public void setPassword(String password) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "password_old", password);
+        tool.enterStringUsingId("password_old", password);
     }
 
     public void setSecretAnswer(String answer) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "secretAnswer", answer);
+        tool.enterStringUsingId("secretAnswer", answer);
     }
 
     public String getSecretAnswer() throws Exception {
 
-        return tool.getAttributeUsingId(tool, "secretAnswer", "value");
+        return tool.getAttributeUsingId("secretAnswer", "value");
     }
 
     public void setSecretQuestion(String question) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "secretQuestionId", question);
+        tool.selectVisibleTextByID("secretQuestionId", question);
     }
 
     public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         return new ConfirmNewSecretAnswerCommon(tool, test, user);
     }
 

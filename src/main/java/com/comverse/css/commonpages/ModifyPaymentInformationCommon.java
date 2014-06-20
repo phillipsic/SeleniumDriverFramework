@@ -13,7 +13,7 @@ public class ModifyPaymentInformationCommon extends CommonMenu {
     public ModifyPaymentInformationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Payment Information";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,51 +24,51 @@ public class ModifyPaymentInformationCommon extends CommonMenu {
 
     public void setPaymentMethodDirectDebit() throws Exception {
 
-        tool.clickUsingName(tool, "method");
+        tool.clickUsingName("method");
     }
 
     public void setBankCode(String value) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "p-L1:1-L3:1360", value);
+        tool.enterStringUsingId("p-L1:1-L3:1360", value);
     }
 
     public void setBankAgencyCode(String value) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "p-L1:1-L3:1370", value);
+        tool.enterStringUsingId("p-L1:1-L3:1370", value);
     }
 
     public void setBankAccountNumber(String value) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "p-L1:1-L3:1380", value);
+        tool.enterStringUsingId("p-L1:1-L3:1380", value);
     }
 
     public void setOwnerlastName(String value) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "p-L1:1-L3:1270", value);
+        tool.enterStringUsingId("p-L1:1-L3:1270", value);
     }
 
     public ModifyPaymentMethodCommon clickModifyPaymentButton() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Modify Payment Method']");
+        tool.clickUsingXPath("//input[@value='Modify Payment Method']");
         return new ModifyPaymentMethodCommon(tool, test, user);
     }
 
     public String getBankCode() throws Exception {
 
-        return tool.getAttributeUsingId(tool, "p-L1:1-L3:1360", "value");
+        return tool.getAttributeUsingId("p-L1:1-L3:1360", "value");
     }
 
     public String getBankAgencyCode() throws Exception {
 
-        return tool.getAttributeUsingId(tool, "p-L1:1-L3:1370", "value");
+        return tool.getAttributeUsingId("p-L1:1-L3:1370", "value");
     }
 
     public String getBankAccountNumber() throws Exception {
 
-        return tool.getAttributeUsingId(tool, "p-L1:1-L3:1380", "value");
+        return tool.getAttributeUsingId("p-L1:1-L3:1380", "value");
     }
 }

@@ -10,7 +10,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
 
     public ServiceConnectionDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Service Connection Details";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -19,23 +19,23 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickOk() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new MyBasketCommon(tool, test, user);
     }
 
     public SwapImpactCommon clickOkExpectingSwapImpact() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new SwapImpactCommon(tool, test, user);
     }
 
     public void SetEmailInventory(String email) throws Exception {
         
-        tool.enterStringUsingId(tool, "inputFields1414", email);
+        tool.enterStringUsingId("inputFields1414", email);
 
     }
 
     public MyBasketCommon clickOkAfterSetEmailInventory() throws Exception {
-        tool.clickUsingID(tool, "display_line_submit_button");
+        tool.clickUsingID("display_line_submit_button");
         return new MyBasketCommon(tool, test, user);
     }
 
@@ -43,7 +43,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
         String inventoryString = "SIM type:";
 
         this.clickSetButton(inventoryString);
-        String SIM = tool.getTextUsingXPath(tool, "//p[span[contains(text(),\"SIM reference:\")]]/span[2]");
+        String SIM = tool.getTextUsingXPath("//p[span[contains(text(),\"SIM reference:\")]]/span[2]");
         subscriber.setSubscriberSIMProperty(SIM);
     }
 
@@ -51,7 +51,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
         String inventoryString = "IMSI type:";
 
         this.clickSetButton(inventoryString);
-        String IMSI = tool.getTextUsingXPath(tool, "//p[span[contains(text(),\"IMSI reference:\")]]/span[2]");
+        String IMSI = tool.getTextUsingXPath("//p[span[contains(text(),\"IMSI reference:\")]]/span[2]");
         subscriber.setSubscriberIMSIProperty(IMSI);
     }
 
@@ -60,7 +60,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
 
         this.clickSetButton(inventoryString);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        String MSISDN = tool.getTextUsingXPath(tool, "//p[span[contains(text(),\"MSISDN reference:\")]]/span[2]");
+        String MSISDN = tool.getTextUsingXPath("//p[span[contains(text(),\"MSISDN reference:\")]]/span[2]");
         subscriber.setSubscriberMSISDNProperty(MSISDN);
     }
 
@@ -68,14 +68,14 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
         String inventoryString = "TVQuality type:";
 
         this.clickSetButton(inventoryString);
-        String TVQuality = tool.getTextUsingXPath(tool, "//p[span[contains(text(),\"TVQuality reference:\")]]/span[2]");
+        String TVQuality = tool.getTextUsingXPath("//p[span[contains(text(),\"TVQuality reference:\")]]/span[2]");
         subscriber.setSubscriberTVQualityProperty(TVQuality);
     }
 
     public void clickSetButton(String inventoryString) throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
-        tool.clickUsingXPath(tool, "//span[contains(.,'" + inventoryString + "')]/../../following-sibling::div[1]/div/div/span/input");
+        tool.clickUsingXPath("//span[contains(.,'" + inventoryString + "')]/../../following-sibling::div[1]/div/div/span/input");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }

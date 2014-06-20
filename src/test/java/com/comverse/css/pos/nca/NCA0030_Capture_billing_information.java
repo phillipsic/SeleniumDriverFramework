@@ -77,7 +77,7 @@ public class NCA0030_Capture_billing_information extends CSSTest {
             enterIdentificationData.setFaxNumber("185655530776");
 
             Common.assertTextOnPage(tool, "Payment Method");
-            tool.clickUsingXPath(tool, "(//input[@name='method'])[1]");
+            tool.clickUsingXPath("(//input[@name='method'])[1]");
             enterIdentificationData.setBankCode("192837465");
             enterIdentificationData.setBankAgencyCode("15243");
             enterIdentificationData.setBankAccountNumber("918273640591827364059182736405");

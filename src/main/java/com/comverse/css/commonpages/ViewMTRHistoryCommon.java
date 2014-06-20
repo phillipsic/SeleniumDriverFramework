@@ -19,7 +19,7 @@ public class ViewMTRHistoryCommon extends CommonMenu {
     public ViewMTRHistoryCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!"View MTR history".equals(currentScreen)) {
@@ -54,25 +54,25 @@ public class ViewMTRHistoryCommon extends CommonMenu {
     public void enterFromDate(String fromDate) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "startDate", fromDate);
+        tool.enterStringUsingId("startDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "endDate", toDate);
+        tool.enterStringUsingId("endDate", toDate);
 
     }
 
     public void clickSearch() throws Exception {
 
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])[3]");
+        tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public String getSearchResults() throws Exception {
-        String text = tool.getTextUsingClassName(tool, "resultListTabTitle");
+        String text = tool.getTextUsingClassName("resultListTabTitle");
         System.out.println("Output:" + text);
 
         return text;
@@ -80,7 +80,7 @@ public class ViewMTRHistoryCommon extends CommonMenu {
 
     public ViewMTRDetailsCommon ViewMTRDetails() throws Exception {
 
-        tool.clickUsingXPath(tool, "//fieldset/div/table/tbody[2]/tr/td/div/a");
+        tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

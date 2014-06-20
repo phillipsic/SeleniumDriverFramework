@@ -13,7 +13,7 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
 
     @Override
     public String getFirstRequestStatus() throws Exception {
-        String requestStatus = tool.getTextUsingXPath(tool, "//div[@id='requestsContainer']//tr[1]/td[7]/div");
+        String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr[1]/td[7]/div");
         return requestStatus;
     }
 

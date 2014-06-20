@@ -9,7 +9,7 @@ public class ConfigureBalance extends B2CMenu {
 
     public ConfigureBalance(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Configure Balance";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -21,40 +21,40 @@ public class ConfigureBalance extends B2CMenu {
     public void configureBalance(String balanceName, String balanceValue) throws Exception {
 
         
-        tool.enterStringUsingId(tool, balanceName + "_limit", balanceValue);
+        tool.enterStringUsingId(balanceName + "_limit", balanceValue);
     }
 
     public void setSpendingLimit(String limitName, String spendingLimit) throws Exception {
         
-        tool.enterStringUsingId(tool, limitName + "_limit", spendingLimit);
+        tool.enterStringUsingId(limitName + "_limit", spendingLimit);
     }
 
     public void selectTargetAccount(String targetBalance) throws Exception {
-        tool.selectVisibleTextByID(tool, "targetBalance", targetBalance);
+        tool.selectVisibleTextByID("targetBalance", targetBalance);
     }
 
     public ChooseAccessories clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseAccessories(tool, test, user);
     }
 
     public MyBasket clickContinueExpectingMyBasket() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public ConfigureServiceConnectionDetails clickContinueExpectingConfigureServiceConnectionDetails() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue >']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         return new ConfigureServiceConnectionDetails(tool, test, user);
     }
 
     public ConfigureBalanceReview clickConfigureBalance() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value= 'Reconfigure Balance']");
+        tool.clickUsingXPath("//input[@value= 'Reconfigure Balance']");
         return new ConfigureBalanceReview(tool, test, user);
 
     }

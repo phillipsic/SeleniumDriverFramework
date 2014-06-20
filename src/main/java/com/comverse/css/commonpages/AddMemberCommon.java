@@ -10,7 +10,7 @@ public class AddMemberCommon extends CommonMenu {
     public AddMemberCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         if (!expectedScreen.equals(currentScreen)) {
 
@@ -20,7 +20,7 @@ public class AddMemberCommon extends CommonMenu {
 
     public String getTempPasswordFromPage() throws Exception {
 
-        String password = tool.getTextUsingXPath(tool, "//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
+        String password = tool.getTextUsingXPath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
         String temp[] = password.split(":");
         password = temp[1];
@@ -31,7 +31,7 @@ public class AddMemberCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new ViewHierarchyCommon(tool, test, user);
     }

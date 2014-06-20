@@ -14,7 +14,7 @@ public class SwapImpact extends B2CMenu {
     public SwapImpact(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Swap Impact";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -26,14 +26,14 @@ public class SwapImpact extends B2CMenu {
 
     public MyBasket clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Ok']");
+        tool.clickUsingXPath("//input[@value='Ok']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public ConfigureBalance clickOkExpectingConfigureBalance() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Ok']");
+        tool.clickUsingXPath("//input[@value='Ok']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureBalance(tool, test, user);
     }

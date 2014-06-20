@@ -14,10 +14,10 @@ public class AddEmployeeConfirmation extends CommonMenu {
     public AddEmployeeConfirmation(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Add Employee - Confirmation";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -25,14 +25,14 @@ public class AddEmployeeConfirmation extends CommonMenu {
 
     public RegisterLogin clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new RegisterLogin(tool, test, user);
     }
 
     public RegisterLogin clickOkForRegisterLater() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new RegisterLogin(tool, test, user);
     }

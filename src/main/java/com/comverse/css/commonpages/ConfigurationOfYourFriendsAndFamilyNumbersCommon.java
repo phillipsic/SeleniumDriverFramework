@@ -13,7 +13,7 @@ public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu
     public ConfigurationOfYourFriendsAndFamilyNumbersCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!"Configuration of your Friends and Family numbers".equals(currentScreen)) {
@@ -25,11 +25,11 @@ public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu
 
     public void setPhoneNumber(String phoneNumber) throws Exception {
         
-        tool.enterStringUsingName(tool, "friendsAndFamilyListInputFieldsphone_number0", phoneNumber);
+        tool.enterStringUsingName("friendsAndFamilyListInputFieldsphone_number0", phoneNumber);
     }
 
     public void clickOK() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
 }

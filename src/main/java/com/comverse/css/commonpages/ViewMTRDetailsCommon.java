@@ -13,7 +13,7 @@ public class ViewMTRDetailsCommon extends CommonMenu {
     public ViewMTRDetailsCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "View MTR details";
 
         if (!expectedScreen.equals(currentScreen)) {

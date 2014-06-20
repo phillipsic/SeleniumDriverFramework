@@ -10,127 +10,126 @@ public class PersonManagementCommon extends CommonMenu {
 
     public PersonManagementCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Person Management";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public void clickPersonAdd() throws Exception {
-        tool.clickUsingID(tool, "personadd");
+        tool.clickUsingID("personadd");
     }
 
     public void selectTitle(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "title", value);
+        tool.selectVisibleTextByID("title", value);
     }
 
     public void setFirstName(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "firstName", value);
+        tool.enterStringUsingId("firstName", value);
     }
 
     public void setLastName(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "lastName", value);
+        tool.enterStringUsingId("lastName", value);
     }
 
     public void setAddressLine1(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "address1", value);
+        tool.enterStringUsingId("address1", value);
     }
 
     public void setPostalCode(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "zipcode", value);
+        tool.enterStringUsingId("zipcode", value);
     }
 
     public void setCity(String value) throws Exception {
 
-        tool.enterStringUsingId(tool, "city", value);
+        tool.enterStringUsingId("city", value);
     }
 
     public void selectCountry(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "country", value);
+        tool.selectVisibleTextByID("country", value);
     }
 
     public void selectRegion(String value) throws Exception {
-        tool.selectVisibleTextByID(tool, "state", value);
+        tool.selectVisibleTextByID("state", value);
     }
 
     public void selectFirstUserinDropDown() throws Exception {
-        tool.selectByIndexByID(tool, "subscriber", 1);
+        tool.selectByIndexByID("subscriber", 1);
     }
 
     public void clickOrdering() throws Exception {
-        tool.clickUsingID(tool, "ordering");
+        tool.clickUsingID("ordering");
     }
 
     public void clickAddRole() throws Exception {
-        tool.clickUsingID(tool, "add_role");
+        tool.clickUsingID("add_role");
     }
 
     public void clickAdd() throws Exception {
-        tool.clickUsingID(tool, "submitButton");
+        tool.clickUsingID("submitButton");
     }
 
     public void clickAccountManager() throws Exception {
-        tool.clickUsingID(tool, "roleCmp");
+        tool.clickUsingID("roleCmp");
     }
 
     public void clickActions(String FName) throws Exception {
-        tool.clickUsingXPath(tool, "//div[contains(text(),'" + FName + "')]/../..//button");
+        tool.clickUsingXPath("//div[contains(text(),'" + FName + "')]/../..//button");
     }
 
     public void clickActionstoChangeOwner() throws Exception {
-        tool.clickUsingXPath(tool,
-                " //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button");
+        tool.clickUsingXPath(" //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button");
     }
 
     public void clickActions3() throws Exception {
-        tool.clickUsingCssSelector(tool, "button[type='button'][id$=-button][class='submit']");
+        tool.clickUsingCssSelector("button[type='button'][id$=-button][class='submit']");
     }
 
     public void clickModifyRole() throws Exception {
 
-        tool.clickUsingLinkText(tool, "Modify Role");
+        tool.clickUsingLinkText("Modify Role");
 
     }
 
     public void selectCustomerManagerPersonRole() throws Exception {
-        tool.clickUsingID(tool, "role_2");
+        tool.clickUsingID("role_2");
     }
 
     public void clickOKFromSelectPersonaRole() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
     public void clickDeactivateRole() throws Exception {
-        tool.clickUsingLinkText(tool, "Deactivate Role");
+        tool.clickUsingLinkText("Deactivate Role");
     }
 
     public void clickOKFromDeactivateRole() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
     public void checkAccountManager() throws Exception {
-        tool.clickUsingID(tool, "roleCmp");
+        tool.clickUsingID("roleCmp");
     }
 
     public void clickChangeOwner() throws Exception {
-        tool.clickUsingXPath(tool, "//a[contains(text(),'Change Owner')]");
+        tool.clickUsingXPath("//a[contains(text(),'Change Owner')]");
     }
 
     public void clickSwap() throws Exception {
-        tool.clickUsingID(tool, "submitButton");
+        tool.clickUsingID("submitButton");
     }
 
     public AddLoginCommon clickActionsAddLoginForPerson(String personLastName) throws Exception {
 
-        tool.clickUsingXPath(tool, "//div[contains(text(),'" + personLastName + "')]/../..//*[@type='button']");
-        tool.clickUsingLinkText(tool, "Add Login");
+        tool.clickUsingXPath("//div[contains(text(),'" + personLastName + "')]/../..//*[@type='button']");
+        tool.clickUsingLinkText("Add Login");
 
         return new AddLoginCommon(tool, test, user);
     }
@@ -196,32 +195,32 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void searchPerson() throws Exception {
-        tool.selectVisibleTextByID(tool, "title", "Mr.");
-        tool.enterStringUsingId(tool, "firstName", "test*");
-        tool.clickUsingID(tool, "pm-button-search");
-        tool.clickListUsingName(tool, "pfr-selected-person");
-        tool.clickUsingXPath(tool, "//*[@id='personfind']/div[2]/div/form/div[2]/input[2]");
-        tool.clickUsingCssSelector(tool, "input[id=submitButton][value='Swap']");
+        tool.selectVisibleTextByID("title", "Mr.");
+        tool.enterStringUsingId("firstName", "test*");
+        tool.clickUsingID("pm-button-search");
+        tool.clickListUsingName("pfr-selected-person");
+        tool.clickUsingXPath("//*[@id='personfind']/div[2]/div/form/div[2]/input[2]");
+        tool.clickUsingCssSelector("input[id=submitButton][value='Swap']");
     }
 
     public void clickDissociate() throws Exception {
-        tool.clickUsingLinkText(tool, "Disassociate Role");
+        tool.clickUsingLinkText("Disassociate Role");
     }
 
     public void clickOKFromDissociate() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
     public void clickAssociateRoleToSubscriber() throws Exception {
-        tool.clickUsingLinkText(tool, "Associate Role to Subscriber");
+        tool.clickUsingLinkText("Associate Role to Subscriber");
     }
 
     public void clickOKAssociateRoleToSubscriber() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
     }
 
     public String getLastNameOfCOP() throws Exception {
-        String cop_fullName = tool.getTextUsingXPath(tool, "//div[contains(text(),'Customer Owner Person')]/../../td[1]");
+        String cop_fullName = tool.getTextUsingXPath("//div[contains(text(),'Customer Owner Person')]/../../td[1]");
 
         String temp[] = cop_fullName.split(" ");
         System.out.println("COP LastName" + temp[1]);
@@ -230,7 +229,7 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public PersonMergeCommon clickPersonMerge() throws Exception {
-        tool.clickUsingLinkText(tool, "Person Merge");
+        tool.clickUsingLinkText("Person Merge");
 
         return new PersonMergeCommon(tool, test, user);
     }

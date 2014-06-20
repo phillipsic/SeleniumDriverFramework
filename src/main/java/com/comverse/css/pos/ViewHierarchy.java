@@ -35,7 +35,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public AddEmployeeContactInformation clickAddEmployee() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_REGISTER_EMPLOYEE");
+        tool.clickUsingID("smnu_REGISTER_EMPLOYEE");
 
         return new AddEmployeeContactInformation(tool, test, user);
 
@@ -73,7 +73,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public AddLevelContactInformation clickAddLevel() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ADD_LEVEL");
+        tool.clickUsingID("smnu_ADD_LEVEL");
         return new AddLevelContactInformation(tool, test, user);
     }
 
@@ -110,25 +110,25 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public MoveLevel clickMoveLevel() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_MOVE_LEVEL");
+        tool.clickUsingID("smnu_MOVE_LEVEL");
         return new MoveLevel(tool, test, user);
     }
 
     public RemoveLevel clickRemoveLevel() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_REMOVE_LEVEL");
+        tool.clickUsingID("smnu_REMOVE_LEVEL");
         return new RemoveLevel(tool, test, user);
     }
 
     public ContactInformation clickViewContact() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ADDRESS");
+        tool.clickUsingID("smnu_ADDRESS");
         return new ContactInformation(tool, test, user);
     }
 
     public ProfileInformation clickViewProfile() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_PROFILE");
+        tool.clickUsingID("smnu_PROFILE");
         return new ProfileInformation(tool, test, user);
     }
 }

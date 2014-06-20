@@ -10,7 +10,7 @@ public class OTGHome extends MyshapeCommon {
     public OTGHome(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "login";
         for (String currentScreenSplitted : currentScreen.split("/")) {
             currentScreen = currentScreenSplitted;
@@ -37,23 +37,23 @@ public class OTGHome extends MyshapeCommon {
 
     @Override
     public void setUserName(String login) throws Exception {
-        tool.enterStringUsingId(tool, "username", login);
+        tool.enterStringUsingId("username", login);
     }
 
     @Override
     public void clickLogin() throws Exception {
-        tool.clickUsingID(tool, "login");
+        tool.clickUsingID("login");
     }
 
     public void clickHomeBtn() throws Exception {
-        tool.clickUsingCssSelector(tool, "div.btn-group.btn-group-justified > div.btn-group > button.btn.btn-default");
+        tool.clickUsingCssSelector("div.btn-group.btn-group-justified > div.btn-group > button.btn.btn-default");
         System.out.println("Click Home");
         Thread.sleep(1000);
     }
 
     @Override
     public OTGHome clickLogout() throws Exception {
-        tool.clickUsingCssSelector(tool, "button.btn.btn-default");
+        tool.clickUsingCssSelector("button.btn.btn-default");
         Thread.sleep(1000);
         System.out.println("Logged out");
         return new OTGHome(tool, test, user);

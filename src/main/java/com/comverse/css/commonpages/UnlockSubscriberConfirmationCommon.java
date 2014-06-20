@@ -9,7 +9,7 @@ public class UnlockSubscriberConfirmationCommon extends CommonMenu {
 
     public UnlockSubscriberConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Unlock subscriber - Confirmation";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -18,7 +18,7 @@ public class UnlockSubscriberConfirmationCommon extends CommonMenu {
 
     public UnlockSubscriberUnlockSuccessfulCommon clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new UnlockSubscriberUnlockSuccessfulCommon(tool, test, user);

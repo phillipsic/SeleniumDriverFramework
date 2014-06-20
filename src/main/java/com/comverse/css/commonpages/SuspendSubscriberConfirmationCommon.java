@@ -9,7 +9,7 @@ public class SuspendSubscriberConfirmationCommon extends CommonMenu {
 
     public SuspendSubscriberConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Suspend subscriber - Confirmation";
         if (!expectedScreen.equals(currentScreen)) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -18,7 +18,7 @@ public class SuspendSubscriberConfirmationCommon extends CommonMenu {
 
     public SuspendSubscriberSuspendSuccessfulCommon clickConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new SuspendSubscriberSuspendSuccessfulCommon(tool, test, user);

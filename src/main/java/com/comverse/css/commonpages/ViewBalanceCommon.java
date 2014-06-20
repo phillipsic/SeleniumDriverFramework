@@ -15,7 +15,7 @@ public class ViewBalanceCommon extends CommonMenu {
     public ViewBalanceCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -26,34 +26,34 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public NonVoucherRechargeCommon clickNonVoucherRechargeFreeAmount() throws Exception {
-        tool.clickUsingLinkText(tool, "Non voucher Recharge (free amount)");
+        tool.clickUsingLinkText("Non voucher Recharge (free amount)");
 
         return new NonVoucherRechargeCommon(tool, test, user);
     }
 
     public RechargeWithVoucherCommon clickRechargeByVoucher() throws Exception {
-        tool.clickUsingLinkText(tool, "Recharge by voucher");
+        tool.clickUsingLinkText("Recharge by voucher");
 
         return new RechargeWithVoucherCommon(tool, test, user);
     }
 
     public AdjustBalanceDetailsCommon clickAdjustBalance(String balancename) throws Exception {
-        tool.clickUsingXPath(tool, "//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]");
+        tool.clickUsingXPath("//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]");
 
         return new AdjustBalanceDetailsCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon clickConfigureSharedBalance(String balanceName) throws Exception {
         String balanceID = retrieveBalanceID(balanceName);
-        tool.clickUsingXPath(tool, "//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
+        tool.clickUsingXPath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon clickConfigureLimit(String balanceName) throws Exception {
         String balanceID = retrieveBalanceID(balanceName);
 
-        tool.performUsingXPath(tool, "//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]");
-        tool.clickPerformUsingXPath(tool, "//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
+        tool.performUsingXPath("//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]");
+        tool.clickPerformUsingXPath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
         Common.sleepForNumberOfSeconds(3);
 
         return new ReconfigureBalanceCommon(tool, test, user);
@@ -61,12 +61,12 @@ public class ViewBalanceCommon extends CommonMenu {
 
     public void clickBack() throws Exception {
 
-        tool.clickUsingID(tool, "youcan_ON_BACK");
+        tool.clickUsingID("youcan_ON_BACK");
     }
 
     public Double getCoreBalance() throws Exception {
 
-        String coreBalanceString = tool.getTextUsingXPath(tool, "//a[contains(.,'CORE BALANCE')]/../../td[2]");
+        String coreBalanceString = tool.getTextUsingXPath("//a[contains(.,'CORE BALANCE')]/../../td[2]");
         coreBalanceString = coreBalanceString.replaceAll(",", "");
         Double coreBalance = Double.parseDouble(coreBalanceString.substring(1));
         System.out.println("Core Balance is " + coreBalance);
@@ -75,7 +75,7 @@ public class ViewBalanceCommon extends CommonMenu {
 
     public BalanceDetailsCommon viewBalanceDetails(String balanceName) throws Exception {
 
-        tool.clickUsingLinkText(tool, balanceName);
+        tool.clickUsingLinkText(balanceName);
         return new BalanceDetailsCommon(tool, test, user);
     }
 
@@ -83,7 +83,7 @@ public class ViewBalanceCommon extends CommonMenu {
     private String retrieveBalanceID(String balanceName) throws Exception {
 
         /*
-         * String pageSource = tool.getPageSource(tool); String temp[]; String
+         * String pageSource = tool.getPageSource(); String temp[]; String
          * cleanString;
          * 
          * temp = pageSource.split("abtr:" + balanceName); temp =
@@ -96,7 +96,7 @@ public class ViewBalanceCommon extends CommonMenu {
          * cleanString.replaceAll(">", "");
          */
         String temp[];
-        String balanceIdDirty = tool.getAttributeUsingXpath(tool, "//a[contains(text(), '" + balanceName + "')]", "id");
+        String balanceIdDirty = tool.getAttributeUsingXpath("//a[contains(text(), '" + balanceName + "')]", "id");
         temp = balanceIdDirty.split("_");
         int tempSize = temp.length;
         String balanceID = temp[tempSize - 1].trim();

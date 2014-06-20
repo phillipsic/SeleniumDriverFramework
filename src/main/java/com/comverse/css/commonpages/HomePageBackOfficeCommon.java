@@ -12,10 +12,10 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     public HomePageBackOfficeCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Welcome to Your Workspace";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
 
@@ -23,7 +23,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     public AddressAdministrationCommon clickAddressAdministration() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ADDRESS_ADMINISTRATION");
+        tool.clickUsingID("smnu_ADDRESS_ADMINISTRATION");
 
         return new AddressAdministrationCommon(tool, test, user);
 
@@ -31,7 +31,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     public TokensfoundCommon clickTokenAdministration() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_TOKEN_ADMINISTRATION");
+        tool.clickUsingID("smnu_TOKEN_ADMINISTRATION");
 
         return new TokensfoundCommon(tool, test, user);
 
@@ -39,7 +39,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     public OutboundCommunicationTemplateCommon clickTemplateAdministration() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_TEMPLATE_ADMINISTRATION");
+        tool.clickUsingID("smnu_TEMPLATE_ADMINISTRATION");
 
         return new OutboundCommunicationTemplateCommon(tool, test, user);
 

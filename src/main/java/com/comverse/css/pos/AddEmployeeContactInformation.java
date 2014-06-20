@@ -14,10 +14,10 @@ public class AddEmployeeContactInformation extends CommonMenu {
     public AddEmployeeContactInformation(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Add Employee - Contact Information";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -26,25 +26,25 @@ public class AddEmployeeContactInformation extends CommonMenu {
     public void setFirstName(String firstName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "first_name", firstName);
+        tool.enterStringUsingId("first_name", firstName);
     }
 
     public void setLastName(String lastName) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "last_name", lastName);
+        tool.enterStringUsingId("last_name", lastName);
     }
 
     public AddEmployeeRegisterLogin clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
 
         return new AddEmployeeRegisterLogin(tool, test, user);
     }
 
     public void enterHomeState(String homeState) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "home_state", homeState);
+        tool.selectVisibleTextByID("home_state", homeState);
 
     }
 }

@@ -13,7 +13,7 @@ public class ComverseOneSingleSignOn extends Main {
     public ComverseOneSingleSignOn(AutomationTool tool, Test test, User user) throws Exception {
         this.test = test;
         this.user = user;
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse – Single Signon";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -23,20 +23,20 @@ public class ComverseOneSingleSignOn extends Main {
 
     public void setUserName(AutomationTool tool, User user) throws Exception {
 
-        tool.enterStringUsingId(tool, "username", user.getLogin());
+        tool.enterStringUsingId("username", user.getLogin());
     }
 
     public void setPassword(AutomationTool tool, User user) throws Exception {
 
-        tool.enterStringUsingId(tool, "password", user.getPassword());
+        tool.enterStringUsingId("password", user.getPassword());
     }
 
     public void setRealm(AutomationTool tool, User user) throws Exception {
-        tool.selectVisibleTextByID(tool, "realmselect", user.getRealm());
+        tool.selectVisibleTextByID("realmselect", user.getRealm());
     }
 
     public void clickLogin(AutomationTool tool) throws Exception {
-        tool.clickUsingName(tool, "submit");
+        tool.clickUsingName("submit");
     }
 
     public WorkSpace loginToCSRAsCSRAdmin() throws Exception {

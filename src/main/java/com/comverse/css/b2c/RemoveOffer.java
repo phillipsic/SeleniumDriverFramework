@@ -8,16 +8,16 @@ public class RemoveOffer extends B2CMenu {
 
     public RemoveOffer(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Remove Offer";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public OfferCancellation ClickYes() throws Exception {
-        tool.clickUsingCssSelector(tool, "input[type='submit'][value='Yes']");
+        tool.clickUsingCssSelector("input[type='submit'][value='Yes']");
         return new OfferCancellation(tool, test, user);
     }
 

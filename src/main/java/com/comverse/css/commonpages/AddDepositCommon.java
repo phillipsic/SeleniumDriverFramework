@@ -16,7 +16,7 @@ public class AddDepositCommon extends CommonMenu {
     public AddDepositCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(currentScreen)) {
@@ -27,31 +27,31 @@ public class AddDepositCommon extends CommonMenu {
 
     public void setDepositType(String depositType) throws Exception {
 
-        tool.enterStringUsingId(tool, "depositType", depositType);
+        tool.enterStringUsingId("depositType", depositType);
     }
 
     public void setBalance(String balanceName) throws Exception {
 
-        tool.selectVisibleTextByID(tool, "balance", balanceName);
+        tool.selectVisibleTextByID("balance", balanceName);
 
     }
 
     public void setDepositAmount(String depositAmount) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "amount", depositAmount);
+        tool.enterStringUsingId("amount", depositAmount);
     }
 
     public void selectPaymentMethod() throws Exception {
 
-        // tool.clickUsingID(tool, paymentMethod);
-        tool.clickUsingXPath(tool, "(//input[@name='paymentMethod'])[1]");
+        // tool.clickUsingID(paymentMethod);
+        tool.clickUsingXPath("(//input[@name='paymentMethod'])[1]");
 
     }
 
     public AddDepositReviewAndConfirmCommon clickContinue() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='Continue']");
+        tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddDepositReviewAndConfirmCommon(tool, test, user);
     }

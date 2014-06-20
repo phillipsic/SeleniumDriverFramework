@@ -13,10 +13,10 @@ public class ConfirmNewSecretAnswerCommon extends CommonMenu {
     public ConfirmNewSecretAnswerCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Confirm new secret question and answer";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,7 +24,7 @@ public class ConfirmNewSecretAnswerCommon extends CommonMenu {
 
     public ConfirmChangeCommon clickOK() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new ConfirmChangeCommon(tool, test, user);
     }
 

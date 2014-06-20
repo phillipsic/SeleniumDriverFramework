@@ -42,7 +42,7 @@ public class RBM0050_Reconfigure_spending_credit_limit extends CSSTest {
             shopping.clickSubscriberBundlePrimaryOfferName(po_ResidentialUltraPostpaid.getOfferName());
             ConfigureBalance configureBalance = shopping.clickSelectOfferInPopUpWindowExpectingConfigureBalance();
 
-            tool.clickUsingXPath(tool, "//input[@type='checkbox' and contains(@onclick, 'CORE BALANCE_limit')]");
+            tool.clickUsingXPath("//input[@type='checkbox' and contains(@onclick, 'CORE BALANCE_limit')]");
             configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceName(), po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE()
                     .getBalanceValue());
             configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_GPRS_WAP_INTERNET().getBalanceName(), po_ResidentialUltraPostpaid.getBAL_GPRS_WAP_INTERNET()

@@ -11,17 +11,17 @@ public class WelcomeToYourWorkspace extends CommonMenu {
     public WelcomeToYourWorkspace(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Welcome to Your Workspace";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
     }
 
     public SearchRetailer clickManageRetailer() throws Exception {
-        tool.clickUsingID(tool, "mnu_MANAGE_RETAILER");
+        tool.clickUsingID("mnu_MANAGE_RETAILER");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchRetailer(tool, test, user);
 
@@ -29,11 +29,11 @@ public class WelcomeToYourWorkspace extends CommonMenu {
 
     public String getHomePageWelcomeMessage() throws Exception {
 
-        return tool.getTextUsingXPath(tool, "/html/body/h1");
+        return tool.getTextUsingXPath("/html/body/h1");
     }
 
     public ViewHierarchy clickManageTelco() throws Exception {
-        tool.clickUsingID(tool, "mnu_TELCO");
+        tool.clickUsingID("mnu_TELCO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchy(tool, test, user);
     }

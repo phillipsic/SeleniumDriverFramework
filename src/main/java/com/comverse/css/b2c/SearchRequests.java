@@ -13,11 +13,11 @@ public class SearchRequests extends B2CMenu {
 
     public SearchRequests(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Search Requests";
 
         // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
@@ -26,12 +26,12 @@ public class SearchRequests extends B2CMenu {
 
     public SearchOrders clickSearchOrders() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_ORDER");
+        tool.clickUsingID("smnu_ORDER");
         return new SearchOrders(tool, test, user);
     }
 
     public void clickSearch() throws Exception {
-        tool.clickUsingXPath(tool, "(//input[@value='Search'])");
+        tool.clickUsingXPath("(//input[@value='Search'])");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
@@ -69,13 +69,13 @@ public class SearchRequests extends B2CMenu {
     }
 
     public String getFirstRequestStatus() throws Exception {
-        String requestStatus = tool.getTextUsingXPath(tool, "//div[@id='requestsContainer']//tr[1]/td[6]/div");
+        String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr[1]/td[6]/div");
         return requestStatus;
     }
 
     public void expandSearchCriteria() throws Exception {
 
-        tool.clickUsingID(tool, "searchCriteriaTrigger");
+        tool.clickUsingID("searchCriteriaTrigger");
 
     }
 
@@ -83,7 +83,7 @@ public class SearchRequests extends B2CMenu {
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
-        tool.clickUsingID(tool, "mnu_HOME");
+        tool.clickUsingID("mnu_HOME");
         return new SubscriberDetail(tool, test, user);
     }
 

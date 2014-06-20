@@ -9,7 +9,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
     public ChooseYourPrimaryOffer(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Choose Your Primary Offer";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -24,9 +24,9 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         this.clickSelectPrimaryOffer(primaryOfferName);
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.getTitle(tool))) {
+        if ("Choose Your Device".equals(tool.getTitle())) {
 
-            tool.clickUsingCssSelector(tool, "input[name='nothanks']");
+            tool.clickUsingCssSelector("input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
 
@@ -46,14 +46,14 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             System.out.println("Result - " + beresult + "page - " + pageCounter);
             System.out.println("Now trying to navigate to page - " + pageCounter);
 
-            tool.clickUsingXPath(tool, "//img[@alt='Next Page (" + pageCounter + ")']");
-            //tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
+            tool.clickUsingXPath("//img[@alt='Next Page (" + pageCounter + ")']");
+            // tool.clickUsingXPath("//a[@id='lnk_NAV_NEXT']/img");
             beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
             System.out.println("Found offer? - " + beresult);
             pageCounter++;
         }
 
-        tool.clickUsingXPath(tool, "//p[text()[normalize-space(.)='" + primaryOfferName + "']]/../..//input[@value='Select']");
+        tool.clickUsingXPath("//p[text()[normalize-space(.)='" + primaryOfferName + "']]/../..//input[@value='Select']");
 
     }
 
@@ -68,13 +68,13 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         String subscriberbundleID = this.getSubscriberBundleID(subscriberBundleName);
         String offerID = this.getPrimaryOfferID(primaryOfferName);
         System.out.println("link = #selectButton_" + subscriberbundleID);
-        tool.clickUsingCssSelector(tool, "#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID);
-        // tool.clickUsingID(tool, "selectButton_" + temp[0]);
+        tool.clickUsingCssSelector("#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID);
+        // tool.clickUsingID("selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
-        if ("Choose Your Device".equals(tool.getTitle(tool))) {
+        if ("Choose Your Device".equals(tool.getTitle())) {
 
-            tool.clickUsingCssSelector(tool, "input[name='nothanks']");
+            tool.clickUsingCssSelector("input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
 
@@ -83,7 +83,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
     }
 
     public ChooseAccessories clickNoThanks() throws Exception {
-        tool.clickUsingXPath(tool, "//input[@name='nothanks']");
+        tool.clickUsingXPath("//input[@name='nothanks']");
         return new ChooseAccessories(tool, test, user);
     }
 
@@ -98,8 +98,8 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             System.out.println("Result - " + beresult + "page - " + pageCounter);
             System.out.println("Now trying to navigate to page - " + pageCounter);
 
-            tool.clickUsingXPath(tool, "//img[@alt='Next Page (" + pageCounter + ")']");
-            //tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
+            tool.clickUsingXPath("//img[@alt='Next Page (" + pageCounter + ")']");
+            // tool.clickUsingXPath("//a[@id='lnk_NAV_NEXT']/img");
             beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
             System.out.println("Found offer? - " + beresult);
             pageCounter++;
@@ -107,7 +107,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         String temp[];
 
-        String str = tool.getPageSource(tool);
+        String str = tool.getPageSource();
 
         temp = str.split(primaryOfferName + " </[pP]>"); // works in IE
 
@@ -139,17 +139,17 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         while (beresult == false) {
             System.out.println("Now trying to navigate to page - " + pageCounter);
-            tool.clickUsingXPath(tool, "//a[@id='lnk_NAV_NEXT']/img");
+            tool.clickUsingXPath("//a[@id='lnk_NAV_NEXT']/img");
             beresult = Common.isOfferTextOnPage(tool, subscriberBundleName);
             System.out.println("Found bundle? - " + beresult);
             pageCounter++;
         }
 
-        tool.clickUsingXPath(tool, "//p[text()[normalize-space(.)='Residential - Basic Prepaid']]/../..//input[@value='Select']");
+        tool.clickUsingXPath("//p[text()[normalize-space(.)='Residential - Basic Prepaid']]/../..//input[@value='Select']");
 
         String temp[];
 
-        String str = tool.getPageSource(tool);
+        String str = tool.getPageSource();
 
         temp = str.split(subscriberBundleName + " </[pP]>"); // works in IE
 

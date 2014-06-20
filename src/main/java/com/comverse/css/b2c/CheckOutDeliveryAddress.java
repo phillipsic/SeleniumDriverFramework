@@ -12,10 +12,10 @@ public class CheckOutDeliveryAddress extends B2CMenu {
 
     public CheckOutDeliveryAddress(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Checkout - Delivery Address";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -23,7 +23,7 @@ public class CheckOutDeliveryAddress extends B2CMenu {
 
     public CheckOutBillingAccountInformation clickContinue() throws Exception {
 
-        tool.clickUsingID(tool, "nav_next_page");
+        tool.clickUsingID("nav_next_page");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 

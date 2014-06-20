@@ -13,10 +13,10 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public AddEmployeeRegisterLogin(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Add Employee - Register Login";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -25,18 +25,18 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
     public void enterLogin(String login) throws Exception {
 
         
-        tool.enterStringUsingId(tool, "login", login);
+        tool.enterStringUsingId("login", login);
     }
 
     public AddEmployeeConfirmation clickSubmit() throws Exception {
 
-        tool.clickUsingCssSelector(tool, "input.submit");
+        tool.clickUsingCssSelector("input.submit");
         return new AddEmployeeConfirmation(tool, test, user);
     }
 
     public RegisterLogin clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new RegisterLogin(tool, test, user);
     }
 }

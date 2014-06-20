@@ -18,7 +18,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public AddEmployeeContactInformation addNewEmployee() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_REGISTER_EMPLOYEE");
+        tool.clickUsingID("smnu_REGISTER_EMPLOYEE");
         return new AddEmployeeContactInformation(tool, test, user);
     }
 
@@ -31,7 +31,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     public SearchEmployeePage clickSearchEmployee() throws Exception {
 
-        tool.clickUsingID(tool, "smnu_MEMBER");
+        tool.clickUsingID("smnu_MEMBER");
         return new SearchEmployeePage(tool, test, user);
         // clicks search employee link on the view hierarchy page, new page
         // expected is search employee page.

@@ -13,10 +13,10 @@ public class ConfirmChangePasswordCommon extends CommonMenu {
     public ConfirmChangePasswordCommon(AutomationTool tool, Test test, User user) throws Exception {
 
         super(tool, test, user);
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Confirm change password on next login";
 
-        if (!expectedScreen.equals(tool.getTitle(tool))) {
+        if (!expectedScreen.equals(tool.getTitle())) {
 
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
@@ -24,7 +24,7 @@ public class ConfirmChangePasswordCommon extends CommonMenu {
 
     public ChangeLoginPasswordCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
         return new ChangeLoginPasswordCommon(tool, test, user);
     }
 

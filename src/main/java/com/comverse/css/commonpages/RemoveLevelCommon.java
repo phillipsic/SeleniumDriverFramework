@@ -13,7 +13,7 @@ public class RemoveLevelCommon extends CommonMenu {
     public RemoveLevelCommon(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
 
-        String currentScreen = tool.getTitle(tool);
+        String currentScreen = tool.getTitle();
         String expectedScreen = "Remove Level";
 
         if (!expectedScreen.equals(currentScreen)) {
@@ -25,7 +25,7 @@ public class RemoveLevelCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOk() throws Exception {
 
-        tool.clickUsingXPath(tool, "//form[@id='form_OK']/div/input");
+        tool.clickUsingXPath("//form[@id='form_OK']/div/input");
 
         return new ViewHierarchyCommon(tool, test, user);
 
@@ -33,7 +33,7 @@ public class RemoveLevelCommon extends CommonMenu {
 
     public RemoveLevelCommon clickOkToRemoveLevel() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new RemoveLevelCommon(tool, test, user);
 
@@ -41,7 +41,7 @@ public class RemoveLevelCommon extends CommonMenu {
 
     public ViewHierarchyCommon clickOkToConfirm() throws Exception {
 
-        tool.clickUsingXPath(tool, "//input[@value='OK']");
+        tool.clickUsingXPath("//input[@value='OK']");
 
         return new ViewHierarchyCommon(tool, test, user);
 

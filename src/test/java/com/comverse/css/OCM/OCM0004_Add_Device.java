@@ -45,9 +45,9 @@ public class OCM0004_Add_Device extends CSSTest {
 
         int rowCounter = 0;
 
-        tool.get(tool, application.appURL() + "ocmweb/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
-        tool.clickUsingID(tool, "mainPanel:treeForm:type-tree:0:t2");
-        tool.clickUsingID(tool, "mainPanel:treeForm:type-tree:0:1:t2");
+        tool.get(application.appURL() + "ocmweb/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
+        tool.clickUsingID("mainPanel:treeForm:type-tree:0:t2");
+        tool.clickUsingID("mainPanel:treeForm:type-tree:0:1:t2");
 
         for (rowCounter = 1; rowCounter < sheet.getRows(); rowCounter++) {
             System.out.println("****************************************************");
@@ -59,14 +59,14 @@ public class OCM0004_Add_Device extends CSSTest {
             DeviceAlreadyExist = false;
 
             if (DeviceType.equals("Voice Device")) {
-                tool.clickUsingLinkText(tool, "Voice Device");
-                tool.clickUsingLinkText(tool, "Create New Voice Device");
+                tool.clickUsingLinkText("Voice Device");
+                tool.clickUsingLinkText("Create New Voice Device");
                 System.out.println("Starting creation of New Voice Device");
             }
 
             if (DeviceType.equals("Data Device")) {
-                tool.clickUsingLinkText(tool, "Data Device");
-                tool.clickUsingLinkText(tool, "Create New Data Device");
+                tool.clickUsingLinkText("Data Device");
+                tool.clickUsingLinkText("Create New Data Device");
                 System.out.println("Starting creation of New Data Device");
             }
 

@@ -16,7 +16,7 @@ public class WorkSpace extends WorkSpaceCommon {
     @Override
     public ContactInformation clickUserInformation() throws Exception {
 
-        tool.clickUsingID(tool, "mnu_INFO");
+        tool.clickUsingID("mnu_INFO");
         return new ContactInformation(tool, test, user);
     }
 
