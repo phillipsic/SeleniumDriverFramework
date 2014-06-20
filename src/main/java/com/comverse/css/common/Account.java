@@ -47,7 +47,7 @@ public class Account extends C1Data {
         setBillingStreetNumberProperty("Billing55");
         setBillingStreetNameProperty("BillingStreet");
         setBillingCityProperty("BillingCity");
-        setBillingPostCodeProperty("BillingPostcode");
+        setBillingPostCodeProperty("612204");
         setBillingEmailProperty("BillingEmail");
         setBillingPhoneProperty("BillingPhone");
         setBillingFaxProperty("BillingFax");
