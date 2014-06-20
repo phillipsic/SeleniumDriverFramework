@@ -49,9 +49,9 @@ public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTe
 
             Common.assertTextOnPage(tool, vd_CSSPQAVoiceDeviceStandardPhonesDEV1.getDeviceName());
             Common.assertTextOnPage(tool, acc_CSSPQABatteryPhoneACC1.getAccessoryName());
-       
+
             myBasket.clickAcceptTermsAndConditions();
-           
+
             CheckoutDeliveryAddress checkoutDeliveryAddress = myBasket.clickCheckOutWithGoods();
             CheckoutReview checkoutReview = checkoutDeliveryAddress.clickNextPage();
             ImmediatePayment immediatePayment = checkoutReview.clickConfirmWithGoods();
@@ -63,6 +63,9 @@ public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTe
             immediatePayment.setCardHolderLastName("CardHolder LastName");
             immediatePayment.setCardHolderFirstName("CardHolder FirstName");
             immediatePayment.setCardSecretCode("1234");
+
+            immediatePayment.setEmail("card@email.com");
+            immediatePayment.setAddress("Card Address");
 
             immediatePayment.clickContinue();
 

@@ -4,6 +4,6 @@ import com.comverse.css.data.Offer;
 
 public class AO_DIYeExtendedInteractivityYourAccount extends Offer {
     public AO_DIYeExtendedInteractivityYourAccount() {
-        setOfferName("DIYe - extended Interactivity (Your account)");
+        setOfferName("DIYe - extended Interactivity (Your account).");
     }
 }

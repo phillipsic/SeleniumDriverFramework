@@ -26,7 +26,7 @@ public class Common {
     public static void waitForEndOfWaitingPage(AutomationTool tool, String className) throws Exception {
         for (int iteration = 0;; iteration++) {
 
-            System.out.println(className + ": Iteration " + iteration + " of 90");
+            System.out.println(className + ":waitForEndOfWaitingPage - Iteration " + iteration + " of 90");
             if (iteration >= 90) {
                 throw new Exception("Timeout");
             }

@@ -1,7 +1,6 @@
 package com.comverse.css.otg;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+//import org.openqa.selenium.WebElement;
 
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -11,7 +10,6 @@ import com.comverse.css.commonpages.MyshapeCommon;
 public class OTGHome extends MyshapeCommon {
 
     public OTGHome(AutomationTool tool, Test test, User user) throws Exception {
-
         super(tool, test, user);
 
         String currentScreen = tool.getTitle(tool);
@@ -41,7 +39,6 @@ public class OTGHome extends MyshapeCommon {
 
     @Override
     public void setUserName(String login) throws Exception {
-        
         tool.enterStringUsingId(tool, "username", login);
     }
 
@@ -57,15 +54,10 @@ public class OTGHome extends MyshapeCommon {
     }
 
     @Override
-	public OTGHome clickLogout() throws Exception {
+    public OTGHome clickLogout() throws Exception {
         tool.clickUsingCssSelector(tool, "button.btn.btn-default");
         Thread.sleep(1000);
         System.out.println("Logged out");
         return new OTGHome(tool, test, user);
-    }
-
-    public void dragAndDrop(WebElement from, WebElement to) throws Exception {
-        (new Actions(tool.driver)).dragAndDrop(from, to).perform();
-        Thread.sleep(1000);
     }
 }

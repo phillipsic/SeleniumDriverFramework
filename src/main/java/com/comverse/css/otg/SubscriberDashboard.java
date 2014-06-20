@@ -28,8 +28,8 @@ public class SubscriberDashboard extends MyshapeCommon {
     }
 
     public void swipeTOLeftSubscriber(OTGHome otg) throws Exception {
-        otg.dragAndDrop(tool.searchUsingCssSelector(tool, "h3.page-title.ng-binding"), tool.searchUsingXpath(tool, "//div[3]/div/img"));
-
+        tool.performDragAndDrop(tool, tool.searchUsingCssSelector(tool, "h3.page-title.ng-binding"), tool.searchUsingXpath(tool, "//div[3]/div/img"));
+        Thread.sleep(1000);
     }
 
     public void clickRecharge() throws Exception {

@@ -43,7 +43,7 @@ public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTe
             enterIdentificationData.setPhoneNumber("0123456");
             enterIdentificationData.setFaxNumber("6543210");
 
-            enterIdentificationData.enterCustomerPostCode("12345");
+            enterIdentificationData.enterCustomerPostCode("612204");
             enterIdentificationData.enterCustomerCity("US ville");
             enterIdentificationData.enterCustomerHomeCountry("United States");
             enterIdentificationData.enterCustomerHomeState("Iowa");

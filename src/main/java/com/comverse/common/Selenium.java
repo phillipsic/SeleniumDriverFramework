@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -22,6 +23,7 @@ import com.comverse.css.common.PropertyHelper;
 public class Selenium extends AutomationTool {
 
     private WebDriver driver;
+    private Actions action;
 
     public Selenium() throws Exception {
     }
@@ -34,6 +36,12 @@ public class Selenium extends AutomationTool {
     @Override
     public boolean checkSelectedUsingXpath(AutomationTool tool, String xpath) throws Exception {
         return tool.driver.findElement(By.xpath(xpath)).isSelected();
+    }
+
+    @Override
+    public void clickPerformUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        action = new Actions(tool.driver);
+        this.action.moveToElement(tool.driver.findElement(By.xpath(xpath))).click().perform();
     }
 
     @Override
@@ -69,6 +77,11 @@ public class Selenium extends AutomationTool {
     @Override
     public void clickUsingXPath(AutomationTool tool, String xpath) throws Exception {
         tool.driver.findElement(By.xpath(xpath)).click();
+    }
+
+    @Override
+    public void deselectVisibleTextByID(AutomationTool tool, String id, String visibleText) throws Exception {
+        new Select(tool.driver.findElement(By.id(id))).deselectByVisibleText(visibleText);
     }
 
     @Override
@@ -304,6 +317,18 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void performDragAndDrop(AutomationTool tool, WebElement from, WebElement to) throws Exception {
+        action = new Actions(tool.driver);
+        this.action.dragAndDrop(from, to).perform();
+    }
+
+    @Override
+    public void performUsingXPath(AutomationTool tool, String xpath) throws Exception {
+        action = new Actions(tool.driver);
+        this.action.moveToElement(tool.driver.findElement(By.xpath(xpath))).perform();
+    }
+
+    @Override
     public void quit(AutomationTool tool) throws Exception {
         tool.driver.quit();
     }
@@ -341,6 +366,11 @@ public class Selenium extends AutomationTool {
     @Override
     public WebElement searchUsingXpath(AutomationTool tool, String xpath) throws Exception {
         return tool.driver.findElement(By.xpath(xpath));
+    }
+
+    @Override
+    public void selectByIndexByID(AutomationTool tool, String id, int index) throws Exception {
+        new Select(tool.driver.findElement(By.id(id))).selectByIndex(index);
     }
 
     @Override

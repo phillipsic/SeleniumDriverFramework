@@ -39,7 +39,7 @@ public class AML0010_Disconnect_Account extends CSSTest {
             Common.assertTextOnPage(tool, "Status: New");
 
             DisconnectAccount disconnectAccount = accountDashboard.clickDisconnectAccount();
-            disconnectAccount.clickCheckBoxUnlockNow();
+            disconnectAccount.clickCheckBoxDisconnectNow();
             disconnectAccount.setAnnotation("Disconnect Account");
             disconnectAccount.clickContinue();
             Common.isTextOnPage(tool, "Disconnect account - Impacts");

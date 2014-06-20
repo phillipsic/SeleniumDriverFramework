@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -67,7 +66,7 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void selectFirstUserinDropDown() throws Exception {
-        new Select(tool.searchUsingID(tool, "subscriber")).selectByIndex(1);
+        tool.selectByIndexByID(tool, "subscriber", 1);
     }
 
     public void clickOrdering() throws Exception {
@@ -205,11 +204,6 @@ public class PersonManagementCommon extends CommonMenu {
     }
 
     public void searchPerson() throws Exception {
-        // new
-        // Select(tool.searchUsingID(tool,
-        // "custPerson")).selectByVisibleText(pers.getPersonFirstNameProperty()
-        // + " "
-        // + pers.getPersonLastNameProperty());
         tool.selectVisibleTextByID(tool, "title", "Mr.");
         tool.enterStringUsingId(tool, "firstName", "test*");
         tool.clickUsingID(tool, "pm-button-search");
@@ -217,7 +211,6 @@ public class PersonManagementCommon extends CommonMenu {
         radios.get(0).click();
         tool.clickUsingXPath(tool, "//*[@id='personfind']/div[2]/div/form/div[2]/input[2]");
         tool.clickUsingCssSelector(tool, "input[id=submitButton][value='Swap']");
-
     }
 
     public void clickDissociate() throws Exception {
