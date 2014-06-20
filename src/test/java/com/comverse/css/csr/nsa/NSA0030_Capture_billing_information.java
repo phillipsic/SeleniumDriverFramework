@@ -74,12 +74,9 @@ public class NSA0030_Capture_billing_information extends CSSTest {
 
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid15DiscountICB.getOfferName());
 
-            Common.assertTextOnPage(tool, account.getBillingBillDispatchMethodProperty());
-            Common.assertTextOnPage(tool, account.getBillingBillFormatOptionProperty());
-            Common.assertTextOnPage(tool, account.getBillingExchangeRateClassProperty());
-            Common.assertTextOnPage(tool, account.getBillingTMLProperty());
-            Common.assertTextOnPage(tool, account.getBillingVIPCodeProperty());
-            Common.assertTextOnPage(tool, account.getBillingBillPeriodProperty());
+            Common.assertTextOnPage(tool, "Market Code:Employee");
+            Common.assertTextOnPage(tool, "TML Limit:3.75");
+            Common.assertTextOnPage(tool, "Rate Class:DIY - RateClass3");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

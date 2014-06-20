@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -13,10 +11,6 @@ import com.comverse.css.common.Common;
 import com.comverse.css.common.Person;
 import com.comverse.css.common.Subscriber;
 
-/**
- * 
- * @author iphilli
- */
 public class MyBasketCommon extends CommonMenu {
 
     public MyBasketCommon(AutomationTool tool, Test test, User user) throws Exception {
@@ -170,7 +164,7 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     public void selectFirstUserinDropDown() throws Exception {
-        new Select(tool.searchUsingID(tool, "subscriber")).selectByIndex(1);
+        tool.selectByIndexByID(tool, "subscriber", 1);
     }
 
     public void clickAddRole() throws Exception {

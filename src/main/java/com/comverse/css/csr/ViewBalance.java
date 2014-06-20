@@ -18,27 +18,23 @@ public class ViewBalance extends ViewBalanceCommon {
 
     @Override
     public NonVoucherRecharge clickNonVoucherRechargeFreeAmount() throws Exception {
-
         super.clickNonVoucherRechargeFreeAmount();
         return new NonVoucherRecharge(tool, test, user);
     }
 
     @Override
     public AdjustBalanceDetails clickAdjustBalance(String balancename) throws Exception {
-
         super.clickAdjustBalance(balancename);
         return new AdjustBalanceDetails(tool, test, user);
 
     }
 
     public SubscriberDetails clickBackToSubscriberDashboard() throws Exception {
-
         super.clickBack();
         return new SubscriberDetails(tool, test, user);
     }
 
     public AccountDetails clickBackToAccountDashboard() throws Exception {
-
         super.clickBack();
         return new AccountDetails(tool, test, user);
     }
@@ -57,14 +53,12 @@ public class ViewBalance extends ViewBalanceCommon {
 
     @Override
     public ReconfigureBalance clickConfigureSharedBalance(String balanceName) throws Exception {
-
         super.clickConfigureSharedBalance(balanceName);
         return new ReconfigureBalance(tool, test, user);
     }
 
     @Override
     public ReconfigureBalance clickConfigureLimit(String balanceName) throws Exception {
-
         super.clickConfigureLimit(balanceName);
         return new ReconfigureBalance(tool, test, user);
     }

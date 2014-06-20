@@ -2,8 +2,6 @@ package com.comverse.css.commonpages;
 
 import java.util.MissingResourceException;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.Application;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
@@ -42,22 +40,22 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void setYourPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "password_old", password);
     }
 
     public void setNewPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "password_new", password);
     }
 
     public void setConfirmNewPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "password_verify", password);
     }
 
     public void setSecretAnswer(String secretAnswer) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "secretAnswer", secretAnswer);
     }
 
@@ -83,12 +81,12 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void setUserName(String login) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "login", login);
     }
 
     public void setPassword(String password) throws Exception {
-        
+
         tool.enterStringUsingId(tool, "password", password);
     }
 
@@ -130,7 +128,7 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public String getChangePasswordOnFirstLoginMessage() throws Exception {
-        System.out.println(">>" + tool.driver.findElement(By.cssSelector("span")).getText());
+        System.out.println(">>" + tool.getTextUsingCssSelector(tool, "span"));
 
         return tool.getTextUsingCssSelector(tool, "span");
     }

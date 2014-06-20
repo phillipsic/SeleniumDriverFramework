@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -50,13 +48,12 @@ public class ViewCaseCommon extends CommonMenu {
 
     public String getNoteType() throws Exception {
         String noteType = tool.getTextUsingXPath(tool, "//table[@class='listTable']/tbody/tr[1]/td");
-
         System.out.println("noteType : " + noteType);
         return noteType;
     }
 
     public String getNoteDescription() throws Exception {
-        String noteDesc = tool.driver.findElement(By.name("noteDescription")).getText();
+        String noteDesc = tool.getTextUsingName(tool, "noteDescription");
         System.out.println("noteDesc : " + noteDesc);
         return noteDesc;
     }

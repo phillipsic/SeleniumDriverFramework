@@ -4,9 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -29,14 +26,12 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public NonVoucherRechargeCommon clickNonVoucherRechargeFreeAmount() throws Exception {
-
         tool.clickUsingLinkText(tool, "Non voucher Recharge (free amount)");
 
         return new NonVoucherRechargeCommon(tool, test, user);
     }
 
     public RechargeWithVoucherCommon clickRechargeByVoucher() throws Exception {
-
         tool.clickUsingLinkText(tool, "Recharge by voucher");
 
         return new RechargeWithVoucherCommon(tool, test, user);
@@ -49,19 +44,16 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public ReconfigureBalanceCommon clickConfigureSharedBalance(String balanceName) throws Exception {
-
         String balanceID = retrieveBalanceID(balanceName);
         tool.clickUsingXPath(tool, "//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon clickConfigureLimit(String balanceName) throws Exception {
-
         String balanceID = retrieveBalanceID(balanceName);
 
-        Actions action = new Actions(tool.driver);
-        action.moveToElement(tool.driver.findElement(By.xpath("//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]"))).perform();
-        action.moveToElement(tool.driver.findElement(By.xpath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]"))).click().perform();
+        tool.performUsingXPath(tool, "//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]");
+        tool.clickPerformUsingXPath(tool, "//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
         Common.sleepForNumberOfSeconds(3);
 
         return new ReconfigureBalanceCommon(tool, test, user);
@@ -104,7 +96,7 @@ public class ViewBalanceCommon extends CommonMenu {
          * cleanString.replaceAll(">", "");
          */
         String temp[];
-        String balanceIdDirty = tool.driver.findElement(By.xpath("//a[contains(text(), '" + balanceName + "')]")).getAttribute("id");
+        String balanceIdDirty = tool.getAttributeUsingXpath(tool, "//a[contains(text(), '" + balanceName + "')]", "id");
         temp = balanceIdDirty.split("_");
         int tempSize = temp.length;
         String balanceID = temp[tempSize - 1].trim();

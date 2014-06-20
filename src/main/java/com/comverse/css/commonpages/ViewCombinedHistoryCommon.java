@@ -9,9 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -55,27 +52,22 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     public void enterFromDate(String fromDate) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "fromDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
 
-        
         tool.enterStringUsingId(tool, "toDate", toDate);
 
     }
 
     public void deselectbox() throws Exception {
-
-        Select selectBox = new Select(tool.searchUsingID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT"));
-        selectBox.deselectByVisibleText("Adjustment");
-        selectBox.deselectByVisibleText("MTR");
-        selectBox.deselectByVisibleText("RC");
-        selectBox.deselectByVisibleText("Recharge");
-        selectBox.deselectByVisibleText("Usage");
-
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Adjustment");
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "MTR");
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "RC");
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Recharge");
+        tool.deselectVisibleTextByID(tool, "R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Usage");
     }
 
     public void clickSearch() throws Exception {
@@ -86,8 +78,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
     }
 
     public String getSearchResults() throws Exception {
-
-        String text = tool.driver.findElement(By.className("inverseHeaderText")).getText();
+        String text = tool.getTextUsingClassName(tool, "inverseHeaderText");
         System.out.println("Output:" + text);
         return text;
     }
