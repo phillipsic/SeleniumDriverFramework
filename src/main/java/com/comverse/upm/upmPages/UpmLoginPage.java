@@ -4,7 +4,6 @@ import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.css.common.PropertyHelper;
 import com.comverse.sfa.sfaHomePage;
-import com.comverse.workpoint.WelcomeToTheWorkpointManagementConsole;
 
 public class UpmLoginPage extends Main {
 
@@ -38,7 +37,7 @@ public class UpmLoginPage extends Main {
 
         return tool.getTextUsingXPath(tool, "//span");
     }
-    
+
     public UpmHomePage successfulsecAdminLogin() throws Exception {
 
         PropertyHelper propsHelper = new PropertyHelper();
@@ -50,6 +49,5 @@ public class UpmLoginPage extends Main {
         this.clickSignIn();
         return new UpmHomePage(tool);
     }
-
 
 }

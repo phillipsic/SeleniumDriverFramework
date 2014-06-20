@@ -7,7 +7,7 @@ import com.comverse.css.common.PropertyHelper;
 
 public class UPMTest extends Main {
 
-@Before
+    @Before
     public void setUp() throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
         tool = new Selenium();
@@ -21,7 +21,7 @@ public class UPMTest extends Main {
 
     public void launchUPMApplication() throws Exception {
         application.setVersion(tool);
-        tool.driver.get(application.appFullURL());
+        tool.get(tool, application.appFullURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
