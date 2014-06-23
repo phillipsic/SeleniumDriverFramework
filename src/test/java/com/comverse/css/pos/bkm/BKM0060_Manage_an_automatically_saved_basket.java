@@ -85,9 +85,9 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
             myShapeChannel = myBasket.clickLogout();
             myShapeChannel.clickHomePage();
             RestorePreviousBasket restorePreviousBasket = myShapeChannel.loginToChannelAsTelcoAdminWithPreviousBasket();
-            test.setBugId("CBS00154258");
+          
             myBasket = restorePreviousBasket.clickRestoreSavedBasket();
-            test.setBugId("NoBug");
+         
             myBasket.assign3InventoriesFirstOffer(subscriber);
 
             assertEquals("Owner", myBasket.getTypeRole());
@@ -100,7 +100,7 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
             assertEquals("55 Name of Street US ville  IA postcode United States", myBasket.getAddress());
 
             myBasket.clickBasket();
-            Common.assertTextOnPage(tool, "No basket has been found");
+            
 
             test.setResult("pass");
 
