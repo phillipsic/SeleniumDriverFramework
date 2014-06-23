@@ -138,6 +138,13 @@ public class AccountDetails extends AccountDetailsCommon {
         return new ViewCase(tool, test, user);
     }
 
+
+    @Override
+    public ListCases clickMoreCases() throws Exception {
+       super.clickMoreCases();
+        return new ListCases(tool, test, user);
+    }
+
     @Override
     public RegisterPrepayment clickRegisterPrepayment() throws Exception {
 
