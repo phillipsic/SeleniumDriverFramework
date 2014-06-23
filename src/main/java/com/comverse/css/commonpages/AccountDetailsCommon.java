@@ -68,6 +68,15 @@ public class AccountDetailsCommon extends CommonMenu {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);
     }
+    
+    
+     public ListCasesCommon clickMoreCases() throws Exception {
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.clickUsingXPath("//a[@title='List all cases']");
+     
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ListCasesCommon(tool, test, user);
+    }
 
     public SubscriberDetailsCommon selectFirstSubscriberFromNavigationPanel() throws Exception {
         System.out.println("selectFirstSubscriberFromNavigationPanel");
