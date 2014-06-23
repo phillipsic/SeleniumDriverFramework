@@ -9,12 +9,14 @@ import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Prep;
 import com.comverse.css.pos.AccountDetails;
 import com.comverse.css.pos.IdentifyCustomer;
+import com.comverse.css.pos.ListCases;
 import com.comverse.css.pos.MyShapeChannel;
 import com.comverse.css.pos.WorkSpace;
 import com.comverse.data.apps.POS;
 import com.comverse.data.users.TelcoRetailerUser;
 
 public class IDC0010_Identify_Customer extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -37,7 +39,9 @@ public class IDC0010_Identify_Customer extends CSSTest {
             IdentifyCustomer identifyCustomer = workSpace.gotoManageAccount();
             AccountDetails accountDetails = identifyCustomer.searchByCaseID("000001");
 
-            accountDetails.clickLinkOfCaseID("000001");
+            ListCases listCases = accountDetails.clickMoreCases();
+
+            listCases.clickLinkOfCaseID("000001");
 
             test.setResult("pass");
 
