@@ -34,4 +34,11 @@ public class ListCasesCommon extends CommonMenu {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);
     }
+
+    public ViewCaseCommon clickLinkOfCaseID(String caseID) throws Exception {
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        tool.clickUsingLinkText(caseID);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new ViewCaseCommon(tool, test, user);
+    }
 }
