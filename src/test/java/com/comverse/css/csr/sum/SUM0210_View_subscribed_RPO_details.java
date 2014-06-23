@@ -51,7 +51,7 @@ public class SUM0210_View_subscribed_RPO_details extends CSSTest {
             primaryOfferDetails.clickRPOCompatiblePrimaryOffersTab();
             Common.assertTextOnPage(tool, "DIY - Additional Fiber Service");
             Common.assertTextOnPage(tool, "DIY - Additional TV Services 4U");
-            Common.assertTextOnPage(tool, "DIY - Monthly Subscription Prime Offering");
+            Common.assertTextOnPage(tool, "DIY - Your Email Box");
 
             primaryOfferDetails.clickRPOTermsandConditionsTab();
             Common.assertTextOnPage(tool, "No specific Terms and Conditions apply.");
