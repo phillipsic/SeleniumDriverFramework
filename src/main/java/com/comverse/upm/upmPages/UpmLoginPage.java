@@ -2,8 +2,7 @@ package com.comverse.upm.upmPages;
 
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
-import com.comverse.css.common.PropertyHelper;
-import com.comverse.upm.upmPages.UpmHomePage;
+import com.comverse.common.User;
 
 public class UpmLoginPage extends Main {
 
@@ -18,13 +17,11 @@ public class UpmLoginPage extends Main {
 
     }
 
-    public void setUserName(String login) throws Exception {
-
+    public void enterUserName(String login) throws Exception {
         tool.enterStringUsingId("loginForm:userName", login);
     }
 
-    public void setPassword(String password) throws Exception {
-
+    public void enterPassword(String password) throws Exception {
         tool.enterStringUsingId("loginForm:password", password);
     }
 
@@ -38,15 +35,10 @@ public class UpmLoginPage extends Main {
         return tool.getTextUsingXPath("//span");
     }
 
-    public UpmHomePage successfulsecAdminLogin() throws Exception {
-
-        PropertyHelper propsHelper = new PropertyHelper();
-        String login = propsHelper.getPasswordProperties("LOGIN.SECAdmin");
-        String password = propsHelper.getPasswordProperties("PASSWD.SECAdmin");
-
-        System.out.println("Login is " + login);
-        this.setUserName(login);
-        this.setPassword(password);
+    public UpmHomePage successfulsecAdminLogin(User user) throws Exception {
+        System.out.println("Login is " + user.getLogin());
+        this.enterUserName(user.getLogin());
+        this.enterPassword(user.getPassword());
         this.clickSignIn();
         return new UpmHomePage(tool);
     }
