@@ -6,7 +6,7 @@ public class UpmHomePage {
 
     public UpmHomePage(AutomationTool tool) throws Exception {
         String currentScreen = tool.getTitle();
-        String expectedScreen = "Comverse ONE Unified Platform";
+        String expectedScreen = "Comverse ONE Unified Platform|home";
 
         if (!expectedScreen.equals(currentScreen)) {
 
