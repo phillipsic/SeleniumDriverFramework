@@ -3,6 +3,7 @@ package com.comverse.upm.upmPages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.upm.common.CommonMenu;
 
 public class UpmLoginPage extends CommonMenu {
@@ -27,6 +28,7 @@ public class UpmLoginPage extends CommonMenu {
 
     public UpmHomePage clickSignIn() throws Exception {
         tool.clickUsingID("loginForm:loginBtn");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new UpmHomePage(tool);
     }
 
@@ -35,7 +37,7 @@ public class UpmLoginPage extends CommonMenu {
     }
 
     public UpmHomePage successfulsecAdminLogin() throws Exception {
-        System.out.println("Login is " + user.getLogin());
+        
         this.enterUserName(user.getLogin());
         this.enterPassword(user.getPassword());
         this.clickSignIn();
