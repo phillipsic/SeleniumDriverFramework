@@ -30,8 +30,8 @@ public class UpmRunBip extends UPMTest {
         try {
 
             launchUPMApplication();
-            UpmLoginPage upmLoginPage = new UpmLoginPage(tool);
-            UpmHomePage upmHomePage = upmLoginPage.successfulsecAdminLogin(user);
+            UpmLoginPage upmLoginPage = new UpmLoginPage(tool, test, user);
+            UpmHomePage upmHomePage = upmLoginPage.successfulsecAdminLogin();
             // Go to Process-> Workflow tab
             // Navigate.goToProcessWorkflow();
             //

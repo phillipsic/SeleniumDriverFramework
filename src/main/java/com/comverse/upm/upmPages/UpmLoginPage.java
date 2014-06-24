@@ -1,21 +1,20 @@
 package com.comverse.upm.upmPages;
 
 import com.comverse.common.AutomationTool;
-import com.comverse.common.Main;
+import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.upm.common.CommonMenu;
 
-public class UpmLoginPage extends Main {
+public class UpmLoginPage extends CommonMenu {
 
-    public UpmLoginPage(AutomationTool tool) throws Exception {
-        this.tool = tool;
+    public UpmLoginPage(AutomationTool tool, Test test, User user) throws Exception {
+        super(tool, test, user);
         String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse ONE Unified Platform| Please Sign-In";
 
         if (!expectedScreen.equals(currentScreen)) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
-
     }
 
     public void enterUserName(String login) throws Exception {
@@ -32,11 +31,10 @@ public class UpmLoginPage extends Main {
     }
 
     public String getMessage() throws Exception {
-
         return tool.getTextUsingXPath("//span");
     }
 
-    public UpmHomePage successfulsecAdminLogin(User user) throws Exception {
+    public UpmHomePage successfulsecAdminLogin() throws Exception {
         System.out.println("Login is " + user.getLogin());
         this.enterUserName(user.getLogin());
         this.enterPassword(user.getPassword());
