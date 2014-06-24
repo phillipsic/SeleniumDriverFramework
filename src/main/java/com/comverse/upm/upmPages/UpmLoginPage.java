@@ -7,6 +7,7 @@ import com.comverse.common.User;
 public class UpmLoginPage extends Main {
 
     public UpmLoginPage(AutomationTool tool) throws Exception {
+        this.tool = tool;
         String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse ONE Unified Platform| Please Sign-In";
 
