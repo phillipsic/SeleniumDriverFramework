@@ -11,6 +11,7 @@ import com.comverse.data.users.SECAdmin;
 import com.comverse.upm.common.UPMTest;
 import com.comverse.upm.upmPages.UpmHomePage;
 import com.comverse.upm.upmPages.UpmLoginPage;
+import com.comverse.upm.upmPages.UpmProcessPage;
 
 public class UpmRunBip extends UPMTest {
 
@@ -32,6 +33,7 @@ public class UpmRunBip extends UPMTest {
             launchUPMApplication();
             UpmLoginPage upmLoginPage = new UpmLoginPage(tool, test, user);
             UpmHomePage upmHomePage = upmLoginPage.successfulsecAdminLogin();
+            UpmProcessPage upmProcessPage = upmHomePage.clickProcess();
             // Go to Process-> Workflow tab
             // Navigate.goToProcessWorkflow();
             //
@@ -51,6 +53,8 @@ public class UpmRunBip extends UPMTest {
             //
             // //Run template
             // Utils.runTemplate(templateName,accountNo);
+            
+            //Job Created Successfully. Job ID:1601:WPDS. then click Cancel. 
             //
             // //Go to History tab and click Refresh until last created workflow
             // is Completed
