@@ -3,7 +3,6 @@ package com.comverse.upm.upmPages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.upm.common.CommonMenu;
 
 public class UpmHomePage extends CommonMenu{

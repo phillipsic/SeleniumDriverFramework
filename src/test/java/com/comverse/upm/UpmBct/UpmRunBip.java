@@ -34,9 +34,8 @@ public class UpmRunBip extends UPMTest {
             UpmLoginPage upmLoginPage = new UpmLoginPage(tool, test, user);
             UpmHomePage upmHomePage = upmLoginPage.successfulsecAdminLogin();
             UpmProcessPage upmProcessPage = upmHomePage.clickProcess();
-            // Go to Process-> Workflow tab
-            // Navigate.goToProcessWorkflow();
-            //
+            upmProcessPage.clickWorkflow();
+            upmProcessPage.selectWorkflowType("CBS Batch Process");
             // processPage.selectTemplateWorkflowType(workflowType);
             // //Check whether Auto_BIP template exists; if not create by
             // invoking createJnlTemplate class
