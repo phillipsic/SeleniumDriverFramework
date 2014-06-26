@@ -26,9 +26,30 @@ public class UpmProcessPage extends CommonMenu{
         
     }
     
+    public void clickCreateTemplate() throws Exception {
+        tool.clickUsingXPath("//div/div/div/input[1]");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        
+    }
     
     public void selectWorkflowType(String workflowtype) throws Exception {
         tool.selectVisibleTextByXPath("//select", workflowtype);
         
     }
+    
+    public void enterTemplateName(String templatename) throws Exception {
+        tool.enterStringUsingXPath("//tr[1]/td[2]/div/input", templatename);
+        
+    }
+    
+    public void enterTemplateDescription(String description) throws Exception {
+        tool.enterStringUsingXPath("//tr[1]/td[4]/textarea", description);
+        
+    }
+    
+    public void selectProcess(String process) throws Exception {
+        tool.selectVisibleTextByXPath("//tr[3]/td[2]/select", process);
+        
+    }
+    
 }
