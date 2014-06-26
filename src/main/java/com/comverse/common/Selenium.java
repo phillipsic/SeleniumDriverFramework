@@ -428,6 +428,11 @@ public class Selenium extends AutomationTool {
     public void selectVisibleTextByName(String name, String visibleText) throws Exception {
         new Select(driver.findElement(By.name(name))).selectByVisibleText(visibleText);
     }
+    
+    @Override
+    public void selectVisibleTextByXPath(String xpath, String visibleText) throws Exception {
+        new Select(driver.findElement(By.xpath(xpath))).selectByVisibleText(visibleText);
+    }
 
     @Override
     public void switchTo() throws Exception {

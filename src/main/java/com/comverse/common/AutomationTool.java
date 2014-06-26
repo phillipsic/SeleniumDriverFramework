@@ -186,6 +186,9 @@ public class AutomationTool extends Main {
     public void selectVisibleTextByName(String name, String visibleText) throws Exception {
     }
 
+    public void selectVisibleTextByXPath(String xpath, String visibleText) throws Exception {
+    }
+    
     public void switchTo() throws Exception {
     }
 
