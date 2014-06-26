@@ -36,6 +36,10 @@ public class UpmRunBip extends UPMTest {
             UpmProcessPage upmProcessPage = upmHomePage.clickProcess();
             upmProcessPage.clickWorkflow();
             upmProcessPage.selectWorkflowType("CBS Batch Process");
+            upmProcessPage.clickCreateTemplate();
+            upmProcessPage.enterTemplateName("Selenium_Auto_BIP");
+            upmProcessPage.enterTemplateDescription("For Cust1");
+            upmProcessPage.selectProcess("BIP");
             // processPage.selectTemplateWorkflowType(workflowType);
             // //Check whether Auto_BIP template exists; if not create by
             // invoking createJnlTemplate class

@@ -26,9 +26,10 @@ public class UpmProcessPage extends CommonMenu{
         
     }
     
-    public void clickCreateTemplate() throws Exception {
+    public UpmProcessPage clickCreateTemplate() throws Exception {
         tool.clickUsingXPath("//div/div/div/input[1]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new UpmProcessPage(tool,test,user);
         
     }
     
@@ -49,6 +50,43 @@ public class UpmProcessPage extends CommonMenu{
     
     public void selectProcess(String process) throws Exception {
         tool.selectVisibleTextByXPath("//tr[3]/td[2]/select", process);
+        
+    }
+    
+    public void selectNodeType(String nodetype) throws Exception {
+        tool.selectVisibleTextByXPath("//tr[2]/td/select", nodetype);
+        
+    }
+    
+    public void selectQuery(String query) throws Exception {
+        tool.selectVisibleTextByXPath("//td[2]/table/tbody/tr/td/select", query);
+        
+    }
+    
+    public void enterQueryValue(String queryValue) throws Exception {
+        tool.enterStringUsingXPath("//td[2]/table/tbody/tr/td[2]/input", queryValue);
+        
+    }
+    
+    
+    public void enterTaskName(String taskName) throws Exception {
+        tool.enterStringUsingXPath("//td[3]/table/tbody/tr/td/input", taskName);
+        
+    }
+    
+    public void selectTaskMode(String taskMode) throws Exception {
+        tool.selectVisibleTextByXPath("//td[4]/table/tbody/tr/td[2]/select", taskMode);
+        
+    }
+    
+    public void selectServerId(String serverId) throws Exception {
+        tool.selectVisibleTextByXPath("//td[5]/table/tbody/tr/td[2]/select", serverId);
+        
+    }
+    
+    public void clickRun() throws Exception {
+        tool.clickUsingXPath("//div[3]/input[2]");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         
     }
     
