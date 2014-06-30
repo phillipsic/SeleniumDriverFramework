@@ -90,4 +90,16 @@ public class UpmProcessPage extends CommonMenu{
         
     }
     
+    public void clickCancel() throws Exception {
+        tool.clickUsingXPath("//div[3]/input[3]");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        
+    }
+    
+    public void clickHistory() throws Exception {
+        tool.clickUsingXPath("//td[contains(text(),'History')]");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        
+    }
+    
 }

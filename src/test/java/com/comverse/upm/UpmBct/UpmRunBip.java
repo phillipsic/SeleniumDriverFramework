@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.data.apps.UPM;
 import com.comverse.data.users.SECAdmin;
@@ -40,27 +41,23 @@ public class UpmRunBip extends UPMTest {
             upmProcessPage.enterTemplateName("Selenium_Auto_BIP");
             upmProcessPage.enterTemplateDescription("For Cust1");
             upmProcessPage.selectProcess("BIP");
-            // processPage.selectTemplateWorkflowType(workflowType);
-            // //Check whether Auto_BIP template exists; if not create by
-            // invoking createJnlTemplate class
-            // templateExists=Utils.checkTemplate(templateName);
-            //
-            // //Proceed to create new template only if it does not already
-            // exist
-            // if (!(templateExists))
-            // {
-            // if (accountNo == null) {accountNo="100";}
-            //
-            // Utils.upm_create_template(templateName,moduleName,nodeType,serverId);
-            // }
-            //
-            // //Run template
-            // Utils.runTemplate(templateName,accountNo);
             
-            //Job Created Successfully. Job ID:1601:WPDS. then click Cancel. 
-            //
+            upmProcessPage.selectNodeType("billing:app");
+            upmProcessPage.selectQuery("AccountNumber");
+            upmProcessPage.enterQueryValue("9414");
+            upmProcessPage.enterTaskName("bip001");
+            upmProcessPage.selectTaskMode("Production");
+            upmProcessPage.selectServerId("CUST2");
+            upmProcessPage.clickRun();
+            Common.assertTextOnPage(tool,"Job Created Successfully. Job ID:");
+            
             // //Go to History tab and click Refresh until last created workflow
             // is Completed
+            upmProcessPage.clickCancel();
+            upmProcessPage.clickHistory();
+            upmProcessPage.selectWorkflowType("CBS Batch Process");
+            
+            //upmProcessPage.getWorkflowState();
             // //If does not complete in default # of iterations, test will fail
             // Validate.validateLastWorkflowCompleted(DefaultStateCheckIterations);
             //
