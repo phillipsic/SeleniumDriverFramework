@@ -51,7 +51,7 @@ public class OCM0001_Add_Images extends CSSTest {
         tool.clickUsingID("mainPanel:_idJsp28:buttons:moveHierarchy");
         Common.assertTextOnPage(tool, "Images");
 
-        this.inputFile = "test\\com\\comverse\\css\\OCM\\Data\\images.xls";
+        this.inputFile = "src\\test\\java\\com\\comverse\\css\\OCM\\Data\\images.xls";
         File inputWorkbook = new File(inputFile);
         Workbook w;
         String[][] contents;
