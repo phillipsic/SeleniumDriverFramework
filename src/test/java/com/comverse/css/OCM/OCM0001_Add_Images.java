@@ -74,7 +74,7 @@ public class OCM0001_Add_Images extends CSSTest {
             ImageDetails = System.getProperty("user.dir") + "\\test\\com\\comverse\\css\\OCM\\Data\\Img\\" + cell.getContents();
             System.out.println(ImageDetails);
 
-            tool.enterStringUsingId("mainPanel:edit:mainfields:file", ImageDetails);
+            tool.selectImage("mainPanel:edit:mainfields:file", ImageDetails);
             tool.clickUsingID("mainPanel:edit:buttons:upload");
             Common.assertTextOnPage(tool, "1 media files uploaded successfully");
         }

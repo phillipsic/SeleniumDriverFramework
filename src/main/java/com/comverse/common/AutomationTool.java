@@ -188,7 +188,10 @@ public class AutomationTool extends Main {
 
     public void selectVisibleTextByXPath(String xpath, String visibleText) throws Exception {
     }
-    
+
+    public void selectImage(String id, String data) throws Exception {
+    }
+
     public void switchTo() throws Exception {
     }
 
