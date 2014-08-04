@@ -40,7 +40,9 @@ public class BCT003_PO_Residential_Notification_POS extends CSSTest {
 
         modifyContactInformation.enterFirstName("fn" + uniqueTimeStamp);
         ModifyContactInformationConfirmation modifyContactInformationConfirmation = modifyContactInformation.clickOk();
+        test.setBugId("CBS00169186");
         RequestSubmission requestSubmission = modifyContactInformationConfirmation.clickOk();
+        test.setBugId("NoBug");
 
         accountDetails = requestSubmission.clickOkModifyRequestGoTOAccountDashboard();
         RequestsForCustomer requestsForCustomer = accountDetails.clickViewRequestsForThisCustomer();
