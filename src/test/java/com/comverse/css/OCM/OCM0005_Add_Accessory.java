@@ -35,7 +35,7 @@ public class OCM0005_Add_Accessory extends CSSTest {
         LoginPage loginPage = new LoginPage(tool, test, user);
         OCMApplication ocmApplication = loginPage.loginToOCM(user);
 
-        this.inputFile = "test\\com\\comverse\\css\\OCM\\Data\\Accessories.xls";
+        this.inputFile = System.getProperty("user.dir") + "\\src\\test\\java\\com\\comverse\\css\\OCM\\Data\\Accessories.xls";
         File inputWorkbook = new File(inputFile);
         Workbook w;
         String accessoryType = "";
