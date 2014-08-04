@@ -71,7 +71,7 @@ public class OCM0001_Add_Images extends CSSTest {
             System.out.println("I got a label " + cell.getContents());
             // Click "Upload Media Files in this Folder"
             tool.clickUsingID("mainPanel:boxForm:folderSelection_ActionBox:actionList:mediaFiles:uploadMediaFile");
-            ImageDetails = System.getProperty("user.dir") + "\\test\\com\\comverse\\css\\OCM\\Data\\Img\\" + cell.getContents();
+            ImageDetails = System.getProperty("user.dir") + "\\src\\test\\java\\com\\comverse\\css\\OCM\\Data\\Img\\" + cell.getContents();
             System.out.println(ImageDetails);
 
             tool.selectImage("mainPanel:edit:mainfields:file", ImageDetails);
