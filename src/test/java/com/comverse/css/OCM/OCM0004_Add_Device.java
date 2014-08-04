@@ -45,7 +45,7 @@ public class OCM0004_Add_Device extends CSSTest {
 
         int rowCounter = 0;
 
-        tool.get(application.appURL() + "ocmweb/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
+        tool.get(application.appURL() + "/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
         tool.clickUsingID("mainPanel:treeForm:type-tree:0:t2");
         tool.clickUsingID("mainPanel:treeForm:type-tree:0:1:t2");
 
