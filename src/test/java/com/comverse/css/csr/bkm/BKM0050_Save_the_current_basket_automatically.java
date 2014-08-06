@@ -58,9 +58,9 @@ public class BKM0050_Save_the_current_basket_automatically extends CSSTest {
                     + enterIdentificationData.person.getPersonHomeCountryProperty(), myBasket.getAddress());
 
             ComverseOneSingleSignOn comverseOneSingleSignOn = myBasket.clickLogoutExpectingSSO();
-            test.setBugId("CBS00157425");
+           
             RestorePreviousBasket restorePreviousBasket = comverseOneSingleSignOn.loginToCSRAsCSRAdminWithPreviousBasket();
-            test.setBugId("NoBug");
+            
             myBasket = restorePreviousBasket.clickRestoreSavedBasket();
             myBasket.assign3InventoriesFirstOffer(subscriber);
 
