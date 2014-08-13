@@ -107,8 +107,8 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
             loginPage.setSecretAnswer(B2BAdimUser.getPassword());
             loginPage.clickChangeButton();
             
-          //  Common.storeBusinessAdminLogin(B2BAdimUser.getLogin(), "Created by " + this.getClass().getSimpleName());
-          //  Common.storeBusinessAdminPassword(B2BAdimUser.getPassword(), "Created by " + this.getClass().getSimpleName());
+            Common.storeBusinessAdminLogin(B2BAdimUser.getLogin(), "Created by " + this.getClass().getSimpleName());
+            Common.storeBusinessAdminPassword(B2BAdimUser.getPassword(), "Created by " + this.getClass().getSimpleName());
 
             test.setResult("pass");
 
