@@ -1,6 +1,6 @@
 package com.comverse.css.common.data;
 
-import org.junit.After;
+import com.comverse.css.common.AlreadyRunException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,8 +12,11 @@ import com.comverse.css.csr.HomePageBackOffice;
 import com.comverse.css.csr.InventoryAdministration;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.BOGAdmin;
+import org.junit.After;
 
 public class DATA003_AddReferentialAddress extends CSSTest {
+
+    private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
     @Override
@@ -26,20 +29,26 @@ public class DATA003_AddReferentialAddress extends CSSTest {
 
     @Test
     public void testDATA003_AddReferentialAddress() throws Exception {
+        try {
+            launchCSSApplicationAndSSOLogin();
 
-        launchCSSApplicationAndSSOLogin();
+            HomePageBackOffice homePageBackOffice = new HomePageBackOffice(tool, test, user);
+            InventoryAdministration inventoryAdministration = homePageBackOffice.clickBackOffice();
+            AddressAdministration addressAdministration = inventoryAdministration.clickAddressAdministration();
+            AddressAdd addressAdd = addressAdministration.clickAdd();
+            addressAdd.selectCountry("France");
+            addressAdd.setCity("La Defense");
+            addressAdd.setStreetName("Terrasses Boieldieu");
+            addressAdd.setZipCode("92042");
+            addressAdministration = addressAdd.clickOK();
 
-        HomePageBackOffice homePageBackOffice = new HomePageBackOffice(tool, test, user);
-        InventoryAdministration inventoryAdministration = homePageBackOffice.clickBackOffice();
-        AddressAdministration addressAdministration = inventoryAdministration.clickAddressAdministration();
-        AddressAdd addressAdd = addressAdministration.clickAdd();
-        addressAdd.selectCountry("France");
-        addressAdd.setCity("La Defense");
-        addressAdd.setStreetName("Terrasses Boieldieu");
-        addressAdd.setZipCode("92042");
-        addressAdministration = addressAdd.clickOK();
+            test.setResult("pass");
+        } catch (AlreadyRunException e) {
+        } catch (Exception e) {
+            verificationErrors.append(e.getMessage());
+            throw e;
+        }
 
-        test.setResult("pass");
     }
 
     @After
