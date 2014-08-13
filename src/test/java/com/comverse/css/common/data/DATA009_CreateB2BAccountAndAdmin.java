@@ -32,7 +32,7 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
     public void testDATA009_CreateB2BAccountAndAdmin() throws Exception {
         try {
 
-            User B2BAdimUser = new B2BAdmin();
+         //   User B2BAdimUser = new B2BAdmin();
             launchCSSApplicationAndSSOLogin();
             PO_BusinessHQEmployee po_BusinessHQEmployee = new PO_BusinessHQEmployee();
             String uniqueTimeStamp = Common.generateTimeStamp();
@@ -76,15 +76,21 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
       
             AddEmployeeRegisterLogin addEmployeeRegisterLogin = addEmployeeContactInformation.clickContinue();
             
-            B2BAdimUser.setNewLogin(uniqueTimeStamp);
-            addEmployeeRegisterLogin.enterLogin(B2BAdimUser.getLogin());
+            
+            user.setNewLogin(uniqueTimeStamp);
+            addEmployeeRegisterLogin.enterLogin(user.getLogin());
 
             AddEmployeeConfirmation addEmployeeConfirmation = addEmployeeRegisterLogin.clickSubmit();
             RegisterLogin registerLogin = addEmployeeConfirmation.clickOk();
-            B2BAdimUser.setNewPassword(registerLogin.getTempPasswordFromPage());
+            user.setNewPassword(registerLogin.getTempPasswordFromPage());
             viewHierarchy = registerLogin.clickOk();
 
             viewHierarchy.clickLogoutExpectingSSO();
+            
+              Common.storeBusinessAdminLogin(user.getLogin(), "Created by " + this.getClass().getSimpleName());
+            Common.storeBusinessAdminPassword(user.getPassword(), "Created by " + this.getClass().getSimpleName());
+
+            User B2BAdimUser = new B2BAdmin();
             application = new B2B();
             launchCSSApplication();
 
@@ -101,8 +107,8 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
             loginPage.setSecretAnswer(B2BAdimUser.getPassword());
             loginPage.clickChangeButton();
             
-            Common.storeBusinessAdminLogin(B2BAdimUser.getLogin(), "Created by " + this.getClass().getSimpleName());
-            Common.storeBusinessAdminPassword(B2BAdimUser.getPassword(), "Created by " + this.getClass().getSimpleName());
+          //  Common.storeBusinessAdminLogin(B2BAdimUser.getLogin(), "Created by " + this.getClass().getSimpleName());
+          //  Common.storeBusinessAdminPassword(B2BAdimUser.getPassword(), "Created by " + this.getClass().getSimpleName());
 
             test.setResult("pass");
 
