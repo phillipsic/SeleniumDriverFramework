@@ -43,7 +43,7 @@ public class CM0100_Attach_file_to_a_case extends CSSTest {
             CreateAttachment createAttachment = viewCase.clickAddAttachment();
             createAttachment.addAttachmentName(attachmentName);
             createAttachment.addDescription("Created by POS CM0100_Attach_file_to_a_case");
-            createAttachment.uploadAttachment("\\test\\com\\comverse\\css\\common\\data\\Attachment\\Attachment2.txt");
+            createAttachment.uploadAttachment("\\src\\test\\com\\comverse\\css\\common\\data\\Attachment\\Attachment2.txt");
             createAttachment.clickContinue();
             createAttachment.clickOKFromAddAttachment();
             createAttachment.clickOKFromCreateNewAttachmentResult();
