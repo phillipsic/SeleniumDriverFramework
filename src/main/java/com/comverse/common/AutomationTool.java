@@ -57,6 +57,9 @@ public class AutomationTool extends Main {
     public void enterStringUsingName(String name, String data) throws Exception {
     }
 
+    public void enterStringIntoFileUsingName(String name, String data) throws Exception {
+    }
+
     public void enterStringUsingXPath(String xpath, String data) throws Exception {
     }
 

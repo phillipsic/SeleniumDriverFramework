@@ -107,6 +107,12 @@ public class Selenium extends AutomationTool {
         driver.findElement(By.name(name)).clear();
         driver.findElement(By.name(name)).sendKeys(data);
     }
+    
+    @Override
+    public void enterStringIntoFileUsingName(String name, String data) throws Exception {
+        //driver.findElement(By.name(name)).clear();
+        driver.findElement(By.name(name)).sendKeys(data);
+    }
 
     @Override
     public void enterStringUsingXPath(String xpath, String data) throws Exception {
