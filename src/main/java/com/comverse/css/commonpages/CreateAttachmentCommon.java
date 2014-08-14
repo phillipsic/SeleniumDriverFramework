@@ -23,13 +23,14 @@ public class CreateAttachmentCommon extends CommonMenu {
     }
 
     public void addDescription(String description) throws Exception {
-        
+
         tool.enterStringUsingId("description", description);
     }
 
     public void uploadAttachment(String locationOfFile) throws Exception {
         String path = System.getProperty("user.dir");
-        tool.enterStringUsingId("fileUpload", path + locationOfFile);
+        path = path + locationOfFile;
+        tool.enterStringIntoFileUsingName("fileUpload", path );
     }
 
     public void clickContinue() throws Exception {
