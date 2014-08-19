@@ -4,6 +4,7 @@ import com.comverse.css.common.PropertyHelper;
 
 public class Application extends Main {
     private String Name;
+    private String CommonName;
     private String OCMName;
     private String Version;
     private String MainURLKey;
@@ -20,8 +21,16 @@ public class Application extends Main {
         return Name;
     }
 
+    public String getCommonName() {
+        return CommonName;
+    }
+
     public void setName(String name) {
         Name = name;
+    }
+
+    public void setCommonName(String commonName) {
+        CommonName = commonName;
     }
 
     public boolean getIsCSSApp() {
