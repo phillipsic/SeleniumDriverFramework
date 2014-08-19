@@ -29,6 +29,7 @@ public class Main {
     public static final String PASSWORD_PROPERTY_FILE = "Passwords.properties";
     public static final String DB_PROPERTY_FILE = "DB.properties";
     public static final String SQL_INVOICE_PROPERTY_FILE = "SQL_invoice.properties";
+    public static final String SQL_PREP_PROPERTY_FILE = "SQL_Prep.properties";
 
     public void checkForBadData() throws Exception {
 
