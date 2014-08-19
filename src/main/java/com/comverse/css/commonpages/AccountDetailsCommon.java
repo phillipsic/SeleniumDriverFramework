@@ -68,12 +68,11 @@ public class AccountDetailsCommon extends CommonMenu {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);
     }
-    
-    
-     public ListCasesCommon clickMoreCases() throws Exception {
+
+    public ListCasesCommon clickMoreCases() throws Exception {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         tool.clickUsingXPath("//a[@title='List all cases']");
-     
+
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCasesCommon(tool, test, user);
     }
@@ -296,7 +295,7 @@ public class AccountDetailsCommon extends CommonMenu {
         return new DisconnectAccountCommon(tool, test, user);
     }
 
-    public void waitUntilStatusChanged(String status) throws Exception {
+    public void waitUntilAccountStatusChanged(String status) throws Exception {
 
         int maxIterations = 10;
         int iterationCounter = 0;
@@ -323,9 +322,42 @@ public class AccountDetailsCommon extends CommonMenu {
         }
     }
 
+    public void waitUntilSubscriberStatusChanged(String status) throws Exception {
+
+        int maxIterations = 10;
+        int iterationCounter = 0;
+        String accountStatus;
+
+        while (iterationCounter < maxIterations) {
+
+            this.clickRefreshThisAccount();
+            accountStatus = this.getSubscriberStatus();
+
+            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " :" + accountStatus);
+
+            if (accountStatus.contains(status)) {
+
+                System.out.println("Account status changed to " + status);
+                break;
+            }
+
+            iterationCounter++;
+        }
+
+        if (iterationCounter >= maxIterations) {
+            throw new IllegalStateException("Order failed with status " + this.getAccountStatus());
+        }
+    }
+
     public String getAccountStatus() throws Exception {
 
         String orderStatus = tool.getTextUsingXPath("//div[@id='navigationContext']/div/div/div[2]");
+        return orderStatus;
+    }
+
+    public String getSubscriberStatus() throws Exception {
+
+        String orderStatus = tool.getTextUsingXPath("//div[@id='navigationContext']/div/div/div[3]");
         return orderStatus;
     }
 
