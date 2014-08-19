@@ -47,7 +47,7 @@ public class AML0010_Disconnect_Account extends CSSTest {
             disconnectAccount.clickOk();
             Common.isTextOnPage(tool, "Account Details");
 
-            accountDashboard.waitUntilSubscriberStatusChanged("Disconnect Requested");
+            accountDashboard.waitUntilSubscriberStatusChanged("Status:  Disconnected");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {
