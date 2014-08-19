@@ -23,7 +23,7 @@ public class UploadToken extends CommonMenu {
     public void selectFile(String filename) throws Exception {
         File file = new File(filename);
 
-        tool.enterStringUsingId("fileUpload", file.getAbsolutePath());
+        tool.enterStringIntoFileUsingId("fileUpload", file.getAbsolutePath());
     }
 
     public TokenAdministration clickOk() throws Exception {
