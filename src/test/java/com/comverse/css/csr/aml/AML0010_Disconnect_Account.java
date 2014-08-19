@@ -8,10 +8,7 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.css.csr.AccountDetails;
-import com.comverse.css.csr.DisconnectAccount;
-import com.comverse.css.csr.IdentifyCustomer;
-import com.comverse.css.csr.WorkSpace;
+import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
@@ -50,7 +47,7 @@ public class AML0010_Disconnect_Account extends CSSTest {
             disconnectAccount.clickOk();
             Common.isTextOnPage(tool, "Account Details");
 
-            accountDashboard.waitUntilStatusChanged("Disconnect Requested");
+            accountDashboard.waitUntilSubscriberStatusChanged("Disconnect Requested");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {
