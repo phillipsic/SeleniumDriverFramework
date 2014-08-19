@@ -337,7 +337,7 @@ public class AccountDetailsCommon extends CommonMenu {
 
             if (accountStatus.contains(status)) {
 
-                System.out.println("Account status changed to " + status);
+                System.out.println("Subscriber status changed to " + status);
                 break;
             }
 
@@ -351,13 +351,13 @@ public class AccountDetailsCommon extends CommonMenu {
 
     public String getAccountStatus() throws Exception {
 
-        String orderStatus = tool.getTextUsingXPath("//div[@id='navigationContext']/div/div/div[2]");
+        String orderStatus = tool.getTextUsingXPath("(//div[contains(text(),'Activated on:')])[1]/../div[2]");
         return orderStatus;
     }
 
     public String getSubscriberStatus() throws Exception {
 
-        String orderStatus = tool.getTextUsingXPath("//div[@id='navigationContext']/div/div/div[3]");
+        String orderStatus = tool.getTextUsingXPath("(//div[contains(text(),'Activated on:')])[2]/../div[2]");
         return orderStatus;
     }
 
