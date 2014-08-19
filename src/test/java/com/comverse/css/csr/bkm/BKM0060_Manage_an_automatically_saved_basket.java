@@ -64,7 +64,7 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
                     + enterIdentificationData.person.getPersonHomeCountryProperty(), myBasket.getAddress());
 
             ComverseOneSingleSignOn comverseOneSingleSignOn = myBasket.clickLogoutExpectingSSO();
-
+            launchCSSApplicationOnly();
             RestorePreviousBasket restorePreviousBasket = comverseOneSingleSignOn.loginToCSRAsCSRAdminWithPreviousBasket();
 
             myBasket = restorePreviousBasket.clickRestoreSavedBasket();

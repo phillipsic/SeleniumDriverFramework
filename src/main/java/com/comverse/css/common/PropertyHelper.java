@@ -362,4 +362,18 @@ public class PropertyHelper extends Main {
 
         return value;
     }
+
+    public String getSQLPrepProperties(String key) {
+        Properties props = null;
+
+        try {
+            props = readProperties(SQL_PREP_PROPERTY_FILE);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+        String value = props.getProperty(key);
+
+        return value;
+    }
 }

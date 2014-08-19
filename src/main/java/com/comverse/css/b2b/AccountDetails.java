@@ -93,7 +93,7 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public SelectOffersForYourAccount clickAddNewAccountOffer() throws Exception {
-        tool.clickUsingXPath("(//a[contains(text(),'Add')])[3]");
+        tool.clickUsingXPath("(//a[@title='Subscribe new Account Offers'])");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccount(tool, test, user);
     }

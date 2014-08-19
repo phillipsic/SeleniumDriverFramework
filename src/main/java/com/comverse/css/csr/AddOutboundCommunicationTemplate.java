@@ -26,7 +26,7 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
 
         File file = new File(filename);
         // 
-        tool.enterStringUsingId("templateFile", file.getAbsolutePath());
+        tool.enterStringIntoFileUsingId("templateFile", file.getAbsolutePath());
 
     }
 

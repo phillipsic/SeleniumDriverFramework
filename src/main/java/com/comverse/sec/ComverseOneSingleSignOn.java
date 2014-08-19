@@ -13,6 +13,7 @@ public class ComverseOneSingleSignOn extends Main {
     public ComverseOneSingleSignOn(AutomationTool tool, Test test, User user) throws Exception {
         this.test = test;
         this.user = user;
+        this.tool = tool;
         String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse – Single Signon";
 
