@@ -9,15 +9,16 @@ import java.io.InputStream;
 import java.util.MissingResourceException;
 import java.util.Properties;
 
+import com.comverse.common.Application;
+import com.comverse.common.DB;
 import com.comverse.common.Main;
 
 public class Prep extends Main {
 
-    public Prep() {
+    public Prep() throws Exception {
     }
 
     public String readUsersPasswordFromIniFile(String key) throws Exception {
-
         PropertyHelper propsHelper = new PropertyHelper();
 
         String passwordKey = "PASSWD." + key;
@@ -30,7 +31,6 @@ public class Prep extends Main {
     }
 
     public String readUsersUserNameFromIniFile(String key) throws Exception {
-
         PropertyHelper propsHelper = new PropertyHelper();
 
         String passwordKey = "LOGIN." + key;
@@ -43,7 +43,6 @@ public class Prep extends Main {
     }
 
     public String readPropertyFromAccountPropertyFile(String key) throws Exception {
-
         PropertyHelper propsHelper = new PropertyHelper();
 
         String property = propsHelper.getAccountProperties(key);
@@ -52,7 +51,6 @@ public class Prep extends Main {
             throw new MissingResourceException("Missing property " + key, ACCOUNTS_PROPERTY_FILE, key);
         }
         return property;
-
     }
 
     public static Properties readProperties(String name) throws IOException {
@@ -61,6 +59,18 @@ public class Prep extends Main {
         InputStream inStream = loader.getResourceAsStream(name);
         properties.load(inStream);
         return properties;
+    }
+
+    public void enableDevice(Application application) throws Exception {
+        PropertyHelper propsHelper = new PropertyHelper();
+        DB cid = new DB(propsHelper.getENV() + "CID");
+        if (cid.execSQLSelect(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("CHECK_DEVICE"), 1).equals("true"))
+            System.out.println("Device already enabled");
+        else {
+            cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_DEVICE"));
+            cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("UPDATE_TIMESTAMP"));
+            System.out.println("Device enabled");
+        }
     }
     // public void savePropertiesToFile(String lastnamevalue, String loginvalue,
     // String passwordvalue, String callingTest) {

@@ -72,16 +72,21 @@ public class DB extends Main {
         return con;
     }
 
-    public String execSQL(Statement st, String sqlQuery, int columnId) throws Exception {
+    public String execSQLSelect(Statement st, String sqlQuery, int columnId) throws Exception {
         String sqlResult = "";
         ResultSet rs = st.executeQuery(sqlQuery);
-
+        Thread.sleep(2000);
         if (rs.next()) {
             sqlResult = rs.getString(columnId);
         }
         rs.close();
 
         return sqlResult;
+    }
+
+    public void execSQLUpdate(Statement st, String sqlQuery) throws Exception {
+        st.executeUpdate(sqlQuery);
+        Thread.sleep(2000);
     }
 
 }
