@@ -264,7 +264,7 @@ public class Common {
 
         try {
             DB autotest = new DB("AUTOTEST");
-            connection = autotest.mysqlDBcnx();
+            connection = autotest.mysqlDBCnx();
 
             statement = connection
                     .prepareStatement("INSERT INTO dynamic_test_data ( environment, property_key, property_value, property_comment, property_used  ) VALUES (?, ?, ?, ?, false)");
@@ -294,7 +294,7 @@ public class Common {
 
         try {
             DB autotest = new DB("AUTOTEST");
-            connection = autotest.mysqlDBcnx();
+            connection = autotest.mysqlDBCnx();
 
             statement = connection
                     .prepareStatement("UPDATE dynamic_test_data SET property_value = ?, property_comment = ?, property_used = false WHERE property_key = ? AND environment = ?");
@@ -322,7 +322,7 @@ public class Common {
 
         try {
             DB autotest = new DB("AUTOTEST");
-            connection = autotest.mysqlDBcnx();
+            connection = autotest.mysqlDBCnx();
 
             statement = connection.prepareStatement("DELETE FROM dynamic_test_data WHERE property_value = ? AND property_key = ? AND environment = ?");
             statement.setString(1, value);
@@ -348,7 +348,7 @@ public class Common {
         boolean exist = false;
         Connection connection = null;
         DB autotest = new DB("AUTOTEST");
-        connection = autotest.mysqlDBcnx();
+        connection = autotest.mysqlDBCnx();
 
         try {
             statement = connection.prepareStatement("SELECT COUNT(*) as MY_COUNT FROM dynamic_test_data WHERE property_key = ? AND environment = ?");
@@ -384,7 +384,7 @@ public class Common {
         String propertyValue;
         Connection connection = null;
         DB autotest = new DB("AUTOTEST");
-        connection = autotest.mysqlDBcnx();
+        connection = autotest.mysqlDBCnx();
 
         try {
             statement = connection.prepareStatement("SELECT property_value FROM dynamic_test_data WHERE property_key = ? AND environment = ?");
@@ -421,7 +421,7 @@ public class Common {
         String propertyValue;
         Connection connection = null;
         DB autotest = new DB("AUTOTEST");
-        connection = autotest.mysqlDBcnx();
+        connection = autotest.mysqlDBCnx();
 
         try {
             statement = connection.prepareStatement("SELECT property_value FROM dynamic_test_data WHERE property_key = ? AND property_value like ? AND environment = ?");

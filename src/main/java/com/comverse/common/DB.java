@@ -55,17 +55,21 @@ public class DB extends Main {
     }
 
     public Statement oracleDBStatement() throws Exception {
+        return oracleDBCnx().createStatement();
+    }
+
+    public Connection oracleDBCnx() throws Exception {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         Connection con = DriverManager.getConnection("jdbc:oracle:thin:@" + getIp() + ":1521/" + getService_name(), getLogin(), getPassword());
 
-        return con.createStatement();
+        return con;
     }
 
     public Statement mysqlDBStatement() throws Exception {
-        return mysqlDBcnx().createStatement();
+        return mysqlDBCnx().createStatement();
     }
 
-    public Connection mysqlDBcnx() throws Exception {
+    public Connection mysqlDBCnx() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://" + getIp() + ":3306/" + getService_name(), getLogin(), getPassword());
 
@@ -84,9 +88,26 @@ public class DB extends Main {
         return sqlResult;
     }
 
+    public String execSQLSelectWithParam(Connection connection, String sqlQuery, int columnId, String param) throws Exception {
+        String sqlResult = "";
+        java.sql.PreparedStatement prepStmt = connection.prepareStatement(sqlQuery.replace("$param", param));
+        ResultSet rs = prepStmt.executeQuery();
+        Thread.sleep(2000);
+        if (rs.next()) {
+            sqlResult = rs.getString(columnId);
+        }
+        rs.close();
+
+        return sqlResult;
+    }
+
     public void execSQLUpdate(Statement st, String sqlQuery) throws Exception {
         st.executeUpdate(sqlQuery);
         Thread.sleep(2000);
     }
 
+    public void execSQLUpdateWithParam(Statement st, String sqlQuery, String param) throws Exception {
+        st.executeUpdate(sqlQuery.replace("$param", param));
+        Thread.sleep(2000);
+    }
 }
