@@ -1,4 +1,5 @@
 package com.comverse.css.csr.chk;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +12,6 @@ import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
-
 public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -22,6 +22,7 @@ public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTe
         preparation = new Prep();
         application = new CSR();
         user = new CSRAdmin();
+        preparation.enableDevice(application);
     }
 
     @Test

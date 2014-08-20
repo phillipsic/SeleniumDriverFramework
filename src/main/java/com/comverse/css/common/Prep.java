@@ -64,10 +64,10 @@ public class Prep extends Main {
     public void enableDevice(Application application) throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
         DB cid = new DB(propsHelper.getENV() + "CID");
-        if (cid.execSQLSelect(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("CHECK_DEVICE"), 1).equals("true"))
+        if (cid.execSQLSelectWithParam(cid.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_DEVICE"), 1, application.getCommonName() + "_char_value").equals("true"))
             System.out.println("Device already enabled");
         else {
-            cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_DEVICE"));
+            cid.execSQLUpdateWithParam(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_DEVICE"), application.getCommonName() + "_char_value");
             cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("UPDATE_TIMESTAMP"));
             System.out.println("Device enabled");
         }
