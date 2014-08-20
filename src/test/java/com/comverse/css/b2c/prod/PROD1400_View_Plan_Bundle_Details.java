@@ -16,6 +16,7 @@ import com.comverse.css.data.SB.SB_ResidentialBasicPrepaidBundle;
 import com.comverse.data.apps.B2C;
 
 public class PROD1400_View_Plan_Bundle_Details extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -43,12 +44,13 @@ public class PROD1400_View_Plan_Bundle_Details extends CSSTest {
 
             // @TODO - need to replace hard coded string
             Common.assertTextOnPage(tool, "DIY - Super-Pack Terms and Conditions.");
-            chooseYourPrimaryOfferInThisAccountBundle = subscriberBundleDetails.clickReturnToList();
 
+            test.setBugId("CBS00169920");
+            chooseYourPrimaryOfferInThisAccountBundle = subscriberBundleDetails.clickReturnToList();
+            test.setBugId("NoBug");
             Common.assertTextOnPage(tool, sb_ResidentialBasicPrepaidBundle.getOfferName());
 
             // @TODO - More validation steps to be added.
-
             test.setResult("pass");
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
