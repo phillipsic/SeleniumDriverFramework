@@ -65,10 +65,10 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
     public EnterYourSubscriptionDetails selectSubscriberBundleByNameWithoutDevice(String subscriberBundleName, String primaryOfferName) throws Exception {
 
-        String subscriberbundleID = this.getSubscriberBundleID(subscriberBundleName);
-        String offerID = this.getPrimaryOfferID(primaryOfferName);
-        System.out.println("link = #selectButton_" + subscriberbundleID);
-        tool.clickUsingCssSelector("#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID);
+        String subscriberbundleID = this.clickSelectSubscriberBundle(subscriberBundleName);
+       // String offerID = this.getPrimaryOfferID(primaryOfferName);
+      //  System.out.println("link = #selectButton_" + subscriberbundleID);
+    //    tool.clickUsingCssSelector("#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID);
         // tool.clickUsingID("selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
@@ -131,7 +131,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         return temp[0];
     }
 
-    public String getSubscriberBundleID(String subscriberBundleName) throws Exception {
+    public String clickSelectSubscriberBundle(String subscriberBundleName) throws Exception {
         int pageCounter = 2;
 
         boolean beresult = Common.isOfferTextOnPage(tool, subscriberBundleName);
@@ -145,11 +145,11 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             pageCounter++;
         }
 
-        tool.clickUsingXPath("//p[text()[normalize-space(.)='Residential - Basic Prepaid']]/../..//input[@value='Select']");
+        tool.clickUsingXPath("//p[text()[normalize-space(.)='" + subscriberBundleName + "']]/../..//input[@value='Select']");
 
         String temp[];
 
-        String str = tool.getPageSource();
+    /*    String str = tool.getPageSource();
 
         temp = str.split(subscriberBundleName + " </[pP]>"); // works in IE
 
@@ -170,7 +170,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             temp = str.split(" ");
             System.out.println("Bundle ID is = " + temp[0]);
         }
-
-        return temp[0];
+*/
+        return null;
     }
 }
