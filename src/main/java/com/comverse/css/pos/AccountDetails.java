@@ -138,10 +138,9 @@ public class AccountDetails extends AccountDetailsCommon {
         return new ViewCase(tool, test, user);
     }
 
-
     @Override
     public ListCases clickMoreCases() throws Exception {
-       super.clickMoreCases();
+        super.clickMoreCases();
         return new ListCases(tool, test, user);
     }
 
@@ -210,5 +209,38 @@ public class AccountDetails extends AccountDetailsCommon {
     public PersonDetails clickUpdatePerson() throws Exception {
         super.clickUpdatePerson();
         return new PersonDetails(tool, test, user);
+    }
+
+    public void waitUntilSubscriberStatusChanged(String status) throws Exception {
+
+        int maxIterations = 10;
+        int iterationCounter = 0;
+        String accountStatus;
+
+        while (iterationCounter < maxIterations) {
+
+            this.clickRefreshThisAccount();
+            accountStatus = this.getSubscriberStatus();
+
+            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " :" + accountStatus);
+
+            if (accountStatus.contains(status)) {
+
+                System.out.println("Subscriber status changed to " + status);
+                break;
+            }
+
+            iterationCounter++;
+        }
+
+        if (iterationCounter >= maxIterations) {
+            throw new IllegalStateException("Order failed with status " + this.getAccountStatus());
+        }
+    }
+
+    public String getSubscriberStatus() throws Exception {
+
+        String orderStatus = tool.getTextUsingXPath("(//div[contains(text(),'Active Date:')])[2]/../div[2]");
+        return orderStatus;
     }
 }

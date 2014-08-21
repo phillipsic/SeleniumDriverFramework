@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
     B2B_BAM_TS.class,
     B2B_BKM_TS.class,
     B2B_CHK_TS.class,
-    B2B_CIM_TS.class,
+   // B2B_CIM_TS.class,
     B2B_CM_TS.class,
     B2B_EPI_TS.class,
     B2B_RCH_TS.class})

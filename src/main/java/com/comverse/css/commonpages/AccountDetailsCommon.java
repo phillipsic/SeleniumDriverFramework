@@ -322,42 +322,9 @@ public class AccountDetailsCommon extends CommonMenu {
         }
     }
 
-    public void waitUntilSubscriberStatusChanged(String status) throws Exception {
-
-        int maxIterations = 10;
-        int iterationCounter = 0;
-        String accountStatus;
-
-        while (iterationCounter < maxIterations) {
-
-            this.clickRefreshThisAccount();
-            accountStatus = this.getSubscriberStatus();
-
-            System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " :" + accountStatus);
-
-            if (accountStatus.contains(status)) {
-
-                System.out.println("Subscriber status changed to " + status);
-                break;
-            }
-
-            iterationCounter++;
-        }
-
-        if (iterationCounter >= maxIterations) {
-            throw new IllegalStateException("Order failed with status " + this.getAccountStatus());
-        }
-    }
-
     public String getAccountStatus() throws Exception {
 
         String orderStatus = tool.getTextUsingXPath("(//div[contains(text(),'Activated on:')])[1]/../div[2]");
-        return orderStatus;
-    }
-
-    public String getSubscriberStatus() throws Exception {
-
-        String orderStatus = tool.getTextUsingXPath("(//div[contains(text(),'Activated on:')])[2]/../div[2]");
         return orderStatus;
     }
 

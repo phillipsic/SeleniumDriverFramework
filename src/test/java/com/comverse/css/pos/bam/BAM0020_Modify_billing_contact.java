@@ -15,6 +15,7 @@ import com.comverse.data.apps.POS;
 import com.comverse.data.users.TelcoRetailerAdmin;
 
 public class BAM0020_Modify_billing_contact extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -55,7 +56,10 @@ public class BAM0020_Modify_billing_contact extends CSSTest {
             modifyContactInformation.enterAddressLineOne("ad1-" + uniqueTimeStamp);
 
             ModifyContactInformationConfirmation modifyContactInformationConfirmation = modifyContactInformation.clickOk();
+
+            test.setBugId("CBS00169186");
             RequestSubmission requestSubmission = modifyContactInformationConfirmation.clickOk();
+            test.setBugId("NoBug");
 
             accountDetails = requestSubmission.clickOkModifyRequestGoTOAccountDashboard();
             accountDetails.clickRefreshThisAccount();
