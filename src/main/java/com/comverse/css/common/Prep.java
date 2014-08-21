@@ -66,23 +66,27 @@ public class Prep extends Main {
         cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("UPDATE_TIMESTAMP"));
     }
 
-    public void enableSystem_Parameter(Application application, String param) throws Exception {
+    private void enableParameter(String paramValue, String paramName, String paramExpectedValue) throws Exception {
         DB cid = new DB(propsHelper.getENV() + "CID");
-        if (cid.execSQLSelectWithParam(cid.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_" + param), 1, application.getCommonName() + "_char_value").equals("true"))
-            System.out.println(param + " already enabled");
+        if (cid.execSQLSelectWithParam(cid.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_" + paramName), 1, paramValue).equals(paramExpectedValue))
+            System.out.println(paramName + " already enabled");
         else {
-            cid.execSQLUpdateWithParam(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_" + param), application.getCommonName() + "_char_value");
+            cid.execSQLUpdateWithParam(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_" + paramName), paramValue);
             updateVersion(cid);
-            System.out.println(param + " is now enabled");
+            System.out.println(paramName + " is now enabled");
         }
     }
 
     public void enableDevice(Application application) throws Exception {
-        enableSystem_Parameter(application, "DEVICE");
+        enableParameter(application.getCommonName() + "_char_value", "DEVICE", "true");
     }
 
     public void enableSubscribeStatusHistory(Application application) throws Exception {
-        enableSystem_Parameter(application, "SUBSCRIBER_STATUS_HISTORY");
+        enableParameter(application.getCommonName() + "_char_value", "SUBSCRIBER_STATUS_HISTORY", "true");
+    }
+
+    public void enableBusinessNCA(Application application) throws Exception {
+        enableParameter(application.getCommonName(), "BUSINESS_NCA", "19");
     }
 
     // public void savePropertiesToFile(String lastnamevalue, String loginvalue,

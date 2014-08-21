@@ -12,18 +12,6 @@ import com.comverse.css.pos.*;
 import com.comverse.data.apps.POS;
 import com.comverse.data.users.TelcoRetailerUser;
 
-/**
- * 
- * In order to be able to provide Business customers in Channel, execute the
- * following queries in CID DB:
- * 
- * INSERT INTO AVL_APP_ORG_TYPE (app_id, use_case_code, org_type_id) VALUES
- * ('3','NCA','19'); commit;
- * 
- * UPDATE VERSIONS SET ITEM_TIMESTAMP = ITEM_TIMESTAMP + 1/86400 WHERE ITEM_CODE
- * = 'REFERENCE_DATA'; commit;
- * 
- */
 public class NCA0010_New_Customer_Business_POS extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -34,6 +22,7 @@ public class NCA0010_New_Customer_Business_POS extends CSSTest {
         preparation = new Prep();
         application = new POS();
         user = new TelcoRetailerUser();
+        preparation.enableBusinessNCA(application);
     }
 
     @Test
