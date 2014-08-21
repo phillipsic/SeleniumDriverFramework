@@ -86,6 +86,7 @@ public class Prep extends Main {
     }
 
     public void enableBusinessNCA(Application application) throws Exception {
+        // 19 is the Business Org_Type_Code
         enableParameter(application.getCommonName(), "BUSINESS_NCA", "19");
     }
 
