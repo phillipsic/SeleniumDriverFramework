@@ -23,6 +23,7 @@ public class ACCT0212_View_Subscriber_Status_History extends CSSTest {
         super.setUp();
         preparation = new Prep();
         application = new B2C();
+        preparation.enableSubscribeStatusHistory(application);
     }
 
     @Test
@@ -64,6 +65,7 @@ public class ACCT0212_View_Subscriber_Status_History extends CSSTest {
             test.setBugId("CBS00165180");
             subscriberDetail = subscriberStatusHistory.clickOk();
             test.setBugId("NoBug");
+
             test.setResult("pass");
         } catch (AlreadyRunException e) {
         } catch (Exception e) {

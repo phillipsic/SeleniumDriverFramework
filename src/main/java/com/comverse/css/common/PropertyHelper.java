@@ -351,6 +351,7 @@ public class PropertyHelper extends Main {
 
     public String getSQLInvoiceProperties(String key) {
         Properties props = null;
+        String value = null;
 
         try {
             props = readProperties(SQL_INVOICE_PROPERTY_FILE);
@@ -358,13 +359,14 @@ public class PropertyHelper extends Main {
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
-        String value = props.getProperty(key);
+        value = props.getProperty(key);
 
         return value;
     }
 
     public String getSQLPrepProperties(String key) {
         Properties props = null;
+        String value = null;
 
         try {
             props = readProperties(SQL_PREP_PROPERTY_FILE);
@@ -372,7 +374,7 @@ public class PropertyHelper extends Main {
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
-        String value = props.getProperty(key);
+        value = props.getProperty(key);
 
         return value;
     }

@@ -14,6 +14,7 @@ import com.comverse.common.DB;
 import com.comverse.common.Main;
 
 public class Prep extends Main {
+    private PropertyHelper propsHelper = new PropertyHelper();
 
     public Prep() throws Exception {
     }
@@ -61,17 +62,29 @@ public class Prep extends Main {
         return properties;
     }
 
-    public void enableDevice(Application application) throws Exception {
-        PropertyHelper propsHelper = new PropertyHelper();
+    public void updateVersion(DB cid) throws Exception {
+        cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("UPDATE_TIMESTAMP"));
+    }
+
+    public void enableSystem_Parameter(Application application, String param) throws Exception {
         DB cid = new DB(propsHelper.getENV() + "CID");
-        if (cid.execSQLSelectWithParam(cid.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_DEVICE"), 1, application.getCommonName() + "_char_value").equals("true"))
-            System.out.println("Device already enabled");
+        if (cid.execSQLSelectWithParam(cid.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_" + param), 1, application.getCommonName() + "_char_value").equals("true"))
+            System.out.println(param + " already enabled");
         else {
-            cid.execSQLUpdateWithParam(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_DEVICE"), application.getCommonName() + "_char_value");
-            cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("UPDATE_TIMESTAMP"));
-            System.out.println("Device enabled");
+            cid.execSQLUpdateWithParam(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_" + param), application.getCommonName() + "_char_value");
+            updateVersion(cid);
+            System.out.println(param + " is now enabled");
         }
     }
+
+    public void enableDevice(Application application) throws Exception {
+        enableSystem_Parameter(application, "DEVICE");
+    }
+
+    public void enableSubscribeStatusHistory(Application application) throws Exception {
+        enableSystem_Parameter(application, "SUBSCRIBER_STATUS_HISTORY");
+    }
+
     // public void savePropertiesToFile(String lastnamevalue, String loginvalue,
     // String passwordvalue, String callingTest) {
     //
