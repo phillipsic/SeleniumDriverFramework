@@ -14,6 +14,7 @@ import com.comverse.data.apps.POS;
 import com.comverse.data.users.TelcoRetailerAdmin;
 
 public class SUM0060_Modify_subscriber_contact extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -53,7 +54,9 @@ public class SUM0060_Modify_subscriber_contact extends CSSTest {
             modifyContactInformation.enterDayPhone(workSpace.subscriber.getSubscriberDayPhoneNumberProperty());
             modifyContactInformation.enterEveningPhone(workSpace.subscriber.getSubscriberEveningPhoneNumberProperty());
             ModifyContactInformationConfirmation modifyContactInformationConfirmation = modifyContactInformation.clickOk();
+            test.setBugId("CBS00169186");
             RequestSubmission requestSubmission = modifyContactInformationConfirmation.clickOk();
+            test.setBugId("NoBug");
             requestSubmission.clickOkModifyRequestGoTOSubscriberDashboard();
 
             subscriberDashboard.clickAccountIDFromNavigationPanel();
