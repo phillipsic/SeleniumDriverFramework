@@ -41,9 +41,9 @@ public class RBM0010_Configure_spending_credit_limits extends CSSTest {
             shopping.clickSubscriberBundlePrimaryOfferName(po_ResidentialUltraPostpaid.getOfferName());
             ConfigureBalance configureBalance = shopping.clickSelectOfferInPopUpWindowExpectingConfigureBalance();
 
-            tool.clickUsingXPath("//input[@type='checkbox' and contains(@onclick, 'CORE BALANCE_limit')]");
-            configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceName(), po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE()
-                    .getBalanceValue());
+           // tool.clickUsingXPath("//input[@type='checkbox' and contains(@onclick, 'CORE BALANCE_limit')]");
+            //configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceName(), po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE()
+             //       .getBalanceValue());
             configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_InternationalRoaming().getBalanceName(), po_ResidentialUltraPostpaid.getBAL_InternationalRoaming()
                     .getBalanceValue());
             configureBalance.setSpendingLimit(po_ResidentialUltraPostpaid.getBAL_GPRS_WAP_INTERNET().getBalanceName(), po_ResidentialUltraPostpaid.getBAL_GPRS_WAP_INTERNET()
@@ -74,7 +74,7 @@ public class RBM0010_Configure_spending_credit_limits extends CSSTest {
 
             BalanceDetails balanceDetails = viewBalance.viewBalanceDetails(po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceName());
             Common.assertTextOnPage(tool, po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceName());
-            Common.assertTextOnPage(tool, "$ " + po_ResidentialUltraPostpaid.getBAL_CORE_BALANCE().getBalanceValue() + ".00");
+            Common.assertTextOnPage(tool, "Unlimited");
             viewBalance = balanceDetails.clickGoToListOfBalances();
 
             balanceDetails = viewBalance.viewBalanceDetails(po_ResidentialUltraPostpaid.getBAL_InternationalRoaming().getBalanceName());
