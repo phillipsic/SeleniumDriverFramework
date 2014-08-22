@@ -66,6 +66,11 @@ public class RequestsForCustomerCommon extends CommonMenu {
         String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr/td[7]/div");
         return requestStatus;
     }
+    
+     public String getFirstRequestStatusPOS() throws Exception {
+        String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr/td[6]/div");
+        return requestStatus;
+    }
 
     public void clickToSubscriberDashboard() throws Exception {
         tool.clickUsingCssSelector("div.navContextMain > a[title=\"Go to Subscriber Dashboard\"]");
@@ -81,7 +86,7 @@ public class RequestsForCustomerCommon extends CommonMenu {
         while (iterationCounter < maxIterations) {
 
             this.clickSearch();
-            requestStatus = this.getFirstRequestStatus();
+            requestStatus = this.getFirstRequestStatusPOS();
 
             System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + requestStatus);
 
