@@ -234,4 +234,8 @@ public class PersonManagementCommon extends CommonMenu {
         return new PersonMergeCommon(tool, test, user);
     }
 
+    public String getPersonStatus(String personName) throws Exception {
+        return tool.getTextUsingXPath("//div[contains(text(),'" + personName + "')]/../../td[6]");
+    }
+
 }
