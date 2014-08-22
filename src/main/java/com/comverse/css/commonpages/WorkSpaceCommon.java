@@ -160,7 +160,8 @@ public class WorkSpaceCommon extends CommonMenu {
 
         SearchRequestsCommon searchRequests = workSpaceCommon.clickRequests();
         SearchOrdersCommon searchOrders = searchRequests.clickSearchOrders();
-        searchOrders.waitUntilOrderCompletedOrFailedWithGetAccountID(orderNumber, account);
+        //searchOrders.waitUntilOrderCompletedOrFailedWithGetAccountID(orderNumber, account);
+        searchOrders.waitUntilOrderCompletedOrFailed(orderNumber);
         searchOrders.clickHomeMenu();
 
         return workSpaceCommon;
