@@ -10,4 +10,11 @@ public class PersonMerge extends PersonMergeCommon {
     public PersonMerge(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
     }
+
+    @Override
+    public PersonManagement clickOKFromMerge() throws Exception {
+        super.clickOKFromMerge();
+        return new PersonManagement(tool, test, user);
+    }
+
 }
