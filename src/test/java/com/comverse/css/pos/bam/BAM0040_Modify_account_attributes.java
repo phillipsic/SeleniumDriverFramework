@@ -12,6 +12,7 @@ import com.comverse.data.apps.POS;
 import com.comverse.data.users.TelcoRetailerAdmin;
 
 public class BAM0040_Modify_account_attributes extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -64,6 +65,8 @@ public class BAM0040_Modify_account_attributes extends CSSTest {
             assertEquals(account.getBillingSalesCodeProperty(), modifyAccountAttributes.getSalesCode());
             assertEquals(account.getBillingSecurityWordProperty(), modifyAccountAttributes.getSecurityWord());
             assertEquals(account.getBillingSICCodeProperty(), modifyAccountAttributes.getSICWord());
+
+            test.setResult("pass");
 
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
