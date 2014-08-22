@@ -80,9 +80,9 @@ public class RBM0040_Display_balance_details extends CSSTest {
 
             ViewBalance viewBalance = accountDetails.clickViewBalancesAndRecharge();
 
-            Common.assertTextOnPage(tool, acctBalanceAnytimeName);
-            Common.assertTextOnPage(tool, acctBalanceNightWeekendName);
-            BalanceDetails balanceDetails = viewBalance.viewBalanceDetails(acctBalanceNightWeekendName);
+            Common.assertTextOnPage(tool, balanceAnytimeName);
+            Common.assertTextOnPage(tool, balanceNightWeekendName);
+            BalanceDetails balanceDetails = viewBalance.viewBalanceDetails(balanceNightWeekendName);
 
             Common.assertTextOnPage(tool, "Subscribers using units from this balance");
             Common.assertTextOnPage(tool, "Subscriber " + firstSubscriberMSISDN);
@@ -92,8 +92,8 @@ public class RBM0040_Display_balance_details extends CSSTest {
             Common.assertTextOnPage(tool, Common.formatToHHmmss(balanceNightWeekendValue));
             viewBalance = balanceDetails.viewAccountBalances();
 
-            Common.assertTextOnPage(tool, acctBalanceAnytimeName);
-            Common.assertTextOnPage(tool, acctBalanceNightWeekendName);
+            Common.assertTextOnPage(tool, balanceAnytimeName);
+            Common.assertTextOnPage(tool, balanceNightWeekendName);
 
             // test.setResult("pass");
 
