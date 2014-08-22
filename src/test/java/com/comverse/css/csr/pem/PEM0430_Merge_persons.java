@@ -11,12 +11,14 @@ import com.comverse.css.common.Prep;
 import com.comverse.css.commonpages.AccountDetailsCommon;
 import com.comverse.css.commonpages.PersonManagementCommon;
 import com.comverse.css.commonpages.PersonMergeCommon;
+import com.comverse.css.csr.AccountDetails;
 import com.comverse.css.csr.IdentifyCustomer;
 import com.comverse.css.csr.WorkSpace;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
 public class PEM0430_Merge_persons extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -34,9 +36,10 @@ public class PEM0430_Merge_persons extends CSSTest {
             launchCSSApplicationAndSSOLogin();
             WorkSpace workSpace = new WorkSpace(tool, test, user);
 
-            IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
+            String accountLastName = Common.getLastNameRechargableAccount();
 
-            AccountDetailsCommon accountDetails = manageAccount.searchByPersonLastNameSinglePerson(Common.getPersonLastName());
+            IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
+            AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountLastName(accountLastName);
 
             PersonManagementCommon personManagement = accountDetails.clickPersonManagement();
 
@@ -53,7 +56,6 @@ public class PEM0430_Merge_persons extends CSSTest {
             Common.assertTextOnPage(tool, "inactive");
 
             // test.setResult("pass");
-
         } catch (AlreadyRunException e) {
         } catch (Exception e) {
             verificationErrors.append(e.getMessage());
