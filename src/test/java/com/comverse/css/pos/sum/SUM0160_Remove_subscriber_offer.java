@@ -8,6 +8,7 @@ import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
+import com.comverse.css.data.SO.SO_2010WorldCupSoccerNews;
 import com.comverse.css.pos.*;
 import com.comverse.data.apps.POS;
 import com.comverse.data.users.TelcoRetailerAdmin;
@@ -28,7 +29,9 @@ public class SUM0160_Remove_subscriber_offer extends CSSTest {
     public void testSUM0160_Remove_subscriber_offer() throws Exception {
 
         try {
-            String SUPPLEMENTARY_OFFER = "2010 World Cup Soccer News";
+            //String SUPPLEMENTARY_OFFER = "2010 World Cup Soccer News";
+            
+            SO_2010WorldCupSoccerNews so_2010WorldCupSoccerNews = new SO_2010WorldCupSoccerNews();
             launchCSSApplication();
 
             MyShapeChannel loginPage = new MyShapeChannel(tool, test, user);
@@ -41,7 +44,7 @@ public class SUM0160_Remove_subscriber_offer extends CSSTest {
             AccountDetails accountDetails = identifyCustomer.searchByPersonLastNameSinglePerson(workSpace.getPerson().getPersonLastNameProperty());
 
             SubscriberDetails subscriberDashboard = accountDetails.selectFirstSubscriberFromNavigationPanel();
-            subscriberDashboard.doAddSO(SUPPLEMENTARY_OFFER);
+            subscriberDashboard.doAddSO(so_2010WorldCupSoccerNews.getOfferName());
             RemoveOffer removeOffer = subscriberDashboard.clickDeleteOffer();
             OfferCancellation offerCancellation = removeOffer.clickYes();
             offerCancellation.clickOkGoToSubscriberDashboard();
@@ -49,7 +52,7 @@ public class SUM0160_Remove_subscriber_offer extends CSSTest {
             RequestsForCustomer requestsForCustomer = accountDetails.clickViewRequestsForThisCustomer();
             requestsForCustomer.waitUntilFirstRequestCompletedOrFailedPOS();
             requestsForCustomer.clickToSubscriberDashboard();
-            Common.assertTextNotOnPage(tool, SUPPLEMENTARY_OFFER);
+            Common.assertTextNotOnPage(tool, so_2010WorldCupSoccerNews.getOfferName());
 
             test.setResult("pass");
 
