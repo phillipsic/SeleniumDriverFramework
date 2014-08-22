@@ -22,4 +22,12 @@ public class PersonManagement extends PersonManagementCommon {
         super.clickActionsAddLoginForPerson(personLastName);
         return new AddLogin(tool, test, user);
     }
+
+    @Override
+    public PersonMerge clickPersonMerge() throws Exception {
+        super.clickPersonMerge();
+        return new PersonMerge(tool, test, user);
+    }
+    
+   
 }
