@@ -15,6 +15,7 @@ import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
 public class OBC0_Generate_outbound_communication_and_send extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -34,8 +35,8 @@ public class OBC0_Generate_outbound_communication_and_send extends CSSTest {
             String accountLastName = Common.getLastNameRechargableAccount();
 
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
-            AccountDetails accountDetails = manageAccount.searchByAccountLastNameSinglePerson(accountLastName);
-            // accountDetails.clickRefreshThisAccount();
+            AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountLastName(accountLastName);
+
             SendCommunication sendCommunication = accountDetails.clickSendOutBoundCommunication();
 
             sendCommunication.selectTemplateEventType("Order");
