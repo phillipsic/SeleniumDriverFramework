@@ -6,6 +6,7 @@ import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
 public class PersonMergeCommon extends CommonMenu {
+
     static String expectedScreen = "Person Merge";
 
     public PersonMergeCommon(AutomationTool tool, Test test, User user) throws Exception {
@@ -18,7 +19,7 @@ public class PersonMergeCommon extends CommonMenu {
     }
 
     public void setLastName(String LN) throws Exception {
-        
+
         tool.enterStringUsingId("lastname", LN);
     }
 
@@ -29,10 +30,12 @@ public class PersonMergeCommon extends CommonMenu {
     public void clickSelect() throws Exception {
         Common.sleepForNumberOfSeconds(5);
         tool.clickUsingCssSelector("input[value='Select'][type='button']");
+
     }
 
-    public void clickOKFromMerge() throws Exception {
+    public PersonManagementCommon clickOKFromMerge() throws Exception {
         tool.clickUsingXPath("(//input[@value='OK'])[2]");
+        return new PersonManagementCommon(tool, test, user);
     }
 
 }
