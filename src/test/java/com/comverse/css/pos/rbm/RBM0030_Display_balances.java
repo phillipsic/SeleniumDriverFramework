@@ -77,9 +77,11 @@ public class RBM0030_Display_balances extends CSSTest {
 
             SubscriberDetails subscriberDetails = identifyCustomer.searchBySubscriberMSISDN(secondSubscriberMSISDN);
 
-            subscriberDetails.viewBalanceAndRecharge();
+            ViewBalance viewBalance = subscriberDetails.viewBalanceAndRecharge();
 
             // Balances table
+            
+            viewBalance.viewBalanceDetails(balanceAnytimeName);
             tool.isElementPresentByID("listBalances");
             Common.assertTextOnPage(tool, ab_AccountBundle.getBAL_GPRS_WAP_INTERNET().getBalanceName());
             // Shadow balances table
