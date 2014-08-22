@@ -12,8 +12,10 @@ public class SFATest extends Main {
 
     @Before
     public void setUp() throws Exception {
+        PropertyHelper propsHelper = new PropertyHelper();
         tool = new Selenium();
         test = new Test();
+        test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
         tool.platform = new Platform();
         user = new User();
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
