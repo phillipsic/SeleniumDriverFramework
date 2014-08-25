@@ -40,6 +40,13 @@ public class SubscriberDetailsCommon extends CommonMenu {
         Common.sleepForNumberOfSeconds(5);
     }
 
+    public UnlockPINWithPUKCommon clickGetPUK() throws Exception {
+        Common.clickAction1ItemIsAccessible(tool, UnlockPINWithPUKCommon.expectedScreen, "getPuk");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        Common.sleepForNumberOfSeconds(5);
+        return new UnlockPINWithPUKCommon(tool, test, user);
+    }
+
     public ViewBalanceCommon viewBalanceAndRecharge() throws Exception {
         Common.clickAction1ItemIsAccessible(tool, ViewBalanceCommon.expectedScreen, "viewBalances");
         // tool.clickUsingID("viewBalances");

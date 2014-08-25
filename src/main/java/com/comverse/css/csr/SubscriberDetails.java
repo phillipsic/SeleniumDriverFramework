@@ -104,4 +104,10 @@ public class SubscriberDetails extends SubscriberDetailsCommon {
         super.clickChangePO_SBAndSO();
         return new Shopping(tool, test, user);
     }
+
+    @Override
+    public UnlockPINWithPUK clickGetPUK() throws Exception {
+        super.clickGetPUK();
+        return new UnlockPINWithPUK(tool, test, user);
+    }
 }
