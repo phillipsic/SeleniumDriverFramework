@@ -29,7 +29,7 @@ public class NSA0030_Capture_billing_information extends CSSTest {
             launchCSSApplicationAndSSOLogin();
 
             String uniqueTimeStamp = Common.generateTimeStamp();
-            Account account = new Account(uniqueTimeStamp);
+            // Account account = new Account(uniqueTimeStamp);
             Subscriber subscriber = new Subscriber(uniqueTimeStamp);
             String accountLastname = Common.getLastNameOfPostPaidAccount();
 
