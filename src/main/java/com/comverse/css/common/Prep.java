@@ -90,6 +90,16 @@ public class Prep extends Main {
         enableParameter(application.getCommonName(), "BUSINESS_NCA", "19");
     }
 
+    public void enablePUK(String paramValue) throws Exception {
+        DB ctlg = new DB(propsHelper.getENV() + "CTLG");
+        if (ctlg.execSQLSelectWithParam(ctlg.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_PUK"), 1, paramValue).equals("007"))
+            System.out.println("PUK already enabled");
+        else {
+            ctlg.execSQLUpdateWithParam(ctlg.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_PUK"), paramValue);
+            System.out.println("PUK is now enabled");
+        }
+    }
+
     // public void savePropertiesToFile(String lastnamevalue, String loginvalue,
     // String passwordvalue, String callingTest) {
     //

@@ -65,10 +65,12 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
     public EnterYourSubscriptionDetails selectSubscriberBundleByNameWithoutDevice(String subscriberBundleName, String primaryOfferName) throws Exception {
 
-        String subscriberbundleID = this.clickSelectSubscriberBundle(subscriberBundleName);
-       // String offerID = this.getPrimaryOfferID(primaryOfferName);
-      //  System.out.println("link = #selectButton_" + subscriberbundleID);
-    //    tool.clickUsingCssSelector("#select_cb_" + subscriberbundleID + " > #selectButton_" + offerID);
+        // String subscriberbundleID =
+        // this.clickSelectSubscriberBundle(subscriberBundleName);
+        // String offerID = this.getPrimaryOfferID(primaryOfferName);
+        // System.out.println("link = #selectButton_" + subscriberbundleID);
+        // tool.clickUsingCssSelector("#select_cb_" + subscriberbundleID +
+        // " > #selectButton_" + offerID);
         // tool.clickUsingID("selectButton_" + temp[0]);
 
         System.out.println("Checking for device page");
@@ -147,30 +149,24 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         tool.clickUsingXPath("//p[text()[normalize-space(.)='" + subscriberBundleName + "']]/../..//input[@value='Select']");
 
-        String temp[];
+        // String temp[];
 
-    /*    String str = tool.getPageSource();
-
-        temp = str.split(subscriberBundleName + " </[pP]>"); // works in IE
-
-        if (temp.length == 1) { // This is to cope with chrome
-
-            temp = str.split(subscriberBundleName + "\n");
-            str = temp[1];
-            temp = str.split("select_cb_");
-            str = temp[1];
-            temp = str.split("\"");
-            System.out.println("Bundle ID is = " + temp[0]);
-
-        } else {
-
-            str = temp[1];
-            temp = str.split("select_cb_");
-            str = temp[1];
-            temp = str.split(" ");
-            System.out.println("Bundle ID is = " + temp[0]);
-        }
-*/
+        /*
+         * String str = tool.getPageSource();
+         * 
+         * temp = str.split(subscriberBundleName + " </[pP]>"); // works in IE
+         * 
+         * if (temp.length == 1) { // This is to cope with chrome
+         * 
+         * temp = str.split(subscriberBundleName + "\n"); str = temp[1]; temp =
+         * str.split("select_cb_"); str = temp[1]; temp = str.split("\"");
+         * System.out.println("Bundle ID is = " + temp[0]);
+         * 
+         * } else {
+         * 
+         * str = temp[1]; temp = str.split("select_cb_"); str = temp[1]; temp =
+         * str.split(" "); System.out.println("Bundle ID is = " + temp[0]); }
+         */
         return null;
     }
 }
