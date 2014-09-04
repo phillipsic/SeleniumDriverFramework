@@ -12,7 +12,7 @@ import org.junit.runners.Suite.SuiteClasses;
     CSR_BAM_TS.class,
     CSR_BKM_TS.class,
     CSR_CHK_TS.class,
-    CSR_CIM_TS.class,
+   // CSR_CIM_TS.class,
     CSR_CLM_TS.class,
     CSR_CM_TS.class,
     CSR_DPM_TS.class,

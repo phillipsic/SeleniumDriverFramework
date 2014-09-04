@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
     POS_BAM_TS.class,
     POS_BKM_TS.class,
     POS_CHK_TS.class,
-    POS_CIM_TS.class,
+   // POS_CIM_TS.class,
     POS_CLM_TS.class,
     POS_EBP_TS.class,
     POS_HYM_TS.class,
