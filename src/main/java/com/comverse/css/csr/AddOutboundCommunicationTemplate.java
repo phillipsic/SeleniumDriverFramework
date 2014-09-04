@@ -22,58 +22,54 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
     }
 
     @Override
-	public void selectTemplate(String filename) throws Exception {
-
+    public void selectTemplate(String filename) throws Exception {
         File file = new File(filename);
-        // 
-        tool.enterStringIntoFileUsingId("templateFile", file.getAbsolutePath());
-
+        tool.enterStringNotTextFieldUsingId("templateFile", file.getAbsolutePath());
     }
 
     @Override
-	public void selectLanguage(String language) throws Exception {
+    public void selectLanguage(String language) throws Exception {
 
         tool.selectVisibleTextByID("languageCode", language);
 
     }
 
     @Override
-	public void selectChannel(String channel) throws Exception {
+    public void selectChannel(String channel) throws Exception {
 
         tool.selectVisibleTextByID("channel", channel);
 
     }
 
     @Override
-	public void selectEventType(String eventType) throws Exception {
+    public void selectEventType(String eventType) throws Exception {
 
         tool.selectVisibleTextByID("eventType", eventType);
 
     }
 
     @Override
-	public void selectCaseType(String caseType) throws Exception {
+    public void selectCaseType(String caseType) throws Exception {
 
         tool.selectVisibleTextByID("caseType", caseType);
 
     }
 
     @Override
-	public void selectProblemArea(String problemArea) throws Exception {
+    public void selectProblemArea(String problemArea) throws Exception {
 
         tool.selectVisibleTextByID("problemArea", problemArea);
 
     }
 
     @Override
-	public void setDescription(String description) throws Exception {
+    public void setDescription(String description) throws Exception {
 
-        
         tool.enterStringUsingId("description", description);
     }
 
     @Override
-	public OutboundCommunicationTemplate clickOK() throws Exception {
+    public OutboundCommunicationTemplate clickOK() throws Exception {
 
         tool.clickUsingXPath("//input[@value='Ok']");
 

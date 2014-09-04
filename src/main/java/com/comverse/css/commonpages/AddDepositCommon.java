@@ -27,7 +27,7 @@ public class AddDepositCommon extends CommonMenu {
 
     public void setDepositType(String depositType) throws Exception {
 
-        tool.enterStringUsingId("depositType", depositType);
+        tool.enterStringNotTextFieldUsingId("depositType", depositType);
     }
 
     public void setBalance(String balanceName) throws Exception {
@@ -38,7 +38,6 @@ public class AddDepositCommon extends CommonMenu {
 
     public void setDepositAmount(String depositAmount) throws Exception {
 
-        
         tool.enterStringUsingId("amount", depositAmount);
     }
 

@@ -103,20 +103,19 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void enterStringIntoFileUsingId(String id, String data) throws Exception {
-        
+    public void enterStringNotTextFieldUsingId(String id, String data) throws Exception {
         driver.findElement(By.id(id)).sendKeys(data);
     }
-    
+
     @Override
     public void enterStringUsingName(String name, String data) throws Exception {
         driver.findElement(By.name(name)).clear();
         driver.findElement(By.name(name)).sendKeys(data);
     }
-    
+
     @Override
     public void enterStringIntoFileUsingName(String name, String data) throws Exception {
-        //driver.findElement(By.name(name)).clear();
+        // driver.findElement(By.name(name)).clear();
         driver.findElement(By.name(name)).sendKeys(data);
     }
 

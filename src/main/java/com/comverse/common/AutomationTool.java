@@ -54,7 +54,7 @@ public class AutomationTool extends Main {
     public void enterStringUsingId(String id, String data) throws Exception {
     }
 
-    public void enterStringIntoFileUsingId(String id, String data) throws Exception {
+    public void enterStringNotTextFieldUsingId(String id, String data) throws Exception {
     }
 
     public void enterStringUsingName(String name, String data) throws Exception {
