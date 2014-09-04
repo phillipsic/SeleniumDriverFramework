@@ -41,6 +41,7 @@ public class PRS0090_Add_account_bundle extends CSSTest {
 
             configureBalance.setSpendingLimit(ab_ResidentialEnhanceFamilyAccountBundle.getBAL_VoiceNightWeekendShared().getBalanceName(), ab_ResidentialEnhanceFamilyAccountBundle
                     .getBAL_VoiceNightWeekendShared().getBalanceValue());
+            configureBalance.clickContinue();
             ConfigureContractDetails configureContractDetails = configureBalance.clickContinueExpectingConfigureContractDetails();
 
             configureContractDetails.setSpendingLimit(ab_ResidentialEnhanceFamilyAccountBundle.getBAL_VoiceNightWeekendShared().getBalanceName(),
