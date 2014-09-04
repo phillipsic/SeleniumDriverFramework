@@ -23,6 +23,7 @@ public class SUM0300_Request_for_coherency_check extends CSSTest {
         preparation = new Prep();
         application = new CSR();
         user = new CSRUser();
+        preparation.enableCoherencyCheck(application);
     }
 
     @Test

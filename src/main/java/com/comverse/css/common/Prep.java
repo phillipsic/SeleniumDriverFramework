@@ -100,6 +100,10 @@ public class Prep extends Main {
         }
     }
 
+    public void enableCoherencyCheck(Application application) throws Exception {
+        enableParameter(application.getCommonName() + "_char_value", "COHERENCY_CHECK", "true");
+    }
+
     // public void savePropertiesToFile(String lastnamevalue, String loginvalue,
     // String passwordvalue, String callingTest) {
     //
