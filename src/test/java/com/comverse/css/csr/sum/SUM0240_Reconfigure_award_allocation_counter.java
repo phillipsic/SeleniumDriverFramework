@@ -12,7 +12,7 @@ import com.comverse.css.commonpages.AccountDetailsCommon;
 import com.comverse.css.commonpages.IdentifyCustomerCommon;
 import com.comverse.css.commonpages.SubscriberDetailsCommon;
 import com.comverse.css.csr.WorkSpace;
-import com.comverse.css.data.SO.RPO_DIYRechargePromotionalOffer2;
+import com.comverse.css.data.SO.RPO_DIYRechargePromotionalOffer3;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
@@ -26,31 +26,32 @@ public class SUM0240_Reconfigure_award_allocation_counter extends CSSTest {
         preparation = new Prep();
         application = new CSR();
         user = new CSRAdmin();
+        preparation.enableRPO(application);
     }
 
     @Test
     public void testSUM0240_Reconfigure_award_allocation_counter() throws Exception {
         try {
-            RPO_DIYRechargePromotionalOffer2 rpo_DIYRechargePromotionalOffer2 = new RPO_DIYRechargePromotionalOffer2();
+            RPO_DIYRechargePromotionalOffer3 rpo_DIYRechargePromotionalOffer3 = new RPO_DIYRechargePromotionalOffer3();
             launchCSSApplicationAndSSOLogin();
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
 
-            workSpace.doResitdentialNCAResidentialUltraPostpaidCSR();
+            workSpace.doResitdentialNCADIYRechargesPromotionsCSR();
 
             IdentifyCustomerCommon identifyCustomer = workSpace.gotoManageAccount();
 
             AccountDetailsCommon accountDetails = identifyCustomer.searchByPersonLastNameSinglePerson(workSpace.getPerson().getPersonLastNameProperty());
 
             SubscriberDetailsCommon subscriberDashboard = accountDetails.selectFirstSubscriberFromNavigationPanel();
-            subscriberDashboard.doAddRPO(rpo_DIYRechargePromotionalOffer2.getOfferName());
-            Common.assertTextOnPage(tool, rpo_DIYRechargePromotionalOffer2.getOfferName());
+            subscriberDashboard.doAddRPOCSR(rpo_DIYRechargePromotionalOffer3.getOfferName());
+            Common.assertTextOnPage(tool, rpo_DIYRechargePromotionalOffer3.getOfferName());
             subscriberDashboard.clickReconfigureAwardCounter();
             Common.assertTextOnPage(tool, "Reconfigure award counter");
             subscriberDashboard.clickSetAwardCounter();
             subscriberDashboard.clickConfirmAwardCounterReconfiguration();
             subscriberDashboard.clickRefreshRPO();
-            Common.assertTextOnPage(tool, "2/4");
+            Common.assertTextOnPage(tool, "2/3");
 
             test.setResult("pass");
 
