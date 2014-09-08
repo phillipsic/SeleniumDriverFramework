@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.csr.AddOutboundCommunicationTemplate;
 import com.comverse.css.csr.HomePageBackOffice;
@@ -37,12 +38,9 @@ public class DATA002_UploadOBCTemplate extends CSSTest {
             InventoryAdministration inventoryAdministration = homePageBackOffice.clickBackOffice();
             OutboundCommunicationTemplate outboundCommunicationTemplate = inventoryAdministration.clickTemplateAdministration();
 
-            // Add code here to search and confirm if the template already
-            // exists
-            outboundCommunicationTemplate.doAddTemplates();
+            // Need to search and confirm if the template already exists
 
             AddOutboundCommunicationTemplate addOutboundCommunicationTemplate = outboundCommunicationTemplate.clickAdd();
-
             addOutboundCommunicationTemplate.selectTemplate("OBCData/Case-Case_Creation_Report-email.jrxml");
             addOutboundCommunicationTemplate.selectLanguage("English");
             addOutboundCommunicationTemplate.selectChannel("Email");
@@ -51,11 +49,9 @@ public class DATA002_UploadOBCTemplate extends CSSTest {
             addOutboundCommunicationTemplate.selectProblemArea("Service Out - Wired Services");
             addOutboundCommunicationTemplate.setDescription("For BCT006");
             outboundCommunicationTemplate = addOutboundCommunicationTemplate.clickOK();
-
             outboundCommunicationTemplate.clickBack();
 
             addOutboundCommunicationTemplate = outboundCommunicationTemplate.clickAdd();
-
             addOutboundCommunicationTemplate.selectTemplate("OBCData/Basket-Basket_Summary-print.jrxml");
             addOutboundCommunicationTemplate.selectLanguage("English");
             addOutboundCommunicationTemplate.selectChannel("Printed Mail");
@@ -64,9 +60,9 @@ public class DATA002_UploadOBCTemplate extends CSSTest {
             addOutboundCommunicationTemplate.selectProblemArea("Service Out - Wired Services");
             addOutboundCommunicationTemplate.setDescription("For OBC0_Generate_outbound_communication_and_send");
             outboundCommunicationTemplate = addOutboundCommunicationTemplate.clickOK();
-
             outboundCommunicationTemplate.clickBack();
 
+            addOutboundCommunicationTemplate = outboundCommunicationTemplate.clickAdd();
             addOutboundCommunicationTemplate.selectTemplate("OBCData/Case-Case_Creation_Report-email-FR.jrxml");
             addOutboundCommunicationTemplate.selectLanguage("French (Standard)");
             addOutboundCommunicationTemplate.selectChannel("Email");
@@ -75,6 +71,10 @@ public class DATA002_UploadOBCTemplate extends CSSTest {
             addOutboundCommunicationTemplate.selectProblemArea("Service Out - Wired Services");
             addOutboundCommunicationTemplate.setDescription("For OBC");
             outboundCommunicationTemplate = addOutboundCommunicationTemplate.clickOK();
+
+            Common.assertTextOnPage(tool, "Case-Case_Creation_Report-email.jrxml");
+            Common.assertTextOnPage(tool, "Basket-Basket_Summary-print.jrxml");
+            Common.assertTextOnPage(tool, "Case-Case_Creation_Report-email-FR.jrxml");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

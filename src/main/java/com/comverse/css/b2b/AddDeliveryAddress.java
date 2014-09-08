@@ -13,12 +13,10 @@ public class AddDeliveryAddress extends AddDeliveryAddressCommon {
 
     public AddDeliveryAddress(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-
     }
 
     @Override
     public DeliveryAddresses clickOk() throws Exception {
-
         super.clickOk();
         return new DeliveryAddresses(tool, test, user);
     }
