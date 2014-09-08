@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.comverse.common.Application;
 import com.comverse.common.User;
 import com.comverse.css.b2b.MyshapeBusiness;
 import com.comverse.css.common.*;
@@ -30,8 +31,7 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
     @Test
     public void testDATA009_CreateB2BAccountAndAdmin() throws Exception {
         try {
-
-            // User B2BAdimUser = new B2BAdmin();
+            Application applicationtemp = application;
             launchCSSApplicationAndSSOLogin();
             PO_BusinessHQEmployee po_BusinessHQEmployee = new PO_BusinessHQEmployee();
             String uniqueTimeStamp = Common.generateTimeStamp();
@@ -89,14 +89,12 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
 
             User B2BAdimUser = new B2BAdmin();
             application = new B2B();
-            launchCSSApplication();
-
+            launchCSSApplicationOnly();
+            application = applicationtemp;
             MyshapeBusiness loginPage = new MyshapeBusiness(tool, test, B2BAdimUser);
 
             loginPage.loginWithChangeOfPassword(B2BAdimUser.getLogin(), B2BAdimUser.getPassword());
-
             loginPage.setYourPassword(B2BAdimUser.getPassword());
-
             B2BAdimUser.setNewPassword("Passw0rd!");
             loginPage.setNewPassword(B2BAdimUser.getPassword());
             loginPage.setConfirmNewPassword(B2BAdimUser.getPassword());

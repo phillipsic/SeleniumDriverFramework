@@ -28,6 +28,7 @@ public class CSSTest extends Main {
 
     public void launchCSSApplicationOnly() throws Exception {
         tool.get(application.appURL());
+        Thread.sleep(1000);
     }
 
     public void launchAnotherCSSApplication(Application application2) throws Exception {
