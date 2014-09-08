@@ -160,7 +160,8 @@ public class WorkSpaceCommon extends CommonMenu {
 
         SearchRequestsCommon searchRequests = workSpaceCommon.clickRequests();
         SearchOrdersCommon searchOrders = searchRequests.clickSearchOrders();
-        //searchOrders.waitUntilOrderCompletedOrFailedWithGetAccountID(orderNumber, account);
+        // searchOrders.waitUntilOrderCompletedOrFailedWithGetAccountID(orderNumber,
+        // account);
         searchOrders.waitUntilOrderCompletedOrFailed(orderNumber);
         searchOrders.clickHomeMenu();
 
@@ -375,9 +376,7 @@ public class WorkSpaceCommon extends CommonMenu {
     }
 
     public ShoppingCommon clickSubmit() throws Exception {
-
         tool.clickUsingXPath("(//input[@value='Submit'])");
-
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }

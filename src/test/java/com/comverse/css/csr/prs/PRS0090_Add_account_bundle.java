@@ -38,12 +38,10 @@ public class PRS0090_Add_account_bundle extends CSSTest {
             shopping.clickAccountBundlesTab();
             ConfigureBalance configureBalance = shopping.subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingConfigureBalance(
                     ab_ResidentialEnhanceFamilyAccountBundle.getOfferName(), null, null);
-
             configureBalance.setSpendingLimit(ab_ResidentialEnhanceFamilyAccountBundle.getBAL_VoiceNightWeekendShared().getBalanceName(), ab_ResidentialEnhanceFamilyAccountBundle
                     .getBAL_VoiceNightWeekendShared().getBalanceValue());
-            configureBalance.clickContinue();
-            ConfigureContractDetails configureContractDetails = configureBalance.clickContinueExpectingConfigureContractDetails();
 
+            ConfigureContractDetails configureContractDetails = configureBalance.clickContinueExpectingConfigureContractDetails();
             configureContractDetails.setSpendingLimit(ab_ResidentialEnhanceFamilyAccountBundle.getBAL_VoiceNightWeekendShared().getBalanceName(),
                     ab_ResidentialEnhanceFamilyAccountBundle.getBAL_VoiceNightWeekendShared().getBalanceValue());
             configureContractDetails.setSpendingLimit(ab_ResidentialEnhanceFamilyAccountBundle.getBAL_VoiceAnytimeShared().getBalanceName(),
