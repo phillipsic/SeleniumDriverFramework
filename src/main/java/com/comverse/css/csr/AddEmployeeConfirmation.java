@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.CommonMenu;
 
 public class AddEmployeeConfirmation extends CommonMenu {
@@ -22,8 +23,8 @@ public class AddEmployeeConfirmation extends CommonMenu {
     }
 
     public RegisterLogin clickOk() throws Exception {
-
         tool.clickUsingXPath("//input[@value='OK']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RegisterLogin(tool, test, user);
     }
 }

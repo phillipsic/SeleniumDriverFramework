@@ -1,11 +1,11 @@
 package com.comverse.css.common.data;
 
-import com.comverse.common.User;
-import com.comverse.css.b2b.MyshapeBusiness;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.comverse.common.User;
+import com.comverse.css.b2b.MyshapeBusiness;
 import com.comverse.css.common.*;
 import com.comverse.css.csr.*;
 import com.comverse.css.data.PO.PO_BusinessHQEmployee;
@@ -25,14 +25,13 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
         preparation = new Prep();
         application = new CSR();
         user = new CSRAdmin();
-
     }
 
     @Test
     public void testDATA009_CreateB2BAccountAndAdmin() throws Exception {
         try {
 
-         //   User B2BAdimUser = new B2BAdmin();
+            // User B2BAdimUser = new B2BAdmin();
             launchCSSApplicationAndSSOLogin();
             PO_BusinessHQEmployee po_BusinessHQEmployee = new PO_BusinessHQEmployee();
             String uniqueTimeStamp = Common.generateTimeStamp();
@@ -72,11 +71,9 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
             AddEmployeeContactInformation addEmployeeContactInformation = viewHierarchy.clickAddB2BEmployee();
             addEmployeeContactInformation.setFirstName("FN" + uniqueTimeStamp);
             addEmployeeContactInformation.setLastName("LN" + uniqueTimeStamp);
-            
-      
+
             AddEmployeeRegisterLogin addEmployeeRegisterLogin = addEmployeeContactInformation.clickContinue();
-            
-            
+
             user.setNewLogin(uniqueTimeStamp);
             addEmployeeRegisterLogin.enterLogin(user.getLogin());
 
@@ -86,8 +83,8 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
             viewHierarchy = registerLogin.clickOk();
 
             viewHierarchy.clickLogoutExpectingSSO();
-            
-              Common.storeBusinessAdminLogin(user.getLogin(), "Created by " + this.getClass().getSimpleName());
+
+            Common.storeBusinessAdminLogin(user.getLogin(), "Created by " + this.getClass().getSimpleName());
             Common.storeBusinessAdminPassword(user.getPassword(), "Created by " + this.getClass().getSimpleName());
 
             User B2BAdimUser = new B2BAdmin();
@@ -95,18 +92,17 @@ public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
             launchCSSApplication();
 
             MyshapeBusiness loginPage = new MyshapeBusiness(tool, test, B2BAdimUser);
-           
-            loginPage.loginWithChangeOfPassword(B2BAdimUser.getLogin(),B2BAdimUser.getPassword());
-            
-            
+
+            loginPage.loginWithChangeOfPassword(B2BAdimUser.getLogin(), B2BAdimUser.getPassword());
+
             loginPage.setYourPassword(B2BAdimUser.getPassword());
-            
+
             B2BAdimUser.setNewPassword("Passw0rd!");
             loginPage.setNewPassword(B2BAdimUser.getPassword());
             loginPage.setConfirmNewPassword(B2BAdimUser.getPassword());
             loginPage.setSecretAnswer(B2BAdimUser.getPassword());
             loginPage.clickChangeButton();
-            
+
             Common.storeBusinessAdminLogin(B2BAdimUser.getLogin(), "Created by " + this.getClass().getSimpleName());
             Common.storeBusinessAdminPassword(B2BAdimUser.getPassword(), "Created by " + this.getClass().getSimpleName());
 

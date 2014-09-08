@@ -42,7 +42,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public void setOrderNumber(String orderNumber) throws Exception {
-        
+
         tool.enterStringUsingId("orderNb", orderNumber);
     }
 
@@ -118,7 +118,6 @@ public class SearchOrdersCommon extends CommonMenu {
             }
 
             if (orderStatus.equalsIgnoreCase("failed") || orderStatus.equalsIgnoreCase("Cancelled")) {
-
                 throw new IllegalStateException("Order failed with status " + orderStatus);
             }
 
