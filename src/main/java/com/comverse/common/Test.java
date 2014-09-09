@@ -5,6 +5,7 @@ public class Test extends Main {
     private String name;
     private String result;
     private String bugId;
+    private String message;
     private Boolean debug;
 
     public Test() throws Exception {
@@ -18,6 +19,14 @@ public class Test extends Main {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getResult() {

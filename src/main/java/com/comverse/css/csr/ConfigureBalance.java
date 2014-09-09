@@ -23,19 +23,16 @@ public class ConfigureBalance extends ConfigureBalanceCommon {
 
     @Override
     public MyBasket clickContinueExpectingMyBasket() throws Exception {
-
         super.clickContinueExpectingMyBasket();
         return new MyBasket(tool, test, user);
     }
 
     @Override
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
-
         super.setSpendingLimit(limitName, limitAmount);
     }
 
     public void configureBalance(String balanceName, String balanceValue) throws Exception {
-
         tool.enterStringUsingId(balanceName + "_limit", balanceValue);
     }
 

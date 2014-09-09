@@ -116,11 +116,11 @@ public class Main {
     }
 
     @SuppressWarnings("resource")
-    public void logResults(String mode) {
+    public void logResults(String mode, String message) {
         try {
+
             DB cust = new DB("AUTOTEST");
             Statement st = cust.mysqlDBStatement();
-
             if (test.getDebug()) {
                 System.out.println("Connected to the database");
             }
@@ -163,9 +163,10 @@ public class Main {
                         }
 
                         if (storedResult.equals("fail") && !test.getBugId().equals("NoBug")) {
-                            sql = "UPDATE csspqa.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "' WHERE test_id = '"
-                                    + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '" + application.getName() + "'"
-                                    + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '" + tool.platform.getOSFullNameAndVersion() + "'";
+                            sql = "UPDATE csspqa.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "', fail_message = '" + message
+                                    + "' WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
+                                    + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
+                                    + tool.platform.getOSFullNameAndVersion() + "'";
 
                             if (test.getDebug()) {
                                 System.out.println(sql);
@@ -199,10 +200,10 @@ public class Main {
                         System.out.println("More than one row found - issue updating, please check manually.");
 
                     } else if (iRowCount == 0) {
-                        sql = "INSERT INTO csspqa.test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, tag, browser, OS )VALUES (" + "'"
-                                + test.getBugId() + "','" + tool.platform.getComputerName() + "','" + application.getVersion() + "','" + application.getName() + "','"
+                        sql = "INSERT INTO csspqa.test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, tag, browser, OS, fail_message )VALUES ("
+                                + "'" + test.getBugId() + "','" + tool.platform.getComputerName() + "','" + application.getVersion() + "','" + application.getName() + "','"
                                 + test.getName() + "', NOW(),'" + test.getResult() + "','" + mode + "','" + tool.platform.getBrowserFullNameAndVersion() + "', '"
-                                + tool.platform.getOSFullNameAndVersion() + "')";
+                                + tool.platform.getOSFullNameAndVersion() + "', '" + message + "')";
 
                         if (test.getDebug()) {
                             System.out.println(sql);
@@ -225,7 +226,6 @@ public class Main {
             if (test.getDebug()) {
                 System.out.println("Disconnected from database");
             }
-
         } catch (Exception e) {
         }
     }
@@ -238,6 +238,7 @@ public class Main {
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
         }
+
         test.setName(this.getClass().getSimpleName());
 
         System.out.println("Browser : " + tool.platform.getBrowserFullNameAndVersion());
@@ -248,8 +249,7 @@ public class Main {
         System.out.println("Result : " + test.getResult());
 
         this.checkForBadData();
-        this.logResults("CV");
-
+        this.logResults("CV", verificationErrors.toString());
     }
 
 }

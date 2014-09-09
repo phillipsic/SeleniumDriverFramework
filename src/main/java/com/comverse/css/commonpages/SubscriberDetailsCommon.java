@@ -264,7 +264,6 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     public void clickSetAwardCounter() throws Exception {
-
         tool.enterStringUsingId("awardCounter", "2");
     }
 
@@ -330,6 +329,24 @@ public class SubscriberDetailsCommon extends CommonMenu {
         AccountDetailsCommon accountDetails = this.clickAccountIDFromNavigationPanel();
         RequestsForCustomerCommon requestsForCustomer = accountDetails.clickViewRequestsForThisCustomer();
         requestsForCustomer.waitUntilFirstRequestCompletedOrFailedPOS();
+        requestsForCustomer.clickToSubscriberDashboard();
+        this.clickRefreshRPO();
+        Common.sleepForNumberOfSeconds(2);
+    }
+
+    public void doAddRPOCSR(String RPO) throws Exception {
+        SubscribeToRechargePromotionalOffersCommon subscribeToRechargePromotionalOffers = this.clickAddRPO();
+
+        subscribeToRechargePromotionalOffers.selectOffersForSubscriber(RPO);
+        Common.sleepForNumberOfSeconds(2);
+        MyBasketCommon myBasket = subscribeToRechargePromotionalOffers.clickContinue();
+        Common.assertTextOnPage(tool, RPO);
+        CheckoutReviewCommon checkoutReview = myBasket.clickCheckOut();
+        CheckoutConfirmationCommon checkoutConfirmation = checkoutReview.clickConfirm();
+        checkoutConfirmation.clickOkExpectingSubscriberDashboard();
+        AccountDetailsCommon accountDetails = this.clickAccountIDFromNavigationPanel();
+        RequestsForCustomerCommon requestsForCustomer = accountDetails.clickViewRequestsForThisCustomer();
+        requestsForCustomer.waitUntilFirstRequestCompletedOrFailed();
         requestsForCustomer.clickToSubscriberDashboard();
         this.clickRefreshRPO();
         Common.sleepForNumberOfSeconds(2);

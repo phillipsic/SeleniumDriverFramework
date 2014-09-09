@@ -104,6 +104,10 @@ public class Prep extends Main {
         enableParameter(application.getCommonName() + "_char_value", "COHERENCY_CHECK", "true");
     }
 
+    public void enableRPO(Application application) throws Exception {
+        enableParameter(application.getCommonName() + "_char_value", "RPO", "true");
+    }
+
     // public void savePropertiesToFile(String lastnamevalue, String loginvalue,
     // String passwordvalue, String callingTest) {
     //

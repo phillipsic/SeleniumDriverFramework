@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.HomePageBackOfficeCommon;
 
 public class HomePageBackOffice extends HomePageBackOfficeCommon {
@@ -17,18 +18,14 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
         String expectedScreen = "Welcome to Your Workspace";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
-
     }
 
     public InventoryAdministration clickBackOffice() throws Exception {
-
         tool.clickUsingID("mnu_BACK_OFFICE");
-
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new InventoryAdministration(tool, test, user);
-
     }
 
 }
