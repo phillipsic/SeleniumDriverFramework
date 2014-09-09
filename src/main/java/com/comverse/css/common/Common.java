@@ -62,7 +62,7 @@ public class Common {
 
         String pageSource = Common.returnCleanPageSource(tool);
 
-        String str = "ASSERTION FAIL: Expecting %searchText in page";
+        String str = "ASSERTION FAIL: Expecting '%s' in page";
 
         assertTrue(String.format(str, searchText), pageSource.contains(searchText));
     }
@@ -70,7 +70,7 @@ public class Common {
     public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
 
         String pageSource = Common.returnCleanPageSource(tool);
-        String str = "ASSERTION FAIL: NOT expecting %searchText in page";
+        String str = "ASSERTION FAIL: NOT expecting '%s' in page";
         assertFalse(String.format(str, searchText), pageSource.contains(searchText));
     }
 
