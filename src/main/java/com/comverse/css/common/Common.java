@@ -61,13 +61,17 @@ public class Common {
     public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
 
         String pageSource = Common.returnCleanPageSource(tool);
-        assertTrue(pageSource.contains(searchText));
+
+        String str = "ASSERTION FAIL: Expecting %searchText in page";
+
+        assertTrue(String.format(str, searchText), pageSource.contains(searchText));
     }
 
     public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
 
         String pageSource = Common.returnCleanPageSource(tool);
-        assertFalse(pageSource.contains(searchText));
+        String str = "ASSERTION FAIL: NOT expecting %searchText in page";
+        assertFalse(String.format(str, searchText), pageSource.contains(searchText));
     }
 
     public static String removeHTMLTags(String dirtyString) throws Exception {
