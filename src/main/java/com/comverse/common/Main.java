@@ -35,6 +35,7 @@ public class Main {
     public static final String SQL_PREP_PROPERTY_FILE = "SQL_Prep.properties";
 
     public class LogResults extends TestWatcher {
+
         @Override
         protected void failed(Throwable e, Description description) {
             String[] line = e.getMessage().split("\n");
@@ -94,7 +95,7 @@ public class Main {
                                 System.out.println("[INFO] bugId = " + test.getBugId());
                             }
 
-                            if (storedResult.equals("fail") && !test.getBugId().equals("NoBug")) {
+                            if (storedResult.equals("fail")) {
                                 sql = "UPDATE csspqa.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "', fail_message = '"
                                         + message + "' WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
                                         + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
