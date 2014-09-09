@@ -30,10 +30,8 @@ public class Common {
             }
 
             if (tool.getTitle().matches("Waiting Page")) {
-                // System.out.println("Please Wait present");
                 Thread.sleep(3000);
             } else {
-                // System.out.println("Executing BREAK out of loop.");
                 Thread.sleep(3000);
                 break;
             }
@@ -42,45 +40,36 @@ public class Common {
     }
 
     public static void sleepForNumberOfSeconds(long value) throws Exception {
-
         long numberOfSeconds = value * 1000;
         Thread.sleep(numberOfSeconds);
     }
 
     public static Boolean isTextOnPage(AutomationTool tool, String searchText) throws Exception {
-
         String pageSource = tool.getPageSource();
         return pageSource.contains(searchText);
     }
 
     public static Boolean isCheckBoxSelected(AutomationTool tool, String idOfCheckBox) throws Exception {
-
         return (tool.searchUsingID(idOfCheckBox)).isSelected();
     }
 
     public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
-
         String pageSource = Common.returnCleanPageSource(tool);
-
         String str = "ASSERTION FAIL: Expecting '%s' in page";
-
         assertTrue(String.format(str, searchText), pageSource.contains(searchText));
     }
 
     public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
-
         String pageSource = Common.returnCleanPageSource(tool);
         String str = "ASSERTION FAIL: NOT expecting '%s' in page";
         assertFalse(String.format(str, searchText), pageSource.contains(searchText));
     }
 
     public static String removeHTMLTags(String dirtyString) throws Exception {
-
         String dirtyString1 = dirtyString.replaceAll("&nbsp;", "");
         String dirtyString2 = dirtyString1.replaceAll("<![CDATA[.*?]]>", "");
         String dirtyString3 = dirtyString2.replaceAll("\\<.*?>", "");
         return dirtyString3.replaceAll("  ", " ");
-
     }
 
     public static String returnCleanPageSource(AutomationTool tool) throws Exception {
@@ -90,15 +79,12 @@ public class Common {
     }
 
     public static Boolean isTextOnPageWithRegex(AutomationTool tool, String searchText) throws Exception {
-
         String pageSource = Common.returnCleanPageSource(tool);
         return pageSource.matches("^[\\s\\S]*" + searchText + "[\\s\\S]*$");
     }
 
     public static Boolean isTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
-
         String pageSource = Common.returnCleanPageSource(tool);
-
         return !pageSource.contains(searchText);
     }
 
@@ -109,7 +95,6 @@ public class Common {
         String pageSource = tool.getPageSource();
 
         while (startOfOfferIndex > 0 && foundIt == false) {
-
             startOfOfferIndex = pageSource.indexOf(searchText);
             int endOfOfferIndex = pageSource.toLowerCase().indexOf("</p>", startOfOfferIndex);
 
@@ -121,21 +106,15 @@ public class Common {
                 offerNameOnPage = offerNameOnPage.trim();
 
                 if (offerNameOnPage.equals(searchText)) {
-
                     foundIt = true;
-
                 }
-
                 pageSource = pageSource.substring(endOfOfferIndex);
             }
-
         }
-
         return foundIt;
     }
 
     public static String cleanStringOfIllegalChars(String dirtyString) throws Exception {
-
         String dirtyString1 = dirtyString.replaceAll("[^\\p{Print}]", "");
         String dirtyString2 = dirtyString1.replaceAll("\\p{Cntrl}", "");
         String dirtyString3 = dirtyString2.replaceAll("\'", "");
@@ -145,16 +124,13 @@ public class Common {
     }
 
     public static String replaceAmpCodeWithCharacter(String value) {
-
         return value.replaceAll("&amp;", "&");
     }
 
     public static String cleanStringOfAllNonDigits(String dirtyString) throws Exception {
-
         dirtyString.replaceAll("\\pL+", "");
         String cleanString = dirtyString.trim();
         return cleanString;
-
     }
 
     public static void checkForExistingBasketAndDiscard(AutomationTool tool) throws Exception {
@@ -254,7 +230,6 @@ public class Common {
                 System.out.println("Accessories Loaded");
                 break;
             }
-
         }
     }
 
