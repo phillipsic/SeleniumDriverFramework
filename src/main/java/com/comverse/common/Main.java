@@ -11,6 +11,9 @@ import org.junit.After;
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.Prep;
 import com.comverse.sec.ComverseOneSingleSignOn;
+import org.junit.Rule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 
 public class Main {
 
@@ -31,24 +34,39 @@ public class Main {
     public static final String SQL_INVOICE_PROPERTY_FILE = "SQL_invoice.properties";
     public static final String SQL_PREP_PROPERTY_FILE = "SQL_Prep.properties";
 
+    public class SimpleOnFailed extends TestWatcher {
+
+        @Override
+        protected void failed(Throwable e, Description description) {
+            System.out.println(e.getMessage());
+        }
+    }
+    @Rule
+    public SimpleOnFailed ruleExample = new SimpleOnFailed();
+
     public void checkForBadData() throws Exception {
 
-        if (application.getName() == null || application.getName().equals("null") || application.getName().equals(""))
+        if (application.getName() == null || application.getName().equals("null") || application.getName().equals("")) {
             throw new Exception("WARNING - Application name missing and result not saved to DB");
+        }
 
         if (application.getVersion() == null || application.getVersion().equals("null") || application.getVersion().equals("Unavailable") || application.getVersion().equals("")
-                || application.getVersion().equals("Temporarily Unavailable"))
+                || application.getVersion().equals("Temporarily Unavailable")) {
             throw new Exception("WARNING - Application version missing and result not saved to DB");
+        }
 
-        if (test.getName() == null || test.getName().equals("null") || test.getName().equals(""))
+        if (test.getName() == null || test.getName().equals("null") || test.getName().equals("")) {
             throw new Exception("WARNING - Test name missing and result not saved to DB");
+        }
 
-        if (test.getResult() == null || test.getResult().equals("null") || test.getResult().equals(""))
+        if (test.getResult() == null || test.getResult().equals("null") || test.getResult().equals("")) {
             throw new Exception("WARNING - Result missing and result not saved to DB");
+        }
 
         if (tool.platform.getBrowserFullNameAndVersion() == null || tool.platform.getBrowserFullNameAndVersion().equals("null")
-                || tool.platform.getBrowserFullNameAndVersion().equals(""))
+                || tool.platform.getBrowserFullNameAndVersion().equals("")) {
             throw new Exception("WARNING - Browser version missing and result not saved to DB");
+        }
     }
 
     public void checkForPassAndAbort(String test_id) throws Exception {
@@ -60,8 +78,9 @@ public class Main {
             DB autotest = new DB("AUTOTEST");
             Statement st = autotest.mysqlDBStatement();
             if (st != null) {
-                if (test.getDebug())
+                if (test.getDebug()) {
                     System.out.println("Connected to the database");
+                }
             } else {
                 System.out.println("Connection to the database FAILED");
             }
@@ -81,8 +100,9 @@ public class Main {
                 }
             }
 
-            if (test.getDebug())
+            if (test.getDebug()) {
                 System.out.println("Disconnected from database");
+            }
 
         }
     }
@@ -101,33 +121,39 @@ public class Main {
             DB cust = new DB("AUTOTEST");
             Statement st = cust.mysqlDBStatement();
 
-            if (test.getDebug())
+            if (test.getDebug()) {
                 System.out.println("Connected to the database");
+            }
             try {
                 String sql = "select count(*) as rowcount from test_results where test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
                         + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
                         + tool.platform.getOSFullNameAndVersion() + "'";
 
-                if (test.getDebug())
+                if (test.getDebug()) {
                     System.out.println(sql);
+                }
                 ResultSet SQLResult = st.executeQuery(sql);
-                if (test.getDebug())
+                if (test.getDebug()) {
                     System.out.println("SQL 1 executed");
+                }
 
                 while (SQLResult.next()) {
-                    if (test.getDebug())
+                    if (test.getDebug()) {
                         System.out.println("Number of rows = " + SQLResult.getString("rowcount"));
+                    }
                     int iRowCount = Integer.parseInt(SQLResult.getString("rowcount"));
                     if (iRowCount == 1) {
                         sql = "select * from csspqa.test_results where test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
                                 + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
                                 + tool.platform.getOSFullNameAndVersion() + "'";
 
-                        if (test.getDebug())
+                        if (test.getDebug()) {
                             System.out.println(sql);
+                        }
                         SQLResult = st.executeQuery(sql);
-                        if (test.getDebug())
+                        if (test.getDebug()) {
                             System.out.println("SQL 2 executed");
+                        }
                         SQLResult.next();
 
                         String storedResult = SQLResult.getString("test_result");
@@ -141,8 +167,9 @@ public class Main {
                                     + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '" + application.getName() + "'"
                                     + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '" + tool.platform.getOSFullNameAndVersion() + "'";
 
-                            if (test.getDebug())
+                            if (test.getDebug()) {
                                 System.out.println(sql);
+                            }
                             Statement st2 = cust.mysqlDBStatement();
                             st2.executeUpdate(sql);
                             if (test.getDebug()) {
@@ -157,8 +184,9 @@ public class Main {
                                     + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
                                     + tool.platform.getOSFullNameAndVersion() + "'";
 
-                            if (test.getDebug())
+                            if (test.getDebug()) {
                                 System.out.println(sql);
+                            }
                             Statement st2 = cust.mysqlDBStatement();
                             st2.executeUpdate(sql);
                             if (test.getDebug()) {
@@ -176,8 +204,9 @@ public class Main {
                                 + test.getName() + "', NOW(),'" + test.getResult() + "','" + mode + "','" + tool.platform.getBrowserFullNameAndVersion() + "', '"
                                 + tool.platform.getOSFullNameAndVersion() + "')";
 
-                        if (test.getDebug())
+                        if (test.getDebug()) {
                             System.out.println(sql);
+                        }
                         Statement st2 = cust.mysqlDBStatement();
                         st2.executeUpdate(sql);
                         if (test.getDebug()) {
@@ -193,8 +222,9 @@ public class Main {
                 System.err.println("SQL statement is not executed!");
             }
 
-            if (test.getDebug())
+            if (test.getDebug()) {
                 System.out.println("Disconnected from database");
+            }
 
         } catch (Exception e) {
         }
