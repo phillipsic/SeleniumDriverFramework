@@ -7,13 +7,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.junit.After;
+import org.junit.Rule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.Prep;
 import com.comverse.sec.ComverseOneSingleSignOn;
-import org.junit.Rule;
-import org.junit.rules.TestWatcher;
-import org.junit.runner.Description;
 
 public class Main {
 
@@ -34,15 +34,152 @@ public class Main {
     public static final String SQL_INVOICE_PROPERTY_FILE = "SQL_invoice.properties";
     public static final String SQL_PREP_PROPERTY_FILE = "SQL_Prep.properties";
 
-    public class SimpleOnFailed extends TestWatcher {
-
+    public class LogResults extends TestWatcher {
         @Override
         protected void failed(Throwable e, Description description) {
-            System.out.println(e.getMessage());
+            String[] line = e.getMessage().split("\n");
+            test.setMessage(line[0]);
+            this.logResults("CV", test.getMessage());
+        }
+
+        @Override
+        protected void succeeded(Description description) {
+            this.logResults("CV", test.getMessage());
+        }
+
+        @SuppressWarnings("resource")
+        public void logResults(String mode, String message) {
+            try {
+
+                DB cust = new DB("AUTOTEST");
+                Statement st = cust.mysqlDBStatement();
+                if (test.getDebug()) {
+                    System.out.println("Connected to the database");
+                }
+                try {
+                    String sql = "select count(*) as rowcount from test_results where test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
+                            + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
+                            + tool.platform.getOSFullNameAndVersion() + "'";
+
+                    if (test.getDebug()) {
+                        System.out.println(sql);
+                    }
+                    ResultSet SQLResult = st.executeQuery(sql);
+                    if (test.getDebug()) {
+                        System.out.println("SQL 1 executed");
+                    }
+
+                    while (SQLResult.next()) {
+                        if (test.getDebug()) {
+                            System.out.println("Number of rows = " + SQLResult.getString("rowcount"));
+                        }
+                        int iRowCount = Integer.parseInt(SQLResult.getString("rowcount"));
+                        if (iRowCount == 1) {
+                            sql = "select * from csspqa.test_results where test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
+                                    + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
+                                    + tool.platform.getOSFullNameAndVersion() + "'";
+
+                            if (test.getDebug()) {
+                                System.out.println(sql);
+                            }
+                            SQLResult = st.executeQuery(sql);
+                            if (test.getDebug()) {
+                                System.out.println("SQL 2 executed");
+                            }
+                            SQLResult.next();
+
+                            String storedResult = SQLResult.getString("test_result");
+                            if (test.getDebug()) {
+                                System.out.println("[INFO] storedResult = " + storedResult);
+                                System.out.println("[INFO] bugId = " + test.getBugId());
+                            }
+
+                            if (storedResult.equals("fail") && !test.getBugId().equals("NoBug")) {
+                                sql = "UPDATE csspqa.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "', fail_message = '"
+                                        + message + "' WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
+                                        + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
+                                        + tool.platform.getOSFullNameAndVersion() + "'";
+
+                                if (test.getDebug()) {
+                                    System.out.println(sql);
+                                }
+                                Statement st2 = cust.mysqlDBStatement();
+                                st2.executeUpdate(sql);
+                                if (test.getDebug()) {
+                                    System.out.println("SQL 3 executed");
+                                    System.out.println("[INFO] Update BugId to " + test.getBugId());
+                                }
+                            }
+
+                            if (test.getResult().equals("pass") && storedResult.equals("fail")) {
+                                sql = "UPDATE csspqa.test_results SET test_result = 'pass', time_stamp = NOW(), bug_id = 'NoBug', ip = '" + tool.platform.getComputerName()
+                                        + "'   WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
+                                        + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
+                                        + tool.platform.getOSFullNameAndVersion() + "'";
+
+                                if (test.getDebug()) {
+                                    System.out.println(sql);
+                                }
+                                Statement st2 = cust.mysqlDBStatement();
+                                st2.executeUpdate(sql);
+                                if (test.getDebug()) {
+                                    System.out.println("SQL 4 executed");
+                                    System.out.println("[INFO] Update result to pass");
+                                }
+                            }
+
+                        } else if (iRowCount > 1) {
+                            System.out.println("More than one row found - issue updating, please check manually.");
+
+                        } else if (iRowCount == 0) {
+                            sql = "INSERT INTO csspqa.test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, tag, browser, OS, fail_message )VALUES ("
+                                    + "'"
+                                    + test.getBugId()
+                                    + "','"
+                                    + tool.platform.getComputerName()
+                                    + "','"
+                                    + application.getVersion()
+                                    + "','"
+                                    + application.getName()
+                                    + "','"
+                                    + test.getName()
+                                    + "', NOW(),'"
+                                    + test.getResult()
+                                    + "','"
+                                    + mode
+                                    + "','"
+                                    + tool.platform.getBrowserFullNameAndVersion()
+                                    + "', '"
+                                    + tool.platform.getOSFullNameAndVersion() + "', '" + message + "')";
+
+                            if (test.getDebug()) {
+                                System.out.println(sql);
+                            }
+                            Statement st2 = cust.mysqlDBStatement();
+                            st2.executeUpdate(sql);
+                            if (test.getDebug()) {
+                                System.out.println("SQL 5 executed");
+                                System.out.println("Test has been logged as a [" + test.getResult() + "]");
+                                System.out.println("Bug ID logged  [" + test.getBugId() + "]");
+                            }
+                        }
+                    }
+                    SQLResult.close();
+                } catch (SQLException s) {
+                    System.err.println(s);
+                    System.err.println("SQL statement is not executed!");
+                }
+
+                if (test.getDebug()) {
+                    System.out.println("Disconnected from database");
+                }
+            } catch (Exception e) {
+            }
         }
     }
+
     @Rule
-    public SimpleOnFailed ruleExample = new SimpleOnFailed();
+    public LogResults ruleExample = new LogResults();
 
     public void checkForBadData() throws Exception {
 
@@ -115,121 +252,6 @@ public class Main {
         ssoLoginPage.clickLogin(tool);
     }
 
-    @SuppressWarnings("resource")
-    public void logResults(String mode, String message) {
-        try {
-
-            DB cust = new DB("AUTOTEST");
-            Statement st = cust.mysqlDBStatement();
-            if (test.getDebug()) {
-                System.out.println("Connected to the database");
-            }
-            try {
-                String sql = "select count(*) as rowcount from test_results where test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
-                        + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
-                        + tool.platform.getOSFullNameAndVersion() + "'";
-
-                if (test.getDebug()) {
-                    System.out.println(sql);
-                }
-                ResultSet SQLResult = st.executeQuery(sql);
-                if (test.getDebug()) {
-                    System.out.println("SQL 1 executed");
-                }
-
-                while (SQLResult.next()) {
-                    if (test.getDebug()) {
-                        System.out.println("Number of rows = " + SQLResult.getString("rowcount"));
-                    }
-                    int iRowCount = Integer.parseInt(SQLResult.getString("rowcount"));
-                    if (iRowCount == 1) {
-                        sql = "select * from csspqa.test_results where test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
-                                + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
-                                + tool.platform.getOSFullNameAndVersion() + "'";
-
-                        if (test.getDebug()) {
-                            System.out.println(sql);
-                        }
-                        SQLResult = st.executeQuery(sql);
-                        if (test.getDebug()) {
-                            System.out.println("SQL 2 executed");
-                        }
-                        SQLResult.next();
-
-                        String storedResult = SQLResult.getString("test_result");
-                        if (test.getDebug()) {
-                            System.out.println("[INFO] storedResult = " + storedResult);
-                            System.out.println("[INFO] bugId = " + test.getBugId());
-                        }
-
-                        if (storedResult.equals("fail") && !test.getBugId().equals("NoBug")) {
-                            sql = "UPDATE csspqa.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "', fail_message = '" + message
-                                    + "' WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
-                                    + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
-                                    + tool.platform.getOSFullNameAndVersion() + "'";
-
-                            if (test.getDebug()) {
-                                System.out.println(sql);
-                            }
-                            Statement st2 = cust.mysqlDBStatement();
-                            st2.executeUpdate(sql);
-                            if (test.getDebug()) {
-                                System.out.println("SQL 3 executed");
-                                System.out.println("[INFO] Update BugId to " + test.getBugId());
-                            }
-                        }
-
-                        if (test.getResult().equals("pass") && storedResult.equals("fail")) {
-                            sql = "UPDATE csspqa.test_results SET test_result = 'pass', time_stamp = NOW(), bug_id = 'NoBug', ip = '" + tool.platform.getComputerName()
-                                    + "'   WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
-                                    + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
-                                    + tool.platform.getOSFullNameAndVersion() + "'";
-
-                            if (test.getDebug()) {
-                                System.out.println(sql);
-                            }
-                            Statement st2 = cust.mysqlDBStatement();
-                            st2.executeUpdate(sql);
-                            if (test.getDebug()) {
-                                System.out.println("SQL 4 executed");
-                                System.out.println("[INFO] Update result to pass");
-                            }
-                        }
-
-                    } else if (iRowCount > 1) {
-                        System.out.println("More than one row found - issue updating, please check manually.");
-
-                    } else if (iRowCount == 0) {
-                        sql = "INSERT INTO csspqa.test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, tag, browser, OS, fail_message )VALUES ("
-                                + "'" + test.getBugId() + "','" + tool.platform.getComputerName() + "','" + application.getVersion() + "','" + application.getName() + "','"
-                                + test.getName() + "', NOW(),'" + test.getResult() + "','" + mode + "','" + tool.platform.getBrowserFullNameAndVersion() + "', '"
-                                + tool.platform.getOSFullNameAndVersion() + "', '" + message + "')";
-
-                        if (test.getDebug()) {
-                            System.out.println(sql);
-                        }
-                        Statement st2 = cust.mysqlDBStatement();
-                        st2.executeUpdate(sql);
-                        if (test.getDebug()) {
-                            System.out.println("SQL 5 executed");
-                            System.out.println("Test has been logged as a [" + test.getResult() + "]");
-                            System.out.println("Bug ID logged  [" + test.getBugId() + "]");
-                        }
-                    }
-                }
-                SQLResult.close();
-            } catch (SQLException s) {
-                System.err.println(s);
-                System.err.println("SQL statement is not executed!");
-            }
-
-            if (test.getDebug()) {
-                System.out.println("Disconnected from database");
-            }
-        } catch (Exception e) {
-        }
-    }
-
     @After
     public void tearDown() throws Exception {
         tool.quit();
@@ -249,7 +271,6 @@ public class Main {
         System.out.println("Result : " + test.getResult());
 
         this.checkForBadData();
-        this.logResults("CV", verificationErrors.toString());
     }
 
 }
