@@ -29,8 +29,8 @@ public class EBP0094_View_Billed_recharges extends CSSTest {
     public void testEBP0094_View_Billed_recharges() throws Exception {
         try {
             Invoice invoice = new Invoice();
-            String accountNumber = invoice.getAcct("BILLED.RECHARGE");
             launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("BILLED.RECHARGE");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();

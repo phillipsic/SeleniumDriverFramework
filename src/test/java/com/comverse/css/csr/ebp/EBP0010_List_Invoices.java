@@ -32,9 +32,9 @@ public class EBP0010_List_Invoices extends CSSTest {
     public void testEBP0010_List_Invoices() throws Exception {
         try {
             Invoice invoice = new Invoice();
-            String accountNumber = invoice.getAcct("BILLED.RC");
 
             launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("BILLED.RC");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();

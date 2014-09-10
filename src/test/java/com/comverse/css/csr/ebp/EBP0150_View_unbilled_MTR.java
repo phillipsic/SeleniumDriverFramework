@@ -29,8 +29,8 @@ public class EBP0150_View_unbilled_MTR extends CSSTest {
     public void testEBP0150_View_unbilled_MTR() throws Exception {
         try {
             Invoice invoice = new Invoice();
-            String accountNumber = invoice.getAcct("UNBILLED.MTR");
             launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("UNBILLED.MTR");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
