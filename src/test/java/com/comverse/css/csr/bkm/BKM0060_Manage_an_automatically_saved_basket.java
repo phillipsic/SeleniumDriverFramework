@@ -15,6 +15,7 @@ import com.comverse.data.users.CSRAdmin;
 import com.comverse.sec.ComverseOneSingleSignOn;
 
 public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -80,9 +81,6 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
             assertEquals(enterIdentificationData.person.getPersonStreetNumberProperty() + " " + enterIdentificationData.person.getPersonStreetNameProperty() + " "
                     + enterIdentificationData.person.getPersonCityProperty() + "  IA " + enterIdentificationData.person.getPersonPostCodeProperty() + " "
                     + enterIdentificationData.person.getPersonHomeCountryProperty(), myBasket.getAddress());
-
-            myBasket.clickBasket();
-            Common.assertTextOnPage(tool, "No basket has been found");
 
             test.setResult("pass");
 
