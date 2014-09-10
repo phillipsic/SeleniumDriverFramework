@@ -12,7 +12,7 @@ public class Invoice extends Main {
 
     public String getAcct(String key) throws Exception {
         String invoiceAcct = cust.execSQLSelect(cust.oracleDBStatement(), propsHelper.getSQLInvoiceProperties(key), 1);
-        if (invoiceAcct == null)
+        if (invoiceAcct == null || invoiceAcct == "")
             throw new Exception("Empty SQL result");
         System.out.println("Account : " + invoiceAcct);
 
@@ -21,7 +21,7 @@ public class Invoice extends Main {
 
     public String getInvoiceId(String key) throws Exception {
         String invoiceId = cust.execSQLSelect(cust.oracleDBStatement(), propsHelper.getSQLInvoiceProperties(key), 2);
-        if (invoiceId == null)
+        if (invoiceId == null || invoiceId == "")
             throw new Exception("Empty SQL result");
         System.out.println("Invoice : " + invoiceId);
         return invoiceId;

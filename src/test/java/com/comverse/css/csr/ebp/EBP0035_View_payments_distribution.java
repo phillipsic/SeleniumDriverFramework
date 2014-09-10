@@ -30,8 +30,8 @@ public class EBP0035_View_payments_distribution extends CSSTest {
         try {
             Invoice invoice = new Invoice();
             launchCSSApplicationAndSSOLogin();
-            String accountNumber = invoice.getAcct("BILLED.PAYMENT_DISTRIBUTION");
             String invoiceId = invoice.getInvoiceId("BILLED.PAYMENT_DISTRIBUTION");
+            String accountNumber = invoice.getAcct("BILLED.PAYMENT_DISTRIBUTION");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
