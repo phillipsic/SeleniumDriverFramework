@@ -12,6 +12,7 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
 import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.sec.ComverseOneSingleSignOn;
 
@@ -35,9 +36,11 @@ public class Main {
     public static final String SQL_PREP_PROPERTY_FILE = "SQL_Prep.properties";
 
     public class LogResults extends TestWatcher {
+
         @Override
         protected void failed(Throwable e, Description description) {
-            String[] line = e.getMessage().split("\n");
+            String[] line = e.getMessage().split("\n");            
+                     
             test.setMessage(line[0]);
             this.logResults("CV", test.getMessage());
         }
@@ -69,6 +72,8 @@ public class Main {
                         System.out.println("SQL 1 executed");
                     }
 
+                    
+                    message = Common.cleanStringOfIllegalChars(message);
                     while (SQLResult.next()) {
                         if (test.getDebug()) {
                             System.out.println("Number of rows = " + SQLResult.getString("rowcount"));
@@ -94,9 +99,9 @@ public class Main {
                                 System.out.println("[INFO] bugId = " + test.getBugId());
                             }
 
-                            if (storedResult.equals("fail") && !test.getBugId().equals("NoBug")) {
+                            if (storedResult.equals("fail")) {
                                 sql = "UPDATE csspqa.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "', fail_message = '"
-                                        + message + "' WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
+                                        + message + "', time_stamp = NOW() WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
                                         + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
                                         + tool.platform.getOSFullNameAndVersion() + "'";
 
