@@ -39,8 +39,8 @@ public class Main {
 
         @Override
         protected void failed(Throwable e, Description description) {
-            String[] line = e.getMessage().split("\n");            
-                     
+            String[] line = e.getMessage().split("\n");
+
             test.setMessage(line[0]);
             this.logResults("CV", test.getMessage());
         }
@@ -72,8 +72,9 @@ public class Main {
                         System.out.println("SQL 1 executed");
                     }
 
-                    
-                    message = Common.cleanStringOfIllegalChars(message);
+                    if (message != null) {
+                        message = Common.cleanStringOfIllegalChars(message);
+                    }
                     while (SQLResult.next()) {
                         if (test.getDebug()) {
                             System.out.println("Number of rows = " + SQLResult.getString("rowcount"));
