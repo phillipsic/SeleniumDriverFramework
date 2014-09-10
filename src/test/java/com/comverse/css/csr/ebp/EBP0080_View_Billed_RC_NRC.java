@@ -29,8 +29,8 @@ public class EBP0080_View_Billed_RC_NRC extends CSSTest {
     public void testEBP0080_View_Billed_RC() throws Exception {
         try {
             Invoice invoice = new Invoice();
-            String accountNumber = invoice.getAcct("BILLED.RC");
             launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("BILLED.RC");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();

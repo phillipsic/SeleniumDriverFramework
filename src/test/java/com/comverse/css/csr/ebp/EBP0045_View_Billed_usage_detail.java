@@ -31,8 +31,8 @@ public class EBP0045_View_Billed_usage_detail extends CSSTest {
     public void testEBP0045_View_Billed_usage_detail() throws Exception {
         try {
             Invoice invoice = new Invoice();
-            String accountNumber = invoice.getAcct("BILLED.USAGE");
             launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("BILLED.USAGE");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();

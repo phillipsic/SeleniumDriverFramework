@@ -29,8 +29,8 @@ public class EBP0140_View_unbilled_recharges extends CSSTest {
     public void testEBP0140_View_unbilled_recharges() throws Exception {
         try {
             Invoice invoice = new Invoice();
-            String accountNumber = invoice.getAcct("UNBILLED.RECHARGE");
             launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("UNBILLED.RECHARGE");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();

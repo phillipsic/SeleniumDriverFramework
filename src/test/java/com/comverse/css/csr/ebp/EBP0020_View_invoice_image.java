@@ -29,9 +29,8 @@ public class EBP0020_View_invoice_image extends CSSTest {
     public void testEBP0020_View_invoice_image() throws Exception {
         try {
             Invoice invoice = new Invoice();
-            String accountNumber = invoice.getAcct("ASCII");
-
             launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("ASCII");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();

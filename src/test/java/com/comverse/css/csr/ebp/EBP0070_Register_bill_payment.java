@@ -29,8 +29,8 @@ public class EBP0070_Register_bill_payment extends CSSTest {
     public void testEBP0070_Register_bill_payment() throws Exception {
         try {
             Invoice invoice = new Invoice();
-            String accountNumber = invoice.getAcct("BILLED.PAYMENT");
             launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("BILLED.PAYMENT");
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
