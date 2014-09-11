@@ -22,13 +22,14 @@ public class NCA0010_New_Customer_Business_POS extends CSSTest {
         preparation = new Prep();
         application = new POS();
         user = new TelcoRetailerUser();
-        preparation.enableBusinessNCA(application);
+
     }
 
     @Test
     public void testNCA0010_New_Customer_Business_POS() throws Exception {
         try {
             launchCSSApplication();
+            preparation.enableBusinessNCA(application);
             String uniqueTimeStamp = Common.generateTimeStamp();
 
             MyShapeChannel myShapeChannel = new MyShapeChannel(tool, test, user);

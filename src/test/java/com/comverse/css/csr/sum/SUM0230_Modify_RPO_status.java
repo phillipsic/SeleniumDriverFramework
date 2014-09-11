@@ -26,7 +26,6 @@ public class SUM0230_Modify_RPO_status extends CSSTest {
         preparation = new Prep();
         application = new CSR();
         user = new CSRAdmin();
-        preparation.enableRPO(application);
     }
 
     @Test
@@ -34,6 +33,7 @@ public class SUM0230_Modify_RPO_status extends CSSTest {
         try {
             RPO_DIYRechargePromotionalOffer3 rpo_DIYRechargePromotionalOffer3 = new RPO_DIYRechargePromotionalOffer3();
             launchCSSApplicationAndSSOLogin();
+            preparation.enableRPO(application);
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             workSpace.doResitdentialNCADIYRechargesPromotionsCSR();
             IdentifyCustomer identifyCustomer = workSpace.gotoManageAccount();

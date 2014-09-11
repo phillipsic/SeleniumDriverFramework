@@ -26,7 +26,7 @@ public class SUM0240_Reconfigure_award_allocation_counter extends CSSTest {
         preparation = new Prep();
         application = new CSR();
         user = new CSRAdmin();
-        preparation.enableRPO(application);
+
     }
 
     @Test
@@ -34,7 +34,7 @@ public class SUM0240_Reconfigure_award_allocation_counter extends CSSTest {
         try {
             RPO_DIYRechargePromotionalOffer3 rpo_DIYRechargePromotionalOffer3 = new RPO_DIYRechargePromotionalOffer3();
             launchCSSApplicationAndSSOLogin();
-
+            preparation.enableRPO(application);
             WorkSpace workSpace = new WorkSpace(tool, test, user);
 
             workSpace.doResitdentialNCADIYRechargesPromotionsCSR();
