@@ -14,6 +14,7 @@ import com.comverse.data.apps.POS;
 import com.comverse.data.users.TelcoRetailerAdmin;
 
 public class DPM0010_View_deposits extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -49,10 +50,16 @@ public class DPM0010_View_deposits extends CSSTest {
             addDeposit.setDepositAmount("5");
             addDeposit.selectPaymentMethod();
             AddDepositReviewAndConfirm addDepositReviewAndConfirm = addDeposit.clickContinue();
-
+            String dateReveived = addDepositReviewAndConfirm.getDateReveived();
             addDepositReviewAndConfirm.clickConfirm();
 
+           // Common.assertTextOnPage(tool, dateReveived);
+            //Grab date and time to check later.
             accountDeposits = addDepositReviewAndConfirm.clickOkToViewDeposits();
+            Common.assertTextOnPage(tool, dateReveived);
+            Common.assertTextOnPage(tool, "5");
+            Common.assertTextOnPage(tool, bal_TelephonyItem.getBalanceName());
+            Common.assertTextOnPage(tool, "Billable Deposit");
             accountDashboard = accountDeposits.clickBack();
 
             test.setResult("pass");

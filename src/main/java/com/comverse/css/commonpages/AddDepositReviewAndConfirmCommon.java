@@ -45,4 +45,12 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDepositsCommon(tool, test, user);
     }
+
+    public String getDateReveived() throws Exception {
+
+        String temp [];
+        String lableAndDate = tool.getTextUsingXPath("//span[contains(text(), 'Date received:')]/..");
+        temp = lableAndDate.split("received:");
+        return temp[1].trim();
+    }
 }
