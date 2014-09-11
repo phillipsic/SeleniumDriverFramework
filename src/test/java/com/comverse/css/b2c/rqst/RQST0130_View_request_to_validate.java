@@ -13,6 +13,7 @@ import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
 import com.comverse.data.apps.B2C;
 
 public class RQST0130_View_request_to_validate extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -33,7 +34,6 @@ public class RQST0130_View_request_to_validate extends CSSTest {
 
             String cup_login = Common.getCUPB2CLogin();
             String cup_password = Common.getCUPB2CPassword(cup_login);
-            String cop_newPassword = "Pa$$w0rd";
 
             String cop_login = Common.getCOPB2CLogin();
             String cop_password = Common.getCOPB2CPassword(cop_login);
@@ -43,14 +43,7 @@ public class RQST0130_View_request_to_validate extends CSSTest {
             homePage.enterUsername(cop_login);
             homePage.enterPassword(cop_password);
 
-            homePage.clickLogInExpectingChangePassword();
-            homePage.enterOldPassword(cop_password);
-            homePage.enterNewPassword(cop_newPassword);
-            homePage.enterNewConfirmPassword(cop_newPassword);
-            homePage.enterChangePasswordSecretAnswer(cop_newPassword);
-            SubscriberDetail subscriberDetail = homePage.clickChangeExpectingSubscriberDetail();
-
-            Common.assertTextOnPage(tool, "Welcome");
+            SubscriberDetail subscriberDetail = homePage.clickLogIn();
 
             SearchMember searchMember = subscriberDetail.clickMyInformationTab();
 
@@ -69,12 +62,8 @@ public class RQST0130_View_request_to_validate extends CSSTest {
             homePage.enterPassword(cup_password);
 
             System.out.print(cup_login + "/" + cup_password);
-            homePage.clickLogInExpectingChangePassword();
-            homePage.enterOldPassword(cup_password);
-            homePage.enterNewPassword("Pa$$w0rd");
-            homePage.enterNewConfirmPassword("Pa$$w0rd");
-            homePage.enterChangePasswordSecretAnswer("Pa$$w0rd");
-            WorkSpace workSpace = homePage.clickChange();
+
+            WorkSpace workSpace = homePage.clickLogInWithCUP();
 
             Common.assertTextOnPage(tool, "Welcome");
 
@@ -106,10 +95,12 @@ public class RQST0130_View_request_to_validate extends CSSTest {
             homePage.clickHomePage();
 
             homePage.enterUsername(cop_login);
-            homePage.enterPassword(cop_newPassword);
-            System.out.print(cop_login + "/" + cop_newPassword);
-            homePage.clickLogIn();
-            Common.assertTextOnPage(tool, "You have requests to validate");
+            homePage.enterPassword(cop_password);
+            System.out.print(cop_login + "/" + cop_password);
+            subscriberDetail = homePage.clickLogIn();
+            SearchOrders searchOrders = subscriberDetail.clickMyOrdersTab();
+
+            Common.assertTextOnPage(tool, "To Be Validated");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {
