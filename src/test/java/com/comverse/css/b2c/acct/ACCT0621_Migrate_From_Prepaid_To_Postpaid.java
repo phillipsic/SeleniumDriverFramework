@@ -61,8 +61,7 @@ public class ACCT0621_Migrate_From_Prepaid_To_Postpaid extends CSSTest {
             Common.assertTextOnPage(tool, po_DIYRechargesPromotions.getOfferName());
 
             chooseYourPrimaryOffer = subscriberDetail.clickMigrateToPostpaidSubscriber();
-            enterYourSubscriptionDetails = chooseYourPrimaryOffer.selectSubscriberBundleByNameWithoutDevice(sb_DIYWeek7_7Bundle.getOfferName(), sb_DIYWeek7_7Bundle
-                    .getPO_DIYWeeklySubscriptionPrimeOffering().getOfferName());
+            enterYourSubscriptionDetails = chooseYourPrimaryOffer.selectPrimaryOfferByNameWithOutDevice(sb_DIYWeek7_7Bundle.getOfferName());
             selectOffersForYourSubscriber = enterYourSubscriptionDetails.clickOk();
             ConfigureOffers configureOffers = selectOffersForYourSubscriber.clickContinue();
             SwapImpact swapImpact = configureOffers.clickContinueExpectingSwapImpact();
