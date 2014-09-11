@@ -5,9 +5,9 @@ import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.css.common.Common;
 
-public class AddSO extends B2CMenu {
+public class AddSupplementaryOffers extends B2CMenu {
 
-    public AddSO(AutomationTool tool, Test test, User user) throws Exception {
+    public AddSupplementaryOffers(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
         String currentScreen = tool.getTitle();
         String expectedScreen = "Add Supplementary Offers";

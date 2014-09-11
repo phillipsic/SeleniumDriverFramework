@@ -35,10 +35,10 @@ public class ConfigureOffers extends B2CMenu {
         return new ConfigureBalance(tool, test, user);
     }
 
-    public AddSO clickContinueExpectingOfferConfirmation() throws Exception {
+    public AddSupplementaryOffers clickContinueExpectingOfferConfirmation() throws Exception {
         tool.clickUsingXPath("//input[@type='submit' and @name='continue_button']");
 
-        return new AddSO(tool, test, user);
+        return new AddSupplementaryOffers(tool, test, user);
     }
 
     public MyBasket clickContinueExpectingMyBasket() throws Exception {

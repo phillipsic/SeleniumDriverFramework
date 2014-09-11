@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class UpdateAccountContactInformationsCommon extends CommonMenu {
 
@@ -63,5 +64,13 @@ public class UpdateAccountContactInformationsCommon extends CommonMenu {
     public void setFax(String Fax) throws Exception {
 
         tool.enterStringUsingId("fax", Fax);
+    }
+
+    public CustomerAcquisitionCustomerDataReviewCommon clickContinue() throws Exception {
+
+        tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+
+        return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
     }
 }

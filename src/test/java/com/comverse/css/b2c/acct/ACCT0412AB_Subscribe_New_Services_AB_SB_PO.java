@@ -36,10 +36,10 @@ public class ACCT0412AB_Subscribe_New_Services_AB_SB_PO extends CSSTest {
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
             Common.assertTextOnPage(tool, "Welcome");
             SelectOffers selectOffers = subscriberDetail.clickAddSO();
-            AddSO addSO = selectOffers.selectOfferByNameAndContinueExpectingAddSO("OneVoice Data");
+            AddSupplementaryOffers addSO = selectOffers.selectOfferByNameAndContinueExpectingAddSO("OneVoice Data");
             String orderNumber = addSO.getOrderNumberFromPage();
 
-            // AddSO addSO =
+            // AddSupplementaryOffers addSO =
             // configureOffer.clickContinueExpectingOfferConfirmation();
             subscriberDetail = addSO.confirmAddSO();
             SearchOrders searchOrders = subscriberDetail.clickMyOrders();
