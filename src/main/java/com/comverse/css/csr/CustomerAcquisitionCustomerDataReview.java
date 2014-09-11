@@ -11,11 +11,13 @@ public class CustomerAcquisitionCustomerDataReview extends CustomerAcquisitionCu
         super(tool, test, user);
     }
 
+   
+    
     @Override
-    public UpdateAccountBillingAddressInformations clickContinue() throws Exception {
+     public Shopping clickContinueExpectingShopping() throws Exception {
 
-        super.clickContinue();
-        return new UpdateAccountBillingAddressInformations(tool, test, user);
+        super.clickContinueExpectingShopping();
+        return new Shopping(tool, test, user);
     }
 
     @Override

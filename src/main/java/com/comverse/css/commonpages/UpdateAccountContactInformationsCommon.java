@@ -28,4 +28,40 @@ public class UpdateAccountContactInformationsCommon extends CommonMenu {
     public String getTitle() throws Exception {
         return tool.getAttributeUsingXpath("titleString", "value");
     }
+
+    public void setTitle(String TitleName) throws Exception {
+
+        tool.enterStringUsingId("titleString", TitleName);
+    }
+
+    public void setFirstName(String FirstName) throws Exception {
+
+        tool.enterStringUsingId("first_name", FirstName);
+    }
+
+    public void setLastName(String LastName) throws Exception {
+
+        tool.enterStringUsingId("last_name", LastName);
+    }
+
+    public void setGender(String Gender) throws Exception {
+
+        tool.clickUsingID(Gender);
+
+    }
+
+    public void setEmail(String Email) throws Exception {
+
+        tool.enterStringUsingId("email", Email);
+    }
+
+    public void setHomePhone(String HomePhone) throws Exception {
+
+        tool.enterStringUsingId("home_phone", HomePhone);
+    }
+
+    public void setFax(String Fax) throws Exception {
+
+        tool.enterStringUsingId("fax", Fax);
+    }
 }

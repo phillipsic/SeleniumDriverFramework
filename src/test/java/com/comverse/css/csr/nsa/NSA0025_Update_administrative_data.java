@@ -11,6 +11,7 @@ import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
 public class NSA0025_Update_administrative_data extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -41,9 +42,16 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             CustomerAcquisitionCustomerDataReview customerAcquisitionCustomerDataReview = accountDetails.clickNewConvergentSubscriberOnExistingAccount();
 
             Common.assertTextOnPage(tool, "Please review the following customer data is correct");
-            customerAcquisitionCustomerDataReview.clickEditCustomerIdentityAndContact();
+            UpdateAccountContactInformations updateAccountContactInformations = customerAcquisitionCustomerDataReview.clickEditCustomerIdentityAndContact();
 
-            Common.assertTextOnPage(tool, "Update account contact informations");
+          
+            
+            
+            
+            
+            
+            
+            
 
             account.setBillingTitleProperty("Mr.");
             account.setBillingFirstNameProperty("SubFNModified");
@@ -53,20 +61,19 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             account.setBillingPhoneProperty("01Modified");
             account.setBillingFaxProperty("06Modified");
 
-            customerAcquisitionCustomerDataReview.setTitle(account.getBillingTitleProperty());
-            customerAcquisitionCustomerDataReview.setFirstName(account.getBillingFirstNameProperty());
-            customerAcquisitionCustomerDataReview.setLastName(account.getBillingLastNameProperty());
-            customerAcquisitionCustomerDataReview.setGender(account.getBillingGenderProperty());
-            customerAcquisitionCustomerDataReview.setEmail(account.getBillingEmailProperty());
-            customerAcquisitionCustomerDataReview.setHomePhone(account.getBillingPhoneProperty());
-            customerAcquisitionCustomerDataReview.setFax(account.getBillingFaxProperty());
+            updateAccountContactInformations.setTitle(account.getBillingTitleProperty());
+            updateAccountContactInformations.setFirstName(account.getBillingFirstNameProperty());
+            updateAccountContactInformations.setLastName(account.getBillingLastNameProperty());
+            updateAccountContactInformations.setGender(account.getBillingGenderProperty());
+            updateAccountContactInformations.setEmail(account.getBillingEmailProperty());
+            updateAccountContactInformations.setHomePhone(account.getBillingPhoneProperty());
+            updateAccountContactInformations.setFax(account.getBillingFaxProperty());
 
-            
             customerAcquisitionCustomerDataReview.clickContinue();
 
             UpdateAccountBillingAddressInformations updateAccountBillingAddressInformation = customerAcquisitionCustomerDataReview.clickEditAddressDetail();
 
-            Common.assertTextOnPage(tool, "Update account billing address informations");
+         
 
             account.setBillingStreetNameProperty("AcctaddModified");
             account.setBillingPostCodeProperty("AcctZipModified");
@@ -81,12 +88,9 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             updateAccountBillingAddressInformation.setHomeCity(account.getBillingCityProperty());
             updateAccountBillingAddressInformation.setHomeCountry(account.getBillingHomeCountryProperty());
 
-             customerAcquisitionCustomerDataReview = updateAccountBillingAddressInformation.clickContinue();
+            customerAcquisitionCustomerDataReview = updateAccountBillingAddressInformation.clickContinue();
 
-          
             customerAcquisitionCustomerDataReview.clickAccountContact();
-
-         
 
             account.setBillingCustomerSocialSecurityNumberProperty("987654320");
             account.setBillingPurchaseOrderProperty("98765430");
@@ -100,11 +104,7 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             customerAcquisitionCustomerDataReview.setSecurityWord(account.getBillingSecurityWordProperty());
             customerAcquisitionCustomerDataReview.setSICCode(account.getBillingSICCodeProperty());
 
-            customerAcquisitionCustomerDataReview.clickContinue();
-
-           
-
-            Shopping shopping = customerAcquisitionCustomerDataReview.clickContinue();
+            Shopping shopping = customerAcquisitionCustomerDataReview.clickContinueExpectingShopping();
             shopping.filterSubscriberBundlePrimaryOfferByName(po_ResidentialUltraPostpaid15DiscountICB.getOfferName());
             shopping.clickSubscriberBundlePrimaryOfferName(po_ResidentialUltraPostpaid15DiscountICB.getOfferName());
             ConfigureBalance configureBalance = shopping.clickSelectOfferInPopUpWindowExpectingConfigureBalance();
