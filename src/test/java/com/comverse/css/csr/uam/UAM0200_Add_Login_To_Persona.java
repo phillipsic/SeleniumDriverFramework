@@ -103,6 +103,7 @@ public class UAM0200_Add_Login_To_Persona extends CSSTest {
             // Now login with accounts so we don't have to change paswords in other tests.
             String cup_login = Common.getCUPB2CLogin();
             String cup_password = Common.getCUPB2CPassword(cup_login);
+            String cup_newPassword = "Pa$$w0rd";
             String cop_newPassword = "Pa$$w0rd";
             String cop_login = Common.getCOPB2CLogin();
             String cop_password = Common.getCOPB2CPassword(cop_login);
@@ -143,14 +144,13 @@ public class UAM0200_Add_Login_To_Persona extends CSSTest {
             System.out.print(cup_login + "/" + cup_password);
             homePage.clickLogInExpectingChangePassword();
             homePage.enterOldPassword(cup_password);
-            homePage.enterNewPassword("Pa$$w0rd");
-            homePage.enterNewConfirmPassword("Pa$$w0rd");
-            homePage.enterChangePasswordSecretAnswer("Pa$$w0rd");
+            homePage.enterNewPassword(cup_newPassword);
+            homePage.enterNewConfirmPassword(cup_newPassword);
+            homePage.enterChangePasswordSecretAnswer(cup_newPassword);
             homePage.clickChange();
 
-           
-            Common.storeCUPLoginAndPassword(lastNameOfCUP.toLowerCase(), "Passw0rd!", "Created by UAM0200_Add_Login_To_Persona");
-            Common.storeCOPLoginAndPassword(lastNameOfCOP.toLowerCase(), "Passw0rd!", "Created by UAM0200_Add_Login_To_Persona");
+            Common.storeCUPLoginAndPassword(lastNameOfCUP.toLowerCase(), cop_newPassword, "Created by UAM0200_Add_Login_To_Persona");
+            Common.storeCOPLoginAndPassword(lastNameOfCOP.toLowerCase(), cup_newPassword, "Created by UAM0200_Add_Login_To_Persona");
 
             test.setResult("pass");
 
