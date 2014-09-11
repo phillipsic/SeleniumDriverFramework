@@ -70,9 +70,9 @@ public class ACCT0550ConfigureAccountBalance extends CSSTest {
             String orderNumber = checkoutConfirmation.getOrderNumberFromPage();
             SearchOrders searchOrders = checkoutConfirmation.clickOk();
             // searchOrders.clickRequests();
-            test.setBugId("CBS00165217");
+           // test.setBugId("CBS00165217");
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(orderNumber);
-            test.setBugId("NoBug");
+           // test.setBugId("NoBug");
             SubscriberDetail subscriberDetail = searchOrders.clickDashbaord();
 
             ViewBalances viewBalances = subscriberDetail.clickSharedBalances();
