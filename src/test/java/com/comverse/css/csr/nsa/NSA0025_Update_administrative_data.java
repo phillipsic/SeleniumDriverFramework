@@ -61,11 +61,10 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             customerAcquisitionCustomerDataReview.setHomePhone(account.getBillingPhoneProperty());
             customerAcquisitionCustomerDataReview.setFax(account.getBillingFaxProperty());
 
-            customerAcquisitionCustomerDataReview.clickConfirm();
+            
+            customerAcquisitionCustomerDataReview.clickContinue();
 
-            Common.assertTextOnPage(tool, "Customer Acquisition - Customer Data Review");
-
-            customerAcquisitionCustomerDataReview.clickEditAddressDetail();
+            UpdateAccountBillingAddressInformations updateAccountBillingAddressInformation = customerAcquisitionCustomerDataReview.clickEditAddressDetail();
 
             Common.assertTextOnPage(tool, "Update account billing address informations");
 
@@ -74,22 +73,20 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             account.setBillingCityProperty("AcctCityModified");
             account.setBillingHomeCountryProperty("France");
 
-            customerAcquisitionCustomerDataReview.setAddress1(account.getBillingStreetNameProperty() + "1");
-            customerAcquisitionCustomerDataReview.setAddress2(account.getBillingStreetNameProperty() + "2");
-            customerAcquisitionCustomerDataReview.setAddress3(account.getBillingStreetNameProperty() + "3");
-            customerAcquisitionCustomerDataReview.setAddress4(account.getBillingStreetNameProperty() + "4");
-            customerAcquisitionCustomerDataReview.setHomeZip(account.getBillingPostCodeProperty());
-            customerAcquisitionCustomerDataReview.setHomeCity(account.getBillingCityProperty());
-            customerAcquisitionCustomerDataReview.setHomeCountry(account.getBillingHomeCountryProperty());
+            updateAccountBillingAddressInformation.setAddress1(account.getBillingStreetNameProperty() + "1");
+            updateAccountBillingAddressInformation.setAddress2(account.getBillingStreetNameProperty() + "2");
+            updateAccountBillingAddressInformation.setAddress3(account.getBillingStreetNameProperty() + "3");
+            updateAccountBillingAddressInformation.setAddress4(account.getBillingStreetNameProperty() + "4");
+            updateAccountBillingAddressInformation.setHomeZip(account.getBillingPostCodeProperty());
+            updateAccountBillingAddressInformation.setHomeCity(account.getBillingCityProperty());
+            updateAccountBillingAddressInformation.setHomeCountry(account.getBillingHomeCountryProperty());
 
-            // customerAcquisitionCustomerDataReview.clickConfirm();
-            customerAcquisitionCustomerDataReview.clickConfirm();
+             customerAcquisitionCustomerDataReview = updateAccountBillingAddressInformation.clickContinue();
 
-            Common.assertTextOnPage(tool, "Customer Acquisition - Customer Data Review");
-
+          
             customerAcquisitionCustomerDataReview.clickAccountContact();
 
-            Common.assertTextOnPage(tool, "Update administrative account information");
+         
 
             account.setBillingCustomerSocialSecurityNumberProperty("987654320");
             account.setBillingPurchaseOrderProperty("98765430");
@@ -105,7 +102,7 @@ public class NSA0025_Update_administrative_data extends CSSTest {
 
             customerAcquisitionCustomerDataReview.clickContinue();
 
-            Common.assertTextOnPage(tool, "Customer Acquisition - Customer Data Review");
+           
 
             Shopping shopping = customerAcquisitionCustomerDataReview.clickContinue();
             shopping.filterSubscriberBundlePrimaryOfferByName(po_ResidentialUltraPostpaid15DiscountICB.getOfferName());
