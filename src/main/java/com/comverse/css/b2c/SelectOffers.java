@@ -28,12 +28,12 @@ public class SelectOffers extends B2CMenu {
 
     }
 
-    public AddSO selectOfferByNameAndContinueExpectingAddSO(String offerName) throws Exception {
+    public AddSupplementaryOffers selectOfferByNameAndContinueExpectingAddSO(String offerName) throws Exception {
         System.out.println("//div[contains(text(),'" + offerName + "')]/..//..//input");
         tool.clickUsingXPath("//div[contains(text(),'" + offerName + "')]/..//..//input");
         System.out.println("//div[contains(text(),'" + offerName + "')]/..//..//input");
         tool.clickUsingXPath("//input[@name='continue_button']");
-        return new AddSO(tool, test, user);
+        return new AddSupplementaryOffers(tool, test, user);
 
     }
 

@@ -40,7 +40,7 @@ public class ACCT0421_Modify_Service extends CSSTest {
             Common.assertTextOnPage(tool, "WelcomeFN" + login);
             SelectOffers selectOffers = subscriberDetail.clickAddSO();
             ConfigureOffers configureOffer = selectOffers.selectOfferByNameAndContinue(so_2010WorldCupSoccerNews.getOfferName());
-            AddSO addSO = configureOffer.clickContinueExpectingOfferConfirmation();
+            AddSupplementaryOffers addSO = configureOffer.clickContinueExpectingOfferConfirmation();
 
             String orderNumber = addSO.getOrderNumberFromPage();
             subscriberDetail = addSO.confirmAddSO();

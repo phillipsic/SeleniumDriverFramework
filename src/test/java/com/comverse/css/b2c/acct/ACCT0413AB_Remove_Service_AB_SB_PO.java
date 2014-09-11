@@ -37,8 +37,8 @@ public class ACCT0413AB_Remove_Service_AB_SB_PO extends CSSTest {
             SubscriberDetail subscriberDetail = homePage.clickLogIn();
             Common.assertTextOnPage(tool, "WelcomeFN" + login);
             SelectOffers selectOffers = subscriberDetail.clickAddSO();
-            AddSO addSO = selectOffers.selectOfferByNameAndContinueExpectingAddSO(so_OneVoiceData.getOfferName());
-            // AddSO addSO =
+            AddSupplementaryOffers addSO = selectOffers.selectOfferByNameAndContinueExpectingAddSO(so_OneVoiceData.getOfferName());
+            // AddSupplementaryOffers addSO =
             // configureOffer.clickContinueExpectingOfferConfirmation();
             String firstOrder = addSO.getOrderNumberFromPage();
             subscriberDetail = addSO.confirmAddSO();
