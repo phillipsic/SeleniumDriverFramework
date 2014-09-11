@@ -15,4 +15,10 @@ public class UpdateAccountContactInformations extends UpdateAccountContactInform
         super(tool, test, user);
     }
 
+    @Override
+    public CustomerAcquisitionCustomerDataReview clickContinue() throws Exception {
+
+        super.clickContinue();
+        return new CustomerAcquisitionCustomerDataReview(tool, test, user);
+    }
 }

@@ -69,7 +69,7 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             updateAccountContactInformations.setHomePhone(account.getBillingPhoneProperty());
             updateAccountContactInformations.setFax(account.getBillingFaxProperty());
 
-            customerAcquisitionCustomerDataReview.clickContinue();
+            customerAcquisitionCustomerDataReview = updateAccountContactInformations.clickContinue();
 
             UpdateAccountBillingAddressInformations updateAccountBillingAddressInformation = customerAcquisitionCustomerDataReview.clickEditAddressDetail();
 
@@ -89,8 +89,10 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             updateAccountBillingAddressInformation.setHomeCountry(account.getBillingHomeCountryProperty());
 
             customerAcquisitionCustomerDataReview = updateAccountBillingAddressInformation.clickContinue();
+            
+              Common.assertTextOnPage(tool, "Please review the following customer data is correct");
 
-            customerAcquisitionCustomerDataReview.clickAccountContact();
+            UpdateAdministrativeAccountInformation updateAdministrativeAccountInformation = customerAcquisitionCustomerDataReview.clickAccountContactEdit();
 
             account.setBillingCustomerSocialSecurityNumberProperty("987654320");
             account.setBillingPurchaseOrderProperty("98765430");
@@ -98,13 +100,20 @@ public class NSA0025_Update_administrative_data extends CSSTest {
             account.setBillingSecurityWordProperty("987650");
             account.setBillingSICCodeProperty("981");
 
-            customerAcquisitionCustomerDataReview.setSocialSecurityNumber(account.getBillingCustomerSocialSecurityNumberProperty());
-            customerAcquisitionCustomerDataReview.setPurchaseOrder(account.getBillingPurchaseOrderProperty());
-            customerAcquisitionCustomerDataReview.setSalesCode(account.getBillingSalesCodeProperty());
-            customerAcquisitionCustomerDataReview.setSecurityWord(account.getBillingSecurityWordProperty());
-            customerAcquisitionCustomerDataReview.setSICCode(account.getBillingSICCodeProperty());
+            updateAdministrativeAccountInformation.setSocialSecurityNumber(account.getBillingCustomerSocialSecurityNumberProperty());
+            updateAdministrativeAccountInformation.setPurchaseOrder(account.getBillingPurchaseOrderProperty());
+            updateAdministrativeAccountInformation.setSalesCode(account.getBillingSalesCodeProperty());
+            updateAdministrativeAccountInformation.setSecurityWord(account.getBillingSecurityWordProperty());
+            updateAdministrativeAccountInformation.setSICCode(account.getBillingSICCodeProperty());
+            
+            
+            
 
-            Shopping shopping = customerAcquisitionCustomerDataReview.clickContinueExpectingShopping();
+            customerAcquisitionCustomerDataReview = updateAdministrativeAccountInformation.clickContinue();
+            
+            Shopping shopping = customerAcquisitionCustomerDataReview.clickContinue();
+            
+            
             shopping.filterSubscriberBundlePrimaryOfferByName(po_ResidentialUltraPostpaid15DiscountICB.getOfferName());
             shopping.clickSubscriberBundlePrimaryOfferName(po_ResidentialUltraPostpaid15DiscountICB.getOfferName());
             ConfigureBalance configureBalance = shopping.clickSelectOfferInPopUpWindowExpectingConfigureBalance();

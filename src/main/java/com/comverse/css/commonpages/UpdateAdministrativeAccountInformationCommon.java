@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
 
@@ -68,6 +69,38 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
     public void setMarketCode(String marketCode) throws Exception {
 
         tool.selectVisibleTextByID("p-param-L4:80060", marketCode);
+    }
+
+    public void setSocialSecurityNumber(String SocialSecurityNumber) throws Exception {
+
+        tool.enterStringUsingId("p-param-L4:91260", SocialSecurityNumber);
+    }
+
+    public void setPurchaseOrder(String PurchaseOrder) throws Exception {
+
+        tool.enterStringUsingId("p-param-L4:91540", PurchaseOrder);
+    }
+
+    public void setSalesCode(String SalesCode) throws Exception {
+
+        tool.enterStringUsingId("p-param-L4:91530", SalesCode);
+    }
+
+    public void setSecurityWord(String SecurityWord) throws Exception {
+
+        tool.enterStringUsingId("p-param-L4:91070", SecurityWord);
+    }
+
+    public void setSICCode(String SICCode) throws Exception {
+
+        tool.enterStringUsingId("p-param-L4:91320", SICCode);
+    }
+
+    public CustomerAcquisitionCustomerDataReviewCommon clickContinue() throws Exception {
+
+        tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
     }
 
 }
