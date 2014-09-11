@@ -63,6 +63,18 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         return new ChooseYourDevice(tool, test, user);
     }
 
+    public EnterYourSubscriptionDetails selectPrimaryOfferByNameWithOutDevice(String primaryOfferName) throws Exception {
+
+        System.out.println("Checking for device page");
+        if ("Choose Your Device".equals(tool.getTitle())) {
+
+            tool.clickUsingCssSelector("input[name='nothanks']");
+            System.out.println("Checking for device page - found - No Thanks");
+        }
+        this.clickSelectPrimaryOffer(primaryOfferName);
+        return new EnterYourSubscriptionDetails(tool, test, user);
+    }
+
     public EnterYourSubscriptionDetails selectSubscriberBundleByNameWithoutDevice(String subscriberBundleName, String primaryOfferName) throws Exception {
 
         // String subscriberbundleID =
@@ -72,7 +84,6 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         // tool.clickUsingCssSelector("#select_cb_" + subscriberbundleID +
         // " > #selectButton_" + offerID);
         // tool.clickUsingID("selectButton_" + temp[0]);
-
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.getTitle())) {
 
