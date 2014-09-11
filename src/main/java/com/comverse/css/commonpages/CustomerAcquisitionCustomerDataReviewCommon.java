@@ -26,11 +26,17 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
         }
     }
 
-    public ShoppingCommon clickContinue() throws Exception {
+    public UpdateAccountBillingAddressInformationsCommon clickContinue() throws Exception {
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        return new ShoppingCommon(tool, test, user);
+        return new UpdateAccountBillingAddressInformationsCommon(tool, test, user);
+    }
+     public CustomerAcquisitionCustomerDataReviewCommon clickContinueExpectingCustomerDataReview() throws Exception {
+
+        tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
+        return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
     }
 
     public String getLastName() throws Exception {
@@ -165,7 +171,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
 
     public CustomerAcquisitionCustomerDataReviewCommon clickConfirm() throws Exception {
 
-        tool.clickUsingXPath("//input[@value='Confirm']");
+        tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
     }

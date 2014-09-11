@@ -64,5 +64,11 @@ public class UpdateAccountBillingAddressInformationsCommon extends CommonMenu {
 
         tool.selectVisibleTextByID("home_country", HomeCountry);
     }
+    
+     public CustomerAcquisitionCustomerDataReviewCommon clickContinue() throws Exception {
+
+        tool.clickUsingXPath("//input[@value='Continue >']");
+        return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
+    }
 
 }

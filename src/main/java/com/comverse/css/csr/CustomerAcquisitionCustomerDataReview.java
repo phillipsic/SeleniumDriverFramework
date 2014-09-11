@@ -12,10 +12,10 @@ public class CustomerAcquisitionCustomerDataReview extends CustomerAcquisitionCu
     }
 
     @Override
-    public Shopping clickContinue() throws Exception {
+    public UpdateAccountBillingAddressInformations clickContinue() throws Exception {
 
         super.clickContinue();
-        return new Shopping(tool, test, user);
+        return new UpdateAccountBillingAddressInformations(tool, test, user);
     }
 
     @Override
@@ -29,5 +29,12 @@ public class CustomerAcquisitionCustomerDataReview extends CustomerAcquisitionCu
     public UpdateAdministrativeAccountInformation clickBillingInformationEditButton() throws Exception {
         super.clickBillingInformationEditButton();
         return new UpdateAdministrativeAccountInformation(tool, test, user);
+    }
+
+    @Override
+    public UpdateAccountBillingAddressInformations clickEditAddressDetail() throws Exception {
+
+        super.clickEditAddressDetail();
+        return new UpdateAccountBillingAddressInformations(tool, test, user);
     }
 }
