@@ -45,6 +45,10 @@ public class ConfigureBalanceCommon extends CommonMenu {
         tool.enterStringUsingId(limitName + "_limit", limitAmount);
     }
 
+    public void setBalanceUnlimited(String balanceName) throws Exception {
+        tool.clickUsingXPath("//input[@type='checkbox' and contains(@onclick, '" + balanceName + "_limit')]");
+    }
+
     public void clickContinue() throws Exception {
         tool.clickUsingXPath("//input[@value='Continue >']");
     }
