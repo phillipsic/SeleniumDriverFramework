@@ -23,7 +23,6 @@ public class ACCT0212_View_Subscriber_Status_History extends CSSTest {
         super.setUp();
         preparation = new Prep();
         application = new B2C();
-        preparation.enableSubscribeStatusHistory(application);
     }
 
     @Test
@@ -31,6 +30,7 @@ public class ACCT0212_View_Subscriber_Status_History extends CSSTest {
         try {
             PO_ResidentialBasicPrepaid po_ResidentialBasicPrepaid = new PO_ResidentialBasicPrepaid();
             launchCSSApplication();
+            preparation.enableSubscribeStatusHistory(application);
             String uniqueTimeStamp = Common.generateTimeStamp();
 
             HomePage homePage = new HomePage(tool, test, user);

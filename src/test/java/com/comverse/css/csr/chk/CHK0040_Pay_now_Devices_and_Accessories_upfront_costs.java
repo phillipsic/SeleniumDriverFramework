@@ -22,14 +22,13 @@ public class CHK0040_Pay_now_Devices_and_Accessories_upfront_costs extends CSSTe
         preparation = new Prep();
         application = new CSR();
         user = new CSRAdmin();
-        preparation.enableDevice(application);
     }
 
     @Test
     public void testCHK0040_Pay_now_Devices_and_Accessories_upfront_costs() throws Exception {
         try {
             launchCSSApplicationAndSSOLogin();
-
+            preparation.enableDevice(application);
             String uniqueString = Common.generateTimeStamp();
 
             WorkSpace workSpace = new WorkSpace(tool, test, user);

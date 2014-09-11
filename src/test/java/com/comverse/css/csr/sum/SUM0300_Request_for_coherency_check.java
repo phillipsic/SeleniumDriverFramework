@@ -23,14 +23,14 @@ public class SUM0300_Request_for_coherency_check extends CSSTest {
         preparation = new Prep();
         application = new CSR();
         user = new CSRUser();
-        preparation.enableCoherencyCheck(application);
+
     }
 
     @Test
     public void testSUM0300_Request_for_coherency_check() throws Exception {
         try {
             launchCSSApplicationAndSSOLogin();
-
+            preparation.enableCoherencyCheck(application);
             WorkSpace workSpace = new WorkSpace(tool, test, user);
 
             workSpace.doResitdentialNCAResidentialUltraPostpaidCSR();
