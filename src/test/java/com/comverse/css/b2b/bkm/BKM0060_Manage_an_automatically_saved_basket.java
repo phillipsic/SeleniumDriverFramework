@@ -14,6 +14,7 @@ import com.comverse.data.apps.B2B;
 import com.comverse.data.users.B2BAdmin;
 
 public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -50,7 +51,6 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
             myBasket.clickViewBasket();
 
             // assertEquals("Owner", myBasket.getTypeRole());
-
             assertTrue(myBasket.getOfferName().matches(po_BusinessUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
             assertEquals("1", myBasket.getQuantity());
             assertEquals("$ " + po_BusinessUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
@@ -60,15 +60,12 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
             loginPage.clickHomePage();
 
             RestorePreviousBasket restorePreviousBasket = loginPage.loginToB2BWithPreviousBasket();
-         
+
             myBasket = restorePreviousBasket.clickRestoreSavedBasket();
-          
 
-            // test fails at following line - Defect to be entered for 3.7.7 NOT
-            // 3.7.6
+            test.setBugId("CBS00171056");
             myBasket.assign3InventoriesFirstOffer(subscriber);
-
-            // assertEquals("Owner", myBasket.getTypeRole());
+            test.setBugId("NoBug");
 
             assertTrue(myBasket.getOfferName().matches(po_BusinessUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
             assertEquals("1", myBasket.getQuantity());
