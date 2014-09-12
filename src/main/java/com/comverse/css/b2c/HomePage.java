@@ -8,6 +8,7 @@ import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 
 public class HomePage extends B2CMenu {
+
     Prep preparation;
 
     public HomePage(AutomationTool tool, Test test, User user) throws Exception {
@@ -17,12 +18,17 @@ public class HomePage extends B2CMenu {
         String expectedScreen = "Myshape Consumer";
 
         if (!expectedScreen.equals(currentScreen)) {
+            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+
         }
         System.out.println(">>" + currentScreen);
+        test.writeInLog(" >>>Now on: " + expectedScreen + "<<<");
     }
 
     public CustomerPrerequisite selectUSDCurrency() throws Exception {
+
+        test.writeInLog(this.getClass().getSimpleName());
 
         tool.selectVisibleTextByName("currency", "USD");
         tool.clickUsingName("submit");
@@ -146,13 +152,12 @@ public class HomePage extends B2CMenu {
     }
 
     public void clickShoppingLink() throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName());
         tool.clickUsingLinkText("Shopping");
-
     }
 
     public Shopping selectAccountSegmentAll() throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName());
         tool.selectVisibleTextByID("p-ACCOUNT-L4:80070", "All Segments");
         tool.clickUsingName("submit");
 

@@ -19,12 +19,14 @@ public class MyBasket extends B2CMenu {
         String expectedScreen = "My Basket";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-
+            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
+        test.writeInLog(this.getClass().getSimpleName());
     }
 
     public CheckoutRegister clickCheckOut() throws Exception {
+        test.writeInLog(this.getClass().getSimpleName());
         tool.clickUsingXPath("//input[@value='Checkout']");
         return new CheckoutRegister(tool, test, user);
     }

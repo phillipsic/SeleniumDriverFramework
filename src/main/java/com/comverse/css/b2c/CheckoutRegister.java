@@ -17,14 +17,14 @@ public class CheckoutRegister extends B2CMenu {
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(tool.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps
-            // logging out first
+            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
+        test.writeInLog(this.getClass().getSimpleName());
     }
 
     public SignUpUser selectSignMeUpAndClickContinue() throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName());
         this.selectSignMeUp();
         SignUpUser signUp = this.clickContinue();
         return signUp;
@@ -45,13 +45,11 @@ public class CheckoutRegister extends B2CMenu {
 
     public void setRegisteredLogin(String login) throws Exception {
 
-        
         tool.enterStringUsingId("login", login);
     }
 
     public void setPassword(String password) throws Exception {
 
-        
         tool.enterStringUsingId("password", password);
     }
 

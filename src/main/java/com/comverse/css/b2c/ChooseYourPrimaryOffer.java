@@ -13,14 +13,16 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         String expectedScreen = "Choose Your Primary Offer";
 
         if (!expectedScreen.equals(currentScreen)) {
-
+            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
         System.out.println(">>" + currentScreen);
+        test.writeInLog(" >>>Now on: " + expectedScreen + "<<<");
     }
 
     public EnterYourSubscriptionDetails selectPrimaryOfferByNameWithoutDevice(String primaryOfferName) throws Exception {
 
+        test.writeInLog(this.getClass().getSimpleName() + "with data (" + primaryOfferName + ")");
         this.clickSelectPrimaryOffer(primaryOfferName);
 
         System.out.println("Checking for device page");

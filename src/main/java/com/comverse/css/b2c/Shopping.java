@@ -9,16 +9,17 @@ public class Shopping extends B2CMenu {
     public Shopping(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
         String currentScreen = tool.getTitle();
-        String expectScreen = "Shopping";
+        String expectedScreen = "Shopping";
 
-        if (!expectScreen.equals(currentScreen)) {
-
-            throw new IllegalStateException("Expecting: " + expectScreen + " , but got: " + currentScreen);
+        if (!expectedScreen.equals(currentScreen)) {
+            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
+        test.writeInLog(this.getClass().getSimpleName());
     }
 
     public ChooseYourPrimaryOffer clickGSMMobileLink() throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName());
         tool.clickUsingXPath("//li[contains(.,'Welcome to a new world of convergence')]/img");
         tool.clickUsingLinkText("GSM Mobile");
 
@@ -66,7 +67,7 @@ public class Shopping extends B2CMenu {
     }
 
     @Override
-	public SubscriberDetail clickMyAccount() throws Exception {
+    public SubscriberDetail clickMyAccount() throws Exception {
         tool.clickUsingLinkText("My Account");
         return new SubscriberDetail(tool, test, user);
     }

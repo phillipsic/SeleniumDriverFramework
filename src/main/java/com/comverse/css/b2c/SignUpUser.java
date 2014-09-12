@@ -17,130 +17,116 @@ public class SignUpUser extends B2CMenu {
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(tool.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps
-            // logging out first
+            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
+        test.writeInLog(this.getClass().getSimpleName());
     }
 
     public void enterAddressLineOne(String addressLine1) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + addressLine1 + ")");
         tool.enterStringUsingId("address_line_1", addressLine1);
 
     }
 
     public void enterAddressLineTwo(String addressLine2) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + addressLine2 + ")");
         tool.enterStringUsingId("address_line_2", addressLine2);
 
     }
 
     public void enterAddressLineThree(String addressLine3) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + addressLine3 + ")");
         tool.enterStringUsingId("address_line_3", addressLine3);
 
     }
 
     public void enterAddressLineFour(String addressLine4) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + addressLine4 + ")");
         tool.enterStringUsingId("address_line_4", addressLine4);
 
     }
 
     public void enterZipCode(String zipCode) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + zipCode + ")");
         tool.enterStringUsingId("zip", zipCode);
 
     }
 
     public void enterCity(String city) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + city + ")");
         tool.enterStringUsingId("city", city);
 
     }
 
     public void selectState(String state) throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + state + ")");
         tool.selectVisibleTextByName("state", state);
 
     }
 
     public void enterFirstName(String firstName) throws Exception {
 
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + firstName + ")");
         tool.enterStringUsingId("first_name", firstName);
 
     }
 
     public void enterLastName(String lastName) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + lastName + ")");
         tool.enterStringUsingId("last_name", lastName);
 
     }
 
     public void enterEmailAddress(String emailAddress) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + emailAddress + ")");
         tool.enterStringUsingId("company_email", emailAddress);
 
     }
 
     public void enterLogin(String uniqueTimeStamp) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + uniqueTimeStamp + ")");
         tool.enterStringUsingId("login", uniqueTimeStamp);
         System.out.println("Login - " + uniqueTimeStamp);
 
     }
 
     public void enterPassword(String password) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + password + ")");
         tool.enterStringUsingId("password", password);
         System.out.println("Password - " + password);
 
     }
 
     public void enterConfirmPassword(String confirmPassword) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + confirmPassword + ")");
         tool.enterStringUsingId("confirm_password", confirmPassword);
 
     }
 
     public void selectSecretQuestion(String secretQuestion) throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + secretQuestion + ")");
         tool.selectVisibleTextByName("secret_question", secretQuestion);
 
     }
 
     public void enterSecretAnswer(String secretAnswer) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + secretAnswer + ")");
         tool.enterStringUsingId("secret_answer", secretAnswer);
     }
 
     public void enterNationalId(String national_id) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + national_id + ")");
         tool.enterStringUsingId("national_id", national_id);
     }
 
     public void enterDateOfBirth(String dob) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + dob + ")");
         tool.enterStringUsingId("date_of_birth", dob);
     }
 
     public CustomerDetails clickSignMeUp() throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName() );
         tool.clickUsingName("signmeup");
         return new CustomerDetails(tool, test, user);
     }
@@ -165,75 +151,67 @@ public class SignUpUser extends B2CMenu {
     }
 
     public void uncheckSameAsCustomerAddress() throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName());
         tool.clickUsingID("linkAddress");
 
     }
 
     public void enterBillingAddressLineOne(String addressLine1) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + addressLine1 + ")");
         tool.enterStringUsingId("billingAddressLine1", addressLine1);
 
     }
 
     public void enterBillingAddressLineTwo(String addressLine2) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + addressLine2 + ")");
         tool.enterStringUsingId("billingAddressLine2", addressLine2);
 
     }
 
     public void enterBillingAddressLineThree(String addressLine3) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + addressLine3 + ")");
         tool.enterStringUsingId("billingAddressLine3", addressLine3);
 
     }
 
     public void enterBillingAddressLineFour(String addressLine4) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + addressLine4 + ")");
         tool.enterStringUsingId("billingAddressLine4", addressLine4);
 
     }
 
     public void enterBillingZipCode(String zipCode) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + zipCode + ")");
         tool.enterStringUsingId("billingZip", zipCode);
 
     }
 
     public void enterBillingCity(String city) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + city + ")");
         tool.enterStringUsingId("billingCity", city);
 
     }
 
     public void selectBillingState(String state) throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + state + ")");
         tool.selectVisibleTextByName("billingState", state);
 
     }
 
     public void selectBillingTitle(String title) throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + title + ")");
         tool.selectVisibleTextByID("billingTitle", title);
 
     }
 
     public void enterBillingFirstName(String firstName) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + firstName + ")");
         tool.enterStringUsingId("billingFirstName", firstName);
 
     }
 
     public void enterBillingLastName(String lastName) throws Exception {
-
-        
+        test.writeInLog(this.getClass().getSimpleName() + " using data (" + lastName + ")");
         tool.enterStringUsingId("billingLastName", lastName);
 
     }

@@ -17,14 +17,14 @@ public class ConfigureOffers extends B2CMenu {
 
         // Check that we're on the right page.
         if (!expectedScreen.equals(tool.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps
-            // logging out first
+            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
+        test.writeInLog(" >>>Now on: " + expectedScreen + "<<<");
     }
 
     public ChooseAccessories clickContinue() throws Exception {
-
+        test.writeInLog(this.getClass().getSimpleName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new ChooseAccessories(tool, test, user);
     }
