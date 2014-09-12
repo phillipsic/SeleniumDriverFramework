@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class Shopping extends B2CMenu {
 
@@ -15,11 +16,11 @@ public class Shopping extends B2CMenu {
             test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
-        test.writeInLog(this.getClass().getSimpleName());
+         test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public ChooseYourPrimaryOffer clickGSMMobileLink() throws Exception {
-        test.writeInLog(this.getClass().getSimpleName());
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//li[contains(.,'Welcome to a new world of convergence')]/img");
         tool.clickUsingLinkText("GSM Mobile");
 

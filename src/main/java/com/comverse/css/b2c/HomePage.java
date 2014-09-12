@@ -23,7 +23,7 @@ public class HomePage extends B2CMenu {
 
         }
         System.out.println(">>" + currentScreen);
-        test.writeInLog(" >>>Now on: " + expectedScreen + "<<<");
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public CustomerPrerequisite selectUSDCurrency() throws Exception {
@@ -152,12 +152,12 @@ public class HomePage extends B2CMenu {
     }
 
     public void clickShoppingLink() throws Exception {
-        test.writeInLog(this.getClass().getSimpleName());
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Shopping");
     }
 
     public Shopping selectAccountSegmentAll() throws Exception {
-        test.writeInLog(this.getClass().getSimpleName());
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("p-ACCOUNT-L4:80070", "All Segments");
         tool.clickUsingName("submit");
 

@@ -24,11 +24,11 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
             test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
             throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
         }
-        test.writeInLog(" >>>Now on: " + expectedScreen + "<<<");
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void enterDefaultIdentityAddressPhoneEmail(String uniqueString) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName());
+        test.writeInLog(Common.getMethodName());
 
         Subscriber subscriber = new Subscriber(uniqueString);
 
@@ -53,23 +53,23 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
     }
 
     public void enterFirstName(String firstName) throws Exception {
-        test.writeInLog( Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + firstName + ")");
+        test.writeInLog( Common.getMethodName() + " using data (" + firstName + ")");
         tool.enterStringUsingId("firstName", firstName);
     }
 
     public void enterDateOfBirth(String dob) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + dob + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + dob + ")");
         tool.enterStringUsingId("p-CONTRACT-L4:90070", dob);
     }
 
     public void enterLastName(String lastName) throws Exception {
-        test.writeInLog( Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + lastName + ")");
+        test.writeInLog( Common.getMethodName() + " using data (" + lastName + ")");
         tool.enterStringUsingId("lastName", lastName);
 
     }
 
     public void selectTitle(String title) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + title + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + title + ")");
         tool.selectVisibleTextByID("title", title);
 
     }
@@ -96,61 +96,61 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
     }
 
     public void enterstreetNumber(String streetNumber) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + streetNumber + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + streetNumber + ")");
         tool.enterStringUsingId("streetNumber", streetNumber);
 
     }
 
     public void enterHomeCity(String city) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + city + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + city + ")");
         tool.enterStringUsingId("home_city", city);
 
     }
 
     public void enterCounty(String county) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + county + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + county + ")");
         tool.enterStringUsingId("county", county);
 
     }
 
     public void enterPostCode(String postCode) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + postCode + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + postCode + ")");
         tool.enterStringUsingId("home_zip", postCode);
 
     }
 
     public void enterHomeCountry(String homeCountry) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + homeCountry + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + homeCountry + ")");
         tool.selectVisibleTextByID("home_country", homeCountry);
 
     }
 
     public void enterHomeState(String homeState) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + homeState + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + homeState + ")");
         tool.selectVisibleTextByID("home_state", homeState);
 
     }
 
     public void enterPhoneNumber(String phoneNumber) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + phoneNumber + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + phoneNumber + ")");
         tool.enterStringUsingId("phoneNumber", phoneNumber);
 
     }
 
     public void enterFaxNumber(String faxNumber) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + faxNumber + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + faxNumber + ")");
         tool.enterStringUsingId("fax", faxNumber);
 
     }
 
     public void enterEmail(String email) throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName() + " using data (" + email + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + email + ")");
         tool.enterStringUsingId("email", email);
 
     }
 
     public SelectOffersForYourSubscriber clickOk() throws Exception {
-        test.writeInLog(this.getClass().getSimpleName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName());
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input.submit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriber(tool, test, user);
