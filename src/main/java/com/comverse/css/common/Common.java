@@ -1095,4 +1095,9 @@ public class Common {
         return time;
     }
 
+    public static String getMethodName() throws Exception {
+        StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
+        StackTraceElement e = stacktrace[2];//maybe this number needs to be corrected
+        return e.getMethodName();
+    }
 }
