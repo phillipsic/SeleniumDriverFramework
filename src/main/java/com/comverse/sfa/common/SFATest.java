@@ -23,7 +23,7 @@ public class SFATest extends Main {
     }
 
     public void launchSFAApplication() throws Exception {
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         tool.get(application.appFullURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
@@ -31,7 +31,7 @@ public class SFATest extends Main {
     }
 
     public void launchSFAApplicationWithSSO() throws Exception {
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         tool.get(application.appFullURL());
         loginSSOUser();
         if (!test.getDebug()) {
@@ -46,7 +46,7 @@ public class SFATest extends Main {
     }
 
     public void launchAdminUIWithSSO() throws Exception {
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         tool.get(application.appFullURL());
         loginSSOUser();
         if (!test.getDebug()) {

@@ -20,7 +20,7 @@ public class CLSTest extends Main {
     }
 
     public void launchCLSApplication() throws Exception {
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         tool.get(application.appFullURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());

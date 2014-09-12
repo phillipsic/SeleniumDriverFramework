@@ -21,7 +21,7 @@ public class CaseUITest extends Main {
     }
 
     public void launchCaseUIApplicationWithSSO() throws Exception {
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         tool.get(application.appFullURL());
         loginSSOUser();
         if (!test.getDebug()) {
