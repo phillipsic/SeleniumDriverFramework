@@ -66,6 +66,7 @@ public class Test extends Main {
     public void setLOG_FILE() throws Exception {
         if (this.getDebug()) {
             LOG_FILE = System.getProperty("java.io.tmpdir") + this.name + ".log";
+            System.out.println(">>>>Log file location and name >>> " + LOG_FILE);
             openLogFile();
             this.writeInLog("Test Start: " + this.getName());
         }
