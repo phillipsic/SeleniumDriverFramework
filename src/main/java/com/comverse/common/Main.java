@@ -102,8 +102,8 @@ public class Main {
 
                             if (storedResult.equals("fail")) {
                                 sql = "UPDATE csspqa.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "', fail_message = '"
-                                        + message + "', time_stamp = NOW() WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
-                                        + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
+                                        + message + "', time_stamp = NOW() WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
+                                        + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
                                         + tool.platform.getOSFullNameAndVersion() + "'";
 
                                 if (test.getDebug()) {
@@ -261,13 +261,12 @@ public class Main {
     @After
     public void tearDown() throws Exception {
         tool.quit();
+        test.closeLogFile();
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
         }
-
-        test.setName(this.getClass().getSimpleName());
 
         System.out.println("Browser : " + tool.platform.getBrowserFullNameAndVersion());
         System.out.println("OS : " + tool.platform.getOSFullNameAndVersion());

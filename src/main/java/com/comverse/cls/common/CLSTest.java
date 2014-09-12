@@ -12,6 +12,7 @@ public class CLSTest extends Main {
         PropertyHelper propsHelper = new PropertyHelper();
         tool = new Selenium();
         test = new Test();
+        test.setName(this.getClass().getSimpleName());
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
         tool.platform = new Platform();
         user = new User();

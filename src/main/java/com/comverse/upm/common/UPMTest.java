@@ -12,6 +12,7 @@ public class UPMTest extends Main {
         PropertyHelper propsHelper = new PropertyHelper();
         tool = new Selenium();
         test = new Test();
+        test.setName(this.getClass().getSimpleName());
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
         System.out.println("DEBUG = " + test.getDebug());
         tool.platform = new Platform();
