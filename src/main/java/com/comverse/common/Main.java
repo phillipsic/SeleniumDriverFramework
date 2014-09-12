@@ -251,6 +251,7 @@ public class Main {
     }
 
     public void loginSSOUser() throws Exception {
+        test.writeInLog("Login : " + user.getLogin() + ", Password : " + user.getPassword());
         ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
         ssoLoginPage.setUserName(tool, user);
         ssoLoginPage.setPassword(tool, user);

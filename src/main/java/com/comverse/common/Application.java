@@ -92,14 +92,15 @@ public class Application extends Main {
         return Version;
     }
 
-    public void setVersion(AutomationTool tool) throws Exception {
+    public void setVersion(AutomationTool tool, Test test) throws Exception {
         tool.get(this.versionURL() + "/jfn?entry=status");
         Thread.sleep(1000);
         String bodyText = tool.getTextUsingCssSelector("body");
         String[] temp = bodyText.split("\\r?\\n");
         String[] temp2 = temp[0].split("Service");
-
         this.Version = temp2[1].trim();
+
+        test.writeInLog("Version : " + this.getVersion());
     }
 
     public String appFullURL() {

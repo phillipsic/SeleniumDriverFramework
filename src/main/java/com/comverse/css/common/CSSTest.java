@@ -21,8 +21,9 @@ public class CSSTest extends Main {
     }
 
     public void launchCSSApplication() throws Exception {
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         tool.get(application.appURL());
+        test.writeInLog("Application : " + application.getCommonName() + ", URL : " + application.appURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
@@ -40,8 +41,9 @@ public class CSSTest extends Main {
 
     public void launchCSSApplicationAndSSOLogin() throws Exception {
         tool.get(application.appURL());
+        test.writeInLog("Application : " + application.getCommonName() + ", URL : " + application.appURL());
         loginSSOUser();
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         tool.navigateBack();
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
@@ -50,7 +52,7 @@ public class CSSTest extends Main {
     }
 
     public void launchOCMApplicationAndGetBuildNumber() throws Exception {
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         // Launch OCM with Direct URL
         application.setMainURLKey(application.getDirectURLKey());
         tool.get(application.appOCMURL());
@@ -66,7 +68,7 @@ public class CSSTest extends Main {
     }
 
     public void launchSecurityApplication() throws Exception {
-        application.setVersion(tool);
+        application.setVersion(tool, test);
         tool.get(application.appFullURL());
     }
 
