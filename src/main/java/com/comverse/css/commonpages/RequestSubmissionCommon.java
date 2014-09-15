@@ -23,33 +23,38 @@ public class RequestSubmissionCommon extends CommonMenu {
         }
     }
 
-    public ViewHierarchyCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewHierarchyCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 
         return new ViewHierarchyCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickOkModifyRequestGoTOAccountDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickOkModifyRequestGoTOAccountDashboard() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public ContactInformationCommon clickOkToSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ContactInformationCommon clickOkToSubmit() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 
         return new ContactInformationCommon(tool, test, user);
     }
 
-    public SubscriberDetailsCommon clickOkModifyRequestGoTOSubscriberDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SubscriberDetailsCommon clickOkModifyRequestGoTOSubscriberDashboard() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
-    public ProfileInformationCommon clickOkToSubmitRequest() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ProfileInformationCommon clickOkToSubmitRequest() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

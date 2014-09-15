@@ -21,21 +21,24 @@ public class ListCasesCommon extends CommonMenu {
         }
     }
 
-    public ListCasesCommon clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ListCasesCommon clickSearch() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCasesCommon(tool, test, user);
     }
 
-    public ViewCaseCommon clickFirstCase() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewCaseCommon clickFirstCase() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);
     }
 
-    public ViewCaseCommon clickLinkOfCaseID(String caseID) throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewCaseCommon clickLinkOfCaseID(String caseID) throws Exception {
+        test.writeInLog(Common.getMethodName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         tool.clickUsingLinkText(caseID);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

@@ -21,18 +21,18 @@ public class ManageAccountCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("p-L2:40-L3:2150", accountID);
         tool.clickUsingCssSelector("input.submit");
 
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searchByAccountLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon searchByAccountLastName(String lastName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -40,9 +40,9 @@ public class ManageAccountCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public SearchResultsCommon searchAccountWildCard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SearchResultsCommon searchAccountWildCard() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("p-L2:40-L3:2150", "*");
         tool.clickUsingCssSelector("input.submit");
 
@@ -50,9 +50,9 @@ public class ManageAccountCommon extends CommonMenu {
 
     }
 
-    public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
 
@@ -61,9 +61,9 @@ public class ManageAccountCommon extends CommonMenu {
         return new CustomerSearchResultCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searcByAccountLastNameSinglePerson(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon searcByAccountLastNameSinglePerson(String lastName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
 
@@ -72,9 +72,9 @@ public class ManageAccountCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("accountId", accountID);
         tool.clickUsingName("accountButton");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

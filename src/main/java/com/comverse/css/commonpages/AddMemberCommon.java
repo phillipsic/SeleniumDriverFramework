@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddMemberCommon extends CommonMenu {
     static String expectedScreen = "Add Member";
@@ -18,7 +19,8 @@ public class AddMemberCommon extends CommonMenu {
         }
     }
 
-    public String getTempPasswordFromPage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getTempPasswordFromPage() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         String password = tool.getTextUsingXPath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
@@ -29,7 +31,8 @@ public class AddMemberCommon extends CommonMenu {
 
     }
 
-    public ViewHierarchyCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewHierarchyCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

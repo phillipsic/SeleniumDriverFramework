@@ -28,7 +28,8 @@ public class HealthPageCommon extends CommonMenu {
 
     }
 
-    public boolean crmhealthcheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean crmhealthcheck(String baseUrl, String Text) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.get(baseUrl);
 
@@ -46,7 +47,8 @@ public class HealthPageCommon extends CommonMenu {
         return crm;
     }
 
-    public boolean rcsHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean rcsHealthCheck(String baseUrl, String Text) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.get(baseUrl);
 
@@ -64,7 +66,8 @@ public class HealthPageCommon extends CommonMenu {
         return rcs;
     }
 
-    public boolean rhtHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean rhtHealthCheck(String baseUrl, String Text) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.get(baseUrl);
 
@@ -81,7 +84,8 @@ public class HealthPageCommon extends CommonMenu {
         return rht;
     }
 
-    public boolean obcHealthcheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean obcHealthcheck(String baseUrl, String Text) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.get(baseUrl);
 
         boolean OBC = tool.getPageSource().contains(Text);
@@ -99,7 +103,8 @@ public class HealthPageCommon extends CommonMenu {
 
     }
 
-    public boolean dbHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean dbHealthCheck(String baseUrl, String Text) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.get(baseUrl);
 

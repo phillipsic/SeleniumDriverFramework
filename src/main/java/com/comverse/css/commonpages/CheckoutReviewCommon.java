@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class CheckoutReviewCommon extends CommonMenu {
 
@@ -19,13 +20,15 @@ public class CheckoutReviewCommon extends CommonMenu {
         }
     }
 
-    public CheckoutConfirmationCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public CheckoutConfirmationCommon clickConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='submitButton']");
         return new CheckoutConfirmationCommon(tool, test, user);
     }
 
-    public ImmediatePaymentCommon clickConfirmWithGoods() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ImmediatePaymentCommon clickConfirmWithGoods() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new ImmediatePaymentCommon(tool, test, user);

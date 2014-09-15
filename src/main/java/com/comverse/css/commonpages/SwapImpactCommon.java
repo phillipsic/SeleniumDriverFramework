@@ -19,12 +19,14 @@ public class SwapImpactCommon extends CommonMenu {
         }
     }
 
-    public MyBasketCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasketCommon clickOK() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("ON_OK");
         return new MyBasketCommon(tool, test, user);
     }
 
-    public ConfigureBalanceCommon clickOKExpectingConfigureBalance() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ConfigureBalanceCommon clickOKExpectingConfigureBalance() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("ON_OK");
         return new ConfigureBalanceCommon(tool, test, user);
     }

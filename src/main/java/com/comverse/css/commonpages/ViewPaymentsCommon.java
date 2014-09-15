@@ -20,14 +20,15 @@ public class ViewPaymentsCommon extends CommonMenu {
         }
     }
 
-    public void enterFromDate(String fromDate) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterFromDate(String fromDate) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("startDate", fromDate);
 
     }
 
-    public ViewPaymentsCommon clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewPaymentsCommon clickSearch() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         return new ViewPaymentsCommon(tool, test, user);

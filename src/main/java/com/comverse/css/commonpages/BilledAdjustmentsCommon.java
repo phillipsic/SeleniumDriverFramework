@@ -21,7 +21,8 @@ public class BilledAdjustmentsCommon extends CommonMenu {
         }
     }
 
-    public ViewInvoiceDetailsCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoiceDetailsCommon clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);

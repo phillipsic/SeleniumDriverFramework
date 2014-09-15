@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ChangeRolesCommon extends CommonMenu {
 
@@ -22,24 +23,28 @@ public class ChangeRolesCommon extends CommonMenu {
         }
     }
 
-    public void clickRadioButtonOCMUser() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickRadioButtonOCMUser() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='L2:30']");
 
     }
 
-    public void clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 
     }
 
-    public String getConfirmationMessage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getConfirmationMessage() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         return tool.getTextUsingCssSelector("span");
     }
 
-    public void clickRadioButtonRetailerSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickRadioButtonRetailerSubscriber() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@name='roles'])[2]");
 

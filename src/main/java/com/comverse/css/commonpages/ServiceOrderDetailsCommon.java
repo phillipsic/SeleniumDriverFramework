@@ -24,13 +24,15 @@ public class ServiceOrderDetailsCommon extends CommonMenu {
         }
     }
 
-    public void getAccountID(Account account) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void getAccountID(Account account) throws Exception {
+        test.writeInLog(Common.getMethodName());
         String accountID = tool.getTextUsingXPath("//td[2]/a");
         System.out.println("AccountID = " + accountID);
         account.setBillingAccountIDProperty(accountID);
     }
 
-    public SearchOrdersCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SearchOrdersCommon clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Back']");
         return new SearchOrdersCommon(tool, test, user);
     }

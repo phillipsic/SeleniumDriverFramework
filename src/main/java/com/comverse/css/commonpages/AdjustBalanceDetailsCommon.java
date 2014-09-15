@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AdjustBalanceDetailsCommon extends CommonMenu {
     static String expectedScreen = "Adjust balance - details";
@@ -19,13 +20,14 @@ public class AdjustBalanceDetailsCommon extends CommonMenu {
         }
     }
 
-    public void enterAdjustmentAmount(String amount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterAdjustmentAmount(String amount) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("adjustmentValue", amount);
     }
 
-    public AdjustBalanceReviewCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AdjustBalanceReviewCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new AdjustBalanceReviewCommon(tool, test, user);

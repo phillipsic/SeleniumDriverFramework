@@ -18,26 +18,30 @@ public class CheckoutConfirmationCommon extends CommonMenu {
         }
     }
 
-    public WorkSpaceCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public WorkSpaceCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpaceCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickOkExpectingAccountDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickOkExpectingAccountDashboard() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public SubscriberDetailsCommon clickOkExpectingSubscriberDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SubscriberDetailsCommon clickOkExpectingSubscriberDashboard() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
-    public String getOrderNumberFromPage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getOrderNumberFromPage() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String orderNumber;
         // String temp[];
         // String str = tool.getPageSource();
@@ -51,7 +55,8 @@ public class CheckoutConfirmationCommon extends CommonMenu {
         return orderNumber;
     }
 
-    public String getNCAOrderNumberFromPage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getNCAOrderNumberFromPage() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String orderNumber;
         // String temp[];
         // String str = tool.getPageSource();

@@ -23,19 +23,20 @@ public class NewMemberLegalAddressCommon extends CommonMenu {
         }
     }
 
-    public void setFirstName(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setFirstName(String firstName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("first_name", firstName);
     }
 
-    public void setLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLastName(String lastName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("last_name", lastName);
     }
 
-    public LoginCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public LoginCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
 

@@ -17,7 +17,8 @@ public class OutboundCommunicationTemplateCommon extends CommonMenu {
         }
     }
 
-    public AddOutboundCommunicationTemplateCommon clickAdd() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddOutboundCommunicationTemplateCommon clickAdd() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Add']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddOutboundCommunicationTemplateCommon(tool, test, user);

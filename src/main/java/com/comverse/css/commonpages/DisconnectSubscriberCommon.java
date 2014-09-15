@@ -16,7 +16,8 @@ public class DisconnectSubscriberCommon extends CommonMenu {
         }
     }
 
-    public DisconnectSubscriberDisconnectionSuccessfulCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DisconnectSubscriberDisconnectionSuccessfulCommon clickConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

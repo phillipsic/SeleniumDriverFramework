@@ -21,74 +21,88 @@ public class ViewCaseCommon extends CommonMenu {
         }
     }
 
-    public String getCaseType() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getCaseType() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
         return caseID;
     }
 
-    public String getCaseStatus() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getCaseStatus() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String caseStatus = tool.getTextUsingXPath("//tr[4]/td/span[2]");
         return caseStatus;
     }
 
-    public String getCaseJustificationStatus() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getCaseJustificationStatus() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String caseStatus = tool.getTextUsingXPath("//tr[6]/td/span[2]");
         return caseStatus;
     }
 
-    public String getCaseProblemArea() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getCaseProblemArea() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String caseProblemArea = tool.getTextUsingXPath("//tr[8]/td/span[2]");
         return caseProblemArea;
     }
 
-    public String getCaseDescription() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getCaseDescription() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String caseDescription = tool.getTextUsingXPath("//*[@id=\"description\"]");
         System.out.println("caseDescription : " + caseDescription);
         return caseDescription;
     }
 
-    public String getNoteType() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getNoteType() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String noteType = tool.getTextUsingXPath("//table[@class='listTable']/tbody/tr[1]/td");
         System.out.println("noteType : " + noteType);
         return noteType;
     }
 
-    public String getNoteDescription() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getNoteDescription() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String noteDesc = tool.getTextUsingName("noteDescription");
         System.out.println("noteDesc : " + noteDesc);
         return noteDesc;
     }
 
-    public void clickNotesTab() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickNotesTab() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//em[contains(text(), 'Notes')]");
     }
 
-    public void clickAttachmentsTab() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickAttachmentsTab() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//em[contains(text(), 'Attachments')]");
     }
 
-    public EditCaseCommon clickEditCase() throws Exception {  test.writeInLog(Common.getMethodName());
+    public EditCaseCommon clickEditCase() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Edit Case");
         return new EditCaseCommon(tool, test, user);
     }
 
-    public CreateAttachmentCommon clickAddAttachment() throws Exception {  test.writeInLog(Common.getMethodName());
+    public CreateAttachmentCommon clickAddAttachment() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Add");
         return new CreateAttachmentCommon(tool, test, user);
     }
 
-    public EditCaseCommon clickReopen() throws Exception {  test.writeInLog(Common.getMethodName());
+    public EditCaseCommon clickReopen() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Reopen");
         return new EditCaseCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("youcan_ON_BACK");
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public ListCasesCommon clickBackExpectingListCases() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ListCasesCommon clickBackExpectingListCases() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("youcan_ON_BACK");
         return new ListCasesCommon(tool, test, user);
     }

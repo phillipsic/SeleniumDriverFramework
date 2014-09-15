@@ -18,7 +18,8 @@ public class RegisterPrepaymentConfirmCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon clickBackToAccount() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickBackToAccount() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='confirm']");
         return new AccountDetailsCommon(tool, test, user);

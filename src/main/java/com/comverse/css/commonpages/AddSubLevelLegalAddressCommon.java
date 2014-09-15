@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddSubLevelLegalAddressCommon extends CommonMenu {
     static String expectedScreen = "Add Sub Level - Legal Address";
@@ -23,13 +24,14 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
 
     }
 
-    public void setLevelName(String levelName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLevelName(String levelName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("company_name", levelName);
     }
 
-    public void setLevelState(String levelState) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLevelState(String levelState) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_state", levelState);
         /*
@@ -38,7 +40,8 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
          */
     }
 
-    public RequestSubmissionCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RequestSubmissionCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

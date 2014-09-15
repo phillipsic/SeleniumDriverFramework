@@ -18,23 +18,28 @@ public class DisconnectAccountCommon extends CommonMenu {
         }
     }
 
-    public void clickCheckBoxUnlockNow() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickCheckBoxUnlockNow() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("propertyNow");
     }
 
-    public void clickCheckBoxDisconnectNow() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickCheckBoxDisconnectNow() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("disconnectNow");
     }
 
-    public void setReason(String reason) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setReason(String reason) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("reason", reason);
     }
 
-    public void setAnnotation(String annotation) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setAnnotation(String annotation) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.enterStringUsingId("annotation", annotation);
     }
 
-    public DisconnectAccountCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DisconnectAccountCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -42,7 +47,8 @@ public class DisconnectAccountCommon extends CommonMenu {
         return new DisconnectAccountCommon(tool, test, user);
     }
 
-    public DisconnectAccountCommon clickContinueOnImpacts() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DisconnectAccountCommon clickContinueOnImpacts() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -50,7 +56,8 @@ public class DisconnectAccountCommon extends CommonMenu {
         return new DisconnectAccountCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

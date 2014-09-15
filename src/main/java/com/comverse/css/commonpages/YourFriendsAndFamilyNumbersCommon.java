@@ -23,17 +23,20 @@ public class YourFriendsAndFamilyNumbersCommon extends CommonMenu {
         }
     }
 
-    public ConfigurationOfYourFriendsAndFamilyNumbersCommon clickReconfigure() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ConfigurationOfYourFriendsAndFamilyNumbersCommon clickReconfigure() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Reconfigure']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigurationOfYourFriendsAndFamilyNumbersCommon(tool, test, user);
     }
 
-    public void verifyPhoneNumber(String phoneNumber) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void verifyPhoneNumber(String phoneNumber) throws Exception {
+        test.writeInLog(Common.getMethodName());
         Common.assertTextOnPage(tool, phoneNumber);
     }
 
-    public void clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickOK() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 

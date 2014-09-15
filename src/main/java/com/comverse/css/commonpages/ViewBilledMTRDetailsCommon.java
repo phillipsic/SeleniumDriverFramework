@@ -20,7 +20,8 @@ public class ViewBilledMTRDetailsCommon extends CommonMenu {
         }
     }
 
-    public ViewBilledMTRCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledMTRCommon clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewBilledMTRCommon(tool, test, user);

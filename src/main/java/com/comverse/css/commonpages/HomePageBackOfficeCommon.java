@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class HomePageBackOfficeCommon extends CommonMenu {
 
@@ -21,7 +22,8 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     }
 
-    public AddressAdministrationCommon clickAddressAdministration() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddressAdministrationCommon clickAddressAdministration() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("smnu_ADDRESS_ADMINISTRATION");
 
@@ -29,7 +31,8 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     }
 
-    public TokensfoundCommon clickTokenAdministration() throws Exception {  test.writeInLog(Common.getMethodName());
+    public TokensfoundCommon clickTokenAdministration() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("smnu_TOKEN_ADMINISTRATION");
 
@@ -37,7 +40,8 @@ public class HomePageBackOfficeCommon extends CommonMenu {
 
     }
 
-    public OutboundCommunicationTemplateCommon clickTemplateAdministration() throws Exception {  test.writeInLog(Common.getMethodName());
+    public OutboundCommunicationTemplateCommon clickTemplateAdministration() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("smnu_TEMPLATE_ADMINISTRATION");
 

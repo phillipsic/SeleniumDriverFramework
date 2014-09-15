@@ -18,30 +18,36 @@ public class CreateAttachmentCommon extends CommonMenu {
         }
     }
 
-    public void addAttachmentName(String attachementName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void addAttachmentName(String attachementName) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.enterStringUsingId("name", attachementName);
     }
 
-    public void addDescription(String description) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void addDescription(String description) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("description", description);
     }
 
-    public void uploadAttachment(String locationOfFile) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void uploadAttachment(String locationOfFile) throws Exception {
+        test.writeInLog(Common.getMethodName());
         String path = System.getProperty("user.dir");
         path = path + locationOfFile;
-        tool.enterStringIntoFileUsingName("fileUpload", path );
+        tool.enterStringIntoFileUsingName("fileUpload", path);
     }
 
-    public void clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("ok");
     }
 
-    public void clickOKFromAddAttachment() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickOKFromAddAttachment() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("ok");
     }
 
-    public ViewCaseCommon clickOKFromCreateNewAttachmentResult() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewCaseCommon clickOKFromCreateNewAttachmentResult() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCaseCommon(tool, test, user);

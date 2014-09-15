@@ -4,10 +4,10 @@
  */
 package com.comverse.css.commonpages;
 
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class LoginActivatedCommon extends CommonMenu {
 
@@ -20,12 +20,12 @@ public class LoginActivatedCommon extends CommonMenu {
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
-    
-     public ModifyLoginPasswordCommon clickChangePassword() throws Exception {  test.writeInLog(Common.getMethodName());
+
+    public ModifyLoginPasswordCommon clickChangePassword() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Change Password']");
         return new ModifyLoginPasswordCommon(tool, test, user);
     }
 
-  
 }

@@ -23,13 +23,15 @@ public class ModifyAccountDetailsCommon extends CommonMenu {
         }
     }
 
-    public void selectCheck() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectCheck() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@name='method'])[2]");
 
     }
 
-    public ShoppingCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ShoppingCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

@@ -23,7 +23,8 @@ public class TermsAndConditionsCommon extends CommonMenu {
         }
     }
 
-    public CheckoutDeliveryAddressCommon clickAccept() throws Exception {  test.writeInLog(Common.getMethodName());
+    public CheckoutDeliveryAddressCommon clickAccept() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Accept']");
         return new CheckoutDeliveryAddressCommon(tool, test, user);

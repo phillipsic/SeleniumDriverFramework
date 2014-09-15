@@ -25,7 +25,8 @@ public class OutboundCommunicationCommon extends CommonMenu {
         }
     }
 
-    public String getSendOBCMessage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getSendOBCMessage() throws Exception {
+        test.writeInLog(Common.getMethodName());
         return tool.getTextUsingCssSelector("BODY");
     }
 }

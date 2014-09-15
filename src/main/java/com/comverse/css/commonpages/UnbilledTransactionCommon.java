@@ -19,35 +19,40 @@ public class UnbilledTransactionCommon extends CommonMenu {
         }
     }
 
-    public ViewUnbilledRCNRCCommon clickUnbilledRCNRC() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledRCNRCCommon clickUnbilledRCNRC() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_RC_NRC");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledRCNRCCommon(tool, test, user);
     }
 
-    public ViewUnbilledUsageCommon clickUnbilledUsage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledUsageCommon clickUnbilledUsage() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_USAGES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledUsageCommon(tool, test, user);
     }
 
-    public ViewUnbilledMTRCommon clickUnbilledMTR() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledMTRCommon clickUnbilledMTR() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_MTR");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledMTRCommon(tool, test, user);
     }
 
-    public ViewUnbilledRechargeCommon clickUnbilledRecharge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledRechargeCommon clickUnbilledRecharge() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_RECHARGES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUnbilledRechargeCommon(tool, test, user);
     }
 
-    public ViewUnbilledAdjustmentCommon clickUnbilledAdjustment() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledAdjustmentCommon clickUnbilledAdjustment() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_ADJUSTMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

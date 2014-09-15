@@ -23,7 +23,8 @@ public class UnlockDoneCommon extends CommonMenu {
         }
     }
 
-    public ModifyLoginPasswordCommon clickChangePassword() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ModifyLoginPasswordCommon clickChangePassword() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Change Password']");
         return new ModifyLoginPasswordCommon(tool, test, user);

@@ -21,7 +21,8 @@ public class EnterYourSubscriptionDetailsCommon extends CommonMenu {
         }
     }
 
-    public SelectOffersForYourSubscriberCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SelectOffersForYourSubscriberCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

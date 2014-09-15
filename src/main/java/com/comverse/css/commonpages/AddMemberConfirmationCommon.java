@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddMemberConfirmationCommon extends CommonMenu {
     static String expectedScreen = "Add Member - Confirmation";
@@ -18,7 +19,8 @@ public class AddMemberConfirmationCommon extends CommonMenu {
         }
     }
 
-    public AddMemberCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddMemberCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

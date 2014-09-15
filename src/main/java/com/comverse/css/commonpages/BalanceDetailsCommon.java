@@ -21,20 +21,23 @@ public class BalanceDetailsCommon extends CommonMenu {
     }
 
     // From Account shared balance details page
-    public BalanceDetailsCommon viewSubscriberBalanceDetails(String balanceName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public BalanceDetailsCommon viewSubscriberBalanceDetails(String balanceName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText(balanceName);
         return new BalanceDetailsCommon(tool, test, user);
     }
 
     // From Subscriber balance details page
-    public ViewBalanceCommon viewAccountBalances() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBalanceCommon viewAccountBalances() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("View account balances");
         return new ViewBalanceCommon(tool, test, user);
     }
 
-    public ViewBalanceCommon clickGoToListOfBalances() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBalanceCommon clickGoToListOfBalances() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("youcan_ON_BACK");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewBalanceCommon(tool, test, user);

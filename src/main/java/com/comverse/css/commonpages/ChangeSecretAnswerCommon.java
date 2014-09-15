@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ChangeSecretAnswerCommon extends CommonMenu {
 
@@ -22,29 +23,32 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
         }
     }
 
-    public void setPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setPassword(String password) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("password_old", password);
     }
 
-    public void setSecretAnswer(String answer) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setSecretAnswer(String answer) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("secretAnswer", answer);
     }
 
-    public String getSecretAnswer() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getSecretAnswer() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         return tool.getAttributeUsingId("secretAnswer", "value");
     }
 
-    public void setSecretQuestion(String question) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setSecretQuestion(String question) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("secretQuestionId", question);
     }
 
-    public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new ConfirmNewSecretAnswerCommon(tool, test, user);

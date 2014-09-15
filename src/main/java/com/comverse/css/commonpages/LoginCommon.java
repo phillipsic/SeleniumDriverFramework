@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class LoginCommon extends CommonMenu {
 
@@ -20,22 +21,26 @@ public class LoginCommon extends CommonMenu {
         }
     }
 
-    public void setLogin(String login) throws Exception {  test.writeInLog(Common.getMethodName());
-        
+    public void setLogin(String login) throws Exception {
+        test.writeInLog(Common.getMethodName());
+
         tool.enterStringUsingId("login", login);
     }
 
-    public void selectRole(String role) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectRole(String role) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("roles", role);
     }
 
-    public AddMemberConfirmationCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddMemberConfirmationCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }
 
-    public AddMemberConfirmationCommon clickCreateLoginLater() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddMemberConfirmationCommon clickCreateLoginLater() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("ON_OK");
 
         return new AddMemberConfirmationCommon(tool, test, user);

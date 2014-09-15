@@ -25,14 +25,16 @@ public class AccountDepositsCommon extends CommonMenu {
         }
     }
 
-    public AddDepositCommon clickAdd() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddDepositCommon clickAdd() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("Add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddDepositCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new AccountDetailsCommon(tool, test, user);

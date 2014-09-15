@@ -25,42 +25,50 @@ public class SearchOrdersCommon extends CommonMenu {
         }
     }
 
-    public void clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickSearch() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Search']");
 
     }
 
-    public WorkSpaceCommon clickHomeMenu() throws Exception {  test.writeInLog(Common.getMethodName());
+    public WorkSpaceCommon clickHomeMenu() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_HOME");
         return new WorkSpaceCommon(tool, test, user);
     }
 
-    public SearchRequestsCommon clickSearchRequests() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SearchRequestsCommon clickSearchRequests() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Search']");
         return new SearchRequestsCommon(tool, test, user);
     }
 
-    public void setOrderNumber(String orderNumber) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setOrderNumber(String orderNumber) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("orderNb", orderNumber);
     }
 
-    public String getOrderStatus1() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getOrderStatus1() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String orderStatus = tool.getTextUsingXPath("//table[@id='orderList']/tbody/tr/td[5]");
         return orderStatus;
     }
 
-    public String getOrderStatus2() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getOrderStatus2() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String orderStatus = tool.getTextUsingXPath("//table[@id='orderList']/tbody/tr/td[4]");
         return orderStatus;
     }
 
-    public void setOrderStatusToAll() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setOrderStatusToAll() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("orderStatus", "All");
     }
 
-    public void waitUntilOrderCompletedOrFailed(String orderNumber) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void waitUntilOrderCompletedOrFailed(String orderNumber) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         int maxIterations = 120;
         int iterationCounter = 0;
@@ -95,7 +103,8 @@ public class SearchOrdersCommon extends CommonMenu {
 
     }
 
-    public void waitUntilOrderCompletedOrFailedWithGetAccountID(String orderNumber, Account account) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void waitUntilOrderCompletedOrFailedWithGetAccountID(String orderNumber, Account account) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         int maxIterations = 120;
         int iterationCounter = 0;
@@ -130,7 +139,8 @@ public class SearchOrdersCommon extends CommonMenu {
 
     }
 
-    public ServiceOrderDetailsCommon clickViewDetails() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ServiceOrderDetailsCommon clickViewDetails() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("View Details");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceOrderDetailsCommon(tool, test, user);

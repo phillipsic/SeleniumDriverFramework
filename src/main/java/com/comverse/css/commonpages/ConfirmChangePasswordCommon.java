@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ConfirmChangePasswordCommon extends CommonMenu {
 
@@ -22,7 +23,8 @@ public class ConfirmChangePasswordCommon extends CommonMenu {
         }
     }
 
-    public ChangeLoginPasswordCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ChangeLoginPasswordCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new ChangeLoginPasswordCommon(tool, test, user);

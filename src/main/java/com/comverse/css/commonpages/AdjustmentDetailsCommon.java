@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AdjustmentDetailsCommon extends CommonMenu {
     static String expectedScreen = "Adjustment details";
@@ -20,7 +21,8 @@ public class AdjustmentDetailsCommon extends CommonMenu {
 
     }
 
-    public ViewUnbilledAdjustmentCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledAdjustmentCommon clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewUnbilledAdjustmentCommon(tool, test, user);

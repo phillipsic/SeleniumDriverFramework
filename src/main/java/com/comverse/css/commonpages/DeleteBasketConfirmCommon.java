@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class DeleteBasketConfirmCommon extends CommonMenu {
 
@@ -18,7 +19,8 @@ public class DeleteBasketConfirmCommon extends CommonMenu {
         }
     }
 
-    public ResumeAParkedBasketCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ResumeAParkedBasketCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new ResumeAParkedBasketCommon(tool, test, user);

@@ -3,6 +3,7 @@ package com.comverse.caseui.common;
 import org.junit.Before;
 
 import com.comverse.common.*;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.PropertyHelper;
 import com.comverse.data.apps.CSR;
 
@@ -20,7 +21,8 @@ public class CaseUITest extends Main {
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
     }
 
-    public void launchCaseUIApplicationWithSSO() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void launchCaseUIApplicationWithSSO() throws Exception {
+        test.writeInLog(Common.getMethodName());
         application.setVersion(tool, test);
         tool.get(application.appFullURL());
         loginSSOUser();
@@ -29,7 +31,8 @@ public class CaseUITest extends Main {
         }
     }
 
-    public void launchCSSApplication() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void launchCSSApplication() throws Exception {
+        test.writeInLog(Common.getMethodName());
         Application CSR = new CSR();
         tool.get(CSR.appURL());
         loginSSOUser();

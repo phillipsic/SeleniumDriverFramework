@@ -23,7 +23,8 @@ public class DeactivateLoginCommon extends CommonMenu {
         }
     }
 
-    public void clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
     }

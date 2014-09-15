@@ -25,30 +25,34 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
         }
     }
 
-    public AddDepositReviewAndConfirmCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddDepositReviewAndConfirmCommon clickConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddDepositReviewAndConfirmCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDepositsCommon clickOkToViewDeposits() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDepositsCommon clickOkToViewDeposits() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDepositsCommon(tool, test, user);
     }
 
-    public String getDateReveived() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getDateReveived() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        String temp [];
+        String temp[];
         String lableAndDate = tool.getTextUsingXPath("//span[contains(text(), 'Date received:')]/..");
         temp = lableAndDate.split("received:");
         return temp[1].trim();

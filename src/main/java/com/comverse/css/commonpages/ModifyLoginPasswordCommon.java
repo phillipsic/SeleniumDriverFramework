@@ -23,12 +23,14 @@ public class ModifyLoginPasswordCommon extends CommonMenu {
         }
     }
 
-    public void clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
-       
+
     }
 
-    public String getNewPassword() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getNewPassword() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         String password = tool.getTextUsingXPath("//div[@id='mainContents']/div/div[2]/div/div/span");
 

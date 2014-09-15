@@ -18,31 +18,35 @@ public class RegisterBillPaymentCommon extends CommonMenu {
         }
     }
 
-    public void enterAmount(String amount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterAmount(String amount) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("amount", amount);
     }
 
-    public void selectPaymentMethod(String paymentmethod) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectPaymentMethod(String paymentmethod) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID(paymentmethod);
     }
 
-    public RegisterBillPaymentCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterBillPaymentCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new RegisterBillPaymentCommon(tool, test, user);
     }
 
-    public RegisterBillPaymentCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterBillPaymentCommon clickConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RegisterBillPaymentCommon(tool, test, user);
     }
 
-    public ViewInvoicesCommon clickBackToInvoices() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoicesCommon clickBackToInvoices() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='confirm']");
         return new ViewInvoicesCommon(tool, test, user);

@@ -23,12 +23,14 @@ public class OfferCancellationCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//input[@value='OK'])");
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public SubscriberDetailsCommon clickOkGoToSubscriberDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SubscriberDetailsCommon clickOkGoToSubscriberDashboard() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//input[@value='OK'])");
         return new SubscriberDetailsCommon(tool, test, user);
     }

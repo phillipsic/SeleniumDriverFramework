@@ -23,7 +23,8 @@ public class ModifyProfileInformationConfirmationCommon extends CommonMenu {
         }
     }
 
-    public RequestSubmissionCommon clickOkToConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RequestSubmissionCommon clickOkToConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new RequestSubmissionCommon(tool, test, user);

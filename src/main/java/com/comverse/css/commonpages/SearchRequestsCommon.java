@@ -26,7 +26,8 @@ public class SearchRequestsCommon extends CommonMenu {
         }
     }
 
-    public SearchOrdersCommon clickSearchOrders() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SearchOrdersCommon clickSearchOrders() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("smnu_ORDER");
         return new SearchOrdersCommon(tool, test, user);

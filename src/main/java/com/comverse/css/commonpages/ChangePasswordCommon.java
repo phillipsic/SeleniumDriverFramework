@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ChangePasswordCommon extends CommonMenu {
 
@@ -18,25 +19,26 @@ public class ChangePasswordCommon extends CommonMenu {
         }
     }
 
-    public void setYourPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setYourPassword(String password) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("oldPassword", password);
     }
 
-    public void setNewPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setNewPassword(String password) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("newPassword", password);
     }
 
-    public void setConfirmNewPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setConfirmNewPassword(String password) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("confirmPassword", password);
     }
 
-    public ModifyLoginPasswordCommon clickChange() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ModifyLoginPasswordCommon clickChange() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Change']");
         return new ModifyLoginPasswordCommon(tool, test, user);

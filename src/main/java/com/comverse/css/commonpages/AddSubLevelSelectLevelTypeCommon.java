@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddSubLevelSelectLevelTypeCommon extends CommonMenu {
     static String expectedScreen = "Add Sub Level - Select Level Type";
@@ -19,7 +20,8 @@ public class AddSubLevelSelectLevelTypeCommon extends CommonMenu {
 
     }
 
-    public AddSubLevelLegalAddressCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddSubLevelLegalAddressCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AddSubLevelLegalAddressCommon(tool, test, user);

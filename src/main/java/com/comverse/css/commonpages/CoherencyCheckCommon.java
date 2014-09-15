@@ -23,13 +23,15 @@ public class CoherencyCheckCommon extends CommonMenu {
         }
     }
 
-    public String getOrderNumber() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getOrderNumber() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String orderNumber = tool.getTextUsingXPath("//span");
         orderNumber = orderNumber.substring(orderNumber.lastIndexOf(" ") + 1);
         return orderNumber;
     }
 
-    public void clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickOK() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 

@@ -19,7 +19,8 @@ public class RestorePreviousBasketCommon extends CommonMenu {
         }
     }
 
-    public MyBasketCommon clickRestoreSavedBasket() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasketCommon clickRestoreSavedBasket() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Restore the basket']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

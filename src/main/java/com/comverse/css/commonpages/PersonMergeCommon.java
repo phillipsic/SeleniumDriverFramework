@@ -18,22 +18,26 @@ public class PersonMergeCommon extends CommonMenu {
         }
     }
 
-    public void setLastName(String LN) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLastName(String LN) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("lastname", LN);
     }
 
-    public void clickPersonSearch() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickPersonSearch() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@id='searchPerson']");
     }
 
-    public void clickSelect() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickSelect() throws Exception {
+        test.writeInLog(Common.getMethodName());
         Common.sleepForNumberOfSeconds(5);
         tool.clickUsingCssSelector("input[value='Select'][type='button']");
 
     }
 
-    public PersonManagementCommon clickOKFromMerge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public PersonManagementCommon clickOKFromMerge() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//input[@value='OK'])[2]");
         return new PersonManagementCommon(tool, test, user);
     }

@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class CheckoutDeliveryAddressCommon extends CommonMenu {
 
@@ -21,7 +22,8 @@ public class CheckoutDeliveryAddressCommon extends CommonMenu {
         }
     }
 
-    public CheckoutReviewCommon clickNextPage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public CheckoutReviewCommon clickNextPage() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("nav_next_page");
         return new CheckoutReviewCommon(tool, test, user);
     }

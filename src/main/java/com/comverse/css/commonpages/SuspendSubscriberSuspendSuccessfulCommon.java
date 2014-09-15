@@ -16,7 +16,8 @@ public class SuspendSubscriberSuspendSuccessfulCommon extends CommonMenu {
         }
     }
 
-    public SubscriberDetailsCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SubscriberDetailsCommon clickOK() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

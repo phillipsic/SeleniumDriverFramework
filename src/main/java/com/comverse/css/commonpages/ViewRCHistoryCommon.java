@@ -37,7 +37,8 @@ public class ViewRCHistoryCommon extends CommonMenu {
 
     }
 
-    public void enterToDateTodayFromDateMinus10() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterToDateTodayFromDateMinus10() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
@@ -51,27 +52,29 @@ public class ViewRCHistoryCommon extends CommonMenu {
 
     }
 
-    public void enterFromDate(String fromDate) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterFromDate(String fromDate) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("startDate", fromDate);
 
     }
 
-    public void enterToDate(String toDate) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterToDate(String toDate) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("endDate", toDate);
 
     }
 
-    public void clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickSearch() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
-    public String getSearchResults() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getSearchResults() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         String text = tool.getTextUsingClassName("resultListTabTitle");
 
@@ -80,7 +83,8 @@ public class ViewRCHistoryCommon extends CommonMenu {
         return text;
     }
 
-    public ViewRCTermDetailsCommon ViewRCTermDetails() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewRCTermDetailsCommon ViewRCTermDetails() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

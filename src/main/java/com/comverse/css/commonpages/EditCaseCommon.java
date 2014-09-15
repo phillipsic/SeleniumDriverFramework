@@ -20,37 +20,45 @@ public class EditCaseCommon extends CommonMenu {
         }
     }
 
-    public void clickSave() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickSave() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("closeonly");
     }
 
-    public void clickCancelCase() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickCancelCase() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("cancelcase");
     }
 
-    public void clickSaveAndCloseCase() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickSaveAndCloseCase() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("cclose");
     }
 
-    public void clickOKToCancelOrClose() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickOKToCancelOrClose() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 
-    public void enterReason(String Reason) throws Exception {  test.writeInLog(Common.getMethodName());
-        
+    public void enterReason(String Reason) throws Exception {
+        test.writeInLog(Common.getMethodName());
+
         tool.enterStringUsingId("reason", Reason);
     }
 
-    public void selectJustificationStatus(String status) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectJustificationStatus(String status) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("case_justification_status", status);
     }
 
-    public void updateDescription(String updatedDescription) throws Exception {  test.writeInLog(Common.getMethodName());
-        
+    public void updateDescription(String updatedDescription) throws Exception {
+        test.writeInLog(Common.getMethodName());
+
         tool.enterStringUsingId("appendToDescription", updatedDescription);
     }
 
-    public ViewCase clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewCase clickOK() throws Exception {
+        test.writeInLog(Common.getMethodName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.assertTextOnPage(tool, "Case has been successfully updated.");
         tool.clickUsingXPath("//input[@value='OK']");
@@ -58,7 +66,8 @@ public class EditCaseCommon extends CommonMenu {
         return new ViewCase(tool, test, user);
     }
 
-    public void changePriorityToLow() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void changePriorityToLow() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("case_priority", "Low");
     }
 

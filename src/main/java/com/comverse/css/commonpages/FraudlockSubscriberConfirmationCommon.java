@@ -16,7 +16,8 @@ public class FraudlockSubscriberConfirmationCommon extends CommonMenu {
         }
     }
 
-    public FraudlockSubscriberFraudlockSuccessfulCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public FraudlockSubscriberFraudlockSuccessfulCommon clickConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

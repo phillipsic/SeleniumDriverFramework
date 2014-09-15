@@ -8,6 +8,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ModifyDeliveryAddressConfirmationCommon extends CommonMenu {
 
@@ -22,7 +23,8 @@ public class ModifyDeliveryAddressConfirmationCommon extends CommonMenu {
         }
     }
 
-    public DeliveryAddressesCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DeliveryAddressesCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new DeliveryAddressesCommon(tool, test, user);

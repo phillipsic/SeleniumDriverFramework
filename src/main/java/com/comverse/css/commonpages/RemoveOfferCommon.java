@@ -23,7 +23,8 @@ public class RemoveOfferCommon extends CommonMenu {
         }
     }
 
-    public OfferCancellationCommon clickYes() throws Exception {  test.writeInLog(Common.getMethodName());
+    public OfferCancellationCommon clickYes() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//input[@value='Yes'])");
         return new OfferCancellationCommon(tool, test, user);
     }

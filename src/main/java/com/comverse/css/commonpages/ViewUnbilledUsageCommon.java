@@ -20,33 +20,36 @@ public class ViewUnbilledUsageCommon extends CommonMenu {
         }
     }
 
-    public void enterToDate(String toDate) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterToDate(String toDate) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("toDate", toDate);
 
     }
 
-    public void enterFromDate(String fromDate) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterFromDate(String fromDate) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
-    public ViewUnbilledUsageCommon clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledUsageCommon clickSearch() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         return new ViewUnbilledUsageCommon(tool, test, user);
     }
 
-    public ViewUnbilledUsageDetailsCommon clickFirstUsage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledUsageDetailsCommon clickFirstUsage() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("usageDetails");
         return new ViewUnbilledUsageDetailsCommon(tool, test, user);
     }
 
-    public UnbilledTransactionCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnbilledTransactionCommon clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new UnbilledTransactionCommon(tool, test, user);

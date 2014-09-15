@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddressAdministrationCommon extends CommonMenu {
     static String expectedScreen = "Address Administration";
@@ -18,7 +19,8 @@ public class AddressAdministrationCommon extends CommonMenu {
 
     }
 
-    public AddressAddCommon clickAdd() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddressAddCommon clickAdd() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Add']");
 

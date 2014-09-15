@@ -23,33 +23,39 @@ public class ConfigureBalanceCommon extends CommonMenu {
         }
     }
 
-    public ServiceConnectionDetailsCommon clickContinueExpectingServiceConnectionDetails() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ServiceConnectionDetailsCommon clickContinueExpectingServiceConnectionDetails() throws Exception {
+        test.writeInLog(Common.getMethodName());
         this.clickContinue();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
-    public ConfigureContractDetailsCommon clickContinueExpectingConfigureContractDetails() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ConfigureContractDetailsCommon clickContinueExpectingConfigureContractDetails() throws Exception {
+        test.writeInLog(Common.getMethodName());
         this.clickContinue();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureContractDetailsCommon(tool, test, user);
     }
 
-    public MyBasketCommon clickContinueExpectingMyBasket() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasketCommon clickContinueExpectingMyBasket() throws Exception {
+        test.writeInLog(Common.getMethodName());
         this.clickContinue();
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }
 
-    public void setSpendingLimit(String limitName, String limitAmount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.enterStringUsingId(limitName + "_limit", limitAmount);
     }
 
-    public void setBalanceUnlimited(String balanceName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setBalanceUnlimited(String balanceName) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@type='checkbox' and contains(@onclick, '" + balanceName + "_limit')]");
     }
 
-    public void clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
     }
 }

@@ -27,7 +27,8 @@ public class UpdateBillingAccountInformationsCommon extends CommonMenu {
 
     }
 
-    public EnterIdentificationDataCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public EnterIdentificationDataCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new EnterIdentificationDataCommon(tool, test, user);

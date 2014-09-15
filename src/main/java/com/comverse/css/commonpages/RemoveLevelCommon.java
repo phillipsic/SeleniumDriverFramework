@@ -24,7 +24,8 @@ public class RemoveLevelCommon extends CommonMenu {
 
     }
 
-    public ViewHierarchyCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewHierarchyCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//form[@id='form_OK']/div/input");
 
@@ -32,7 +33,8 @@ public class RemoveLevelCommon extends CommonMenu {
 
     }
 
-    public RemoveLevelCommon clickOkToRemoveLevel() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RemoveLevelCommon clickOkToRemoveLevel() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 
@@ -40,7 +42,8 @@ public class RemoveLevelCommon extends CommonMenu {
 
     }
 
-    public ViewHierarchyCommon clickOkToConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewHierarchyCommon clickOkToConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

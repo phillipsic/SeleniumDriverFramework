@@ -17,18 +17,20 @@ public class SuspendSubscriberRequestForDetailsCommon extends CommonMenu {
         }
     }
 
-    public void setReason(String reason) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setReason(String reason) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("reason", reason);
     }
 
-    public void setAnnotation(String annotation) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setAnnotation(String annotation) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("annotation", annotation);
     }
 
-    public SuspendSubscriberConfirmationCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SuspendSubscriberConfirmationCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

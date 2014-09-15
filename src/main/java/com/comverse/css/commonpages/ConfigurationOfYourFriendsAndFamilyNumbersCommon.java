@@ -24,12 +24,14 @@ public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu
         }
     }
 
-    public void setPhoneNumber(String phoneNumber) throws Exception {  test.writeInLog(Common.getMethodName());
-        
+    public void setPhoneNumber(String phoneNumber) throws Exception {
+        test.writeInLog(Common.getMethodName());
+
         tool.enterStringUsingName("friendsAndFamilyListInputFieldsphone_number0", phoneNumber);
     }
 
-    public void clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickOK() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 

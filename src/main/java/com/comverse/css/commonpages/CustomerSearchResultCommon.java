@@ -19,35 +19,40 @@ public class CustomerSearchResultCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon clickPersonNameLink(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickPersonNameLink(String lastName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(lastName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickAccountLink(String accountNumber) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickAccountLink(String accountNumber) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(accountNumber);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickFirstPersonLink() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickFirstPersonLink() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("value_person_0_0");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickFirstAccountLink() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickFirstAccountLink() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//td[3]/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {  test.writeInLog(Common.getMethodName());
+    public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(MSISDN);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

@@ -22,7 +22,8 @@ public class RemoveDeliveryAddressCommon extends CommonMenu {
         }
     }
 
-    public DeliveryAddressesCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DeliveryAddressesCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new DeliveryAddressesCommon(tool, test, user);

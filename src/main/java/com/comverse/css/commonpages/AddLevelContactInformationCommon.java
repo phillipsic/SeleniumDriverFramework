@@ -18,24 +18,26 @@ public class AddLevelContactInformationCommon extends CommonMenu {
         }
     }
 
-    public void setLevelState(String levelState) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLevelState(String levelState) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_state", levelState);
     }
 
-    public void setLevelZipCode(String zipCode) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLevelZipCode(String zipCode) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("home_zip", zipCode);
     }
 
-    public void setLevelName(String levelName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLevelName(String levelName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
-        
         tool.enterStringUsingId("company_name", levelName);
     }
 
-    public AddLevelConfirmationCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddLevelConfirmationCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AddLevelConfirmationCommon(tool, test, user);

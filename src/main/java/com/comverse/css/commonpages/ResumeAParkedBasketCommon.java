@@ -19,18 +19,21 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
         }
     }
 
-    public String getMessage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getMessage() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         return tool.getTextUsingXPath("//span");
     }
 
-    public ResumeBasketConfirmCommon resumeParkedBasket(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public ResumeBasketConfirmCommon resumeParkedBasket(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText(value);
         return new ResumeBasketConfirmCommon(tool, test, user);
     }
 
-    public DeleteBasketConfirmCommon deleteParkedBasket(String basketName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public DeleteBasketConfirmCommon deleteParkedBasket(String basketName) throws Exception {
+        test.writeInLog(Common.getMethodName());
         //
         // String pageSource = tool.getPageSource();
         // String temp[];

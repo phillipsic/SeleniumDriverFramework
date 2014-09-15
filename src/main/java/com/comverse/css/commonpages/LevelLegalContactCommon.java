@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class LevelLegalContactCommon extends CommonMenu {
 
@@ -22,12 +23,14 @@ public class LevelLegalContactCommon extends CommonMenu {
         }
     }
 
-    public ViewHierarchyCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewHierarchyCommon clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("youcan_ON_BACK");
         return new ViewHierarchyCommon(tool, test, user);
     }
 
-    public ModifyLevelLegalContactCommon clickModifyLevelLegalContact() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ModifyLevelLegalContactCommon clickModifyLevelLegalContact() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("youcan_MODIFY_CONTACT");
         return new ModifyLevelLegalContactCommon(tool, test, user);
     }

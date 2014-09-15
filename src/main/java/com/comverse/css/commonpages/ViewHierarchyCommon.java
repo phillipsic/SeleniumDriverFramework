@@ -1,10 +1,11 @@
 package com.comverse.css.commonpages;
 
+import java.util.Calendar;
+
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.css.common.Common;
-import java.util.Calendar;
 
 public class ViewHierarchyCommon extends CommonMenu {
 
@@ -21,7 +22,8 @@ public class ViewHierarchyCommon extends CommonMenu {
 
     }
 
-    public void clickWeeklyLevel() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickWeeklyLevel() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         Calendar calendar = Calendar.getInstance();
         int week = calendar.get(Calendar.WEEK_OF_YEAR);
@@ -32,18 +34,21 @@ public class ViewHierarchyCommon extends CommonMenu {
 
     }
 
-    public void clickLevelLink(String linkName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickLevelLink(String linkName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText(linkName);
     }
 
-    public String getRootLevel() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getRootLevel() throws Exception {
+        test.writeInLog(Common.getMethodName());
         System.out.println("Root Level " + tool.getTextUsingXPath("//div[@id='mainContents']/div/table/tbody/tr/td/a"));
         return tool.getTextUsingXPath("//div[@id='mainContents']/div/table/tbody/tr/td/a");
 
     }
 
-    public ContactInformationCommon clickEmployeeNameLink(String firstName, String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public ContactInformationCommon clickEmployeeNameLink(String firstName, String lastName) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText(firstName + " " + lastName);
         return new ContactInformationCommon(tool, test, user);

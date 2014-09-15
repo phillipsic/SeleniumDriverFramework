@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddLoginCommon extends CommonMenu {
     static String expectedScreen = "Add Login";
@@ -18,23 +19,27 @@ public class AddLoginCommon extends CommonMenu {
         }
     }
 
-    public PersonManagementCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public PersonManagementCommon clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
         return new PersonManagementCommon(tool, test, user);
     }
 
-    public void setLogin(String value) throws Exception {  test.writeInLog(Common.getMethodName());
-        
+    public void setLogin(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
+
         tool.enterStringUsingId("login", value);
     }
 
-    public void setPassword(String value) throws Exception {  test.writeInLog(Common.getMethodName());
-        
+    public void setPassword(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
+
         tool.enterStringUsingId("password", value);
     }
 
-    public void setConfirmPassword(String value) throws Exception {  test.writeInLog(Common.getMethodName());
-        
+    public void setConfirmPassword(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
+
         tool.enterStringUsingId("confirmPassword", value);
     }
 }

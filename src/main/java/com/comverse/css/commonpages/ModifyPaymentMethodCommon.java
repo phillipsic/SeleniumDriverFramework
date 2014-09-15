@@ -23,7 +23,8 @@ public class ModifyPaymentMethodCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetailsCommon clickOk() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);

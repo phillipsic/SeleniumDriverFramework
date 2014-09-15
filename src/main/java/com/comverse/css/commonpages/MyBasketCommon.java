@@ -25,182 +25,218 @@ public class MyBasketCommon extends CommonMenu {
     }
 
     @Override
-    public MyBasketCommon clickViewBasket() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasketCommon clickViewBasket() throws Exception {
+        test.writeInLog(Common.getMethodName());
         super.clickViewBasket();
         return new MyBasketCommon(tool, test, user);
     }
 
-    public CheckoutReviewCommon clickCheckOut() throws Exception {  test.writeInLog(Common.getMethodName());
+    public CheckoutReviewCommon clickCheckOut() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutReviewCommon(tool, test, user);
     }
 
-    public CheckoutDeliveryAddressCommon clickCheckOutWithGoods() throws Exception {  test.writeInLog(Common.getMethodName());
+    public CheckoutDeliveryAddressCommon clickCheckOutWithGoods() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutDeliveryAddressCommon(tool, test, user);
     }
 
-    public TermsAndConditionsCommon clickCheckOutWithTermsAndConditions() throws Exception {  test.writeInLog(Common.getMethodName());
+    public TermsAndConditionsCommon clickCheckOutWithTermsAndConditions() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Checkout']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new TermsAndConditionsCommon(tool, test, user);
     }
 
-    public ShoppingCommon clickContinueShopping() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ShoppingCommon clickContinueShopping() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue Shopping']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
 
-    public ServiceConnectionDetailsCommon clickFirstActionsIcon() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ServiceConnectionDetailsCommon clickFirstActionsIcon() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("img[title=\"Configure Service Connection Details\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
-    public ServiceConnectionDetailsCommon clickSecondActionsIcon() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ServiceConnectionDetailsCommon clickSecondActionsIcon() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("#modify_lines_2 > img[title=\"Configure Service Connection Details\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
-    public String getTypeRole() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getTypeRole() throws Exception {
+        test.writeInLog(Common.getMethodName());
         return tool.getTextUsingXPath("//td[2]/div/p");
     }
 
-    public String getAddress() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getAddress() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String address = tool.getTextUsingXPath("//td[4]/div/p");
         return address.replaceAll("[^\\p{L}\\p{N}]", " ");
     }
 
-    public String getOfferName() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getOfferName() throws Exception {
+        test.writeInLog(Common.getMethodName());
         return tool.getTextUsingXPath("//tr[9]/td");
     }
 
-    public String getRecurringCharge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getRecurringCharge() throws Exception {
+        test.writeInLog(Common.getMethodName());
         return tool.getTextUsingXPath("//tr[9]/td[4]");
     }
 
-    public String getUpfrontCharge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getUpfrontCharge() throws Exception {
+        test.writeInLog(Common.getMethodName());
         return tool.getTextUsingXPath("//tr[9]/td[5]");
     }
 
-    public String getQuantity() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getQuantity() throws Exception {
+        test.writeInLog(Common.getMethodName());
         return tool.getTextUsingXPath("//tr[9]/td[2]");
     }
 
-    public RemoveBasketCommon clickClear() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RemoveBasketCommon clickClear() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("clear");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveBasketCommon(tool, test, user);
     }
 
-    public void clickAcceptTermsAndConditions() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickAcceptTermsAndConditions() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("termsandconditionscheck");
     }
 
-    public RemoveSelectionCommon removeSecondItemFromBasket() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RemoveSelectionCommon removeSecondItemFromBasket() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("remove_1");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveSelectionCommon(tool, test, user);
     }
 
-    public RemoveSelectionCommon removeFirstItemFromBasket() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RemoveSelectionCommon removeFirstItemFromBasket() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Remove");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveSelectionCommon(tool, test, user);
     }
 
-    public void clickAddPersonOrRole() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickAddPersonOrRole() throws Exception {
+        test.writeInLog(Common.getMethodName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         tool.clickUsingID("pm-button-add-person");
     }
 
-    public void clickUserOfNewSubscriber1() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickUserOfNewSubscriber1() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//td[@id='pm-role-fields']/p[2]/input");
     }
 
-    public void clickOrdering() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickOrdering() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("role_radio_group_selection_0");
     }
 
-    public void selectTitle(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectTitle(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("pm-field-title", value);
     }
 
-    public void setFirstName(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setFirstName(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("pm-field-fname", value);
     }
 
-    public void setLastName(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLastName(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("pm-field-lname", value);
     }
 
-    public void setAddressLine1(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setAddressLine1(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("pm-field-address1", value);
     }
 
-    public void setPostalCode(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setPostalCode(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("pm-field-zip", value);
     }
 
-    public void setCity(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setCity(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("pm-field-city", value);
     }
 
-    public void selectCountry(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectCountry(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("pm-field-country", value);
     }
 
-    public void selectRegion(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectRegion(String value) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("pm-field-region", value);
     }
 
-    public void selectFirstUserinDropDown() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectFirstUserinDropDown() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectByIndexByID("subscriber", 1);
     }
 
-    public void clickAddRole() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickAddRole() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("add_role");
     }
 
-    public void clickAdd() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickAdd() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("pm-button-add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
-    public ShoppingCommon changePrimaryOffer() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ShoppingCommon changePrimaryOffer() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("add_pp_0");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
 
-    public SelectOffersForYourSubscriberCommon clickAddSO() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SelectOffersForYourSubscriberCommon clickAddSO() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Add Supplementary Offer(s)");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
-    public SelectOffersForYourSubscriberCommon clickChangeSO() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SelectOffersForYourSubscriberCommon clickChangeSO() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("add_srv_1");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
-    public SelectOffersForYourAccountCommon clickAddAO() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SelectOffersForYourAccountCommon clickAddAO() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("add_srv_ACCOUNT_LEVEL_SELECTION");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }
 
-    public Person addConsumerUserPersonOrdering() throws Exception {  test.writeInLog(Common.getMethodName());
+    public Person addConsumerUserPersonOrdering() throws Exception {
+        test.writeInLog(Common.getMethodName());
 
         String CUPUniqueString = Common.generateTimeStamp();
         Person person2 = new Person(CUPUniqueString);
@@ -233,7 +269,8 @@ public class MyBasketCommon extends CommonMenu {
         return person2;
     }
 
-    public void assign3InventoriesFirstOffer(Subscriber subscriber) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void assign3InventoriesFirstOffer(Subscriber subscriber) throws Exception {
+        test.writeInLog(Common.getMethodName());
         ServiceConnectionDetailsCommon serviceConnectionDetails = this.clickFirstActionsIcon();
         serviceConnectionDetails.clickSetIMSIInventory(subscriber);
         serviceConnectionDetails.clickSetSIMInventory(subscriber);
@@ -241,19 +278,22 @@ public class MyBasketCommon extends CommonMenu {
         serviceConnectionDetails.clickOk();
     }
 
-    public void assign1InventoryFirstOffer(Subscriber subscriber) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void assign1InventoryFirstOffer(Subscriber subscriber) throws Exception {
+        test.writeInLog(Common.getMethodName());
         ServiceConnectionDetailsCommon serviceConnectionDetails = this.clickFirstActionsIcon();
         serviceConnectionDetails.clickSetIMSIInventory(subscriber);
         serviceConnectionDetails.clickOk();
     }
 
-    public void assignEmailInventory(String email) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void assignEmailInventory(String email) throws Exception {
+        test.writeInLog(Common.getMethodName());
         ServiceConnectionDetailsCommon serviceConnectionDetails = this.clickFirstActionsIcon();
         serviceConnectionDetails.SetEmailInventory(email);
         serviceConnectionDetails.clickOkAfterSetEmailInventory();
     }
 
-    public void assign3InventoriesSecondOffer(Subscriber subscriber) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void assign3InventoriesSecondOffer(Subscriber subscriber) throws Exception {
+        test.writeInLog(Common.getMethodName());
         ServiceConnectionDetailsCommon serviceConnectionDetails = this.clickSecondActionsIcon();
         serviceConnectionDetails.clickSetIMSIInventory(subscriber);
         serviceConnectionDetails.clickSetSIMInventory(subscriber);
@@ -261,7 +301,8 @@ public class MyBasketCommon extends CommonMenu {
         serviceConnectionDetails.clickOk();
     }
 
-    public ParkTheCurrentBasketCommon clickParkBasket() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ParkTheCurrentBasketCommon clickParkBasket() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("lnk_SBE.PARK.ADD");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ParkTheCurrentBasketCommon(tool, test, user);
