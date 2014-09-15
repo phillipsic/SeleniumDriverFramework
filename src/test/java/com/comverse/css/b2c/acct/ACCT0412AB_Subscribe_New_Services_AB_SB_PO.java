@@ -41,7 +41,7 @@ public class ACCT0412AB_Subscribe_New_Services_AB_SB_PO extends CSSTest {
 
             // AddSupplementaryOffers addSO =
             // configureOffer.clickContinueExpectingOfferConfirmation();
-            subscriberDetail = addSO.confirmAddSO();
+            subscriberDetail = addSO.clickOK();
             SearchOrders searchOrders = subscriberDetail.clickMyOrders();
 
             // @TODO - need to check that the Add SO order has completed and

@@ -43,7 +43,7 @@ public class ACCT0421_Modify_Service extends CSSTest {
             AddSupplementaryOffers addSO = configureOffer.clickContinueExpectingOfferConfirmation();
 
             String orderNumber = addSO.getOrderNumberFromPage();
-            subscriberDetail = addSO.confirmAddSO();
+            subscriberDetail = addSO.clickOK();
             SearchOrders searchOrders = subscriberDetail.clickMyOrders();
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(orderNumber);
 

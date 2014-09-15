@@ -41,7 +41,7 @@ public class ACCT0413AB_Remove_Service_AB_SB_PO extends CSSTest {
             // AddSupplementaryOffers addSO =
             // configureOffer.clickContinueExpectingOfferConfirmation();
             String firstOrder = addSO.getOrderNumberFromPage();
-            subscriberDetail = addSO.confirmAddSO();
+            subscriberDetail = addSO.clickOK();
             SearchOrders searchOrders = subscriberDetail.clickMyOrders();
 
             searchOrders.waitUntilOrderCompletedOrFailedWithOrderNumber(firstOrder);
