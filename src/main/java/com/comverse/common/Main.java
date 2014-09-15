@@ -42,6 +42,7 @@ public class Main {
             String[] line = e.getMessage().split("\n");
 
             test.setMessage(line[0]);
+
             this.logResults("CV", test.getMessage());
         }
 
@@ -262,6 +263,8 @@ public class Main {
     @After
     public void tearDown() throws Exception {
         tool.quit();
+        test.writeInLog("Test Result: " + test.getResult());
+
         test.closeLogFile();
 
         String verificationErrorString = verificationErrors.toString();
