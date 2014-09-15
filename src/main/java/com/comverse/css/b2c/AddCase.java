@@ -12,7 +12,7 @@ public class AddCase extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Add Case";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -20,36 +20,38 @@ public class AddCase extends B2CMenu {
     }
 
     public void selectCategory(String value) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
         tool.selectVisibleTextByID("categoryId", value);
     }
 
     public void selectSubCategory(String value) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
         tool.selectVisibleTextByID("subCategoryId", value);
     }
 
     public void enterDescription(String value) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
         tool.enterStringUsingId("description", value);
     }
 
     public void selectSubjectRelativeToProblemSubscriber() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("isContract");
     }
 
     public void selectFirstSubscriber() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.selectByIndexByID("contract", 1);
     }
 
     public AddCaseReview clickSubmit() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Submit']");
         return new AddCaseReview(tool, test, user);
     }
 
     public ListCases clickListCases() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("smnu_CASE_LIST");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCases(tool, test, user);

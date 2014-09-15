@@ -16,7 +16,7 @@ public class LockLogin extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Lock Login";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -24,7 +24,7 @@ public class LockLogin extends B2CMenu {
     }
 
     public void clickConfirm() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.sleepForNumberOfSeconds(1);
 

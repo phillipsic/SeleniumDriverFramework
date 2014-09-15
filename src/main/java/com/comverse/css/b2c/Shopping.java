@@ -28,7 +28,7 @@ public class Shopping extends B2CMenu {
     }
 
     public ChooseYourPrimaryOffer clickNetworkTVLink() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//li[contains(.,'Welcome to a new world of convergence')]/img");
         tool.clickUsingLinkText("Network TV");
 
@@ -36,7 +36,7 @@ public class Shopping extends B2CMenu {
     }
 
     public ChooseYourHandset clickVoiceDevicesLink() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//li[contains(.,'Voice Items')]/img");
         tool.clickUsingLinkText("Voice Devices");
 
@@ -44,7 +44,7 @@ public class Shopping extends B2CMenu {
     }
 
     public ChooseYourHandset clickDataDevicesLink() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//li[contains(.,'Data Items')]/img");
         tool.clickUsingLinkText("Data Devices");
 
@@ -52,7 +52,7 @@ public class Shopping extends B2CMenu {
     }
 
     public ChooseAccessories clickPhoneAccessoriesLink() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//li[starts-with(.,'Accessories')]/img");
         tool.clickUsingLinkText("Phone Accessories");
         return new ChooseAccessories(tool, test, user);
@@ -60,7 +60,7 @@ public class Shopping extends B2CMenu {
     }
 
     public ChooseYourPrimaryOfferInThisAccountBundle clickFamilyPackLink() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//li[contains(.,'Keep in touch with your family')]/img");
         tool.clickUsingLinkText("Family Pack");
 
@@ -69,6 +69,7 @@ public class Shopping extends B2CMenu {
 
     @Override
     public SubscriberDetail clickMyAccount() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("My Account");
         return new SubscriberDetail(tool, test, user);
     }

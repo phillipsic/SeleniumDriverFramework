@@ -7,6 +7,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class CheckOutDeliveryAddress extends B2CMenu {
 
@@ -15,7 +16,7 @@ public class CheckOutDeliveryAddress extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Checkout - Delivery Address";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -23,7 +24,7 @@ public class CheckOutDeliveryAddress extends B2CMenu {
     }
 
     public CheckOutBillingAccountInformation clickContinue() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("nav_next_page");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }

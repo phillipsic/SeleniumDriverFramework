@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class BillingManagement extends B2CMenu {
 
@@ -12,7 +13,7 @@ public class BillingManagement extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Billing Management";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -20,19 +21,19 @@ public class BillingManagement extends B2CMenu {
     }
 
     public CheckoutReview clickContinue() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new CheckoutReview(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForFirstSubscriber() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("change_billing_contract_0");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForSecondSubscriber() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("change_billing_contract_1");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }

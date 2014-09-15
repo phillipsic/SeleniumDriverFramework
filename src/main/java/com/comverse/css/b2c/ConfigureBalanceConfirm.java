@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ConfigureBalanceConfirm extends B2CMenu {
 
@@ -19,6 +20,7 @@ public class ConfigureBalanceConfirm extends B2CMenu {
     }
 
     public ViewBalances clickBack() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Back']");
         return new ViewBalances(tool, test, user);
 

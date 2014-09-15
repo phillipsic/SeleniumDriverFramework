@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class SelectModeOfRecharge extends B2CMenu {
 
@@ -11,7 +12,7 @@ public class SelectModeOfRecharge extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Select mode of recharge";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -19,12 +20,12 @@ public class SelectModeOfRecharge extends B2CMenu {
     }
 
     public void selectFreeAmount() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='freeAmount']");
     }
 
     public RechargeWithFreeAmount clickSubmit() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
         return new RechargeWithFreeAmount(tool, test, user);
     }

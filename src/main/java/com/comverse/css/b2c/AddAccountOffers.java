@@ -16,7 +16,7 @@ public class AddAccountOffers extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Add Account Offers";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -24,7 +24,7 @@ public class AddAccountOffers extends B2CMenu {
     }
 
     public SubscriberDetail clickOk() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
@@ -32,7 +32,7 @@ public class AddAccountOffers extends B2CMenu {
 
     public String getAOOrderNumberFromPage() throws Exception {
         String orderNumber;
-
+        test.writeInLog(Common.getMethodName());
         orderNumber = tool.getTextUsingXPath("//div[@class='txt']/span");
         orderNumber = orderNumber.substring(orderNumber.lastIndexOf(' ') + 1).replace(".", "");
         System.out.println("Order Number = '" + orderNumber + "'");

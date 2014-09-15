@@ -16,7 +16,7 @@ public class ListCases extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "List Cases";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -24,14 +24,14 @@ public class ListCases extends B2CMenu {
     }
 
     public AddCase clickCreateCase() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("smnu_CASE_ADD");
         Common.sleepForNumberOfSeconds(1);
         return new AddCase(tool, test, user);
     }
 
     public ViewCase clickOnCaseIDLink(String caseID) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + caseID + ")");
         tool.clickUsingLinkText(caseID);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCase(tool, test, user);

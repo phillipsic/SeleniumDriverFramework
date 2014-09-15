@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ConfirmModifyProfileInformation extends B2CMenu {
 
@@ -20,9 +21,8 @@ public class ConfirmModifyProfileInformation extends B2CMenu {
     }
 
     public void clickOK() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
-
     }
 
 }

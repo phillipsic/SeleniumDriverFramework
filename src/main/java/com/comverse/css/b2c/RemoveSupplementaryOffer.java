@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RemoveSupplementaryOffer extends B2CMenu {
 
@@ -19,6 +20,7 @@ public class RemoveSupplementaryOffer extends B2CMenu {
     }
 
     public MyBasket ClickYes() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Yes']");
         return new MyBasket(tool, test, user);
     }

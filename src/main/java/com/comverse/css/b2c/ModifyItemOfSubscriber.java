@@ -24,6 +24,7 @@ public class ModifyItemOfSubscriber extends B2CMenu {
     }
 
     public ModifyItem clickConfirm() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyItem(tool, test, user);

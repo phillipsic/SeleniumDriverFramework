@@ -12,7 +12,7 @@ public class BalanceDetails extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Balance Details";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -20,7 +20,7 @@ public class BalanceDetails extends B2CMenu {
     }
 
     public ViewBalances clickGoToListOfSubscribers() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("youcan_ON_BACK");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewBalances(tool, test, user);

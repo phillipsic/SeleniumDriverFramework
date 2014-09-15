@@ -16,7 +16,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Choose Your Primary Offer in This Account Bundle";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -24,28 +24,28 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
     }
 
     public ConfirmAccountBundleChoice selectPrimaryOfferByNameWithoutDevice(String primaryOfferName) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + "with data (" + primaryOfferName + ")");
         SelectPOByName(primaryOfferName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfirmAccountBundleChoice(tool, test, user);
     }
 
     public EnterYourSubscriptionDetails selectPrimaryOfferByNameExpectingSubscriptionDetails(String primaryOfferName) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + "with data (" + primaryOfferName + ")");
         SelectPOByName(primaryOfferName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public ConfirmAccountBundleChoice selectPrimaryOfferInBundleByName(String primaryOfferName) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + "with data (" + primaryOfferName + ")");
         SelectPOByName(primaryOfferName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfirmAccountBundleChoice(tool, test, user);
     }
 
     public void SelectPOByName(String primaryOfferName) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + "with data (" + primaryOfferName + ")");
         int pageCounter = 2;
 
         boolean beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
@@ -97,18 +97,19 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
     }
 
     public ChooseAccessories clickNoThanks() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@name='nothanks']");
         return new ChooseAccessories(tool, test, user);
     }
 
     public SubscriberBundleDetails viewDetailsOfPrimaryOffer(String PO) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + "with data (" + PO + ")");
         tool.clickUsingXPath(".//p[contains(text(),'" + PO + "')]/../following-sibling::div[1]//input[@type='submit' and @value='View Details']");
         return new SubscriberBundleDetails(tool, test, user);
     }
 
     public ChooseYourPrimaryOffer clickSwitchToBrowsePrimaryOffers() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Switch to Browse Primary Offers']");
         return new ChooseYourPrimaryOffer(tool, test, user);
     }

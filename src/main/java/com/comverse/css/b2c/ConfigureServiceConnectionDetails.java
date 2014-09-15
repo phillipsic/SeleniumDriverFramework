@@ -25,18 +25,14 @@ public class ConfigureServiceConnectionDetails extends B2CMenu {
     }
 
     public MyBasket clickContinue() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public void setServiceConnectionEmail(String Email) throws Exception {
-
-        // 
-        // tool.enterStringUsingId("inputFields1180", Email);
-
-        
+        test.writeInLog(Common.getMethodName());
         tool.enterStringUsingXPath(".//span[contains(text(), 'Enter your Email address:')]/../../div[2]/input", Email);
-
     }
 }

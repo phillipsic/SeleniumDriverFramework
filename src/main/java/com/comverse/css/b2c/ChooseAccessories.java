@@ -16,7 +16,7 @@ public class ChooseAccessories extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Choose Accessories";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -32,13 +32,14 @@ public class ChooseAccessories extends B2CMenu {
 
     public ConfigureServiceConnectionDetails clickContinueExpectingConnectionServiceDetails() throws Exception {
 
-        // tool.clickUsingXPath("//input[@value='Continue']");
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("doSubmit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureServiceConnectionDetails(tool, test, user);
     }
 
     public void setQuantityForAccessory(String Accessory, String Quantity) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.enterStringUsingXPath(".//a[contains(text(),'" + Accessory + "')]//../preceding-sibling::td[2]//input", Quantity);
     }
 

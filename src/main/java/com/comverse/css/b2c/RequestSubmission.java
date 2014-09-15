@@ -7,6 +7,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RequestSubmission extends B2CMenu {
 
@@ -16,7 +17,7 @@ public class RequestSubmission extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Request Submission";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -24,13 +25,13 @@ public class RequestSubmission extends B2CMenu {
     }
 
     public SearchMember clickOk() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new SearchMember(tool, test, user);
     }
 
     public SubscriberDetail clickOkToConfirm() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new SubscriberDetail(tool, test, user);
     }

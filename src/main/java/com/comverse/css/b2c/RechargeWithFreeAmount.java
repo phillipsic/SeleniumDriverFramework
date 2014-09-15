@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RechargeWithFreeAmount extends B2CMenu {
 
@@ -19,13 +20,12 @@ public class RechargeWithFreeAmount extends B2CMenu {
     }
 
     public void enterRechargeAmount(String rechargeAmount) throws Exception {
-
-        
+        test.writeInLog(Common.getMethodName() + " using data (" + rechargeAmount + ")");
         tool.enterStringUsingId("rechargeAmount", rechargeAmount);
     }
 
     public SelectRechargePaymentMethod clickContinue() throws Exception {
-
+        test.writeInLog(Common.getMethodName() );
         tool.clickUsingXPath("//input[@value='Continue']");
         return new SelectRechargePaymentMethod(tool, test, user);
     }

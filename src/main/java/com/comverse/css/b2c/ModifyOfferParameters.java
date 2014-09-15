@@ -16,7 +16,7 @@ public class ModifyOfferParameters extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Modify Offer Parameters";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -24,21 +24,24 @@ public class ModifyOfferParameters extends B2CMenu {
     }
 
     public void checkVoiceMailEnableToNo() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//label[contains(text(),'Voice Mail Enable')]/following-sibling::input");
     }
 
     public void enterVoiceMailSize(String voiceMailSize) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + voiceMailSize + ")");
         tool.enterStringUsingXPath("//label[contains(text(),'Voice Mail Size')]/../input", voiceMailSize);
     }
 
     public ModifyItemOfSubscriber clickModify() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Modify']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyItemOfSubscriber(tool, test, user);
     }
 
     public String getVoiceMailSize() throws Exception {
+        test.writeInLog(Common.getMethodName());
         return tool.getAttributeUsingXpath("//label[contains(text(),'Voice Mail Size')]/../input", "value");
     }
 }

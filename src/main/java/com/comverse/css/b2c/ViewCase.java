@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ViewCase extends B2CMenu {
 
@@ -19,29 +20,26 @@ public class ViewCase extends B2CMenu {
     }
 
     public String getCategory() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
-
         return caseID;
     }
 
     public String getSubCategory() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
-
         return caseID;
     }
 
     public String getDescription() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
-
         return caseID;
     }
 
     public String getSubscriber() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
-
         return caseID;
     }
 }

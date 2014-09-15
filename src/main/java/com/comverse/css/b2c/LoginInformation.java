@@ -24,7 +24,7 @@ public class LoginInformation extends B2CMenu {
     }
 
     public LockLogin clickLockLogin() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Lock Login");
         Common.sleepForNumberOfSeconds(1);
         return new LockLogin(tool, test, user);

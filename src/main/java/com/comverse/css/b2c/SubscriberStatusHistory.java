@@ -3,6 +3,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class SubscriberStatusHistory extends B2CMenu {
 
@@ -19,7 +20,7 @@ public class SubscriberStatusHistory extends B2CMenu {
     }
 
     public SubscriberDetail clickOk() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         // Common.waitForEndOfWaitingPage(tool,
         // this.getClass().getSimpleName());
@@ -27,6 +28,7 @@ public class SubscriberStatusHistory extends B2CMenu {
     }
 
     public String getStatus() throws Exception {
+        test.writeInLog(Common.getMethodName());
         String subscriberStatus;
         subscriberStatus = tool.getTextUsingXPath("//td[2]");
         return subscriberStatus;

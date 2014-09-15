@@ -7,6 +7,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ConfirmAccountBundleChoice extends B2CMenu {
 
@@ -23,7 +24,7 @@ public class ConfirmAccountBundleChoice extends B2CMenu {
     }
 
     public SelectOffersForYourAccount clickOk() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new SelectOffersForYourAccount(tool, test, user);
     }

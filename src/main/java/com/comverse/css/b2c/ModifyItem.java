@@ -20,6 +20,7 @@ public class ModifyItem extends B2CMenu {
     }
 
     public SubscriberDetail clickOK() throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);

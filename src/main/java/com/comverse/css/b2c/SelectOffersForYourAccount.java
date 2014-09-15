@@ -16,7 +16,7 @@ public class SelectOffersForYourAccount extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Select offers for your Account";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -24,7 +24,7 @@ public class SelectOffersForYourAccount extends B2CMenu {
     }
 
     public void selectOffersForAccount(String... SOTable) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + SOTable + ")");
         if (SOTable != null) {
             for (String SOName : SOTable) {
 
@@ -35,14 +35,14 @@ public class SelectOffersForYourAccount extends B2CMenu {
     }
 
     public EnterYourSubscriptionDetails clickContinue() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public AddAccountOffers clickContinueToAddAO() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddAccountOffers(tool, test, user);
