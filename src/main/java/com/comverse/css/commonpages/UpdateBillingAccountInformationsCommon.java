@@ -8,6 +8,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class UpdateBillingAccountInformationsCommon extends CommonMenu {
 
@@ -26,7 +27,7 @@ public class UpdateBillingAccountInformationsCommon extends CommonMenu {
 
     }
 
-    public EnterIdentificationDataCommon clickContinue() throws Exception {
+    public EnterIdentificationDataCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new EnterIdentificationDataCommon(tool, test, user);

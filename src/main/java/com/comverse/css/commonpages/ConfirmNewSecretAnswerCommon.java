@@ -22,7 +22,7 @@ public class ConfirmNewSecretAnswerCommon extends CommonMenu {
         }
     }
 
-    public ConfirmChangeCommon clickOK() throws Exception {
+    public ConfirmChangeCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new ConfirmChangeCommon(tool, test, user);

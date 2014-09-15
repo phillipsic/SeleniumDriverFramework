@@ -26,101 +26,101 @@ public class CommonMenu extends Main {
         uniqueTimeStamp = Common.generateTimeStamp();
     }
 
-    public IdentifyCustomerCommon gotoManageAccount() throws Exception {
+    public IdentifyCustomerCommon gotoManageAccount() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Manage Account");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new IdentifyCustomerCommon(tool, test, user);
     }
 
-    public LoginInformationCommon clickMyInformation() throws Exception {
+    public LoginInformationCommon clickMyInformation() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_INFO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new LoginInformationCommon(tool, test, user);
     }
 
-    public SearchRequestsCommon clickRequests() throws Exception {
+    public SearchRequestsCommon clickRequests() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Requests");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchRequestsCommon(tool, test, user);
     }
 
-    public ViewHierarchyCommon clickHierarchy() throws Exception {
+    public ViewHierarchyCommon clickHierarchy() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);
     }
 
-    public LevelLegalContactCommon clickHierarchyCSR() throws Exception {
+    public LevelLegalContactCommon clickHierarchyCSR() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new LevelLegalContactCommon(tool, test, user);
     }
 
-    public MyshapeCommon clickLogout() throws Exception {
+    public MyshapeCommon clickLogout() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_LOGOUT");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyshapeCommon(tool, test, user);
     }
 
-    public ComverseOneSingleSignOn clickLogoutExpectingSSO() throws Exception {
+    public ComverseOneSingleSignOn clickLogoutExpectingSSO() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_LOGOUT");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ComverseOneSingleSignOn(tool, test, user);
     }
 
-    public AccountDetailsCommon clickAccounts() throws Exception {
+    public AccountDetailsCommon clickAccounts() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_ACCOUNTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public ResumeAParkedBasketCommon clickBasket() throws Exception {
+    public ResumeAParkedBasketCommon clickBasket() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_BASKET");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ResumeAParkedBasketCommon(tool, test, user);
     }
 
-    public void clickCartIcon() throws Exception {
+    public void clickCartIcon() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("imIconShoppingCart");
     }
 
-    public MyBasketCommon clickViewBasket() throws Exception {
+    public MyBasketCommon clickViewBasket() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("View Basket");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }
 
-    public PersonManagementCommon clickPersonManagement() throws Exception {
+    public PersonManagementCommon clickPersonManagement() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_PERSON_VIEW");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PersonManagementCommon(tool, test, user);
     }
 
-    public WorkSpaceCommon clickHome() throws Exception {
+    public WorkSpaceCommon clickHome() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_HOME");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpaceCommon(tool, test, user);
     }
 
-    public ViewInvoicesCommon clickBillsAndPayments() throws Exception {
+    public ViewInvoicesCommon clickBillsAndPayments() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_BILLS_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewInvoicesCommon(tool, test, user);
     }
 
-    public ContactInformationCommon clickUserInformation() throws Exception {
+    public ContactInformationCommon clickUserInformation() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_INFO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ContactInformationCommon(tool, test, user);
     }
 
-    public ViewTransactionHistoryCommon clickHistories() throws Exception {
+    public ViewTransactionHistoryCommon clickHistories() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_HISTORIES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewTransactionHistoryCommon(tool, test, user);
     }
 
-    public ViewHierarchyCommon clickCustomerHierarchy() throws Exception {
+    public ViewHierarchyCommon clickCustomerHierarchy() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_HIERARCHY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);

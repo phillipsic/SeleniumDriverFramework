@@ -8,6 +8,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ModifyLoginRolesCommon extends CommonMenu {
 
@@ -22,7 +23,7 @@ public class ModifyLoginRolesCommon extends CommonMenu {
         }
     }
 
-    public LoginInformationCommon clickVeiwLoginInformationLink() throws Exception {
+    public LoginInformationCommon clickVeiwLoginInformationLink() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("smnu_LOGIN");
 

@@ -21,12 +21,12 @@ public class SubscribeToRechargePromotionalOffersCommon extends CommonMenu {
         }
     }
 
-    public void selectOffersForSubscriber(String RPO) throws Exception {
+    public void selectOffersForSubscriber(String RPO) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.enterStringUsingId("nameFilterField0", RPO);
         tool.clickUsingName("rechargePromotionalOffers");
     }
 
-    public MyBasketCommon clickContinue() throws Exception {
+    public MyBasketCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input[name='rechargePromotionalOffers']");
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

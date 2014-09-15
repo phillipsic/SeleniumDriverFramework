@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.RemoveOfferCommon;
 
 public class RemoveOffer extends RemoveOfferCommon {
@@ -18,7 +19,7 @@ public class RemoveOffer extends RemoveOfferCommon {
     }
 
     @Override
-    public OfferCancellation clickYes() throws Exception {
+    public OfferCancellation clickYes() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickYes();
         return new OfferCancellation(tool, test, user);

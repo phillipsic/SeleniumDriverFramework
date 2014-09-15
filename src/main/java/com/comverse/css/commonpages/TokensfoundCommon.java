@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class TokensfoundCommon extends CommonMenu {
 
@@ -18,7 +19,7 @@ public class TokensfoundCommon extends CommonMenu {
 
     }
 
-    public UploadTokenCommon clickUpload() throws Exception {
+    public UploadTokenCommon clickUpload() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Upload']");
 

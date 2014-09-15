@@ -23,14 +23,14 @@ public class AddAccountOffers extends B2CMenu {
         test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
-    public SubscriberDetail clickOk() throws Exception {
+    public SubscriberDetail clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
     }
 
-    public String getAOOrderNumberFromPage() throws Exception {
+    public String getAOOrderNumberFromPage() throws Exception {  test.writeInLog(Common.getMethodName());
         String orderNumber;
         test.writeInLog(Common.getMethodName());
         orderNumber = tool.getTextUsingXPath("//div[@class='txt']/span");

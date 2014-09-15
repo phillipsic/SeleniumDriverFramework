@@ -22,31 +22,31 @@ public class Logging extends CLSMenu {
         }
     }
 
-    public void clickTodayFilter() throws Exception {
+    public void clickTodayFilter() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
         tool.clickUsingID("useCustomTimeframe_period");
         tool.switchTo();
     }
 
-    public void setDisplayUserName(String name) throws Exception {
+    public void setDisplayUserName(String name) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
         tool.enterStringUsingId("displayUserName", name);
         tool.switchTo();
     }
 
-    public void clickSearch() throws Exception {
+    public void clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
         tool.clickUsingXPath("//input[@value='Submit']");
         tool.switchTo();
     }
 
-    public void clickLogut() throws Exception {
+    public void clickLogut() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//img[@alt='Logout']");
 
     }
 
-    public void waitForLoadingToDisappear() throws Exception {
+    public void waitForLoadingToDisappear() throws Exception {  test.writeInLog(Common.getMethodName());
 
         int maxIterations = 90;
         boolean foundElement = false;
@@ -73,18 +73,18 @@ public class Logging extends CLSMenu {
         }
     }
 
-    public void assertClusterNameDropDownContains(String value) throws Exception {
+    public void assertClusterNameDropDownContains(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         assertEquals(true, this.checkDropDownForValue("clusterNameFilter", value));
     }
 
-    public void selectRecordPerPage(String value) throws Exception {
+    public void selectRecordPerPage(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
         tool.selectVisibleTextByID("yui-pg0-0-rpp81", value);
         tool.switchTo();
         Common.sleepForNumberOfSeconds(10);
     }
 
-    private boolean checkDropDownForValue(String dropDownID, String value) throws Exception {
+    private boolean checkDropDownForValue(String dropDownID, String value) throws Exception {  test.writeInLog(Common.getMethodName());
         boolean optionFound = false;
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
 

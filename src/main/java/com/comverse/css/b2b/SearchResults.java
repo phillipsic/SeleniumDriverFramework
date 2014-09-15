@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class SearchResults extends B2BMenu {
 
@@ -24,7 +25,7 @@ public class SearchResults extends B2BMenu {
         }
     }
 
-    public ViewHierarchy clickFirstRefreshLink() throws Exception {
+    public ViewHierarchy clickFirstRefreshLink() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("Refresh");
 

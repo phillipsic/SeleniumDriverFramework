@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class CoherencyCheckCommon extends CommonMenu {
     static String expectedScreen = "Coherency Check";
@@ -22,13 +23,13 @@ public class CoherencyCheckCommon extends CommonMenu {
         }
     }
 
-    public String getOrderNumber() throws Exception {
+    public String getOrderNumber() throws Exception {  test.writeInLog(Common.getMethodName());
         String orderNumber = tool.getTextUsingXPath("//span");
         orderNumber = orderNumber.substring(orderNumber.lastIndexOf(" ") + 1);
         return orderNumber;
     }
 
-    public void clickOK() throws Exception {
+    public void clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 

@@ -21,7 +21,7 @@ public class ManageAccountCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
+    public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("p-L2:40-L3:2150", accountID);
@@ -30,7 +30,7 @@ public class ManageAccountCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searchByAccountLastName(String lastName) throws Exception {
+    public AccountDetailsCommon searchByAccountLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("accountLastName", lastName);
@@ -40,7 +40,7 @@ public class ManageAccountCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public SearchResultsCommon searchAccountWildCard() throws Exception {
+    public SearchResultsCommon searchAccountWildCard() throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("p-L2:40-L3:2150", "*");
@@ -50,7 +50,7 @@ public class ManageAccountCommon extends CommonMenu {
 
     }
 
-    public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
+    public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("accountLastName", lastName);
@@ -61,7 +61,7 @@ public class ManageAccountCommon extends CommonMenu {
         return new CustomerSearchResultCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searcByAccountLastNameSinglePerson(String lastName) throws Exception {
+    public AccountDetailsCommon searcByAccountLastNameSinglePerson(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("accountLastName", lastName);
@@ -72,7 +72,7 @@ public class ManageAccountCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
+    public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("accountId", accountID);

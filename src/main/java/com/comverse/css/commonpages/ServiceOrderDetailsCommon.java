@@ -8,6 +8,7 @@ import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.css.common.Account;
+import com.comverse.css.common.Common;
 
 public class ServiceOrderDetailsCommon extends CommonMenu {
 
@@ -23,13 +24,13 @@ public class ServiceOrderDetailsCommon extends CommonMenu {
         }
     }
 
-    public void getAccountID(Account account) throws Exception {
+    public void getAccountID(Account account) throws Exception {  test.writeInLog(Common.getMethodName());
         String accountID = tool.getTextUsingXPath("//td[2]/a");
         System.out.println("AccountID = " + accountID);
         account.setBillingAccountIDProperty(accountID);
     }
 
-    public SearchOrdersCommon clickBack() throws Exception {
+    public SearchOrdersCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Back']");
         return new SearchOrdersCommon(tool, test, user);
     }

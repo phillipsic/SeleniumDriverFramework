@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.DeliveryAddressesCommon;
 
 public class DeliveryAddresses extends DeliveryAddressesCommon {
@@ -17,28 +18,28 @@ public class DeliveryAddresses extends DeliveryAddressesCommon {
     }
 
     @Override
-    public AddDeliveryAddress clickAdd() throws Exception {
+    public AddDeliveryAddress clickAdd() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickAdd();
         return new AddDeliveryAddress(tool, test, user);
     }
 
     @Override
-    public ModifyDeliveryAddress clickModify() throws Exception {
+    public ModifyDeliveryAddress clickModify() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickModify();
         return new ModifyDeliveryAddress(tool, test, user);
     }
 
     @Override
-    public RemoveDeliveryAddress clickRemove() throws Exception {
+    public RemoveDeliveryAddress clickRemove() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickRemove();
         return new RemoveDeliveryAddress(tool, test, user);
     }
 
     @Override
-    public DeliveryAddresses searchWithWildCard(String wildcard) throws Exception {
+    public DeliveryAddresses searchWithWildCard(String wildcard) throws Exception {  test.writeInLog(Common.getMethodName());
         super.searchWithWildCard(wildcard);
         return new DeliveryAddresses(tool, test, user);
     }

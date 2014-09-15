@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 /**
  * 
@@ -25,7 +26,7 @@ public class SearchRequestsCommon extends CommonMenu {
         }
     }
 
-    public SearchOrdersCommon clickSearchOrders() throws Exception {
+    public SearchOrdersCommon clickSearchOrders() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("smnu_ORDER");
         return new SearchOrdersCommon(tool, test, user);

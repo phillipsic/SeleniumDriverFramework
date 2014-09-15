@@ -8,6 +8,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class OutboundCommunicationCommon extends CommonMenu {
 
@@ -24,7 +25,7 @@ public class OutboundCommunicationCommon extends CommonMenu {
         }
     }
 
-    public String getSendOBCMessage() throws Exception {
+    public String getSendOBCMessage() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getTextUsingCssSelector("BODY");
     }
 }

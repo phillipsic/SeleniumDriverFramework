@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ConfigureOffersCommon;
 
 public class ConfigureOffers extends ConfigureOffersCommon {
@@ -16,14 +17,14 @@ public class ConfigureOffers extends ConfigureOffersCommon {
     }
 
     @Override
-    public ConfigureBalance clickContinue() throws Exception {
+    public ConfigureBalance clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickContinue();
         return new ConfigureBalance(tool, test, user);
     }
 
     @Override
-    public SwapImpact clickContinueExpectingSwapImpact() throws Exception {
+    public SwapImpact clickContinueExpectingSwapImpact() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickContinueExpectingSwapImpact();
         return new SwapImpact(tool, test, user);
     }

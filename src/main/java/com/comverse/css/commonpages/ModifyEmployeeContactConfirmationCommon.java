@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ModifyEmployeeContactConfirmationCommon extends CommonMenu {
 
@@ -21,7 +22,7 @@ public class ModifyEmployeeContactConfirmationCommon extends CommonMenu {
         }
     }
 
-    public ModifyEmpContactConfCommon clickOk() throws Exception {
+    public ModifyEmpContactConfCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new ModifyEmpContactConfCommon(tool, test, user);
     }

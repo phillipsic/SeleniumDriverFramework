@@ -18,22 +18,22 @@ public class AddLoginCommon extends CommonMenu {
         }
     }
 
-    public PersonManagementCommon clickContinue() throws Exception {
+    public PersonManagementCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
         return new PersonManagementCommon(tool, test, user);
     }
 
-    public void setLogin(String value) throws Exception {
+    public void setLogin(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingId("login", value);
     }
 
-    public void setPassword(String value) throws Exception {
+    public void setPassword(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingId("password", value);
     }
 
-    public void setConfirmPassword(String value) throws Exception {
+    public void setConfirmPassword(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingId("confirmPassword", value);
     }

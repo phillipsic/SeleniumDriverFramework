@@ -22,7 +22,7 @@ public class ConfirmChangeCommon extends CommonMenu {
         }
     }
 
-    public LoginInformationCommon clickOK() throws Exception {
+    public LoginInformationCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new LoginInformationCommon(tool, test, user);

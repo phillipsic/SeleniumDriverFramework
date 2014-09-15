@@ -20,22 +20,22 @@ public class LoginCommon extends CommonMenu {
         }
     }
 
-    public void setLogin(String login) throws Exception {
+    public void setLogin(String login) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingId("login", login);
     }
 
-    public void selectRole(String role) throws Exception {
+    public void selectRole(String role) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("roles", role);
     }
 
-    public AddMemberConfirmationCommon clickContinue() throws Exception {
+    public AddMemberConfirmationCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }
 
-    public AddMemberConfirmationCommon clickCreateLoginLater() throws Exception {
+    public AddMemberConfirmationCommon clickCreateLoginLater() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("ON_OK");
 
         return new AddMemberConfirmationCommon(tool, test, user);

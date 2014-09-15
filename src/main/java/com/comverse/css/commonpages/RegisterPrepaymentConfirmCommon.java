@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RegisterPrepaymentConfirmCommon extends CommonMenu {
 
@@ -17,7 +18,7 @@ public class RegisterPrepaymentConfirmCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon clickBackToAccount() throws Exception {
+    public AccountDetailsCommon clickBackToAccount() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='confirm']");
         return new AccountDetailsCommon(tool, test, user);

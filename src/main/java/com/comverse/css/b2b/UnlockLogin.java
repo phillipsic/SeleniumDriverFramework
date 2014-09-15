@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.UnlockLoginCommon;
 
 public class UnlockLogin extends UnlockLoginCommon {
@@ -18,7 +19,7 @@ public class UnlockLogin extends UnlockLoginCommon {
     }
 
     @Override
-    public UnlockDone clickConfirm() throws Exception {
+    public UnlockDone clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickConfirm();
         return new UnlockDone(tool, test, user);

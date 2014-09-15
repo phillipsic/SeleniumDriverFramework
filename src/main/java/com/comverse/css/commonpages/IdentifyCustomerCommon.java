@@ -21,7 +21,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
+    public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("accountId", accountID);
         tool.clickUsingName("accountButton");
@@ -29,29 +29,29 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public void clickMoreLink() throws Exception {
+    public void clickMoreLink() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.searchUsingID("More >>");
 
     }
 
-    public void clickMoreLinkPerson() throws Exception {
+    public void clickMoreLinkPerson() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@id='personLastName']/../../a");
 
     }
 
-    public void searchByPersonNatioanlIdMultiplePersons(String id) throws Exception {
+    public void searchByPersonNatioanlIdMultiplePersons(String id) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("nationalId", id);
         tool.clickUsingName("personButton");
     }
 
-    public void searchByPersonDOBMultiplePersons(String DOB) throws Exception {
+    public void searchByPersonDOBMultiplePersons(String DOB) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("dateOfBirth", DOB);
         tool.clickUsingName("personButton");
     }
 
-    public AccountDetailsCommon searchByCaseID(String caseID) throws Exception {
+    public AccountDetailsCommon searchByCaseID(String caseID) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("caseId", caseID);
         tool.clickUsingName("caseButton");
@@ -59,7 +59,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public CustomerSearchResultCommon searchByCaseIDMultiplePersons(String caseID) throws Exception {
+    public CustomerSearchResultCommon searchByCaseIDMultiplePersons(String caseID) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("caseId", caseID);
         tool.clickUsingName("caseButton");
@@ -68,7 +68,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new CustomerSearchResultCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
+    public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("accountId", accountID);
         tool.clickUsingName("accountButton");
@@ -85,7 +85,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon gotoAccountDashboardUsingAccountLastName(String lastName) throws Exception {
+    public AccountDetailsCommon gotoAccountDashboardUsingAccountLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
@@ -102,7 +102,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
+    public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
@@ -111,7 +111,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new CustomerSearchResultCommon(tool, test, user);
     }
 
-    public CustomerSearchResultCommon searchByAccountFirstNameMultiplePersons(String firstName) throws Exception {
+    public CustomerSearchResultCommon searchByAccountFirstNameMultiplePersons(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("accountFirstName", firstName);
         tool.clickUsingName("accountExtendedButton");
@@ -120,7 +120,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new CustomerSearchResultCommon(tool, test, user);
     }
 
-    public SubscriberDetailsCommon searchBySubscriberMSISDN(String MSISDN) throws Exception {
+    public SubscriberDetailsCommon searchBySubscriberMSISDN(String MSISDN) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("subscriberId", MSISDN);
         tool.clickUsingName("subscriberButton");
@@ -130,7 +130,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
 
     }
 
-    public CustomerSearchResultCommon searchBySubscriberMSISDNMultiplePersons(String MSISDN) throws Exception {
+    public CustomerSearchResultCommon searchBySubscriberMSISDNMultiplePersons(String MSISDN) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("subscriberId", MSISDN);
         tool.clickUsingName("subscriberButton");
@@ -139,7 +139,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new CustomerSearchResultCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searchByAccountLastNameSinglePerson(String lastName) throws Exception {
+    public AccountDetailsCommon searchByAccountLastNameSinglePerson(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
@@ -148,7 +148,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searchByAccountFirstNameSinglePerson(String firstName) throws Exception {
+    public AccountDetailsCommon searchByAccountFirstNameSinglePerson(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("accountFirstName", firstName);
         tool.clickUsingName("accountExtendedButton");
@@ -157,7 +157,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searchByCompanyNameSinglePerson(String companyName) throws Exception {
+    public AccountDetailsCommon searchByCompanyNameSinglePerson(String companyName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("companyName", companyName);
         tool.clickUsingName("accountExtendedButton");
@@ -166,7 +166,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public CustomerSearchResultCommon searchByCompanyNameMultiplePersons(String companyName) throws Exception {
+    public CustomerSearchResultCommon searchByCompanyNameMultiplePersons(String companyName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("companyName", companyName);
         tool.clickUsingName("accountExtendedButton");
@@ -175,7 +175,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new CustomerSearchResultCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searchByPersonLastNameSinglePerson(String lastName) throws Exception {
+    public AccountDetailsCommon searchByPersonLastNameSinglePerson(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("personLastName", lastName);
         tool.clickUsingName("personButton");
@@ -184,7 +184,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon searchByPersonFirstNameSinglePerson(String firstName) throws Exception {
+    public AccountDetailsCommon searchByPersonFirstNameSinglePerson(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("personFirstName", firstName);
         tool.clickUsingName("personButton");
@@ -193,7 +193,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public CustomerSearchResultCommon searchAccountWildCard() throws Exception {
+    public CustomerSearchResultCommon searchAccountWildCard() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-L2:40-L3:2150", "*");
         tool.clickUsingCssSelector("input.submit");
@@ -201,56 +201,56 @@ public class IdentifyCustomerCommon extends CommonMenu {
         return new CustomerSearchResultCommon(tool, test, user);
     }
 
-    public void setPersonFirstName(String firstName) throws Exception {
+    public void setPersonFirstName(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("personFirstName", firstName);
     }
 
-    public void setPersonLastName(String lastName) throws Exception {
+    public void setPersonLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("personLastName", lastName);
     }
 
-    public void setNationalID(String nationID) throws Exception {
+    public void setNationalID(String nationID) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("nationalId", nationID);
     }
 
-    public void setDateOfBirth(String dob) throws Exception {
+    public void setDateOfBirth(String dob) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("dateOfBirth", dob);
     }
 
-    public PersonIdentificationSearchResultCommon clickPersonSearchExpectingManyResults() throws Exception {
+    public PersonIdentificationSearchResultCommon clickPersonSearchExpectingManyResults() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingName("personButton");
         return new PersonIdentificationSearchResultCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickPersonSearchExpectingOneResult() throws Exception {
+    public AccountDetailsCommon clickPersonSearchExpectingOneResult() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingName("personButton");
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public void clickMorePersonSearchFields() throws Exception {
+    public void clickMorePersonSearchFields() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//a[contains(text(),'More >>')])[2]");
     }
 
-    public void clickMoreSubscriberSearchFields() throws Exception {
+    public void clickMoreSubscriberSearchFields() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("More >>");
     }
 
-    public void selectShadowOnly() throws Exception {
+    public void selectShadowOnly() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("subscriberType", "Shadow Only");
     }
 
-    public void checkIncludeInactiveSubscriberID() throws Exception {
+    public void checkIncludeInactiveSubscriberID() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("includeInactiveSubscribers");
     }
 
-    public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {
+    public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(MSISDN);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

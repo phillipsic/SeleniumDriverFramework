@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddLevelCommon extends CommonMenu {
 
@@ -19,7 +20,7 @@ public class AddLevelCommon extends CommonMenu {
 
     }
 
-    public ViewHierarchyCommon clickOk() throws Exception {
+    public ViewHierarchyCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new ViewHierarchyCommon(tool, test, user);

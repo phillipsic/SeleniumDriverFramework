@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ModifyProfileInformationCommon extends CommonMenu {
 
@@ -22,12 +23,12 @@ public class ModifyProfileInformationCommon extends CommonMenu {
         }
     }
 
-    public void setTimeZone(String timeZone) throws Exception {
+    public void setTimeZone(String timeZone) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("timezone_field", timeZone);
     }
 
-    public ModifyProfileInformationConfirmationCommon clickOkToModify() throws Exception {
+    public ModifyProfileInformationConfirmationCommon clickOkToModify() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new ModifyProfileInformationConfirmationCommon(tool, test, user);

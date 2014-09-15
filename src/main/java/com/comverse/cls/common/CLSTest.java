@@ -3,6 +3,7 @@ package com.comverse.cls.common;
 import org.junit.Before;
 
 import com.comverse.common.*;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.PropertyHelper;
 
 public class CLSTest extends Main {
@@ -19,7 +20,7 @@ public class CLSTest extends Main {
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
     }
 
-    public void launchCLSApplication() throws Exception {
+    public void launchCLSApplication() throws Exception {  test.writeInLog(Common.getMethodName());
         application.setVersion(tool, test);
         tool.get(application.appFullURL());
         if (!test.getDebug()) {

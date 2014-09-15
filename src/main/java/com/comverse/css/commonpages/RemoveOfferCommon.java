@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RemoveOfferCommon extends CommonMenu {
 
@@ -22,7 +23,7 @@ public class RemoveOfferCommon extends CommonMenu {
         }
     }
 
-    public OfferCancellationCommon clickYes() throws Exception {
+    public OfferCancellationCommon clickYes() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//input[@value='Yes'])");
         return new OfferCancellationCommon(tool, test, user);
     }

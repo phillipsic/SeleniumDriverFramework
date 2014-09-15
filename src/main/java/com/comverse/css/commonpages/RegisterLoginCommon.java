@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RegisterLoginCommon extends CommonMenu {
 
@@ -22,44 +23,44 @@ public class RegisterLoginCommon extends CommonMenu {
         }
     }
 
-    public void setLogin(String login) throws Exception {
+    public void setLogin(String login) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("login", login);
     }
 
-    public void selectRole(String role) throws Exception {
+    public void selectRole(String role) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("roles", role);
     }
 
-    public AddMemberConfirmationCommon clickContinue() throws Exception {
+    public AddMemberConfirmationCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }
 
-    public RegisterLoginCommon clickRegisterLoginContinue() throws Exception {
+    public RegisterLoginCommon clickRegisterLoginContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
 
         return new RegisterLoginCommon(tool, test, user);
     }
 
-    public void clickRadioButtonTelcoCSRUser() throws Exception {
+    public void clickRadioButtonTelcoCSRUser() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@name='roles'])[9]");
 
     }
 
-    public void clickRadioButtonOCMUser() throws Exception {
+    public void clickRadioButtonOCMUser() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='roles']");
 
     }
 
-    public String getTempPasswordFromPage() throws Exception {
+    public String getTempPasswordFromPage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         String password = tool.getTextUsingXPath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
@@ -70,7 +71,7 @@ public class RegisterLoginCommon extends CommonMenu {
 
     }
 
-    public ViewHierarchyCommon clickOk() throws Exception {
+    public ViewHierarchyCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

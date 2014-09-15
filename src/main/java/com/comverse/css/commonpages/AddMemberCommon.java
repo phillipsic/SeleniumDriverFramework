@@ -18,7 +18,7 @@ public class AddMemberCommon extends CommonMenu {
         }
     }
 
-    public String getTempPasswordFromPage() throws Exception {
+    public String getTempPasswordFromPage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         String password = tool.getTextUsingXPath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
@@ -29,7 +29,7 @@ public class AddMemberCommon extends CommonMenu {
 
     }
 
-    public ViewHierarchyCommon clickOk() throws Exception {
+    public ViewHierarchyCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

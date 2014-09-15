@@ -21,7 +21,7 @@ public class SendCommunicationCommon extends CommonMenu {
         }
     }
 
-    public boolean IsTemplatePresent() throws Exception {
+    public boolean IsTemplatePresent() throws Exception {  test.writeInLog(Common.getMethodName());
         System.out.println(tool.searchUsingCssSelector("BODY"));
         if (tool.getTextUsingCssSelector("span").equals("No templates found.")) {
             System.out.println("Please upload the desired template");
@@ -31,54 +31,54 @@ public class SendCommunicationCommon extends CommonMenu {
 
     }
 
-    public SendCommunicationCommon clickContinue() throws Exception {
+    public SendCommunicationCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new SendCommunicationCommon(tool, test, user);
     }
 
-    public void clickSearchTemplate() throws Exception {
+    public void clickSearchTemplate() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Search template']");
     }
 
-    public void selectTemplateEventType(String value) throws Exception {
+    public void selectTemplateEventType(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("eventType", value);
 
     }
 
-    public void selectTemplateCaseType(String value) throws Exception {
+    public void selectTemplateCaseType(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("caseType", value);
     }
 
-    public void selectTemplateProblemArea(String value) throws Exception {
+    public void selectTemplateProblemArea(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("problemArea", value);
     }
 
-    public void selectAvailableCommunicationChannel(String value) throws Exception {
+    public void selectAvailableCommunicationChannel(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("preferredChannelId", value);
     }
 
-    public void selectTemplateName(String value) throws Exception {
+    public void selectTemplateName(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("templateList", value);
     }
 
-    public void selectMessageFormat(String value) throws Exception {
+    public void selectMessageFormat(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("formatList", value);
     }
 
-    public void clickReviewCommunication() throws Exception {
+    public void clickReviewCommunication() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingName("ok");
 
     }
 
-    public OutboundCommunicationCommon clickSendCommunication() throws Exception {
+    public OutboundCommunicationCommon clickSendCommunication() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Send communication']");
 
@@ -86,13 +86,13 @@ public class SendCommunicationCommon extends CommonMenu {
         return new OutboundCommunicationCommon(tool, test, user);
     }
 
-    public void enterEmailTo(String value) throws Exception {
+    public void enterEmailTo(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("emailTo", value);
 
     }
 
-    public void clickClosePopUp() throws Exception {
+    public void clickClosePopUp() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("Close");
 

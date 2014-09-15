@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddLevelConfirmationCommon extends CommonMenu {
     static String expectedScreen = "Add Level - Confirmation";
@@ -23,7 +24,7 @@ public class AddLevelConfirmationCommon extends CommonMenu {
 
     }
 
-    public AddLevelCommon clickOk() throws Exception {
+    public AddLevelCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AddLevelCommon(tool, test, user);

@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ResumeBasketConfirmCommon;
 
 public class ResumeBasketConfirm extends ResumeBasketConfirmCommon {
@@ -18,7 +19,7 @@ public class ResumeBasketConfirm extends ResumeBasketConfirmCommon {
     }
 
     @Override
-    public MyBasket clickOk() throws Exception {
+    public MyBasket clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickOk();
         return new MyBasket(tool, test, user);

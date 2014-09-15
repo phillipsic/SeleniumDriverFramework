@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AddressAddCommon;
 
 public class AddressAdd extends AddressAddCommon {
@@ -20,7 +21,7 @@ public class AddressAdd extends AddressAddCommon {
     }
 
     @Override
-	public void setStreetName(String streetname) throws Exception {
+	public void setStreetName(String streetname) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("add_streetName", streetname);
@@ -28,7 +29,7 @@ public class AddressAdd extends AddressAddCommon {
     }
 
     @Override
-	public void setCity(String city) throws Exception {
+	public void setCity(String city) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("add_city", city);
@@ -36,7 +37,7 @@ public class AddressAdd extends AddressAddCommon {
     }
 
     @Override
-	public void setZipCode(String zipcode) throws Exception {
+	public void setZipCode(String zipcode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("add_postalCode", zipcode);
@@ -44,14 +45,14 @@ public class AddressAdd extends AddressAddCommon {
     }
 
     @Override
-	public void selectCountry(String country) throws Exception {
+	public void selectCountry(String country) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("add_countryCode", country);
 
     }
 
     @Override
-	public AddressAdministration clickOK() throws Exception {
+	public AddressAdministration clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Ok']");
 

@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ChangeRolesCommon;
 
 public class ChangeRoles extends ChangeRolesCommon {
@@ -17,14 +18,14 @@ public class ChangeRoles extends ChangeRolesCommon {
 
     }
 
-    public LoginInformation clickConfirm() throws Exception {
+    public LoginInformation clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new LoginInformation(tool, test, user);
 
     }
 
-    public LoginInformation clickOK() throws Exception {
+    public LoginInformation clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickOk();
         return new LoginInformation(tool, test, user);

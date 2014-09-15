@@ -4,6 +4,7 @@ import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class CLSMenu extends Main {
 
@@ -13,7 +14,7 @@ public class CLSMenu extends Main {
         this.user = user;
     }
 
-    public void clickSignOut() throws Exception {
+    public void clickSignOut() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("$azn666_label");
 
     }

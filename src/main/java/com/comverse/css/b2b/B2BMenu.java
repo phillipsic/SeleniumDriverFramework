@@ -8,6 +8,7 @@ import com.comverse.common.AutomationTool;
 import com.comverse.common.Main;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class B2BMenu extends Main {
 
@@ -17,13 +18,13 @@ public class B2BMenu extends Main {
         this.user = user;
     }
 
-    public ContactInformation clickMyInformation() throws Exception {
+    public ContactInformation clickMyInformation() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("mnu_INFO");
         return new ContactInformation(tool, test, user);
     }
 
-    public MyshapeBusiness clickLogout() throws Exception {
+    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("mnu_LOGOUT");
         return new MyshapeBusiness(tool, test, user);

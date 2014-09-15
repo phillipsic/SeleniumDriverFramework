@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ViewHierarchyCommon;
 
 public class ViewHierarchy extends ViewHierarchyCommon {
@@ -16,20 +17,20 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     }
 
-    public AddEmployeeContactInformation addNewEmployee() throws Exception {
+    public AddEmployeeContactInformation addNewEmployee() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("smnu_REGISTER_EMPLOYEE");
         return new AddEmployeeContactInformation(tool, test, user);
     }
 
     @Override
-    public MyshapeBusiness clickLogout() throws Exception {
+    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickLogout();
         return new MyshapeBusiness(tool, test, user);
     }
 
-    public SearchEmployeePage clickSearchEmployee() throws Exception {
+    public SearchEmployeePage clickSearchEmployee() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("smnu_MEMBER");
         return new SearchEmployeePage(tool, test, user);

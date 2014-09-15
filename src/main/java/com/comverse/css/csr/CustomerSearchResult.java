@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.CustomerSearchResultCommon;
 
 public class CustomerSearchResult extends CustomerSearchResultCommon {
@@ -12,21 +13,21 @@ public class CustomerSearchResult extends CustomerSearchResultCommon {
     }
 
     @Override
-    public AccountDetails clickPersonNameLink(String lastName) throws Exception {
+    public AccountDetails clickPersonNameLink(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickPersonNameLink(lastName);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails clickFirstAccountLink() throws Exception {
+    public AccountDetails clickFirstAccountLink() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickFirstAccountLink();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public SubscriberDetails clickSubscriberLink(String MSISDN) throws Exception {
+    public SubscriberDetails clickSubscriberLink(String MSISDN) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickSubscriberLink(MSISDN);
         return new SubscriberDetails(tool, test, user);

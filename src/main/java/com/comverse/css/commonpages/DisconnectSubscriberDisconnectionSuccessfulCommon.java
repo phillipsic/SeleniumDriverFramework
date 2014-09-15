@@ -16,7 +16,7 @@ public class DisconnectSubscriberDisconnectionSuccessfulCommon extends CommonMen
         }
     }
 
-    public SubscriberDetailsCommon clickOK() throws Exception {
+    public SubscriberDetailsCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

@@ -22,27 +22,27 @@ public class AddNewCaseCommon extends CommonMenu {
 
     }
 
-    public void selectCaseType(String caseType) throws Exception {
+    public void selectCaseType(String caseType) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("categoryId", caseType);
     }
 
-    public void selectCaseProblemArea(String problemArea) throws Exception {
+    public void selectCaseProblemArea(String problemArea) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("subCategoryId", problemArea);
     }
 
-    public void enterCaseDescription(String caseDescription) throws Exception {
+    public void enterCaseDescription(String caseDescription) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.enterStringUsingId("description", caseDescription);
     }
 
-    public void selectNoteType(String noteType) throws Exception {
+    public void selectNoteType(String noteType) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("noteType", noteType);
     }
 
-    public void enterNoteDescription(String noteDescription) throws Exception {
+    public void enterNoteDescription(String noteDescription) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.enterStringUsingId("note", noteDescription);
     }
 
-    public AddCaseReviewCommon clickContinue() throws Exception {
+    public AddCaseReviewCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingName("ok");
         return new AddCaseReviewCommon(tool, test, user);
     }

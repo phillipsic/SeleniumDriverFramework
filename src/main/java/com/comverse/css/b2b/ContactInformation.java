@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ContactInformationCommon;
 
 public class ContactInformation extends ContactInformationCommon {
@@ -24,30 +25,30 @@ public class ContactInformation extends ContactInformationCommon {
     }
 
     @Override
-    public String getFirstName() throws Exception {
+    public String getFirstName() throws Exception {  test.writeInLog(Common.getMethodName());
         return super.getFirstName();
     }
 
     @Override
-    public String getLastName() throws Exception {
+    public String getLastName() throws Exception {  test.writeInLog(Common.getMethodName());
         return super.getLastName();
     }
 
     @Override
-    public ViewHierarchy clickBack() throws Exception {
+    public ViewHierarchy clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickBack();
         return new ViewHierarchy(tool, test, user);
     }
 
     @Override
-    public LoginInformation clickViewLoginInformationLink() throws Exception {
+    public LoginInformation clickViewLoginInformationLink() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickViewLoginInformationLink();
         return new LoginInformation(tool, test, user);
     }
 
-    public ViewHierarchy clickUserManagement() throws Exception {
+    public ViewHierarchy clickUserManagement() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("mnu_HIERARCHY");
         return new ViewHierarchy(tool, test, user);

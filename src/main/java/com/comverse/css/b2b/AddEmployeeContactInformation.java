@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddEmployeeContactInformation extends B2BMenu {
 
@@ -23,29 +24,29 @@ public class AddEmployeeContactInformation extends B2BMenu {
         }
     }
 
-    public void enterFirstName(String firstName) throws Exception {
+    public void enterFirstName(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("first_name", firstName);
     }
 
-    public void enterLastName(String lastName) throws Exception {
+    public void enterLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("last_name", lastName);
     }
 
-    public AddEmployeeRegisterLogin clickSubmit() throws Exception {
+    public AddEmployeeRegisterLogin clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingCssSelector("input.submit");
         return new AddEmployeeRegisterLogin(tool, test, user);
     }
 
-    public void selectState(String homeState) throws Exception {
+    public void selectState(String homeState) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_state", homeState);
 
     }
 
-    public void selectCountry(String country) throws Exception {
+    public void selectCountry(String country) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_country", country);
     }

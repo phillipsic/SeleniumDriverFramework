@@ -16,7 +16,7 @@ public class ResumeSubscriberConfirmationCommon extends CommonMenu {
         }
     }
 
-    public ResumeSubscriberResumeSuccessfulCommon clickConfirm() throws Exception {
+    public ResumeSubscriberResumeSuccessfulCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

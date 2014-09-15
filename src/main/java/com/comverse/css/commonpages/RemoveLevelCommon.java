@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RemoveLevelCommon extends CommonMenu {
 
@@ -23,7 +24,7 @@ public class RemoveLevelCommon extends CommonMenu {
 
     }
 
-    public ViewHierarchyCommon clickOk() throws Exception {
+    public ViewHierarchyCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//form[@id='form_OK']/div/input");
 
@@ -31,7 +32,7 @@ public class RemoveLevelCommon extends CommonMenu {
 
     }
 
-    public RemoveLevelCommon clickOkToRemoveLevel() throws Exception {
+    public RemoveLevelCommon clickOkToRemoveLevel() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 
@@ -39,7 +40,7 @@ public class RemoveLevelCommon extends CommonMenu {
 
     }
 
-    public ViewHierarchyCommon clickOkToConfirm() throws Exception {
+    public ViewHierarchyCommon clickOkToConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

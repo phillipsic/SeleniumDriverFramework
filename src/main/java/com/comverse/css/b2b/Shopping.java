@@ -3,6 +3,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ShoppingCommon;
 
 public class Shopping extends ShoppingCommon {
@@ -13,7 +14,7 @@ public class Shopping extends ShoppingCommon {
     }
 
     @Override
-    public MyBasket clickSelectOfferInPopUpWindow() throws Exception {
+    public MyBasket clickSelectOfferInPopUpWindow() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickSelectOfferInPopUpWindow();
         return new MyBasket(tool, test, user);
@@ -34,21 +35,21 @@ public class Shopping extends ShoppingCommon {
     // accountBundle,
     // String accountOffer,
     // String optionalSubscriberBundle)
-    // throws Exception {
+    // throws Exception {  test.writeInLog(Common.getMethodName());
     // super.subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingConfigureContract(accountBundle,
     // accountOffer, optionalSubscriberBundle);
     // return new ConfigureContractDetails(tool, test, user);
     // }
 
     @Override
-    public MyBasket selectHandset(String value) throws Exception {
+    public MyBasket selectHandset(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.selectHandset(value);
         return new MyBasket(tool, test, user);
     }
 
     @Override
-    public MyBasket selectAccessory(String value) throws Exception {
+    public MyBasket selectAccessory(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.selectAccessory(value);
         return new MyBasket(tool, test, user);
@@ -56,14 +57,14 @@ public class Shopping extends ShoppingCommon {
 
     // @Override
     // public TestServiceAbility
-    // clickSelectOfferInPopUpWindowWithServiceAbility() throws Exception {
+    // clickSelectOfferInPopUpWindowWithServiceAbility() throws Exception {  test.writeInLog(Common.getMethodName());
     //
     // super.clickSelectOfferInPopUpWindowWithServiceAbility();
     // return new TestServiceAbility(tool, test, user);
     // }
     //
     // @Override
-    // public TestServiceAbility clickNotEligibleLink() throws Exception {
+    // public TestServiceAbility clickNotEligibleLink() throws Exception {  test.writeInLog(Common.getMethodName());
     //
     // super.clickNotEligibleLink();
     // return new TestServiceAbility(tool, test, user);
@@ -75,7 +76,7 @@ public class Shopping extends ShoppingCommon {
     // accountBundle,
     // String accountOffer,
     // String optionalSubscriberBundle)
-    // throws Exception {
+    // throws Exception {  test.writeInLog(Common.getMethodName());
     //
     // super.subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffers(accountBundle,
     // accountOffer, optionalSubscriberBundle);

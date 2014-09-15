@@ -17,46 +17,46 @@ public class ShoppingCommon extends CommonMenu {
         }
     }
 
-    public void filterSubscriberBundlePrimaryOfferByName(String offername) throws Exception {
+    public void filterSubscriberBundlePrimaryOfferByName(String offername) throws Exception {  test.writeInLog(Common.getMethodName());
 
         this.waitForOffersToLoadOnPage();
         tool.enterStringUsingId("filter_str_plan_name", offername);
 
     }
 
-    public void waitForOffersToLoadOnPage() throws Exception {
+    public void waitForOffersToLoadOnPage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         Common.waitForOffersToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
-    public void clickSubscriberBundlePrimaryOfferName(String offername) throws Exception {
+    public void clickSubscriberBundlePrimaryOfferName(String offername) throws Exception {  test.writeInLog(Common.getMethodName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForOffersToLoadOnPage(tool, this.getClass().getSimpleName());
         tool.clickUsingLinkText(offername);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
-    public void clickPOCompatibleOffersTab() throws Exception {
+    public void clickPOCompatibleOffersTab() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[@id='planDetails']/ul/li[2]/a/em");
     }
 
-    public void clickPOTermsAndConditionsTab() throws Exception {
+    public void clickPOTermsAndConditionsTab() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[@id='planDetails']/ul/li[3]/a/em");
     }
 
-    public void clickPOOfferPolicyDetailsTab() throws Exception {
+    public void clickPOOfferPolicyDetailsTab() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[@id='planDetails']/ul/li[4]/a/em");
     }
 
-    public void clickABCompatibleOffersTab() throws Exception {
+    public void clickABCompatibleOffersTab() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[@id='accountBundleDetails']/ul/li[2]/a/em");
     }
 
-    public void clickABTermsAndConditionsTab() throws Exception {
+    public void clickABTermsAndConditionsTab() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[@id='accountBundleDetails']/ul/li[3]/a/em");
     }
 
-    public void clickAccountBundleOfferName(String accountBundle) throws Exception {
+    public void clickAccountBundleOfferName(String accountBundle) throws Exception {  test.writeInLog(Common.getMethodName());
 
         String pageSource = tool.getPageSource();
         String temp[];
@@ -78,7 +78,7 @@ public class ShoppingCommon extends CommonMenu {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
-    public MyBasketCommon clickSelectOfferInPopUpWindow() throws Exception {
+    public MyBasketCommon clickSelectOfferInPopUpWindow() throws Exception {  test.writeInLog(Common.getMethodName());
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -88,7 +88,7 @@ public class ShoppingCommon extends CommonMenu {
         return new MyBasketCommon(tool, test, user);
     }
 
-    public ConfigureBalanceCommon clickSelectOfferInPopUpWindowExpectingConfigureBalance() throws Exception {
+    public ConfigureBalanceCommon clickSelectOfferInPopUpWindowExpectingConfigureBalance() throws Exception {  test.writeInLog(Common.getMethodName());
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -98,7 +98,7 @@ public class ShoppingCommon extends CommonMenu {
         return new ConfigureBalanceCommon(tool, test, user);
     }
 
-    public TestServiceAbilityCommon clickSelectOfferInPopUpWindowWithServiceAbility() throws Exception {
+    public TestServiceAbilityCommon clickSelectOfferInPopUpWindowWithServiceAbility() throws Exception {  test.writeInLog(Common.getMethodName());
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -108,7 +108,7 @@ public class ShoppingCommon extends CommonMenu {
         return new TestServiceAbilityCommon(tool, test, user);
     }
 
-    public TestServiceAbilityCommon clickNotEligibleLink() throws Exception {
+    public TestServiceAbilityCommon clickNotEligibleLink() throws Exception {  test.writeInLog(Common.getMethodName());
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -118,7 +118,7 @@ public class ShoppingCommon extends CommonMenu {
         return new TestServiceAbilityCommon(tool, test, user);
     }
 
-    public ConfigureContractDetailsCommon clickSelectOfferInPopUpWindowExpectingConfigureContract() throws Exception {
+    public ConfigureContractDetailsCommon clickSelectOfferInPopUpWindowExpectingConfigureContract() throws Exception {  test.writeInLog(Common.getMethodName());
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -128,7 +128,7 @@ public class ShoppingCommon extends CommonMenu {
         return new ConfigureContractDetailsCommon(tool, test, user);
     }
 
-    public EnterYourSubscriptionDetailsCommon clickSelectOfferInPopUpWindowExpectingEnterYourSubscriptionDetails() throws Exception {
+    public EnterYourSubscriptionDetailsCommon clickSelectOfferInPopUpWindowExpectingEnterYourSubscriptionDetails() throws Exception {  test.writeInLog(Common.getMethodName());
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -138,7 +138,7 @@ public class ShoppingCommon extends CommonMenu {
         return new EnterYourSubscriptionDetailsCommon(tool, test, user);
     }
 
-    public SelectOffersForYourSubscriberCommon clickSelectOfferInPopUpWindowExpectingSelectOffersForYourSubscriber() throws Exception {
+    public SelectOffersForYourSubscriberCommon clickSelectOfferInPopUpWindowExpectingSelectOffersForYourSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -148,13 +148,13 @@ public class ShoppingCommon extends CommonMenu {
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
-    public EnterYourSubscriptionDetailsCommon clickNoThankstoHandsets() throws Exception {
+    public EnterYourSubscriptionDetailsCommon clickNoThankstoHandsets() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingName("nothanks");
         return new EnterYourSubscriptionDetailsCommon(tool, test, user);
     }
 
-    public MyBasketCommon selectHandset(String value) throws Exception {
+    public MyBasketCommon selectHandset(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("lnk_ADVANCE_FILTER");
         tool.enterStringUsingId("filterByFreeText", value);
@@ -163,30 +163,30 @@ public class ShoppingCommon extends CommonMenu {
         return new MyBasketCommon(tool, test, user);
     }
 
-    public void clickAccountBundlesTab() throws Exception {
+    public void clickAccountBundlesTab() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//div[@id='shoppingTabs']/ul/li[2]/a/em");
         Common.waitForAccountBundlesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
-    public void clickHandsetsTab() throws Exception {
+    public void clickHandsetsTab() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//div[@id='shoppingTabs']/ul/li[3]/a/em");
         Common.waitForDevicesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
-    public void clickAccessoriesTab() throws Exception {
+    public void clickAccessoriesTab() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingPartialLinkText("Accessories");
         Common.waitForAccessoriesToLoadOnPage(tool, this.getClass().getSimpleName());
     }
 
-    public void selectBundleByName(String bundleName) throws Exception {
+    public void selectBundleByName(String bundleName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//tr[@id='abtr:" + bundleName + "']/td/input");
     }
 
-    public void selectAccountOffer(String accountBundleID, String accountOfferName) throws Exception {
+    public void selectAccountOffer(String accountBundleID, String accountOfferName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         /*
          * String temp[]; String temp2[]; String tokenizedOfferName; String
@@ -206,15 +206,15 @@ public class ShoppingCommon extends CommonMenu {
         tool.clickUsingXPath("//div[contains(text(),'" + accountOfferName + "')]/../..//input");
     }
 
-    public void selectOptionalSubscriberBundle(String accountBundleID, String optionalSubscriberBundle) throws Exception {
+    public void selectOptionalSubscriberBundle(String accountBundleID, String optionalSubscriberBundle) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//input[@type='checkbox' and @name='" + accountBundleID + "_subs_bundle' and contains(@id,'" + optionalSubscriberBundle + "')])");
     }
 
-    public void selectOptionalSupplementaryOffers(String accountBundleID, String optionalSupplementaryOffers) throws Exception {
+    public void selectOptionalSupplementaryOffers(String accountBundleID, String optionalSupplementaryOffers) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//td[@class = 'oddRow' and contains(.,'" + optionalSupplementaryOffers + "')]/../td/input[@parentabid = '" + accountBundleID + "']");
     }
 
-    private String retrieveAccountBundleID(String accountBundleName) throws Exception {
+    private String retrieveAccountBundleID(String accountBundleName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         String pageSource = tool.getPageSource();
         String temp[];
@@ -242,7 +242,7 @@ public class ShoppingCommon extends CommonMenu {
     }
 
     public ConfigureContractDetailsCommon subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingConfigureContract(String accountBundle, String accountOffer,
-            String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {
+            String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {  test.writeInLog(Common.getMethodName());
 
         this.subscribeToAccountBundlelSubscriberSelectiveOfferByName(accountBundle, accountOffer, optionalSubscriberBundle, optionalSupplementaryOffersTable);
 
@@ -250,7 +250,7 @@ public class ShoppingCommon extends CommonMenu {
     }
 
     public ConfigureBalanceCommon subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingConfigureBalance(String accountBundle, String accountOffer,
-            String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {
+            String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {  test.writeInLog(Common.getMethodName());
 
         this.subscribeToAccountBundlelSubscriberSelectiveOfferByName(accountBundle, accountOffer, optionalSubscriberBundle, optionalSupplementaryOffersTable);
 
@@ -258,7 +258,7 @@ public class ShoppingCommon extends CommonMenu {
     }
 
     public SelectOffersForYourSubscriberCommon subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffersForSubscriber(String accountBundle, String accountOffer,
-            String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {
+            String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {  test.writeInLog(Common.getMethodName());
 
         this.subscribeToAccountBundlelSubscriberSelectiveOfferByName(accountBundle, accountOffer, optionalSubscriberBundle, optionalSupplementaryOffersTable);
 
@@ -266,7 +266,7 @@ public class ShoppingCommon extends CommonMenu {
     }
 
     private void subscribeToAccountBundlelSubscriberSelectiveOfferByName(String accountBundle, String accountOffer, String optionalSubscriberBundle,
-            String... optionalSupplementaryOffersTable) throws Exception {
+            String... optionalSupplementaryOffersTable) throws Exception {  test.writeInLog(Common.getMethodName());
 
         String accountBundleID = this.retrieveAccountBundleID(accountBundle);
         this.selectBundleByName(accountBundle);
@@ -292,32 +292,32 @@ public class ShoppingCommon extends CommonMenu {
         // return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
-    public ConfigureContractDetailsCommon clickSubscribe() throws Exception {
+    public ConfigureContractDetailsCommon clickSubscribe() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Subscribe'])[2]");
         return new ConfigureContractDetailsCommon(tool, test, user);
     }
 
-    public MyBasketCommon clickSubscribeNoConfiguration() throws Exception {
+    public MyBasketCommon clickSubscribeNoConfiguration() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Subscribe'])[3]");
 
         return new MyBasketCommon(tool, test, user);
     }
 
-    public SelectOffersForYourSubscriberCommon clickSubscribeAccountBundle() throws Exception {
+    public SelectOffersForYourSubscriberCommon clickSubscribeAccountBundle() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Subscribe'])[3]");
 
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
-    public void clickClose() throws Exception {
+    public void clickClose() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Close'])");
     }
 
-    public MyBasketCommon selectAccessory(String value) throws Exception {
+    public MyBasketCommon selectAccessory(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.enterStringUsingId("filter_acc_name", value);
         Common.sleepForNumberOfSeconds(3);
         tool.clickUsingLinkText(value);

@@ -36,7 +36,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     }
 
-    public void enterToDateTodayFromDateMinus10() throws Exception {
+    public void enterToDateTodayFromDateMinus10() throws Exception {  test.writeInLog(Common.getMethodName());
 
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
@@ -50,19 +50,19 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
 
     }
 
-    public void enterFromDate(String fromDate) throws Exception {
+    public void enterFromDate(String fromDate) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
-    public void enterToDate(String toDate) throws Exception {
+    public void enterToDate(String toDate) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("toDate", toDate);
 
     }
 
-    public void deselectbox() throws Exception {
+    public void deselectbox() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Adjustment");
         tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "MTR");
         tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "RC");
@@ -70,20 +70,20 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
         tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Usage");
     }
 
-    public void clickSearch() throws Exception {
+    public void clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingName("B1");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
-    public String getSearchResults() throws Exception {
+    public String getSearchResults() throws Exception {  test.writeInLog(Common.getMethodName());
         String text = tool.getTextUsingClassName("inverseHeaderText");
         System.out.println("Output:" + text);
         return text;
     }
 
-    public ViewNRCTermDetailsCommon ViewNRCTermDetails() throws Exception {
+    public ViewNRCTermDetailsCommon ViewNRCTermDetails() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("transactionDetails");
 

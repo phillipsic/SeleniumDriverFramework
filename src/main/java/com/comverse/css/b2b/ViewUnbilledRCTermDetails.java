@@ -3,6 +3,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ViewUnbilledRCTermDetailsCommon;
 
 public class ViewUnbilledRCTermDetails extends ViewUnbilledRCTermDetailsCommon {
@@ -13,7 +14,7 @@ public class ViewUnbilledRCTermDetails extends ViewUnbilledRCTermDetailsCommon {
     }
 
     @Override
-    public ViewUnbilledRCNRC clickBack() throws Exception {
+    public ViewUnbilledRCNRC clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickBack();
         return new ViewUnbilledRCNRC(tool, test, user);

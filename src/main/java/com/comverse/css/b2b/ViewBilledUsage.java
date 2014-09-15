@@ -3,6 +3,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ViewBilledUsageCommon;
 
 public class ViewBilledUsage extends ViewBilledUsageCommon {
@@ -13,21 +14,21 @@ public class ViewBilledUsage extends ViewBilledUsageCommon {
     }
 
     @Override
-    public ViewBilledUsage clickSearch() throws Exception {
+    public ViewBilledUsage clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickSearch();
         return new ViewBilledUsage(tool, test, user);
     }
 
     @Override
-    public ViewBilledUsageDetails clickFirstUsage() throws Exception {
+    public ViewBilledUsageDetails clickFirstUsage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickFirstUsage();
         return new ViewBilledUsageDetails(tool, test, user);
     }
 
     @Override
-    public ViewInvoiceDetails clickBack() throws Exception {
+    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);

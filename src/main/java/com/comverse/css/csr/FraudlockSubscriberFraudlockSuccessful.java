@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.FraudlockSubscriberFraudlockSuccessfulCommon;
 
 public class FraudlockSubscriberFraudlockSuccessful extends FraudlockSubscriberFraudlockSuccessfulCommon {
@@ -12,7 +13,7 @@ public class FraudlockSubscriberFraudlockSuccessful extends FraudlockSubscriberF
     }
 
     @Override
-    public SubscriberDetails clickOK() throws Exception {
+    public SubscriberDetails clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickOK();
         return new SubscriberDetails(tool, test, user);
     }

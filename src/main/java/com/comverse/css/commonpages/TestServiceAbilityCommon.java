@@ -16,22 +16,22 @@ public class TestServiceAbilityCommon extends CommonMenu {
         }
     }
 
-    public void setUnitnumber(String unitNumber) throws Exception {
+    public void setUnitnumber(String unitNumber) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingId("unitNumber", unitNumber);
     }
 
-    public void setCity(String city) throws Exception {
+    public void setCity(String city) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingId("home_city", city);
     }
 
-    public void setZipCode(String zipcode) throws Exception {
+    public void setZipCode(String zipcode) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingId("home_zip", zipcode);
     }
 
-    public ShoppingCommon clickOK() throws Exception {
+    public ShoppingCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);

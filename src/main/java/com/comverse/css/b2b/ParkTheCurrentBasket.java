@@ -21,18 +21,18 @@ public class ParkTheCurrentBasket extends ParkTheCurrentBasketCommon {
     }
 
     @Override
-    public ResumeAParkedBasket clickBasket() throws Exception {
+    public ResumeAParkedBasket clickBasket() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickBasket();
         return new ResumeAParkedBasket(tool, test, user);
     }
 
-    public WorkSpace goToHome() throws Exception {
+    public WorkSpace goToHome() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_HOME");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpace(tool, test, user);
     }
 
-    public WorkSpace clickOkExpectingWorkSpace() throws Exception {
+    public WorkSpace clickOkExpectingWorkSpace() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new WorkSpace(tool, test, user);
     }

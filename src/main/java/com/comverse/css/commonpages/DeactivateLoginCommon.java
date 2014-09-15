@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class DeactivateLoginCommon extends CommonMenu {
 
@@ -22,7 +23,7 @@ public class DeactivateLoginCommon extends CommonMenu {
         }
     }
 
-    public void clickConfirm() throws Exception {
+    public void clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
     }

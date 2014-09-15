@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AddEmployeeRegisterLogin extends B2BMenu {
 
@@ -23,12 +24,12 @@ public class AddEmployeeRegisterLogin extends B2BMenu {
         }
     }
 
-    public void enterLogin(String login) throws Exception {
+    public void enterLogin(String login) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("login", login);
     }
 
-    public AddEmployeeConfirmation clickSubmit() throws Exception {
+    public AddEmployeeConfirmation clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingCssSelector("input.submit");
         return new AddEmployeeConfirmation(tool, test, user);

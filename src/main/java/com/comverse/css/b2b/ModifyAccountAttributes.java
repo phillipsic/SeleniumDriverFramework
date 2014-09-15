@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ModifyAccountAttributesCommon;
 
 public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
@@ -16,18 +17,18 @@ public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
     }
 
     @Override
-    public RequestSubmission clickModifyAttributes() throws Exception {
+    public RequestSubmission clickModifyAttributes() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickModifyAttributes();
         return new RequestSubmission(tool, test, user);
     }
 
     @Override
-    public void enterSecurityNumber(String value) throws Exception {
+    public void enterSecurityNumber(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.enterStringUsingXPath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", value);
     }
 
     @Override
-    public String getSecurityNumber() throws Exception {
+    public String getSecurityNumber() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getAttributeUsingXpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", "value");
     }
 }

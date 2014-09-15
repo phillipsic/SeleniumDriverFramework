@@ -26,7 +26,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
         }
     }
 
-    public void setGender(String gender) throws Exception {
+    public void setGender(String gender) throws Exception {  test.writeInLog(Common.getMethodName());
 
         boolean correctGender = false;
 
@@ -46,289 +46,289 @@ public class EnterIdentificationDataCommon extends CommonMenu {
         }
     }
 
-    public void setNationality(String title) throws Exception {
+    public void setNationality(String title) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("nationality", title);
     }
 
-    public void setLanguage(String title) throws Exception {
+    public void setLanguage(String title) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("language", title);
     }
 
-    public void setEmailAddress(String email) throws Exception {
+    public void setEmailAddress(String email) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("email", email);
     }
 
-    public void setPhoneNumber(String phonenumber) throws Exception {
+    public void setPhoneNumber(String phonenumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("home_phone", phonenumber);
     }
 
-    public void setMobileNumber(String mobile_phone) throws Exception {
+    public void setMobileNumber(String mobile_phone) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("mobile_phone", mobile_phone);
     }
 
-    public void setFaxNumber(String fax) throws Exception {
+    public void setFaxNumber(String fax) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("fax", fax);
     }
 
-    public void setNationalID(String national_id) throws Exception {
+    public void setNationalID(String national_id) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("national_id", national_id);
     }
 
-    public void setDateOfBirth(String date_of_birth) throws Exception {
+    public void setDateOfBirth(String date_of_birth) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("date_of_birth", date_of_birth);
     }
 
-    public void setBillingTitle(String title) throws Exception {
+    public void setBillingTitle(String title) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("billing_title", title);
     }
 
-    public void setBusinessTitle(String title) throws Exception {
+    public void setBusinessTitle(String title) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("contact_title_field", title);
     }
 
-    public void setBillingFirstName(String billing_first_name) throws Exception {
+    public void setBillingFirstName(String billing_first_name) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("billing_first_name", billing_first_name);
     }
 
-    public void setBusinessFirstName(String biz_first_name) throws Exception {
+    public void setBusinessFirstName(String biz_first_name) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("first_name", biz_first_name);
     }
 
-    public void setBillingLastName(String billing_last_name) throws Exception {
+    public void setBillingLastName(String billing_last_name) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("billing_last_name", billing_last_name);
     }
 
-    public void setBusinessLastName(String biz_last_name) throws Exception {
+    public void setBusinessLastName(String biz_last_name) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("last_name", biz_last_name);
     }
 
-    public void setBillingStreetName(String billing_streetName) throws Exception {
+    public void setBillingStreetName(String billing_streetName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("billing_streetName", billing_streetName);
     }
 
-    public void setBillingStreetSuffix(String billing_streetSuffix) throws Exception {
+    public void setBillingStreetSuffix(String billing_streetSuffix) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("billing_streetSuffix", billing_streetSuffix);
     }
 
-    public void setBillingStreetNumber(String billing_streetNumber) throws Exception {
+    public void setBillingStreetNumber(String billing_streetNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("billing_streetNumber", billing_streetNumber);
     }
 
-    public void enterBillingPostCode(String billing_zip_code) throws Exception {
+    public void enterBillingPostCode(String billing_zip_code) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("billing_zip_code", billing_zip_code);
     }
 
-    public void enterBillingHomeCountry(String billing_country) throws Exception {
+    public void enterBillingHomeCountry(String billing_country) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("billing_country", billing_country);
     }
 
-    public void enterBillingHomeState(String billing_state) throws Exception {
+    public void enterBillingHomeState(String billing_state) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("billing_state", billing_state);
     }
 
-    public void enterBillingCity(String billing_city) throws Exception {
+    public void enterBillingCity(String billing_city) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("billing_city", billing_city);
     }
 
-    public void enterBusinessPostCode(String billing_zip_code) throws Exception {
+    public void enterBusinessPostCode(String billing_zip_code) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("home_zip", billing_zip_code);
     }
 
-    public void enterBusinessHomeCountry(String billing_country) throws Exception {
+    public void enterBusinessHomeCountry(String billing_country) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("home_country", billing_country);
     }
 
-    public void enterBusinessHomeState(String billing_state) throws Exception {
+    public void enterBusinessHomeState(String billing_state) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("home_state", billing_state);
     }
 
-    public void enterBusinessCity(String billing_city) throws Exception {
+    public void enterBusinessCity(String billing_city) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("home_city", billing_city);
     }
 
-    public void setCustomerTitle(String title) throws Exception {
+    public void setCustomerTitle(String title) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("contact_title_field", title);
     }
 
-    public void setCustomerFirstName(String firstname) throws Exception {
+    public void setCustomerFirstName(String firstname) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("first_name", firstname);
     }
 
-    public void setCustomerLastName(String lastname) throws Exception {
+    public void setCustomerLastName(String lastname) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("last_name", lastname);
     }
 
-    public void setCustomerStreetName(String streetName) throws Exception {
+    public void setCustomerStreetName(String streetName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("streetName", streetName);
     }
 
-    public void setCustomerStreetSuffix(String streetSuffix) throws Exception {
+    public void setCustomerStreetSuffix(String streetSuffix) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("streetSuffix", streetSuffix);
     }
 
-    public void setCustomerStreetNumber(String streetNumber) throws Exception {
+    public void setCustomerStreetNumber(String streetNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("streetNumber", streetNumber);
     }
 
-    public String getCustomerStreetName() throws Exception {
+    public String getCustomerStreetName() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getAttributeUsingId("streetName", "value");
     }
 
-    public void enterCustomerPostCode(String postCode) throws Exception {
+    public void enterCustomerPostCode(String postCode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("home_zip", postCode);
     }
 
-    public String getCustomerPostCode() throws Exception {
+    public String getCustomerPostCode() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getAttributeUsingId("home_zip", "value");
     }
 
-    public void enterCustomerHomeCountry(String homeCountry) throws Exception {
+    public void enterCustomerHomeCountry(String homeCountry) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("home_country", homeCountry);
     }
 
-    public String getCustomerHomeCountry() throws Exception {
+    public String getCustomerHomeCountry() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getSelectedTextByID("home_country");
     }
 
-    public void enterCustomerHomeState(String homeState) throws Exception {
+    public void enterCustomerHomeState(String homeState) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("home_state", homeState);
     }
 
-    public void enterCustomerCity(String city) throws Exception {
+    public void enterCustomerCity(String city) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("home_city", city);
     }
 
-    public String getCustomerCity() throws Exception {
+    public String getCustomerCity() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getAttributeUsingId("home_city", "value");
     }
 
-    public void setServiceTitle(String service_title) throws Exception {
+    public void setServiceTitle(String service_title) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("service_title", service_title);
     }
 
-    public void setServiceFirstName(String service_first_name) throws Exception {
+    public void setServiceFirstName(String service_first_name) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("service_first_name", service_first_name);
     }
 
-    public void setServiceLastName(String service_last_name) throws Exception {
+    public void setServiceLastName(String service_last_name) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("service_last_name", service_last_name);
     }
 
-    public void setServiceStreetName(String service_streetName) throws Exception {
+    public void setServiceStreetName(String service_streetName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("service_streetName", service_streetName);
     }
 
-    public void setServiceSteetSuffix(String service_streetSuffix) throws Exception {
+    public void setServiceSteetSuffix(String service_streetSuffix) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("service_streetSuffix", service_streetSuffix);
     }
 
-    public void setServiceStreetNumber(String service_streetNumber) throws Exception {
+    public void setServiceStreetNumber(String service_streetNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("service_streetNumber", service_streetNumber);
     }
 
-    public void enterServicePostCode(String service_home_zip) throws Exception {
+    public void enterServicePostCode(String service_home_zip) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("service_home_zip", service_home_zip);
     }
 
-    public void enterServiceHomeCountry(String service_home_country) throws Exception {
+    public void enterServiceHomeCountry(String service_home_country) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("service_home_country", service_home_country);
     }
 
-    public void enterServiceHomeState(String service_home_state) throws Exception {
+    public void enterServiceHomeState(String service_home_state) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("service_home_state", service_home_state);
     }
 
-    public void enterServiceCity(String service_home_city) throws Exception {
+    public void enterServiceCity(String service_home_city) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("service_home_city", service_home_city);
     }
 
-    public UpdateAccountBillingAddressInformationsCommon clickEnterAdressButtonSelect() throws Exception {
+    public UpdateAccountBillingAddressInformationsCommon clickEnterAdressButtonSelect() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("enter_address");
         return new UpdateAccountBillingAddressInformationsCommon(tool, test, user);
     }
 
-    public void clickCopyFromCustomerAddressButton() throws Exception {
+    public void clickCopyFromCustomerAddressButton() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Copy from Customer Address']");
     }
 
-    public void clickCopyFromBillingAddressButton() throws Exception {
+    public void clickCopyFromBillingAddressButton() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Copy from Billing Address']");
     }
 
-    public void uncheckSameAsCustomerAddress() throws Exception {
+    public void uncheckSameAsCustomerAddress() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("link_addresschecked");
     }
 
-    public void clickPaymentMethodCheck() throws Exception {
+    public void clickPaymentMethodCheck() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//input[@name='method'])[2]");
     }
 
-    public void setBillingCompanyName(String companyName) throws Exception {
+    public void setBillingCompanyName(String companyName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("company_name", companyName);
     }
 
-    public void setBankCode(String bankcode) throws Exception {
+    public void setBankCode(String bankcode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-L1:1-L3:1360", bankcode);
     }
 
-    public void setBankAgencyCode(String bankagencycode) throws Exception {
+    public void setBankAgencyCode(String bankagencycode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-L1:1-L3:1370", bankagencycode);
     }
 
-    public void setBankAccountNumber(String bankaccountnumber) throws Exception {
+    public void setBankAccountNumber(String bankaccountnumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-L1:1-L3:1380", bankaccountnumber);
     }
 
-    public void setBankLastName(String banklastname) throws Exception {
+    public void setBankLastName(String banklastname) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-L1:1-L3:1270", banklastname);
     }
 
-    public ShoppingCommon clickContinue() throws Exception {
+    public ShoppingCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
 
-    public SearchAddressCommon clickSearchAddress() throws Exception {
+    public SearchAddressCommon clickSearchAddress() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("search_address");
         return new SearchAddressCommon(tool, test, user);
     }
 
-    public Account enterDefaultIdentificationData() throws Exception {
+    public Account enterDefaultIdentificationData() throws Exception {  test.writeInLog(Common.getMethodName());
         Account account = new Account(uniqueTimeStamp);
         Person person = new Person(uniqueTimeStamp);
         Subscriber subscriber = new Subscriber(uniqueTimeStamp);
@@ -385,7 +385,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
         return account;
     }
 
-    public Account enterBusinessAccountIdentificationData() throws Exception {
+    public Account enterBusinessAccountIdentificationData() throws Exception {  test.writeInLog(Common.getMethodName());
         String uniqueTimeStamp = Common.generateTimeStamp();
         Account account = new Account(uniqueTimeStamp);
 
@@ -406,7 +406,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
         return account;
     }
 
-    public ClearTheCurrentBasketCommon enterCTIURL(Application application, String External_id) throws Exception {
+    public ClearTheCurrentBasketCommon enterCTIURL(Application application, String External_id) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.get(application.appURL() + "ctiAccess?subscriberExternalId=" + External_id + "&subscriberExternalIdType=3&ctiSessionId=123456");
         return new ClearTheCurrentBasketCommon(tool, test, user);
     }

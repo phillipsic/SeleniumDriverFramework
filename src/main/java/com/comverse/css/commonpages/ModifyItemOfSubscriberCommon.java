@@ -24,7 +24,7 @@ public class ModifyItemOfSubscriberCommon extends CommonMenu {
         }
     }
 
-    public ModifyItemCommon clickConfirm() throws Exception {
+    public ModifyItemCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyItemCommon(tool, test, user);

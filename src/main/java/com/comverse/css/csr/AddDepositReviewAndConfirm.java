@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AddDepositReviewAndConfirmCommon;
 
 public class AddDepositReviewAndConfirm extends AddDepositReviewAndConfirmCommon {
@@ -17,21 +18,21 @@ public class AddDepositReviewAndConfirm extends AddDepositReviewAndConfirmCommon
     }
 
     @Override
-    public AddDepositReviewAndConfirm clickConfirm() throws Exception {
+    public AddDepositReviewAndConfirm clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickConfirm();
         return new AddDepositReviewAndConfirm(tool, test, user);
     }
 
     @Override
-    public AccountDetails clickOk() throws Exception {
+    public AccountDetails clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickOk();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDeposits clickOkToViewDeposits() throws Exception {
+    public AccountDeposits clickOkToViewDeposits() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickOkToViewDeposits();
         return new AccountDeposits(tool, test, user);

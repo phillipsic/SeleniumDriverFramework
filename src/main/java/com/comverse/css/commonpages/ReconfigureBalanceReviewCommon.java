@@ -19,7 +19,7 @@ public class ReconfigureBalanceReviewCommon extends CommonMenu {
         }
     }
 
-    public ReconfigureBalanceConfirmCommon clickConfirm() throws Exception {
+    public ReconfigureBalanceConfirmCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ReconfigureBalanceConfirmCommon(tool, test, user);

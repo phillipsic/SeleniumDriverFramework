@@ -3,6 +3,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.RequestsForCustomerCommon;
 
 public class RequestsForCustomer extends RequestsForCustomerCommon {
@@ -13,12 +14,12 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
     }
 
     @Override
-    public AccountDetails clickAccounts() throws Exception {
+    public AccountDetails clickAccounts() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 
-    public void waitUntilBizFirstRequestCompletedOrFailed() throws Exception {
+    public void waitUntilBizFirstRequestCompletedOrFailed() throws Exception {  test.writeInLog(Common.getMethodName());
 
         int maxIterations = 90;
         int iterationCounter = 0;
@@ -50,14 +51,14 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
         }
     }
 
-    public String getBizFirstRequestStatus() throws Exception {
+    public String getBizFirstRequestStatus() throws Exception {  test.writeInLog(Common.getMethodName());
 
         String requestStatus = tool.getTextUsingXPath("//div[5]/table/tbody[2]/tr/td[6]/div");
         return requestStatus;
     }
 
     @Override
-    public OrderDetails clickOnOrderNumberLink(String orderNumber) throws Exception {
+    public OrderDetails clickOnOrderNumberLink(String orderNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickOnOrderNumberLink(orderNumber);
         return new OrderDetails(tool, test, user);

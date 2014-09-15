@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.CommonMenu;
 
 public class ActionDone extends CommonMenu {
@@ -19,7 +20,7 @@ public class ActionDone extends CommonMenu {
 
     }
 
-    public InsertInventory clickBack() throws Exception {
+    public InsertInventory clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
 

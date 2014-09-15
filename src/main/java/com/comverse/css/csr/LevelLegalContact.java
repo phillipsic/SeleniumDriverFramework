@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.LevelLegalContactCommon;
 
 public class LevelLegalContact extends LevelLegalContactCommon {
@@ -16,14 +17,14 @@ public class LevelLegalContact extends LevelLegalContactCommon {
     }
 
     @Override
-    public ViewHierarchy clickBack() throws Exception {
+    public ViewHierarchy clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickBack();
         return new ViewHierarchy(tool, test, user);
     }
 
     @Override
-    public ModifyLevelLegalContact clickModifyLevelLegalContact() throws Exception {
+    public ModifyLevelLegalContact clickModifyLevelLegalContact() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickModifyLevelLegalContact();
         return new ModifyLevelLegalContact(tool, test, user);

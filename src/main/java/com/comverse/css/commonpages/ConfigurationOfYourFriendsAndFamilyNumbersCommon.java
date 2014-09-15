@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu {
 
@@ -23,12 +24,12 @@ public class ConfigurationOfYourFriendsAndFamilyNumbersCommon extends CommonMenu
         }
     }
 
-    public void setPhoneNumber(String phoneNumber) throws Exception {
+    public void setPhoneNumber(String phoneNumber) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingName("friendsAndFamilyListInputFieldsphone_number0", phoneNumber);
     }
 
-    public void clickOK() throws Exception {
+    public void clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 

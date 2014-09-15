@@ -19,7 +19,7 @@ public class AddCaseReview extends B2CMenu {
         test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
-    public AddCaseConfirmation clickCreateCase() throws Exception {
+    public AddCaseConfirmation clickCreateCase() throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Create case']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

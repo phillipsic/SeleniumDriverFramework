@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ContactInformationCommon;
 
 public class ContactInformation extends ContactInformationCommon {
@@ -16,28 +17,28 @@ public class ContactInformation extends ContactInformationCommon {
     }
 
     @Override
-    public LoginInformation clickViewLoginInformationLink() throws Exception {
+    public LoginInformation clickViewLoginInformationLink() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickViewLoginInformationLink();
         return new LoginInformation(tool, test, user);
     }
 
     @Override
-    public MoveMember clickMoveMember() throws Exception {
+    public MoveMember clickMoveMember() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickMoveMember();
         return new MoveMember(tool, test, user);
     }
 
     @Override
-    public ModifyEmployeeContact clickModifyContact() throws Exception {
+    public ModifyEmployeeContact clickModifyContact() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickModifyContact();
         return new ModifyEmployeeContact(tool, test, user);
     }
 
     @Override
-    public ContactInformation clickUserInformation() throws Exception {
+    public ContactInformation clickUserInformation() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickUserInformation();
         return new ContactInformation(tool, test, user);
     }

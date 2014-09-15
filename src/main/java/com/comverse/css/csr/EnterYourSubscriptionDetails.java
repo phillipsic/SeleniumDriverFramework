@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.EnterYourSubscriptionDetailsCommon;
 
 public class EnterYourSubscriptionDetails extends EnterYourSubscriptionDetailsCommon {
@@ -16,7 +17,7 @@ public class EnterYourSubscriptionDetails extends EnterYourSubscriptionDetailsCo
     }
 
     @Override
-    public SelectOffersForYourSubscriber clickContinue() throws Exception {
+    public SelectOffersForYourSubscriber clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickContinue();
         return new SelectOffersForYourSubscriber(tool, test, user);
     }

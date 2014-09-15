@@ -21,28 +21,28 @@ public class ConfigureServiceConnectionDetailsCommon extends CommonMenu {
         }
     }
 
-    public MyBasketCommon clickContinue() throws Exception {
+    public MyBasketCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }
 
-    public SwapSubscriberExternalIdConfirmationCommon clickContinueExpectingSwapSubscriberExternalIdConfirmation() throws Exception {
+    public SwapSubscriberExternalIdConfirmationCommon clickContinueExpectingSwapSubscriberExternalIdConfirmation() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SwapSubscriberExternalIdConfirmationCommon(tool, test, user);
     }
 
-    public void selectTopLevelContainerType(String containerType) throws Exception {
+    public void selectTopLevelContainerType(String containerType) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("p-advInvSearch-L4:17000", containerType);
     }
 
-    public ServiceConnectionDetailsCommon clickOK() throws Exception {
+    public ServiceConnectionDetailsCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
-    public void setServiceConnectionEmail(String Email) throws Exception {
+    public void setServiceConnectionEmail(String Email) throws Exception {  test.writeInLog(Common.getMethodName());
         
         tool.enterStringUsingId("inputFields1178", Email);
 

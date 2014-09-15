@@ -22,33 +22,33 @@ public class WorkSpaceCommon extends CommonMenu {
         }
     }
 
-    public String getHomePageWelcomeMessage() throws Exception {
+    public String getHomePageWelcomeMessage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         return tool.getTextUsingXPath("/html/body/h1");
     }
 
-    public EnterIdentificationDataCommon startNewConvergentResidentialCustomer() throws Exception {
+    public EnterIdentificationDataCommon startNewConvergentResidentialCustomer() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("New Convergent Residential Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 
-    public EnterIdentificationDataCommon startNewConvergentBusinessCustomer() throws Exception {
+    public EnterIdentificationDataCommon startNewConvergentBusinessCustomer() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("New Convergent Business Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 
-    public EnterIdentificationDataCommon startNewPrePaidBusinessCustomer() throws Exception {
+    public EnterIdentificationDataCommon startNewPrePaidBusinessCustomer() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("New Pure Prepaid Business Customer");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 
-    public WorkSpaceCommon doResitdentialNCAResidentialUltraPostpaidPOS() throws Exception {
+    public WorkSpaceCommon doResitdentialNCAResidentialUltraPostpaidPOS() throws Exception {  test.writeInLog(Common.getMethodName());
         PO_ResidentialUltraPostpaid po_ResidentialUltraPostpaid = new PO_ResidentialUltraPostpaid();
         EnterIdentificationDataCommon enterIdentificationData = this.startNewConvergentResidentialCustomer();
 
@@ -86,7 +86,7 @@ public class WorkSpaceCommon extends CommonMenu {
         return workSpaceCommon;
     }
 
-    public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidBundlePOS() throws Exception {
+    public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidBundlePOS() throws Exception {  test.writeInLog(Common.getMethodName());
 
         String SUBSCRIBER_BUNDLE = "Residential - Basic Prepaid Bundle";
         EnterIdentificationDataCommon enterIdentificationData = this.startNewConvergentResidentialCustomer();
@@ -125,7 +125,7 @@ public class WorkSpaceCommon extends CommonMenu {
         return workSpaceCommon;
     }
 
-    public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidWithSOPOS(String SUPPLEMENTARY_OFFER) throws Exception {
+    public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidWithSOPOS(String SUPPLEMENTARY_OFFER) throws Exception {  test.writeInLog(Common.getMethodName());
 
         String PRIMARY_OFFER = "Residential - Basic Prepaid";
         EnterIdentificationDataCommon enterIdentificationData = this.startNewConvergentResidentialCustomer();
@@ -168,7 +168,7 @@ public class WorkSpaceCommon extends CommonMenu {
         return workSpaceCommon;
     }
 
-    public WorkSpaceCommon doResitdentialNCAResidentialUltraPostpaidCSR() throws Exception {
+    public WorkSpaceCommon doResitdentialNCAResidentialUltraPostpaidCSR() throws Exception {  test.writeInLog(Common.getMethodName());
         PO_ResidentialUltraPostpaid po_ResidentialUltraPostpaid = new PO_ResidentialUltraPostpaid();
         EnterIdentificationDataCommon enterIdentificationData = this.startNewConvergentResidentialCustomer();
 
@@ -210,7 +210,7 @@ public class WorkSpaceCommon extends CommonMenu {
         return workSpaceCommon;
     }
 
-    public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidBundleCSR() throws Exception {
+    public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidBundleCSR() throws Exception {  test.writeInLog(Common.getMethodName());
         SB_ResidentialBasicPrepaidBundle sb_ResidentialBasicPrepaidBundle = new SB_ResidentialBasicPrepaidBundle();
         EnterIdentificationDataCommon enterIdentificationData = this.startNewConvergentResidentialCustomer();
 
@@ -248,7 +248,7 @@ public class WorkSpaceCommon extends CommonMenu {
         return workSpaceCommon;
     }
 
-    public WorkSpaceCommon doResitdentialNCADIYRechargesPromotionsCSR() throws Exception {
+    public WorkSpaceCommon doResitdentialNCADIYRechargesPromotionsCSR() throws Exception {  test.writeInLog(Common.getMethodName());
         PO_DIYRechargesPromotions po_DIYRechargesPromotions = new PO_DIYRechargesPromotions();
         EnterIdentificationDataCommon enterIdentificationData = this.startNewConvergentResidentialCustomer();
 
@@ -286,7 +286,7 @@ public class WorkSpaceCommon extends CommonMenu {
         return workSpaceCommon;
     }
 
-    public WorkSpaceCommon doResitdentialNCADIYRechargesPromotions2CSR() throws Exception {
+    public WorkSpaceCommon doResitdentialNCADIYRechargesPromotions2CSR() throws Exception {  test.writeInLog(Common.getMethodName());
         PO_DIYRechargesPromotions2 po_DIYRechargesPromotions2 = new PO_DIYRechargesPromotions2();
         EnterIdentificationDataCommon enterIdentificationData = this.startNewConvergentResidentialCustomer();
 
@@ -321,13 +321,13 @@ public class WorkSpaceCommon extends CommonMenu {
         return workSpaceCommon;
     }
 
-    public ViewHierarchyCommon clickManageTelco() throws Exception {
+    public ViewHierarchyCommon clickManageTelco() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_TELCO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);
     }
 
-    public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidWithSOCSR(String SUPPLEMENTARY_OFFER) throws Exception {
+    public WorkSpaceCommon doResitdentialNCAResidentialBasicPrepaidWithSOCSR(String SUPPLEMENTARY_OFFER) throws Exception {  test.writeInLog(Common.getMethodName());
         PO_ResidentialBasicPrepaid po_ResidentialBasicPrepaid = new PO_ResidentialBasicPrepaid();
         EnterIdentificationDataCommon enterIdentificationData = this.startNewConvergentResidentialCustomer();
 
@@ -367,15 +367,15 @@ public class WorkSpaceCommon extends CommonMenu {
         return workSpaceCommon;
     }
 
-    public void clickBrowseCatalog() throws Exception {
+    public void clickBrowseCatalog() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Browse Catalog");
     }
 
-    public void selectCustomerType(String customerType) throws Exception {
+    public void selectCustomerType(String customerType) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("orgTypeId", customerType);
     }
 
-    public ShoppingCommon clickSubmit() throws Exception {
+    public ShoppingCommon clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//input[@value='Submit'])");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);

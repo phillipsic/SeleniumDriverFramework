@@ -17,24 +17,24 @@ public class ResumeSubscriberRequestForDetailsCommon extends CommonMenu {
         }
     }
 
-    public void clickCheckBoxResumeNow() throws Exception {
+    public void clickCheckBoxResumeNow() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("propertyNow");
 
     }
 
-    public void setReason(String reason) throws Exception {
+    public void setReason(String reason) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("reason", reason);
     }
 
-    public void setAnnotation(String annotation) throws Exception {
+    public void setAnnotation(String annotation) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("annotation", annotation);
     }
 
-    public ResumeSubscriberConfirmationCommon clickContinue() throws Exception {
+    public ResumeSubscriberConfirmationCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.CheckoutDeliveryAddressCommon;
 
 public class CheckoutDeliveryAddress extends CheckoutDeliveryAddressCommon {
@@ -17,7 +18,7 @@ public class CheckoutDeliveryAddress extends CheckoutDeliveryAddressCommon {
     }
 
     @Override
-    public CheckoutReview clickNextPage() throws Exception {
+    public CheckoutReview clickNextPage() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickNextPage();
         return new CheckoutReview(tool, test, user);
     }

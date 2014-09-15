@@ -21,7 +21,7 @@ public class LoginActivatedCommon extends CommonMenu {
         }
     }
     
-     public ModifyLoginPasswordCommon clickChangePassword() throws Exception {
+     public ModifyLoginPasswordCommon clickChangePassword() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Change Password']");
         return new ModifyLoginPasswordCommon(tool, test, user);

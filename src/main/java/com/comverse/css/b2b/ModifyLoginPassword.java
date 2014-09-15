@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ModifyLoginPasswordCommon;
 
 public class ModifyLoginPassword extends ModifyLoginPasswordCommon {
@@ -18,7 +19,7 @@ public class ModifyLoginPassword extends ModifyLoginPasswordCommon {
     }
 
     @Override
-    public MyshapeBusiness clickLogout() throws Exception {
+    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickLogout();
         return new MyshapeBusiness(tool, test, user);

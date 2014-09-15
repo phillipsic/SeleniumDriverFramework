@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ResumeAParkedBasketCommon extends CommonMenu {
 
@@ -18,18 +19,18 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
         }
     }
 
-    public String getMessage() throws Exception {
+    public String getMessage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         return tool.getTextUsingXPath("//span");
     }
 
-    public ResumeBasketConfirmCommon resumeParkedBasket(String value) throws Exception {
+    public ResumeBasketConfirmCommon resumeParkedBasket(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText(value);
         return new ResumeBasketConfirmCommon(tool, test, user);
     }
 
-    public DeleteBasketConfirmCommon deleteParkedBasket(String basketName) throws Exception {
+    public DeleteBasketConfirmCommon deleteParkedBasket(String basketName) throws Exception {  test.writeInLog(Common.getMethodName());
         //
         // String pageSource = tool.getPageSource();
         // String temp[];

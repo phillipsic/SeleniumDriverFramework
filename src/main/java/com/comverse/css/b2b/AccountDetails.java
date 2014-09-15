@@ -13,117 +13,117 @@ public class AccountDetails extends AccountDetailsCommon {
     }
 
     @Override
-    public AddNewCase addNewCase() throws Exception {
+    public AddNewCase addNewCase() throws Exception {  test.writeInLog(Common.getMethodName());
         super.addNewCase();
         return new AddNewCase(tool, test, user);
     }
 
     @Override
-    public DeliveryAddresses clickDeliveryAddresses() throws Exception {
+    public DeliveryAddresses clickDeliveryAddresses() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickDeliveryAddresses();
         return new DeliveryAddresses(tool, test, user);
     }
 
     @Override
-    public ViewInvoices clickBillsAndPayments() throws Exception {
+    public ViewInvoices clickBillsAndPayments() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickBillsAndPayments();
         return new ViewInvoices(tool, test, user);
     }
 
     @Override
-    public AddNewCase clickLinkOfFirstCase() throws Exception {
+    public AddNewCase clickLinkOfFirstCase() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickLinkOfFirstCase();
         return new AddNewCase(tool, test, user);
     }
 
     @Override
-    public ViewCase clickLinkOfCaseID(String caseID) throws Exception {
+    public ViewCase clickLinkOfCaseID(String caseID) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickLinkOfCaseID(caseID);
         return new ViewCase(tool, test, user);
     }
 
     @Override
-    public SubscriberDetails selectFirstSubscriberFromNavigationPanel() throws Exception {
+    public SubscriberDetails selectFirstSubscriberFromNavigationPanel() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.selectFirstSubscriberFromNavigationPanel();
         return new SubscriberDetails(tool, test, user);
     }
 
     @Override
-    public CustomerAcquisitionCustomerDataReview clickNewConvergentSubscriberOnExistingAccount() throws Exception {
+    public CustomerAcquisitionCustomerDataReview clickNewConvergentSubscriberOnExistingAccount() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickNewConvergentSubscriberOnExistingAccount();
         return new CustomerAcquisitionCustomerDataReview(tool, test, user);
     }
 
     @Override
-    public Shopping clickShopForDevicesAndAccessories() throws Exception {
+    public Shopping clickShopForDevicesAndAccessories() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickShopForDevicesAndAccessories();
         return new Shopping(tool, test, user);
     }
 
     @Override
-    public RequestsForCustomer clickViewRequestsForThisCustomer() throws Exception {
+    public RequestsForCustomer clickViewRequestsForThisCustomer() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickViewRequestsForThisCustomer();
         return new RequestsForCustomer(tool, test, user);
     }
 
     @Override
-    public ModifyContactInformation clickModifyBillingContact() throws Exception {
+    public ModifyContactInformation clickModifyBillingContact() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickModifyBillingContact();
         return new ModifyContactInformation(tool, test, user);
     }
 
     @Override
-    public ModifyPaymentInformation clickModifyPaymentMethod() throws Exception {
+    public ModifyPaymentInformation clickModifyPaymentMethod() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickModifyPaymentMethod();
         return new ModifyPaymentInformation(tool, test, user);
     }
 
     @Override
-    public ModifyAccountAttributes clickModifyAccountContact() throws Exception {
+    public ModifyAccountAttributes clickModifyAccountContact() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickModifyAccountContact();
         return new ModifyAccountAttributes(tool, test, user);
     }
 
     @Override
-    public SelectOffersForYourAccount clickAddNewAccountOffer() throws Exception {
+    public SelectOffersForYourAccount clickAddNewAccountOffer() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("(//a[@title='Subscribe new Account Offers'])");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourAccount(tool, test, user);
     }
 
     @Override
-    public RemoveOffer clickRemoveFirstAccountOffer() throws Exception {
+    public RemoveOffer clickRemoveFirstAccountOffer() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickRemoveFirstAccountOffer();
         return new RemoveOffer(tool, test, user);
     }
 
     @Override
-    public RemoveOffer clickRemoveAccountOffer(String newOfferName) throws Exception {
+    public RemoveOffer clickRemoveAccountOffer(String newOfferName) throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickRemoveAccountOffer(newOfferName);
         return new RemoveOffer(tool, test, user);
     }
 
     @Override
-    public SelectOffersForYourAccount clickReconfigureAccountOffer() throws Exception {
+    public SelectOffersForYourAccount clickReconfigureAccountOffer() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickReconfigureAccountOffer();
         return new SelectOffersForYourAccount(tool, test, user);
     }
 
     @Override
-    public ResumeAParkedBasket clickBasket() throws Exception {
+    public ResumeAParkedBasket clickBasket() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickBasket();
         return new ResumeAParkedBasket(tool, test, user);
     }
 
     @Override
-    public MyBasket clickViewBasket() throws Exception {
+    public MyBasket clickViewBasket() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickViewBasket();
         return new MyBasket(tool, test, user);
     }

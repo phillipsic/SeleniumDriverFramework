@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ParkTheCurrentBasketCommon extends CommonMenu {
 
@@ -18,13 +19,13 @@ public class ParkTheCurrentBasketCommon extends CommonMenu {
         }
     }
 
-    public void enterBasketID(String value) throws Exception {
+    public void enterBasketID(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("basket", value);
     }
 
-    public void clickOk() throws Exception {
+    public void clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
     }

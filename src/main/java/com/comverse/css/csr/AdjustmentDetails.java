@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AdjustmentDetailsCommon;
 
 public class AdjustmentDetails extends AdjustmentDetailsCommon {
@@ -12,7 +13,7 @@ public class AdjustmentDetails extends AdjustmentDetailsCommon {
     }
 
     @Override
-    public ViewUnbilledAdjustment clickBack() throws Exception {
+    public ViewUnbilledAdjustment clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickBack();
         return new ViewUnbilledAdjustment(tool, test, user);

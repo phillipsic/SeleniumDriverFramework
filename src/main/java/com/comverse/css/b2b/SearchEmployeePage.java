@@ -3,6 +3,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.SearchEmployeeCommon;
 
 public class SearchEmployeePage extends SearchEmployeeCommon {
@@ -21,7 +22,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public SearchEmployeePage searchEmployeeByLastName(String ln) throws Exception {
+    public SearchEmployeePage searchEmployeeByLastName(String ln) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.searchEmployeeByLastName(ln);
         return new SearchEmployeePage(tool, test, user);
@@ -30,7 +31,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public SearchEmployeePage searchEmployeeByLogin(String lg) throws Exception {
+    public SearchEmployeePage searchEmployeeByLogin(String lg) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.searchEmployeeByLogin(lg);
         return new SearchEmployeePage(tool, test, user);
@@ -39,7 +40,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public ContactInformation clickEmployeeNameLink(String FirstOrLastName) throws Exception {
+    public ContactInformation clickEmployeeNameLink(String FirstOrLastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickEmployeeNameLink(FirstOrLastName);
 

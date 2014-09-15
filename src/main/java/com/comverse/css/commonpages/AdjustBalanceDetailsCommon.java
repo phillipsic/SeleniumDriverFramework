@@ -19,13 +19,13 @@ public class AdjustBalanceDetailsCommon extends CommonMenu {
         }
     }
 
-    public void enterAdjustmentAmount(String amount) throws Exception {
+    public void enterAdjustmentAmount(String amount) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("adjustmentValue", amount);
     }
 
-    public AdjustBalanceReviewCommon clickContinue() throws Exception {
+    public AdjustBalanceReviewCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new AdjustBalanceReviewCommon(tool, test, user);

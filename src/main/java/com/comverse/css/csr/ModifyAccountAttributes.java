@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ModifyAccountAttributesCommon;
 
 public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
@@ -16,7 +17,7 @@ public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
     }
 
     @Override
-    public RequestSubmission clickModifyAttributes() throws Exception {
+    public RequestSubmission clickModifyAttributes() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickModifyAttributes();
         return new RequestSubmission(tool, test, user);

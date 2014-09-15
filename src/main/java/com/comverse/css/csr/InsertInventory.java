@@ -20,48 +20,48 @@ public class InsertInventory extends CommonMenu {
 
     }
 
-    public void selectInventoryType(String inventoryType) throws Exception {
+    public void selectInventoryType(String inventoryType) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("inventoryType", inventoryType);
         Common.sleepForNumberOfSeconds(10);
     }
 
-    public void setSerialNumber(String serialNumber) throws Exception {
+    public void setSerialNumber(String serialNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("serialNumber", serialNumber);
 
     }
 
-    public void setPrimaryNumber(String primaryNumber) throws Exception {
+    public void setPrimaryNumber(String primaryNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("primaryNumber", primaryNumber);
 
     }
 
-    public void setSecondaryNumber(String secondaryNumber) throws Exception {
+    public void setSecondaryNumber(String secondaryNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("secondaryNumber", secondaryNumber);
 
     }
 
-    public void setTertiaryNumber(String tertiaryNumber) throws Exception {
+    public void setTertiaryNumber(String tertiaryNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("tertiaryNumber", tertiaryNumber);
 
     }
 
-    public void setServiceNumber(String serviceNumber) throws Exception {
+    public void setServiceNumber(String serviceNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("serviceNumber", serviceNumber);
 
     }
 
-    public ActionDone clickInsert() throws Exception {
+    public ActionDone clickInsert() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("insertbtn");
 

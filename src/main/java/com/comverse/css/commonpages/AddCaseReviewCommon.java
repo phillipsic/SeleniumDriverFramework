@@ -24,7 +24,7 @@ public class AddCaseReviewCommon extends CommonMenu {
         }
     }
 
-    public AddCaseConfirmationCommon clickCreateCase() throws Exception {
+    public AddCaseConfirmationCommon clickCreateCase() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingName("ACTION_CREATE");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -33,7 +33,7 @@ public class AddCaseReviewCommon extends CommonMenu {
 
     }
 
-    public AddCaseConfirmationCommon clickCreateCaseAndClose() throws Exception {
+    public AddCaseConfirmationCommon clickCreateCaseAndClose() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingName("ACTION_CREATE_AND_CLOSE");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

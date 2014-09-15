@@ -22,7 +22,7 @@ public class ConfirmChangePasswordCommon extends CommonMenu {
         }
     }
 
-    public ChangeLoginPasswordCommon clickOk() throws Exception {
+    public ChangeLoginPasswordCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new ChangeLoginPasswordCommon(tool, test, user);

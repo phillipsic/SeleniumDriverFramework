@@ -22,22 +22,22 @@ public class ConfigureOffersCommon extends CommonMenu {
         }
     }
 
-    public ConfigureBalanceCommon clickContinue() throws Exception {
+    public ConfigureBalanceCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new ConfigureBalanceCommon(tool, test, user);
     }
 
-    public MyBasketCommon clickContinueExpectingMyBasket() throws Exception {
+    public MyBasketCommon clickContinueExpectingMyBasket() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new MyBasketCommon(tool, test, user);
     }
 
-    public ServiceConnectionDetailsCommon clickContinueExpectingServiceConnectionDetails() throws Exception {
+    public ServiceConnectionDetailsCommon clickContinueExpectingServiceConnectionDetails() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new ServiceConnectionDetailsCommon(tool, test, user);
     }
 
-    public SwapImpactCommon clickContinueExpectingSwapImpact() throws Exception {
+    public SwapImpactCommon clickContinueExpectingSwapImpact() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new SwapImpactCommon(tool, test, user);
     }

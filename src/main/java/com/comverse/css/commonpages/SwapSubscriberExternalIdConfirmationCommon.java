@@ -9,7 +9,7 @@ import com.comverse.css.common.Subscriber;
 public class SwapSubscriberExternalIdConfirmationCommon extends CommonMenu {
     static String expectedScreen = "Swap Subscriber External Id - Confirmation";
 
-    public SwapSubscriberExternalIdConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception {
+    public SwapSubscriberExternalIdConfirmationCommon(AutomationTool tool, Test test, User user) throws Exception { 
         super(tool, test, user);
         String currentScreen = tool.getTitle();
 
@@ -18,13 +18,13 @@ public class SwapSubscriberExternalIdConfirmationCommon extends CommonMenu {
         }
     }
 
-    public SubscriberExternalIDSwapDoneCommon clickContinue() throws Exception {
+    public SubscriberExternalIDSwapDoneCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingName("submit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberExternalIDSwapDoneCommon(tool, test, user);
     }
 
-    public void setNewMSISDNInventory(Subscriber subscriber) throws Exception {
+    public void setNewMSISDNInventory(Subscriber subscriber) throws Exception {  test.writeInLog(Common.getMethodName());
         String MSISDN = tool.getTextUsingXPath("//tr[3]/td/span[2]");
         subscriber.setSubscriberMSISDNProperty(MSISDN);
     }

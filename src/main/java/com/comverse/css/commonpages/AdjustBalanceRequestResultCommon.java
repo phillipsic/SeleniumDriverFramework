@@ -19,7 +19,7 @@ public class AdjustBalanceRequestResultCommon extends CommonMenu {
         }
     }
 
-    public ViewBalanceCommon clickBack() throws Exception {
+    public ViewBalanceCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewBalanceCommon(tool, test, user);

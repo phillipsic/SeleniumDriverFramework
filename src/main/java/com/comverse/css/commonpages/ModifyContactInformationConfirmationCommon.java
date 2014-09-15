@@ -22,12 +22,12 @@ public class ModifyContactInformationConfirmationCommon extends CommonMenu {
         }
     }
 
-    public RequestSubmissionCommon clickOk() throws Exception {
+    public RequestSubmissionCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new RequestSubmissionCommon(tool, test, user);
     }
 
-    public RequestSubmissionCommon clickOkToConfirm() throws Exception {
+    public RequestSubmissionCommon clickOkToConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new RequestSubmissionCommon(tool, test, user);
     }

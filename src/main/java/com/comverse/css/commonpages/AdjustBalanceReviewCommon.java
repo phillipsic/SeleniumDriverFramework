@@ -20,7 +20,7 @@ public class AdjustBalanceReviewCommon extends CommonMenu {
 
     }
 
-    public AdjustBalanceRequestResultCommon clickConfirm() throws Exception {
+    public AdjustBalanceRequestResultCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new AdjustBalanceRequestResultCommon(tool, test, user);

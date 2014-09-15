@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.CommonMenu;
 
 public class AddEmployeeContactInformation extends CommonMenu {
@@ -22,30 +23,30 @@ public class AddEmployeeContactInformation extends CommonMenu {
         }
     }
 
-    public void setFirstName(String firstName) throws Exception {
+    public void setFirstName(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("first_name", firstName);
     }
 
-    public void setLastName(String lastName) throws Exception {
+    public void setLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("last_name", lastName);
     }
 
     /*
-     * public AddEmployeeRegisterLogin clickSubmit() throws Exception {
+     * public AddEmployeeRegisterLogin clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
      * 
      * tool.clickUsingCssSelector("input.submit"); return
      * new AddEmployeeRegisterLogin(tool, test, user); }
      */
-    public void selectState(String homeState) throws Exception {
+    public void selectState(String homeState) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_state", homeState);
     }
 
-    public AddEmployeeRegisterLogin clickContinue() throws Exception {
+    public AddEmployeeRegisterLogin clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new AddEmployeeRegisterLogin(tool, test, user);

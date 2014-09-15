@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class UnlockPINWithPUKCommon extends CommonMenu {
     static String expectedScreen = "Unlock PIN with PUK";
@@ -20,7 +21,7 @@ public class UnlockPINWithPUKCommon extends CommonMenu {
         }
     }
 
-    public SubscriberDetailsCommon clickOK() throws Exception {
+    public SubscriberDetailsCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new SubscriberDetailsCommon(tool, test, user);
     }

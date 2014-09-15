@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class PrimaryOfferDetailsCommon extends CommonMenu {
 
@@ -17,11 +18,11 @@ public class PrimaryOfferDetailsCommon extends CommonMenu {
         }
     }
 
-    public void clickRPOCompatiblePrimaryOffersTab() throws Exception {
+    public void clickRPOCompatiblePrimaryOffersTab() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//em[contains(text(),'Compatible Offers')]");
     }
 
-    public void clickRPOTermsandConditionsTab() throws Exception {
+    public void clickRPOTermsandConditionsTab() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//em[contains(text(),'Terms And Conditions')]");
     }
 }

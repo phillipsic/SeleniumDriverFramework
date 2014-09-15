@@ -25,78 +25,78 @@ public class UpdateAdministrativeAccountInformationCommon extends CommonMenu {
         }
     }
 
-    public CustomerAcquisitionCustomerDataReviewCommon clickConfirm() throws Exception {
+    public CustomerAcquisitionCustomerDataReviewCommon clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
     }
 
-    public void setBillingBillDispatchMethod(String SocialSecurityNumber) throws Exception {
+    public void setBillingBillDispatchMethod(String SocialSecurityNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91310", SocialSecurityNumber);
     }
 
-    public void setBillingBillFormatOption(String PurchaseOrder) throws Exception {
+    public void setBillingBillFormatOption(String PurchaseOrder) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91300", PurchaseOrder);
     }
 
-    public void setBillingExchangeRateClass(String rateClass) throws Exception {
+    public void setBillingExchangeRateClass(String rateClass) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("p-param-L4:91520", rateClass);
     }
 
-    public void setRateClass(String rateClass) throws Exception {
+    public void setRateClass(String rateClass) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91520", rateClass);
     }
 
-    public void setBillingTML(String BillingTML) throws Exception {
+    public void setBillingTML(String BillingTML) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:81280", BillingTML);
     }
 
-    public void setBillingVIPCode(String SICCode) throws Exception {
+    public void setBillingVIPCode(String SICCode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:80080", SICCode);
     }
 
-    public void setBillingBillPeriod(String SICCode) throws Exception {
+    public void setBillingBillPeriod(String SICCode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:81010", SICCode);
     }
 
-    public void setMarketCode(String marketCode) throws Exception {
+    public void setMarketCode(String marketCode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("p-param-L4:80060", marketCode);
     }
 
-    public void setSocialSecurityNumber(String SocialSecurityNumber) throws Exception {
+    public void setSocialSecurityNumber(String SocialSecurityNumber) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91260", SocialSecurityNumber);
     }
 
-    public void setPurchaseOrder(String PurchaseOrder) throws Exception {
+    public void setPurchaseOrder(String PurchaseOrder) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91540", PurchaseOrder);
     }
 
-    public void setSalesCode(String SalesCode) throws Exception {
+    public void setSalesCode(String SalesCode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91530", SalesCode);
     }
 
-    public void setSecurityWord(String SecurityWord) throws Exception {
+    public void setSecurityWord(String SecurityWord) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91070", SecurityWord);
     }
 
-    public void setSICCode(String SICCode) throws Exception {
+    public void setSICCode(String SICCode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91320", SICCode);
     }
 
-    public CustomerAcquisitionCustomerDataReviewCommon clickContinue() throws Exception {
+    public CustomerAcquisitionCustomerDataReviewCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

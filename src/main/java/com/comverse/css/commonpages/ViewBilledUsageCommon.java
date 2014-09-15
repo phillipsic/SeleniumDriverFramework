@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ViewBilledUsageCommon extends CommonMenu {
 
@@ -19,26 +20,26 @@ public class ViewBilledUsageCommon extends CommonMenu {
         }
     }
 
-    public void enterFromDate(String fromDate) throws Exception {
+    public void enterFromDate(String fromDate) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
-    public ViewBilledUsageCommon clickSearch() throws Exception {
+    public ViewBilledUsageCommon clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         return new ViewBilledUsageCommon(tool, test, user);
     }
 
-    public ViewBilledUsageDetailsCommon clickFirstUsage() throws Exception {
+    public ViewBilledUsageDetailsCommon clickFirstUsage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("invoiceUsageDetails");
         return new ViewBilledUsageDetailsCommon(tool, test, user);
     }
 
-    public ViewInvoiceDetailsCommon clickBack() throws Exception {
+    public ViewInvoiceDetailsCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);

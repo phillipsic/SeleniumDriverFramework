@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RequestSubmissionCommon extends CommonMenu {
 
@@ -22,33 +23,33 @@ public class RequestSubmissionCommon extends CommonMenu {
         }
     }
 
-    public ViewHierarchyCommon clickOk() throws Exception {
+    public ViewHierarchyCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 
         return new ViewHierarchyCommon(tool, test, user);
     }
 
-    public AccountDetailsCommon clickOkModifyRequestGoTOAccountDashboard() throws Exception {
+    public AccountDetailsCommon clickOkModifyRequestGoTOAccountDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public ContactInformationCommon clickOkToSubmit() throws Exception {
+    public ContactInformationCommon clickOkToSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 
         return new ContactInformationCommon(tool, test, user);
     }
 
-    public SubscriberDetailsCommon clickOkModifyRequestGoTOSubscriberDashboard() throws Exception {
+    public SubscriberDetailsCommon clickOkModifyRequestGoTOSubscriberDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new SubscriberDetailsCommon(tool, test, user);
     }
 
-    public ProfileInformationCommon clickOkToSubmitRequest() throws Exception {
+    public ProfileInformationCommon clickOkToSubmitRequest() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

@@ -24,21 +24,21 @@ public class ModifyOfferParametersCommon extends CommonMenu {
         }
     }
 
-    public void checkVoiceMailEnableToNo() throws Exception {
+    public void checkVoiceMailEnableToNo() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//label[contains(text(),'Voice Mail Enable')]/following-sibling::input");
     }
 
-    public void enterVoiceMailSize(String voiceMailSize) throws Exception {
+    public void enterVoiceMailSize(String voiceMailSize) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.enterStringUsingXPath("//label[contains(text(),'Voice Mail Size')]/../input", voiceMailSize);
     }
 
-    public ModifyItemOfSubscriberCommon clickModify() throws Exception {
+    public ModifyItemOfSubscriberCommon clickModify() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Modify']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyItemOfSubscriberCommon(tool, test, user);
     }
 
-    public String getVoiceMailSize() throws Exception {
+    public String getVoiceMailSize() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getAttributeUsingXpath("//label[contains(text(),'Voice Mail Size')]/../input", "value");
     }
 }

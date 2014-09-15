@@ -4,6 +4,7 @@ import com.comverse.caseui.common.CaseUITest;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.PropertyHelper;
 
 public class CaseUIMenu extends CaseUITest {
@@ -14,20 +15,20 @@ public class CaseUIMenu extends CaseUITest {
         this.user = user;
     }
 
-    public void clickCaseManagement() throws Exception {
+    public void clickCaseManagement() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[contains(text(), 'Case Management')]");
     }
 
-    public CaseUICases clickCases() throws Exception {
+    public CaseUICases clickCases() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[contains(text(), 'Cases')]");
         return new CaseUICases(tool, test, user);
     }
 
-    public void clickAccounts() throws Exception {
+    public void clickAccounts() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[contains(text(), 'Accounts')]");
     }
 
-    public CaseUIAccounts clickAccountsSub() throws Exception {
+    public CaseUIAccounts clickAccountsSub() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[8]/div[2]/div/table/tbody/tr/td[2]/div");
 
         return new CaseUIAccounts(tool, test, user);
@@ -39,15 +40,15 @@ public class CaseUIMenu extends CaseUITest {
         return waitSec;
     }
 
-    public void clickActivities() throws Exception {
+    public void clickActivities() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[contains(text(), 'Activities')]");
     }
 
-    public void clickTasks() throws Exception {
+    public void clickTasks() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[contains(text(), 'Tasks')]");
     }
 
-    public void clickSignOut() throws Exception {
+    public void clickSignOut() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("$azn666_label");
 
     }

@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ViewRechargeDetailsCommon extends CommonMenu {
 
@@ -20,13 +21,13 @@ public class ViewRechargeDetailsCommon extends CommonMenu {
 
     }
 
-    public ViewUnbilledRechargeCommon clickBack() throws Exception {
+    public ViewUnbilledRechargeCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewUnbilledRechargeCommon(tool, test, user);
     }
 
-    public ViewBilledRechargesCommon clickBackToBiledRecharges() throws Exception {
+    public ViewBilledRechargesCommon clickBackToBiledRecharges() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewBilledRechargesCommon(tool, test, user);

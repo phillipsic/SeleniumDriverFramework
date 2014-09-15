@@ -19,13 +19,13 @@ public class AddCaseConfirmation extends B2CMenu {
         test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
-    public AddCase clickOk() throws Exception {
+    public AddCase clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input.submit");
         return new AddCase(tool, test, user);
     }
 
-    public String getCaseID() throws Exception {
+    public String getCaseID() throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//span");
 

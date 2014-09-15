@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ModifyPaymentInformationCommon extends CommonMenu {
 
@@ -22,52 +23,52 @@ public class ModifyPaymentInformationCommon extends CommonMenu {
         }
     }
 
-    public void setPaymentMethodDirectDebit() throws Exception {
+    public void setPaymentMethodDirectDebit() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingName("method");
     }
 
-    public void setBankCode(String value) throws Exception {
+    public void setBankCode(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("p-L1:1-L3:1360", value);
     }
 
-    public void setBankAgencyCode(String value) throws Exception {
+    public void setBankAgencyCode(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("p-L1:1-L3:1370", value);
     }
 
-    public void setBankAccountNumber(String value) throws Exception {
+    public void setBankAccountNumber(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("p-L1:1-L3:1380", value);
     }
 
-    public void setOwnerlastName(String value) throws Exception {
+    public void setOwnerlastName(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("p-L1:1-L3:1270", value);
     }
 
-    public ModifyPaymentMethodCommon clickModifyPaymentButton() throws Exception {
+    public ModifyPaymentMethodCommon clickModifyPaymentButton() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Modify Payment Method']");
         return new ModifyPaymentMethodCommon(tool, test, user);
     }
 
-    public String getBankCode() throws Exception {
+    public String getBankCode() throws Exception {  test.writeInLog(Common.getMethodName());
 
         return tool.getAttributeUsingId("p-L1:1-L3:1360", "value");
     }
 
-    public String getBankAgencyCode() throws Exception {
+    public String getBankAgencyCode() throws Exception {  test.writeInLog(Common.getMethodName());
 
         return tool.getAttributeUsingId("p-L1:1-L3:1370", "value");
     }
 
-    public String getBankAccountNumber() throws Exception {
+    public String getBankAccountNumber() throws Exception {  test.writeInLog(Common.getMethodName());
 
         return tool.getAttributeUsingId("p-L1:1-L3:1380", "value");
     }

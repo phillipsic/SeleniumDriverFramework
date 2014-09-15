@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ViewBilledMTRCommon extends CommonMenu {
 
@@ -19,13 +20,13 @@ public class ViewBilledMTRCommon extends CommonMenu {
         }
     }
 
-    public ViewBilledMTRDetailsCommon clickFirstMTR() throws Exception {
+    public ViewBilledMTRDetailsCommon clickFirstMTR() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
         return new ViewBilledMTRDetailsCommon(tool, test, user);
     }
 
-    public ViewInvoiceDetailsCommon clickBack() throws Exception {
+    public ViewInvoiceDetailsCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);

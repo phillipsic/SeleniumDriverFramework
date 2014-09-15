@@ -3,6 +3,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ViewUnbilledUsageDetailsCommon;
 
 public class ViewUnbilledUsageDetails extends ViewUnbilledUsageDetailsCommon {
@@ -13,7 +14,7 @@ public class ViewUnbilledUsageDetails extends ViewUnbilledUsageDetailsCommon {
     }
 
     @Override
-    public ViewUnbilledUsage clickBack() throws Exception {
+    public ViewUnbilledUsage clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickBack();
         return new ViewUnbilledUsage(tool, test, user);

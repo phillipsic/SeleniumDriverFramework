@@ -22,18 +22,18 @@ public class AddCaseConfirmationCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon clickOk() throws Exception {
+    public AccountDetailsCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public String getConfirmationMessage() throws Exception {
+    public String getConfirmationMessage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         return tool.getTextUsingCssSelector("BODY");
     }
 
-    public String getCaseID() throws Exception {
+    public String getCaseID() throws Exception {  test.writeInLog(Common.getMethodName());
 
         String caseID = tool.getTextUsingCssSelector("div.txt > span");
 

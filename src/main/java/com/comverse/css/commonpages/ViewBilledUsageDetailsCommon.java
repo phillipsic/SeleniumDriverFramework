@@ -3,6 +3,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ViewBilledUsageDetailsCommon extends CommonMenu {
 
@@ -19,7 +20,7 @@ public class ViewBilledUsageDetailsCommon extends CommonMenu {
         }
     }
 
-    public ViewBilledUsageCommon clickBack() throws Exception {
+    public ViewBilledUsageCommon clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewBilledUsageCommon(tool, test, user);

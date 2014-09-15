@@ -23,7 +23,7 @@ public class SubscriberStatusCommon extends CommonMenu {
         }
     }
 
-    public void checkStatus() throws Exception {
+    public void checkStatus() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.assertTextOnPage(tool, "active");
     }
 

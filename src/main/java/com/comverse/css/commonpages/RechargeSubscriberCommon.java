@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class RechargeSubscriberCommon extends CommonMenu {
 
@@ -24,14 +25,14 @@ public class RechargeSubscriberCommon extends CommonMenu {
         }
     }
 
-    public String getRechargeClass() throws Exception {
+    public String getRechargeClass() throws Exception {  test.writeInLog(Common.getMethodName());
 
         String rechargeClass = tool.getTextUsingXPath("//tr[4]/td[2]/span/strong");
 
         return rechargeClass;
     }
 
-    public ViewBalanceCommon clickViewBalances() throws Exception {
+    public ViewBalanceCommon clickViewBalances() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingID("youcan_BACK_TO_BALANCE_VIEW");
 

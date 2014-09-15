@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AccountBundleDistributionConfigurationCommon;
 
 public class AccountBundleDistributionConfiguration extends AccountBundleDistributionConfigurationCommon {
@@ -13,7 +14,7 @@ public class AccountBundleDistributionConfiguration extends AccountBundleDistrib
     }
 
     @Override
-    public ConfigureContractDetails clickContinue() throws Exception {
+    public ConfigureContractDetails clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickContinue();
         return new ConfigureContractDetails(tool, test, user);
     }

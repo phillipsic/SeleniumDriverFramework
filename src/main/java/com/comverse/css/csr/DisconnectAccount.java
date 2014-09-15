@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.DisconnectAccountCommon;
 
 public class DisconnectAccount extends DisconnectAccountCommon {
@@ -12,31 +13,31 @@ public class DisconnectAccount extends DisconnectAccountCommon {
     }
 
     @Override
-    public void clickCheckBoxUnlockNow() throws Exception {
+    public void clickCheckBoxUnlockNow() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("disconnectNow");
     }
 
     @Override
-    public void setAnnotation(String annotation) throws Exception {
+    public void setAnnotation(String annotation) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("annotation", annotation);
     }
 
     @Override
-    public DisconnectAccount clickContinue() throws Exception {
+    public DisconnectAccount clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickContinue();
         return new DisconnectAccount(tool, test, user);
     }
 
     @Override
-    public DisconnectAccount clickContinueOnImpacts() throws Exception {
+    public DisconnectAccount clickContinueOnImpacts() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickContinueOnImpacts();
         return new DisconnectAccount(tool, test, user);
     }
 
     @Override
-    public AccountDetails clickOk() throws Exception {
+    public AccountDetails clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickOk();
         return new AccountDetails(tool, test, user);
     }

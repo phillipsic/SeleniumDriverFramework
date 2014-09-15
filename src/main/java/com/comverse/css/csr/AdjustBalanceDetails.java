@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AdjustBalanceDetailsCommon;
 
 public class AdjustBalanceDetails extends AdjustBalanceDetailsCommon {
@@ -12,7 +13,7 @@ public class AdjustBalanceDetails extends AdjustBalanceDetailsCommon {
     }
 
     @Override
-    public AdjustBalanceReview clickContinue() throws Exception {
+    public AdjustBalanceReview clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickContinue();
         return new AdjustBalanceReview(tool, test, user);

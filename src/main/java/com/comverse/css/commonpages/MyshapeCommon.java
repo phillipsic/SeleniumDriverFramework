@@ -14,7 +14,7 @@ public class MyshapeCommon extends CommonMenu {
         super(tool, test, user);
     }
 
-    public void successfulLogin(User user) throws Exception {
+    public void successfulLogin(User user) throws Exception {  test.writeInLog(Common.getMethodName());
 
         if (user.getLogin() == null || user.getLogin().length() == 0) {
             throw new MissingResourceException("Missing property Login " + user.getLogin(), PASSWORD_PROPERTY_FILE, user.getLogin());
@@ -39,72 +39,72 @@ public class MyshapeCommon extends CommonMenu {
 
     }
 
-    public void setYourPassword(String password) throws Exception {
+    public void setYourPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("password_old", password);
     }
 
-    public void setNewPassword(String password) throws Exception {
+    public void setNewPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("password_new", password);
     }
 
-    public void setConfirmNewPassword(String password) throws Exception {
+    public void setConfirmNewPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("password_verify", password);
     }
 
-    public void setSecretAnswer(String secretAnswer) throws Exception {
+    public void setSecretAnswer(String secretAnswer) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("secretAnswer", secretAnswer);
     }
 
-    public void clickOk() throws Exception {
+    public void clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 
-    public void clickSubmit() throws Exception {
+    public void clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Submit']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
-    public void clickHomePage() throws Exception {
+    public void clickHomePage() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Home Page']");
     }
 
-    public void clickAdminLogin(Application application) throws Exception {
+    public void clickAdminLogin(Application application) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.get(application.appURL() + "/jfn?entry=admin_login");
     }
 
-    public void clickForgotYourPassword() throws Exception {
+    public void clickForgotYourPassword() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("lnk_FORGOTTEN_PASSWORD");
     }
 
-    public void setUserName(String login) throws Exception {
+    public void setUserName(String login) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("login", login);
     }
 
-    public void setPassword(String password) throws Exception {
+    public void setPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("password", password);
     }
 
-    public void selectRealm(String realm) throws Exception {
+    public void selectRealm(String realm) throws Exception {  test.writeInLog(Common.getMethodName());
         if (tool.getPageSource().contains("Domain")) {
             tool.selectVisibleTextByID("realm", realm);
         }
     }
 
-    public void clickLogin() throws Exception {
+    public void clickLogin() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingName("LoginButton");
     }
 
-    public String getMessage() throws Exception {
+    public String getMessage() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getTextUsingXPath("//span");
     }
 
-    public MyshapeCommon unsuccessfulLogin(User user) throws Exception {
+    public MyshapeCommon unsuccessfulLogin(User user) throws Exception {  test.writeInLog(Common.getMethodName());
         this.setUserName(user.getLogin());
         this.setPassword(user.getPassword());
         this.clickLogin();
@@ -112,7 +112,7 @@ public class MyshapeCommon extends CommonMenu {
         return new MyshapeCommon(tool, test, user);
     }
 
-    public String getTempPasswordFromPage() throws Exception {
+    public String getTempPasswordFromPage() throws Exception {  test.writeInLog(Common.getMethodName());
         String password = tool.getTextUsingXPath("//span");
         String temp[] = password.split(":");
         password = temp[1];
@@ -121,13 +121,13 @@ public class MyshapeCommon extends CommonMenu {
         return password.trim();
     }
 
-    public WorkSpaceCommon clickContinue() throws Exception {
+    public WorkSpaceCommon clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
 
         return new WorkSpaceCommon(tool, test, user);
     }
 
-    public String getChangePasswordOnFirstLoginMessage() throws Exception {
+    public String getChangePasswordOnFirstLoginMessage() throws Exception {  test.writeInLog(Common.getMethodName());
         System.out.println(">>" + tool.getTextUsingCssSelector("span"));
 
         return tool.getTextUsingCssSelector("span");

@@ -1,10 +1,10 @@
 package com.comverse.css.commonpages;
 
-import java.io.File;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
+import java.io.File;
 
 public class UploadTokenCommon extends CommonMenu {
 
@@ -20,7 +20,7 @@ public class UploadTokenCommon extends CommonMenu {
 
     }
 
-    public void selectFile(String filename) throws Exception {
+    public void selectFile(String filename) throws Exception {  test.writeInLog(Common.getMethodName());
 
         File file = new File(filename);
         // 
@@ -28,7 +28,7 @@ public class UploadTokenCommon extends CommonMenu {
 
     }
 
-    public TokensfoundCommon clickOk() throws Exception {
+    public TokensfoundCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Ok']");
 

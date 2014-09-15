@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class MoveMemberCommon extends CommonMenu {
 
@@ -20,12 +21,12 @@ public class MoveMemberCommon extends CommonMenu {
         }
     }
 
-    public MoveMemberCommon clickSelectByLevelName(String levelName) throws Exception {
+    public MoveMemberCommon clickSelectByLevelName(String levelName) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]");
         return new MoveMemberCommon(tool, test, user);
     }
 
-    public MoveMemberCommon findSelectByLevelName(String levelName) throws Exception {
+    public MoveMemberCommon findSelectByLevelName(String levelName) throws Exception {  test.writeInLog(Common.getMethodName());
         if (tool.searchListUsingXPath("//tr[td[contains(text(),'" + levelName + "')]]/td//a[contains(text(), 'Select')]").size() > 0) {
             throw new IllegalStateException("Expecting:No Select Link but got: Select Link");
         } else {
@@ -34,7 +35,7 @@ public class MoveMemberCommon extends CommonMenu {
         }
     }
 
-    public ContactInformationCommon clickOk() throws Exception {
+    public ContactInformationCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new ContactInformationCommon(tool, test, user);
     }

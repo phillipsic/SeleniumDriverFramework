@@ -22,29 +22,29 @@ public class ChangeSecretAnswerCommon extends CommonMenu {
         }
     }
 
-    public void setPassword(String password) throws Exception {
+    public void setPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("password_old", password);
     }
 
-    public void setSecretAnswer(String answer) throws Exception {
+    public void setSecretAnswer(String answer) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("secretAnswer", answer);
     }
 
-    public String getSecretAnswer() throws Exception {
+    public String getSecretAnswer() throws Exception {  test.writeInLog(Common.getMethodName());
 
         return tool.getAttributeUsingId("secretAnswer", "value");
     }
 
-    public void setSecretQuestion(String question) throws Exception {
+    public void setSecretQuestion(String question) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("secretQuestionId", question);
     }
 
-    public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {
+    public ConfirmNewSecretAnswerCommon clickChangeSecretAnswer() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new ConfirmNewSecretAnswerCommon(tool, test, user);

@@ -21,7 +21,7 @@ public class CheckoutDeliveryAddressCommon extends CommonMenu {
         }
     }
 
-    public CheckoutReviewCommon clickNextPage() throws Exception {
+    public CheckoutReviewCommon clickNextPage() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("nav_next_page");
         return new CheckoutReviewCommon(tool, test, user);
     }

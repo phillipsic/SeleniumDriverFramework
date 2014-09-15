@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ResumeBasketConfirmCommon extends CommonMenu {
 
@@ -22,7 +23,7 @@ public class ResumeBasketConfirmCommon extends CommonMenu {
         }
     }
 
-    public MyBasketCommon clickOk() throws Exception {
+    public MyBasketCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new MyBasketCommon(tool, test, user);

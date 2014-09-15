@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AddDepositCommon;
 
 public class AddDeposit extends AddDepositCommon {
@@ -17,31 +18,31 @@ public class AddDeposit extends AddDepositCommon {
     }
 
     @Override
-    public void setDepositType(String depositType) throws Exception {
+    public void setDepositType(String depositType) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.setDepositType(depositType);
     }
 
     @Override
-    public void setBalance(String balanceName) throws Exception {
+    public void setBalance(String balanceName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.setBalance(balanceName);
     }
 
     @Override
-    public void setDepositAmount(String depositAmount) throws Exception {
+    public void setDepositAmount(String depositAmount) throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.setDepositAmount(depositAmount);
     }
 
     @Override
-    public void selectPaymentMethod() throws Exception {
+    public void selectPaymentMethod() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.selectPaymentMethod();
     }
 
     @Override
-    public AddDepositReviewAndConfirm clickContinue() throws Exception {
+    public AddDepositReviewAndConfirm clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.clickContinue();
         return new AddDepositReviewAndConfirm(tool, test, user);

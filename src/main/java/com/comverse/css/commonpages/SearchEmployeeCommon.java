@@ -1,10 +1,10 @@
 package com.comverse.css.commonpages;
 
-import static org.junit.Assert.assertTrue;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
+import static org.junit.Assert.assertTrue;
 
 public class SearchEmployeeCommon extends CommonMenu {
 
@@ -19,7 +19,7 @@ public class SearchEmployeeCommon extends CommonMenu {
         }
     }
 
-    public SearchEmployeeCommon searchEmployeeByLastName(String ln) throws Exception {
+    public SearchEmployeeCommon searchEmployeeByLastName(String ln) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-L2:10-L3:1470", ln);
         tool.clickUsingXPath("//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']");
@@ -30,7 +30,7 @@ public class SearchEmployeeCommon extends CommonMenu {
         // button of the same section. Expects the same page when completed.
     }
 
-    public SearchEmployeeCommon searchEmployeeByLogin(String lg) throws Exception {
+    public SearchEmployeeCommon searchEmployeeByLogin(String lg) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("p-L4:1014-L3:1640", lg);
         tool.clickUsingXPath("//form[@id='form_SEARCH_MEMBERS_RESULT_1']//input[@value='Search']");
@@ -40,7 +40,7 @@ public class SearchEmployeeCommon extends CommonMenu {
         // button of the same section. Expects the same page when completed.
     }
 
-    public SearchEmployeeCommon checkIfResultIsCorrect(String numberOfCustomersDisplayed) throws Exception {
+    public SearchEmployeeCommon checkIfResultIsCorrect(String numberOfCustomersDisplayed) throws Exception {  test.writeInLog(Common.getMethodName());
 
         assertTrue(tool.getTextUsingCssSelector("BODY").matches("^[\\s\\S]*" + numberOfCustomersDisplayed + " employee\\(s\\) found[\\s\\S]*$"));
 
@@ -50,7 +50,7 @@ public class SearchEmployeeCommon extends CommonMenu {
         // page.
     }
 
-    public ContactInformationCommon clickEmployeeNameLink(String FirstOrLastName) throws Exception {
+    public ContactInformationCommon clickEmployeeNameLink(String FirstOrLastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(FirstOrLastName);
 

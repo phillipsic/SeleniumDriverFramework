@@ -18,34 +18,34 @@ public class AddressAddCommon extends CommonMenu {
 
     }
 
-    public void setStreetName(String streetname) throws Exception {
+    public void setStreetName(String streetname) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("streetName", streetname);
 
     }
 
-    public void setCity(String city) throws Exception {
+    public void setCity(String city) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("city", city);
 
     }
 
-    public void setZipCode(String zipcode) throws Exception {
+    public void setZipCode(String zipcode) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("postalCode", zipcode);
 
     }
 
-    public void selectCountry(String country) throws Exception {
+    public void selectCountry(String country) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("countryCode", country);
 
     }
 
-    public AddressAdministrationCommon clickOK() throws Exception {
+    public AddressAdministrationCommon clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Ok']");
 

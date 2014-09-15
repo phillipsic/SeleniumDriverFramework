@@ -23,13 +23,13 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
 
     }
 
-    public void setLevelName(String levelName) throws Exception {
+    public void setLevelName(String levelName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         
         tool.enterStringUsingId("company_name", levelName);
     }
 
-    public void setLevelState(String levelState) throws Exception {
+    public void setLevelState(String levelState) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_state", levelState);
         /*
@@ -38,7 +38,7 @@ public class AddSubLevelLegalAddressCommon extends CommonMenu {
          */
     }
 
-    public RequestSubmissionCommon clickOk() throws Exception {
+    public RequestSubmissionCommon clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

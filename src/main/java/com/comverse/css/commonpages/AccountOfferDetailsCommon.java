@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class AccountOfferDetailsCommon extends CommonMenu {
     static String expectedScreen = "Account Offer Detail";
@@ -21,7 +22,7 @@ public class AccountOfferDetailsCommon extends CommonMenu {
         }
     }
 
-    public SelectOffersForYourAccountCommon clickReturnToList() throws Exception {
+    public SelectOffersForYourAccountCommon clickReturnToList() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingName("select");
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }

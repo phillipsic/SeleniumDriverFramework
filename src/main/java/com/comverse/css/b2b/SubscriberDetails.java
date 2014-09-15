@@ -7,6 +7,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.SubscriberDetailsCommon;
 
 public class SubscriberDetails extends SubscriberDetailsCommon {
@@ -18,7 +19,7 @@ public class SubscriberDetails extends SubscriberDetailsCommon {
     }
 
     @Override
-    public ViewBalance viewBalanceAndRecharge() throws Exception {
+    public ViewBalance viewBalanceAndRecharge() throws Exception {  test.writeInLog(Common.getMethodName());
 
         super.viewBalanceAndRecharge();
 

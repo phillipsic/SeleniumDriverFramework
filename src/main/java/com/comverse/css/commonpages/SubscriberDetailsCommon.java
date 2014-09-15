@@ -27,186 +27,186 @@ public class SubscriberDetailsCommon extends CommonMenu {
     }
 
     @Override
-    public ViewInvoicesCommon clickBillsAndPayments() throws Exception {
+    public ViewInvoicesCommon clickBillsAndPayments() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_BILLS_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         return new ViewInvoicesCommon(tool, test, user);
     }
 
-    public void clickRefreshThisSubscriber() throws Exception {
+    public void clickRefreshThisSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, SubscriberDetailsCommon.expectedScreen, "refreshSubscriber");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
     }
 
-    public UnlockPINWithPUKCommon clickGetPUK() throws Exception {
+    public UnlockPINWithPUKCommon clickGetPUK() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, UnlockPINWithPUKCommon.expectedScreen, "getPuk");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
         return new UnlockPINWithPUKCommon(tool, test, user);
     }
 
-    public ViewBalanceCommon viewBalanceAndRecharge() throws Exception {
+    public ViewBalanceCommon viewBalanceAndRecharge() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, ViewBalanceCommon.expectedScreen, "viewBalances");
         // tool.clickUsingID("viewBalances");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewBalanceCommon(tool, test, user);
     }
 
-    public ViewCombinedHistoryCommon clickonCombinedHistory() throws Exception {
+    public ViewCombinedHistoryCommon clickonCombinedHistory() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, ViewCombinedHistoryCommon.expectedScreen, "viewCombinedHistory");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCombinedHistoryCommon(tool, test, user);
     }
 
-    public SubscriberStatusCommon clickViewSubscriberStatus() throws Exception {
+    public SubscriberStatusCommon clickViewSubscriberStatus() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, SubscriberStatusCommon.expectedScreen, "viewContractStatusHistory");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberStatusCommon(tool, test, user);
     }
 
-    public YourFriendsAndFamilyNumbersCommon clickManageFriendsAndFamily() throws Exception {
+    public YourFriendsAndFamilyNumbersCommon clickManageFriendsAndFamily() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, YourFriendsAndFamilyNumbersCommon.expectedScreen, "viewFriendsFamily");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new YourFriendsAndFamilyNumbersCommon(tool, test, user);
     }
 
-    public CoherencyCheckCommon clickCoherencyCheckNormal() throws Exception {
+    public CoherencyCheckCommon clickCoherencyCheckNormal() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, CoherencyCheckCommon.expectedScreen, "coherencyCheck", "coherencyNormal");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CoherencyCheckCommon(tool, test, user);
     }
 
-    public SubscribeToRechargePromotionalOffersCommon clickAddRPO() throws Exception {
+    public SubscribeToRechargePromotionalOffersCommon clickAddRPO() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscribeToRechargePromotionalOffersCommon(tool, test, user);
     }
 
-    public SelectOffersForYourSubscriberCommon clickSubscribeNewOffers() throws Exception {
+    public SelectOffersForYourSubscriberCommon clickSubscribeNewOffers() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction2ItemIsAccessible(tool, "addService", SelectOffersForYourSubscriberCommon.expectedScreen);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
-    public ShoppingCommon clickChangePO_SBAndSO() throws Exception {
+    public ShoppingCommon clickChangePO_SBAndSO() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction2ItemIsAccessible(tool, "changePrimaryOffer", ShoppingCommon.expectedScreen);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ShoppingCommon(tool, test, user);
     }
 
-    public CustomerAcquisitionCustomerDataReviewCommon clickMigrateToPostpaidSubscriber() throws Exception {
+    public CustomerAcquisitionCustomerDataReviewCommon clickMigrateToPostpaidSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction2ItemIsAccessible(tool, "migratePre2Post", CustomerAcquisitionCustomerDataReviewCommon.expectedScreen);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);
     }
 
-    public SelectOffersForYourSubscriberCommon clickReconfigureSupplementaryOffers() throws Exception {
+    public SelectOffersForYourSubscriberCommon clickReconfigureSupplementaryOffers() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction2ItemIsAccessible(tool, "reconfigureServices", SelectOffersForYourSubscriberCommon.expectedScreen);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }
 
-    public ModifyContactInformationCommon clickModifyContactInformation() throws Exception {
+    public ModifyContactInformationCommon clickModifyContactInformation() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("u");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifyContactInformationCommon(tool, test, user);
     }
 
-    public SubscriberIdentifiersSwapCommon clickSubscriberIdentifiersSwap() throws Exception {
+    public SubscriberIdentifiersSwapCommon clickSubscriberIdentifiersSwap() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("modify_lines_link");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberIdentifiersSwapCommon(tool, test, user);
     }
 
-    public ModifySubscriberAttributesCommon clickModifySubscriberDetails() throws Exception {
+    public ModifySubscriberAttributesCommon clickModifySubscriberDetails() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[2]/a/u");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ModifySubscriberAttributesCommon(tool, test, user);
     }
 
-    public SuspendSubscriberRequestForDetailsCommon clickSuspendSubscriber() throws Exception {
+    public SuspendSubscriberRequestForDetailsCommon clickSuspendSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, SuspendSubscriberRequestForDetailsCommon.expectedScreen, "suspendSubscriber");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SuspendSubscriberRequestForDetailsCommon(tool, test, user);
     }
 
-    public ResumeSubscriberRequestForDetailsCommon clickResumeSubscriber() throws Exception {
+    public ResumeSubscriberRequestForDetailsCommon clickResumeSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, ResumeSubscriberRequestForDetailsCommon.expectedScreen, "resumeSubscriber");
         // tool.clickUsingID("resumeSubscriber");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ResumeSubscriberRequestForDetailsCommon(tool, test, user);
     }
 
-    public FraudlockSubscriberRequestForDetailsCommon clickFraudlockSubscriber() throws Exception {
+    public FraudlockSubscriberRequestForDetailsCommon clickFraudlockSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, FraudlockSubscriberRequestForDetailsCommon.expectedScreen, "fraudlockSubscriber");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new FraudlockSubscriberRequestForDetailsCommon(tool, test, user);
     }
 
-    public UnlockSubscriberRequestForDetailsCommon clickUnlockSubscriber() throws Exception {
+    public UnlockSubscriberRequestForDetailsCommon clickUnlockSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, UnlockSubscriberRequestForDetailsCommon.expectedScreen, "unlockSubscriber");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new UnlockSubscriberRequestForDetailsCommon(tool, test, user);
     }
 
-    public DisconnectSubscriberRequestForDetailsCommon clickDisconnectSubscriber() throws Exception {
+    public DisconnectSubscriberRequestForDetailsCommon clickDisconnectSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.clickAction1ItemIsAccessible(tool, DisconnectSubscriberRequestForDetailsCommon.expectedScreen, "disconnectSubscriber");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new DisconnectSubscriberRequestForDetailsCommon(tool, test, user);
     }
 
-    public PrimaryOfferDetailsCommon clickLinkOfPrimaryOfferName(String primaryOfferName) throws Exception {
+    public PrimaryOfferDetailsCommon clickLinkOfPrimaryOfferName(String primaryOfferName) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText(primaryOfferName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
 
-    public PrimaryOfferDetailsCommon clickImageOfPrimaryOfferName(String primaryOfferName) throws Exception {
+    public PrimaryOfferDetailsCommon clickImageOfPrimaryOfferName(String primaryOfferName) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("a[title=\"View detail for " + primaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
 
-    public SubscriberBundleDetailsCommon clickImageOfSubscriberBundleName(String subscriberBundleName) throws Exception {
+    public SubscriberBundleDetailsCommon clickImageOfSubscriberBundleName(String subscriberBundleName) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("a[title=\"View detail for " + subscriberBundleName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberBundleDetailsCommon(tool, test, user);
     }
 
-    public AccountOfferDetailsCommon clickImageOfSupplementaryOfferName(String supplementaryOfferName) throws Exception {
+    public AccountOfferDetailsCommon clickImageOfSupplementaryOfferName(String supplementaryOfferName) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("a[title=\"View detail for " + supplementaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountOfferDetailsCommon(tool, test, user);
     }
 
-    public AccountOfferDetailsCommon clickImageOfPromotionalOfferName(String supplementaryOfferName) throws Exception {
+    public AccountOfferDetailsCommon clickImageOfPromotionalOfferName(String supplementaryOfferName) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("a[title=\"View detail for " + supplementaryOfferName + "\"] > img");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountOfferDetailsCommon(tool, test, user);
     }
 
-    public ModifyOfferParametersCommon clickModifyOfferParameters() throws Exception {
+    public ModifyOfferParametersCommon clickModifyOfferParameters() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("a[title=\"Modify Offer Parameters\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(3);
         return new ModifyOfferParametersCommon(tool, test, user);
     }
 
-    public RemoveOfferCommon clickDeleteOffer() throws Exception {
+    public RemoveOfferCommon clickDeleteOffer() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Remove");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RemoveOfferCommon(tool, test, user);
     }
 
-    public String getSubscriberStatus() throws Exception {
+    public String getSubscriberStatus() throws Exception {  test.writeInLog(Common.getMethodName());
 
         String orderStatus = tool.getTextUsingXPath("//div[@id='navigationContext']/div/div[2]/div[2]");
         return orderStatus;
     }
 
-    public void waitUntilStatusChanged(String status) throws Exception {
+    public void waitUntilStatusChanged(String status) throws Exception {  test.writeInLog(Common.getMethodName());
 
         int maxIterations = 10;
         int iterationCounter = 0;
@@ -233,7 +233,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
         }
     }
 
-    public AccountDetailsCommon clickAccountIDFromNavigationPanel() throws Exception {
+    public AccountDetailsCommon clickAccountIDFromNavigationPanel() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("AccountSearchLink");
         Common.assertTextOnPage(tool, "Please enter your criteria and press search");
         tool.clickUsingID("accountSearchButton");
@@ -244,41 +244,41 @@ public class SubscriberDetailsCommon extends CommonMenu {
         return new AccountDetailsCommon(tool, test, user);
     }
 
-    public void clickSubscriberAttributesTab() throws Exception {
+    public void clickSubscriberAttributesTab() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[@id='account_dashboard']/ul/li[2]/a/em");
     }
 
-    public void clickRefreshRPO() throws Exception {
+    public void clickRefreshRPO() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("rpoRefreshImage");
         Common.sleepForNumberOfSeconds(2);
     }
 
-    public PrimaryOfferDetailsCommon clickRPODetails(String RPO) throws Exception {
+    public PrimaryOfferDetailsCommon clickRPODetails(String RPO) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//a[@title='View detail for " + RPO + "']");
         return new PrimaryOfferDetailsCommon(tool, test, user);
     }
 
-    public void clickReconfigureAwardCounter() throws Exception {
+    public void clickReconfigureAwardCounter() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div/a/img");
         Common.sleepForNumberOfSeconds(2);
     }
 
-    public void clickSetAwardCounter() throws Exception {
+    public void clickSetAwardCounter() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.enterStringUsingId("awardCounter", "2");
     }
 
-    public void clickConfirmAwardCounterReconfiguration() throws Exception {
+    public void clickConfirmAwardCounterReconfiguration() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//span[2]/span/button");
         Common.sleepForNumberOfSeconds(2);
     }
 
-    public void clickRPOStatus() throws Exception {
+    public void clickRPOStatus() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//div[contains(text(),'Active')]//img");
 
     }
 
-    public void clickRefreshUntilRPOActive(String RPO) throws Exception {
+    public void clickRefreshUntilRPOActive(String RPO) throws Exception {  test.writeInLog(Common.getMethodName());
         this.clickRefreshRPO();
         while (true) {
             if (tool.getTextUsingXPath("//a[contains(text(),'" + RPO + "')]/../../following-sibling::td[1]/div").contains("Active")) {
@@ -290,17 +290,17 @@ public class SubscriberDetailsCommon extends CommonMenu {
 
     }
 
-    public void clickConfirmStatusExpire() throws Exception {
+    public void clickConfirmStatusExpire() throws Exception {  test.writeInLog(Common.getMethodName());
         Common.sleepForNumberOfSeconds(3);
         tool.clickUsingXPath("//button[contains(text(),'Confirm')]");
         this.clickRefreshRPO();
     }
 
-    public String returnRPOStatus() throws Exception {
+    public String returnRPOStatus() throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getTextUsingXPath("//div[contains(text(),'DIY - Get')]/../../../following-sibling::tr//a");
     }
 
-    public void doAddSO(String SUPPLEMENTARY_OFFER) throws Exception {
+    public void doAddSO(String SUPPLEMENTARY_OFFER) throws Exception {  test.writeInLog(Common.getMethodName());
         SelectOffersForYourSubscriberCommon selectOffersForYourSubscriber = this.clickReconfigureSupplementaryOffers();
         selectOffersForYourSubscriber.selectOffersForSubscriber(SUPPLEMENTARY_OFFER);
         ConfigureOffersCommon configureOffers = selectOffersForYourSubscriber.clickContinue();
@@ -316,7 +316,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
         Common.assertTextOnPage(tool, SUPPLEMENTARY_OFFER);
     }
 
-    public void doAddRPO(String RPO) throws Exception {
+    public void doAddRPO(String RPO) throws Exception {  test.writeInLog(Common.getMethodName());
         SubscribeToRechargePromotionalOffersCommon subscribeToRechargePromotionalOffers = this.clickAddRPO();
 
         subscribeToRechargePromotionalOffers.selectOffersForSubscriber(RPO);
@@ -334,7 +334,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
         Common.sleepForNumberOfSeconds(2);
     }
 
-    public void doAddRPOCSR(String RPO) throws Exception {
+    public void doAddRPOCSR(String RPO) throws Exception {  test.writeInLog(Common.getMethodName());
         SubscribeToRechargePromotionalOffersCommon subscribeToRechargePromotionalOffers = this.clickAddRPO();
 
         subscribeToRechargePromotionalOffers.selectOffersForSubscriber(RPO);

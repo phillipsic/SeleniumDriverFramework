@@ -7,6 +7,7 @@ package com.comverse.css.commonpages;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class ProfileInformationCommon extends CommonMenu {
 
@@ -24,12 +25,12 @@ public class ProfileInformationCommon extends CommonMenu {
     }
 
     @Override
-    public ViewHierarchyCommon clickHierarchy() throws Exception {
+    public ViewHierarchyCommon clickHierarchy() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("mnu_HIERARCHY");
         return new ViewHierarchyCommon(tool, test, user);
     }
 
-    public ModifyProfileInformationCommon clickModify() throws Exception {
+    public ModifyProfileInformationCommon clickModify() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("modifyCustomer");
         return new ModifyProfileInformationCommon(tool, test, user);
     }

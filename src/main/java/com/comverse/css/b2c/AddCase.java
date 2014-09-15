@@ -19,38 +19,38 @@ public class AddCase extends B2CMenu {
         test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
-    public void selectCategory(String value) throws Exception {
+    public void selectCategory(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
         tool.selectVisibleTextByID("categoryId", value);
     }
 
-    public void selectSubCategory(String value) throws Exception {
+    public void selectSubCategory(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
         tool.selectVisibleTextByID("subCategoryId", value);
     }
 
-    public void enterDescription(String value) throws Exception {
+    public void enterDescription(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
         tool.enterStringUsingId("description", value);
     }
 
-    public void selectSubjectRelativeToProblemSubscriber() throws Exception {
+    public void selectSubjectRelativeToProblemSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName());
         tool.clickUsingID("isContract");
     }
 
-    public void selectFirstSubscriber() throws Exception {
+    public void selectFirstSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName());
         tool.selectByIndexByID("contract", 1);
     }
 
-    public AddCaseReview clickSubmit() throws Exception {
+    public AddCaseReview clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Submit']");
         return new AddCaseReview(tool, test, user);
     }
 
-    public ListCases clickListCases() throws Exception {
+    public ListCases clickListCases() throws Exception {  test.writeInLog(Common.getMethodName());
         test.writeInLog(Common.getMethodName());
         tool.clickUsingID("smnu_CASE_LIST");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

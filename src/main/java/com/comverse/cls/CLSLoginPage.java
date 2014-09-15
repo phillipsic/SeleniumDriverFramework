@@ -3,6 +3,7 @@ package com.comverse.cls;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.PropertyHelper;
 
 public class CLSLoginPage extends CLSMenu {
@@ -17,21 +18,21 @@ public class CLSLoginPage extends CLSMenu {
         }
     }
 
-    public void setUserName(String login) throws Exception {
+    public void setUserName(String login) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("j_username", login);
     }
 
-    public void setPassword(String password) throws Exception {
+    public void setPassword(String password) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("j_password", password);
     }
 
-    public void clickLogin() throws Exception {
+    public void clickLogin() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Login']");
     }
 
-    public Logging successfulCLSAdminLogin() throws Exception {
+    public Logging successfulCLSAdminLogin() throws Exception {  test.writeInLog(Common.getMethodName());
 
         PropertyHelper propsHelper = new PropertyHelper();
         String login = propsHelper.getPasswordProperties("LOGIN.CLSAdmin");

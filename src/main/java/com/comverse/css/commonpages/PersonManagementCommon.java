@@ -19,114 +19,114 @@ public class PersonManagementCommon extends CommonMenu {
         }
     }
 
-    public void clickPersonAdd() throws Exception {
+    public void clickPersonAdd() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("personadd");
     }
 
-    public void selectTitle(String value) throws Exception {
+    public void selectTitle(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("title", value);
     }
 
-    public void setFirstName(String value) throws Exception {
+    public void setFirstName(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("firstName", value);
     }
 
-    public void setLastName(String value) throws Exception {
+    public void setLastName(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("lastName", value);
     }
 
-    public void setAddressLine1(String value) throws Exception {
+    public void setAddressLine1(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("address1", value);
     }
 
-    public void setPostalCode(String value) throws Exception {
+    public void setPostalCode(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("zipcode", value);
     }
 
-    public void setCity(String value) throws Exception {
+    public void setCity(String value) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.enterStringUsingId("city", value);
     }
 
-    public void selectCountry(String value) throws Exception {
+    public void selectCountry(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("country", value);
     }
 
-    public void selectRegion(String value) throws Exception {
+    public void selectRegion(String value) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("state", value);
     }
 
-    public void selectFirstUserinDropDown() throws Exception {
+    public void selectFirstUserinDropDown() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectByIndexByID("subscriber", 1);
     }
 
-    public void clickOrdering() throws Exception {
+    public void clickOrdering() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("ordering");
     }
 
-    public void clickAddRole() throws Exception {
+    public void clickAddRole() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("add_role");
     }
 
-    public void clickAdd() throws Exception {
+    public void clickAdd() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("submitButton");
     }
 
-    public void clickAccountManager() throws Exception {
+    public void clickAccountManager() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("roleCmp");
     }
 
-    public void clickActions(String FName) throws Exception {
+    public void clickActions(String FName) throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//div[contains(text(),'" + FName + "')]/../..//button");
     }
 
-    public void clickActionstoChangeOwner() throws Exception {
+    public void clickActionstoChangeOwner() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath(" //div[contains(text(),'Customer Owner Person')]/../following-sibling::td/following-sibling::td//div[contains(text(),'Active')]/../following-sibling::td//button");
     }
 
-    public void clickActions3() throws Exception {
+    public void clickActions3() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("button[type='button'][id$=-button][class='submit']");
     }
 
-    public void clickModifyRole() throws Exception {
+    public void clickModifyRole() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingLinkText("Modify Role");
 
     }
 
-    public void selectCustomerManagerPersonRole() throws Exception {
+    public void selectCustomerManagerPersonRole() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("role_2");
     }
 
-    public void clickOKFromSelectPersonaRole() throws Exception {
+    public void clickOKFromSelectPersonaRole() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 
-    public void clickDeactivateRole() throws Exception {
+    public void clickDeactivateRole() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Deactivate Role");
     }
 
-    public void clickOKFromDeactivateRole() throws Exception {
+    public void clickOKFromDeactivateRole() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 
-    public void checkAccountManager() throws Exception {
+    public void checkAccountManager() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("roleCmp");
     }
 
-    public void clickChangeOwner() throws Exception {
+    public void clickChangeOwner() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//a[contains(text(),'Change Owner')]");
     }
 
-    public void clickSwap() throws Exception {
+    public void clickSwap() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingID("submitButton");
     }
 
-    public AddLoginCommon clickActionsAddLoginForPerson(String personLastName) throws Exception {
+    public AddLoginCommon clickActionsAddLoginForPerson(String personLastName) throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//div[contains(text(),'" + personLastName + "')]/../..//*[@type='button']");
         tool.clickUsingLinkText("Add Login");
@@ -134,7 +134,7 @@ public class PersonManagementCommon extends CommonMenu {
         return new AddLoginCommon(tool, test, user);
     }
 
-    public Person addCMP() throws Exception {
+    public Person addCMP() throws Exception {  test.writeInLog(Common.getMethodName());
         String CMPUniqueString = Common.generateTimeStamp();
         Person person3 = new Person(CMPUniqueString);
 
@@ -166,7 +166,7 @@ public class PersonManagementCommon extends CommonMenu {
         return person3;
     }
 
-    public Person addCOP() throws Exception {
+    public Person addCOP() throws Exception {  test.writeInLog(Common.getMethodName());
         String COPUniqueString = Common.generateTimeStamp();
         Person person3 = new Person(COPUniqueString);
 
@@ -194,7 +194,7 @@ public class PersonManagementCommon extends CommonMenu {
         return person3;
     }
 
-    public void searchPerson() throws Exception {
+    public void searchPerson() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.selectVisibleTextByID("title", "Mr.");
         tool.enterStringUsingId("firstName", "test*");
         tool.clickUsingID("pm-button-search");
@@ -203,23 +203,23 @@ public class PersonManagementCommon extends CommonMenu {
         tool.clickUsingCssSelector("input[id=submitButton][value='Swap']");
     }
 
-    public void clickDissociate() throws Exception {
+    public void clickDissociate() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Disassociate Role");
     }
 
-    public void clickOKFromDissociate() throws Exception {
+    public void clickOKFromDissociate() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 
-    public void clickAssociateRoleToSubscriber() throws Exception {
+    public void clickAssociateRoleToSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Associate Role to Subscriber");
     }
 
-    public void clickOKAssociateRoleToSubscriber() throws Exception {
+    public void clickOKAssociateRoleToSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 
-    public String getLastNameOfCOP() throws Exception {
+    public String getLastNameOfCOP() throws Exception {  test.writeInLog(Common.getMethodName());
         String cop_fullName = tool.getTextUsingXPath("//div[contains(text(),'Customer Owner Person')]/../../td[1]");
 
         String temp[] = cop_fullName.split(" ");
@@ -228,13 +228,13 @@ public class PersonManagementCommon extends CommonMenu {
 
     }
 
-    public PersonMergeCommon clickPersonMerge() throws Exception {
+    public PersonMergeCommon clickPersonMerge() throws Exception {  test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Person Merge");
 
         return new PersonMergeCommon(tool, test, user);
     }
 
-    public String getPersonStatus(String personName) throws Exception {
+    public String getPersonStatus(String personName) throws Exception {  test.writeInLog(Common.getMethodName());
         return tool.getTextUsingXPath("//div[contains(text(),'" + personName + "')]/../../td[6]");
     }
 

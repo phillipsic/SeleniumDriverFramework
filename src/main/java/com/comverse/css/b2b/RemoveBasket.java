@@ -3,6 +3,7 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.RemoveBasketCommon;
 
 public class RemoveBasket extends RemoveBasketCommon {
@@ -12,7 +13,7 @@ public class RemoveBasket extends RemoveBasketCommon {
 
     }
 
-    public AccountDetails clickYes() throws Exception {
+    public AccountDetails clickYes() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//form[@id='form_YES']/div/input");
         return new AccountDetails(tool, test, user);

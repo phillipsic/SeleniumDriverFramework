@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.DisconnectSubscriberCommon;
 
 public class DisconnectSubscriber extends DisconnectSubscriberCommon {
@@ -12,7 +13,7 @@ public class DisconnectSubscriber extends DisconnectSubscriberCommon {
     }
 
     @Override
-    public DisconnectSubscriberDisconnectionSuccessful clickConfirm() throws Exception {
+    public DisconnectSubscriberDisconnectionSuccessful clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
         super.clickConfirm();
         return new DisconnectSubscriberDisconnectionSuccessful(tool, test, user);
     }

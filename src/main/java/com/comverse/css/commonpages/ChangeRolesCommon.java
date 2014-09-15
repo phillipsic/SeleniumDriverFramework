@@ -22,24 +22,24 @@ public class ChangeRolesCommon extends CommonMenu {
         }
     }
 
-    public void clickRadioButtonOCMUser() throws Exception {
+    public void clickRadioButtonOCMUser() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='L2:30']");
 
     }
 
-    public void clickOk() throws Exception {
+    public void clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 
     }
 
-    public String getConfirmationMessage() throws Exception {
+    public String getConfirmationMessage() throws Exception {  test.writeInLog(Common.getMethodName());
 
         return tool.getTextUsingCssSelector("span");
     }
 
-    public void clickRadioButtonRetailerSubscriber() throws Exception {
+    public void clickRadioButtonRetailerSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@name='roles'])[2]");
 
