@@ -15,7 +15,7 @@ public class UploadToken extends CommonMenu {
         String expectedScreen = "Upload Token";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
 
     }

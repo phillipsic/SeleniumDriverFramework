@@ -12,7 +12,7 @@ public class TestServiceAbilityCommon extends CommonMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Test Service Ability";
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

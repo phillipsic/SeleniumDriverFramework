@@ -18,7 +18,7 @@ public class MyshapeCSRPortal extends MyshapeCommon {
         String expectedScreen = "Myshape CSR Portal";
 
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

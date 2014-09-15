@@ -16,12 +16,11 @@ public class ListCases extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "List Cases";
 
-        // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps
-            // logging out first
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+         if (!expectedScreen.equals(tool.getTitle())) {
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public AddCase clickCreateCase() throws Exception {

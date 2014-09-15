@@ -12,9 +12,10 @@ public class AddCaseConfirmation extends B2CMenu {
         String expectedScreen = "Add case - confirmation";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public AddCase clickOk() throws Exception {

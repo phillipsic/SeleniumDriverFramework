@@ -10,11 +10,11 @@ public class SelectOffers extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Select offers for your Subscriber";
 
-        if (!expectedScreen.equals(tool.getTitle())) {
-
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+         if (!expectedScreen.equals(tool.getTitle())) {
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public ConfigureOffers selectOfferByNameAndContinue(String offerName) throws Exception {

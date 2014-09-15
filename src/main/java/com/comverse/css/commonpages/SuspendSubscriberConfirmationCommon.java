@@ -12,7 +12,7 @@ public class SuspendSubscriberConfirmationCommon extends CommonMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Suspend subscriber - Confirmation";
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

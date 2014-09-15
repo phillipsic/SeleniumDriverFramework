@@ -12,7 +12,7 @@ public class UnlockSubscriberConfirmationCommon extends CommonMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Unlock subscriber - Confirmation";
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

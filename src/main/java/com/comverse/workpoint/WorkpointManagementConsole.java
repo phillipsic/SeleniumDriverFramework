@@ -13,7 +13,7 @@ public class WorkpointManagementConsole extends WPMCMenu {
         String expectedScreen = "Workpoint Management Console";
 
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

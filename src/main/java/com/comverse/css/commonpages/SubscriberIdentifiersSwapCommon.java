@@ -16,7 +16,7 @@ public class SubscriberIdentifiersSwapCommon extends CommonMenu {
         super(tool, test, user);
         String currentScreen = tool.getTitle();
         if (!expectedScreen.equals(tool.getTitle())) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

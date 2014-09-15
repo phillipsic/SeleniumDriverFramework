@@ -14,12 +14,13 @@ public class CustomerPrerequisite extends B2CMenu {
         super(tool, test, user);
         String currentScreen = tool.getTitle();
 
-        // Check that we're on the right page.
-        if (!"Myshape Consumer".equals(tool.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps
-            // logging out first
-            throw new IllegalStateException("Expecting: CustomerPrerequisite, but got: " + currentScreen);
+        String expectedScreen = "Customer Profile";
+
+        if (!expectedScreen.equals(tool.getTitle())) {
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
 }

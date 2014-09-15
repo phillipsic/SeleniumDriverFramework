@@ -7,6 +7,7 @@ package com.comverse.css.b2c;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 
 public class CheckoutRegister extends B2CMenu {
 
@@ -15,23 +16,22 @@ public class CheckoutRegister extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Checkout Register";
 
-        // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+         if (!expectedScreen.equals(tool.getTitle())) {
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(this.getClass().getSimpleName());
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public SignUpUser selectSignMeUpAndClickContinue() throws Exception {
-        test.writeInLog(this.getClass().getSimpleName());
+        test.writeInLog(Common.getMethodName());
         this.selectSignMeUp();
         SignUpUser signUp = this.clickContinue();
         return signUp;
     }
 
     public CheckOutBillingAccountInformation enterRegisteredLoginDetailsAndClickContinue(String loginName, String password) throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         this.setRegisteredLogin(loginName);
         this.setPassword(password);
         this.clickContinueExpectingCheckoutBillingAccountInformation();
@@ -39,34 +39,34 @@ public class CheckoutRegister extends B2CMenu {
     }
 
     public void selectSignMeUp() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("sign_up_anonymous");
     }
 
     public void setRegisteredLogin(String login) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + login + ")");
         tool.enterStringUsingId("login", login);
     }
 
     public void setPassword(String password) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + password + ")");
         tool.enterStringUsingId("password", password);
     }
 
     public SignUpUser clickContinue() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new SignUpUser(tool, test, user);
     }
 
     public MyBasket clickCancel() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("cancel");
         return new MyBasket(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickContinueExpectingCheckoutBillingAccountInformation() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }

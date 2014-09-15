@@ -14,7 +14,7 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
         String expectedScreen = "Configure Contract Details";
 
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

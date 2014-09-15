@@ -22,7 +22,7 @@ public class SubscriberDetailsCommon extends CommonMenu {
         if (!expectedScreen.equals(currentScreen)) {
             // Alternatively, we could navigate to the login page, perhaps
             // logging out first
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

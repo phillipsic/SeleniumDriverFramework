@@ -14,7 +14,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
         String expectedScreen = "Service Connection Details";
 
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

@@ -13,9 +13,10 @@ public class AddCaseReview extends B2CMenu {
         String expectedScreen = "Add case - review";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public AddCaseConfirmation clickCreateCase() throws Exception {

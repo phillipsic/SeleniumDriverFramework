@@ -17,7 +17,7 @@ public class EnterYourSubscriptionDetailsCommon extends CommonMenu {
         String expectedScreen = "Enter your subscription details";
 
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

@@ -18,7 +18,7 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
         String expectedScreen = "Add Employee - Register Login";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

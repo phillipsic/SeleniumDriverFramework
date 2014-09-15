@@ -16,7 +16,7 @@ public class ParkTheCurrentBasket extends ParkTheCurrentBasketCommon {
 
         if (!expectedScreen.equals(currentScreen)) {
 
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

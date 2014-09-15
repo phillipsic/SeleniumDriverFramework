@@ -17,10 +17,10 @@ public class RegisterNewResidentialMember extends B2CMenu {
         String expectedScreen = "Register New Residential Member";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        System.out.println(">>" + currentScreen);
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void enterFirstName(String firstName) throws Exception {

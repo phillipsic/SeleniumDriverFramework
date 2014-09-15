@@ -12,7 +12,7 @@ public class DisconnectSubscriberCommon extends CommonMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Disconnect subscriber";
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

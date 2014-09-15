@@ -13,7 +13,7 @@ public class MoveLevelCommon extends CommonMenu {
         String expectedScreen = "Move Level";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
 
     }

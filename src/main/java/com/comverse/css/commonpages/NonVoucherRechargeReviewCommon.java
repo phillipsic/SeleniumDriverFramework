@@ -20,7 +20,7 @@ public class NonVoucherRechargeReviewCommon extends CommonMenu {
         // Check that we're on the right page.
         if (!"Non voucher recharge review".equals(tool.getTitle())) {
 
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

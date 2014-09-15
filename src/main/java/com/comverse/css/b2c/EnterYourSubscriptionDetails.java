@@ -19,10 +19,9 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Enter your subscription details";
 
-        // Check that we're on the right page.
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("Expecting: " + expectedScreen + " , but got: " + currentScreen);
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
         test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
@@ -53,7 +52,7 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
     }
 
     public void enterFirstName(String firstName) throws Exception {
-        test.writeInLog( Common.getMethodName() + " using data (" + firstName + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + firstName + ")");
         tool.enterStringUsingId("firstName", firstName);
     }
 
@@ -63,7 +62,7 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
     }
 
     public void enterLastName(String lastName) throws Exception {
-        test.writeInLog( Common.getMethodName() + " using data (" + lastName + ")");
+        test.writeInLog(Common.getMethodName() + " using data (" + lastName + ")");
         tool.enterStringUsingId("lastName", lastName);
 
     }
@@ -76,6 +75,7 @@ public class EnterYourSubscriptionDetails extends B2CMenu {
 
     public void selectGender(String gender) throws Exception {
 
+        test.writeInLog(Common.getMethodName() + " using data (" + gender + ")");
         boolean correctGender = false;
 
         if (gender.equalsIgnoreCase("male")) {

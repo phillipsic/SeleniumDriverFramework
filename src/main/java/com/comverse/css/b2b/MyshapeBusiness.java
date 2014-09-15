@@ -18,7 +18,7 @@ public class MyshapeBusiness extends MyshapeCommon {
         String expectedScreen = "Myshape Business";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

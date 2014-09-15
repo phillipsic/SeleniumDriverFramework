@@ -21,7 +21,7 @@ public class SearchRequestsCommon extends CommonMenu {
 
         if (!expectedScreen.contains(tool.getTitle())) {
 
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

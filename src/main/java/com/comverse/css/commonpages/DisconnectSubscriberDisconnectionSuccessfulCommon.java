@@ -12,7 +12,7 @@ public class DisconnectSubscriberDisconnectionSuccessfulCommon extends CommonMen
         String currentScreen = tool.getTitle();
         String expectedScreen = "Disconnect subscriber - Disconnection successful";
         if (!expectedScreen.equals(currentScreen)) {
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
     }
 

@@ -16,11 +16,11 @@ public class RequestSubmission extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Request Submission";
 
-        if (!expectedScreen.equals(tool.getTitle())) {
-
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+         if (!expectedScreen.equals(tool.getTitle())) {
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        System.out.println(">>" + currentScreen);
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public SearchMember clickOk() throws Exception {

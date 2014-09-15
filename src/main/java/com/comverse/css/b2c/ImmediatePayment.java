@@ -12,12 +12,11 @@ public class ImmediatePayment extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Immediate Payment";
 
-        // Check that we're on the right page.
         if (!expectedScreen.equals(tool.getTitle())) {
-            // Alternatively, we could navigate to the login page, perhaps
-            // logging out first
-            throw new IllegalStateException("Expecting: " + expectedScreen + " , but got: " + currentScreen);
+            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
+        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void enterCardNumber(String cardNumber) throws Exception {
