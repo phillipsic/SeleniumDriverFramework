@@ -41,8 +41,8 @@ public class CSSTest extends Main {
 
     public void launchCSSApplicationAndSSOLogin() throws Exception {
         tool.get(application.appURL());
-        test.writeInLog("Application : " + application.getCommonName() + ", URL : " + application.appURL());
         test.writeInLog("Browser : " + tool.platform.getBrowserFullNameAndVersion() + ", OS : " + tool.platform.getOSFullNameAndVersion());
+        test.writeInLog("Application : " + application.getCommonName() + ", URL : " + application.appURL());
         loginSSOUser();
         application.setVersion(tool, test);
         tool.navigateBack();
