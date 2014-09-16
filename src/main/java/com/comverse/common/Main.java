@@ -42,7 +42,7 @@ public class Main {
             String[] line = e.getMessage().split("\n");
             test.setMessage(line[0]);
             try {
-                test.writeInLog("Exception ##### " + test.getMessage() + " #####");
+                test.writeInLog("ERRO", "########## " + test.getMessage() + " ##########");
                 test.closeLogFile();
             } catch (Exception e1) {
             }
@@ -259,7 +259,7 @@ public class Main {
     }
 
     public void loginSSOUser() throws Exception {
-        test.writeInLog("Login : " + user.getLogin() + ", Password : " + user.getPassword());
+        test.writeInLog("INFO", "Login: " + user.getLogin() + ", Password: " + user.getPassword());
         ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
         ssoLoginPage.setUserName(tool, user);
         ssoLoginPage.setPassword(tool, user);

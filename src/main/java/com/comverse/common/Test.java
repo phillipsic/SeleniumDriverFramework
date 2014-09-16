@@ -68,7 +68,7 @@ public class Test extends Main {
             LOG_FILE = System.getProperty("java.io.tmpdir") + this.name + ".log";
             System.out.println(">>>>Log file location and name >>> " + LOG_FILE);
             openLogFile();
-            this.writeInLog("Test Start: " + this.getName());
+            this.writeInLog("INFO", "Test Start: " + this.getName());
         }
     }
 
@@ -80,9 +80,13 @@ public class Test extends Main {
     }
 
     public void writeInLog(String text) throws Exception {
+        this.writeInLog("TEST", text);
+    }
+
+    public void writeInLog(String type, String text) throws Exception {
         if (this.getDebug()) {
             try {
-                this.w.write(DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(new Date()) + " | " + text);
+                this.w.write(DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(new Date()) + " | " + type + " | " + text);
                 this.w.write("\r\n");
             } catch (IOException e) {
                 System.err.println("Problem writing to the file log file");
@@ -92,7 +96,7 @@ public class Test extends Main {
 
     public void closeLogFile() throws Exception {
         if (this.getDebug()) {
-            this.writeInLog("Test Stop: " + this.getName());
+            this.writeInLog("INFO", "Test Stop: " + this.getName());
             this.w.close();
         }
     }

@@ -100,7 +100,7 @@ public class Application extends Main {
         String[] temp2 = temp[0].split("Service");
         this.Version = temp2[1].trim();
 
-        test.writeInLog("Version : " + this.getVersion());
+        test.writeInLog("INFO", "Version: " + this.getVersion());
     }
 
     public String appFullURL() {

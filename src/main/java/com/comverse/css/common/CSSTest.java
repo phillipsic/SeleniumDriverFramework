@@ -23,7 +23,8 @@ public class CSSTest extends Main {
     public void launchCSSApplication() throws Exception {
         application.setVersion(tool, test);
         tool.get(application.appURL());
-        test.writeInLog("Application : " + application.getCommonName() + ", URL : " + application.appURL());
+        test.writeInLog("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
+        test.writeInLog("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
@@ -41,8 +42,8 @@ public class CSSTest extends Main {
 
     public void launchCSSApplicationAndSSOLogin() throws Exception {
         tool.get(application.appURL());
-        test.writeInLog("Browser : " + tool.platform.getBrowserFullNameAndVersion() + ", OS : " + tool.platform.getOSFullNameAndVersion());
-        test.writeInLog("Application : " + application.getCommonName() + ", URL : " + application.appURL());
+        test.writeInLog("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
+        test.writeInLog("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
         loginSSOUser();
         application.setVersion(tool, test);
         tool.navigateBack();
