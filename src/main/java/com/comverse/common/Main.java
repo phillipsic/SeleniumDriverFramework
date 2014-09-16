@@ -40,14 +40,21 @@ public class Main {
         @Override
         protected void failed(Throwable e, Description description) {
             String[] line = e.getMessage().split("\n");
-
             test.setMessage(line[0]);
-
+            try {
+                test.writeInLog("Exception ##### " + test.getMessage() + " #####");
+                test.closeLogFile();
+            } catch (Exception e1) {
+            }
             this.logResults("CV", test.getMessage());
         }
 
         @Override
         protected void succeeded(Description description) {
+            try {
+                test.closeLogFile();
+            } catch (Exception e1) {
+            }
             this.logResults("CV", test.getMessage());
         }
 
@@ -264,8 +271,6 @@ public class Main {
     public void tearDown() throws Exception {
         tool.quit();
         test.writeInLog("Test Result: " + test.getResult());
-
-        test.closeLogFile();
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
