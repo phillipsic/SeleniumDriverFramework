@@ -23,30 +23,34 @@ public class ComverseOneSingleSignOn extends Main {
     }
 
     public void setUserName(AutomationTool tool, User user) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + user.getLogin() + ")");
         tool.enterStringUsingId("username", user.getLogin());
     }
 
     public void setPassword(AutomationTool tool, User user) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + user.getPassword() + ")");
         tool.enterStringUsingId("password", user.getPassword());
     }
 
     public void setRealm(AutomationTool tool, User user) throws Exception {
+        test.writeInLog(Common.getMethodName() + " using data (" + user.getRealm() + ")");
         tool.selectVisibleTextByID("realmselect", user.getRealm());
     }
 
     public void clickLogin(AutomationTool tool) throws Exception {
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingName("submit");
     }
 
     public WorkSpace loginToCSRAsCSRAdmin() throws Exception {
+        test.writeInLog(Common.getMethodName());
         loginSSOUser();
         Common.checkForExistingBasketAndDiscard(tool);
         return new WorkSpace(tool, test, user);
     }
 
     public RestorePreviousBasket loginToCSRAsCSRAdminWithPreviousBasket() throws Exception {
+        test.writeInLog(Common.getMethodName());
         loginSSOUser();
         return new RestorePreviousBasket(tool, test, user);
     }

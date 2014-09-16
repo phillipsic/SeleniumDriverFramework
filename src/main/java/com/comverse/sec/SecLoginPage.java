@@ -29,6 +29,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void loginSecservAsSecadmin() throws Exception {
+        test.writeInLog(Common.getMethodName());
         clickSignIn();
 
         setSecservUserName(user.getLogin());
@@ -39,17 +40,17 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void setSecservUserName(String login) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + login + ")");
         tool.enterStringUsingId("loginForm:userName", login);
     }
 
     public void setSecservPassword(String password) throws Exception {
-
+        test.writeInLog(Common.getMethodName() + " using data (" + password + ")");
         tool.enterStringUsingId("loginForm:password", password);
     }
 
     public void clickSignIn() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingLinkText("Sign In");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -64,7 +65,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void clickLogin() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingID("loginForm:loginBtn");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -79,7 +80,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void clickIdentity() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//a[@id='j_id29']/span");
 
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -95,6 +96,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void clickCSS_CSR() throws Exception {
+        test.writeInLog(Common.getMethodName());
         Common.sleepForNumberOfSeconds(2);
         tool.clickUsingXPath("//span[contains(text(),'CSS_CSR')]");
         Common.sleepForNumberOfSeconds(3);
@@ -111,7 +113,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void clickCSS_DEALER() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingXPath("//a[@id='j_id42:j_id45:n-7:j_id51']/span");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -126,7 +128,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void clickAddUser() throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='button'][value='Add User']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
@@ -141,7 +143,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void addEmployeeCSRAdmin(String userlogin, String userpassword) throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
@@ -165,7 +167,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void addEmployeeCSRUser(String userlogin, String userpassword) throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
@@ -189,7 +191,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void addEmployeeBOGAdmin(String userlogin, String userpassword) throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
@@ -213,7 +215,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void addEmployeeTelcoRetailerAdmin(String userlogin, String userpassword) throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
@@ -239,7 +241,7 @@ public class SecLoginPage extends CommonMenu {
     }
 
     public void addEmployeeTelcoRetailerSubscriber(String userlogin, String userpassword) throws Exception {
-
+        test.writeInLog(Common.getMethodName());
         SecCsrAdmin secCsrAdmin = new SecCsrAdmin(tool, test, user);
 
         secCsrAdmin.setUserName(userlogin);
