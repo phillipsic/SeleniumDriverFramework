@@ -6,6 +6,7 @@ import com.comverse.common.*;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.PropertyHelper;
 import com.comverse.data.apps.CSR;
+import com.comverse.sec.ComverseOneSingleSignOn;
 
 public class CaseUITest extends Main {
 
@@ -16,6 +17,7 @@ public class CaseUITest extends Main {
         test = new Test();
         test.setName(this.getClass().getSimpleName());
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
+        test.setLOG_FILE();
         tool.platform = new Platform();
         user = new User();
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
@@ -25,7 +27,8 @@ public class CaseUITest extends Main {
         test.writeInLog(Common.getMethodName());
         application.setVersion(tool, test);
         tool.get(application.appFullURL());
-        loginSSOUser();
+        ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
+        ssoLoginPage.loginSSOUser();
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
@@ -35,6 +38,7 @@ public class CaseUITest extends Main {
         test.writeInLog(Common.getMethodName());
         Application CSR = new CSR();
         tool.get(CSR.appURL());
-        loginSSOUser();
+        ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
+        ssoLoginPage.loginSSOUser();
     }
 }

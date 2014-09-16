@@ -15,12 +15,14 @@ public class CLSTest extends Main {
         test = new Test();
         test.setName(this.getClass().getSimpleName());
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
+        test.setLOG_FILE();
         tool.platform = new Platform();
         user = new User();
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
     }
 
-    public void launchCLSApplication() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void launchCLSApplication() throws Exception {
+        test.writeInLog(Common.getMethodName());
         application.setVersion(tool, test);
         tool.get(application.appFullURL());
         if (!test.getDebug()) {

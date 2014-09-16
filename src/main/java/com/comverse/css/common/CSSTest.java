@@ -3,6 +3,7 @@ package com.comverse.css.common;
 import org.junit.Before;
 
 import com.comverse.common.*;
+import com.comverse.sec.ComverseOneSingleSignOn;
 
 public class CSSTest extends Main {
 
@@ -44,7 +45,8 @@ public class CSSTest extends Main {
         tool.get(application.appURL());
         test.writeInLog("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
         test.writeInLog("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
-        loginSSOUser();
+        ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
+        ssoLoginPage.loginSSOUser();
         application.setVersion(tool, test);
         tool.navigateBack();
         if (!test.getDebug()) {

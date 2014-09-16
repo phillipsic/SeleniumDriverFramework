@@ -51,4 +51,12 @@ public class ComverseOneSingleSignOn extends Main {
         return new RestorePreviousBasket(tool, test, user);
     }
 
+    public void loginSSOUser() throws Exception {
+        test.writeInLog("INFO", "Login: " + user.getLogin() + ", Password: " + user.getPassword());
+        this.setUserName(tool, user);
+        this.setPassword(tool, user);
+        this.setRealm(tool, user);
+        this.clickLogin(tool);
+    }
+
 }

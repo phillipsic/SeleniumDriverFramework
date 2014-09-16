@@ -17,6 +17,7 @@ public class WPMCTest extends Main {
         test = new Test();
         test.setName(this.getClass().getSimpleName());
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
+        test.setLOG_FILE();
         tool.platform = new Platform();
         user = new User();
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));

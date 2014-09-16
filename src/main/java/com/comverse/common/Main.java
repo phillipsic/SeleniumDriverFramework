@@ -14,7 +14,6 @@ import org.junit.runner.Description;
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
-import com.comverse.sec.ComverseOneSingleSignOn;
 
 public class Main {
 
@@ -256,15 +255,6 @@ public class Main {
             }
 
         }
-    }
-
-    public void loginSSOUser() throws Exception {
-        test.writeInLog("INFO", "Login: " + user.getLogin() + ", Password: " + user.getPassword());
-        ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
-        ssoLoginPage.setUserName(tool, user);
-        ssoLoginPage.setPassword(tool, user);
-        ssoLoginPage.setRealm(tool, user);
-        ssoLoginPage.clickLogin(tool);
     }
 
     @After
