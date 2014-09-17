@@ -7,6 +7,7 @@ package com.comverse.css.pos;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.CommonMenu;
 
 public class AddEmployeeRegisterLogin extends CommonMenu {
@@ -24,7 +25,6 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public void setLogin(String login) throws Exception {
 
-        
         tool.enterStringUsingId("login", login);
     }
 
@@ -40,8 +40,9 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
 
     public AddEmployeeConfirmation clickContinue() throws Exception {
 
+        tool.
         tool.clickUsingXPath("//input[@value='Continue']");
-
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new AddEmployeeConfirmation(tool, test, user);
     }
 

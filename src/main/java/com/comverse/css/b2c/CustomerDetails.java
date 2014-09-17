@@ -22,6 +22,7 @@ public class CustomerDetails extends B2CMenu {
     public CheckOutBillingAccountInformation clickOk() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("prospectok");
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 

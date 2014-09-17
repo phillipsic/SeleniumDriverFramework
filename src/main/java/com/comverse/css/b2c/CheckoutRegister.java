@@ -16,7 +16,7 @@ public class CheckoutRegister extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Checkout Register";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -26,8 +26,9 @@ public class CheckoutRegister extends B2CMenu {
     public SignUpUser selectSignMeUpAndClickContinue() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         this.selectSignMeUp();
-        SignUpUser signUp = this.clickContinue();
-        return signUp;
+        this.clickContinue();
+        Common.sleepForNumberOfSeconds(3);
+        return new SignUpUser(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation enterRegisteredLoginDetailsAndClickContinue(String loginName, String password) throws Exception {
@@ -56,6 +57,7 @@ public class CheckoutRegister extends B2CMenu {
     public SignUpUser clickContinue() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new SignUpUser(tool, test, user);
     }
 

@@ -3,6 +3,7 @@ package com.comverse.css.pos;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.CommonMenu;
 
 public class SearchRetailer extends CommonMenu {
@@ -34,6 +35,7 @@ public class SearchRetailer extends CommonMenu {
     public ViewHierarchy clickDealerLink(String dealerName) throws Exception {
 
         tool.clickUsingLinkText(dealerName);
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
 
         return new ViewHierarchy(tool, test, user);
     }
