@@ -17,21 +17,18 @@ public class MoveLevel extends MoveLevelCommon {
 
     @Override
     public MoveLevel clickSelectByLevelName(String weeklyLevelName) throws Exception {
-
         super.clickSelectByLevelName(weeklyLevelName);
         return new MoveLevel(tool, test, user);
     }
 
     @Override
     public ViewHierarchy clickHierarchy() throws Exception {
-
         super.clickHierarchy();
         return new ViewHierarchy(tool, test, user);
     }
 
     @Override
     public MoveLevel levelNameWithOutSelectLink(String weeklyLevelName) throws Exception {
-
         super.levelNameWithOutSelectLink(weeklyLevelName);
         return new MoveLevel(tool, test, user);
     }

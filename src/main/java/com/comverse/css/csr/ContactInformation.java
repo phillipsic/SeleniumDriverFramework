@@ -17,28 +17,32 @@ public class ContactInformation extends ContactInformationCommon {
     }
 
     @Override
-    public LoginInformation clickViewLoginInformationLink() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public LoginInformation clickViewLoginInformationLink() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickViewLoginInformationLink();
         return new LoginInformation(tool, test, user);
     }
 
     @Override
-    public MoveMember clickMoveMember() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public MoveMember clickMoveMember() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickMoveMember();
         return new MoveMember(tool, test, user);
     }
 
     @Override
-    public ModifyEmployeeContact clickModifyContact() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ModifyEmployeeContact clickModifyContact() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickModifyContact();
         return new ModifyEmployeeContact(tool, test, user);
     }
 
     @Override
-    public ContactInformation clickUserInformation() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ContactInformation clickUserInformation() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickUserInformation();
         return new ContactInformation(tool, test, user);
     }

@@ -13,7 +13,6 @@ public class RegisterPrepaymentConfirm extends RegisterPrepaymentConfirmCommon {
 
     @Override
     public AccountDetails clickBackToAccount() throws Exception {
-
         super.clickBackToAccount();
         return new AccountDetails(tool, test, user);
     }

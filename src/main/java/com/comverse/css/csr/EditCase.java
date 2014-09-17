@@ -13,7 +13,6 @@ public class EditCase extends EditCaseCommon {
 
     public EditCase(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-
     }
 
 }

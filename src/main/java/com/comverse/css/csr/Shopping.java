@@ -13,21 +13,18 @@ public class Shopping extends ShoppingCommon {
 
     @Override
     public MyBasket clickSelectOfferInPopUpWindow() throws Exception {
-
         super.clickSelectOfferInPopUpWindow();
         return new MyBasket(tool, test, user);
     }
 
     @Override
     public ConfigureBalance clickSelectOfferInPopUpWindowExpectingConfigureBalance() throws Exception {
-
         super.clickSelectOfferInPopUpWindowExpectingConfigureBalance();
         return new ConfigureBalance(tool, test, user);
     }
 
     @Override
     public ConfigureContractDetails clickSelectOfferInPopUpWindowExpectingConfigureContract() throws Exception {
-
         super.clickSelectOfferInPopUpWindowExpectingConfigureContract();
         return new ConfigureContractDetails(tool, test, user);
     }
@@ -45,7 +42,7 @@ public class Shopping extends ShoppingCommon {
     }
 
     @Override
-	public SelectOffersForYourSubscriber subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffersForSubscriber(String accountBundle, String accountOffer,
+    public SelectOffersForYourSubscriber subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffersForSubscriber(String accountBundle, String accountOffer,
             String optionalSubscriberBundle, String... optionalSupplementaryOffersTable) throws Exception {
         super.subscribeToAccountBundlelSubscriberSelectiveOfferByNameExpectingSelectOffersForSubscriber(accountBundle, accountOffer, optionalSubscriberBundle,
                 optionalSupplementaryOffersTable);
@@ -54,42 +51,36 @@ public class Shopping extends ShoppingCommon {
 
     @Override
     public MyBasket selectHandset(String value) throws Exception {
-
         super.selectHandset(value);
         return new MyBasket(tool, test, user);
     }
 
     @Override
     public MyBasket selectAccessory(String value) throws Exception {
-
         super.selectAccessory(value);
         return new MyBasket(tool, test, user);
     }
 
     @Override
     public TestServiceAbility clickSelectOfferInPopUpWindowWithServiceAbility() throws Exception {
-
         super.clickSelectOfferInPopUpWindowWithServiceAbility();
         return new TestServiceAbility(tool, test, user);
     }
 
     @Override
     public TestServiceAbility clickNotEligibleLink() throws Exception {
-
         super.clickNotEligibleLink();
         return new TestServiceAbility(tool, test, user);
     }
 
     @Override
     public SelectOffersForYourSubscriber clickSelectOfferInPopUpWindowExpectingSelectOffersForYourSubscriber() throws Exception {
-
         super.clickSelectOfferInPopUpWindowExpectingSelectOffersForYourSubscriber();
         return new SelectOffersForYourSubscriber(tool, test, user);
     }
 
     @Override
     public EnterYourSubscriptionDetails clickSelectOfferInPopUpWindowExpectingEnterYourSubscriptionDetails() throws Exception {
-
         super.clickSelectOfferInPopUpWindowExpectingEnterYourSubscriptionDetails();
         return new EnterYourSubscriptionDetails(tool, test, user);
     }

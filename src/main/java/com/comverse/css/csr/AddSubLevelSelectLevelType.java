@@ -17,7 +17,8 @@ public class AddSubLevelSelectLevelType extends AddSubLevelSelectLevelTypeCommon
     }
 
     @Override
-    public AddSubLevelLegalAddress clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AddSubLevelLegalAddress clickOk() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new AddSubLevelLegalAddress(tool, test, user);

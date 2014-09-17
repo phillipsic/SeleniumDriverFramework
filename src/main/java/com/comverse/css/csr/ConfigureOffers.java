@@ -17,14 +17,16 @@ public class ConfigureOffers extends ConfigureOffersCommon {
     }
 
     @Override
-    public ConfigureBalance clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ConfigureBalance clickContinue() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickContinue();
         return new ConfigureBalance(tool, test, user);
     }
 
     @Override
-    public SwapImpact clickContinueExpectingSwapImpact() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SwapImpact clickContinueExpectingSwapImpact() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinueExpectingSwapImpact();
         return new SwapImpact(tool, test, user);
     }

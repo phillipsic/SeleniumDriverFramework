@@ -17,7 +17,6 @@ public class OfferCancellation extends OfferCancellationCommon {
 
     @Override
     public AccountDetails clickOk() throws Exception {
-
         super.clickOk();
         return new AccountDetails(tool, test, user);
     }

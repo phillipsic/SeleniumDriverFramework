@@ -17,7 +17,8 @@ public class ConfirmNewSecretAnswer extends ConfirmNewSecretAnswerCommon {
     }
 
     @Override
-    public ConfirmChange clickOK() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ConfirmChange clickOK() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickOK();
         return new ConfirmChange(tool, test, user);

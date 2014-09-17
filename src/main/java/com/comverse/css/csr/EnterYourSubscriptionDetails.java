@@ -17,7 +17,8 @@ public class EnterYourSubscriptionDetails extends EnterYourSubscriptionDetailsCo
     }
 
     @Override
-    public SelectOffersForYourSubscriber clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SelectOffersForYourSubscriber clickContinue() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new SelectOffersForYourSubscriber(tool, test, user);
     }

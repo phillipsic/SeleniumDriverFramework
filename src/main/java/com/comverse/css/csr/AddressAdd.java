@@ -21,38 +21,40 @@ public class AddressAdd extends AddressAddCommon {
     }
 
     @Override
-	public void setStreetName(String streetname) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void setStreetName(String streetname) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
-        
         tool.enterStringUsingId("add_streetName", streetname);
 
     }
 
     @Override
-	public void setCity(String city) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void setCity(String city) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
-        
         tool.enterStringUsingId("add_city", city);
 
     }
 
     @Override
-	public void setZipCode(String zipcode) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void setZipCode(String zipcode) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
-        
         tool.enterStringUsingId("add_postalCode", zipcode);
 
     }
 
     @Override
-	public void selectCountry(String country) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectCountry(String country) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("add_countryCode", country);
 
     }
 
     @Override
-	public AddressAdministration clickOK() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AddressAdministration clickOK() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Ok']");
 

@@ -13,7 +13,8 @@ public class DisconnectSubscriberDisconnectionSuccessful extends DisconnectSubsc
     }
 
     @Override
-    public SubscriberDetails clickOK() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SubscriberDetails clickOK() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickOK();
         return new SubscriberDetails(tool, test, user);
     }

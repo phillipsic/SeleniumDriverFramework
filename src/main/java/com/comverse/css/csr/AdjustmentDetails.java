@@ -13,7 +13,8 @@ public class AdjustmentDetails extends AdjustmentDetailsCommon {
     }
 
     @Override
-    public ViewUnbilledAdjustment clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewUnbilledAdjustment clickBack() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewUnbilledAdjustment(tool, test, user);

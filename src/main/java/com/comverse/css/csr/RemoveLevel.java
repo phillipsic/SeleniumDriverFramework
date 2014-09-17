@@ -17,7 +17,6 @@ public class RemoveLevel extends RemoveLevelCommon {
 
     @Override
     public ViewHierarchy clickOk() throws Exception {
-
         super.clickOk();
         return new ViewHierarchy(tool, test, user);
     }

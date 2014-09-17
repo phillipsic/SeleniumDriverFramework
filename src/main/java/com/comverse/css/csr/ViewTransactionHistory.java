@@ -17,28 +17,24 @@ public class ViewTransactionHistory extends ViewTransactionHistoryCommon {
 
     @Override
     public ViewNRCHistory clickonNRCHistory() throws Exception {
-
         super.clickonNRCHistory();
         return new ViewNRCHistory(tool, test, user);
     }
 
     @Override
     public ViewRCHistory clickonRCHistory() throws Exception {
-
         super.clickonRCHistory();
         return new ViewRCHistory(tool, test, user);
     }
 
     @Override
     public ViewUsageHistory clickOnUsageHistory() throws Exception {
-
         super.clickOnUsageHistory();
         return new ViewUsageHistory(tool, test, user);
     }
 
     @Override
     public ViewMTRHistory clickonMTRHistory() throws Exception {
-
         super.clickonMTRHistory();
         return new ViewMTRHistory(tool, test, user);
     }

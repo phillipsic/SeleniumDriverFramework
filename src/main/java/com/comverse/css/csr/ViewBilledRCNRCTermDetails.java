@@ -13,7 +13,6 @@ public class ViewBilledRCNRCTermDetails extends ViewBilledRCNRCTermDetailsCommon
 
     @Override
     public ViewBilledRCNRCTerms clickBack() throws Exception {
-
         super.clickBack();
         return new ViewBilledRCNRCTerms(tool, test, user);
     }

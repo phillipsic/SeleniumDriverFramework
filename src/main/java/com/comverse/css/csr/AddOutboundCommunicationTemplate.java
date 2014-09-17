@@ -22,54 +22,62 @@ public class AddOutboundCommunicationTemplate extends AddOutboundCommunicationTe
     }
 
     @Override
-    public void selectTemplate(String filename) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectTemplate(String filename) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         File file = new File(filename);
         tool.enterStringNotTextFieldUsingId("templateFile", file.getAbsolutePath());
     }
 
     @Override
-    public void selectLanguage(String language) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectLanguage(String language) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("languageCode", language);
 
     }
 
     @Override
-    public void selectChannel(String channel) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectChannel(String channel) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("channel", channel);
 
     }
 
     @Override
-    public void selectEventType(String eventType) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectEventType(String eventType) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("eventType", eventType);
 
     }
 
     @Override
-    public void selectCaseType(String caseType) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectCaseType(String caseType) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("caseType", caseType);
 
     }
 
     @Override
-    public void selectProblemArea(String problemArea) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectProblemArea(String problemArea) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("problemArea", problemArea);
 
     }
 
     @Override
-    public void setDescription(String description) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void setDescription(String description) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("description", description);
     }
 
     @Override
-    public OutboundCommunicationTemplate clickOK() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public OutboundCommunicationTemplate clickOK() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Ok']");
 

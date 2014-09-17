@@ -17,7 +17,8 @@ public class LoginActivated extends LoginActivatedCommon {
     }
 
     @Override
-    public ModifyLoginPassword clickChangePassword() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ModifyLoginPassword clickChangePassword() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickChangePassword();
         return new ModifyLoginPassword(tool, test, user);

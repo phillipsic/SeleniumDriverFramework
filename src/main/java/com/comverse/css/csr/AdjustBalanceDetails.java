@@ -13,7 +13,8 @@ public class AdjustBalanceDetails extends AdjustBalanceDetailsCommon {
     }
 
     @Override
-    public AdjustBalanceReview clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AdjustBalanceReview clickContinue() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickContinue();
         return new AdjustBalanceReview(tool, test, user);

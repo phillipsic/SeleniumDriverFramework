@@ -13,7 +13,8 @@ public class AddLogin extends AddLoginCommon {
     }
 
     @Override
-    public PersonManagement clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public PersonManagement clickContinue() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new PersonManagement(tool, test, user);
     }

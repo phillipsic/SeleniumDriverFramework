@@ -13,7 +13,8 @@ public class AddMember extends AddMemberCommon {
     }
 
     @Override
-    public ViewHierarchy clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewHierarchy clickOk() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new ViewHierarchy(tool, test, user);

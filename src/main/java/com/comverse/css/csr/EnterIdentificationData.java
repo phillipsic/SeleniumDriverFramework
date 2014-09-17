@@ -17,14 +17,16 @@ public class EnterIdentificationData extends EnterIdentificationDataCommon {
     }
 
     @Override
-    public Shopping clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public Shopping clickContinue() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickContinue();
         return new Shopping(tool, test, user);
     }
 
     @Override
-    public SearchAddress clickSearchAddress() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SearchAddress clickSearchAddress() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickSearchAddress();
         return new SearchAddress(tool, test, user);

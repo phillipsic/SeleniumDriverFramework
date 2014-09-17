@@ -13,14 +13,12 @@ public class ViewUnbilledMTR extends ViewUnbilledMTRCommon {
 
     @Override
     public ViewUnbilledMTRDetails clickFirstMTR() throws Exception {
-
         super.clickFirstMTR();
         return new ViewUnbilledMTRDetails(tool, test, user);
     }
 
     @Override
     public UnbilledTransaction clickBack() throws Exception {
-
         super.clickBack();
         return new UnbilledTransaction(tool, test, user);
     }

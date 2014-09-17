@@ -17,7 +17,6 @@ public class RemoveDeliveryAddress extends RemoveDeliveryAddressCommon {
 
     @Override
     public DeliveryAddresses clickOk() throws Exception {
-
         super.clickOk();
         return new DeliveryAddresses(tool, test, user);
     }

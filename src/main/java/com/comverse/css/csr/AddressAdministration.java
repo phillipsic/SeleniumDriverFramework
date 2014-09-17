@@ -21,7 +21,8 @@ public class AddressAdministration extends AddressAdministrationCommon {
     }
 
     @Override
-	public AddressAdd clickAdd() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AddressAdd clickAdd() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Add']");
 

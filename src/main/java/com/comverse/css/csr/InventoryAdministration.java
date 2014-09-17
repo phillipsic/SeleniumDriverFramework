@@ -18,31 +18,36 @@ public class InventoryAdministration extends CommonMenu {
         }
     }
 
-    public InsertInventory clickInsertInventory() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public InsertInventory clickInsertInventory() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Insert Inventory");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new InsertInventory(tool, test, user);
     }
 
-    public AddressAdministration clickAddressAdministration() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AddressAdministration clickAddressAdministration() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_ADDRESS_ADMINISTRATION");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddressAdministration(tool, test, user);
     }
 
-    public InventoryAdministration clickInventoryAdministration() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public InventoryAdministration clickInventoryAdministration() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_INVENTORY_ADMINISTRATION");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new InventoryAdministration(tool, test, user);
     }
 
-    public TokenAdministration clickTokenAdministration() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public TokenAdministration clickTokenAdministration() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_TOKEN_ADMINISTRATION");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new TokenAdministration(tool, test, user);
     }
 
-    public OutboundCommunicationTemplate clickTemplateAdministration() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public OutboundCommunicationTemplate clickTemplateAdministration() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_TEMPLATE_ADMINISTRATION");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new OutboundCommunicationTemplate(tool, test, user);

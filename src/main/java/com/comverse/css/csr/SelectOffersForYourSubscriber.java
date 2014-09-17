@@ -29,7 +29,6 @@ public class SelectOffersForYourSubscriber extends SelectOffersForYourSubscriber
 
     @Override
     public MyBasket clickContinueExpectingMyBasket() throws Exception {
-
         super.clickContinueExpectingMyBasket();
         return new MyBasket(tool, test, user);
     }
@@ -42,7 +41,6 @@ public class SelectOffersForYourSubscriber extends SelectOffersForYourSubscriber
 
     @Override
     public SwapImpact clickContinueExpectingSwapImpact() throws Exception {
-
         super.clickContinueExpectingSwapImpact();
         return new SwapImpact(tool, test, user);
     }

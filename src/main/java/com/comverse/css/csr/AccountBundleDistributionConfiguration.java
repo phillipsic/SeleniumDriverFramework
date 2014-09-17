@@ -14,7 +14,8 @@ public class AccountBundleDistributionConfiguration extends AccountBundleDistrib
     }
 
     @Override
-    public ConfigureContractDetails clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ConfigureContractDetails clickContinue() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new ConfigureContractDetails(tool, test, user);
     }

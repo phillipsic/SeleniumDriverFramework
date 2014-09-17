@@ -16,25 +16,25 @@ public class ViewHierarchy extends ViewHierarchyCommon {
     }
 
     public NewMemberLegalAddress clickAddEmployeeOCM() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_ADD_MEMBER");
         return new NewMemberLegalAddress(tool, test, user);
     }
 
     public NewMemberLegalAddress clickAddEmployee() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_ADD_MEMBER");
         return new NewMemberLegalAddress(tool, test, user);
     }
 
     public AddEmployeeContactInformation clickAddB2BEmployee() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_REGISTER_EMPLOYEE");
         return new AddEmployeeContactInformation(tool, test, user);
     }
 
     public ViewHierarchy addWeeklyLevel() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         Calendar calendar = Calendar.getInstance();
         int week = calendar.get(Calendar.WEEK_OF_YEAR);
 
@@ -56,49 +56,46 @@ public class ViewHierarchy extends ViewHierarchyCommon {
         }
 
         return new ViewHierarchy(tool, test, user);
-
     }
 
     public AddSubLevelSelectLevelType clickAddLevel() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_ADD_LEVEL");
         return new AddSubLevelSelectLevelType(tool, test, user);
     }
 
     public MoveLevel clickMoveLevel() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_MOVE_LEVEL");
         return new MoveLevel(tool, test, user);
     }
 
     public RemoveSelection clickRemoveLevel() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_REMOVE_LEVEL");
         return new RemoveSelection(tool, test, user);
     }
 
     public LevelLegalContact clickViewContact() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_ADDRESS");
         return new LevelLegalContact(tool, test, user);
     }
 
     @Override
     public ContactInformation clickEmployeeNameLink(String firstName, String lastName) throws Exception {
-
         super.clickEmployeeNameLink(firstName, lastName);
         return new ContactInformation(tool, test, user);
     }
 
     @Override
     public MyshapeCSRPortal clickLogout() throws Exception {
-
         super.clickLogout();
         return new MyshapeCSRPortal(tool, test, user);
     }
 
     public String addEmployee(String uniqueCode, String role) throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         NewMemberLegalAddress newMemberLegalAddress = this.clickAddEmployee();
         newMemberLegalAddress.setFirstName("FN" + uniqueCode);
         newMemberLegalAddress.setLastName("LN" + uniqueCode);
@@ -114,7 +111,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
     }
 
     public String addBusinessAdminEmployee(String uniqueCode) throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         AddEmployeeContactInformation addEmployeeContactInformation = this.clickAddB2BEmployee();
         addEmployeeContactInformation.setFirstName("FN" + uniqueCode);
         addEmployeeContactInformation.setLastName("LN" + uniqueCode);
@@ -130,6 +127,7 @@ public class ViewHierarchy extends ViewHierarchyCommon {
     }
 
     public User addOCMPublisherEmployee(String uniqueCode) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         User OCMPubUser = new OCMPub();
         NewMemberLegalAddress newMemberLegalAddress = this.clickAddEmployeeOCM();
         newMemberLegalAddress.setFirstName("FN" + uniqueCode);

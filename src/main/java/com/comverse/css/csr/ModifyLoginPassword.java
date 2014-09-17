@@ -17,7 +17,6 @@ public class ModifyLoginPassword extends ModifyLoginPasswordCommon {
 
     @Override
     public MyshapeCSRPortal clickLogout() throws Exception {
-
         super.clickLogout();
         return new MyshapeCSRPortal(tool, test, user);
     }
@@ -29,7 +28,6 @@ public class ModifyLoginPassword extends ModifyLoginPasswordCommon {
 
     @Override
     public String getNewPassword() throws Exception {
-
         String password = super.getNewPassword();
         return password.trim();
     }

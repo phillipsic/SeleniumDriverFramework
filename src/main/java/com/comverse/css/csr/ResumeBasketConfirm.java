@@ -17,7 +17,6 @@ public class ResumeBasketConfirm extends ResumeBasketConfirmCommon {
 
     @Override
     public MyBasket clickOk() throws Exception {
-
         super.clickOk();
         return new MyBasket(tool, test, user);
     }

@@ -13,7 +13,6 @@ public class ViewUnbilledMTRDetails extends ViewUnbilledMTRDetailsCommon {
 
     @Override
     public ViewUnbilledMTR clickBack() throws Exception {
-
         super.clickBack();
         return new ViewUnbilledMTR(tool, test, user);
     }

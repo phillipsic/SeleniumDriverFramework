@@ -13,7 +13,6 @@ public class ViewInvoiceBalanceDetails extends ViewInvoiceBalanceDetailsCommon {
 
     @Override
     public ViewInvoiceDetails clickBack() throws Exception {
-
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);
     }

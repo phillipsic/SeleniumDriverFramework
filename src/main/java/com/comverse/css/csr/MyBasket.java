@@ -18,49 +18,42 @@ public class MyBasket extends MyBasketCommon {
 
     @Override
     public RemoveBasket clickClear() throws Exception {
-
         super.clickClear();
         return new RemoveBasket(tool, test, user);
     }
 
     @Override
     public RemoveSelection removeSecondItemFromBasket() throws Exception {
-
         super.removeSecondItemFromBasket();
         return new RemoveSelection(tool, test, user);
     }
 
     @Override
     public RemoveSelection removeFirstItemFromBasket() throws Exception {
-
         super.removeFirstItemFromBasket();
         return new RemoveSelection(tool, test, user);
     }
 
     @Override
     public Shopping changePrimaryOffer() throws Exception {
-
         super.changePrimaryOffer();
         return new Shopping(tool, test, user);
     }
 
     @Override
     public ServiceConnectionDetails clickFirstActionsIcon() throws Exception {
-
         super.clickFirstActionsIcon();
         return new ServiceConnectionDetails(tool, test, user);
     }
 
     @Override
     public MyshapeCSRPortal clickLogout() throws Exception {
-
         super.clickLogout();
         return new MyshapeCSRPortal(tool, test, user);
     }
 
     @Override
     public ParkTheCurrentBasket clickParkBasket() throws Exception {
-
         super.clickParkBasket();
         return new ParkTheCurrentBasket(tool, test, user);
     }
@@ -79,7 +72,6 @@ public class MyBasket extends MyBasketCommon {
 
     @Override
     public Shopping clickContinueShopping() throws Exception {
-
         super.clickContinueShopping();
         return new Shopping(tool, test, user);
     }
@@ -92,7 +84,6 @@ public class MyBasket extends MyBasketCommon {
 
     @Override
     public SelectOffersForYourAccount clickAddAO() throws Exception {
-
         super.clickAddAO();
         return new SelectOffersForYourAccount(tool, test, user);
     }

@@ -13,7 +13,8 @@ public class AddStandaloneCharge extends AddStandaloneChargeCommon {
     }
 
     @Override
-    public void selectEventTypeDispatch() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectEventTypeDispatch() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.selectEventTypeDispatch();
     }
 
@@ -22,12 +23,14 @@ public class AddStandaloneCharge extends AddStandaloneChargeCommon {
     }
 
     @Override
-    public void confirmStandaloneCharge() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void confirmStandaloneCharge() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.confirmStandaloneCharge();
     }
 
     @Override
-    public void selectNRCTypeDispatchFee() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectNRCTypeDispatchFee() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.selectNRCTypeDispatchFee();
     }
 

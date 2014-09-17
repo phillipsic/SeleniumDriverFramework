@@ -13,7 +13,6 @@ public class ReconfigureBalanceConfirm extends ReconfigureBalanceConfirmCommon {
 
     @Override
     public ViewBalance clickBack() throws Exception {
-
         super.clickBack();
         return new ViewBalance(tool, test, user);
     }

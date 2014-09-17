@@ -13,7 +13,6 @@ public class ServiceConnectionDetails extends ServiceConnectionDetailsCommon {
 
     @Override
     public MyBasket clickOk() throws Exception {
-
         super.clickOk();
         return new MyBasket(tool, test, user);
     }

@@ -13,7 +13,6 @@ public class ViewBilledUsageDetails extends ViewBilledUsageDetailsCommon {
 
     @Override
     public ViewBilledUsage clickBack() throws Exception {
-
         super.clickBack();
         return new ViewBilledUsage(tool, test, user);
     }

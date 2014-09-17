@@ -17,28 +17,33 @@ public class ConfigureBalance extends ConfigureBalanceCommon {
     }
 
     @Override
-    public ServiceConnectionDetails clickContinueExpectingServiceConnectionDetails() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ServiceConnectionDetails clickContinueExpectingServiceConnectionDetails() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new ServiceConnectionDetails(tool, test, user);
     }
 
     @Override
-    public MyBasket clickContinueExpectingMyBasket() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public MyBasket clickContinueExpectingMyBasket() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinueExpectingMyBasket();
         return new MyBasket(tool, test, user);
     }
 
     @Override
-    public void setSpendingLimit(String limitName, String limitAmount) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.setSpendingLimit(limitName, limitAmount);
     }
 
-    public void configureBalance(String balanceName, String balanceValue) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void configureBalance(String balanceName, String balanceValue) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingId(balanceName + "_limit", balanceValue);
     }
 
     @Override
-    public ConfigureContractDetails clickContinueExpectingConfigureContractDetails() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ConfigureContractDetails clickContinueExpectingConfigureContractDetails() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinueExpectingConfigureContractDetails();
         return new ConfigureContractDetails(tool, test, user);
     }

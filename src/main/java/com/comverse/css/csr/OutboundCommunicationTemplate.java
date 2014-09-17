@@ -19,21 +19,25 @@ public class OutboundCommunicationTemplate extends OutboundCommunicationTemplate
     }
 
     public void doAddTemplates() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         clickSearch();
     }
 
     public void clickSearch() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath(".//*[@id='OutboundCommTemplateSearchForm']/fieldset[2]/input[3]");
     }
 
     @Override
     public AddOutboundCommunicationTemplate clickAdd() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Add']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddOutboundCommunicationTemplate(tool, test, user);
     }
 
     public void clickBack() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Back']");
     }
 

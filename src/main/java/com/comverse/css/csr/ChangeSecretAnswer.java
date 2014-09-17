@@ -17,7 +17,8 @@ public class ChangeSecretAnswer extends ChangeSecretAnswerCommon {
     }
 
     @Override
-    public ConfirmNewSecretAnswer clickChangeSecretAnswer() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ConfirmNewSecretAnswer clickChangeSecretAnswer() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickChangeSecretAnswer();
         return new ConfirmNewSecretAnswer(tool, test, user);

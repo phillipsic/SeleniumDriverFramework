@@ -13,7 +13,6 @@ public class ViewBalance extends ViewBalanceCommon {
 
     public ViewBalance(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-
     }
 
     @Override
@@ -26,7 +25,6 @@ public class ViewBalance extends ViewBalanceCommon {
     public AdjustBalanceDetails clickAdjustBalance(String balancename) throws Exception {
         super.clickAdjustBalance(balancename);
         return new AdjustBalanceDetails(tool, test, user);
-
     }
 
     public SubscriberDetails clickBackToSubscriberDashboard() throws Exception {

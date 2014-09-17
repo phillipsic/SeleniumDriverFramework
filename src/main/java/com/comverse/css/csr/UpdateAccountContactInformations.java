@@ -17,7 +17,6 @@ public class UpdateAccountContactInformations extends UpdateAccountContactInform
 
     @Override
     public CustomerAcquisitionCustomerDataReview clickContinue() throws Exception {
-
         super.clickContinue();
         return new CustomerAcquisitionCustomerDataReview(tool, test, user);
     }

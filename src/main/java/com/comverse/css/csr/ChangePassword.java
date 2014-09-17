@@ -13,7 +13,8 @@ public class ChangePassword extends ChangePasswordCommon {
     }
 
     @Override
-    public ModifyLoginPassword clickChange() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ModifyLoginPassword clickChange() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickChange();
         return new ModifyLoginPassword(tool, test, user);

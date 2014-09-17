@@ -13,197 +13,226 @@ public class AccountDetails extends AccountDetailsCommon {
     }
 
     @Override
-    public PersonManagement clickPersonManagement() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public PersonManagement clickPersonManagement() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickPersonManagement();
         return new PersonManagement(tool, test, user);
     }
 
     @Override
-    public SubscriberDetails selectFirstSubscriberFromNavigationPanel() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SubscriberDetails selectFirstSubscriberFromNavigationPanel() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.selectFirstSubscriberFromNavigationPanel();
         return new SubscriberDetails(tool, test, user);
     }
 
     @Override
-    public SubscriberDetails clickSubscriberIDFromNavigationPanel() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SubscriberDetails clickSubscriberIDFromNavigationPanel() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickSubscriberIDFromNavigationPanel();
         return new SubscriberDetails(tool, test, user);
     }
 
     @Override
-    public SubscriberDetails selectSubscriberByMSISDN(String MSISDN) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SubscriberDetails selectSubscriberByMSISDN(String MSISDN) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.selectSubscriberByMSISDN(MSISDN);
         return new SubscriberDetails(tool, test, user);
     }
 
     @Override
-    public AddNewCase addNewCase() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AddNewCase addNewCase() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.addNewCase();
         return new AddNewCase(tool, test, user);
     }
 
     @Override
-    public SendCommunication clickSendOutBoundCommunication() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SendCommunication clickSendOutBoundCommunication() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickSendOutBoundCommunication();
         return new SendCommunication(tool, test, user);
     }
 
     @Override
-    public ViewBalance clickViewBalancesAndRecharge() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewBalance clickViewBalancesAndRecharge() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickViewBalancesAndRecharge();
         return new ViewBalance(tool, test, user);
     }
 
     @Override
-    public ViewInvoices clickBillsAndPayments() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewInvoices clickBillsAndPayments() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickBillsAndPayments();
         return new ViewInvoices(tool, test, user);
     }
 
     @Override
-    public ViewTransactionHistory clickHistories() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewTransactionHistory clickHistories() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickHistories();
         return new ViewTransactionHistory(tool, test, user);
     }
 
     @Override
-    public SelectOffersForYourAccount clickAddNewAccountOffer() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SelectOffersForYourAccount clickAddNewAccountOffer() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickAddNewAccountOffer();
         return new SelectOffersForYourAccount(tool, test, user);
     }
 
     @Override
-    public RequestsForCustomer clickViewRequestsForThisCustomer() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public RequestsForCustomer clickViewRequestsForThisCustomer() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickViewRequestsForThisCustomer();
         return new RequestsForCustomer(tool, test, user);
     }
 
     @Override
-    public RemoveOffer clickRemoveFirstAccountOffer() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public RemoveOffer clickRemoveFirstAccountOffer() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickRemoveFirstAccountOffer();
         return new RemoveOffer(tool, test, user);
     }
 
     @Override
-    public ModifyAccountAttributes clickModifyAccountContact() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ModifyAccountAttributes clickModifyAccountContact() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickModifyAccountContact();
         return new ModifyAccountAttributes(tool, test, user);
     }
 
     @Override
-    public ModifyPaymentInformation clickModifyPaymentMethod() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ModifyPaymentInformation clickModifyPaymentMethod() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickModifyPaymentMethod();
         return new ModifyPaymentInformation(tool, test, user);
     }
 
     @Override
-    public ModifyContactInformation clickModifyBillingContact() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ModifyContactInformation clickModifyBillingContact() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickModifyBillingContact();
         return new ModifyContactInformation(tool, test, user);
     }
 
     @Override
-    public WorkSpace clickHome() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public WorkSpace clickHome() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickHome();
         return new WorkSpace(tool, test, user);
     }
 
     @Override
-    public DeliveryAddresses clickDeliveryAddresses() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public DeliveryAddresses clickDeliveryAddresses() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickDeliveryAddresses();
         return new DeliveryAddresses(tool, test, user);
     }
 
     @Override
-    public ViewCase clickLinkOfCaseID(String caseID) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewCase clickLinkOfCaseID(String caseID) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickLinkOfCaseID(caseID);
         return new ViewCase(tool, test, user);
     }
 
     @Override
-    public RegisterPrepayment clickRegisterPrepayment() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public RegisterPrepayment clickRegisterPrepayment() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickRegisterPrepayment();
         return new RegisterPrepayment(tool, test, user);
     }
 
     @Override
-    public CustomerAcquisitionCustomerDataReview clickNewConvergentSubscriberOnExistingAccount() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public CustomerAcquisitionCustomerDataReview clickNewConvergentSubscriberOnExistingAccount() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickNewConvergentSubscriberOnExistingAccount();
         return new CustomerAcquisitionCustomerDataReview(tool, test, user);
     }
 
     @Override
-    public CustomerAcquisitionCustomerDataReview clickNewConvergentSubscriberOnNewAccount() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public CustomerAcquisitionCustomerDataReview clickNewConvergentSubscriberOnNewAccount() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickNewConvergentSubscriberOnNewAccount();
         return new CustomerAcquisitionCustomerDataReview(tool, test, user);
     }
 
     @Override
-    public SwapBundle clickUpgrade() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public SwapBundle clickUpgrade() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickUpgrade();
         return new SwapBundle(tool, test, user);
     }
 
     @Override
-    public DisconnectAccount clickDisconnectAccount() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public DisconnectAccount clickDisconnectAccount() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickDisconnectAccount();
         return new DisconnectAccount(tool, test, user);
     }
 
     @Override
-    public AddDeposit clickAddDeposit() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AddDeposit clickAddDeposit() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickAddDeposit();
         return new AddDeposit(tool, test, user);
     }
 
     @Override
-    public AccountDeposits clickViewDeposits() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AccountDeposits clickViewDeposits() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickViewDeposits();
         return new AccountDeposits(tool, test, user);
     }
 
     @Override
-    public AddStandaloneCharge clickAddStandaloneCharge() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AddStandaloneCharge clickAddStandaloneCharge() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickAddStandaloneCharge();
         return new AddStandaloneCharge(tool, test, user);
     }
 
     @Override
-    public ViewHierarchy clickCustomerHierarchy() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewHierarchy clickCustomerHierarchy() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickCustomerHierarchy();
         return new ViewHierarchy(tool, test, user);
     }
 
     @Override
-    public PersonDetails clickUpdatePerson() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public PersonDetails clickUpdatePerson() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickUpdatePerson();
         return new PersonDetails(tool, test, user);
     }
 
-    public void waitUntilSubscriberStatusChanged(String status) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void waitUntilSubscriberStatusChanged(String status) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         int maxIterations = 10;
         int iterationCounter = 0;
@@ -230,7 +259,8 @@ public class AccountDetails extends AccountDetailsCommon {
         }
     }
 
-    public String getSubscriberStatus() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public String getSubscriberStatus() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         String orderStatus = tool.getTextUsingXPath("(//div[contains(text(),'Activated on:')])[2]/../div[2]");
         return orderStatus;

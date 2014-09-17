@@ -13,7 +13,8 @@ public class AdjustBalanceReview extends AdjustBalanceReviewCommon {
     }
 
     @Override
-    public AdjustBalanceRequestResult clickConfirm() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AdjustBalanceRequestResult clickConfirm() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         super.clickConfirm();
         return new AdjustBalanceRequestResult(tool, test, user);

@@ -3,6 +3,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.RequestsForCustomerCommon;
 
 public class RequestsForCustomer extends RequestsForCustomerCommon {
@@ -13,6 +14,7 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
 
     @Override
     public String getFirstRequestStatus() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr[1]/td[7]/div");
         return requestStatus;
     }

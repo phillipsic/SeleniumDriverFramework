@@ -17,10 +17,10 @@ public class ActionDone extends CommonMenu {
 
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-
     }
 
-    public InsertInventory clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public InsertInventory clickBack() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
 
