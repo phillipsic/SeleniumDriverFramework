@@ -34,27 +34,27 @@ public class OCMApplication extends Main {
         }
     }
 
-    public void clickMenuPublicationsManagePublications(Application application) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickMenuPublicationsManagePublications(Application application) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(application.appURL() + "faces/publication/manage_publication.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Manage Publications");
     }
 
-    public void clickMenuManageMediaFiles(Application application) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickMenuManageMediaFiles(Application application) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(application.appURL() + "faces/content/browse_content.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Browse Media Files");
     }
 
-    public void clickMenuManageCatalogs(Application application) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickMenuManageCatalogs(Application application) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(application.appURL() + "faces/catalog/product_by_catalog.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "Browse Products by Catalog");
     }
 
-    public void clickMenuNewPublication(Application application) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickMenuNewPublication(Application application) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(application.appURL() + "faces/publication/create_publication.jsp;" + this.getSessionIDFromUrl());
         Common.assertTextOnPage(tool, "New Publication");
     }
 
-    public void clickLatestPropagationResult() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickLatestPropagationResult() throws Exception {  test.writeInLogFile(Common.getMethodName());
         String source = tool.getPageSource();
         String IDSubscriber[];
 
@@ -72,7 +72,7 @@ public class OCMApplication extends Main {
 
     }
 
-    public String getDateOfPropagationFromDetailsPage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getDateOfPropagationFromDetailsPage() throws Exception {  test.writeInLogFile(Common.getMethodName());
         String creationDate = tool.getTextUsingXPath("//*[@id=\"mainPanel:publicationCreationDate_detail\"]");
 
         String dateCreation[];
@@ -81,12 +81,12 @@ public class OCMApplication extends Main {
         return creationDate;
     }
 
-    public String getStatusOfPropagationFromDetailsPage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getStatusOfPropagationFromDetailsPage() throws Exception {  test.writeInLogFile(Common.getMethodName());
         String success = tool.getTextUsingXPath("//*[@id=\"mainPanel:Status_detail\"]");
         return success;
     }
 
-    public String getTodaysDateInFormat(String dateFormat) throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getTodaysDateInFormat(String dateFormat) throws Exception {  test.writeInLogFile(Common.getMethodName());
         DateFormat df = new SimpleDateFormat(dateFormat);
         Date today = Calendar.getInstance().getTime();
 
@@ -95,7 +95,7 @@ public class OCMApplication extends Main {
         return reportDate;
     }
 
-    public boolean createNewDeviceProduct(Sheet workSheet, int rowCount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean createNewDeviceProduct(Sheet workSheet, int rowCount) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         boolean abortFlag = false;
 
@@ -129,13 +129,13 @@ public class OCMApplication extends Main {
         return abortFlag;
     }
 
-    public String getAttributeState() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getAttributeState() throws Exception {  test.writeInLogFile(Common.getMethodName());
         String AttributeState = "";
         AttributeState = tool.getTextUsingXPath("//html/body/table/tbody/tr[2]/td/div/div[2]/div/div/span");
         return AttributeState;
     }
 
-    public void editDeviceProductAttributes(Sheet workSheet, int rowCount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void editDeviceProductAttributes(Sheet workSheet, int rowCount) throws Exception {  test.writeInLogFile(Common.getMethodName());
         Cell smallImagePathCell = workSheet.getCell(4, rowCount);
         String smallImagePath = smallImagePathCell.getContents();
         System.out.println(smallImagePath);
@@ -173,7 +173,7 @@ public class OCMApplication extends Main {
         System.out.println("Attribute values updated");
     }
 
-    public String selectFirstIDs(String OfferName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public String selectFirstIDs(String OfferName) throws Exception {  test.writeInLogFile(Common.getMethodName());
         String str = tool.getPageSource();
         String temp[];
 
@@ -187,7 +187,7 @@ public class OCMApplication extends Main {
         return (temp[0]);
     }
 
-    public String selectSecondIDs(String OfferName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public String selectSecondIDs(String OfferName) throws Exception {  test.writeInLogFile(Common.getMethodName());
         String str = tool.getPageSource();
         String temp[];
 
@@ -201,7 +201,7 @@ public class OCMApplication extends Main {
         return (temp[0]);
     }
 
-    public void editDevicePriceLists(Sheet workSheet, int rowCount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void editDevicePriceLists(Sheet workSheet, int rowCount) throws Exception {  test.writeInLogFile(Common.getMethodName());
         Date date = new Date();
         SimpleDateFormat myformat = new SimpleDateFormat("MM/dd/yy");
         System.out.println(myformat.format(date));
@@ -231,7 +231,7 @@ public class OCMApplication extends Main {
         System.out.println("DevicePriceLists values updated");
     }
 
-    public void editSubsidizing(Sheet workSheet, int rowCount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void editSubsidizing(Sheet workSheet, int rowCount) throws Exception {  test.writeInLogFile(Common.getMethodName());
         Date date = new Date();
         SimpleDateFormat myformat = new SimpleDateFormat("MM/dd/yy");
         System.out.println(myformat.format(date));
@@ -286,19 +286,19 @@ public class OCMApplication extends Main {
         System.out.println("Subsidized values updated");
     }
 
-    public void SelectEURCurrency() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void SelectEURCurrency() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("menu:mainForm:_idJsp5ToggleCollapsed");
         tool.selectVisibleTextByID("menu:mainForm:displayedCurrency", "EUR");
         tool.clickUsingID("menu:mainForm:_idJsp5ToggleCollapsed");
     }
 
-    public void SelectUSDCurrency() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void SelectUSDCurrency() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("menu:mainForm:_idJsp5ToggleCollapsed");
         tool.selectVisibleTextByID("menu:mainForm:displayedCurrency", "USD");
         tool.clickUsingID("menu:mainForm:_idJsp5ToggleCollapsed");
     }
 
-    public void editVoiceDeviceCategories() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void editVoiceDeviceCategories() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.9");
         tool.clickUsingID("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
         tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
@@ -308,7 +308,7 @@ public class OCMApplication extends Main {
         System.out.println("VoiceDeviceCategories values updated");
     }
 
-    public void editDataDeviceCategories() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void editDataDeviceCategories() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.9");
         tool.clickUsingID("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
         tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
@@ -318,7 +318,7 @@ public class OCMApplication extends Main {
         System.out.println("DataDeviceCategories values updated");
     }
 
-    public boolean createNewAccescoryProduct(Sheet workSheet, int rowCount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean createNewAccescoryProduct(Sheet workSheet, int rowCount) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         boolean abortFlag = false;
 
@@ -357,7 +357,7 @@ public class OCMApplication extends Main {
         return abortFlag;
     }
 
-    public void editProductAttributes(Sheet workSheet, int rowCount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void editProductAttributes(Sheet workSheet, int rowCount) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         Cell smallImagePathCell = workSheet.getCell(4, rowCount);
         String smallImagePath = smallImagePathCell.getContents();
@@ -390,7 +390,7 @@ public class OCMApplication extends Main {
         System.out.println("Attribute values updated");
     }
 
-    public void editAccessoryPriceLists(Sheet workSheet, int rowCount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void editAccessoryPriceLists(Sheet workSheet, int rowCount) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         Date date = new Date();
         SimpleDateFormat myformat = new SimpleDateFormat("MM/dd/yy");
@@ -421,7 +421,7 @@ public class OCMApplication extends Main {
         System.out.println("DevicePriceLists values updated");
     }
 
-    public void editAccessoryCategories() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void editAccessoryCategories() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("mainPanel:productForm:productDetailsTabbedPane.9");
         tool.clickUsingID("mainPanel:productForm:categoryTab:view_product_availability_in_categories:editListAvailabilityCategory");
         tool.clickUsingID("mainPanel:productForm:categoryList:" + this.selectFirstIDs("CSS_PQA_Catalog") + ":attach");
@@ -432,7 +432,7 @@ public class OCMApplication extends Main {
         System.out.println("AccessoryCategories values updated");
     }
 
-    public String getSessionIDFromUrl() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getSessionIDFromUrl() throws Exception {  test.writeInLogFile(Common.getMethodName());
         String sessionID[] = tool.getCurrentUrl().split(";");
 
         return sessionID[1];

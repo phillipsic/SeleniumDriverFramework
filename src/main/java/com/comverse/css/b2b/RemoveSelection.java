@@ -3,7 +3,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.RemoveSelectionCommon;
 
 public class RemoveSelection extends RemoveSelectionCommon {
@@ -15,15 +14,13 @@ public class RemoveSelection extends RemoveSelectionCommon {
     }
 
     @Override
-    public MyBasket clickYes() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public MyBasket clickYes() throws Exception {
         super.clickYes();
         return new MyBasket(tool, test, user);
     }
 
     @Override
-    public RemoveLevel clickRemoveSelectionByYes() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public RemoveLevel clickRemoveSelectionByYes() throws Exception {
         super.clickRemoveSelectionByYes();
         return new RemoveLevel(tool, test, user);
     }

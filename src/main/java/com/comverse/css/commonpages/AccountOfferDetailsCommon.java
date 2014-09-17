@@ -23,7 +23,7 @@ public class AccountOfferDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourAccountCommon clickReturnToList() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("select");
         return new SelectOffersForYourAccountCommon(tool, test, user);
     }

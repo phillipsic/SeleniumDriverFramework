@@ -3,7 +3,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AddMemberCommon;
 
 public class AddMember extends AddMemberCommon {
@@ -13,8 +12,7 @@ public class AddMember extends AddMemberCommon {
     }
 
     @Override
-    public ViewHierarchy clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public ViewHierarchy clickOk() throws Exception {
         super.clickOk();
         return new ViewHierarchy(tool, test, user);
     }

@@ -13,14 +13,14 @@ public class AddSupplementaryOffers extends B2CMenu {
         String expectedScreen = "Add Supplementary Offers";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public SubscriberDetail clickOK() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new SubscriberDetail(tool, test, user);
 
@@ -28,7 +28,7 @@ public class AddSupplementaryOffers extends B2CMenu {
 
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         orderNumber = tool.getTextUsingXPath("//span[1]");
         String temp[];
         temp = orderNumber.split("number");

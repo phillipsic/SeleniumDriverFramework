@@ -26,7 +26,7 @@ public class RechargeSubscriberCommon extends CommonMenu {
     }
 
     public String getRechargeClass() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         String rechargeClass = tool.getTextUsingXPath("//tr[4]/td[2]/span/strong");
 
@@ -34,7 +34,7 @@ public class RechargeSubscriberCommon extends CommonMenu {
     }
 
     public ViewBalanceCommon clickViewBalances() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_BACK_TO_BALANCE_VIEW");
 

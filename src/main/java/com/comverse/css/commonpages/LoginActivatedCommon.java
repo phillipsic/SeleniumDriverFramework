@@ -22,7 +22,7 @@ public class LoginActivatedCommon extends CommonMenu {
     }
 
     public ModifyLoginPasswordCommon clickChangePassword() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Change Password']");
         return new ModifyLoginPasswordCommon(tool, test, user);

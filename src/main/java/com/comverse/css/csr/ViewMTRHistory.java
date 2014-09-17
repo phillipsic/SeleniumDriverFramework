@@ -13,7 +13,6 @@ public class ViewMTRHistory extends ViewMTRHistoryCommon {
 
     public ViewMTRHistory(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-
     }
 
 }

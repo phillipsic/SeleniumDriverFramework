@@ -13,7 +13,6 @@ public class ViewUnbilledRCTermDetails extends ViewUnbilledRCTermDetailsCommon {
 
     @Override
     public ViewUnbilledRCNRC clickBack() throws Exception {
-
         super.clickBack();
         return new ViewUnbilledRCNRC(tool, test, user);
     }

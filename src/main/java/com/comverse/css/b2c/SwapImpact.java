@@ -18,21 +18,21 @@ public class SwapImpact extends B2CMenu {
         String expectedScreen = "Swap Impact";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public MyBasket clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Ok']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public ConfigureBalance clickOkExpectingConfigureBalance() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Ok']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureBalance(tool, test, user);

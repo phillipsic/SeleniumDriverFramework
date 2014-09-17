@@ -26,13 +26,13 @@ public class WelcomeToYourPersonalizedWorkspaceCommon extends CommonMenu {
     }
 
     public String getHomePageWelcomeMessage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getTextUsingXPath("/html/body/h1");
     }
 
     public ViewHierarchyCommon clickManageTelco() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_TELCO");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewHierarchyCommon(tool, test, user);

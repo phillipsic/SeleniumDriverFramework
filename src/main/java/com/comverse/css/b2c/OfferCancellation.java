@@ -13,21 +13,21 @@ public class OfferCancellation extends B2CMenu {
         String expectedScreen = "Offer Cancellation";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public SubscriberDetail ClickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='OK']");
         return new SubscriberDetail(tool, test, user);
     }
 
     public String getOrderNumberFromPage() throws Exception {
         String orderNumber;
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         orderNumber = tool.getTextUsingXPath("//span[1]");
         String temp[];
         temp = orderNumber.split("number");

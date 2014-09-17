@@ -22,7 +22,8 @@ public class AddEmployeeConfirmation extends CommonMenu {
         }
     }
 
-    public RegisterLogin clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterLogin clickOk() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RegisterLogin(tool, test, user);

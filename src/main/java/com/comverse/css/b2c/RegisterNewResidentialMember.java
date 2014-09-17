@@ -18,14 +18,14 @@ public class RegisterNewResidentialMember extends B2CMenu {
         String expectedScreen = "Register New Residential Member";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void enterFirstName(String firstName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + firstName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + firstName + ")");
 
         tool.enterStringUsingId("firstname", firstName);
         System.out.println("Login - " + firstName);
@@ -33,7 +33,7 @@ public class RegisterNewResidentialMember extends B2CMenu {
     }
 
     public void enterLastName(String lastName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + lastName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + lastName + ")");
 
         tool.enterStringUsingId("lastname", lastName);
         System.out.println("Password - " + lastName);
@@ -42,14 +42,14 @@ public class RegisterNewResidentialMember extends B2CMenu {
 
     public void enterLogin(String login) throws Exception {
 
-        test.writeInLog(Common.getMethodName() + " using data (" + login + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + login + ")");
         tool.enterStringUsingId("login", login);
         System.out.println("Login - " + login);
 
     }
 
     public void enterPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + password + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + password + ")");
 
         tool.enterStringUsingId("password", password);
         System.out.println("Password - " + password);
@@ -58,24 +58,24 @@ public class RegisterNewResidentialMember extends B2CMenu {
 
     public void enterConfirmPassword(String confirmPassword) throws Exception {
 
-        test.writeInLog(Common.getMethodName() + " using data (" + confirmPassword + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + confirmPassword + ")");
         tool.enterStringUsingId("confirmPassword", confirmPassword);
 
     }
 
     public void clickSubmit() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Submit']");
     }
 
     public RequestSubmission clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new RequestSubmission(tool, test, user);
     }
 
     public void clickResidentialSubscriber() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("(//input[@name='role'])[2]");
     }
 

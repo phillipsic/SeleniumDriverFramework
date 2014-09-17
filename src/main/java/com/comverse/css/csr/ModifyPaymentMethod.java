@@ -17,7 +17,6 @@ public class ModifyPaymentMethod extends ModifyPaymentMethodCommon {
 
     @Override
     public AccountDetails clickOk() throws Exception {
-
         super.clickOk();
         return new AccountDetails(tool, test, user);
     }

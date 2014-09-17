@@ -18,13 +18,15 @@ public class SelectOffersForYourAccount extends SelectOffersForYourAccountCommon
     }
 
     @Override
-    public MyBasket clickContinueNoConfiguration() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasket clickContinueNoConfiguration() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinueNoConfiguration();
         return new MyBasket(tool, test, user);
     }
 
     @Override
-    public AccountOfferDetails clickOfferDetail(String accountOfferName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountOfferDetails clickOfferDetail(String accountOfferName) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickOfferDetail(accountOfferName);
         return new AccountOfferDetails(tool, test, user);
     }

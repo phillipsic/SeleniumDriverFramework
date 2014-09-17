@@ -13,14 +13,12 @@ public class RemoveSelection extends RemoveSelectionCommon {
 
     @Override
     public MyBasket clickYes() throws Exception {
-
         super.clickYes();
         return new MyBasket(tool, test, user);
     }
 
     @Override
     public RemoveLevel clickRemoveSelectionByYes() throws Exception {
-
         super.clickRemoveSelectionByYes();
         return new RemoveLevel(tool, test, user);
     }

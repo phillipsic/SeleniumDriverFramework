@@ -20,7 +20,7 @@ public class CustomerSearchResultCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickPersonNameLink(String lastName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(lastName);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -28,7 +28,7 @@ public class CustomerSearchResultCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickAccountLink(String accountNumber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(accountNumber);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -36,7 +36,7 @@ public class CustomerSearchResultCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickFirstPersonLink() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("value_person_0_0");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -44,7 +44,7 @@ public class CustomerSearchResultCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickFirstAccountLink() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//td[3]/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -52,7 +52,7 @@ public class CustomerSearchResultCommon extends CommonMenu {
     }
 
     public SubscriberDetailsCommon clickSubscriberLink(String MSISDN) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(MSISDN);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

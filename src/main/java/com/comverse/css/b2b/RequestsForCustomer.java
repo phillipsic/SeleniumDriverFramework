@@ -14,12 +14,14 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
     }
 
     @Override
-    public AccountDetails clickAccounts() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickAccounts() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 
-    public void waitUntilBizFirstRequestCompletedOrFailed() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void waitUntilBizFirstRequestCompletedOrFailed() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         int maxIterations = 90;
         int iterationCounter = 0;
@@ -51,15 +53,15 @@ public class RequestsForCustomer extends RequestsForCustomerCommon {
         }
     }
 
-    public String getBizFirstRequestStatus() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getBizFirstRequestStatus() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         String requestStatus = tool.getTextUsingXPath("//div[5]/table/tbody[2]/tr/td[6]/div");
         return requestStatus;
     }
 
     @Override
-    public OrderDetails clickOnOrderNumberLink(String orderNumber) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public OrderDetails clickOnOrderNumberLink(String orderNumber) throws Exception {
         super.clickOnOrderNumberLink(orderNumber);
         return new OrderDetails(tool, test, user);
     }

@@ -18,14 +18,12 @@ public class NonVoucherRecharge extends NonVoucherRechargeCommon {
 
     @Override
     public NonVoucherRechargeReview nonVoucherRechargeByCheck(String rechargeAmount) throws Exception {
-
         super.nonVoucherRechargeByCheck(rechargeAmount);
         return new NonVoucherRechargeReview(tool, test, user);
     }
 
     @Override
     public NonVoucherRechargeReview clickSelect() throws Exception {
-
         super.clickSelect();
         return new NonVoucherRechargeReview(tool, test, user);
     }

@@ -17,14 +17,14 @@ public class ChooseAccessories extends B2CMenu {
         String expectedScreen = "Choose Accessories";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public MyBasket clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
@@ -32,14 +32,14 @@ public class ChooseAccessories extends B2CMenu {
 
     public ConfigureServiceConnectionDetails clickContinueExpectingConnectionServiceDetails() throws Exception {
 
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("doSubmit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureServiceConnectionDetails(tool, test, user);
     }
 
     public void setQuantityForAccessory(String Accessory, String Quantity) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingXPath(".//a[contains(text(),'" + Accessory + "')]//../preceding-sibling::td[2]//input", Quantity);
     }
 

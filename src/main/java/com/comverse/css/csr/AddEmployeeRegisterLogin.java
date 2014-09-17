@@ -22,17 +22,20 @@ public class AddEmployeeRegisterLogin extends CommonMenu {
         }
     }
 
-    public void enterLogin(String login) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterLogin(String login) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingId("login", login);
     }
 
-    public AddEmployeeConfirmation clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddEmployeeConfirmation clickSubmit() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input.submit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddEmployeeConfirmation(tool, test, user);
     }
 
-    public RegisterLogin clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterLogin clickOk() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RegisterLogin(tool, test, user);

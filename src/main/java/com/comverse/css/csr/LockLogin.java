@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.LockLoginCommon;
 
 public class LockLogin extends LockLoginCommon {
@@ -17,8 +16,7 @@ public class LockLogin extends LockLoginCommon {
     }
 
     @Override
-    public LoginInformation clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public LoginInformation clickOk() throws Exception {
         super.clickOk();
         return new LoginInformation(tool, test, user);
     }

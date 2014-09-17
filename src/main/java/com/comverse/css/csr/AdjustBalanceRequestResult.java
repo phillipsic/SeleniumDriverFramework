@@ -3,7 +3,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AdjustBalanceRequestResultCommon;
 
 public class AdjustBalanceRequestResult extends AdjustBalanceRequestResultCommon {
@@ -13,8 +12,7 @@ public class AdjustBalanceRequestResult extends AdjustBalanceRequestResultCommon
     }
 
     @Override
-    public ViewBalance clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public ViewBalance clickBack() throws Exception {
         super.clickBack();
         return new ViewBalance(tool, test, user);
     }

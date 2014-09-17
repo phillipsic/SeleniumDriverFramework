@@ -13,7 +13,6 @@ public class RestorePreviousBasket extends RestorePreviousBasketCommon {
 
     @Override
     public MyBasket clickRestoreSavedBasket() throws Exception {
-
         super.clickRestoreSavedBasket();
         return new MyBasket(tool, test, user);
     }

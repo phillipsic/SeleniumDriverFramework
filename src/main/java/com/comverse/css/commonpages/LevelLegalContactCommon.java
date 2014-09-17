@@ -24,13 +24,13 @@ public class LevelLegalContactCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("youcan_ON_BACK");
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public ModifyLevelLegalContactCommon clickModifyLevelLegalContact() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("youcan_MODIFY_CONTACT");
         return new ModifyLevelLegalContactCommon(tool, test, user);
     }

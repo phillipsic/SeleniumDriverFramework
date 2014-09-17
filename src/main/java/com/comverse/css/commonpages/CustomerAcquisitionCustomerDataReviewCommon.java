@@ -27,7 +27,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public ShoppingCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -35,7 +35,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public CustomerAcquisitionCustomerDataReviewCommon clickContinueExpectingCustomerDataReview() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -43,7 +43,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public ShoppingCommon clickContinueExpectingShopping() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -51,112 +51,112 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public String getLastName() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset/p[3]");
     }
 
     public String getEmailAddress() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset/p[5]");
     }
 
     public String getPhoneNumber() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset/p[6]");
     }
 
     public String getFaxNumber() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset/p[7]");
     }
 
     public String getAddressLine1() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String cleanString = Common.cleanStringOfIllegalChars(tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset[2]/p"));
 
         return cleanString;
     }
 
     public String getZipCode() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return Common.cleanStringOfIllegalChars(tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset[2]/p[5]"));
     }
 
     public String getCity() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return Common.cleanStringOfIllegalChars(tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset[2]/p[6]"));
     }
 
     public String getState() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return Common.cleanStringOfIllegalChars(tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset[2]/p[7]"));
     }
 
     public String getCountry() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return Common.cleanStringOfIllegalChars(tool.getTextUsingXPath("//div[@id='mainContents']/div[5]/fieldset[2]/p[8]"));
     }
 
     public UpdateAccountContactInformationsCommon clickEditCustomerIdentityAndContact() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Edit']");
         return new UpdateAccountContactInformationsCommon(tool, test, user);
     }
 
     public void setTitle(String TitleName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("titleString", TitleName);
     }
 
     public void setFirstName(String FirstName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("first_name", FirstName);
     }
 
     public void setLastName(String LastName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("last_name", LastName);
     }
 
     public void setGender(String Gender) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID(Gender);
 
     }
 
     public void setEmail(String Email) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("email", Email);
     }
 
     public void setHomePhone(String HomePhone) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("home_phone", HomePhone);
     }
 
     public void setFax(String Fax) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("fax", Fax);
     }
 
     public UpdateAccountBillingAddressInformationsCommon clickEditAddressDetail() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("/html/body/div[3]/div[2]/div[4]/div/div[5]/fieldset[2]/div/div/form/input");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -164,49 +164,49 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public void setAddress1(String Address1) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_1", Address1);
     }
 
     public void setAddress2(String setAddress2) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_2", setAddress2);
     }
 
     public void setAddress3(String Address3) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_3", Address3);
     }
 
     public void setAddress4(String Address4) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_4", Address4);
     }
 
     public void setHomeZip(String HomeZip) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("home_zip", HomeZip);
     }
 
     public void setHomeCity(String HomeCity) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("home_city", HomeCity);
     }
 
     public void setHomeCountry(String HomeCountry) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("home_country", HomeCountry);
     }
 
     public CustomerAcquisitionCustomerDataReviewCommon clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -214,7 +214,7 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public UpdateAdministrativeAccountInformationCommon clickAccountContactEdit() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("/html/body/div[3]/div[2]/div[4]/div/div[5]/div[3]/fieldset/div/div/form/input[8]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -222,37 +222,37 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public void setSocialSecurityNumber(String SocialSecurityNumber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91260", SocialSecurityNumber);
     }
 
     public void setPurchaseOrder(String PurchaseOrder) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91540", PurchaseOrder);
     }
 
     public void setSalesCode(String SalesCode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91530", SalesCode);
     }
 
     public void setSecurityWord(String SecurityWord) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91070", SecurityWord);
     }
 
     public void setSICCode(String SICCode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91320", SICCode);
     }
 
     public UpdateAdministrativeAccountInformationCommon clickBillingInformationEditButton() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("/html/body/div[3]/div[2]/div[4]/div/div[5]/div[4]/fieldset/div/div/form/input[8]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -260,37 +260,37 @@ public class CustomerAcquisitionCustomerDataReviewCommon extends CommonMenu {
     }
 
     public void setBillingBillDispatchMethod(String SocialSecurityNumber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91310", SocialSecurityNumber);
     }
 
     public void setBillingBillFormatOption(String PurchaseOrder) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91300", PurchaseOrder);
     }
 
     public void setBillingExchangeRateClass(String SalesCode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:91380", SalesCode);
     }
 
     public void setBillingTML(String BillingTML) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("p-param-L4:81270" + BillingTML);
     }
 
     public void setBillingVIPCode(String SICCode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:80080", SICCode);
     }
 
     public void setBillingBillPeriod(String SICCode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-param-L4:81010", SICCode);
     }

@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.MyshapeCommon;
 
 public class MyshapeCSRPortal extends MyshapeCommon {
@@ -23,11 +24,13 @@ public class MyshapeCSRPortal extends MyshapeCommon {
     }
 
     public WorkSpace clickChange() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Change']");
         return new WorkSpace(tool, test, user);
     }
 
     public HomePageBackOffice clickChangePassword() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Change']");
         return new HomePageBackOffice(tool, test, user);
     }

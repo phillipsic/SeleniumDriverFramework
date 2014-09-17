@@ -37,7 +37,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
     }
 
     public void enterToDateTodayFromDateMinus10() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
@@ -52,21 +52,21 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
     }
 
     public void enterFromDate(String fromDate) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("toDate", toDate);
 
     }
 
     public void deselectbox() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "Adjustment");
         tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "MTR");
         tool.deselectVisibleTextByID("R_SYSTEM_Combined_History_P_TRANSACTION_TYPES_PROMPT", "RC");
@@ -75,7 +75,7 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
     }
 
     public void clickSearch() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingName("B1");
 
@@ -83,14 +83,14 @@ public class ViewCombinedHistoryCommon extends CommonMenu {
     }
 
     public String getSearchResults() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String text = tool.getTextUsingClassName("inverseHeaderText");
         System.out.println("Output:" + text);
         return text;
     }
 
     public ViewNRCTermDetailsCommon ViewNRCTermDetails() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("transactionDetails");
 

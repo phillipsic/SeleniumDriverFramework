@@ -17,14 +17,14 @@ public class SelectOffersForYourAccount extends B2CMenu {
         String expectedScreen = "Select offers for your Account";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void selectOffersForAccount(String... SOTable) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + SOTable + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + SOTable + ")");
         if (SOTable != null) {
             for (String SOName : SOTable) {
 
@@ -35,14 +35,14 @@ public class SelectOffersForYourAccount extends B2CMenu {
     }
 
     public EnterYourSubscriptionDetails clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public AddAccountOffers clickContinueToAddAO() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddAccountOffers(tool, test, user);

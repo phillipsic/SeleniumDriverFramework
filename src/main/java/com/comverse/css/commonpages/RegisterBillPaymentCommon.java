@@ -19,26 +19,26 @@ public class RegisterBillPaymentCommon extends CommonMenu {
     }
 
     public void enterAmount(String amount) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("amount", amount);
     }
 
     public void selectPaymentMethod(String paymentmethod) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID(paymentmethod);
     }
 
     public RegisterBillPaymentCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new RegisterBillPaymentCommon(tool, test, user);
     }
 
     public RegisterBillPaymentCommon clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -46,7 +46,7 @@ public class RegisterBillPaymentCommon extends CommonMenu {
     }
 
     public ViewInvoicesCommon clickBackToInvoices() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='confirm']");
         return new ViewInvoicesCommon(tool, test, user);

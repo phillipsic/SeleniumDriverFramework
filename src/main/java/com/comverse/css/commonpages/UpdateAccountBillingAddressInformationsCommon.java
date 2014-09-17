@@ -26,56 +26,56 @@ public class UpdateAccountBillingAddressInformationsCommon extends CommonMenu {
     }
 
     public EnterIdentificationDataCommon clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new EnterIdentificationDataCommon(tool, test, user);
     }
 
     public void setAddress1(String Address1) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_1", Address1);
     }
 
     public void setAddress2(String setAddress2) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_2", setAddress2);
     }
 
     public void setAddress3(String Address3) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_3", Address3);
     }
 
     public void setAddress4(String Address4) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_4", Address4);
     }
 
     public void setHomeZip(String HomeZip) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("home_zip", HomeZip);
     }
 
     public void setHomeCity(String HomeCity) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("home_city", HomeCity);
     }
 
     public void setHomeCountry(String HomeCountry) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_country", HomeCountry);
     }
 
     public CustomerAcquisitionCustomerDataReviewCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new CustomerAcquisitionCustomerDataReviewCommon(tool, test, user);

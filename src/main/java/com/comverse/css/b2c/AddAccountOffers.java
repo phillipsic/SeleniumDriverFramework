@@ -17,22 +17,22 @@ public class AddAccountOffers extends B2CMenu {
         String expectedScreen = "Add Account Offers";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
-    public SubscriberDetail clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName());
+    public SubscriberDetail clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
     }
 
-    public String getAOOrderNumberFromPage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getAOOrderNumberFromPage() throws Exception {  test.writeInLogFile(Common.getMethodName());
         String orderNumber;
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         orderNumber = tool.getTextUsingXPath("//div[@class='txt']/span");
         orderNumber = orderNumber.substring(orderNumber.lastIndexOf(' ') + 1).replace(".", "");
         System.out.println("Order Number = '" + orderNumber + "'");

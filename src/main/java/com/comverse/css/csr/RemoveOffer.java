@@ -17,7 +17,6 @@ public class RemoveOffer extends RemoveOfferCommon {
 
     @Override
     public OfferCancellation clickYes() throws Exception {
-
         super.clickYes();
         return new OfferCancellation(tool, test, user);
     }

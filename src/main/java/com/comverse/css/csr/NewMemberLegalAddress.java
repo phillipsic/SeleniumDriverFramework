@@ -17,7 +17,6 @@ public class NewMemberLegalAddress extends NewMemberLegalAddressCommon {
 
     @Override
     public Login clickContinue() throws Exception {
-
         super.clickContinue();
         return new Login(tool, test, user);
     }

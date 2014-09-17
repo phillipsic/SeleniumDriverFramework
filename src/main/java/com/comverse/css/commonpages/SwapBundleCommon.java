@@ -17,18 +17,18 @@ public class SwapBundleCommon extends CommonMenu {
     }
 
     public void clickToAccountBundle(String accountBundle) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//tr[@id='abtr:" + accountBundle + "']/td/input");
     }
 
     public void clickAdditionalParticipants() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("additionalPartChk");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public AccountBundleDistributionConfigurationCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("futureDistContinueBtn");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AccountBundleDistributionConfigurationCommon(tool, test, user);

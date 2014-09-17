@@ -21,28 +21,28 @@ public class ViewBilledUsageCommon extends CommonMenu {
     }
 
     public void enterFromDate(String fromDate) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
     public ViewBilledUsageCommon clickSearch() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         return new ViewBilledUsageCommon(tool, test, user);
     }
 
     public ViewBilledUsageDetailsCommon clickFirstUsage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("invoiceUsageDetails");
         return new ViewBilledUsageDetailsCommon(tool, test, user);
     }
 
     public ViewInvoiceDetailsCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);

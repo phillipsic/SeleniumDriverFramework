@@ -16,13 +16,15 @@ public class ActivateLogin extends ActivateLoginCommon {
         super(tool, test, user);
     }
 
-    public UnlockDone clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnlockDone clickConfirm() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new UnlockDone(tool, test, user);
     }
-    
-     public LoginActivated clickConfirmExpectingLoginActivated() throws Exception {  test.writeInLog(Common.getMethodName());
+
+    public LoginActivated clickConfirmExpectingLoginActivated() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new LoginActivated(tool, test, user);

@@ -18,13 +18,13 @@ public class AccountBundleDistributionConfigurationCommon extends CommonMenu {
     }
 
     public void clickSBSelectiveOffers() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         // Need to remove xpath here
         tool.clickUsingXPath("//tr[6]/td/input");
     }
 
     public ConfigureContractDetailsCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureContractDetailsCommon(tool, test, user);

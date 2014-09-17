@@ -21,14 +21,14 @@ public class ViewBilledRCNRCTermsCommon extends CommonMenu {
     }
 
     public ViewBilledRCNRCTermDetailsCommon clickFirstRCTerm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//fieldset/div[4]/div/table/tbody[2]/tr/td/div/a");
         return new ViewBilledRCNRCTermDetailsCommon(tool, test, user);
     }
 
     public ViewInvoiceDetailsCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);

@@ -17,21 +17,18 @@ public class MoveMember extends MoveMemberCommon {
 
     @Override
     public MoveMember clickSelectByLevelName(String levelName) throws Exception {
-
         super.clickSelectByLevelName(levelName);
         return new MoveMember(tool, test, user);
     }
 
     @Override
     public MoveMember findSelectByLevelName(String levelName) throws Exception {
-
         super.findSelectByLevelName(levelName);
         return new MoveMember(tool, test, user);
     }
 
     @Override
     public ContactInformation clickOk() throws Exception {
-
         super.clickOk();
         return new ContactInformation(tool, test, user);
     }

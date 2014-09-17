@@ -98,7 +98,7 @@ public class RQST0130_View_request_to_validate extends CSSTest {
             homePage.enterPassword(cop_password);
             System.out.print(cop_login + "/" + cop_password);
             subscriberDetail = homePage.clickLogIn();
-            SearchOrders searchOrders = subscriberDetail.clickMyOrdersTab();
+            subscriberDetail.clickMyOrdersTab();
 
             Common.assertTextOnPage(tool, "To Be Validated");
 

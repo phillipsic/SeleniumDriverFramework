@@ -18,15 +18,15 @@ public class ChangeRoles extends ChangeRolesCommon {
 
     }
 
-    public LoginInformation clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public LoginInformation clickConfirm() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new LoginInformation(tool, test, user);
 
     }
 
-    public LoginInformation clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public LoginInformation clickOK() throws Exception {
         super.clickOk();
         return new LoginInformation(tool, test, user);
     }

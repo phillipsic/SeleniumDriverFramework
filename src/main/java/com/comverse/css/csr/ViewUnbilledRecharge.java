@@ -13,14 +13,12 @@ public class ViewUnbilledRecharge extends ViewUnbilledRechargeCommon {
 
     @Override
     public ViewRechargeDetails clickFirstRecharge() throws Exception {
-
         super.clickFirstRecharge();
         return new ViewRechargeDetails(tool, test, user);
     }
 
     @Override
     public UnbilledTransaction clickBack() throws Exception {
-
         super.clickBack();
         return new UnbilledTransaction(tool, test, user);
     }

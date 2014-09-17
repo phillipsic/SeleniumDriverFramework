@@ -18,7 +18,8 @@ public class ProfileInformation extends ProfileInformationCommon {
     }
 
     @Override
-    public ViewHierarchy clickHierarchy() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewHierarchy clickHierarchy() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickHierarchy();
         return new ViewHierarchy(tool, test, user);
     }

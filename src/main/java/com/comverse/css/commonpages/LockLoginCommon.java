@@ -24,20 +24,20 @@ public class LockLoginCommon extends CommonMenu {
     }
 
     public void clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
     }
 
     public UnlockLoginCommon clickConfirmUnlock() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new UnlockLoginCommon(tool, test, user);
     }
 
     public LoginInformationCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new LoginInformationCommon(tool, test, user);

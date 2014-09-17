@@ -19,25 +19,25 @@ public class ConfigureContractDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasketCommon(tool, test, user);
     }
 
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId(limitName + "_limit", limitAmount);
     }
 
     public void setLang(String lang) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.selectVisibleTextByID("p-param-L4:80000", lang);
     }
 
     public ConfigureBalanceCommon clickContinueExpectingConfigureBalance() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureBalanceCommon(tool, test, user);

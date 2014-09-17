@@ -17,26 +17,26 @@ public class CheckoutConfirmation extends B2CMenu {
         String expectedScreen = "Checkout Confirmation";
 
          if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public SearchOrders clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new SearchOrders(tool, test, user);
     }
 
     public Shopping clickOkExpectingShopping() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new Shopping(tool, test, user);
     }
 
     public String getOrderNumberFromPage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String orderNumber;
         orderNumber = tool.getTextUsingXPath("//span[2]");
         System.out.println("Order Number = '" + orderNumber + "'");

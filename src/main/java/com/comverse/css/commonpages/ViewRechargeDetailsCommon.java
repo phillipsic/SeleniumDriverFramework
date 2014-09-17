@@ -22,14 +22,14 @@ public class ViewRechargeDetailsCommon extends CommonMenu {
     }
 
     public ViewUnbilledRechargeCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewUnbilledRechargeCommon(tool, test, user);
     }
 
     public ViewBilledRechargesCommon clickBackToBiledRecharges() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewBilledRechargesCommon(tool, test, user);

@@ -13,7 +13,6 @@ public class ViewUsageHistory extends ViewUsageHistoryCommon {
 
     public ViewUsageHistory(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-
     }
 
 }

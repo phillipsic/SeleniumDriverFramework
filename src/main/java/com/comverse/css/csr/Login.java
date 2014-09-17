@@ -17,33 +17,39 @@ public class Login extends LoginCommon {
     }
 
     @Override
-    public AddMemberConfirmation clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddMemberConfirmation clickContinue() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new AddMemberConfirmation(tool, test, user);
     }
 
     @Override
-    public AddMemberConfirmation clickCreateLoginLater() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddMemberConfirmation clickCreateLoginLater() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickCreateLoginLater();
         return new AddMemberConfirmation(tool, test, user);
     }
 
-    public void enterLogin(String login) throws Exception {  test.writeInLog(Common.getMethodName());
-        
+    public void enterLogin(String login) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+
         tool.enterStringUsingId("login", login);
     }
 
-    public RegisterLogin clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterLogin clickOk() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new RegisterLogin(tool, test, user);
     }
 
-    public AddMemberConfirmation clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddMemberConfirmation clickSubmit() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input.submit");
         return new AddMemberConfirmation(tool, test, user);
     }
 
-    public void setRoles(String roles) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setRoles(String roles) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.selectVisibleTextByID("roles", roles);
     }
 }

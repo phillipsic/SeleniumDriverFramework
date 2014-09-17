@@ -18,7 +18,7 @@ public class FraudlockSubscriberRequestForDetailsCommon extends CommonMenu {
     }
 
     public void clickCheckBoxFraudlockNow() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         if (!Common.isCheckBoxSelected(tool, "propertyNow"))
             tool.clickUsingID("propertyNow");
@@ -26,19 +26,19 @@ public class FraudlockSubscriberRequestForDetailsCommon extends CommonMenu {
     }
 
     public void setReason(String reason) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("reason", reason);
     }
 
     public void setAnnotation(String annotation) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("annotation", annotation);
     }
 
     public FraudlockSubscriberConfirmationCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

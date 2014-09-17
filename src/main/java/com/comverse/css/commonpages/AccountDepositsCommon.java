@@ -26,7 +26,7 @@ public class AccountDepositsCommon extends CommonMenu {
     }
 
     public AddDepositCommon clickAdd() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText("Add");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -34,7 +34,7 @@ public class AccountDepositsCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new AccountDetailsCommon(tool, test, user);

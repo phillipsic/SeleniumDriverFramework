@@ -14,7 +14,7 @@ public class CLSMenu extends Main {
         this.user = user;
     }
 
-    public void clickSignOut() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickSignOut() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("$azn666_label");
 
     }

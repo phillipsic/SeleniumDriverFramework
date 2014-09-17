@@ -17,21 +17,21 @@ public class ChooseYourDevice extends B2CMenu {
         String expectedScreen = "Choose Your Device";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public EnterYourSubscriptionDetails clickNoThanks() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='No Thanks']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
     public ChooseYourHandset clickSelectVoiceDevices() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//form[@id = 'chooseHandset_Voice_Devices']//input");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourHandset(tool, test, user);

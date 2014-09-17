@@ -28,6 +28,5 @@ public class PersonManagement extends PersonManagementCommon {
         super.clickPersonMerge();
         return new PersonMerge(tool, test, user);
     }
-    
-   
+
 }

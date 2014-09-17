@@ -17,7 +17,7 @@ public class UnlockSubscriberConfirmationCommon extends CommonMenu {
     }
 
     public UnlockSubscriberUnlockSuccessfulCommon clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

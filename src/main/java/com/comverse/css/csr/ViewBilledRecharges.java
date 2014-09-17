@@ -13,7 +13,6 @@ public class ViewBilledRecharges extends ViewBilledRechargesCommon {
 
     @Override
     public ViewRechargeDetails clickFirstRecharge() throws Exception {
-
         super.clickFirstRecharge();
         return new ViewRechargeDetails(tool, test, user);
     }

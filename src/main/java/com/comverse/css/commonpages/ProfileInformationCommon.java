@@ -26,13 +26,13 @@ public class ProfileInformationCommon extends CommonMenu {
 
     @Override
     public ViewHierarchyCommon clickHierarchy() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_HIERARCHY");
         return new ViewHierarchyCommon(tool, test, user);
     }
 
     public ModifyProfileInformationCommon clickModify() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("modifyCustomer");
         return new ModifyProfileInformationCommon(tool, test, user);
     }

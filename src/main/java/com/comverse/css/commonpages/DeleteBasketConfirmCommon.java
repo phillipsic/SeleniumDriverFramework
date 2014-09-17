@@ -20,7 +20,7 @@ public class DeleteBasketConfirmCommon extends CommonMenu {
     }
 
     public ResumeAParkedBasketCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new ResumeAParkedBasketCommon(tool, test, user);

@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AddNewCaseCommon;
 
 public class AddNewCase extends AddNewCaseCommon {
@@ -17,8 +16,7 @@ public class AddNewCase extends AddNewCaseCommon {
     }
 
     @Override
-    public AddCaseReview clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AddCaseReview clickContinue() throws Exception {
         super.clickContinue();
         return new AddCaseReview(tool, test, user);
     }

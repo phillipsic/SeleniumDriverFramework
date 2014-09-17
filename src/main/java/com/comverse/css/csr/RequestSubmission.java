@@ -17,14 +17,12 @@ public class RequestSubmission extends RequestSubmissionCommon {
 
     @Override
     public AccountDetails clickOkModifyRequestGoTOAccountDashboard() throws Exception {
-
         super.clickOkModifyRequestGoTOAccountDashboard();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
     public ViewHierarchy clickOk() throws Exception {
-
         super.clickOk();
         return new ViewHierarchy(tool, test, user);
     }

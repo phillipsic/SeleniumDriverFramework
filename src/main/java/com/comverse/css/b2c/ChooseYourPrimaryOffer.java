@@ -13,16 +13,15 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         String expectedScreen = "Choose Your Primary Offer";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public EnterYourSubscriptionDetails selectPrimaryOfferByNameWithoutDevice(String primaryOfferName) throws Exception {
 
-        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
-        test.writeInLog(Common.getMethodName() + "with data (" + primaryOfferName + ")");
+        test.writeInLogFile(Common.getMethodName() + "with data (" + primaryOfferName + ")");
         this.clickSelectPrimaryOffer(primaryOfferName);
 
         System.out.println("Checking for device page");
@@ -37,7 +36,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
     }
 
     public void clickSelectPrimaryOffer(String primaryOfferName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + primaryOfferName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + primaryOfferName + ")");
         int pageCounter = 2;
 
         boolean beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
@@ -60,13 +59,13 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
     }
 
     public ChooseYourDevice selectPrimaryOfferByNameWithDevice(String primaryOfferName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + primaryOfferName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + primaryOfferName + ")");
         this.clickSelectPrimaryOffer(primaryOfferName);
         return new ChooseYourDevice(tool, test, user);
     }
 
     public EnterYourSubscriptionDetails selectPrimaryOfferByNameWithOutDevice(String primaryOfferName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + primaryOfferName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + primaryOfferName + ")");
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.getTitle())) {
 
@@ -78,7 +77,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
     }
 
     public EnterYourSubscriptionDetails selectSubscriberBundleByNameWithoutDevice(String subscriberBundleName, String primaryOfferName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + subscriberBundleName + ") and (" + primaryOfferName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + subscriberBundleName + ") and (" + primaryOfferName + ")");
         // String subscriberbundleID =
         // this.clickSelectSubscriberBundle(subscriberBundleName);
         // String offerID = this.getPrimaryOfferID(primaryOfferName);
@@ -98,14 +97,14 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
     }
 
     public ChooseAccessories clickNoThanks() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@name='nothanks']");
         return new ChooseAccessories(tool, test, user);
     }
 
     public String getPrimaryOfferID(String primaryOfferName) throws Exception {
         int pageCounter = 2;
-        test.writeInLog(Common.getMethodName() + " using data (" + primaryOfferName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + primaryOfferName + ")");
         boolean beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
         System.out.println("Found offer?  - " + beresult);
 
@@ -149,7 +148,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
     public String clickSelectSubscriberBundle(String subscriberBundleName) throws Exception {
         int pageCounter = 2;
-        test.writeInLog(Common.getMethodName() + " using data (" + subscriberBundleName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + subscriberBundleName + ")");
         boolean beresult = Common.isOfferTextOnPage(tool, subscriberBundleName);
         System.out.println("Found bundle?  - " + beresult);
 

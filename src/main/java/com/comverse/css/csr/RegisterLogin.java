@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.RegisterLoginCommon;
 
 public class RegisterLogin extends RegisterLoginCommon {
@@ -17,20 +18,18 @@ public class RegisterLogin extends RegisterLoginCommon {
 
     @Override
     public RegisterLogin clickRegisterLoginContinue() throws Exception {
-
         super.clickRegisterLoginContinue();
         return new RegisterLogin(tool, test, user);
     }
 
     public LoginInformation clickConfirm() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new LoginInformation(tool, test, user);
     }
 
     @Override
-	public ViewHierarchy clickOk() throws Exception {
-
+    public ViewHierarchy clickOk() throws Exception {
         super.clickOk();
         return new ViewHierarchy(tool, test, user);
     }

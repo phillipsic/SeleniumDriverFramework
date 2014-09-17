@@ -13,7 +13,6 @@ public class ViewRechargeDetails extends ViewRechargeDetailsCommon {
 
     @Override
     public ViewUnbilledRecharge clickBack() throws Exception {
-
         super.clickBack();
         return new ViewUnbilledRecharge(tool, test, user);
     }

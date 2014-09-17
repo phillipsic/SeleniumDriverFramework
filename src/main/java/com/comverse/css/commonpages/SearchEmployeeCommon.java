@@ -21,7 +21,7 @@ public class SearchEmployeeCommon extends CommonMenu {
     }
 
     public SearchEmployeeCommon searchEmployeeByLastName(String ln) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L2:10-L3:1470", ln);
         tool.clickUsingXPath("//form[@id='form_SEARCH_MEMBERS_RESULT_0']//input[@value='Search']");
@@ -33,7 +33,7 @@ public class SearchEmployeeCommon extends CommonMenu {
     }
 
     public SearchEmployeeCommon searchEmployeeByLogin(String lg) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L4:1014-L3:1640", lg);
         tool.clickUsingXPath("//form[@id='form_SEARCH_MEMBERS_RESULT_1']//input[@value='Search']");
@@ -44,7 +44,7 @@ public class SearchEmployeeCommon extends CommonMenu {
     }
 
     public SearchEmployeeCommon checkIfResultIsCorrect(String numberOfCustomersDisplayed) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         assertTrue(tool.getTextUsingCssSelector("BODY").matches("^[\\s\\S]*" + numberOfCustomersDisplayed + " employee\\(s\\) found[\\s\\S]*$"));
 
@@ -55,7 +55,7 @@ public class SearchEmployeeCommon extends CommonMenu {
     }
 
     public ContactInformationCommon clickEmployeeNameLink(String FirstOrLastName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingPartialLinkText(FirstOrLastName);
 

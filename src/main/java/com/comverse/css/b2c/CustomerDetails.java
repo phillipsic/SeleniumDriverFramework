@@ -13,33 +13,33 @@ public class CustomerDetails extends B2CMenu {
         String expectedScreen = "Customer Details";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public CheckOutBillingAccountInformation clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("prospectok");
         Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckOutDeliveryAddress clickOkExpectingCheckOutDeliveryAddress() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("prospectok");
         return new CheckOutDeliveryAddress(tool, test, user);
     }
 
     public CheckOutDeliveryAddress clickOkWithDevices() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("prospectok");
         return new CheckOutDeliveryAddress(tool, test, user);
     }
 
     public ModifyCustomerDetails clickModify() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("modifyprospectinfo");
         return new ModifyCustomerDetails(tool, test, user);
     }

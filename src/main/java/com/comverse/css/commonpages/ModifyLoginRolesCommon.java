@@ -24,7 +24,7 @@ public class ModifyLoginRolesCommon extends CommonMenu {
     }
 
     public LoginInformationCommon clickVeiwLoginInformationLink() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("smnu_LOGIN");
 

@@ -27,7 +27,8 @@ public class ManageAccount extends IdentifyCustomerCommon {
     }
 
     @Override
-    public AccountDetails searchByAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails searchByAccountID(String accountID) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L2:40-L3:2150", accountID);
         tool.clickUsingCssSelector("input.submit");
@@ -35,7 +36,8 @@ public class ManageAccount extends IdentifyCustomerCommon {
         return new AccountDetails(tool, test, user);
     }
 
-    public AccountDetails searchByLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails searchByLastName(String lastName) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L2:40-L2:520", lastName);
         tool.clickUsingCssSelector("input.submit");
@@ -43,7 +45,8 @@ public class ManageAccount extends IdentifyCustomerCommon {
         return new AccountDetails(tool, test, user);
     }
 
-    public SearchResults searchAccountIDWithWildCard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SearchResults searchAccountIDWithWildCard() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("accountId", "*");
         tool.clickUsingName("accountButton");

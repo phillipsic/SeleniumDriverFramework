@@ -24,13 +24,13 @@ public class ModifyProfileInformationCommon extends CommonMenu {
     }
 
     public void setTimeZone(String timeZone) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("timezone_field", timeZone);
     }
 
     public ModifyProfileInformationConfirmationCommon clickOkToModify() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new ModifyProfileInformationConfirmationCommon(tool, test, user);

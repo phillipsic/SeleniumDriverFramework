@@ -13,7 +13,6 @@ public class ViewCase extends ViewCaseCommon {
 
     public ViewCase(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-
     }
 
     @Override

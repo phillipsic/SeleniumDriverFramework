@@ -23,7 +23,7 @@ public class ModifyEmployeeContactConfirmationCommon extends CommonMenu {
     }
 
     public ModifyEmpContactConfCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new ModifyEmpContactConfCommon(tool, test, user);
     }

@@ -3,7 +3,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.CheckoutReviewCommon;
 
 public class CheckoutReview extends CheckoutReviewCommon {
@@ -13,15 +12,13 @@ public class CheckoutReview extends CheckoutReviewCommon {
     }
 
     @Override
-    public CheckoutConfirmation clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public CheckoutConfirmation clickConfirm() throws Exception {
         super.clickConfirm();
         return new CheckoutConfirmation(tool, test, user);
     }
 
     @Override
-    public ImmediatePayment clickConfirmWithGoods() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public ImmediatePayment clickConfirmWithGoods() throws Exception {
         super.clickConfirmWithGoods();
         return new ImmediatePayment(tool, test, user);
     }

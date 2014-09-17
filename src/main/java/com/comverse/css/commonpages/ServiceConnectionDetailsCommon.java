@@ -19,32 +19,32 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new MyBasketCommon(tool, test, user);
     }
 
     public SwapImpactCommon clickOkExpectingSwapImpact() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new SwapImpactCommon(tool, test, user);
     }
 
     public void SetEmailInventory(String email) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("inputFields1414", email);
 
     }
 
     public MyBasketCommon clickOkAfterSetEmailInventory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("display_line_submit_button");
         return new MyBasketCommon(tool, test, user);
     }
 
     public void clickSetSIMInventory(Subscriber subscriber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String inventoryString = "SIM type:";
 
         this.clickSetButton(inventoryString);
@@ -53,7 +53,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void clickSetIMSIInventory(Subscriber subscriber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String inventoryString = "IMSI type:";
 
         this.clickSetButton(inventoryString);
@@ -62,7 +62,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void clickSetMSISDNInventory(Subscriber subscriber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String inventoryString = "MSISDN type:";
 
         this.clickSetButton(inventoryString);
@@ -72,7 +72,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void clickSetTVQualityInventory(Subscriber subscriber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String inventoryString = "TVQuality type:";
 
         this.clickSetButton(inventoryString);
@@ -81,7 +81,7 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void clickSetButton(String inventoryString) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         tool.clickUsingXPath("//span[contains(.,'" + inventoryString + "')]/../../following-sibling::div[1]/div/div/span/input");

@@ -19,12 +19,12 @@ public class PrimaryOfferDetailsCommon extends CommonMenu {
     }
 
     public void clickRPOCompatiblePrimaryOffersTab() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//em[contains(text(),'Compatible Offers')]");
     }
 
     public void clickRPOTermsandConditionsTab() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//em[contains(text(),'Terms And Conditions')]");
     }
 }

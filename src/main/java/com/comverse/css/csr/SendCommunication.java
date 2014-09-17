@@ -17,7 +17,6 @@ public class SendCommunication extends SendCommunicationCommon {
 
     @Override
     public OutboundCommunication clickSendCommunication() throws Exception {
-
         super.clickSendCommunication();
         return new OutboundCommunication(tool, test, user);
     }

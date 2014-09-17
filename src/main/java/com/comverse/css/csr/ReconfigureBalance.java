@@ -13,35 +13,30 @@ public class ReconfigureBalance extends ReconfigureBalanceCommon {
 
     @Override
     public ReconfigureBalance setMoreUnitsForThisPeriod(String unitsToAdd) throws Exception {
-
         super.setMoreUnitsForThisPeriod(unitsToAdd);
         return new ReconfigureBalance(tool, test, user);
     }
 
     @Override
     public ReconfigureBalanceReview clickAddUnits() throws Exception {
-
         super.clickAddUnits();
         return new ReconfigureBalanceReview(tool, test, user);
     }
 
     @Override
     public ReconfigureBalance setCreditSpendingLimit(String limitValue) throws Exception {
-
         super.setCreditSpendingLimit(limitValue);
         return new ReconfigureBalance(tool, test, user);
     }
 
     @Override
     public ReconfigureBalance setCreditSpendingLimitUnlimited() throws Exception {
-
         super.setCreditSpendingLimitUnlimited();
         return new ReconfigureBalance(tool, test, user);
     }
 
     @Override
     public ReconfigureBalanceReview clickReconfigureBalance() throws Exception {
-
         super.clickReconfigureBalance();
         return new ReconfigureBalanceReview(tool, test, user);
     }

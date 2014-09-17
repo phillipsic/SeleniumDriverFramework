@@ -13,7 +13,8 @@ public class DisconnectSubscriberRequestForDetails extends DisconnectSubscriberR
     }
 
     @Override
-    public DisconnectSubscriberImpacts clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DisconnectSubscriberImpacts clickContinue() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new DisconnectSubscriberImpacts(tool, test, user);
     }

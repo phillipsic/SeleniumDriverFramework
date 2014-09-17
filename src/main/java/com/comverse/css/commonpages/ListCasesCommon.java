@@ -22,7 +22,7 @@ public class ListCasesCommon extends CommonMenu {
     }
 
     public ListCasesCommon clickSearch() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -30,7 +30,7 @@ public class ListCasesCommon extends CommonMenu {
     }
 
     public ViewCaseCommon clickFirstCase() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -38,7 +38,7 @@ public class ListCasesCommon extends CommonMenu {
     }
 
     public ViewCaseCommon clickLinkOfCaseID(String caseID) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         tool.clickUsingLinkText(caseID);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

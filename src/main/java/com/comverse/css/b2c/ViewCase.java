@@ -13,32 +13,32 @@ public class ViewCase extends B2CMenu {
         String expectedScreen = "View Case";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public String getCategory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
         return caseID;
     }
 
     public String getSubCategory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
         return caseID;
     }
 
     public String getDescription() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
         return caseID;
     }
 
     public String getSubscriber() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//tr[7]/td/span[2]");
         return caseID;
     }

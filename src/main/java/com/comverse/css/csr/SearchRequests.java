@@ -17,7 +17,6 @@ public class SearchRequests extends SearchRequestsCommon {
 
     @Override
     public SearchOrders clickSearchOrders() throws Exception {
-
         super.clickSearchOrders();
         return new SearchOrders(tool, test, user);
     }

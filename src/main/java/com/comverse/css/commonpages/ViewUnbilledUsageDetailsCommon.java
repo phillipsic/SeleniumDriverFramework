@@ -21,7 +21,7 @@ public class ViewUnbilledUsageDetailsCommon extends CommonMenu {
     }
 
     public ViewUnbilledUsageCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewUnbilledUsageCommon(tool, test, user);

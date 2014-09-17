@@ -13,7 +13,6 @@ public class ViewPaymentDistributions extends ViewPaymentDistributionsCommon {
 
     @Override
     public ViewInvoiceDetails clickBack() throws Exception {
-
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);
     }

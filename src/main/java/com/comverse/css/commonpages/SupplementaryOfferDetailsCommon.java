@@ -23,7 +23,7 @@ public class SupplementaryOfferDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourSubscriberCommon clickReturnToList() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("select");
         return new SelectOffersForYourSubscriberCommon(tool, test, user);
     }

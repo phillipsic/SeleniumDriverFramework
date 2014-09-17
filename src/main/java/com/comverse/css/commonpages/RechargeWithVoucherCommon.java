@@ -23,13 +23,13 @@ public class RechargeWithVoucherCommon extends CommonMenu {
     }
 
     public void enterVoucherNumber(String voucherNumber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("pkgnumber", voucherNumber);
     }
 
     public RechargeSubscriberCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RechargeSubscriberCommon(tool, test, user);

@@ -17,14 +17,14 @@ public class SelectOffersForYourSubscriber extends B2CMenu {
         String expectedScreen = "Select offers for your Subscriber";
 
          if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void selectOffersForSubscriber(String... SOTable) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + SOTable + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + SOTable + ")");
         if (SOTable != null) {
             for (String SOName : SOTable) {
 
@@ -35,21 +35,21 @@ public class SelectOffersForYourSubscriber extends B2CMenu {
     }
 
     public ConfigureOffers clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureOffers(tool, test, user);
     }
 
     public ConfigureBalance clickContinueExpectingConfigurableBalance() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfigureBalance(tool, test, user);
     }
 
     public ChooseAccessories clickContinueExpectingChooseAccessories() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseAccessories(tool, test, user);

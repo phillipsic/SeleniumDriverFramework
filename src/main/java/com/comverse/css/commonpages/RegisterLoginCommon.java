@@ -24,19 +24,19 @@ public class RegisterLoginCommon extends CommonMenu {
     }
 
     public void setLogin(String login) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("login", login);
     }
 
     public void selectRole(String role) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("roles", role);
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
 
@@ -44,7 +44,7 @@ public class RegisterLoginCommon extends CommonMenu {
     }
 
     public RegisterLoginCommon clickRegisterLoginContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
 
@@ -52,21 +52,21 @@ public class RegisterLoginCommon extends CommonMenu {
     }
 
     public void clickRadioButtonTelcoCSRUser() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@name='roles'])[9]");
 
     }
 
     public void clickRadioButtonOCMUser() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='roles']");
 
     }
 
     public String getTempPasswordFromPage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         String password = tool.getTextUsingXPath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
@@ -78,7 +78,7 @@ public class RegisterLoginCommon extends CommonMenu {
     }
 
     public ViewHierarchyCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

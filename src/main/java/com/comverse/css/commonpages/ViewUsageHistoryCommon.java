@@ -38,7 +38,7 @@ public class ViewUsageHistoryCommon extends CommonMenu {
     }
 
     public void enterToDateTodayFromDateMinus20() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
@@ -53,28 +53,28 @@ public class ViewUsageHistoryCommon extends CommonMenu {
     }
 
     public void enterFromDate(String fromDate) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("fromDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("toDate", toDate);
 
     }
 
     public void clickSearch() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public String getSearchResults() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         String text = tool.getTextUsingXPath("//table[2]/tbody/tr[3]/td");
 
@@ -84,7 +84,7 @@ public class ViewUsageHistoryCommon extends CommonMenu {
     }
 
     public ViewUsageDetailsCommon ViewUsageDetails() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("usageDetails");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

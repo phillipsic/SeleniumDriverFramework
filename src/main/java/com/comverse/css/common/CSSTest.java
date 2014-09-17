@@ -24,8 +24,8 @@ public class CSSTest extends Main {
     public void launchCSSApplication() throws Exception {
         application.setVersion(tool, test);
         tool.get(application.appURL());
-        test.writeInLog("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
-        test.writeInLog("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
+        test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
+        test.writeInLogFile("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
         if (!test.getDebug()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
@@ -43,8 +43,8 @@ public class CSSTest extends Main {
 
     public void launchCSSApplicationAndSSOLogin() throws Exception {
         tool.get(application.appURL());
-        test.writeInLog("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
-        test.writeInLog("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
+        test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
+        test.writeInLogFile("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
         ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
         ssoLoginPage.loginSSOUser();
         application.setVersion(tool, test);

@@ -17,7 +17,6 @@ public class UnlockDone extends UnlockDoneCommon {
 
     @Override
     public ModifyLoginPassword clickChangePassword() throws Exception {
-
         super.clickChangePassword();
         return new ModifyLoginPassword(tool, test, user);
     }

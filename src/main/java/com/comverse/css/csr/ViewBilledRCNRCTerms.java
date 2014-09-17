@@ -13,14 +13,12 @@ public class ViewBilledRCNRCTerms extends ViewBilledRCNRCTermsCommon {
 
     @Override
     public ViewBilledRCNRCTermDetails clickFirstRCTerm() throws Exception {
-
         super.clickFirstRCTerm();
         return new ViewBilledRCNRCTermDetails(tool, test, user);
     }
 
     @Override
     public ViewInvoiceDetails clickBack() throws Exception {
-
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);
     }

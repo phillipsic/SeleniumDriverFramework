@@ -19,14 +19,14 @@ public class SwapSubscriberExternalIdConfirmationCommon extends CommonMenu {
     }
 
     public SubscriberExternalIDSwapDoneCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("submit");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberExternalIDSwapDoneCommon(tool, test, user);
     }
 
     public void setNewMSISDNInventory(Subscriber subscriber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String MSISDN = tool.getTextUsingXPath("//tr[3]/td/span[2]");
         subscriber.setSubscriberMSISDNProperty(MSISDN);
     }

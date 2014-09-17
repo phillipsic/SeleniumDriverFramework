@@ -13,12 +13,10 @@ public class RechargeSubscriber extends RechargeSubscriberCommon {
 
     public RechargeSubscriber(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
-
     }
 
     @Override
     public ViewBalance clickViewBalances() throws Exception {
-
         super.clickViewBalances();
         return new ViewBalance(tool, test, user);
     }

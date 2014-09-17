@@ -13,121 +13,107 @@ public class IdentifyCustomer extends IdentifyCustomerCommon {
     }
 
     @Override
-    public AccountDetails clickPersonSearchExpectingOneResult() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails clickPersonSearchExpectingOneResult() throws Exception {
         super.clickPersonSearchExpectingOneResult();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails searchByAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails searchByAccountID(String accountID) throws Exception {
         super.searchByAccountID(accountID);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails searchByAccountLastNameSinglePerson(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails searchByAccountLastNameSinglePerson(String lastName) throws Exception {
         super.searchByAccountLastNameSinglePerson(lastName);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public void clickMoreLink() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickMoreLink() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickMoreLink();
     }
 
     @Override
-    public void clickMoreLinkPerson() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickMoreLinkPerson() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickMoreLinkPerson();
     }
 
     @Override
-    public AccountDetails searchByAccountFirstNameSinglePerson(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails searchByAccountFirstNameSinglePerson(String firstName) throws Exception {
         super.searchByAccountFirstNameSinglePerson(firstName);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails searchByCompanyNameSinglePerson(String companyName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails searchByCompanyNameSinglePerson(String companyName) throws Exception {
         super.searchByCompanyNameSinglePerson(companyName);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails gotoAccountDashboardUsingAccountID(String accountID) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
         super.gotoAccountDashboardUsingAccountID(accountID);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails gotoAccountDashboardUsingAccountLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails gotoAccountDashboardUsingAccountLastName(String lastName) throws Exception {
         super.gotoAccountDashboardUsingAccountLastName(lastName);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public CustomerSearchResult searchByAccountLastNameMultiplePersons(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public CustomerSearchResult searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
         super.searchByAccountLastNameMultiplePersons(lastName);
         return new CustomerSearchResult(tool, test, user);
     }
 
     @Override
-    public CustomerSearchResult searchByAccountFirstNameMultiplePersons(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public CustomerSearchResult searchByAccountFirstNameMultiplePersons(String firstName) throws Exception {
         super.searchByAccountFirstNameMultiplePersons(firstName);
         return new CustomerSearchResult(tool, test, user);
     }
 
     @Override
-    public PersonIdentificationSearchResult clickPersonSearchExpectingManyResults() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public PersonIdentificationSearchResult clickPersonSearchExpectingManyResults() throws Exception {
         super.clickPersonSearchExpectingManyResults();
         return new PersonIdentificationSearchResult(tool, test, user);
     }
 
     @Override
-    public AccountDetails searchByPersonLastNameSinglePerson(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails searchByPersonLastNameSinglePerson(String lastName) throws Exception {
         super.searchByPersonLastNameSinglePerson(lastName);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails searchByPersonFirstNameSinglePerson(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public AccountDetails searchByPersonFirstNameSinglePerson(String firstName) throws Exception {
         super.searchByPersonFirstNameSinglePerson(firstName);
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public void searchByPersonNatioanlIdMultiplePersons(String id) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public void searchByPersonNatioanlIdMultiplePersons(String id) throws Exception {
         super.searchByPersonNatioanlIdMultiplePersons(id);
     }
 
     @Override
-    public void searchByPersonDOBMultiplePersons(String DOB) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public void searchByPersonDOBMultiplePersons(String DOB) throws Exception {
         super.searchByPersonDOBMultiplePersons(DOB);
     }
 
     @Override
-    public CustomerSearchResult searchBySubscriberMSISDNMultiplePersons(String MSISDN) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public CustomerSearchResult searchBySubscriberMSISDNMultiplePersons(String MSISDN) throws Exception {
         super.searchBySubscriberMSISDNMultiplePersons(MSISDN);
         return new CustomerSearchResult(tool, test, user);
     }
 
     @Override
-    public SubscriberDetails searchBySubscriberMSISDN(String MSISDN) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public SubscriberDetails searchBySubscriberMSISDN(String MSISDN) throws Exception {
         super.searchBySubscriberMSISDN(MSISDN);
         return new SubscriberDetails(tool, test, user);
     }

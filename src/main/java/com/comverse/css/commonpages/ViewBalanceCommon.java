@@ -26,35 +26,35 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public NonVoucherRechargeCommon clickNonVoucherRechargeFreeAmount() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Non voucher Recharge (free amount)");
 
         return new NonVoucherRechargeCommon(tool, test, user);
     }
 
     public RechargeWithVoucherCommon clickRechargeByVoucher() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Recharge by voucher");
 
         return new RechargeWithVoucherCommon(tool, test, user);
     }
 
     public AdjustBalanceDetailsCommon clickAdjustBalance(String balancename) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//tr[td/a[contains(text(),'" + balancename + "')]]/td/a[contains(text(),'Adjust')]");
 
         return new AdjustBalanceDetailsCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon clickConfigureSharedBalance(String balanceName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String balanceID = retrieveBalanceID(balanceName);
         tool.clickUsingXPath("//a[contains(@id, 'configure_balance_') and contains(@id, '_" + balanceID + "')]");
         return new ReconfigureBalanceCommon(tool, test, user);
     }
 
     public ReconfigureBalanceCommon clickConfigureLimit(String balanceName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String balanceID = retrieveBalanceID(balanceName);
 
         tool.performUsingXPath("//div[contains(@id, 'youCan_') and contains(@id, '_" + balanceID + "')]");
@@ -65,13 +65,13 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public void clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_ON_BACK");
     }
 
     public Double getCoreBalance() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         String coreBalanceString = tool.getTextUsingXPath("//a[contains(.,'CORE BALANCE')]/../../td[2]");
         coreBalanceString = coreBalanceString.replaceAll(",", "");
@@ -81,7 +81,7 @@ public class ViewBalanceCommon extends CommonMenu {
     }
 
     public BalanceDetailsCommon viewBalanceDetails(String balanceName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText(balanceName);
         return new BalanceDetailsCommon(tool, test, user);
@@ -89,7 +89,7 @@ public class ViewBalanceCommon extends CommonMenu {
 
     // @SuppressWarnings("unused")
     private String retrieveBalanceID(String balanceName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         /*
          * String pageSource = tool.getPageSource(); String temp[]; String

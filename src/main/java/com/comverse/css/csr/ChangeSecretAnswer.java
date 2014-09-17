@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ChangeSecretAnswerCommon;
 
 public class ChangeSecretAnswer extends ChangeSecretAnswerCommon {
@@ -17,8 +16,7 @@ public class ChangeSecretAnswer extends ChangeSecretAnswerCommon {
     }
 
     @Override
-    public ConfirmNewSecretAnswer clickChangeSecretAnswer() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public ConfirmNewSecretAnswer clickChangeSecretAnswer() throws Exception {
         super.clickChangeSecretAnswer();
         return new ConfirmNewSecretAnswer(tool, test, user);
     }

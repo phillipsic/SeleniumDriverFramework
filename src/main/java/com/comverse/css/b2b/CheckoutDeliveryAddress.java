@@ -18,7 +18,8 @@ public class CheckoutDeliveryAddress extends CheckoutDeliveryAddressCommon {
     }
 
     @Override
-    public CheckoutReview clickNextPage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public CheckoutReview clickNextPage() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickNextPage();
         return new CheckoutReview(tool, test, user);
     }

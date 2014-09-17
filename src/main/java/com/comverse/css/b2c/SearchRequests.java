@@ -17,26 +17,26 @@ public class SearchRequests extends B2CMenu {
         String expectedScreen = "Search Requests";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public SearchOrders clickSearchOrders() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_ORDER");
         return new SearchOrders(tool, test, user);
     }
 
     public void clickSearch() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("(//input[@value='Search'])");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void waitUntilFirstRequestCompletedOrFailed() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         int maxIterations = 90;
         int iterationCounter = 0;
         String requestStatus;
@@ -69,19 +69,19 @@ public class SearchRequests extends B2CMenu {
     }
 
     public String getFirstRequestStatus() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr[1]/td[6]/div");
         return requestStatus;
     }
 
     public void expandSearchCriteria() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("searchCriteriaTrigger");
 
     }
 
     public SubscriberDetail clickDashbaordMenu() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
         tool.clickUsingID("mnu_HOME");

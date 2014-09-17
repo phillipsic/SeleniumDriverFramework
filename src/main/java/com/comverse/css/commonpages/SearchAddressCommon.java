@@ -27,42 +27,42 @@ public class SearchAddressCommon extends CommonMenu {
     }
 
     public void setCountry(String country) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_country", country);
 
     }
 
     public void setStreetName(String streetname) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("streetName", streetname);
 
     }
 
     public void setCity(String city) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("home_city", city);
 
     }
 
     public void setZipCode(String zipcode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("home_zip", zipcode);
 
     }
 
     public SearchAddressCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchAddressCommon(tool, test, user);
     }
 
     public EnterIdentificationDataCommon clickSelectAddress() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Select']");
         return new EnterIdentificationDataCommon(tool, test, user);
     }

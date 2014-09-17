@@ -23,7 +23,7 @@ public class ViewHierarchyCommon extends CommonMenu {
     }
 
     public void clickWeeklyLevel() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         Calendar calendar = Calendar.getInstance();
         int week = calendar.get(Calendar.WEEK_OF_YEAR);
@@ -35,20 +35,20 @@ public class ViewHierarchyCommon extends CommonMenu {
     }
 
     public void clickLevelLink(String linkName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText(linkName);
     }
 
     public String getRootLevel() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         System.out.println("Root Level " + tool.getTextUsingXPath("//div[@id='mainContents']/div/table/tbody/tr/td/a"));
         return tool.getTextUsingXPath("//div[@id='mainContents']/div/table/tbody/tr/td/a");
 
     }
 
     public ContactInformationCommon clickEmployeeNameLink(String firstName, String lastName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText(firstName + " " + lastName);
         return new ContactInformationCommon(tool, test, user);

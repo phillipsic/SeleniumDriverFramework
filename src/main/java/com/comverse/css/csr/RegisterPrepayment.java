@@ -13,7 +13,6 @@ public class RegisterPrepayment extends RegisterPrepaymentCommon {
 
     @Override
     public RegisterPrepaymentConfirm clickConfirm() throws Exception {
-
         super.clickConfirm();
         return new RegisterPrepaymentConfirm(tool, test, user);
     }

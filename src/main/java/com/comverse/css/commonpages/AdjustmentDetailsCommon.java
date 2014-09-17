@@ -22,7 +22,7 @@ public class AdjustmentDetailsCommon extends CommonMenu {
     }
 
     public ViewUnbilledAdjustmentCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewUnbilledAdjustmentCommon(tool, test, user);

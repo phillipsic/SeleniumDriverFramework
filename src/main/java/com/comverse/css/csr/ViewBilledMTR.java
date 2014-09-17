@@ -13,14 +13,12 @@ public class ViewBilledMTR extends ViewBilledMTRCommon {
 
     @Override
     public ViewBilledMTRDetails clickFirstMTR() throws Exception {
-
         super.clickFirstMTR();
         return new ViewBilledMTRDetails(tool, test, user);
     }
 
     @Override
     public ViewInvoiceDetails clickBack() throws Exception {
-
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);
     }

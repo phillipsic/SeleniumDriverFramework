@@ -12,7 +12,6 @@ import com.comverse.css.commonpages.WelcomeToYourPersonalizedWorkspaceCommon;
 public class WelcomeToYourPersonalizedWorkspace extends WelcomeToYourPersonalizedWorkspaceCommon {
 
     public WelcomeToYourPersonalizedWorkspace(AutomationTool tool, Test test, User user) throws Exception {
-
         super(tool, test, user);
         String currentScreen = tool.getTitle();
         String expectedScreen = "Welcome to Your Personalized Workspace";

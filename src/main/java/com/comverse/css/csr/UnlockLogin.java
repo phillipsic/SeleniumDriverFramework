@@ -7,6 +7,7 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
+import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.UnlockLoginCommon;
 
 public class UnlockLogin extends UnlockLoginCommon {
@@ -17,13 +18,12 @@ public class UnlockLogin extends UnlockLoginCommon {
 
     @Override
     public UnlockDone clickConfirm() throws Exception {
-
         super.clickConfirm();
         return new UnlockDone(tool, test, user);
     }
 
     public String getNewPassword() throws Exception {
-
+        test.writeInLogFile(Common.getMethodName());
         String password = tool.getTextUsingXPath("//div[@id='mainContents']/div/div[2]/div/div/span");
 
         String temp[] = password.split(":");

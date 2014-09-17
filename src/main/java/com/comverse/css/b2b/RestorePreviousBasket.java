@@ -3,7 +3,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.RestorePreviousBasketCommon;
 
 public class RestorePreviousBasket extends RestorePreviousBasketCommon {
@@ -14,8 +13,7 @@ public class RestorePreviousBasket extends RestorePreviousBasketCommon {
     }
 
     @Override
-    public MyBasket clickRestoreSavedBasket() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public MyBasket clickRestoreSavedBasket() throws Exception {
         super.clickRestoreSavedBasket();
         return new MyBasket(tool, test, user);
     }

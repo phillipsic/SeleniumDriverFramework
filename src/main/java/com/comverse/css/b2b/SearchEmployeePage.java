@@ -3,7 +3,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.SearchEmployeeCommon;
 
 public class SearchEmployeePage extends SearchEmployeeCommon {
@@ -22,8 +21,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public SearchEmployeePage searchEmployeeByLastName(String ln) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public SearchEmployeePage searchEmployeeByLastName(String ln) throws Exception {
         super.searchEmployeeByLastName(ln);
         return new SearchEmployeePage(tool, test, user);
         // sends keys to the last name field in the searchpage and clicks Search
@@ -31,8 +29,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public SearchEmployeePage searchEmployeeByLogin(String lg) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public SearchEmployeePage searchEmployeeByLogin(String lg) throws Exception {
         super.searchEmployeeByLogin(lg);
         return new SearchEmployeePage(tool, test, user);
         // sends keys to the login field in the searchpage and clicks Search
@@ -40,8 +37,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public ContactInformation clickEmployeeNameLink(String FirstOrLastName) throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public ContactInformation clickEmployeeNameLink(String FirstOrLastName) throws Exception {
         super.clickEmployeeNameLink(FirstOrLastName);
 
         return new ContactInformation(tool, test, user);

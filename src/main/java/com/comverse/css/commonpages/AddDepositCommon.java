@@ -26,26 +26,26 @@ public class AddDepositCommon extends CommonMenu {
     }
 
     public void setDepositType(String depositType) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringNotTextFieldUsingId("depositType", depositType);
     }
 
     public void setBalance(String balanceName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("balance", balanceName);
 
     }
 
     public void setDepositAmount(String depositAmount) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("amount", depositAmount);
     }
 
     public void selectPaymentMethod() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         // tool.clickUsingID(paymentMethod);
         tool.clickUsingXPath("(//input[@name='paymentMethod'])[1]");
@@ -53,7 +53,7 @@ public class AddDepositCommon extends CommonMenu {
     }
 
     public AddDepositReviewAndConfirmCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

@@ -20,7 +20,7 @@ public class TokensfoundCommon extends CommonMenu {
     }
 
     public UploadTokenCommon clickUpload() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Upload']");
 

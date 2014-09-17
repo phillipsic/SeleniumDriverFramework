@@ -22,25 +22,25 @@ public class LoginCommon extends CommonMenu {
     }
 
     public void setLogin(String login) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("login", login);
     }
 
     public void selectRole(String role) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.selectVisibleTextByID("roles", role);
     }
 
     public AddMemberConfirmationCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
 
         return new AddMemberConfirmationCommon(tool, test, user);
     }
 
     public AddMemberConfirmationCommon clickCreateLoginLater() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("ON_OK");
 
         return new AddMemberConfirmationCommon(tool, test, user);

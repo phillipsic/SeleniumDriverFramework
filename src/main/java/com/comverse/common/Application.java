@@ -100,7 +100,12 @@ public class Application extends Main {
         String[] temp2 = temp[0].split("Service");
         this.Version = temp2[1].trim();
 
-        test.writeInLog("INFO", "Version: " + this.getVersion());
+        test.writeInLogFile("INFO", "Version: " + this.getVersion());
+    }
+
+    // Needed for debug purpose
+    public void setVersion(String version) throws Exception {
+        Version = version;
     }
 
     public String appFullURL() {

@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ModifyDeliveryAddressCommon;
 
 public class ModifyDeliveryAddress extends ModifyDeliveryAddressCommon {
@@ -17,8 +16,7 @@ public class ModifyDeliveryAddress extends ModifyDeliveryAddressCommon {
     }
 
     @Override
-    public ModifyDeliveryAddressConfirmation clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
-
+    public ModifyDeliveryAddressConfirmation clickOk() throws Exception {
         super.clickOk();
         return new ModifyDeliveryAddressConfirmation(tool, test, user);
     }
