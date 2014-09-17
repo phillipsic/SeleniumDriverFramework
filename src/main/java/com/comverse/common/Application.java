@@ -103,6 +103,11 @@ public class Application extends Main {
         test.writeInLog("INFO", "Version: " + this.getVersion());
     }
 
+    // Needed for debug purpose
+    public void setVersion(String version) throws Exception {
+        Version = version;
+    }
+
     public String appFullURL() {
         PropertyHelper propsHelper = new PropertyHelper();
         return propsHelper.getInitProperties(this.getName() + "_url");

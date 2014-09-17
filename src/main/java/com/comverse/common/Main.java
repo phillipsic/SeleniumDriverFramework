@@ -38,23 +38,46 @@ public class Main {
 
         @Override
         protected void failed(Throwable e, Description description) {
+
             String[] line = e.getMessage().split("\n");
             test.setMessage(line[0]);
             try {
                 test.writeInLog("ERRO", "########## " + test.getMessage() + " ##########");
                 test.closeLogFile();
+                this.checkForBadData();
+                this.logResults("CV", test.getMessage());
             } catch (Exception e1) {
             }
-            this.logResults("CV", test.getMessage());
         }
 
         @Override
         protected void succeeded(Description description) {
             try {
                 test.closeLogFile();
+                this.checkForBadData();
+                this.logResults("CV", test.getMessage());
             } catch (Exception e1) {
             }
-            this.logResults("CV", test.getMessage());
+        }
+
+        public void checkForBadData() throws Exception {
+            if (application.getName() == null || application.getName().equals("null") || application.getName().equals("")) {
+                throw new Exception("WARNING - Application name missing and result not saved to DB");
+            }
+            if (application.getVersion() == null || application.getVersion().equals("null") || application.getVersion().equals("Unavailable")
+                    || application.getVersion().equals("") || application.getVersion().equals("Temporarily Unavailable")) {
+                throw new Exception("WARNING - Application version missing and result not saved to DB");
+            }
+            if (test.getName() == null || test.getName().equals("null") || test.getName().equals("")) {
+                throw new Exception("WARNING - Test name missing and result not saved to DB");
+            }
+            if (test.getResult() == null || test.getResult().equals("null") || test.getResult().equals("")) {
+                throw new Exception("WARNING - Result missing and result not saved to DB");
+            }
+            if (tool.platform.getBrowserFullNameAndVersion() == null || tool.platform.getBrowserFullNameAndVersion().equals("null")
+                    || tool.platform.getBrowserFullNameAndVersion().equals("")) {
+                throw new Exception("WARNING - Browser version missing and result not saved to DB");
+            }
         }
 
         @SuppressWarnings("resource")
@@ -194,31 +217,6 @@ public class Main {
     @Rule
     public LogResults ruleExample = new LogResults();
 
-    public void checkForBadData() throws Exception {
-
-        if (application.getName() == null || application.getName().equals("null") || application.getName().equals("")) {
-            throw new Exception("WARNING - Application name missing and result not saved to DB");
-        }
-
-        if (application.getVersion() == null || application.getVersion().equals("null") || application.getVersion().equals("Unavailable") || application.getVersion().equals("")
-                || application.getVersion().equals("Temporarily Unavailable")) {
-            throw new Exception("WARNING - Application version missing and result not saved to DB");
-        }
-
-        if (test.getName() == null || test.getName().equals("null") || test.getName().equals("")) {
-            throw new Exception("WARNING - Test name missing and result not saved to DB");
-        }
-
-        if (test.getResult() == null || test.getResult().equals("null") || test.getResult().equals("")) {
-            throw new Exception("WARNING - Result missing and result not saved to DB");
-        }
-
-        if (tool.platform.getBrowserFullNameAndVersion() == null || tool.platform.getBrowserFullNameAndVersion().equals("null")
-                || tool.platform.getBrowserFullNameAndVersion().equals("")) {
-            throw new Exception("WARNING - Browser version missing and result not saved to DB");
-        }
-    }
-
     public void checkForPassAndAbort(String test_id) throws Exception {
 
         String domainCode = test_id.substring(0, 3);
@@ -273,8 +271,6 @@ public class Main {
         System.out.println("Application : " + application.getName());
         System.out.println("Test ID : " + test.getName());
         System.out.println("Result : " + test.getResult());
-
-        this.checkForBadData();
     }
 
 }
