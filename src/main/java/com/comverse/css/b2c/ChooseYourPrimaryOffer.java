@@ -21,6 +21,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
     public EnterYourSubscriptionDetails selectPrimaryOfferByNameWithoutDevice(String primaryOfferName) throws Exception {
 
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         test.writeInLog(Common.getMethodName() + "with data (" + primaryOfferName + ")");
         this.clickSelectPrimaryOffer(primaryOfferName);
 
