@@ -19,7 +19,7 @@ public class SubscriberDetails extends SubscriberDetailsCommon {
     }
 
     @Override
-    public ViewBalance viewBalanceAndRecharge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBalance viewBalanceAndRecharge() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.viewBalanceAndRecharge();
 

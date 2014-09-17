@@ -22,7 +22,7 @@ public class HomePageBackOffice extends HomePageBackOfficeCommon {
         }
     }
 
-    public InventoryAdministration clickBackOffice() throws Exception {  test.writeInLog(Common.getMethodName());
+    public InventoryAdministration clickBackOffice() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_BACK_OFFICE");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new InventoryAdministration(tool, test, user);

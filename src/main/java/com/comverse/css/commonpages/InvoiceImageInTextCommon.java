@@ -21,7 +21,7 @@ public class InvoiceImageInTextCommon extends CommonMenu {
     }
 
     public ViewInvoiceDetailsCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);

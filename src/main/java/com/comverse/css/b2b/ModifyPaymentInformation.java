@@ -18,7 +18,7 @@ public class ModifyPaymentInformation extends ModifyPaymentInformationCommon {
     }
 
     @Override
-    public ModifyPaymentMethod clickModifyPaymentButton() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ModifyPaymentMethod clickModifyPaymentButton() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickModifyPaymentButton();
         return new ModifyPaymentMethod(tool, test, user);

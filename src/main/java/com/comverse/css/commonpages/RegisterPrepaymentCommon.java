@@ -19,13 +19,13 @@ public class RegisterPrepaymentCommon extends CommonMenu {
     }
 
     public void enterAmount(String amount) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("amount", amount);
     }
 
     public void selectPaymentMethod(String paymentMethod) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         // tool.clickUsingID(paymentmethod);
         tool.clickUsingXPath("//input[@value='" + paymentMethod + "']");
@@ -33,44 +33,44 @@ public class RegisterPrepaymentCommon extends CommonMenu {
     }
 
     public RegisterPrepaymentCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new RegisterPrepaymentCommon(tool, test, user);
     }
 
     public void enterCardNumber(String cardNumber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("cardNumber", cardNumber);
     }
 
     public void enterCardExpDate(String expirationDate) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("cardExpirationDate", expirationDate);
     }
 
     public void enterCardHolderLastName(String lastName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("cardHolderName", lastName);
     }
 
     public void enterCardHolderFirstName(String firstName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("cardHolderFName", firstName);
     }
 
     public void enterCardSecretCode(String secretCode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("cardSecretCode", secretCode);
     }
 
     public RegisterPrepaymentConfirmCommon clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -78,7 +78,7 @@ public class RegisterPrepaymentCommon extends CommonMenu {
     }
 
     public void enterZipPostalCode(String postalCode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("cardZipPostCode", postalCode);
     }

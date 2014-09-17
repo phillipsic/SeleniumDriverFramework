@@ -26,7 +26,7 @@ public class LoginPage extends CommonMenu {
 
     }
 
-    public OCMApplication loginToOCM(User user) throws Exception {  test.writeInLog(Common.getMethodName());
+    public OCMApplication loginToOCM(User user) throws Exception {  test.writeInLogFile(Common.getMethodName());
         if (user.getLogin() == null || user.getLogin().length() == 0) {
             throw new MissingResourceException("Missing property " + user.getLogin(), "PASSWORD_PROPERTY_FILE", user.getLogin());
         }
@@ -44,7 +44,7 @@ public class LoginPage extends CommonMenu {
         return new OCMApplication(tool, test);
     }
 
-    public void loginToOCMAndFail(User user) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void loginToOCMAndFail(User user) throws Exception {  test.writeInLogFile(Common.getMethodName());
         if (user.getLogin() == null || user.getLogin().length() == 0) {
             throw new MissingResourceException("Missing property " + user.getLogin(), "PASSWORD_PROPERTY_FILE", user.getLogin());
         }
@@ -61,7 +61,7 @@ public class LoginPage extends CommonMenu {
 
     }
 
-    public OCMApplication loginToOCMAndChangePassword(User user) throws Exception {  test.writeInLog(Common.getMethodName());
+    public OCMApplication loginToOCMAndChangePassword(User user) throws Exception {  test.writeInLogFile(Common.getMethodName());
         if (user.getLogin() == null || user.getLogin().length() == 0) {
             throw new MissingResourceException("Missing property " + user.getLogin(), "PASSWORD_PROPERTY_FILE", user.getLogin());
         }

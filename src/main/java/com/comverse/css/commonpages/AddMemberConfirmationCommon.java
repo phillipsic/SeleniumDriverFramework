@@ -20,7 +20,7 @@ public class AddMemberConfirmationCommon extends CommonMenu {
     }
 
     public AddMemberCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
 

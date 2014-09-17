@@ -14,7 +14,7 @@ public class ViewBilledMTRDetails extends ViewBilledMTRDetailsCommon {
     }
 
     @Override
-    public ViewBilledMTR clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledMTR clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewBilledMTR(tool, test, user);

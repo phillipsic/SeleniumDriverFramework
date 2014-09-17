@@ -19,7 +19,7 @@ public class EnableLoginCommon extends CommonMenu {
     }
 
     public LoginInformationCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new LoginInformationCommon(tool, test, user);
     }

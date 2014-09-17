@@ -17,7 +17,7 @@ public class ChangeLoginPassword extends ChangeLoginPasswordCommon {
     }
 
     @Override
-    public MyshapeCSRPortal clickLogout() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyshapeCSRPortal clickLogout() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickLogout();
         return new MyshapeCSRPortal(tool, test, user);

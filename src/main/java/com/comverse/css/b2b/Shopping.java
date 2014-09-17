@@ -14,7 +14,7 @@ public class Shopping extends ShoppingCommon {
     }
 
     @Override
-    public MyBasket clickSelectOfferInPopUpWindow() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasket clickSelectOfferInPopUpWindow() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickSelectOfferInPopUpWindow();
         return new MyBasket(tool, test, user);
@@ -42,14 +42,14 @@ public class Shopping extends ShoppingCommon {
     // }
 
     @Override
-    public MyBasket selectHandset(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasket selectHandset(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.selectHandset(value);
         return new MyBasket(tool, test, user);
     }
 
     @Override
-    public MyBasket selectAccessory(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasket selectAccessory(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.selectAccessory(value);
         return new MyBasket(tool, test, user);

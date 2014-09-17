@@ -24,7 +24,7 @@ public class SubscriberStatusCommon extends CommonMenu {
     }
 
     public void checkStatus() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         Common.assertTextOnPage(tool, "active");
     }
 

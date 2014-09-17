@@ -14,56 +14,56 @@ public class ViewInvoiceDetails extends ViewInvoiceDetailsCommon {
     }
 
     @Override
-    public ViewBilledMTR clickBilledMTR() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledMTR clickBilledMTR() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBilledMTR();
         return new ViewBilledMTR(tool, test, user);
     }
 
     @Override
-    public ViewBilledRecharges clickBilledRecharges() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledRecharges clickBilledRecharges() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBilledRecharges();
         return new ViewBilledRecharges(tool, test, user);
     }
 
     @Override
-    public ViewBilledRCNRCTerms clickBilledRCNRC() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledRCNRCTerms clickBilledRCNRC() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBilledRCNRC();
         return new ViewBilledRCNRCTerms(tool, test, user);
     }
 
     @Override
-    public ViewInvoices clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoices clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewInvoices(tool, test, user);
     }
 
     @Override
-    public ViewBilledUsage clickBilledUsages() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledUsage clickBilledUsages() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBilledUsages();
         return new ViewBilledUsage(tool, test, user);
     }
 
     @Override
-    public ViewPaymentDistributions clickPaymentDistribution() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewPaymentDistributions clickPaymentDistribution() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickPaymentDistribution();
         return new ViewPaymentDistributions(tool, test, user);
     }
 
     @Override
-    public InvoiceImageInText clickAsciiImage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public InvoiceImageInText clickAsciiImage() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickAsciiImage();
         return new InvoiceImageInText(tool, test, user);
     }
 
     @Override
-    public ViewInvoiceBalanceDetails clickBalanceName() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoiceBalanceDetails clickBalanceName() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBalanceName();
         return new ViewInvoiceBalanceDetails(tool, test, user);

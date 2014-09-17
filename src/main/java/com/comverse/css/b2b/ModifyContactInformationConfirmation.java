@@ -18,13 +18,13 @@ public class ModifyContactInformationConfirmation extends ModifyContactInformati
     }
 
     @Override
-    public RequestSubmission clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RequestSubmission clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickOk();
         return new RequestSubmission(tool, test, user);
     }
 
     @Override
-    public RequestSubmission clickOkToConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RequestSubmission clickOkToConfirm() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickOkToConfirm();
         return new RequestSubmission(tool, test, user);
     }

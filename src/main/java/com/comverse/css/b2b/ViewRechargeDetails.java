@@ -15,7 +15,7 @@ public class ViewRechargeDetails extends ViewRechargeDetailsCommon {
     }
 
     @Override
-    public ViewUnbilledRecharge clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledRecharge clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewUnbilledRecharge(tool, test, user);

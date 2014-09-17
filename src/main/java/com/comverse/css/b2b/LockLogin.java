@@ -19,7 +19,7 @@ public class LockLogin extends LockLoginCommon {
     }
 
     @Override
-    public LoginInformation clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public LoginInformation clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new LoginInformation(tool, test, user);

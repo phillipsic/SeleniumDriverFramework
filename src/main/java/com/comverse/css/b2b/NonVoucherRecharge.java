@@ -18,20 +18,20 @@ public class NonVoucherRecharge extends NonVoucherRechargeCommon {
     }
 
     @Override
-    public void selectPaymentMethodCreditCard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectPaymentMethodCreditCard() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='CREDIT_CARD']");
     }
 
     @Override
-    public NonVoucherRechargeReview nonVoucherRechargeByCheck(String rechargeAmount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public NonVoucherRechargeReview nonVoucherRechargeByCheck(String rechargeAmount) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.nonVoucherRechargeByCheck(rechargeAmount);
         return new NonVoucherRechargeReview(tool, test, user);
     }
 
     @Override
-    public NonVoucherRechargeReview clickSelect() throws Exception {  test.writeInLog(Common.getMethodName());
+    public NonVoucherRechargeReview clickSelect() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickSelect();
         return new NonVoucherRechargeReview(tool, test, user);

@@ -42,10 +42,10 @@ public class Main {
             String[] line = e.getMessage().split("\n");
             test.setMessage(line[0]);
             try {
-                test.writeInLog("ERRO", "########## " + test.getMessage() + " ##########");
+                test.writeInLogFile("ERRO", "########## " + test.getMessage() + " ##########");
                 test.closeLogFile();
                 this.checkForBadData();
-                this.logResults("CV", test.getMessage());
+                this.logResultsInDB("CV", test.getMessage());
             } catch (Exception e1) {
             }
         }
@@ -55,33 +55,39 @@ public class Main {
             try {
                 test.closeLogFile();
                 this.checkForBadData();
-                this.logResults("CV", test.getMessage());
+                this.logResultsInDB("CV", test.getMessage());
             } catch (Exception e1) {
             }
         }
 
         public void checkForBadData() throws Exception {
             if (application.getName() == null || application.getName().equals("null") || application.getName().equals("")) {
+                test.writeInLogFile("ERRO", "Application name missing and result not saved to DB");
                 throw new Exception("WARNING - Application name missing and result not saved to DB");
             }
             if (application.getVersion() == null || application.getVersion().equals("null") || application.getVersion().equals("Unavailable")
                     || application.getVersion().equals("") || application.getVersion().equals("Temporarily Unavailable")) {
+                test.writeInLogFile("ERRO", "Application version missing and result not saved to DB");
                 throw new Exception("WARNING - Application version missing and result not saved to DB");
             }
             if (test.getName() == null || test.getName().equals("null") || test.getName().equals("")) {
+                test.writeInLogFile("ERRO", "Test name missing and result not saved to DB");
                 throw new Exception("WARNING - Test name missing and result not saved to DB");
             }
             if (test.getResult() == null || test.getResult().equals("null") || test.getResult().equals("")) {
+                test.writeInLogFile("ERRO", "Result missing and result not saved to DB");
                 throw new Exception("WARNING - Result missing and result not saved to DB");
             }
             if (tool.platform.getBrowserFullNameAndVersion() == null || tool.platform.getBrowserFullNameAndVersion().equals("null")
                     || tool.platform.getBrowserFullNameAndVersion().equals("")) {
+                test.writeInLogFile("ERRO", "Browser version missing and result not saved to DB");
                 throw new Exception("WARNING - Browser version missing and result not saved to DB");
             }
+
         }
 
         @SuppressWarnings("resource")
-        public void logResults(String mode, String message) {
+        public void logResultsInDB(String mode, String message) {
             try {
 
                 DB cust = new DB("AUTOTEST");
@@ -258,7 +264,7 @@ public class Main {
     @After
     public void tearDown() throws Exception {
         tool.quit();
-        test.writeInLog("Test Result: " + test.getResult());
+        test.writeInLogFile("Test Result: " + test.getResult());
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

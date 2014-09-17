@@ -14,42 +14,42 @@ public class ViewInvoices extends ViewInvoicesCommon {
     }
 
     @Override
-    public ViewTransactionHistory clickTransactionHistory() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewTransactionHistory clickTransactionHistory() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickTransactionHistory();
         return new ViewTransactionHistory(tool, test, user);
     }
 
     @Override
-    public UnbilledTransaction clickUnbilledTransacations() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnbilledTransaction clickUnbilledTransacations() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickUnbilledTransacations();
         return new UnbilledTransaction(tool, test, user);
     }
 
     @Override
-    public ViewInvoiceDetails clickLastInvoice() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoiceDetails clickLastInvoice() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickLastInvoice();
         return new ViewInvoiceDetails(tool, test, user);
     }
 
     @Override
-    public RegisterBillPayment clickPayLastInvoice() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterBillPayment clickPayLastInvoice() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickPayLastInvoice();
         return new RegisterBillPayment(tool, test, user);
     }
 
     @Override
-    public ViewPayments clickPayments() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewPayments clickPayments() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickPayments();
         return new ViewPayments(tool, test, user);
     }
 
     @Override
-    public ViewInvoiceDetails clickInvoiceNumber(String billrefnumber) throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoiceDetails clickInvoiceNumber(String billrefnumber) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickInvoiceNumber(billrefnumber);
         return new ViewInvoiceDetails(tool, test, user);

@@ -15,7 +15,7 @@ public class CustomerAcquisitionCustomerDataReview extends CustomerAcquisitionCu
     }
 
     @Override
-    public Shopping clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public Shopping clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickContinue();
         return new Shopping(tool, test, user);

@@ -18,21 +18,21 @@ public class AddDepositReviewAndConfirm extends AddDepositReviewAndConfirmCommon
     }
 
     @Override
-    public AddDepositReviewAndConfirm clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddDepositReviewAndConfirm clickConfirm() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickConfirm();
         return new AddDepositReviewAndConfirm(tool, test, user);
     }
 
     @Override
-    public AccountDetails clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDeposits clickOkToViewDeposits() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDeposits clickOkToViewDeposits() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOkToViewDeposits();
         return new AccountDeposits(tool, test, user);

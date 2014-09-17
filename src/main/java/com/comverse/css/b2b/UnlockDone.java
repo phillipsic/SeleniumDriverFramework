@@ -19,7 +19,7 @@ public class UnlockDone extends UnlockDoneCommon {
     }
 
     @Override
-    public ModifyLoginPassword clickChangePassword() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ModifyLoginPassword clickChangePassword() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickChangePassword();
         return new ModifyLoginPassword(tool, test, user);

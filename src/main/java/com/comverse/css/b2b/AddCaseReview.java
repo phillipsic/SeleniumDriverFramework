@@ -18,7 +18,7 @@ public class AddCaseReview extends AddCaseReviewCommon {
     }
 
     @Override
-    public AddCaseConfirmation clickCreateCase() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddCaseConfirmation clickCreateCase() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickCreateCase();
         return new AddCaseConfirmation(tool, test, user);

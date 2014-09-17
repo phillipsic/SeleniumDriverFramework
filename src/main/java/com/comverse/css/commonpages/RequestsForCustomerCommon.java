@@ -20,20 +20,20 @@ public class RequestsForCustomerCommon extends CommonMenu {
     }
 
     public void clickSearch() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public OrderDetailsCommon clickOnOrderNumberLink(String orderNumber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText(orderNumber);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new OrderDetailsCommon(tool, test, user);
     }
 
     public void waitUntilFirstRequestCompletedOrFailed() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         int maxIterations = 90;
         int iterationCounter = 0;
@@ -66,25 +66,25 @@ public class RequestsForCustomerCommon extends CommonMenu {
     }
 
     public String getFirstRequestStatus() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr/td[7]/div");
         return requestStatus;
     }
 
     public String getFirstRequestStatusPOS() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String requestStatus = tool.getTextUsingXPath("//div[@id='requestsContainer']//tr/td[6]/div");
         return requestStatus;
     }
 
     public void clickToSubscriberDashboard() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("div.navContextMain > a[title=\"Go to Subscriber Dashboard\"]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public void waitUntilFirstRequestCompletedOrFailedPOS() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         int maxIterations = 90;
         int iterationCounter = 0;

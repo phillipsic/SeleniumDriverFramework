@@ -13,14 +13,14 @@ public class SubscriberStatusHistory extends B2CMenu {
         String expectedScreen = "Subscriber Status History";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public SubscriberDetail clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         // Common.waitForEndOfWaitingPage(tool,
         // this.getClass().getSimpleName());
@@ -28,7 +28,7 @@ public class SubscriberStatusHistory extends B2CMenu {
     }
 
     public String getStatus() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String subscriberStatus;
         subscriberStatus = tool.getTextUsingXPath("//td[2]");
         return subscriberStatus;

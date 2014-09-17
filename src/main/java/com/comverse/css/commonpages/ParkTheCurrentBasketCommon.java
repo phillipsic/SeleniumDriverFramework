@@ -20,13 +20,13 @@ public class ParkTheCurrentBasketCommon extends CommonMenu {
     }
 
     public void enterBasketID(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("basket", value);
     }
 
     public void clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
     }

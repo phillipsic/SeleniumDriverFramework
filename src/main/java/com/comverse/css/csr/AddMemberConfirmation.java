@@ -13,7 +13,7 @@ public class AddMemberConfirmation extends AddMemberConfirmationCommon {
     }
 
     @Override
-    public AddMember clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddMember clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new AddMember(tool, test, user);

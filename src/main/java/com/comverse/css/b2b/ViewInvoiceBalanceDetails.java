@@ -14,7 +14,7 @@ public class ViewInvoiceBalanceDetails extends ViewInvoiceBalanceDetailsCommon {
     }
 
     @Override
-    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);

@@ -14,14 +14,14 @@ public class CheckoutReview extends CheckoutReviewCommon {
     }
 
     @Override
-    public CheckoutConfirmation clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public CheckoutConfirmation clickConfirm() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickConfirm();
         return new CheckoutConfirmation(tool, test, user);
     }
 
     @Override
-    public ImmediatePayment clickConfirmWithGoods() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ImmediatePayment clickConfirmWithGoods() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickConfirmWithGoods();
         return new ImmediatePayment(tool, test, user);

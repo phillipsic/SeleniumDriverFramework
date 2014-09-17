@@ -15,14 +15,14 @@ public class RemoveSelection extends RemoveSelectionCommon {
     }
 
     @Override
-    public MyBasket clickYes() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasket clickYes() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickYes();
         return new MyBasket(tool, test, user);
     }
 
     @Override
-    public RemoveLevel clickRemoveSelectionByYes() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RemoveLevel clickRemoveSelectionByYes() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickRemoveSelectionByYes();
         return new RemoveLevel(tool, test, user);

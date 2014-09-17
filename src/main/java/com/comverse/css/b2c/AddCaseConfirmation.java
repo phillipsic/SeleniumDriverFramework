@@ -13,20 +13,20 @@ public class AddCaseConfirmation extends B2CMenu {
         String expectedScreen = "Add case - confirmation";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
-    public AddCase clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName());
+    public AddCase clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input.submit");
         return new AddCase(tool, test, user);
     }
 
-    public String getCaseID() throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName());
+    public String getCaseID() throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String caseID = tool.getTextUsingXPath("//span");
 
         caseID = caseID.replaceAll("[a-zA-Z \\.]", "");

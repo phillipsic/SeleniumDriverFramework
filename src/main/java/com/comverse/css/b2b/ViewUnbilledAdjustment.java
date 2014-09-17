@@ -14,14 +14,14 @@ public class ViewUnbilledAdjustment extends ViewUnbilledAdjustmentCommon {
     }
 
     @Override
-    public AdjustmentDetails clickFirstAdjustment() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AdjustmentDetails clickFirstAdjustment() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstAdjustment();
         return new AdjustmentDetails(tool, test, user);
     }
 
     @Override
-    public UnbilledTransaction clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnbilledTransaction clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new UnbilledTransaction(tool, test, user);

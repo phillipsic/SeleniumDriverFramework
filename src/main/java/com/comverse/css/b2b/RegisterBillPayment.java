@@ -14,21 +14,21 @@ public class RegisterBillPayment extends RegisterBillPaymentCommon {
     }
 
     @Override
-    public RegisterBillPayment clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterBillPayment clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickContinue();
         return new RegisterBillPayment(tool, test, user);
     }
 
     @Override
-    public RegisterBillPayment clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterBillPayment clickConfirm() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickConfirm();
         return new RegisterBillPayment(tool, test, user);
     }
 
     @Override
-    public ViewInvoices clickBackToInvoices() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoices clickBackToInvoices() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBackToInvoices();
         return new ViewInvoices(tool, test, user);

@@ -13,31 +13,31 @@ public class DisconnectAccount extends DisconnectAccountCommon {
     }
 
     @Override
-    public void clickCheckBoxUnlockNow() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void clickCheckBoxUnlockNow() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("disconnectNow");
     }
 
     @Override
-    public void setAnnotation(String annotation) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setAnnotation(String annotation) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         
         tool.enterStringUsingId("annotation", annotation);
     }
 
     @Override
-    public DisconnectAccount clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DisconnectAccount clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new DisconnectAccount(tool, test, user);
     }
 
     @Override
-    public DisconnectAccount clickContinueOnImpacts() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DisconnectAccount clickContinueOnImpacts() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickContinueOnImpacts();
         return new DisconnectAccount(tool, test, user);
     }
 
     @Override
-    public AccountDetails clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickOk();
         return new AccountDetails(tool, test, user);
     }

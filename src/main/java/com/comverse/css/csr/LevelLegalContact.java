@@ -17,14 +17,14 @@ public class LevelLegalContact extends LevelLegalContactCommon {
     }
 
     @Override
-    public ViewHierarchy clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewHierarchy clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewHierarchy(tool, test, user);
     }
 
     @Override
-    public ModifyLevelLegalContact clickModifyLevelLegalContact() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ModifyLevelLegalContact clickModifyLevelLegalContact() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickModifyLevelLegalContact();
         return new ModifyLevelLegalContact(tool, test, user);

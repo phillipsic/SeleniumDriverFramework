@@ -26,7 +26,7 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
     }
 
     public AddDepositReviewAndConfirmCommon clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -34,7 +34,7 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -42,7 +42,7 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
     }
 
     public AccountDepositsCommon clickOkToViewDeposits() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -50,7 +50,7 @@ public class AddDepositReviewAndConfirmCommon extends CommonMenu {
     }
 
     public String getDateReveived() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         String temp[];
         String lableAndDate = tool.getTextUsingXPath("//span[contains(text(), 'Date received:')]/..");

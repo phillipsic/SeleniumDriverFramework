@@ -14,14 +14,14 @@ public class ViewBilledMTR extends ViewBilledMTRCommon {
     }
 
     @Override
-    public ViewBilledMTRDetails clickFirstMTR() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledMTRDetails clickFirstMTR() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstMTR();
         return new ViewBilledMTRDetails(tool, test, user);
     }
 
     @Override
-    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);

@@ -14,13 +14,13 @@ public class CheckoutConfirmation extends CheckoutConfirmationCommon {
     }
 
     @Override
-    public AccountDetails clickAccounts() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickAccounts() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails clickOkExpectingAccountDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickOkExpectingAccountDashboard() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOkExpectingAccountDashboard();
         return new AccountDetails(tool, test, user);

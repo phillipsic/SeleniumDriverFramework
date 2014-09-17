@@ -21,7 +21,7 @@ public class HealthPage extends CommonMenu {
         }
     }
 
-    public boolean crmhealthcheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean crmhealthcheck(String baseUrl, String Text) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(baseUrl);
         boolean crm = tool.getPageSource().contains(Text);
         if (crm == true) {
@@ -33,7 +33,7 @@ public class HealthPage extends CommonMenu {
         return crm;
     }
 
-    public boolean rcsHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean rcsHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(baseUrl);
         boolean rcs = tool.getPageSource().contains(Text);
         if (rcs == true) {
@@ -46,7 +46,7 @@ public class HealthPage extends CommonMenu {
         return rcs;
     }
 
-    public boolean rhtHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean rhtHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(baseUrl);
         boolean rht = tool.getPageSource().contains(Text);
         if (rht == true) {
@@ -58,7 +58,7 @@ public class HealthPage extends CommonMenu {
         return rht;
     }
 
-    public boolean obcHealthcheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean obcHealthcheck(String baseUrl, String Text) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(baseUrl);
         boolean OBC = tool.getPageSource().contains(Text);
         if (OBC == true) {
@@ -70,7 +70,7 @@ public class HealthPage extends CommonMenu {
         return OBC;
     }
 
-    public boolean dbHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLog(Common.getMethodName());
+    public boolean dbHealthCheck(String baseUrl, String Text) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.get(baseUrl);
         boolean db = tool.getPageSource().contains(Text);
         if (db == true) {

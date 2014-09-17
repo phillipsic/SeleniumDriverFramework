@@ -17,28 +17,28 @@ public class ViewTransactionHistory extends ViewTransactionHistoryCommon {
     }
 
     @Override
-    public ViewNRCHistory clickonNRCHistory() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewNRCHistory clickonNRCHistory() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickonNRCHistory();
         return new ViewNRCHistory(tool, test, user);
     }
 
     @Override
-    public ViewRCHistory clickonRCHistory() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewRCHistory clickonRCHistory() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickonRCHistory();
         return new ViewRCHistory(tool, test, user);
     }
 
     @Override
-    public ViewUsageHistory clickOnUsageHistory() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUsageHistory clickOnUsageHistory() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOnUsageHistory();
         return new ViewUsageHistory(tool, test, user);
     }
 
     @Override
-    public ViewMTRHistory clickonMTRHistory() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewMTRHistory clickonMTRHistory() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickonMTRHistory();
         return new ViewMTRHistory(tool, test, user);

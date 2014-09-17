@@ -13,7 +13,7 @@ public class FraudlockSubscriberFraudlockSuccessful extends FraudlockSubscriberF
     }
 
     @Override
-    public SubscriberDetails clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SubscriberDetails clickOK() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickOK();
         return new SubscriberDetails(tool, test, user);
     }

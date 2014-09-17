@@ -13,7 +13,7 @@ public class DeleteBasketConfirm extends DeleteBasketConfirmCommon {
     }
 
     @Override
-    public ResumeAParkedBasket clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ResumeAParkedBasket clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new ResumeAParkedBasket(tool, test, user);

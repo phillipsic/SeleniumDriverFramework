@@ -24,20 +24,20 @@ public class AddCaseConfirmationCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }
 
     public String getConfirmationMessage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getTextUsingCssSelector("BODY");
     }
 
     public String getCaseID() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         String caseID = tool.getTextUsingCssSelector("div.txt > span");
 

@@ -21,7 +21,7 @@ public class SubscriberIdentifiersSwapCommon extends CommonMenu {
     }
 
     public ConfigureServiceConnectionDetailsCommon clickSwapMSISDNInventory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String firstDelimiterString = "MSISDN reference:";
         String secondDelimiterString = "swap_";
 
@@ -31,7 +31,7 @@ public class SubscriberIdentifiersSwapCommon extends CommonMenu {
     }
 
     public void clickSwapButton(String firstDelimiterString, String secondDelimiterString) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String tempString[];
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         String pageSource = tool.getPageSource();

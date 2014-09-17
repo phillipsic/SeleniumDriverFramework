@@ -14,7 +14,7 @@ public class BalanceDetails extends BalanceDetailsCommon {
 
     @Override
     // From Account shared balance details page
-    public BalanceDetails viewSubscriberBalanceDetails(String balanceName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public BalanceDetails viewSubscriberBalanceDetails(String balanceName) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.viewSubscriberBalanceDetails(balanceName);
         return new BalanceDetails(tool, test, user);
@@ -22,14 +22,14 @@ public class BalanceDetails extends BalanceDetailsCommon {
 
     @Override
     // From Subscriber balance details page
-    public ViewBalance viewAccountBalances() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBalance viewAccountBalances() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.viewAccountBalances();
         return new ViewBalance(tool, test, user);
     }
 
     @Override
-    public ViewBalance clickGoToListOfBalances() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBalance clickGoToListOfBalances() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickGoToListOfBalances();
         return new ViewBalance(tool, test, user);

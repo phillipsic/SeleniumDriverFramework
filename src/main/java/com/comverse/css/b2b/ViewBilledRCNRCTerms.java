@@ -14,14 +14,14 @@ public class ViewBilledRCNRCTerms extends ViewBilledRCNRCTermsCommon {
     }
 
     @Override
-    public ViewBilledRCNRCTermDetails clickFirstRCTerm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledRCNRCTermDetails clickFirstRCTerm() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstRCTerm();
         return new ViewBilledRCNRCTermDetails(tool, test, user);
     }
 
     @Override
-    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);

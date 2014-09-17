@@ -24,7 +24,7 @@ public class ModifyDeliveryAddressConfirmationCommon extends CommonMenu {
     }
 
     public DeliveryAddressesCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new DeliveryAddressesCommon(tool, test, user);

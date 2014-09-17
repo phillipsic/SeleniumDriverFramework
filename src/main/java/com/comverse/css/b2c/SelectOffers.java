@@ -13,14 +13,14 @@ public class SelectOffers extends B2CMenu {
         String expectedScreen = "Select offers for your Subscriber";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public ConfigureOffers selectOfferByNameAndContinue(String offerName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + offerName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + offerName + ")");
         tool.clickUsingXPath("//div[contains(text(),'" + offerName + "')]/..//..//input");
         // System.out.println("//div[contains(text(),'"+ offerName +
         // "')]/..//..//input");
@@ -30,7 +30,7 @@ public class SelectOffers extends B2CMenu {
     }
 
     public AddSupplementaryOffers selectOfferByNameAndContinueExpectingAddSO(String offerName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + offerName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + offerName + ")");
         System.out.println("//div[contains(text(),'" + offerName + "')]/..//..//input");
         tool.clickUsingXPath("//div[contains(text(),'" + offerName + "')]/..//..//input");
         System.out.println("//div[contains(text(),'" + offerName + "')]/..//..//input");

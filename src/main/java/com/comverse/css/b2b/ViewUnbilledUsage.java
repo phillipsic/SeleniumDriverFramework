@@ -14,21 +14,21 @@ public class ViewUnbilledUsage extends ViewUnbilledUsageCommon {
     }
 
     @Override
-    public ViewUnbilledUsage clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledUsage clickSearch() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickSearch();
         return new ViewUnbilledUsage(tool, test, user);
     }
 
     @Override
-    public ViewUnbilledUsageDetails clickFirstUsage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledUsageDetails clickFirstUsage() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstUsage();
         return new ViewUnbilledUsageDetails(tool, test, user);
     }
 
     @Override
-    public UnbilledTransaction clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnbilledTransaction clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new UnbilledTransaction(tool, test, user);

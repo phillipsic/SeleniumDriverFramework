@@ -14,14 +14,14 @@ public class ViewUnbilledRecharge extends ViewUnbilledRechargeCommon {
     }
 
     @Override
-    public ViewRechargeDetails clickFirstRecharge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewRechargeDetails clickFirstRecharge() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstRecharge();
         return new ViewRechargeDetails(tool, test, user);
     }
 
     @Override
-    public UnbilledTransaction clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnbilledTransaction clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new UnbilledTransaction(tool, test, user);

@@ -13,7 +13,7 @@ public class AdjustBalanceRequestResult extends AdjustBalanceRequestResultCommon
     }
 
     @Override
-    public ViewBalance clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBalance clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewBalance(tool, test, user);

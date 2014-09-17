@@ -14,21 +14,21 @@ public class ViewBilledUsage extends ViewBilledUsageCommon {
     }
 
     @Override
-    public ViewBilledUsage clickSearch() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledUsage clickSearch() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickSearch();
         return new ViewBilledUsage(tool, test, user);
     }
 
     @Override
-    public ViewBilledUsageDetails clickFirstUsage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledUsageDetails clickFirstUsage() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstUsage();
         return new ViewBilledUsageDetails(tool, test, user);
     }
 
     @Override
-    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewInvoiceDetails clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewInvoiceDetails(tool, test, user);

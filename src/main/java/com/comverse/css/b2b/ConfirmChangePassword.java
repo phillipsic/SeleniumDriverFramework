@@ -19,7 +19,7 @@ public class ConfirmChangePassword extends ConfirmChangePasswordCommon {
     }
 
     @Override
-    public ChangeLoginPassword clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ChangeLoginPassword clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new ChangeLoginPassword(tool, test, user);

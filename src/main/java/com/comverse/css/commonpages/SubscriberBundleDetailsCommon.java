@@ -19,7 +19,7 @@ public class SubscriberBundleDetailsCommon extends CommonMenu {
     }
 
     public void checkOffer(String SUBSCRIBER_BUNDLE) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         Common.assertTextOnPage(tool, SUBSCRIBER_BUNDLE);
     }
 }

@@ -22,7 +22,7 @@ public class ManageAccountCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon searchByAccountID(String accountID) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L2:40-L3:2150", accountID);
         tool.clickUsingCssSelector("input.submit");
@@ -31,7 +31,7 @@ public class ManageAccountCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon searchByAccountLastName(String lastName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
@@ -41,7 +41,7 @@ public class ManageAccountCommon extends CommonMenu {
     }
 
     public SearchResultsCommon searchAccountWildCard() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L2:40-L3:2150", "*");
         tool.clickUsingCssSelector("input.submit");
@@ -51,7 +51,7 @@ public class ManageAccountCommon extends CommonMenu {
     }
 
     public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
@@ -62,7 +62,7 @@ public class ManageAccountCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon searcByAccountLastNameSinglePerson(String lastName) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
@@ -73,7 +73,7 @@ public class ManageAccountCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon gotoAccountDashboardUsingAccountID(String accountID) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("accountId", accountID);
         tool.clickUsingName("accountButton");

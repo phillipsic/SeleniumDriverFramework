@@ -13,27 +13,27 @@ public class CheckoutConfirmation extends CheckoutConfirmationCommon {
     }
 
     @Override
-    public WorkSpace clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public WorkSpace clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new WorkSpace(tool, test, user);
     }
 
     @Override
-    public AccountDetails clickAccounts() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickAccounts() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickAccounts();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public AccountDetails clickOkExpectingAccountDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickOkExpectingAccountDashboard() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOkExpectingAccountDashboard();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public SubscriberDetails clickOkExpectingSubscriberDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SubscriberDetails clickOkExpectingSubscriberDashboard() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOkExpectingSubscriberDashboard();
         return new SubscriberDetails(tool, test, user);

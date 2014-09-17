@@ -18,7 +18,7 @@ public class ViewBalance extends ViewBalanceCommon {
     }
 
     @Override
-    public NonVoucherRecharge clickNonVoucherRechargeFreeAmount() throws Exception {  test.writeInLog(Common.getMethodName());
+    public NonVoucherRecharge clickNonVoucherRechargeFreeAmount() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickNonVoucherRechargeFreeAmount();
         return new NonVoucherRecharge(tool, test, user);

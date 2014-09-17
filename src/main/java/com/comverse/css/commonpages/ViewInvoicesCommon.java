@@ -22,7 +22,7 @@ public class ViewInvoicesCommon extends CommonMenu {
     }
 
     public ViewTransactionHistoryCommon clickTransactionHistory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("mnu_HISTORIES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -30,7 +30,7 @@ public class ViewInvoicesCommon extends CommonMenu {
     }
 
     public UnbilledTransactionCommon clickUnbilledTransacations() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("smnu_UNBILLED_TRANSACTIONS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -38,7 +38,7 @@ public class ViewInvoicesCommon extends CommonMenu {
     }
 
     public ViewPaymentsCommon clickPayments() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("smnu_PAYMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -46,21 +46,21 @@ public class ViewInvoicesCommon extends CommonMenu {
     }
 
     public ViewInvoiceDetailsCommon clickLastInvoice() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//table[@id='listInvoices']/tbody/tr[2]/td/a");
         return new ViewInvoiceDetailsCommon(tool, test, user);
     }
 
     public ViewInvoiceDetailsCommon clickInvoiceNumber(String billrefnumber) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText(billrefnumber);
         return new ViewInvoiceDetailsCommon(tool, test, user);
     }
 
     public RegisterBillPaymentCommon clickPayLastInvoice() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText("Pay invoice");
         return new RegisterBillPaymentCommon(tool, test, user);

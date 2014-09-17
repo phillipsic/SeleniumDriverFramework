@@ -13,7 +13,7 @@ public class FraudlockSubscriberRequestForDetails extends FraudlockSubscriberReq
     }
 
     @Override
-    public FraudlockSubscriberConfirmation clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public FraudlockSubscriberConfirmation clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new FraudlockSubscriberConfirmation(tool, test, user);
     }

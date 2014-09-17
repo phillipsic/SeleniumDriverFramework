@@ -17,7 +17,7 @@ public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
     }
 
     @Override
-    public RequestSubmission clickModifyAttributes() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RequestSubmission clickModifyAttributes() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickModifyAttributes();
         return new RequestSubmission(tool, test, user);

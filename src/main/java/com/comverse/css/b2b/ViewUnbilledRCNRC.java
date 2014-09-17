@@ -14,14 +14,14 @@ public class ViewUnbilledRCNRC extends ViewUnbilledRCNRCCommon {
     }
 
     @Override
-    public ViewUnbilledRCTermDetails clickFirstRCTerm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledRCTermDetails clickFirstRCTerm() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstRCTerm();
         return new ViewUnbilledRCTermDetails(tool, test, user);
     }
 
     @Override
-    public UnbilledTransaction clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnbilledTransaction clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new UnbilledTransaction(tool, test, user);

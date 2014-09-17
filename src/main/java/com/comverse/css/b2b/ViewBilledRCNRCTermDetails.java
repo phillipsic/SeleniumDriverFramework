@@ -14,7 +14,7 @@ public class ViewBilledRCNRCTermDetails extends ViewBilledRCNRCTermDetailsCommon
     }
 
     @Override
-    public ViewBilledRCNRCTerms clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledRCNRCTerms clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewBilledRCNRCTerms(tool, test, user);

@@ -14,7 +14,7 @@ public class RestorePreviousBasket extends RestorePreviousBasketCommon {
     }
 
     @Override
-    public MyBasket clickRestoreSavedBasket() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasket clickRestoreSavedBasket() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickRestoreSavedBasket();
         return new MyBasket(tool, test, user);

@@ -13,7 +13,7 @@ public class RemoveBasket extends RemoveBasketCommon {
 
     }
 
-    public AccountDetails clickYes() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickYes() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//form[@id='form_YES']/div/input");
         return new AccountDetails(tool, test, user);

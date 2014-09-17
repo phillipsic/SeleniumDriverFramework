@@ -14,7 +14,7 @@ public class ViewUnbilledMTRDetails extends ViewUnbilledMTRDetailsCommon {
     }
 
     @Override
-    public ViewUnbilledMTR clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledMTR clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewUnbilledMTR(tool, test, user);

@@ -17,20 +17,20 @@ public class AddSubLevelLegalAddress extends AddSubLevelLegalAddressCommon {
     }
 
     @Override
-    public RequestSubmission clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RequestSubmission clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new RequestSubmission(tool, test, user);
     }
 
     @Override
-    public void setLevelName(String levelName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLevelName(String levelName) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.setLevelName(levelName);
     }
 
     @Override
-    public void setLevelState(String levelState) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLevelState(String levelState) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.setLevelState(levelState);
 

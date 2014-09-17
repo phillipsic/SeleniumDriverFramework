@@ -14,20 +14,20 @@ public class ModifyProfileInformation extends B2CMenu {
         String expectedScreen = "Modify Profile Information";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void selectApprovalSequencing(String choice) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + choice + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + choice + ")");
         tool.selectVisibleTextByID("approval_sequencing_field", choice);
 
     }
 
     public ConfirmModifyProfileInformation clickOK() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("okButton");
         return new ConfirmModifyProfileInformation(tool, test, user);
 

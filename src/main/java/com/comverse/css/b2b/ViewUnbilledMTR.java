@@ -14,14 +14,14 @@ public class ViewUnbilledMTR extends ViewUnbilledMTRCommon {
     }
 
     @Override
-    public ViewUnbilledMTRDetails clickFirstMTR() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledMTRDetails clickFirstMTR() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstMTR();
         return new ViewUnbilledMTRDetails(tool, test, user);
     }
 
     @Override
-    public UnbilledTransaction clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnbilledTransaction clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new UnbilledTransaction(tool, test, user);

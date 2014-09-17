@@ -13,34 +13,34 @@ public class CustomerAcquisitionCustomerDataReview extends CustomerAcquisitionCu
     }
 
     @Override
-    public Shopping clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public Shopping clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickContinue();
         return new Shopping(tool, test, user);
     }
 
     @Override
-    public UpdateAccountContactInformations clickEditCustomerIdentityAndContact() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UpdateAccountContactInformations clickEditCustomerIdentityAndContact() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickEditCustomerIdentityAndContact();
         return new UpdateAccountContactInformations(tool, test, user);
     }
 
     @Override
-    public UpdateAdministrativeAccountInformation clickBillingInformationEditButton() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UpdateAdministrativeAccountInformation clickBillingInformationEditButton() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickBillingInformationEditButton();
         return new UpdateAdministrativeAccountInformation(tool, test, user);
     }
 
     @Override
-    public UpdateAccountBillingAddressInformations clickEditAddressDetail() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UpdateAccountBillingAddressInformations clickEditAddressDetail() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickEditAddressDetail();
         return new UpdateAccountBillingAddressInformations(tool, test, user);
     }
 
     @Override
-    public UpdateAdministrativeAccountInformation clickAccountContactEdit() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UpdateAdministrativeAccountInformation clickAccountContactEdit() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickAccountContactEdit();
         return new UpdateAdministrativeAccountInformation(tool, test, user);

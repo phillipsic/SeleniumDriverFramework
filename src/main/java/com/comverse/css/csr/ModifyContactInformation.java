@@ -17,7 +17,7 @@ public class ModifyContactInformation extends ModifyContactInformationCommon {
     }
 
     @Override
-    public ModifyContactInformationConfirmation clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ModifyContactInformationConfirmation clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickOk();
         return new ModifyContactInformationConfirmation(tool, test, user);
     }

@@ -14,7 +14,7 @@ public class ViewUnbilledUsageDetails extends ViewUnbilledUsageDetailsCommon {
     }
 
     @Override
-    public ViewUnbilledUsage clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledUsage clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewUnbilledUsage(tool, test, user);

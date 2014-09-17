@@ -23,14 +23,14 @@ public class ViewTransactionHistoryCommon extends CommonMenu {
     }
 
     public ViewUsageHistoryCommon clickOnUsageHistory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("youcan_USAGE_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewUsageHistoryCommon(tool, test, user);
     }
 
     public ViewMTRHistoryCommon clickonMTRHistory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         Thread.sleep(5000);
         tool.clickUsingID("youcan_MTR_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -38,21 +38,21 @@ public class ViewTransactionHistoryCommon extends CommonMenu {
     }
 
     public ViewRCHistoryCommon clickonRCHistory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("youcan_RC_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewRCHistoryCommon(tool, test, user);
     }
 
     public ViewNRCHistoryCommon clickonNRCHistory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("youcan_NRC_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewNRCHistoryCommon(tool, test, user);
     }
 
     public ViewCombinedHistoryCommon clickonCombinedHistory() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("youcan_COMBINED_HISTORY");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ViewCombinedHistoryCommon(tool, test, user);

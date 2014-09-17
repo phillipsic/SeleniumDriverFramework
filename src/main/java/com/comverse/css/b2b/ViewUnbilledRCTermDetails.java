@@ -14,7 +14,7 @@ public class ViewUnbilledRCTermDetails extends ViewUnbilledRCTermDetailsCommon {
     }
 
     @Override
-    public ViewUnbilledRCNRC clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledRCNRC clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewUnbilledRCNRC(tool, test, user);

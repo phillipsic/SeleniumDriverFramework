@@ -25,7 +25,7 @@ public class AddLevelConfirmationCommon extends CommonMenu {
     }
 
     public AddLevelCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new AddLevelCommon(tool, test, user);

@@ -19,7 +19,7 @@ public class ResumeBasketConfirm extends ResumeBasketConfirmCommon {
     }
 
     @Override
-    public MyBasket clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasket clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new MyBasket(tool, test, user);

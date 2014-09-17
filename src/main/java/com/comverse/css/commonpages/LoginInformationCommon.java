@@ -19,33 +19,33 @@ public class LoginInformationCommon extends CommonMenu {
     }
 
     public String getCurrentRoleFromPage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         return tool.getTextUsingXPath("//div[@id='mainContents']/div[2]/div/table/tbody/tr/td").replace(",", "");
     }
 
     public ChangePasswordCommon clickChangePassword() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_CHANGE_PASSWORD");
         return new ChangePasswordCommon(tool, test, user);
     }
 
     public ModifyLoginPasswordCommon clickChangePasswordOfAnotherUser() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_CHANGE_PASSWORD");
         return new ModifyLoginPasswordCommon(tool, test, user);
     }
 
     public ChangeSecretAnswerCommon clickChangeYourSecretAnswer() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_CHANGE_SECRET_QUESTION");
         return new ChangeSecretAnswerCommon(tool, test, user);
     }
 
     public ConfirmChangePasswordCommon clickChangePasswordOnFirstLogin() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_CHANGE_PASSWORD_ON_FIRST_LOGIN");
 
@@ -53,42 +53,42 @@ public class LoginInformationCommon extends CommonMenu {
     }
 
     public LockLoginCommon clickLockLogin() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_LOCK_LOGIN");
         return new LockLoginCommon(tool, test, user);
     }
 
     public UnlockLoginCommon clickUnLockLogin() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_UNLOCK_LOGIN");
         return new UnlockLoginCommon(tool, test, user);
     }
 
     public DeactivateLoginCommon clickDeactivateLogin() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_DISABLE_LOGIN");
         return new DeactivateLoginCommon(tool, test, user);
     }
 
     public ActivateLoginCommon clickActivateLogin() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_ENABLE_LOGIN");
         return new ActivateLoginCommon(tool, test, user);
     }
 
     public RegisterLoginCommon clickSetLogin() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_REGISTER_LOGIN");
         return new RegisterLoginCommon(tool, test, user);
     }
 
     public String getTempPasswordFromPage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         String password = tool.getTextUsingXPath("//*[@id=\"mainContents\"]/div/div[2]/div/div/span");
 
@@ -99,14 +99,14 @@ public class LoginInformationCommon extends CommonMenu {
     }
 
     public ChangeRolesCommon clickChangeRoles() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_CHANGE_ROLES");
         return new ChangeRolesCommon(tool, test, user);
     }
 
     public ChangeSecretAnswerCommon clickChangeYourSecretQuestionAndAnswer() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_CHANGE_SECRET_QUESTION");
         return new ChangeSecretAnswerCommon(tool, test, user);

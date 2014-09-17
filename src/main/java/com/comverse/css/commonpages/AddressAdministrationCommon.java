@@ -20,7 +20,7 @@ public class AddressAdministrationCommon extends CommonMenu {
     }
 
     public AddressAddCommon clickAdd() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Add']");
 

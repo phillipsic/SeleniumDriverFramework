@@ -13,14 +13,14 @@ public class ConfigureContractDetails extends ConfigureContractDetailsCommon {
     }
 
     @Override
-    public MyBasket clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyBasket clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickContinue();
         return new MyBasket(tool, test, user);
     }
 
     @Override
-    public ConfigureBalance clickContinueExpectingConfigureBalance() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ConfigureBalance clickContinueExpectingConfigureBalance() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickContinueExpectingConfigureBalance();
         return new ConfigureBalance(tool, test, user);
     }

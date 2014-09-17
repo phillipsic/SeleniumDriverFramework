@@ -23,13 +23,13 @@ public class AddEmployeeContactInformation extends CommonMenu {
         }
     }
 
-    public void setFirstName(String firstName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setFirstName(String firstName) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         
         tool.enterStringUsingId("first_name", firstName);
     }
 
-    public void setLastName(String lastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setLastName(String lastName) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         
         tool.enterStringUsingId("last_name", lastName);
@@ -41,12 +41,12 @@ public class AddEmployeeContactInformation extends CommonMenu {
      * tool.clickUsingCssSelector("input.submit"); return
      * new AddEmployeeRegisterLogin(tool, test, user); }
      */
-    public void selectState(String homeState) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectState(String homeState) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("home_state", homeState);
     }
 
-    public AddEmployeeRegisterLogin clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddEmployeeRegisterLogin clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         return new AddEmployeeRegisterLogin(tool, test, user);

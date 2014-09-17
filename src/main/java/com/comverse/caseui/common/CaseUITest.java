@@ -24,7 +24,7 @@ public class CaseUITest extends Main {
     }
 
     public void launchCaseUIApplicationWithSSO() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         application.setVersion(tool, test);
         tool.get(application.appFullURL());
         ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
@@ -35,7 +35,7 @@ public class CaseUITest extends Main {
     }
 
     public void launchCSSApplication() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         Application CSR = new CSR();
         tool.get(CSR.appURL());
         ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);

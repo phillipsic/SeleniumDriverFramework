@@ -17,20 +17,20 @@ public class ViewHierarchy extends ViewHierarchyCommon {
 
     }
 
-    public AddEmployeeContactInformation addNewEmployee() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddEmployeeContactInformation addNewEmployee() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("smnu_REGISTER_EMPLOYEE");
         return new AddEmployeeContactInformation(tool, test, user);
     }
 
     @Override
-    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickLogout();
         return new MyshapeBusiness(tool, test, user);
     }
 
-    public SearchEmployeePage clickSearchEmployee() throws Exception {  test.writeInLog(Common.getMethodName());
+    public SearchEmployeePage clickSearchEmployee() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("smnu_MEMBER");
         return new SearchEmployeePage(tool, test, user);

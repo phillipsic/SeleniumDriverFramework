@@ -21,7 +21,7 @@ public class ClearTheCurrentBasketCommon extends CommonMenu {
     }
 
     public AccountDetailsCommon clickOK() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
         return new AccountDetailsCommon(tool, test, user);
     }

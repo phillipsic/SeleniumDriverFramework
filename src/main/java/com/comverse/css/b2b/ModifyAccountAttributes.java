@@ -17,18 +17,18 @@ public class ModifyAccountAttributes extends ModifyAccountAttributesCommon {
     }
 
     @Override
-    public RequestSubmission clickModifyAttributes() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RequestSubmission clickModifyAttributes() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickModifyAttributes();
         return new RequestSubmission(tool, test, user);
     }
 
     @Override
-    public void enterSecurityNumber(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void enterSecurityNumber(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingXPath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", value);
     }
 
     @Override
-    public String getSecurityNumber() throws Exception {  test.writeInLog(Common.getMethodName());
+    public String getSecurityNumber() throws Exception {  test.writeInLogFile(Common.getMethodName());
         return tool.getAttributeUsingXpath("//form[@id='MODIFY_ATTRIBUTES']/div/div[2]/fieldset/div/input", "value");
     }
 }

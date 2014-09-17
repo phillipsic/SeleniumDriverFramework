@@ -24,7 +24,7 @@ public class ResumeBasketConfirmCommon extends CommonMenu {
     }
 
     public MyBasketCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new MyBasketCommon(tool, test, user);

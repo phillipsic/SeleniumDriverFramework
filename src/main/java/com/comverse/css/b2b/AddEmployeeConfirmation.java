@@ -24,7 +24,7 @@ public class AddEmployeeConfirmation extends B2BMenu {
         }
     }
 
-    public RegisterLogin clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RegisterLogin clickSubmit() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingCssSelector("input.submit");
         return new RegisterLogin(tool, test, user);

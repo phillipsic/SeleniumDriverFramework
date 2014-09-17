@@ -38,7 +38,7 @@ public class ViewNRCHistoryCommon extends CommonMenu {
     }
 
     public void enterToDateTodayFromDateMinus10() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
@@ -53,28 +53,28 @@ public class ViewNRCHistoryCommon extends CommonMenu {
     }
 
     public void enterFromDate(String fromDate) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("startDate", fromDate);
 
     }
 
     public void enterToDate(String toDate) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("endDate", toDate);
 
     }
 
     public void clickSearch() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("(//input[@value='Search'])[3]");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public String getSearchResults() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         String text = tool.getTextUsingClassName("resultListTabTitle");
         System.out.println("Output:" + text);
 
@@ -82,7 +82,7 @@ public class ViewNRCHistoryCommon extends CommonMenu {
     }
 
     public ViewNRCTermDetailsCommon ViewNRCTermDetails() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
 

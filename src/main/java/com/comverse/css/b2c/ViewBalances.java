@@ -13,14 +13,14 @@ public class ViewBalances extends B2CMenu {
         String expectedScreen = "View Balances";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public double getBalanceValue(String balanceName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + balanceName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + balanceName + ")");
         String balanceValue = tool.getTextUsingXPath("//a[contains(text(),'" + balanceName + "')]/../../td[2]");
 
         double balanceValueDouble = Common.removeCurrencyAndConvertToDouble(balanceValue);
@@ -28,24 +28,24 @@ public class ViewBalances extends B2CMenu {
     }
 
     public void clickRefreshButton() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//img[@id='refreshCacheImg']");
     }
 
     public ConfigureBalance clickConfigure() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Configure");
         return new ConfigureBalance(tool, test, user);
     }
 
     public BalanceDetails clickBalanceDetails(String balanceName) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + balanceName + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + balanceName + ")");
         tool.clickUsingXPath("//tr[td/a[contains(text(),'" + balanceName + "')]]/td/a[contains(text(),'Details')]");
         return new BalanceDetails(tool, test, user);
     }
 
     public SubscriberDetail clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("youcan_ON_BACK");
         return new SubscriberDetail(tool, test, user);
     }

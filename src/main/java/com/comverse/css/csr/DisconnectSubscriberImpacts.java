@@ -13,7 +13,7 @@ public class DisconnectSubscriberImpacts extends DisconnectSubscriberImpactsComm
     }
 
     @Override
-    public DisconnectSubscriber clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DisconnectSubscriber clickConfirm() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickConfirm();
         return new DisconnectSubscriber(tool, test, user);
     }

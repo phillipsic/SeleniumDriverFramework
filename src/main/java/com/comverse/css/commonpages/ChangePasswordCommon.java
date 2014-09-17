@@ -20,25 +20,25 @@ public class ChangePasswordCommon extends CommonMenu {
     }
 
     public void setYourPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("oldPassword", password);
     }
 
     public void setNewPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("newPassword", password);
     }
 
     public void setConfirmNewPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("confirmPassword", password);
     }
 
     public ModifyLoginPasswordCommon clickChange() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Change']");
         return new ModifyLoginPasswordCommon(tool, test, user);

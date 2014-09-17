@@ -14,7 +14,7 @@ public class ViewBilledRecharges extends ViewBilledRechargesCommon {
     }
 
     @Override
-    public ViewRechargeDetails clickFirstRecharge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewRechargeDetails clickFirstRecharge() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstRecharge();
         return new ViewRechargeDetails(tool, test, user);

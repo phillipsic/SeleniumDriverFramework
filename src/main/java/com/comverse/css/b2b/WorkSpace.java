@@ -19,41 +19,41 @@ public class WorkSpace extends WorkSpaceCommon {
         }
     }
 
-    public AccountDetails clickAccount() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickAccount() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_ACCOUNTS");
         return new AccountDetails(tool, test, user);
     }
 
-    public ListCases clickCustomerCare() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ListCases clickCustomerCare() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_PROBLEMS");
         return new ListCases(tool, test, user);
     }
 
-    public ViewHierarchy clickUserManagement() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewHierarchy clickUserManagement() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("mnu_HIERARCHY");
         return new ViewHierarchy(tool, test, user);
     }
 
-    public ContactInformation clickUsersName() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ContactInformation clickUsersName() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("GLOBAL.MEMBER_CONTEXT");
         return new ContactInformation(tool, test, user);
     }
 
-    public ResumeAParkedBasket clickViewParkedBaskets() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ResumeAParkedBasket clickViewParkedBaskets() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText("View Parked Baskets");
         return new ResumeAParkedBasket(tool, test, user);
     }
 
     @Override
-    public ResumeAParkedBasket clickBasket() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ResumeAParkedBasket clickBasket() throws Exception {  test.writeInLogFile(Common.getMethodName());
         super.clickBasket();
         return new ResumeAParkedBasket(tool, test, user);
     }
 
-    public ManageAccount clickManageAccount() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ManageAccount clickManageAccount() throws Exception {  test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Manage Account");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ManageAccount(tool, test, user);

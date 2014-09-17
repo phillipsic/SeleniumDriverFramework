@@ -18,31 +18,31 @@ public class AddDeposit extends AddDepositCommon {
     }
 
     @Override
-    public void setDepositType(String depositType) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setDepositType(String depositType) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.setDepositType(depositType);
     }
 
     @Override
-    public void setBalance(String balanceName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setBalance(String balanceName) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.setBalance(balanceName);
     }
 
     @Override
-    public void setDepositAmount(String depositAmount) throws Exception {  test.writeInLog(Common.getMethodName());
+    public void setDepositAmount(String depositAmount) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.setDepositAmount(depositAmount);
     }
 
     @Override
-    public void selectPaymentMethod() throws Exception {  test.writeInLog(Common.getMethodName());
+    public void selectPaymentMethod() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.selectPaymentMethod();
     }
 
     @Override
-    public AddDepositReviewAndConfirm clickContinue() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AddDepositReviewAndConfirm clickContinue() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickContinue();
         return new AddDepositReviewAndConfirm(tool, test, user);

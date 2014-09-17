@@ -13,14 +13,14 @@ public class AddCaseReview extends B2CMenu {
         String expectedScreen = "Add case - review";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
-    public AddCaseConfirmation clickCreateCase() throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName());
+    public AddCaseConfirmation clickCreateCase() throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Create case']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new AddCaseConfirmation(tool, test, user);

@@ -18,15 +18,15 @@ public class HomePage extends B2CMenu {
         String expectedScreen = "Myshape Consumer";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public CustomerPrerequisite selectUSDCurrency() throws Exception {
 
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByName("currency", "USD");
         tool.clickUsingName("submit");
@@ -35,127 +35,127 @@ public class HomePage extends B2CMenu {
     }
 
     public void enterUsername(String username) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + username + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + username + ")");
         tool.enterStringUsingId("login", username);
 
     }
 
     public void enterPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + password + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + password + ")");
         tool.enterStringUsingId("password", password);
     }
 
     public void enterOldPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + password + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + password + ")");
         tool.enterStringUsingId("password_old", password);
     }
 
     public void enterNewPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + password + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + password + ")");
         tool.enterStringUsingId("password_new", password);
     }
 
     public void enterNewConfirmPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + password + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + password + ")");
         tool.enterStringUsingId("password_verify", password);
     }
 
     public void enterChangePasswordSecretAnswer(String secretanswer) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + secretanswer + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + secretanswer + ")");
         tool.enterStringUsingId("secretAnswer", secretanswer);
     }
 
     public void enterConfirmPassword(String password) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + password + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + password + ")");
         tool.enterStringUsingId("confirm_password", password);
 
     }
 
     public void enterSecretAnswer(String secretanswer) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + secretanswer + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + secretanswer + ")");
         tool.enterStringUsingId("secret_answer", secretanswer);
 
     }
 
     public HomePage clickSignMeUp() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Sign Me Up']");
         return new HomePage(tool, test, user);
     }
 
     public SubscriberDetail clickLogIn() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
         return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInExpectingWorkSpace() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickLogInAsTelcoAdmin() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickChange() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Change']");
         return new WorkSpace(tool, test, user);
     }
 
     public SubscriberDetail clickChangeExpectingSubscriberDetail() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Change']");
         return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInWithCUP() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
     public void clickHomePage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("gohome");
 
     }
 
     public String getLogoffMessage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         return tool.getTextUsingCssSelector("span");
 
     }
 
     public String getSignMeUpMessage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         return tool.getTextUsingCssSelector("span");
 
     }
 
     public void clickLogInExpectingFail() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
 
     }
 
     public void clickLogInExpectingChangePassword() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
 
     }
 
     public void clickShoppingLink() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Shopping");
     }
 
     public Shopping selectAccountSegmentAll() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.selectVisibleTextByID("p-ACCOUNT-L4:80070", "All Segments");
         tool.clickUsingName("submit");
 
@@ -164,55 +164,55 @@ public class HomePage extends B2CMenu {
     }
 
     public void clickActivateAccount() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Activate your account now");
 
     }
 
     public void enterLastName(String lastname) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + lastname + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + lastname + ")");
         tool.enterStringUsingId("customer_last_name", lastname);
 
     }
 
     public void enterAccountNumber(String accountnumber) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + accountnumber + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + accountnumber + ")");
         tool.enterStringUsingName("customer_reference", accountnumber);
 
     }
 
     public void clickContinueActivateAccount() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue']");
 
     }
 
     public String getActivateAccountMessage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         return tool.getTextUsingCssSelector("span");
 
     }
 
     public String getMessageFromTheSignMeUpPage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         System.out.println(">>" + tool.getTextUsingCssSelector("span"));
         return tool.getTextUsingCssSelector("span");
 
     }
 
     public void clickOK() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
     }
 
     public void enterLogin(String login) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + login + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + login + ")");
         tool.enterStringUsingId("login", login);
 
     }
 
     public String getSuccesfulSignMeUpMessage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         System.out.println(">>" + tool.getTextUsingCssSelector("span"));
         return tool.getTextUsingCssSelector("span");
 

@@ -19,7 +19,7 @@ public class ChangeLoginPassword extends ChangeLoginPasswordCommon {
     }
 
     @Override
-    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickLogout();
         return new MyshapeBusiness(tool, test, user);

@@ -20,7 +20,7 @@ public class ActionDone extends CommonMenu {
 
     }
 
-    public InsertInventory clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public InsertInventory clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
 

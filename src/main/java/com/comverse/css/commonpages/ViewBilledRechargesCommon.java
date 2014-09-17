@@ -21,14 +21,14 @@ public class ViewBilledRechargesCommon extends CommonMenu {
     }
 
     public ViewRechargeDetailsCommon clickFirstRecharge() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//fieldset/div/table/tbody[2]/tr/td/div/a");
         return new ViewRechargeDetailsCommon(tool, test, user);
     }
 
     public ViewInvoiceDetailsCommon clickBack() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Back']");
         return new ViewInvoiceDetailsCommon(tool, test, user);

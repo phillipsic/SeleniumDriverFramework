@@ -13,50 +13,50 @@ public class ConfigureBalance extends B2CMenu {
         String expectedScreen = "Configure Balance";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void configureBalance(String balanceName, String balanceValue) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + balanceName + ") and (" + balanceValue + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + balanceName + ") and (" + balanceValue + ")");
 
         tool.enterStringUsingId(balanceName + "_limit", balanceValue);
     }
 
     public void setSpendingLimit(String limitName, String spendingLimit) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + limitName + ") and (" + spendingLimit + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + limitName + ") and (" + spendingLimit + ")");
         tool.enterStringUsingId(limitName + "_limit", spendingLimit);
     }
 
     public void selectTargetAccount(String targetBalance) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + targetBalance + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + targetBalance + ")");
         tool.selectVisibleTextByID("targetBalance", targetBalance);
     }
 
     public ChooseAccessories clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseAccessories(tool, test, user);
     }
 
     public MyBasket clickContinueExpectingMyBasket() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
     public ConfigureServiceConnectionDetails clickContinueExpectingConfigureServiceConnectionDetails() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new ConfigureServiceConnectionDetails(tool, test, user);
     }
 
     public ConfigureBalanceReview clickConfigureBalance() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value= 'Reconfigure Balance']");
         return new ConfigureBalanceReview(tool, test, user);
 

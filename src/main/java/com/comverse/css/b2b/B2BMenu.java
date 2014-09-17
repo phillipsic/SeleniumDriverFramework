@@ -18,13 +18,13 @@ public class B2BMenu extends Main {
         this.user = user;
     }
 
-    public ContactInformation clickMyInformation() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ContactInformation clickMyInformation() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText("mnu_INFO");
         return new ContactInformation(tool, test, user);
     }
 
-    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLog(Common.getMethodName());
+    public MyshapeBusiness clickLogout() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("mnu_LOGOUT");
         return new MyshapeBusiness(tool, test, user);

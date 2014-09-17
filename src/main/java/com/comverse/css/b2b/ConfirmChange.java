@@ -19,7 +19,7 @@ public class ConfirmChange extends ConfirmChangeCommon {
     }
 
     @Override
-    public LoginInformation clickOK() throws Exception {  test.writeInLog(Common.getMethodName());
+    public LoginInformation clickOK() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOK();
         return new LoginInformation(tool, test, user);

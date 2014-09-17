@@ -13,19 +13,19 @@ public class RechargeWithFreeAmount extends B2CMenu {
         String expectedScreen = "Recharge with free amount";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void enterRechargeAmount(String rechargeAmount) throws Exception {
-        test.writeInLog(Common.getMethodName() + " using data (" + rechargeAmount + ")");
+        test.writeInLogFile(Common.getMethodName() + " using data (" + rechargeAmount + ")");
         tool.enterStringUsingId("rechargeAmount", rechargeAmount);
     }
 
     public SelectRechargePaymentMethod clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName() );
+        test.writeInLogFile(Common.getMethodName() );
         tool.clickUsingXPath("//input[@value='Continue']");
         return new SelectRechargePaymentMethod(tool, test, user);
     }

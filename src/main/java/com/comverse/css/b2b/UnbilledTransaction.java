@@ -14,35 +14,35 @@ public class UnbilledTransaction extends UnbilledTransactionCommon {
     }
 
     @Override
-    public ViewUnbilledMTR clickUnbilledMTR() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledMTR clickUnbilledMTR() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickUnbilledMTR();
         return new ViewUnbilledMTR(tool, test, user);
     }
 
     @Override
-    public ViewUnbilledRecharge clickUnbilledRecharge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledRecharge clickUnbilledRecharge() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickUnbilledRecharge();
         return new ViewUnbilledRecharge(tool, test, user);
     }
 
     @Override
-    public ViewUnbilledUsage clickUnbilledUsage() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledUsage clickUnbilledUsage() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickUnbilledUsage();
         return new ViewUnbilledUsage(tool, test, user);
     }
 
     @Override
-    public ViewUnbilledRCNRC clickUnbilledRCNRC() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledRCNRC clickUnbilledRCNRC() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickUnbilledRCNRC();
         return new ViewUnbilledRCNRC(tool, test, user);
     }
 
     @Override
-    public ViewUnbilledAdjustment clickUnbilledAdjustment() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewUnbilledAdjustment clickUnbilledAdjustment() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickUnbilledAdjustment();
         return new ViewUnbilledAdjustment(tool, test, user);

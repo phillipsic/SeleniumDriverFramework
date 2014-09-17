@@ -25,7 +25,7 @@ public class NonVoucherRechargeReviewCommon extends CommonMenu {
     }
 
     public RechargeSubscriberCommon confirmNonVoucherRecharge() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
 
@@ -35,7 +35,7 @@ public class NonVoucherRechargeReviewCommon extends CommonMenu {
     }
 
     public RechargeSubscriberCommon confirmNonVoucherRechargeByCreditCard() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='select']");
 

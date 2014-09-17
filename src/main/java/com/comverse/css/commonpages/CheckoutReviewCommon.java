@@ -21,14 +21,14 @@ public class CheckoutReviewCommon extends CommonMenu {
     }
 
     public CheckoutConfirmationCommon clickConfirm() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@name='submitButton']");
         return new CheckoutConfirmationCommon(tool, test, user);
     }
 
     public ImmediatePaymentCommon clickConfirmWithGoods() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Confirm']");
         return new ImmediatePaymentCommon(tool, test, user);

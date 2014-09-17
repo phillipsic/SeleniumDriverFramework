@@ -13,20 +13,20 @@ public class SubscriberBundleDetails extends B2CMenu {
         String expectedScreen = "Subscriber Bundle Details";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public void clickTermsAndConditionsTab() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//em[contains(text(),'Terms And Conditions')]");
 
     }
 
     public ChooseYourPrimaryOfferInThisAccountBundle clickReturnToList() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Return to List']");
         return new ChooseYourPrimaryOfferInThisAccountBundle(tool, test, user);
     }

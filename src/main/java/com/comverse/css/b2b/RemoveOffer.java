@@ -19,7 +19,7 @@ public class RemoveOffer extends RemoveOfferCommon {
     }
 
     @Override
-    public OfferCancellation clickYes() throws Exception {  test.writeInLog(Common.getMethodName());
+    public OfferCancellation clickYes() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickYes();
         return new OfferCancellation(tool, test, user);

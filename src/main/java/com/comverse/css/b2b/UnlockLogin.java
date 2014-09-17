@@ -19,7 +19,7 @@ public class UnlockLogin extends UnlockLoginCommon {
     }
 
     @Override
-    public UnlockDone clickConfirm() throws Exception {  test.writeInLog(Common.getMethodName());
+    public UnlockDone clickConfirm() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickConfirm();
         return new UnlockDone(tool, test, user);

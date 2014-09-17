@@ -15,14 +15,14 @@ public class ResumeAParkedBasket extends ResumeAParkedBasketCommon {
     }
 
     @Override
-    public DeleteBasketConfirm deleteParkedBasket(String basketName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public DeleteBasketConfirm deleteParkedBasket(String basketName) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.deleteParkedBasket(basketName);
         return new DeleteBasketConfirm(tool, test, user);
     }
 
     @Override
-    public ResumeBasketConfirm resumeParkedBasket(String value) throws Exception {  test.writeInLog(Common.getMethodName());
+    public ResumeBasketConfirm resumeParkedBasket(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.resumeParkedBasket(value);
         return new ResumeBasketConfirm(tool, test, user);

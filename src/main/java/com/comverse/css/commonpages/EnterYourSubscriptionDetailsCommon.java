@@ -22,7 +22,7 @@ public class EnterYourSubscriptionDetailsCommon extends CommonMenu {
     }
 
     public SelectOffersForYourSubscriberCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 

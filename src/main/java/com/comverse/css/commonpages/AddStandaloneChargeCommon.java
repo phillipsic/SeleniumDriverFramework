@@ -20,14 +20,14 @@ public class AddStandaloneChargeCommon extends CommonMenu {
     }
 
     public void selectEventTypeDispatch() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.selectVisibleTextByID("eventType", "Dispatch");
         selectedValue = tool.getTextUsingXPath("//option[@selected='selected']");
         System.out.println(selectedValue);
     }
 
     public void selectNRCTypeDispatchFee() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.selectVisibleTextByID("charge", "Dispatch Fee");
 
         tool.clickUsingXPath("//input[@value='Confirm']");
@@ -61,7 +61,7 @@ public class AddStandaloneChargeCommon extends CommonMenu {
     }
 
     public void confirmStandaloneCharge() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         boolean successfullyDisplayed = false;
         int loopCounter = 0;
 

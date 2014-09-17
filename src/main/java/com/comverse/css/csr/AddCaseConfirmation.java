@@ -17,7 +17,7 @@ public class AddCaseConfirmation extends AddCaseConfirmationCommon {
     }
 
     @Override
-    public AccountDetails clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new AccountDetails(tool, test, user);

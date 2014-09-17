@@ -14,7 +14,7 @@ public class ListCases extends ListCasesCommon {
     }
 
     @Override
-    public ViewCase clickFirstCase() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewCase clickFirstCase() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickFirstCase();
         return new ViewCase(tool, test, user);

@@ -22,7 +22,7 @@ public class UploadTokenCommon extends CommonMenu {
     }
 
     public void selectFile(String filename) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         File file = new File(filename);
         //
@@ -31,7 +31,7 @@ public class UploadTokenCommon extends CommonMenu {
     }
 
     public TokensfoundCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Ok']");
 

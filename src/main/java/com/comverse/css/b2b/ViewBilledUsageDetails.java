@@ -14,7 +14,7 @@ public class ViewBilledUsageDetails extends ViewBilledUsageDetailsCommon {
     }
 
     @Override
-    public ViewBilledUsage clickBack() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBilledUsage clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickBack();
         return new ViewBilledUsage(tool, test, user);

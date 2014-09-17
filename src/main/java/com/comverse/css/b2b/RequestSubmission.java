@@ -18,21 +18,21 @@ public class RequestSubmission extends RequestSubmissionCommon {
     }
 
     @Override
-    public AccountDetails clickOkModifyRequestGoTOAccountDashboard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public AccountDetails clickOkModifyRequestGoTOAccountDashboard() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOkModifyRequestGoTOAccountDashboard();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public ContactInformation clickOkToSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ContactInformation clickOkToSubmit() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOkToSubmit();
         return new ContactInformation(tool, test, user);
     }
 
     @Override
-    public ProfileInformation clickOkToSubmitRequest() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ProfileInformation clickOkToSubmitRequest() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOkToSubmitRequest();
         return new ProfileInformation(tool, test, user);

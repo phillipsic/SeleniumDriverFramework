@@ -20,7 +20,7 @@ public class UnbilledTransactionCommon extends CommonMenu {
     }
 
     public ViewUnbilledRCNRCCommon clickUnbilledRCNRC() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_RC_NRC");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -28,7 +28,7 @@ public class UnbilledTransactionCommon extends CommonMenu {
     }
 
     public ViewUnbilledUsageCommon clickUnbilledUsage() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_USAGES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -36,7 +36,7 @@ public class UnbilledTransactionCommon extends CommonMenu {
     }
 
     public ViewUnbilledMTRCommon clickUnbilledMTR() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_MTR");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -44,7 +44,7 @@ public class UnbilledTransactionCommon extends CommonMenu {
     }
 
     public ViewUnbilledRechargeCommon clickUnbilledRecharge() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_RECHARGES");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -52,7 +52,7 @@ public class UnbilledTransactionCommon extends CommonMenu {
     }
 
     public ViewUnbilledAdjustmentCommon clickUnbilledAdjustment() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("youcan_VIEW_ADJUSTMENTS");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());

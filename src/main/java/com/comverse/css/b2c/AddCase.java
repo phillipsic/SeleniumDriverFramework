@@ -13,45 +13,45 @@ public class AddCase extends B2CMenu {
         String expectedScreen = "Add Case";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
-    public void selectCategory(String value) throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
+    public void selectCategory(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " using data (" + value + ")");
         tool.selectVisibleTextByID("categoryId", value);
     }
 
-    public void selectSubCategory(String value) throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
+    public void selectSubCategory(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " using data (" + value + ")");
         tool.selectVisibleTextByID("subCategoryId", value);
     }
 
-    public void enterDescription(String value) throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName() + " using data (" + value + ")");
+    public void enterDescription(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " using data (" + value + ")");
         tool.enterStringUsingId("description", value);
     }
 
-    public void selectSubjectRelativeToProblemSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName());
+    public void selectSubjectRelativeToProblemSubscriber() throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("isContract");
     }
 
-    public void selectFirstSubscriber() throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName());
+    public void selectFirstSubscriber() throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.selectByIndexByID("contract", 1);
     }
 
-    public AddCaseReview clickSubmit() throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName());
+    public AddCaseReview clickSubmit() throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Submit']");
         return new AddCaseReview(tool, test, user);
     }
 
-    public ListCases clickListCases() throws Exception {  test.writeInLog(Common.getMethodName());
-        test.writeInLog(Common.getMethodName());
+    public ListCases clickListCases() throws Exception {  test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_CASE_LIST");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ListCases(tool, test, user);

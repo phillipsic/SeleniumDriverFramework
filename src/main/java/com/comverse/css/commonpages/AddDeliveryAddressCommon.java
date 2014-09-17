@@ -23,56 +23,56 @@ public class AddDeliveryAddressCommon extends CommonMenu {
     }
 
     public void selectCountry(String country) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.selectVisibleTextByID("country", country);
 
     }
 
     public void setAddressLine1(String addressline1) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_1", addressline1);
 
     }
 
     public void setAddressLine2(String addressline2) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_2", addressline2);
 
     }
 
     public void setAddressLine3(String addressline3) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_3", addressline3);
 
     }
 
     public void setAddressLine4(String addressline4) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("address_line_4", addressline4);
 
     }
 
     public void setZipCode(String zipcode) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("zip_code", zipcode);
 
     }
 
     public void setCity(String city) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("city", city);
 
     }
 
     public void enterDefaultDeliveryAddress(String uniqueTimeStamp) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         this.selectCountry("France");
         this.setAddressLine1("AL1-" + uniqueTimeStamp);
@@ -85,7 +85,7 @@ public class AddDeliveryAddressCommon extends CommonMenu {
     }
 
     public DeliveryAddressesCommon clickOk() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='OK']");
         return new DeliveryAddressesCommon(tool, test, user);

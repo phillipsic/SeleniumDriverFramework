@@ -19,7 +19,7 @@ public class RechargeSubscriber extends RechargeSubscriberCommon {
     }
 
     @Override
-    public ViewBalance clickViewBalances() throws Exception {  test.writeInLog(Common.getMethodName());
+    public ViewBalance clickViewBalances() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickViewBalances();
         return new ViewBalance(tool, test, user);

@@ -14,26 +14,26 @@ public class BillingManagement extends B2CMenu {
         String expectedScreen = "Billing Management";
 
         if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLog("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
-        test.writeInLog(" >>> Page Now loaded: " + expectedScreen + " <<<");
+        test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
     public CheckoutReview clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
         return new CheckoutReview(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForFirstSubscriber() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("change_billing_contract_0");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForSecondSubscriber() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("change_billing_contract_1");
         return new CheckOutBillingAccountInformation(tool, test, user);
     }

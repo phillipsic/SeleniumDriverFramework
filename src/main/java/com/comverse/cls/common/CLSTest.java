@@ -22,7 +22,7 @@ public class CLSTest extends Main {
     }
 
     public void launchCLSApplication() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         application.setVersion(tool, test);
         tool.get(application.appFullURL());
         if (!test.getDebug()) {

@@ -23,44 +23,44 @@ public class ImmediatePaymentCommon extends CommonMenu {
     }
 
     public void setCardNumber(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingId("cardNumber", value);
     }
 
     public void setEmail(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingId("cardEmail", value);
     }
 
     public void setAddress(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingId("cardAddresLine1", value);
     }
 
     public void setExpirationDate(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingId("cardExpirationDate", value);
     }
 
     public void setCardHolderLastName(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingId("cardHolderName", value);
     }
 
     public void setCardHolderFirstName(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("cardHolderFName", value);
     }
 
     public void setCardSecretCode(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("cardSecretCode", value);
     }
 
     public CheckoutConfirmationCommon clickContinue() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Continue']");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
@@ -68,7 +68,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
     }
 
     public void checkForExistingCreditCardDetailsAndClickNew() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         boolean existingCreditCard;
 
@@ -81,7 +81,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
     }
 
     public boolean isCreditCardNew() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         boolean creditCardExists = Common.isTextOnPage(tool, "************1111");
         // String creditCard =
@@ -92,7 +92,7 @@ public class ImmediatePaymentCommon extends CommonMenu {
     }
 
     public void clickCreditCardNew() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//fieldset/div/div/div/input[@value= 'CREDIT_CARD']");
     }

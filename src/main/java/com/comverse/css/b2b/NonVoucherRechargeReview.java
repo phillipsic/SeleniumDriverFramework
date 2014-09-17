@@ -18,14 +18,14 @@ public class NonVoucherRechargeReview extends NonVoucherRechargeReviewCommon {
     }
 
     @Override
-    public RechargeSubscriber confirmNonVoucherRecharge() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RechargeSubscriber confirmNonVoucherRecharge() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.confirmNonVoucherRecharge();
         return new RechargeSubscriber(tool, test, user);
     }
 
     @Override
-    public RechargeSubscriber confirmNonVoucherRechargeByCreditCard() throws Exception {  test.writeInLog(Common.getMethodName());
+    public RechargeSubscriber confirmNonVoucherRechargeByCreditCard() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.confirmNonVoucherRechargeByCreditCard();
         return new RechargeSubscriber(tool, test, user);

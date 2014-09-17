@@ -24,56 +24,56 @@ public class ModifyPaymentInformationCommon extends CommonMenu {
     }
 
     public void setPaymentMethodDirectDebit() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingName("method");
     }
 
     public void setBankCode(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L1:1-L3:1360", value);
     }
 
     public void setBankAgencyCode(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L1:1-L3:1370", value);
     }
 
     public void setBankAccountNumber(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L1:1-L3:1380", value);
     }
 
     public void setOwnerlastName(String value) throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("p-L1:1-L3:1270", value);
     }
 
     public ModifyPaymentMethodCommon clickModifyPaymentButton() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Modify Payment Method']");
         return new ModifyPaymentMethodCommon(tool, test, user);
     }
 
     public String getBankCode() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getAttributeUsingId("p-L1:1-L3:1360", "value");
     }
 
     public String getBankAgencyCode() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getAttributeUsingId("p-L1:1-L3:1370", "value");
     }
 
     public String getBankAccountNumber() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         return tool.getAttributeUsingId("p-L1:1-L3:1380", "value");
     }

@@ -22,7 +22,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public SearchEmployeePage searchEmployeeByLastName(String ln) throws Exception {  test.writeInLog(Common.getMethodName());
+    public SearchEmployeePage searchEmployeeByLastName(String ln) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.searchEmployeeByLastName(ln);
         return new SearchEmployeePage(tool, test, user);
@@ -31,7 +31,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public SearchEmployeePage searchEmployeeByLogin(String lg) throws Exception {  test.writeInLog(Common.getMethodName());
+    public SearchEmployeePage searchEmployeeByLogin(String lg) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.searchEmployeeByLogin(lg);
         return new SearchEmployeePage(tool, test, user);
@@ -40,7 +40,7 @@ public class SearchEmployeePage extends SearchEmployeeCommon {
     }
 
     @Override
-    public ContactInformation clickEmployeeNameLink(String FirstOrLastName) throws Exception {  test.writeInLog(Common.getMethodName());
+    public ContactInformation clickEmployeeNameLink(String FirstOrLastName) throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickEmployeeNameLink(FirstOrLastName);
 

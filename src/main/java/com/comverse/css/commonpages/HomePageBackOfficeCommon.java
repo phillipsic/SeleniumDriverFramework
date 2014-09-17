@@ -23,7 +23,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
     }
 
     public AddressAdministrationCommon clickAddressAdministration() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("smnu_ADDRESS_ADMINISTRATION");
 
@@ -32,7 +32,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
     }
 
     public TokensfoundCommon clickTokenAdministration() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("smnu_TOKEN_ADMINISTRATION");
 
@@ -41,7 +41,7 @@ public class HomePageBackOfficeCommon extends CommonMenu {
     }
 
     public OutboundCommunicationTemplateCommon clickTemplateAdministration() throws Exception {
-        test.writeInLog(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("smnu_TEMPLATE_ADMINISTRATION");
 

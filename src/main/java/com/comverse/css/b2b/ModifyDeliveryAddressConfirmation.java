@@ -18,7 +18,7 @@ public class ModifyDeliveryAddressConfirmation extends ModifyDeliveryAddressConf
     }
 
     @Override
-    public DeliveryAddresses clickOk() throws Exception {  test.writeInLog(Common.getMethodName());
+    public DeliveryAddresses clickOk() throws Exception {  test.writeInLogFile(Common.getMethodName());
 
         super.clickOk();
         return new DeliveryAddresses(tool, test, user);
