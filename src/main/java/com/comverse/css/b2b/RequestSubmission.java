@@ -7,7 +7,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.RequestSubmissionCommon;
 
 public class RequestSubmission extends RequestSubmissionCommon {
@@ -18,22 +17,19 @@ public class RequestSubmission extends RequestSubmissionCommon {
     }
 
     @Override
-    public AccountDetails clickOkModifyRequestGoTOAccountDashboard() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public AccountDetails clickOkModifyRequestGoTOAccountDashboard() throws Exception {
         super.clickOkModifyRequestGoTOAccountDashboard();
         return new AccountDetails(tool, test, user);
     }
 
     @Override
-    public ContactInformation clickOkToSubmit() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public ContactInformation clickOkToSubmit() throws Exception {
         super.clickOkToSubmit();
         return new ContactInformation(tool, test, user);
     }
 
     @Override
-    public ProfileInformation clickOkToSubmitRequest() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public ProfileInformation clickOkToSubmitRequest() throws Exception {
         super.clickOkToSubmitRequest();
         return new ProfileInformation(tool, test, user);
     }

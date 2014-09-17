@@ -22,7 +22,8 @@ public class MyshapeBusiness extends MyshapeCommon {
         }
     }
 
-    public void login(User user) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void login(User user) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("login", user.getLogin());
 
@@ -39,69 +40,82 @@ public class MyshapeBusiness extends MyshapeCommon {
 
     }
 
-    public WorkSpace loginToB2B(User user) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public WorkSpace loginToB2B(User user) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         login(user);
         Common.checkForExistingBasketAndDiscard(tool);
         return new WorkSpace(tool, test, user);
     }
 
-    public RestorePreviousBasket loginToB2BWithPreviousBasket() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public RestorePreviousBasket loginToB2BWithPreviousBasket() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         login(user);
         return new RestorePreviousBasket(tool, test, user);
     }
 
-    public void loginWithChangeOfPassword(String loginname, String password) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void loginWithChangeOfPassword(String loginname, String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         this.enterLoginName(loginname);
         this.enterPassword(password);
         this.clickLoginButtonForFirstTime();
     }
 
-    public void enterLoginName(String loginName) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void enterLoginName(String loginName) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("login", loginName);
     }
 
-    public void enterNewPassword(String password) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void enterNewPassword(String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("password_new", password);
     }
 
-    public void enterNewPasswordVerify(String password) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void enterNewPasswordVerify(String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("password_verify", password);
     }
 
-    public void enterOldPassword(String password) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void enterOldPassword(String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("password_old", password);
     }
 
-    public void enterPassword(String password) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void enterPassword(String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("password", password);
     }
 
-    public void enterSecretAnswer(String secretAnswer) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void enterSecretAnswer(String secretAnswer) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("secretAnswer", secretAnswer);
     }
 
-    public WorkSpace clickLoginButton() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public WorkSpace clickLoginButton() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
         return new WorkSpace(tool, test, user);
     }
 
-    public WorkSpace clickChangeButton() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public WorkSpace clickChangeButton() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input.submit");
         return new WorkSpace(tool, test, user);
     }
 
-    public void clickLoginButtonForFirstTime() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void clickLoginButtonForFirstTime() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
     }
 
     @Override
-    public ContactInformation clickUserInformation() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ContactInformation clickUserInformation() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.clickUserInformation();
         return new ContactInformation(tool, test, user);
     }

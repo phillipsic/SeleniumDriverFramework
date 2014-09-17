@@ -25,7 +25,8 @@ public class SearchResults extends B2BMenu {
         }
     }
 
-    public ViewHierarchy clickFirstRefreshLink() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewHierarchy clickFirstRefreshLink() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingLinkText("Refresh");
 

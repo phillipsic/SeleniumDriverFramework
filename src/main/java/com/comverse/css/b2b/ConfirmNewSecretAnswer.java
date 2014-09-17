@@ -7,7 +7,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ConfirmNewSecretAnswerCommon;
 
 public class ConfirmNewSecretAnswer extends ConfirmNewSecretAnswerCommon {
@@ -19,8 +18,7 @@ public class ConfirmNewSecretAnswer extends ConfirmNewSecretAnswerCommon {
     }
 
     @Override
-    public ConfirmChange clickOK() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public ConfirmChange clickOK() throws Exception {
         super.clickOK();
         return new ConfirmChange(tool, test, user);
     }

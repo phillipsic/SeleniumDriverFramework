@@ -18,8 +18,6 @@ public class ConfigureOffers extends ConfigureOffersCommon {
 
     @Override
     public ConfigureBalance clickContinue() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickContinue();
         return new ConfigureBalance(tool, test, user);
     }

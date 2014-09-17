@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ConfirmChangePasswordCommon;
 
 public class ConfirmChangePassword extends ConfirmChangePasswordCommon {
@@ -18,8 +17,6 @@ public class ConfirmChangePassword extends ConfirmChangePasswordCommon {
 
     @Override
     public ChangeLoginPassword clickOk() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickOk();
         return new ChangeLoginPassword(tool, test, user);
     }

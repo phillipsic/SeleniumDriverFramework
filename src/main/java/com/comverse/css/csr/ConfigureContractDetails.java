@@ -14,8 +14,6 @@ public class ConfigureContractDetails extends ConfigureContractDetailsCommon {
 
     @Override
     public MyBasket clickContinue() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickContinue();
         return new MyBasket(tool, test, user);
     }

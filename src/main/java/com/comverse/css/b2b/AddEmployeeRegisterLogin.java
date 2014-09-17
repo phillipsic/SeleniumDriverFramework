@@ -24,12 +24,14 @@ public class AddEmployeeRegisterLogin extends B2BMenu {
         }
     }
 
-    public void enterLogin(String login) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void enterLogin(String login) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("login", login);
     }
 
-    public AddEmployeeConfirmation clickSubmit() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public AddEmployeeConfirmation clickSubmit() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingCssSelector("input.submit");
         return new AddEmployeeConfirmation(tool, test, user);

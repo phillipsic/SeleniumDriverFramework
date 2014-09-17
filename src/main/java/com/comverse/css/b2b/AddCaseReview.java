@@ -7,7 +7,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AddCaseReviewCommon;
 
 public class AddCaseReview extends AddCaseReviewCommon {
@@ -18,8 +17,7 @@ public class AddCaseReview extends AddCaseReviewCommon {
     }
 
     @Override
-    public AddCaseConfirmation clickCreateCase() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public AddCaseConfirmation clickCreateCase() throws Exception {
         super.clickCreateCase();
         return new AddCaseConfirmation(tool, test, user);
 

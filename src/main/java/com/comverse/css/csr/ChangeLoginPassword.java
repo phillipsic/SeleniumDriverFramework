@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ChangeLoginPasswordCommon;
 
 public class ChangeLoginPassword extends ChangeLoginPasswordCommon {
@@ -18,8 +17,6 @@ public class ChangeLoginPassword extends ChangeLoginPasswordCommon {
 
     @Override
     public MyshapeCSRPortal clickLogout() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickLogout();
         return new MyshapeCSRPortal(tool, test, user);
     }

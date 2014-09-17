@@ -25,30 +25,31 @@ public class ContactInformation extends ContactInformationCommon {
     }
 
     @Override
-    public String getFirstName() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public String getFirstName() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         return super.getFirstName();
     }
 
     @Override
-    public String getLastName() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public String getLastName() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         return super.getLastName();
     }
 
     @Override
-    public ViewHierarchy clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public ViewHierarchy clickBack() throws Exception {
         super.clickBack();
         return new ViewHierarchy(tool, test, user);
     }
 
     @Override
-    public LoginInformation clickViewLoginInformationLink() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public LoginInformation clickViewLoginInformationLink() throws Exception {
         super.clickViewLoginInformationLink();
         return new LoginInformation(tool, test, user);
     }
 
-    public ViewHierarchy clickUserManagement() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public ViewHierarchy clickUserManagement() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingID("mnu_HIERARCHY");
         return new ViewHierarchy(tool, test, user);

@@ -3,7 +3,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ViewBilledMTRDetailsCommon;
 
 public class ViewBilledMTRDetails extends ViewBilledMTRDetailsCommon {
@@ -14,8 +13,7 @@ public class ViewBilledMTRDetails extends ViewBilledMTRDetailsCommon {
     }
 
     @Override
-    public ViewBilledMTR clickBack() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public ViewBilledMTR clickBack() throws Exception {
         super.clickBack();
         return new ViewBilledMTR(tool, test, user);
     }

@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AddDeliveryAddressCommon;
 
 public class AddDeliveryAddress extends AddDeliveryAddressCommon {
@@ -18,8 +17,6 @@ public class AddDeliveryAddress extends AddDeliveryAddressCommon {
 
     @Override
     public DeliveryAddresses clickOk() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickOk();
         return new DeliveryAddresses(tool, test, user);
     }

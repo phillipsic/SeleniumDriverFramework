@@ -18,28 +18,26 @@ public class DeliveryAddresses extends DeliveryAddressesCommon {
     }
 
     @Override
-    public AddDeliveryAddress clickAdd() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public AddDeliveryAddress clickAdd() throws Exception {
         super.clickAdd();
         return new AddDeliveryAddress(tool, test, user);
     }
 
     @Override
-    public ModifyDeliveryAddress clickModify() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public ModifyDeliveryAddress clickModify() throws Exception {
         super.clickModify();
         return new ModifyDeliveryAddress(tool, test, user);
     }
 
     @Override
-    public RemoveDeliveryAddress clickRemove() throws Exception {  test.writeInLogFile(Common.getMethodName());
-
+    public RemoveDeliveryAddress clickRemove() throws Exception {
         super.clickRemove();
         return new RemoveDeliveryAddress(tool, test, user);
     }
 
     @Override
-    public DeliveryAddresses searchWithWildCard(String wildcard) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public DeliveryAddresses searchWithWildCard(String wildcard) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         super.searchWithWildCard(wildcard);
         return new DeliveryAddresses(tool, test, user);
     }

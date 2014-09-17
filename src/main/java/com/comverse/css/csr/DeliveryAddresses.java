@@ -18,24 +18,18 @@ public class DeliveryAddresses extends DeliveryAddressesCommon {
 
     @Override
     public AddDeliveryAddress clickAdd() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickAdd();
         return new AddDeliveryAddress(tool, test, user);
     }
 
     @Override
     public ModifyDeliveryAddress clickModify() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickModify();
         return new ModifyDeliveryAddress(tool, test, user);
     }
 
     @Override
     public RemoveDeliveryAddress clickRemove() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickRemove();
         return new RemoveDeliveryAddress(tool, test, user);
     }

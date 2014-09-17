@@ -19,80 +19,60 @@ public class LoginInformation extends LoginInformationCommon {
 
     @Override
     public ChangeRoles clickChangeRoles() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickChangeRoles();
         return new ChangeRoles(tool, test, user);
     }
 
     @Override
     public ComverseOneSingleSignOn clickLogoutExpectingSSO() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickLogoutExpectingSSO();
         return new ComverseOneSingleSignOn(tool, test, user);
     }
 
     @Override
     public ChangePassword clickChangePassword() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickChangePassword();
         return new ChangePassword(tool, test, user);
     }
 
     @Override
     public ChangeSecretAnswer clickChangeYourSecretAnswer() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickChangeYourSecretAnswer();
         return new ChangeSecretAnswer(tool, test, user);
     }
 
     @Override
     public LockLogin clickLockLogin() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickLockLogin();
         return new LockLogin(tool, test, user);
     }
 
     @Override
     public UnlockLogin clickUnLockLogin() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickUnLockLogin();
         return new UnlockLogin(tool, test, user);
     }
 
     @Override
     public RegisterLogin clickSetLogin() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickSetLogin();
         return new RegisterLogin(tool, test, user);
     }
 
     @Override
     public ConfirmChangePassword clickChangePasswordOnFirstLogin() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickChangePasswordOnFirstLogin();
         return new ConfirmChangePassword(tool, test, user);
     }
 
     @Override
     public DeactivateLogin clickDeactivateLogin() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickDeactivateLogin();
         return new DeactivateLogin(tool, test, user);
     }
 
     @Override
     public ActivateLogin clickActivateLogin() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
         super.clickActivateLogin();
         return new ActivateLogin(tool, test, user);
     }
