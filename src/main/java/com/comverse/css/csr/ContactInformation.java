@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ContactInformationCommon;
 
 public class ContactInformation extends ContactInformationCommon {
@@ -36,7 +35,6 @@ public class ContactInformation extends ContactInformationCommon {
 
     @Override
     public ContactInformation clickUserInformation() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickUserInformation();
         return new ContactInformation(tool, test, user);
     }

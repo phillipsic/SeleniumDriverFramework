@@ -26,7 +26,6 @@ public class MyBasketCommon extends CommonMenu {
 
     @Override
     public MyBasketCommon clickViewBasket() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickViewBasket();
         return new MyBasketCommon(tool, test, user);
     }

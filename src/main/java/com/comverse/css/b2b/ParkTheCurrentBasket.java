@@ -22,7 +22,6 @@ public class ParkTheCurrentBasket extends ParkTheCurrentBasketCommon {
 
     @Override
     public ResumeAParkedBasket clickBasket() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickBasket();
         return new ResumeAParkedBasket(tool, test, user);
     }

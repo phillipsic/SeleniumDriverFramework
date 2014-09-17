@@ -14,7 +14,6 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public PersonManagement clickPersonManagement() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickPersonManagement();
         return new PersonManagement(tool, test, user);
     }
@@ -63,7 +62,6 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public ViewTransactionHistory clickHistories() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickHistories();
         return new ViewTransactionHistory(tool, test, user);
     }
@@ -106,7 +104,6 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public WorkSpace clickHome() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickHome();
         return new WorkSpace(tool, test, user);
     }
@@ -173,14 +170,12 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public ViewHierarchy clickCustomerHierarchy() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickCustomerHierarchy();
         return new ViewHierarchy(tool, test, user);
     }
 
     @Override
     public PersonDetails clickUpdatePerson() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickUpdatePerson();
         return new PersonDetails(tool, test, user);
     }

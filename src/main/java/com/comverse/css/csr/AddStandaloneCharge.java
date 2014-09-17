@@ -3,7 +3,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.AddStandaloneChargeCommon;
 
 public class AddStandaloneCharge extends AddStandaloneChargeCommon {
@@ -14,7 +13,6 @@ public class AddStandaloneCharge extends AddStandaloneChargeCommon {
 
     @Override
     public void selectEventTypeDispatch() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.selectEventTypeDispatch();
     }
 
@@ -24,13 +22,11 @@ public class AddStandaloneCharge extends AddStandaloneChargeCommon {
 
     @Override
     public void confirmStandaloneCharge() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.confirmStandaloneCharge();
     }
 
     @Override
     public void selectNRCTypeDispatchFee() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.selectNRCTypeDispatchFee();
     }
 

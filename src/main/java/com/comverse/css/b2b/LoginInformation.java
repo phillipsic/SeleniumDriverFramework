@@ -3,7 +3,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.LoginInformationCommon;
 import com.comverse.sec.ComverseOneSingleSignOn;
 
@@ -70,7 +69,6 @@ public class LoginInformation extends LoginInformationCommon {
 
     @Override
     public ModifyLoginPassword clickChangePasswordOfAnotherUser() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickChangePasswordOfAnotherUser();
         return new ModifyLoginPassword(tool, test, user);
     }

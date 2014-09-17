@@ -27,21 +27,18 @@ public class DisconnectAccount extends DisconnectAccountCommon {
 
     @Override
     public DisconnectAccount clickContinue() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new DisconnectAccount(tool, test, user);
     }
 
     @Override
     public DisconnectAccount clickContinueOnImpacts() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickContinueOnImpacts();
         return new DisconnectAccount(tool, test, user);
     }
 
     @Override
     public AccountDetails clickOk() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickOk();
         return new AccountDetails(tool, test, user);
     }

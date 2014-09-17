@@ -7,7 +7,6 @@ package com.comverse.css.b2b;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.MyBasketCommon;
 
 public class MyBasket extends MyBasketCommon {
@@ -37,14 +36,12 @@ public class MyBasket extends MyBasketCommon {
 
     @Override
     public CheckoutReview clickCheckOut() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickCheckOut();
         return new CheckoutReview(tool, test, user);
     }
 
     @Override
     public CheckoutDeliveryAddress clickCheckOutWithGoods() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickCheckOutWithGoods();
         return new CheckoutDeliveryAddress(tool, test, user);
     }
@@ -57,14 +54,12 @@ public class MyBasket extends MyBasketCommon {
 
     @Override
     public RemoveSelection removeFirstItemFromBasket() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.removeFirstItemFromBasket();
         return new RemoveSelection(tool, test, user);
     }
 
     @Override
     public RemoveBasket clickClear() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickClear();
         return new RemoveBasket(tool, test, user);
     }

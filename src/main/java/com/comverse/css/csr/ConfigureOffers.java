@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.ConfigureOffersCommon;
 
 public class ConfigureOffers extends ConfigureOffersCommon {
@@ -24,7 +23,6 @@ public class ConfigureOffers extends ConfigureOffersCommon {
 
     @Override
     public SwapImpact clickContinueExpectingSwapImpact() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickContinueExpectingSwapImpact();
         return new SwapImpact(tool, test, user);
     }

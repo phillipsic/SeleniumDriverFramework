@@ -14,21 +14,18 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public AddNewCase addNewCase() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.addNewCase();
         return new AddNewCase(tool, test, user);
     }
 
     @Override
     public DeliveryAddresses clickDeliveryAddresses() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickDeliveryAddresses();
         return new DeliveryAddresses(tool, test, user);
     }
 
     @Override
     public ViewInvoices clickBillsAndPayments() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickBillsAndPayments();
         return new ViewInvoices(tool, test, user);
     }
@@ -77,14 +74,12 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public ModifyPaymentInformation clickModifyPaymentMethod() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickModifyPaymentMethod();
         return new ModifyPaymentInformation(tool, test, user);
     }
 
     @Override
     public ModifyAccountAttributes clickModifyAccountContact() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickModifyAccountContact();
         return new ModifyAccountAttributes(tool, test, user);
     }
@@ -99,35 +94,30 @@ public class AccountDetails extends AccountDetailsCommon {
 
     @Override
     public RemoveOffer clickRemoveFirstAccountOffer() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickRemoveFirstAccountOffer();
         return new RemoveOffer(tool, test, user);
     }
 
     @Override
     public RemoveOffer clickRemoveAccountOffer(String newOfferName) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickRemoveAccountOffer(newOfferName);
         return new RemoveOffer(tool, test, user);
     }
 
     @Override
     public SelectOffersForYourAccount clickReconfigureAccountOffer() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickReconfigureAccountOffer();
         return new SelectOffersForYourAccount(tool, test, user);
     }
 
     @Override
     public ResumeAParkedBasket clickBasket() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickBasket();
         return new ResumeAParkedBasket(tool, test, user);
     }
 
     @Override
     public MyBasket clickViewBasket() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickViewBasket();
         return new MyBasket(tool, test, user);
     }

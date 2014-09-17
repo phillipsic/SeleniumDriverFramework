@@ -54,7 +54,6 @@ public class WorkSpace extends WorkSpaceCommon {
 
     @Override
     public ResumeAParkedBasket clickBasket() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickBasket();
         return new ResumeAParkedBasket(tool, test, user);
     }

@@ -115,7 +115,6 @@ public class MyshapeBusiness extends MyshapeCommon {
 
     @Override
     public ContactInformation clickUserInformation() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickUserInformation();
         return new ContactInformation(tool, test, user);
     }

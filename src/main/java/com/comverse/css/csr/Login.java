@@ -18,14 +18,12 @@ public class Login extends LoginCommon {
 
     @Override
     public AddMemberConfirmation clickContinue() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new AddMemberConfirmation(tool, test, user);
     }
 
     @Override
     public AddMemberConfirmation clickCreateLoginLater() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickCreateLoginLater();
         return new AddMemberConfirmation(tool, test, user);
     }

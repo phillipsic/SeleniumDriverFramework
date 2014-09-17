@@ -18,21 +18,18 @@ public class ConfigureBalance extends ConfigureBalanceCommon {
 
     @Override
     public ServiceConnectionDetails clickContinueExpectingServiceConnectionDetails() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickContinue();
         return new ServiceConnectionDetails(tool, test, user);
     }
 
     @Override
     public MyBasket clickContinueExpectingMyBasket() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickContinueExpectingMyBasket();
         return new MyBasket(tool, test, user);
     }
 
     @Override
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.setSpendingLimit(limitName, limitAmount);
     }
 
@@ -43,7 +40,6 @@ public class ConfigureBalance extends ConfigureBalanceCommon {
 
     @Override
     public ConfigureContractDetails clickContinueExpectingConfigureContractDetails() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickContinueExpectingConfigureContractDetails();
         return new ConfigureContractDetails(tool, test, user);
     }

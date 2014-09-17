@@ -7,7 +7,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.DeliveryAddressesCommon;
 
 public class DeliveryAddresses extends DeliveryAddressesCommon {
@@ -36,7 +35,6 @@ public class DeliveryAddresses extends DeliveryAddressesCommon {
 
     @Override
     public DeliveryAddresses searchWithWildCard(String wildcard) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.searchWithWildCard(wildcard);
         return new DeliveryAddresses(tool, test, user);
     }

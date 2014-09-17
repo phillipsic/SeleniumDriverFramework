@@ -3,7 +3,6 @@ package com.comverse.css.csr;
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
-import com.comverse.css.common.Common;
 import com.comverse.css.commonpages.IdentifyCustomerCommon;
 
 public class IdentifyCustomer extends IdentifyCustomerCommon {
@@ -32,13 +31,11 @@ public class IdentifyCustomer extends IdentifyCustomerCommon {
 
     @Override
     public void clickMoreLink() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickMoreLink();
     }
 
     @Override
     public void clickMoreLinkPerson() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         super.clickMoreLinkPerson();
     }
 
