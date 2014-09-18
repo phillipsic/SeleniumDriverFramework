@@ -1,7 +1,6 @@
 package com.comverse.css.csr.sum;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
 import org.junit.After;
 import org.junit.Before;
@@ -69,7 +68,7 @@ public class SUM0230_Modify_RPO_status extends CSSTest {
             Common.assertTextOnPage(tool, "Active");
             subscriberDashboard.clickRPOStatus();
             subscriberDashboard.clickConfirmStatusExpire();
-            assertFalse(subscriberDashboard.returnRPOStatus().equals(rpo_DIYRechargePromotionalOffer3.getOfferName()));
+            Common.assertVerifyFalse(tool, subscriberDashboard.returnRPOStatus().equals(rpo_DIYRechargePromotionalOffer3.getOfferName()));
 
             test.setResult("pass");
 

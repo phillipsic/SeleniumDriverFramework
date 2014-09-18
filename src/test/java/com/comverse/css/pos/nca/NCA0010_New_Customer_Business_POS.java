@@ -1,7 +1,5 @@
 package com.comverse.css.pos.nca;
 
-import static org.junit.Assert.assertFalse;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,7 +38,7 @@ public class NCA0010_New_Customer_Business_POS extends CSSTest {
             EnterIdentificationData enterIdentificationData = workSpace.startNewConvergentBusinessCustomer();
 
             Common.assertTextOnPage(tool, "Create Empty Account");
-            assertFalse(Common.isCheckBoxSelected(tool, "empAccChkbox"));
+            Common.assertVerifyFalse(tool, Common.isCheckBoxSelected(tool, "empAccChkbox"));
             enterIdentificationData.enterBusinessAccountIdentificationData();
             Shopping shopping = enterIdentificationData.clickContinue();
 
