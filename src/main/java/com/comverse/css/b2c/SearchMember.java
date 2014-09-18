@@ -27,6 +27,7 @@ public class SearchMember extends B2CMenu {
     public RegisterNewResidentialMember clickRegisterNewMember() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("smnu_REGISTER_MEMBER");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RegisterNewResidentialMember(tool, test, user);
     }
 
@@ -56,12 +57,14 @@ public class SearchMember extends B2CMenu {
     public LoginInformation clickManageLogin() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Manage Login");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new LoginInformation(tool, test, user);
     }
 
     public CustomerProfile clickChangeProfile() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Change Profile");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CustomerProfile(tool, test, user);
     }
 

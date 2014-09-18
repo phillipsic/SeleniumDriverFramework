@@ -68,6 +68,7 @@ public class SubscriberDetail extends B2CMenu {
     public SearchOrders clickMyOrdersTab() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("My Orders");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchOrders(tool, test, user);
     }
 
