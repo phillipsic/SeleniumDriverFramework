@@ -12,6 +12,7 @@ import com.comverse.data.users.CSRAdmin;
 import com.comverse.sec.ComverseOneSingleSignOn;
 
 public class BKM0050_Save_the_current_basket_automatically extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -55,9 +56,9 @@ public class BKM0050_Save_the_current_basket_automatically extends CSSTest {
                     + enterIdentificationData.person.getPersonHomeCountryProperty(), myBasket.getAddress());
 
             ComverseOneSingleSignOn comverseOneSingleSignOn = myBasket.clickLogoutExpectingSSO();
-           
+            launchCSSApplicationOnly();
             RestorePreviousBasket restorePreviousBasket = comverseOneSingleSignOn.loginToCSRAsCSRAdminWithPreviousBasket();
-            
+
             myBasket = restorePreviousBasket.clickRestoreSavedBasket();
             myBasket.assign3InventoriesFirstOffer(subscriber);
 
