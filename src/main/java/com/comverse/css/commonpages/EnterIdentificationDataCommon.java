@@ -48,45 +48,42 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setNationality(String title) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
-       
+        test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
+
         tool.selectVisibleTextByID("nationality", title);
     }
 
     public void setLanguage(String title) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
-       
+        test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
+
         tool.selectVisibleTextByID("language", title);
     }
 
     public void setEmailAddress(String email) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + email + ")");
-       
+        test.writeInLogFile(Common.getMethodName() + " with data (" + email + ")");
 
         tool.enterStringUsingId("email", email);
     }
 
     public void setPhoneNumber(String phonenumber) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + phonenumber + ")");
-        test.writeInLogFile(Common.getMethodName());
-
+        test.writeInLogFile(Common.getMethodName() + " with data (" + phonenumber + ")");
         tool.enterStringUsingId("home_phone", phonenumber);
     }
 
     public void setMobileNumber(String mobile_phone) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + mobile_phone + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + mobile_phone + ")");
 
         tool.enterStringUsingId("mobile_phone", mobile_phone);
     }
 
     public void setFaxNumber(String fax) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + fax + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + fax + ")");
 
         tool.enterStringUsingId("fax", fax);
     }
 
     public void setNationalID(String national_id) throws Exception {
-      test.writeInLogFile(Common.getMethodName() + " with data (" + national_id + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + national_id + ")");
 
         tool.enterStringUsingId("national_id", national_id);
     }
@@ -98,23 +95,23 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingTitle(String title) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
         tool.selectVisibleTextByID("billing_title", title);
     }
 
     public void setBusinessTitle(String title) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
         tool.selectVisibleTextByID("contact_title_field", title);
     }
 
     public void setBillingFirstName(String billing_first_name) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + billing_first_name + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + billing_first_name + ")");
 
         tool.enterStringUsingId("billing_first_name", billing_first_name);
     }
 
     public void setBusinessFirstName(String biz_first_name) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + biz_first_name + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + biz_first_name + ")");
 
         tool.enterStringUsingId("first_name", biz_first_name);
     }
@@ -126,7 +123,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBusinessLastName(String biz_last_name) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + biz_last_name + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + biz_last_name + ")");
 
         tool.enterStringUsingId("last_name", biz_last_name);
     }
@@ -138,18 +135,18 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBillingStreetSuffix(String billing_streetSuffix) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + billing_streetSuffix + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + billing_streetSuffix + ")");
         tool.selectVisibleTextByID("billing_streetSuffix", billing_streetSuffix);
     }
 
     public void setBillingStreetNumber(String billing_streetNumber) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + billing_streetNumber + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + billing_streetNumber + ")");
 
         tool.enterStringUsingId("billing_streetNumber", billing_streetNumber);
     }
 
     public void enterBillingPostCode(String billing_zip_code) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + billing_zip_code + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + billing_zip_code + ")");
 
         tool.enterStringUsingId("billing_zip_code", billing_zip_code);
     }
@@ -160,7 +157,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterBillingHomeState(String billing_state) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + billing_state + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + billing_state + ")");
         tool.selectVisibleTextByID("billing_state", billing_state);
     }
 
@@ -177,12 +174,12 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterBusinessHomeCountry(String billing_country) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + billing_country + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + billing_country + ")");
         tool.selectVisibleTextByID("home_country", billing_country);
     }
 
     public void enterBusinessHomeState(String billing_state) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + billing_state + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + billing_state + ")");
         tool.selectVisibleTextByID("home_state", billing_state);
     }
 
@@ -193,7 +190,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setCustomerTitle(String title) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + title + ")");
         tool.selectVisibleTextByID("contact_title_field", title);
     }
 
@@ -204,13 +201,13 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setCustomerLastName(String lastname) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + lastname + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + lastname + ")");
 
         tool.enterStringUsingId("last_name", lastname);
     }
 
     public void setCustomerStreetName(String streetName) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + streetName + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + streetName + ")");
 
         tool.enterStringUsingId("streetName", streetName);
     }
@@ -227,18 +224,18 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public String getCustomerStreetName() throws Exception {
-      test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName());
         return tool.getAttributeUsingId("streetName", "value");
     }
 
     public void enterCustomerPostCode(String postCode) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + postCode + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + postCode + ")");
 
         tool.enterStringUsingId("home_zip", postCode);
     }
 
     public String getCustomerPostCode() throws Exception {
-       test.writeInLogFile(Common.getMethodName() );
+        test.writeInLogFile(Common.getMethodName());
         return tool.getAttributeUsingId("home_zip", "value");
     }
 
@@ -253,7 +250,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterCustomerHomeState(String homeState) throws Exception {
-      test.writeInLogFile(Common.getMethodName() + " with data (" + homeState + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + homeState + ")");
         tool.selectVisibleTextByID("home_state", homeState);
     }
 
@@ -269,7 +266,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setServiceTitle(String service_title) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + service_title + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + service_title + ")");
         tool.selectVisibleTextByID("service_title", service_title);
     }
 
@@ -280,24 +277,24 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setServiceLastName(String service_last_name) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + service_last_name + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + service_last_name + ")");
 
         tool.enterStringUsingId("service_last_name", service_last_name);
     }
 
     public void setServiceStreetName(String service_streetName) throws Exception {
-       test.writeInLogFile(Common.getMethodName() + " with data (" + service_streetName + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + service_streetName + ")");
 
         tool.enterStringUsingId("service_streetName", service_streetName);
     }
 
     public void setServiceSteetSuffix(String service_streetSuffix) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + service_streetSuffix + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + service_streetSuffix + ")");
         tool.selectVisibleTextByID("service_streetSuffix", service_streetSuffix);
     }
 
     public void setServiceStreetNumber(String service_streetNumber) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + service_streetNumber + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + service_streetNumber + ")");
 
         tool.enterStringUsingId("service_streetNumber", service_streetNumber);
     }
@@ -309,7 +306,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterServiceHomeCountry(String service_home_country) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + service_home_country + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + service_home_country + ")");
         tool.selectVisibleTextByID("service_home_country", service_home_country);
     }
 
@@ -319,7 +316,7 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void enterServiceCity(String service_home_city) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + service_home_city + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + service_home_city + ")");
 
         tool.enterStringUsingId("service_home_city", service_home_city);
     }
@@ -369,13 +366,13 @@ public class EnterIdentificationDataCommon extends CommonMenu {
     }
 
     public void setBankAccountNumber(String bankaccountnumber) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + bankaccountnumber + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + bankaccountnumber + ")");
 
         tool.enterStringUsingId("p-L1:1-L3:1380", bankaccountnumber);
     }
 
     public void setBankLastName(String banklastname) throws Exception {
-         test.writeInLogFile(Common.getMethodName() + " with data (" + banklastname + ")");
+        test.writeInLogFile(Common.getMethodName() + " with data (" + banklastname + ")");
 
         tool.enterStringUsingId("p-L1:1-L3:1270", banklastname);
     }
