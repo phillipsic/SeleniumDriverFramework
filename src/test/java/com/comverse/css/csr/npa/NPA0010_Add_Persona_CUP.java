@@ -1,7 +1,5 @@
 package com.comverse.css.csr.npa;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -61,7 +59,7 @@ public class NPA0010_Add_Persona_CUP extends CSSTest {
 
             String cleanPageSource = Common.returnCleanPageSource(tool);
 
-            assertTrue(cleanPageSource.matches(".*F1N" + uniqueString + " L1N" + uniqueString + accountNumber + ".*Customer User: OrderingActive.*"));
+            Common.assertVerifyTrue(tool, cleanPageSource.matches(".*F1N" + uniqueString + " L1N" + uniqueString + accountNumber + ".*Customer User: OrderingActive.*"));
 
             Common.storeOrderingCUPLastNameAndAccountNumber("L1N" + uniqueString, accountNumber, "Created by " + this.getClass().getSimpleName());
 
@@ -85,7 +83,7 @@ public class NPA0010_Add_Persona_CUP extends CSSTest {
 
             cleanPageSource = Common.returnCleanPageSource(tool);
 
-            assertTrue(cleanPageSource.matches(".*F2N" + unique2String + " L2N" + unique2String + accountNumber + ".*Customer User: Non-OrderingActive.*"));
+            Common.assertVerifyTrue(tool, cleanPageSource.matches(".*F2N" + unique2String + " L2N" + unique2String + accountNumber + ".*Customer User: Non-OrderingActive.*"));
 
             Common.storeNonOrderingCUPLastNameAndAccountNumber("L2N" + unique2String, accountNumber, "Created by " + this.getClass().getSimpleName());
 

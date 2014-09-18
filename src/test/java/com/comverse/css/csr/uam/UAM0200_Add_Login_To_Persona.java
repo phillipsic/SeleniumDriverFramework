@@ -1,7 +1,5 @@
 package com.comverse.css.csr.uam;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,7 +56,7 @@ public class UAM0200_Add_Login_To_Persona extends CSSTest {
 
             String cleanPageSource = Common.returnCleanPageSource(tool);
 
-            assertTrue(cleanPageSource.matches(".*" + lastNameOfNonOrderingCUP + accountNumber + ".*Customer User: .*" + lastNameOfNonOrderingCUP.toLowerCase() + "Active.*"));
+            Common.assertVerifyTrue(tool, cleanPageSource.matches(".*" + lastNameOfNonOrderingCUP + accountNumber + ".*Customer User: .*" + lastNameOfNonOrderingCUP.toLowerCase() + "Active.*"));
 
             Common.storeNonOrderingCUPLoginAndPassword(lastNameOfNonOrderingCUP.toLowerCase(), "Passw0rd!", "Created by UAM0200_Add_Login_To_Persona");
 
@@ -78,7 +76,7 @@ public class UAM0200_Add_Login_To_Persona extends CSSTest {
 
             cleanPageSource = Common.returnCleanPageSource(tool);
 
-            assertTrue(cleanPageSource.matches(".*" + lastNameOfCUP + accountNumber + ".*Customer User: .*" + lastNameOfCUP.toLowerCase() + "Active.*"));
+            Common.assertVerifyTrue(tool, cleanPageSource.matches(".*" + lastNameOfCUP + accountNumber + ".*Customer User: .*" + lastNameOfCUP.toLowerCase() + "Active.*"));
 
             lastNameOfCOP = personManagement.getLastNameOfCOP();
             addLogin = personManagement.clickActionsAddLoginForPerson(lastNameOfCOP);
@@ -91,7 +89,7 @@ public class UAM0200_Add_Login_To_Persona extends CSSTest {
 
             cleanPageSource = Common.returnCleanPageSource(tool);
 
-            assertTrue(cleanPageSource.matches(".*" + lastNameOfCOP + accountNumber + ".*Customer Owner .*" + lastNameOfCOP.toLowerCase() + "Active.*"));
+            Common.assertVerifyTrue(tool, cleanPageSource.matches(".*" + lastNameOfCOP + accountNumber + ".*Customer Owner .*" + lastNameOfCOP.toLowerCase() + "Active.*"));
 
             Common.storeCUPLoginAndPassword(lastNameOfCUP.toLowerCase(), "Passw0rd!", "Created by UAM0200_Add_Login_To_Persona");
             Common.storeCOPLoginAndPassword(lastNameOfCOP.toLowerCase(), "Passw0rd!", "Created by UAM0200_Add_Login_To_Persona");

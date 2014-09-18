@@ -27,11 +27,11 @@ public class CommonMenu extends Main {
     public Account getAccount() {
         return account;
     }
-    
+
     public UpmProcessPage clickProcess() throws Exception {
         tool.clickUsingXPath("//li[5]/a/span");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        return new UpmProcessPage(tool,test,user);
+        return new UpmProcessPage(tool, test, user);
     }
 
 }

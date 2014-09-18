@@ -1,7 +1,5 @@
 package com.comverse.css.csr.npa;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,7 +60,7 @@ public class NPA0010_Add_Persona_CMP extends CSSTest {
 
             String cleanPageSource = Common.returnCleanPageSource(tool);
 
-            assertTrue(cleanPageSource.matches(".*F1N" + uniqueString + " L1N" + uniqueString + accountNumber + ".*Customer Manager PersonActive.*"));
+            Common.assertVerifyTrue(tool, cleanPageSource.matches(".*F1N" + uniqueString + " L1N" + uniqueString + accountNumber + ".*Customer Manager PersonActive.*"));
 
             test.setResult("pass");
 

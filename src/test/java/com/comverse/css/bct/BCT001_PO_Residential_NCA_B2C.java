@@ -49,12 +49,10 @@ public class BCT001_PO_Residential_NCA_B2C extends CSSTest {
             ChooseAccessories chooseAccessories = configureOffers.clickContinue();
             MyBasket myBasket = chooseAccessories.clickContinue();
             CheckoutRegister checkoutRegister = myBasket.clickCheckOut();
-            
+
             checkoutRegister.selectSignMeUp();
             SignUpUser signUpUser = checkoutRegister.clickContinue();
-            
-            
-            
+
             CustomerDetails customerDetails = signUpUser.enterMandatoryFieldsOnlyAndClickSignMeUp(uniqueTimeStamp);
             CheckOutBillingAccountInformation checkOutBillingAccountInformation = customerDetails.clickOk();
             CheckoutReview checkoutReview = checkOutBillingAccountInformation.clickContinue();

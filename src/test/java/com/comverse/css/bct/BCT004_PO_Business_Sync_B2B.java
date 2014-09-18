@@ -1,7 +1,5 @@
 package com.comverse.css.bct;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -75,8 +73,8 @@ public class BCT004_PO_Business_Sync_B2B extends CSSTest {
         workSpace = loginPage.clickChangeButton();
         ContactInformation contactInformation = workSpace.clickUsersName();
 
-        assertTrue(contactInformation.getFirstName().matches("^[\\s\\S]*FN" + uniqueID + "[\\s\\S]*$"));
-        assertTrue(contactInformation.getLastName().matches("^[\\s\\S]*LN" + uniqueID + "[\\s\\S]*$"));
+        Common.assertVerifyTrue(tool, contactInformation.getFirstName().matches("^[\\s\\S]*FN" + uniqueID + "[\\s\\S]*$"));
+        Common.assertVerifyTrue(tool, contactInformation.getLastName().matches("^[\\s\\S]*LN" + uniqueID + "[\\s\\S]*$"));
 
         test.setResult("pass");
     }

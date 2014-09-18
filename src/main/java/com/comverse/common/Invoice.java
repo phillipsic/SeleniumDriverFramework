@@ -7,11 +7,13 @@ public class Invoice extends Main {
     private DB cust;
     private PropertyHelper propsHelper = new PropertyHelper();
 
-    public Invoice() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public Invoice() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         cust = new DB(propsHelper.getENV() + "CUST");
     }
 
-    public String getAcct(String key) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public String getAcct(String key) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         String invoiceAcct = cust.execSQLSelect(cust.oracleDBStatement(), propsHelper.getSQLInvoiceProperties(key), 1);
         if (invoiceAcct == null || invoiceAcct == "")
             throw new Exception("Empty SQL result");
@@ -20,7 +22,8 @@ public class Invoice extends Main {
         return invoiceAcct;
     }
 
-    public String getInvoiceId(String key) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public String getInvoiceId(String key) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         String invoiceId = cust.execSQLSelect(cust.oracleDBStatement(), propsHelper.getSQLInvoiceProperties(key), 2);
         if (invoiceId == null || invoiceId == "")
             throw new Exception("Empty SQL result");

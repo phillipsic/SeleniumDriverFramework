@@ -1,7 +1,5 @@
 package com.comverse.css.b2b.cm;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +7,7 @@ import org.junit.Test;
 import com.comverse.css.b2b.*;
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.data.apps.B2B;
 import com.comverse.data.users.B2BAdmin;
@@ -43,14 +42,14 @@ public class CM0015_Create_case extends CSSTest {
 
             AddCaseConfirmation addCaseConfirmation = addCaseReview.clickCreateCase();
 
-            assertTrue(addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
             String caseId = addCaseConfirmation.getCaseID();
             accountDashboard = addCaseConfirmation.clickOk();
             ViewCase viewCase = accountDashboard.clickLinkOfCaseID(caseId);
 
-            assertTrue(viewCase.getCaseType().matches("^[\\s\\S]*Service Problem[\\s\\S]*$"));
-            assertTrue(viewCase.getCaseProblemArea().matches("^[\\s\\S]*Poor Quality - Wired Services[\\s\\S]*$"));
-            assertTrue(viewCase.getCaseDescription().matches("^[\\s\\S]*This was created by automated test PBM61_Create_case_b2b.[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseType().matches("^[\\s\\S]*Service Problem[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseProblemArea().matches("^[\\s\\S]*Poor Quality - Wired Services[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseDescription().matches("^[\\s\\S]*This was created by automated test PBM61_Create_case_b2b.[\\s\\S]*$"));
 
             viewCase.clickBack();
 

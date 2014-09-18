@@ -1,7 +1,5 @@
 package com.comverse.css.pos.cm;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,14 +40,14 @@ public class CM0020_View_existing_cases_and_details_for_Channel_and_CSR_Portal e
 
             ViewCase viewCase = accountDetails.clickLinkOfCaseID(caseId);
             Common.assertTextOnPage(tool, caseId);
-            assertTrue(viewCase.getCaseType().matches("^[\\s\\S]*General Request[\\s\\S]*$"));
-            assertTrue(viewCase.getCaseStatus().matches("^[\\s\\S]*New[\\s\\S]*$"));
-            assertTrue(viewCase.getCaseProblemArea().matches("^[\\s\\S]*Need Credit Limit Increased[\\s\\S]*$"));
-            assertTrue(viewCase.getCaseDescription().matches("^[\\s\\S]*This was created by automated test.[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseType().matches("^[\\s\\S]*General Request[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseStatus().matches("^[\\s\\S]*New[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseProblemArea().matches("^[\\s\\S]*Need Credit Limit Increased[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseDescription().matches("^[\\s\\S]*This was created by automated test.[\\s\\S]*$"));
 
             viewCase.clickNotesTab();
-            assertTrue(viewCase.getNoteType().matches("^[\\s\\S]*Task Note[\\s\\S]*$"));
-            assertTrue(viewCase.getNoteDescription().matches("^[\\s\\S]*Note - Task to do[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getNoteType().matches("^[\\s\\S]*Task Note[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getNoteDescription().matches("^[\\s\\S]*Note - Task to do[\\s\\S]*$"));
 
             test.setResult("pass");
 

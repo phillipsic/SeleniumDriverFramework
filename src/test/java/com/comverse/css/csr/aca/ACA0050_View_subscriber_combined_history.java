@@ -1,7 +1,5 @@
 package com.comverse.css.csr.aca;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,7 +40,7 @@ public class ACA0050_View_subscriber_combined_history extends CSSTest {
             viewCombinedHistory.clickSearch();
             Common.returnCleanPageSource(tool);
             Common.assertTextOnPage(tool, "Combined history found");
-            assertTrue(Common.isTextNotOnPage(tool, "No data found"));
+            Common.assertTextNotOnPage(tool, "No data found");
             viewCombinedHistory.ViewNRCTermDetails();
 
             test.setResult("pass");

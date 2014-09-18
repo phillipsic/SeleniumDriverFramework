@@ -1,7 +1,5 @@
 package com.comverse.css.pos.nca;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +51,7 @@ public class NCA0030_Capture_billing_information extends CSSTest {
             enterIdentificationData.enterCustomerPostCode("11155");
 
             Common.assertTextOnPage(tool, "Billing Address details");
-            assertTrue(Common.isCheckBoxSelected(tool, "link_addresschecked"));
+            Common.assertVerifyTrue(tool, Common.isCheckBoxSelected(tool, "link_addresschecked"));
             enterIdentificationData.uncheckSameAsCustomerAddress();
             enterIdentificationData.setBillingTitle("Mr.");
             enterIdentificationData.setBillingFirstName("FN" + uniqueString);

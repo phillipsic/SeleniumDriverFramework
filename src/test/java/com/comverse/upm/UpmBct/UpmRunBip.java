@@ -41,7 +41,7 @@ public class UpmRunBip extends UPMTest {
             upmProcessPage.enterTemplateName("Selenium_Auto_BIP");
             upmProcessPage.enterTemplateDescription("For Cust1");
             upmProcessPage.selectProcess("BIP");
-            
+
             upmProcessPage.selectNodeType("billing:app");
             upmProcessPage.selectQuery("AccountNumber");
             upmProcessPage.enterQueryValue("9414");
@@ -49,15 +49,15 @@ public class UpmRunBip extends UPMTest {
             upmProcessPage.selectTaskMode("Production");
             upmProcessPage.selectServerId("CUST2");
             upmProcessPage.clickRun();
-            Common.assertTextOnPage(tool,"Job Created Successfully. Job ID:");
-            
+            Common.assertTextOnPage(tool, "Job Created Successfully. Job ID:");
+
             // //Go to History tab and click Refresh until last created workflow
             // is Completed
             upmProcessPage.clickCancel();
             upmProcessPage.clickHistory();
             upmProcessPage.selectWorkflowType("CBS Batch Process");
-            
-            //upmProcessPage.getWorkflowState();
+
+            // upmProcessPage.getWorkflowState();
             // //If does not complete in default # of iterations, test will fail
             // Validate.validateLastWorkflowCompleted(DefaultStateCheckIterations);
             //

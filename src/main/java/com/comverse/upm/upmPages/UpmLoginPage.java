@@ -29,7 +29,7 @@ public class UpmLoginPage extends CommonMenu {
     public UpmHomePage clickSignIn() throws Exception {
         tool.clickUsingID("loginForm:loginBtn");
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
-        return new UpmHomePage(tool,test,user);
+        return new UpmHomePage(tool, test, user);
     }
 
     public String getMessage() throws Exception {
@@ -37,11 +37,11 @@ public class UpmLoginPage extends CommonMenu {
     }
 
     public UpmHomePage successfulsecAdminLogin() throws Exception {
-        
+
         this.enterUserName(user.getLogin());
         this.enterPassword(user.getPassword());
         this.clickSignIn();
-        return new UpmHomePage(tool,test,user);
+        return new UpmHomePage(tool, test, user);
     }
 
 }
