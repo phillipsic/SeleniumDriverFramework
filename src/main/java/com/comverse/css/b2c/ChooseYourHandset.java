@@ -80,6 +80,7 @@ public class ChooseYourHandset extends B2CMenu {
     public void clickFilter() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Filter']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public MyBasket clickContinue() throws Exception {
@@ -92,6 +93,7 @@ public class ChooseYourHandset extends B2CMenu {
     public void clickAdvanceFilterLink() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Advanced Filter");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public HandsetDetails viewDetailsOfHandset(String Handset) throws Exception {
