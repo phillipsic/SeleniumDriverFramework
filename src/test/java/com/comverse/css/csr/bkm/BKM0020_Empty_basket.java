@@ -11,6 +11,7 @@ import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
 public class BKM0020_Empty_basket extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -46,7 +47,8 @@ public class BKM0020_Empty_basket extends CSSTest {
             workSpace = removeBasket.clickYes();
 
             ResumeAParkedBasket resumeAParkedBasket = workSpace.clickBasket();
-            Common.assertTextEquals("No basket has been found", resumeAParkedBasket.getMessage());
+            Common.assertTextNotOnPage(tool, uniqueTimeStamp);
+            
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {
