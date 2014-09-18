@@ -17,6 +17,7 @@ import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV2;
 import com.comverse.data.apps.B2C;
 
 public class PROD2100_Compare_Devices extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -47,10 +48,12 @@ public class PROD2100_Compare_Devices extends CSSTest {
             Common.assertTextEquals(voiceDevice6.getDeviceName(), chooseYourHandset.comparableDevice2());
             CompareDevices compareDevices = chooseYourHandset.clickCompare();
 
-            Common.assertTextEquals(voiceDevice1.getDeviceName(), compareDevices.getDevice1());
-            Common.assertTextEquals(voiceDevice6.getDeviceName(), compareDevices.getDevice2());
+            Common.assertTextEquals(voiceDevice1.getDeviceName(), compareDevices.getDevice1Name());
+            Common.assertTextEquals(voiceDevice6.getDeviceName(), compareDevices.getDevice2Name());
 
+            test.setBugId("CBS00171343");
             chooseYourHandset = compareDevices.clickReturnToList();
+            test.setBugId("NoBug");
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {
