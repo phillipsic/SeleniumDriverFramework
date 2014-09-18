@@ -1,13 +1,12 @@
 package com.comverse.css.pos.sum;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.pos.*;
 import com.comverse.data.apps.POS;
@@ -56,7 +55,7 @@ public class SUM0155_Modify_subscriber_offers extends CSSTest {
 
             modifyOfferParameters = subscriberDashboard.clickModifyOfferParameters();
 
-            assertEquals("512", modifyOfferParameters.getVoiceMailSize());
+            Common.assertTextEquals("512", modifyOfferParameters.getVoiceMailSize());
 
             test.setResult("pass");
 

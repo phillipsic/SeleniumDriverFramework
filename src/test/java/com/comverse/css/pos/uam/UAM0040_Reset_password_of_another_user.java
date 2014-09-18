@@ -1,7 +1,5 @@
 package com.comverse.css.pos.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,10 +45,10 @@ public class UAM0040_Reset_password_of_another_user extends CSSTest {
             viewHierarchy.addEmployeeTelcoRetailerAdministrator(uniqueCode);
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
+            Common.assertTextEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
+            Common.assertTextEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals("Telco Retailer Administrator", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("Telco Retailer Administrator", loginInformation.getCurrentRoleFromPage());
 
             ModifyLoginPassword modifyLoginPassword = loginInformation.clickChangePasswordOfAnotherUser();
 

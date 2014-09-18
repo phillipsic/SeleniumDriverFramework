@@ -1,7 +1,5 @@
 package com.comverse.css.pos.nca;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,10 +62,10 @@ public class NCA0040_Search_and_select_address_in_referential extends CSSTest {
             Common.assertTextOnPage(tool, "Please select your address from the list");
             searchAddress.clickSelectAddress();
 
-            assertEquals(enterIdentificationData.getCustomerHomeCountry(), country);
-            assertEquals(enterIdentificationData.getCustomerStreetName(), steetName);
-            assertEquals(enterIdentificationData.getCustomerCity(), city);
-            assertEquals(enterIdentificationData.getCustomerPostCode(), zipCode);
+            Common.assertTextEquals(enterIdentificationData.getCustomerHomeCountry(), country);
+            Common.assertTextEquals(enterIdentificationData.getCustomerStreetName(), steetName);
+            Common.assertTextEquals(enterIdentificationData.getCustomerCity(), city);
+            Common.assertTextEquals(enterIdentificationData.getCustomerPostCode(), zipCode);
 
             test.setResult("pass");
 

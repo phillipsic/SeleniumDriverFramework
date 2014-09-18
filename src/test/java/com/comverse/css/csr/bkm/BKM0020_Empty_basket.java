@@ -1,7 +1,5 @@
 package com.comverse.css.csr.bkm;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,7 +46,7 @@ public class BKM0020_Empty_basket extends CSSTest {
             workSpace = removeBasket.clickYes();
 
             ResumeAParkedBasket resumeAParkedBasket = workSpace.clickBasket();
-            assertEquals("No basket has been found", resumeAParkedBasket.getMessage());
+            Common.assertTextEquals("No basket has been found", resumeAParkedBasket.getMessage());
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {

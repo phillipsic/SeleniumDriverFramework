@@ -1,23 +1,19 @@
 package com.comverse.css.csr.uam;
 
-import com.comverse.common.Application;
-import com.comverse.css.b2c.ConfirmModifyProfileInformation;
-import com.comverse.css.b2c.CustomerProfile;
-import com.comverse.css.b2c.HomePage;
-import com.comverse.css.b2c.ModifyProfileInformation;
-import com.comverse.css.b2c.SearchMember;
-import com.comverse.css.b2c.SubscriberDetail;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.comverse.common.Application;
+import com.comverse.css.b2c.*;
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
 import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.csr.*;
+import com.comverse.css.csr.WorkSpace;
 import com.comverse.data.apps.B2C;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRUser;

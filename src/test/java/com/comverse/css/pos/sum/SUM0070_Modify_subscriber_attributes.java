@@ -1,13 +1,12 @@
 package com.comverse.css.pos.sum;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.pos.*;
 import com.comverse.data.apps.POS;
@@ -63,11 +62,11 @@ public class SUM0070_Modify_subscriber_attributes extends CSSTest {
 
             subscriberDashboard.clickSubscriberAttributesTab();
             subscriberDashboard.clickModifySubscriberDetails();
-            assertEquals(workSpace.subscriber.getSubscriberBirthdayProperty(), modifySubscriberAttributes.getBirthday());
-            assertEquals(workSpace.subscriber.getSubscriberSecurityWordProperty(), modifySubscriberAttributes.getSecurityWord());
-            assertEquals(workSpace.subscriber.getSubscriberLanguageProperty(), modifySubscriberAttributes.getLanguage());
-            assertEquals(workSpace.subscriber.getSubscriberHappyHourStartProperty(), modifySubscriberAttributes.getHappyHourStart());
-            assertEquals(workSpace.subscriber.getSubscriberHappyHourEndProperty(), modifySubscriberAttributes.getHappyHourEnd());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberBirthdayProperty(), modifySubscriberAttributes.getBirthday());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberSecurityWordProperty(), modifySubscriberAttributes.getSecurityWord());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberLanguageProperty(), modifySubscriberAttributes.getLanguage());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberHappyHourStartProperty(), modifySubscriberAttributes.getHappyHourStart());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberHappyHourEndProperty(), modifySubscriberAttributes.getHappyHourEnd());
 
             test.setResult("pass");
 

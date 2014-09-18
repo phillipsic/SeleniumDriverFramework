@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.acct;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -61,7 +59,7 @@ public class ACCT0212_View_Subscriber_Status_History extends CSSTest {
             SubscriberDetail subscriberDetail = searchOrders.clickDashbaord();
             SubscriberStatusHistory subscriberStatusHistory = subscriberDetail.clickStatusHistory();
 
-            assertEquals("Active", subscriberStatusHistory.getStatus());
+            Common.assertTextEquals("Active", subscriberStatusHistory.getStatus());
             test.setBugId("CBS00165180");
             subscriberDetail = subscriberStatusHistory.clickOk();
             test.setBugId("NoBug");

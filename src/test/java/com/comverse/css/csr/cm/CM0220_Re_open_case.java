@@ -1,6 +1,5 @@
 package com.comverse.css.csr.cm;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
@@ -46,17 +45,17 @@ public class CM0220_Re_open_case extends CSSTest {
             editCase.enterReason("Problem Solved");
             editCase.clickOKToCancelOrClose();
             editCase.clickOK();
-            assertEquals(viewCase.getCaseStatus(), "Closed");
-            assertEquals(viewCase.getCaseJustificationStatus(), "Problem Solved");
+            Common.assertTextEquals(viewCase.getCaseStatus(), "Closed");
+            Common.assertTextEquals(viewCase.getCaseJustificationStatus(), "Problem Solved");
             viewCase.clickNotesTab();
             assertTrue(viewCase.getNoteType().contains("Type : Complaint"));
-            assertEquals(viewCase.getNoteDescription(), "Problem Solved");
+            Common.assertTextEquals(viewCase.getNoteDescription(), "Problem Solved");
             viewCase.clickBack();
             accountDetails.clickLinkOfCaseID(caseId);
             viewCase.clickReopen();
             editCase.clickOK();
-            assertEquals(viewCase.getCaseStatus(), "New");
-            assertEquals(viewCase.getCaseJustificationStatus(), "New");
+            Common.assertTextEquals(viewCase.getCaseStatus(), "New");
+            Common.assertTextEquals(viewCase.getCaseJustificationStatus(), "New");
             viewCase.clickBack();
 
             test.setResult("pass");

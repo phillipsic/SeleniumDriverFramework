@@ -1,7 +1,5 @@
 package com.comverse.css.pos.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,10 +46,10 @@ public class UAM0050_Change_secret_question_and_answer extends CSSTest {
             String tempPassword = viewHierarchy.addEmployeeTelcoRetailerSubscriber(uniqueCode);
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
+            Common.assertTextEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
+            Common.assertTextEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals("Telco Retailer Subscriber", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("Telco Retailer Subscriber", loginInformation.getCurrentRoleFromPage());
             myShapeChannel = loginInformation.clickLogout();
             myShapeChannel.clickHomePage();
             User user2 = new TelcoRetailerAdmin();
@@ -76,7 +74,7 @@ public class UAM0050_Change_secret_question_and_answer extends CSSTest {
             loginInformation = confirmChange.clickOK();
             changeSecretAnswer = loginInformation.clickChangeYourSecretAnswer();
 
-            assertEquals("Georgie", changeSecretAnswer.getSecretAnswer());
+            Common.assertTextEquals("Georgie", changeSecretAnswer.getSecretAnswer());
 
             test.setResult("pass");
 

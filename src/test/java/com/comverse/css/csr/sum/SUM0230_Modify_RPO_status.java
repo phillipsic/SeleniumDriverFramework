@@ -1,7 +1,5 @@
 package com.comverse.css.csr.sum;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,7 +60,7 @@ public class SUM0230_Modify_RPO_status extends CSSTest {
             viewBalance = rechargeSubscriber.clickViewBalances();
             Double expectedCoreBalanceAfterRecharge = coreBalanceBeforeRecharge + Double.parseDouble(rechargeAmount);
             Double coreBalanceAfterRecharge = viewBalance.getCoreBalance();
-            assertEquals(expectedCoreBalanceAfterRecharge, coreBalanceAfterRecharge);
+            Common.assertTextEquals(expectedCoreBalanceAfterRecharge, coreBalanceAfterRecharge);
             subscriberDashboard = viewBalance.clickBackToSubscriberDashboard();
             subscriberDashboard.clickRefreshUntilRPOActive(rpo_DIYRechargePromotionalOffer3.getOfferName());
             Common.assertTextOnPage(tool, "Active");

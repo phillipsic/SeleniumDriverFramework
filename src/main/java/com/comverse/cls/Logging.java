@@ -1,7 +1,5 @@
 package com.comverse.cls;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -22,31 +20,36 @@ public class Logging extends CLSMenu {
         }
     }
 
-    public void clickTodayFilter() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void clickTodayFilter() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
         tool.clickUsingID("useCustomTimeframe_period");
         tool.switchTo();
     }
 
-    public void setDisplayUserName(String name) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void setDisplayUserName(String name) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
         tool.enterStringUsingId("displayUserName", name);
         tool.switchTo();
     }
 
-    public void clickSearch() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void clickSearch() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
         tool.clickUsingXPath("//input[@value='Submit']");
         tool.switchTo();
     }
 
-    public void clickLogut() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void clickLogut() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//img[@alt='Logout']");
 
     }
 
-    public void waitForLoadingToDisappear() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void waitForLoadingToDisappear() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         int maxIterations = 90;
         boolean foundElement = false;
@@ -73,18 +76,21 @@ public class Logging extends CLSMenu {
         }
     }
 
-    public void assertClusterNameDropDownContains(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
-        assertEquals(true, this.checkDropDownForValue("clusterNameFilter", value));
+    public void assertClusterNameDropDownContains(String value) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+        Common.assertTextEquals(true, this.checkDropDownForValue("clusterNameFilter", value));
     }
 
-    public void selectRecordPerPage(String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void selectRecordPerPage(String value) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
         tool.selectVisibleTextByID("yui-pg0-0-rpp81", value);
         tool.switchTo();
         Common.sleepForNumberOfSeconds(10);
     }
 
-    private boolean checkDropDownForValue(String dropDownID, String value) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    private boolean checkDropDownForValue(String dropDownID, String value) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         boolean optionFound = false;
         tool.switchToFrame(tool.searchUsingID("_ddajaxtabsiframe-loggingTabContent"));
 

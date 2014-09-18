@@ -1,7 +1,5 @@
 package com.comverse.css.pos.pem;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,12 +39,12 @@ public class PEM0150_Search_Person extends CSSTest {
             // manageAccount.searchByAccountLastNameMultiplePersons(workSpace.getAccount()
             // .getBillingLastNameProperty());
             AccountDetails accountDetails = manageAccount.searchByPersonLastNameSinglePerson(Common.getPersonLastName());
-            assertEquals("Account Details", tool.getTitle());
+            Common.assertTextEquals("Account Details", tool.getTitle());
             accountDetails.clickHomeMenu();
             manageAccount = workSpace.gotoManageAccount();
 
             accountDetails = manageAccount.searchByPersonFirstNameSinglePerson(Common.getPersonFirstName());
-            assertEquals("Account Details", tool.getTitle());
+            Common.assertTextEquals("Account Details", tool.getTitle());
             accountDetails.clickHomeMenu();
             manageAccount = workSpace.gotoManageAccount();
 

@@ -1,6 +1,5 @@
 package com.comverse.css.csr.cm;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
@@ -45,14 +44,14 @@ public class CM0020_View_existing_cases_and_details_for_Channel_and_CSR_Portal e
 
             ViewCase viewCase = accountDetails.clickLinkOfCaseID(caseId);
             Common.assertTextOnPage(tool, caseId);
-            assertEquals(viewCase.getCaseType(), "General Request");
-            assertEquals(viewCase.getCaseStatus(), "New");
-            assertEquals(viewCase.getCaseProblemArea(), "Need Credit Limit Increased");
-            assertEquals(viewCase.getCaseDescription(), "This was created by automated test.");
+            Common.assertTextEquals(viewCase.getCaseType(), "General Request");
+            Common.assertTextEquals(viewCase.getCaseStatus(), "New");
+            Common.assertTextEquals(viewCase.getCaseProblemArea(), "Need Credit Limit Increased");
+            Common.assertTextEquals(viewCase.getCaseDescription(), "This was created by automated test.");
 
             viewCase.clickNotesTab();
             assertTrue(viewCase.getNoteType().contains("Task Note"));
-            assertEquals(viewCase.getNoteDescription(), "Note - Task to do");
+            Common.assertTextEquals(viewCase.getNoteDescription(), "Note - Task to do");
 
             test.setResult("pass");
 

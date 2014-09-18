@@ -1,6 +1,5 @@
 package com.comverse.css.b2b.bkm;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
@@ -46,9 +45,9 @@ public class BKM0020_Empty_basket extends CSSTest {
             MyBasket myBasket = shopping.clickSelectOfferInPopUpWindow();
 
             assertTrue(myBasket.getOfferName().matches(po_BusinessUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
-            assertEquals("1", myBasket.getQuantity());
-            assertEquals("$ " + po_BusinessUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
-            assertEquals("$ " + po_BusinessUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
+            Common.assertTextEquals("1", myBasket.getQuantity());
+            Common.assertTextEquals("$ " + po_BusinessUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
+            Common.assertTextEquals("$ " + po_BusinessUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
 
             RemoveBasket removeBasket = myBasket.clickClear();
             accountDetails = removeBasket.clickYes();

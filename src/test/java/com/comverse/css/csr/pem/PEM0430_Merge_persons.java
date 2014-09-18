@@ -11,7 +11,6 @@ import com.comverse.css.common.Prep;
 import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
-import static org.junit.Assert.assertEquals;
 
 public class PEM0430_Merge_persons extends CSSTest {
 
@@ -49,7 +48,7 @@ public class PEM0430_Merge_persons extends CSSTest {
 
             personManagement = personMerge.clickOKFromMerge();
 
-            assertEquals("inactive", personManagement.getPersonStatus(personLastName));
+            Common.assertTextEquals("inactive", personManagement.getPersonStatus(personLastName));
 
             test.setResult("pass");
 

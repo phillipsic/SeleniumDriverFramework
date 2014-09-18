@@ -1,7 +1,5 @@
 package com.comverse.css.pos.bam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -60,11 +58,11 @@ public class BAM0040_Modify_account_attributes extends CSSTest {
             accountDetails.clickAccountAttributesTab();
             modifyAccountAttributes = accountDetails.clickModifyAccountContact();
 
-            assertEquals(account.getBillingCustomerSocialSecurityNumberProperty(), modifyAccountAttributes.getSecurityNumber());
-            assertEquals(account.getBillingPurchaseOrderProperty(), modifyAccountAttributes.getPurchaseOrder());
-            assertEquals(account.getBillingSalesCodeProperty(), modifyAccountAttributes.getSalesCode());
-            assertEquals(account.getBillingSecurityWordProperty(), modifyAccountAttributes.getSecurityWord());
-            assertEquals(account.getBillingSICCodeProperty(), modifyAccountAttributes.getSICWord());
+            Common.assertTextEquals(account.getBillingCustomerSocialSecurityNumberProperty(), modifyAccountAttributes.getSecurityNumber());
+            Common.assertTextEquals(account.getBillingPurchaseOrderProperty(), modifyAccountAttributes.getPurchaseOrder());
+            Common.assertTextEquals(account.getBillingSalesCodeProperty(), modifyAccountAttributes.getSalesCode());
+            Common.assertTextEquals(account.getBillingSecurityWordProperty(), modifyAccountAttributes.getSecurityWord());
+            Common.assertTextEquals(account.getBillingSICCodeProperty(), modifyAccountAttributes.getSICWord());
 
             test.setResult("pass");
 

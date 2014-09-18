@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.prod;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +10,7 @@ import com.comverse.css.b2c.HomePage;
 import com.comverse.css.b2c.Shopping;
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
 import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV2;
@@ -44,12 +43,12 @@ public class PROD2100_Compare_Devices extends CSSTest {
             chooseYourHandset = chooseYourHandset.clickAddToCompare(voiceDevice1.getDeviceName());
             chooseYourHandset = chooseYourHandset.clickAddToCompare(voiceDevice6.getDeviceName());
 
-            assertEquals(voiceDevice1.getDeviceName(), chooseYourHandset.comparableDevice1());
-            assertEquals(voiceDevice6.getDeviceName(), chooseYourHandset.comparableDevice2());
+            Common.assertTextEquals(voiceDevice1.getDeviceName(), chooseYourHandset.comparableDevice1());
+            Common.assertTextEquals(voiceDevice6.getDeviceName(), chooseYourHandset.comparableDevice2());
             CompareDevices compareDevices = chooseYourHandset.clickCompare();
 
-            assertEquals(voiceDevice1.getDeviceName(), compareDevices.getDevice1());
-            assertEquals(voiceDevice6.getDeviceName(), compareDevices.getDevice2());
+            Common.assertTextEquals(voiceDevice1.getDeviceName(), compareDevices.getDevice1());
+            Common.assertTextEquals(voiceDevice6.getDeviceName(), compareDevices.getDevice2());
 
             chooseYourHandset = compareDevices.clickReturnToList();
 

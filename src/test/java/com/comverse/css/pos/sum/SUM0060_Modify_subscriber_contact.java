@@ -1,13 +1,12 @@
 package com.comverse.css.pos.sum;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.pos.*;
 import com.comverse.data.apps.POS;
@@ -65,10 +64,10 @@ public class SUM0060_Modify_subscriber_contact extends CSSTest {
             requestsForCustomer.clickToSubscriberDashboard();
 
             subscriberDashboard.clickModifyContactInformation();
-            assertEquals(workSpace.subscriber.getSubscriberFirstNameProperty(), modifyContactInformation.getFirstName());
-            assertEquals(workSpace.subscriber.getSubscriberLastNameProperty(), modifyContactInformation.getLastName());
-            assertEquals(workSpace.subscriber.getSubscriberDayPhoneNumberProperty(), modifyContactInformation.getDayPhone());
-            assertEquals(workSpace.subscriber.getSubscriberEveningPhoneNumberProperty(), modifyContactInformation.getEveningPhone());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberFirstNameProperty(), modifyContactInformation.getFirstName());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberLastNameProperty(), modifyContactInformation.getLastName());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberDayPhoneNumberProperty(), modifyContactInformation.getDayPhone());
+            Common.assertTextEquals(workSpace.subscriber.getSubscriberEveningPhoneNumberProperty(), modifyContactInformation.getEveningPhone());
 
             test.setResult("pass");
 

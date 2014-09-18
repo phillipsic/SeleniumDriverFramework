@@ -1,7 +1,5 @@
 package com.comverse.css.csr.rch;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -70,7 +68,7 @@ public class RCH0020_Non_voucher_recharge_by_credit_card_debit_card extends CSST
 
             Double coreBalanceAfterRecharge = viewBalance.getCoreBalance();
 
-            assertEquals(expectedCoreBalanceAfterRecharge, coreBalanceAfterRecharge);
+            Common.assertTextEquals(expectedCoreBalanceAfterRecharge, coreBalanceAfterRecharge);
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

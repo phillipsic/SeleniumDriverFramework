@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.acct;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -82,8 +80,8 @@ public class ACCT0701_Modify_Subscriber_Contact extends CSSTest {
             searchRequests.waitUntilFirstRequestCompletedOrFailed();
             subscriberDetail = searchRequests.clickDashbaordMenu();
             identity = subscriberDetail.clickUpdateContact();
-            assertEquals("FN" + uniqueTimeStamp, identity.getFirstName());
-            assertEquals("LN" + uniqueTimeStamp, identity.getLastName());
+            Common.assertTextEquals("FN" + uniqueTimeStamp, identity.getFirstName());
+            Common.assertTextEquals("LN" + uniqueTimeStamp, identity.getLastName());
 
             test.setResult("pass");
 

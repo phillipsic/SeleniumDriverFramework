@@ -5,13 +5,12 @@
 
 package com.comverse.sfa;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.data.apps.ADMIN;
 import com.comverse.data.users.SALESUIUser;
@@ -71,14 +70,14 @@ public class SFA004_Import_B2C_Lead extends SFATest {
             sfaB2CLead b2cLead = homePage.clickNavigationB2CLead();
             b2cLead.findAndOpenB2CLeadByNameAndCreatedDate(b2cLeadName, "Today");
 
-            assertEquals(b2cLeadName, b2cLead.getB2CLeadName());
-            assertEquals("VIP New Customer", b2cLead.getB2CLeadType());
-            assertEquals("1", b2cLead.getNewProspectFlag());
-            assertEquals("Low", b2cLead.getPriority());
-            assertEquals("Qualified", b2cLead.getStatus());
+            Common.assertTextEquals(b2cLeadName, b2cLead.getB2CLeadName());
+            Common.assertTextEquals("VIP New Customer", b2cLead.getB2CLeadType());
+            Common.assertTextEquals("1", b2cLead.getNewProspectFlag());
+            Common.assertTextEquals("Low", b2cLead.getPriority());
+            Common.assertTextEquals("Qualified", b2cLead.getStatus());
             b2cLead.openOfferList();
-            assertEquals("125", b2cLead.getFirstOfferId());
-            assertEquals("Basic Black Voice", b2cLead.getFirstOfferName());
+            Common.assertTextEquals("125", b2cLead.getFirstOfferId());
+            Common.assertTextEquals("Basic Black Voice", b2cLead.getFirstOfferName());
 
             test.setResult("pass");
 

@@ -1,7 +1,5 @@
 package com.comverse.css.csr.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,10 +36,10 @@ public class UAM0060_Lock_login_manually extends CSSTest {
             viewHierarchy.addOCMPublisherEmployee(uniqueCode);
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
+            Common.assertTextEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
+            Common.assertTextEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals(role, loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals(role, loginInformation.getCurrentRoleFromPage());
 
             LockLogin lockLogin = loginInformation.clickLockLogin();
             lockLogin.clickConfirm();
