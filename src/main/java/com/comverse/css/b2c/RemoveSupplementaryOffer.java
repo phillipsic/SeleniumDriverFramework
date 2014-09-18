@@ -22,6 +22,7 @@ public class RemoveSupplementaryOffer extends B2CMenu {
     public MyBasket ClickYes() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Yes']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
