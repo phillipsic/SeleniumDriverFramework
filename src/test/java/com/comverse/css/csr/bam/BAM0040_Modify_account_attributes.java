@@ -1,7 +1,5 @@
 package com.comverse.css.csr.bam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,15 +57,10 @@ public class BAM0040_Modify_account_attributes extends CSSTest {
             // accountDetails.clickRefreshThisAccount();
             modifyAccountAttributes = accountDetails.clickModifyAccountContact();
 
-            assertEquals(account.getBillingCustomerSocialSecurityNumberProperty(), modifyAccountAttributes.getSecurityNumber());
-            assertEquals(account.getBillingPurchaseOrderProperty(), modifyAccountAttributes.getPurchaseOrder());
-            assertEquals(account.getBillingSalesCodeProperty(), modifyAccountAttributes.getSalesCode());
-            assertEquals(account.getBillingSecurityWordProperty(), modifyAccountAttributes.getSecurityWord());
-
-            // Assert commented out as the SIC is configured to be displayed
-            // differently than entered.
-            // assertEquals(account.getBillingSICCodeProperty(),
-            // modifyAccountAttributes.getSICWord());
+            Common.assertTextEquals(account.getBillingCustomerSocialSecurityNumberProperty(), modifyAccountAttributes.getSecurityNumber());
+            Common.assertTextEquals(account.getBillingPurchaseOrderProperty(), modifyAccountAttributes.getPurchaseOrder());
+            Common.assertTextEquals(account.getBillingSalesCodeProperty(), modifyAccountAttributes.getSalesCode());
+            Common.assertTextEquals(account.getBillingSecurityWordProperty(), modifyAccountAttributes.getSecurityWord());
 
             test.setResult("pass");
 

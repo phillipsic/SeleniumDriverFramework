@@ -1,5 +1,6 @@
 package com.comverse.css.common;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -25,9 +26,8 @@ public class Common {
         for (int iteration = 0;; iteration++) {
 
             System.out.println(className + ":waitForEndOfWaitingPage - Iteration " + iteration + " of 90");
-            if (iteration >= 90) {
+            if (iteration >= 90)
                 throw new Exception("Timeout");
-            }
 
             if (tool.getTitle().matches("Waiting Page")) {
                 Thread.sleep(3000);
@@ -35,7 +35,6 @@ public class Common {
                 Thread.sleep(3000);
                 break;
             }
-
         }
     }
 
@@ -55,14 +54,16 @@ public class Common {
 
     public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
-        String str = "ASSERTION FAIL: Expecting '%s' in page";
-        assertTrue(String.format(str, searchText), pageSource.contains(searchText));
+        assertTrue("ASSERTION FAIL: Expecting " + searchText + " in page", pageSource.contains(searchText));
     }
 
     public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
-        String str = "ASSERTION FAIL: NOT expecting '%s' in page";
-        assertFalse(String.format(str, searchText), pageSource.contains(searchText));
+        assertFalse("ASSERTION FAIL: NOT expecting " + searchText + "in page", pageSource.contains(searchText));
+    }
+
+    public static void assertTextEquals(Object expectedText, Object actualText) throws Exception {
+        assertEquals("ASSERTION FAIL: Expecting " + expectedText + " but was " + actualText, expectedText, actualText);
     }
 
     public static String removeHTMLTags(String dirtyString) throws Exception {
@@ -144,9 +145,8 @@ public class Common {
         for (int iteration = 0;; iteration++) {
 
             System.out.println(className + ": Iteration " + iteration + " of 5");
-            if (iteration >= 5) {
+            if (iteration >= 5)
                 throw new Exception("Timeout");
-            }
 
             if (isTextOnPage(tool, "Loading Primary Offers and Subscriber Bundles")) {
                 System.out.println("Still loading offers ...");
@@ -164,9 +164,9 @@ public class Common {
         boolean foundElement = false;
         for (int iteration = 0;; iteration++) {
             System.out.println(className + ": Iteration " + iteration + " of 10");
-            if (iteration >= 90) {
+            if (iteration >= 90)
                 throw new Exception("Timeout");
-            }
+
             try {
                 tool.searchUsingCssSelector("img[title=\" Action\"]");
                 foundElement = true;
@@ -181,9 +181,8 @@ public class Common {
         for (int iteration = 0;; iteration++) {
             Thread.sleep(1000);
             System.out.println(className + ": Iteration " + iteration + " of 90");
-            if (iteration >= 90) {
+            if (iteration >= 90)
                 throw new Exception("Timeout");
-            }
 
             if (isTextOnPage(tool, "Loading Account Bundles...")) {
                 System.out.println("Still loading Bundles ...");
@@ -200,9 +199,8 @@ public class Common {
         for (int iteration = 0;; iteration++) {
 
             System.out.println(className + ": Iteration " + iteration + " of 90");
-            if (iteration >= 90) {
+            if (iteration >= 90)
                 throw new Exception("Timeout");
-            }
 
             if (isTextOnPage(tool, "Loading Devices...")) {
                 System.out.println("Still loading Devices ...");
@@ -219,9 +217,8 @@ public class Common {
         for (int iteration = 0;; iteration++) {
 
             System.out.println(className + ": Iteration " + iteration + " of 90");
-            if (iteration >= 90) {
+            if (iteration >= 90)
                 throw new Exception("Timeout");
-            }
 
             if (isTextOnPage(tool, "Loading Accessories...")) {
                 System.out.println("Still loading Accessories ...");
@@ -338,9 +335,8 @@ public class Common {
             resultSet = statement.executeQuery();
             resultSet.next();
             int rows = resultSet.getInt("MY_COUNT");
-            if (rows > 0) {
+            if (rows > 0)
                 exist = true;
-            }
 
         } finally {
             resultSet.close();
@@ -375,9 +371,8 @@ public class Common {
             resultSet.next();
             propertyValue = resultSet.getString("property_value");
 
-            if (propertyValue == null) {
+            if (propertyValue == null)
                 throw new Exception("Property does not exist in DB");
-            }
 
         } finally {
             resultSet.close();
@@ -424,14 +419,10 @@ public class Common {
     }
 
     private static void storePropertyInDB(String key, String value, String comment) throws Exception {
-
-        if (checkPropertyExistsInDB(key)) {
-
+        if (checkPropertyExistsInDB(key))
             updatePropertyInDB(key, value, comment);
-        } else {
-
+        else
             insertPropertyInDB(key, value, comment);
-        }
     }
 
     private static void storeMultiplePropertiesInDB(String key, String value, String comment) throws Exception {
@@ -441,10 +432,9 @@ public class Common {
 
     public static void storeLastNamePostpaidAccount(String lastName, String comment) throws Exception {
 
-        if (lastName.matches("BillingLN[0-9]{13}")) {
-
+        if (lastName.matches("BillingLN[0-9]{13}"))
             storePropertyInDB("postpaid_last_name", lastName, comment);
-        } else {
+        else {
 
             System.out.println("\r\n**************************************");
             System.out.println("WARNING - The property postpaid_last_name does not match the pattern 'BillingLN12314567890123/' " + lastName + "'");
@@ -455,29 +445,22 @@ public class Common {
     }
 
     public static void storeOrderingCUPLastNameAndAccountNumber(String lastName, String accountNumber, String comment) throws Exception {
-
         storeMultiplePropertiesInDB("cup_ordering_login_lastnameAccount", lastName + "++" + accountNumber, comment);
-
     }
 
     public static void storeNonOrderingCUPLastNameAndAccountNumber(String lastName, String accountNumber, String comment) throws Exception {
-
         storeMultiplePropertiesInDB("cup_nonordering_login_lastnameAccount", lastName + "++" + accountNumber, comment);
-
     }
 
     public static void storeNonOrderingCUPLoginAndPassword(String login, String password, String comment) throws Exception {
-
         storePropertyInDB("nonordering_cup_login_password", login + "++" + password, comment);
     }
 
     public static void storeCUPLoginAndPassword(String login, String password, String comment) throws Exception {
-
         storePropertyInDB("cup_login_password", login + "++" + password, comment);
     }
 
     public static void storeCOPLoginAndPassword(String login, String password, String comment) throws Exception {
-
         storePropertyInDB("cop_login_password", login + "++" + password, comment);
     }
 
@@ -531,7 +514,6 @@ public class Common {
     }
 
     public static String getNonOrderingCUPB2CPassword(String login) throws Exception {
-
         String temp[];
 
         String propertyValue = getMatchingPropertyValueFromDB("nonordering_cup_login_password", login);
@@ -562,7 +544,6 @@ public class Common {
     }
 
     public static String getCOPB2CPassword(String login) throws Exception {
-
         String temp[];
 
         String propertyValue = getMatchingPropertyValueFromDB("cop_login_password", login);
@@ -575,12 +556,10 @@ public class Common {
     }
 
     public static void storeLastNameAndAccountNumberPrepaidAccount(String lastName, String accountNumber, String comment) throws Exception {
-
         storeMultiplePropertiesInDB("prepaid_last_name_account", lastName + "++" + accountNumber, comment);
     }
 
     public static void storeLastNameAndAccountNumberPostpaidAccount(String lastName, String accountNumber, String comment) throws Exception {
-
         storeMultiplePropertiesInDB("postpaid_last_name_account", lastName + "++" + accountNumber, comment);
     }
 
@@ -597,17 +576,14 @@ public class Common {
     }
 
     public static String getAccountNumPrepaidAccount() throws Exception {
-
         return getPropertyValueFromDB("prepaid_account_number");
     }
 
     public static String getLastNameRechargableAccount() throws Exception {
-
         return getPropertyValueFromDB("bct_lastname");
     }
 
     public static String get3GIMSISerialNumber() throws Exception {
-
         return getPropertyValueFromDB("3GIMSI");
     }
 
@@ -619,7 +595,6 @@ public class Common {
     }
 
     public static String get3GSIMSerialNumber() throws Exception {
-
         return getPropertyValueFromDB("3GSIM");
     }
 
@@ -631,7 +606,6 @@ public class Common {
     }
 
     public static String getPrepaidMSISDNServicenumber() throws Exception {
-
         return getPropertyValueFromDB("PrepaidMSISDN");
     }
 
@@ -643,7 +617,6 @@ public class Common {
     }
 
     public static String getNormalMSISDNServicenumber() throws Exception {
-
         return getPropertyValueFromDB("NormalMSISDN");
     }
 
@@ -655,22 +628,18 @@ public class Common {
     }
 
     public static String getBCTLastName() throws Exception {
-
         return getPropertyValueFromDB("bct_lastname");
     }
 
     public static String getPersonFirstName() throws Exception {
-
         return "FN" + getPropertyValueFromDB("bct_login");
     }
 
     public static String getPersonLastName() throws Exception {
-
         return "LN" + getPropertyValueFromDB("bct_login");
     }
 
     public static void storeB2CLoginDetailsAndLastName(String lastName, String login, String Password, String comment) throws Exception {
-
         if (lastName.matches("LN[0-9]{13}")) {
             storePropertyInDB("bct_login", login, comment);
             storePropertyInDB("bct_password", Password, comment);
@@ -684,22 +653,18 @@ public class Common {
     }
 
     public static void storeSubscriberMSISDN(String subscriberMSISDN, String comment) throws Exception {
-
         storePropertyInDB("subscriber_MSISDN", subscriberMSISDN, comment);
     }
 
     public static void storeBusinessAccountID(String accountID, String comment) throws Exception {
-
         storePropertyInDB("business_account_id", accountID, comment);
     }
 
     public static void storeBusinessAdminLogin(String login, String comment) throws Exception {
-
         storePropertyInDB("business_login", login, comment);
     }
 
     public static void storeBusinessAdminPassword(String password, String comment) throws Exception {
-
         storePropertyInDB("business_password", password, comment);
     }
 
@@ -715,11 +680,9 @@ public class Common {
             throw e;
         }
         return propertyValue;
-
     }
 
     public static String getBusinessAdminPassword() throws Exception {
-
         String propertyValue = "";
 
         try {
@@ -731,11 +694,9 @@ public class Common {
             throw e;
         }
         return propertyValue;
-
     }
 
     public static String getBusinessAccountID() throws Exception {
-
         String propertyValue = "";
 
         try {
@@ -747,11 +708,9 @@ public class Common {
             throw e;
         }
         return propertyValue;
-
     }
 
     public static String getSubscriberMSISDN() throws Exception {
-
         String propertyValue = "";
 
         try {
@@ -767,7 +726,6 @@ public class Common {
     }
 
     public static String getLastNameOfUnregisteredAccountForSignMeUp(String accountnumber) throws Exception {
-
         String temp[];
 
         String propertyValue = getMatchingPropertyValueFromDB("prepaid_last_name_account", accountnumber);
@@ -779,7 +737,6 @@ public class Common {
     }
 
     public static String getAccountNumberOfUnregisteredAccountForSignMeUp() throws Exception {
-
         String temp[];
         String propertyValue = "";
         try {
@@ -796,7 +753,6 @@ public class Common {
     }
 
     public static String getLastNameOfCOPForSignMeUp(String accountnumber) throws Exception {
-
         String temp[];
 
         String propertyValue = getMatchingPropertyValueFromDB("postpaid_last_name_account", accountnumber);
@@ -808,7 +764,6 @@ public class Common {
     }
 
     public static String getAccountNumberOfCOPForSignMeUp() throws Exception {
-
         String temp[];
         String propertyValue = "";
         try {
@@ -825,12 +780,10 @@ public class Common {
     }
 
     public static String getB2CLoginName() throws Exception {
-
         return getPropertyValueFromDB("bct_login");
     }
 
     public static String getB2CPassword() throws Exception {
-
         return getPropertyValueFromDB("bct_password");
     }
 
@@ -885,7 +838,6 @@ public class Common {
     }
 
     public static String getRechargeVoucher() throws Exception {
-
         String propertyValue;
         try {
             propertyValue = getPropertyValueFromDB("RechargeVoucher");
@@ -1012,7 +964,6 @@ public class Common {
     }
 
     public static void sftpFile(String host, String login, String password, String sourceFile, String targetDir) throws Exception {
-
         Session session = null;
         Channel channel = null;
 
@@ -1083,7 +1034,6 @@ public class Common {
     }
 
     public static String formatToHHmmss(String howManySeconds) throws Exception {
-
         int initSeconds = Integer.parseInt(howManySeconds);
         int hours = initSeconds / 3600;
         int remainder = initSeconds % 3600;
@@ -1097,7 +1047,8 @@ public class Common {
 
     public static String getMethodName() throws Exception {
         StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
-        StackTraceElement e = stacktrace[2];//maybe this number needs to be corrected
+        // maybe this number needs to be corrected
+        StackTraceElement e = stacktrace[2];
         return e.getMethodName();
     }
 }
