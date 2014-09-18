@@ -1,7 +1,5 @@
 package com.comverse.css.csr.cm;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,7 +48,7 @@ public class CM0020_View_existing_cases_and_details_for_Channel_and_CSR_Portal e
             Common.assertTextEquals(viewCase.getCaseDescription(), "This was created by automated test.");
 
             viewCase.clickNotesTab();
-            assertTrue(viewCase.getNoteType().contains("Task Note"));
+            Common.assertVerifyTrue(tool, viewCase.getNoteType().contains("Task Note"));
             Common.assertTextEquals(viewCase.getNoteDescription(), "Note - Task to do");
 
             test.setResult("pass");

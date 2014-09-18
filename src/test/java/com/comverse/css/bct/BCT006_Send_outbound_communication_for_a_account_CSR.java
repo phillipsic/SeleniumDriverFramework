@@ -1,7 +1,5 @@
 package com.comverse.css.bct;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,7 +45,7 @@ public class BCT006_Send_outbound_communication_for_a_account_CSR extends CSSTes
         sendCommunication.enterEmailTo("email@email.com");
 
         OutboundCommunication outboundCommunication = sendCommunication.clickSendCommunication();
-        assertTrue(outboundCommunication.getSendOBCMessage().matches("^[\\s\\S]*The outbound communication has been sent[\\s\\S]*$"));
+        Common.assertVerifyTrue(tool, outboundCommunication.getSendOBCMessage().matches("^[\\s\\S]*The outbound communication has been sent[\\s\\S]*$"));
 
         test.setResult("pass");
     }

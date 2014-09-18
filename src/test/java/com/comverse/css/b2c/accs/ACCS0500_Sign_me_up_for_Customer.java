@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.accs;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,17 +32,17 @@ public class ACCS0500_Sign_me_up_for_Customer extends CSSTest {
 
             HomePage homePage = new HomePage(tool, test, user);
             homePage.clickActivateAccount();
-            assertTrue(homePage.getActivateAccountMessage().matches("^[\\s\\S]*Enter your customer number and your last name or your company name"));
+            Common.assertVerifyTrue(tool, homePage.getActivateAccountMessage().matches("^[\\s\\S]*Enter your customer number and your last name or your company name"));
             homePage.enterLastName(lastName);
             homePage.enterAccountNumber(accountNumber);
             homePage.clickContinueActivateAccount();
-            // assertTrue(homePage.getMessageFromTheSignMeUpPage().matches("^[\\s\\S]*To finish the Sign Up process, you need to fill a few information."));
+            // Common.assertVerifyTrue(tool, homePage.getMessageFromTheSignMeUpPage().matches("^[\\s\\S]*To finish the Sign Up process, you need to fill a few information."));
             homePage.enterLogin("b2c_" + accountNumber);
             homePage.enterPassword("Passw0rd!");
             homePage.enterConfirmPassword("Passw0rd!");
             homePage.enterSecretAnswer("Passw0rd!");
             homePage.clickSignMeUp();
-            assertTrue(homePage.getSuccesfulSignMeUpMessage().matches("^[\\s\\S]*The \"Sign Me Up\" has been submitted successfully."));
+            Common.assertVerifyTrue(tool, homePage.getSuccesfulSignMeUpMessage().matches("^[\\s\\S]*The \"Sign Me Up\" has been submitted successfully."));
 
             test.setResult("pass");
 

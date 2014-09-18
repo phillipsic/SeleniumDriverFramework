@@ -1,7 +1,5 @@
 package com.comverse.css.pos.cm;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,20 +47,20 @@ public class CM0010_Create_case_without_Edialog_for_Channel_CSR_portal extends C
 
             AddCaseConfirmation addCaseConfirmation = addCaseReview.clickCreateCase();
 
-            assertTrue(addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
 
             String caseId = addCaseConfirmation.getCaseID();
             accountDetails = addCaseConfirmation.clickOk();
             ViewCase viewCase = accountDetails.clickLinkOfCaseID(caseId);
 
-            assertTrue(viewCase.getCaseType().matches("^[\\s\\S]*General Request[\\s\\S]*$"));
-            assertTrue(viewCase.getCaseProblemArea().matches("^[\\s\\S]*Need Credit Limit Increased[\\s\\S]*$"));
-            assertTrue(viewCase.getCaseDescription().matches("^[\\s\\S]*This was created by automated test PBM61.[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseType().matches("^[\\s\\S]*General Request[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseProblemArea().matches("^[\\s\\S]*Need Credit Limit Increased[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getCaseDescription().matches("^[\\s\\S]*This was created by automated test PBM61.[\\s\\S]*$"));
 
             viewCase.clickNotesTab();
 
-            assertTrue(viewCase.getNoteType().matches("^[\\s\\S]*Task Note[\\s\\S]*$"));
-            assertTrue(viewCase.getNoteDescription().matches("^[\\s\\S]*Note - Task to do[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getNoteType().matches("^[\\s\\S]*Task Note[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, viewCase.getNoteDescription().matches("^[\\s\\S]*Note - Task to do[\\s\\S]*$"));
 
             viewCase.clickBack();
 

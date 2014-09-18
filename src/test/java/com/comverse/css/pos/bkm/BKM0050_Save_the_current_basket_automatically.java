@@ -1,7 +1,5 @@
 package com.comverse.css.pos.bkm;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -67,7 +65,7 @@ public class BKM0050_Save_the_current_basket_automatically extends CSSTest {
 
             Common.assertTextEquals("Owner", myBasket.getTypeRole());
 
-            assertTrue(myBasket.getOfferName().matches(po_ResidentialUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, myBasket.getOfferName().matches(po_ResidentialUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
             Common.assertTextEquals("1", myBasket.getQuantity());
             Common.assertTextEquals("$ 30.00 Monthly", myBasket.getRecurringCharge());
             Common.assertTextEquals("$ 22.00", myBasket.getUpfrontCharge());
@@ -85,7 +83,7 @@ public class BKM0050_Save_the_current_basket_automatically extends CSSTest {
 
             Common.assertTextEquals("Owner", myBasket.getTypeRole());
 
-            assertTrue(myBasket.getOfferName().matches(po_ResidentialUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, myBasket.getOfferName().matches(po_ResidentialUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
             Common.assertTextEquals("1", myBasket.getQuantity());
             Common.assertTextEquals("$ 30.00 Monthly", myBasket.getRecurringCharge());
             Common.assertTextEquals("$ 22.00", myBasket.getUpfrontCharge());

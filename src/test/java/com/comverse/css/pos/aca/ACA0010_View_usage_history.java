@@ -1,13 +1,12 @@
 package com.comverse.css.pos.aca;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.pos.*;
 import com.comverse.data.apps.POS;
@@ -42,7 +41,7 @@ public class ACA0010_View_usage_history extends CSSTest {
             viewUsageHistory.enterToDateTodayFromDateMinus20();
             test.setBugId("CBS00163146");
             viewUsageHistory.clickSearch();
-            assertTrue(!"No data".equals(viewUsageHistory.getSearchResults()));
+            Common.assertVerifyTrue(tool, !"No data".equals(viewUsageHistory.getSearchResults()));
             test.setBugId("NoBug");
             viewUsageHistory.ViewUsageDetails();
 

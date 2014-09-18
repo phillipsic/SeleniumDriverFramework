@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.accs;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,7 +54,7 @@ public class ACCS0100_Lock_Login_after_login_failed extends CSSTest {
             homePage.enterPassword("wrong");
             homePage.clickLogInExpectingFail();
 
-            assertTrue(homePage.getLogoffMessage().matches("Your login has been locked"));
+            Common.assertVerifyTrue(tool, homePage.getLogoffMessage().matches("Your login has been locked"));
 
             test.setResult("pass");
 

@@ -1,7 +1,5 @@
 package com.comverse.css.bct;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,7 +45,7 @@ public class BCT002_PO_Residential_Recharge_CSR extends CSSTest {
 
         RechargeSubscriber rechargeSubscriber = nonVoucherRechargeReview.confirmNonVoucherRecharge();
 
-        assertTrue(rechargeSubscriber.getRechargeClass().matches("^[\\s\\S]*Check[\\s\\S]*$"));
+        Common.assertVerifyTrue(tool, rechargeSubscriber.getRechargeClass().matches("^[\\s\\S]*Check[\\s\\S]*$"));
 
         viewBalance = rechargeSubscriber.clickViewBalances();
 

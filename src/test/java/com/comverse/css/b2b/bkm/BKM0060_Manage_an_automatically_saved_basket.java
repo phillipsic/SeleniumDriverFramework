@@ -1,7 +1,5 @@
 package com.comverse.css.b2b.bkm;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,7 +48,7 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
             myBasket.clickViewBasket();
 
             // Common.assertTextEquals("Owner", myBasket.getTypeRole());
-            assertTrue(myBasket.getOfferName().matches(po_BusinessUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, myBasket.getOfferName().matches(po_BusinessUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
             Common.assertTextEquals("1", myBasket.getQuantity());
             Common.assertTextEquals("$ " + po_BusinessUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
             Common.assertTextEquals("$ " + po_BusinessUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
@@ -66,7 +64,7 @@ public class BKM0060_Manage_an_automatically_saved_basket extends CSSTest {
             myBasket.assign3InventoriesFirstOffer(subscriber);
             test.setBugId("NoBug");
 
-            assertTrue(myBasket.getOfferName().matches(po_BusinessUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, myBasket.getOfferName().matches(po_BusinessUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
             Common.assertTextEquals("1", myBasket.getQuantity());
             Common.assertTextEquals("$ " + po_BusinessUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
             Common.assertTextEquals("$ " + po_BusinessUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());

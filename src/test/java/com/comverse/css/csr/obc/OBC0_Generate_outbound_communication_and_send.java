@@ -1,7 +1,5 @@
 package com.comverse.css.csr.obc;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,7 +57,7 @@ public class OBC0_Generate_outbound_communication_and_send extends CSSTest {
             sendCommunication.clickContinue();
 
             OutboundCommunication outboundCommunication = sendCommunication.clickSendCommunication();
-            assertTrue(outboundCommunication.getSendOBCMessage().matches("^[\\s\\S]*The outbound communication has been sent[\\s\\S]*$"));
+            Common.assertVerifyTrue(tool, outboundCommunication.getSendOBCMessage().matches("^[\\s\\S]*The outbound communication has been sent[\\s\\S]*$"));
 
             test.setResult("pass");
 

@@ -1,13 +1,12 @@
 package com.comverse.css.csr.aca;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.csr.*;
 import com.comverse.data.apps.CSR;
@@ -40,7 +39,7 @@ public class ACA0040_View_NRC_history extends CSSTest {
             ViewNRCHistory viewNRCHistory = viewTransactionHistory.clickonNRCHistory();
             viewNRCHistory.enterToDateTodayFromDateMinus10();
             viewNRCHistory.clickSearch();
-            assertTrue("NRC history found".equals(viewNRCHistory.getSearchResults()));
+            Common.assertVerifyTrue(tool, "NRC history found".equals(viewNRCHistory.getSearchResults()));
             viewNRCHistory.ViewNRCTermDetails();
 
             test.setResult("pass");

@@ -1,7 +1,5 @@
 package com.comverse.css.csr.cm;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,7 +46,7 @@ public class CM0230_Cancel_case extends CSSTest {
             Common.assertTextEquals(viewCase.getCaseStatus(), "Cancelled");
             Common.assertTextEquals(viewCase.getCaseJustificationStatus(), "Problem Solved");
             viewCase.clickNotesTab();
-            assertTrue(viewCase.getNoteType().contains("Complaint"));
+            Common.assertVerifyTrue(tool, viewCase.getNoteType().contains("Complaint"));
             Common.assertTextEquals(viewCase.getNoteDescription(), "Problem Solved");
             viewCase.clickBack();
 
