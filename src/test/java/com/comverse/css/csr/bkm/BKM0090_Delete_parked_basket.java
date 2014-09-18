@@ -1,5 +1,4 @@
 package com.comverse.css.csr.bkm;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +9,6 @@ import com.comverse.css.csr.*;
 import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
 import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
-
 
 public class BKM0090_Delete_parked_basket extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();
@@ -54,7 +52,7 @@ public class BKM0090_Delete_parked_basket extends CSSTest {
 
             DeleteBasketConfirm deleteBasketConfirm = resumeAParkedBasket.deleteParkedBasket(uniqueTimeStamp);
             resumeAParkedBasket = deleteBasketConfirm.clickOk();
-            assertTrue(!Common.isTextOnPage(tool, uniqueTimeStamp));
+            Common.assertTextNotOnPage(tool, uniqueTimeStamp);
 
             test.setResult("pass");
 

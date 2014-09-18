@@ -1,7 +1,5 @@
 package com.comverse.css.b2b.bkm;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,7 +56,7 @@ public class BKM0090_Delete_parked_basket extends CSSTest {
 
             DeleteBasketConfirm deleteBasketConfirm = resumeAParkedBasket.deleteParkedBasket(uniqueTimeStamp);
             resumeAParkedBasket = deleteBasketConfirm.clickOk();
-            assertTrue(!Common.isTextOnPage(tool, uniqueTimeStamp));
+            Common.assertTextNotOnPage(tool, uniqueTimeStamp);
 
             test.setResult("pass");
 

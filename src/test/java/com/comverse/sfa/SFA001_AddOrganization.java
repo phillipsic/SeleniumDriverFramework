@@ -1,7 +1,5 @@
 package com.comverse.sfa;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,7 +62,7 @@ public class SFA001_AddOrganization extends SFATest {
             organization.findOrganization(orgName);
 
             // check organization attributes
-            assertTrue(organization.getOrganizationName().matches(orgName));
+            Common.assertVerifyTrue(tool, organization.getOrganizationName().matches(orgName));
             Common.assertTextEquals("Reseller 0", organization.getResellerId());
             Common.assertTextEquals("Active", organization.getStatus());
             Common.assertTextEquals("Prospect", organization.getCustomerCategory());

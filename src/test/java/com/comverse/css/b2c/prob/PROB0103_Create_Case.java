@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.prob;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,13 +54,13 @@ public class PROB0103_Create_Case extends CSSTest {
             listCases = addCase.clickListCases();
             listCases.clickOnCaseIDLink(newCaseID);
 
-            assertTrue(Common.isTextOnPageWithRegex(tool, "Reference:\\s*" + newCaseID));
-            assertTrue(Common.isTextOnPageWithRegex(tool, "Status:\\s*New"));
-            assertTrue(Common.isTextOnPageWithRegex(tool, "Reporting Person:\\s*" + "FN" + login.toLowerCase()));
-            assertTrue(Common.isTextOnPageWithRegex(tool, "Affected Person:\\s*" + "FN" + login.toLowerCase()));
-            assertTrue(Common.isTextOnPageWithRegex(tool, "Type:\\s*Service Problem"));
-            assertTrue(Common.isTextOnPageWithRegex(tool, "Problem area:\\s*Calls Dropped"));
-            assertTrue(Common.isTextOnPageWithRegex(tool, "Case Description entered by PROB0103 test"));
+            Common.assertVerifyTrue(tool, Common.isTextOnPageWithRegex(tool, "Reference:\\s*" + newCaseID));
+            Common.assertVerifyTrue(tool, Common.isTextOnPageWithRegex(tool, "Status:\\s*New"));
+            Common.assertVerifyTrue(tool, Common.isTextOnPageWithRegex(tool, "Reporting Person:\\s*" + "FN" + login.toLowerCase()));
+            Common.assertVerifyTrue(tool, Common.isTextOnPageWithRegex(tool, "Affected Person:\\s*" + "FN" + login.toLowerCase()));
+            Common.assertVerifyTrue(tool, Common.isTextOnPageWithRegex(tool, "Type:\\s*Service Problem"));
+            Common.assertVerifyTrue(tool, Common.isTextOnPageWithRegex(tool, "Problem area:\\s*Calls Dropped"));
+            Common.assertVerifyTrue(tool, Common.isTextOnPageWithRegex(tool, "Case Description entered by PROB0103 test"));
 
             test.setResult("pass");
 

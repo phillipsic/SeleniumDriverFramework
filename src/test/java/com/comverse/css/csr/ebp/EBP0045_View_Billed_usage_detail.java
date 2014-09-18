@@ -1,7 +1,5 @@
 package com.comverse.css.csr.ebp;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +41,7 @@ public class EBP0045_View_Billed_usage_detail extends CSSTest {
             ViewBilledUsage viewBilledUsage = viewInvoiceDetails.clickBilledUsages();
             viewBilledUsage.enterFromDate("01/01/2010");
             viewBilledUsage = viewBilledUsage.clickSearch();
-            assertTrue(Common.isTextNotOnPage(tool, "No data"));
+            Common.assertTextNotOnPage(tool, "No data");
             Common.assertTextOnPage(tool, "Billed usages of the invoice");
             Common.assertTextOnPage(tool, "Usage Date/Time");
 
