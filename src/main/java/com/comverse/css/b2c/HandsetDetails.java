@@ -22,6 +22,7 @@ public class HandsetDetails extends B2CMenu {
     public MyBasket clickBuyOutRight() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Buy Outright']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new MyBasket(tool, test, user);
     }
 
@@ -34,6 +35,7 @@ public class HandsetDetails extends B2CMenu {
     public ChooseYourHandset clickReturnToList() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Return to List']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourHandset(tool, test, user);
     }
 }

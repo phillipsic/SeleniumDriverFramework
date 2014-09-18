@@ -97,12 +97,14 @@ public class ChooseYourHandset extends B2CMenu {
     public HandsetDetails viewDetailsOfHandset(String Handset) throws Exception {
         test.writeInLogFile(Common.getMethodName() + " using data (" + Handset + ")");
         tool.clickUsingXPath(".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='View Details']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new HandsetDetails(tool, test, user);
     }
 
     public ChooseYourHandset clickAddToCompare(String Handset) throws Exception {
         test.writeInLogFile(Common.getMethodName() + " using data (" + Handset + ")");
         tool.clickUsingXPath(".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Add to Compare']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourHandset(tool, test, user);
     }
 
