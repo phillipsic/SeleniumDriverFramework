@@ -24,12 +24,14 @@ public class B2CMenu extends Main {
     public HomePage clickLogout() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_LOGOUT");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new HomePage(tool, test, user);
     }
 
     public SearchMember clickFamilyMemeber() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("mnu_MEMBERS");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SearchMember(tool, test, user);
     }
 
@@ -38,6 +40,7 @@ public class B2CMenu extends Main {
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.sleepForNumberOfSeconds(5);
         tool.clickUsingID("mnu_HOME");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
     }
 

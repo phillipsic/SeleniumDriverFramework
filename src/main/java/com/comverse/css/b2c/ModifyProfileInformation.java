@@ -29,6 +29,7 @@ public class ModifyProfileInformation extends B2CMenu {
     public ConfirmModifyProfileInformation clickOK() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("okButton");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ConfirmModifyProfileInformation(tool, test, user);
 
     }
