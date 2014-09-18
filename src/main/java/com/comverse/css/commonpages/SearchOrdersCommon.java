@@ -11,6 +11,7 @@ import com.comverse.css.common.Account;
 import com.comverse.css.common.Common;
 
 public class SearchOrdersCommon extends CommonMenu {
+
     static String expectedScreen = "Search Orders";
 
     public SearchOrdersCommon(AutomationTool tool, Test test, User user) throws Exception {
@@ -51,13 +52,13 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public String getOrderStatus1() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+       // test.writeInLogFile(Common.getMethodName());
         String orderStatus = tool.getTextUsingXPath("//table[@id='orderList']/tbody/tr/td[5]");
         return orderStatus;
     }
 
     public String getOrderStatus2() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        //test.writeInLogFile(Common.getMethodName());
         String orderStatus = tool.getTextUsingXPath("//table[@id='orderList']/tbody/tr/td[4]");
         return orderStatus;
     }
@@ -68,7 +69,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public void waitUntilOrderCompletedOrFailed(String orderNumber) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " with data (" + orderNumber + ")");
 
         int maxIterations = 120;
         int iterationCounter = 0;
@@ -83,8 +84,9 @@ public class SearchOrdersCommon extends CommonMenu {
             orderStatus2 = this.getOrderStatus2();
 
             System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + orderStatus1);
-
+            test.writeInLogFile("Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + orderStatus1);
             if (orderStatus1.equals("Complete") || orderStatus2.equals("Completed")) {
+                test.writeInLogFile("Order Complete");
                 System.out.println("Order Complete");
                 break;
             }
