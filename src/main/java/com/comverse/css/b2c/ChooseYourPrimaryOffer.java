@@ -23,6 +23,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
 
         test.writeInLogFile(Common.getMethodName() + "with data (" + primaryOfferName + ")");
         this.clickSelectPrimaryOffer(primaryOfferName);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
 
         System.out.println("Checking for device page");
         if ("Choose Your Device".equals(tool.getTitle())) {
@@ -30,8 +31,6 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
             tool.clickUsingCssSelector("input[name='nothanks']");
             System.out.println("Checking for device page - found - No Thanks");
         }
-
-        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new EnterYourSubscriptionDetails(tool, test, user);
     }
 
