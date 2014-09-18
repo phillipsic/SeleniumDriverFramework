@@ -27,8 +27,8 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
 
     public ResumeBasketConfirmCommon resumeParkedBasket(String value) throws Exception {
         test.writeInLogFile(Common.getMethodName());
-
         tool.clickUsingLinkText(value);
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ResumeBasketConfirmCommon(tool, test, user);
     }
 
@@ -52,6 +52,7 @@ public class ResumeAParkedBasketCommon extends CommonMenu {
         tool.clickUsingXPath("//td[contains(.,'" + basketName + "')]/../td[2]/span/input");
 
         tool.clickUsingXPath("//input[@value='Delete']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new DeleteBasketConfirmCommon(tool, test, user);
     }
 }

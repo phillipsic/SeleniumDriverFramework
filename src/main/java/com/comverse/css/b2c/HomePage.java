@@ -86,36 +86,42 @@ public class HomePage extends B2CMenu {
     public SubscriberDetail clickLogIn() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInExpectingWorkSpace() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickLogInAsTelcoAdmin() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpace(tool, test, user);
     }
 
     public WorkSpace clickChange() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Change']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpace(tool, test, user);
     }
 
     public SubscriberDetail clickChangeExpectingSubscriberDetail() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Change']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new SubscriberDetail(tool, test, user);
     }
 
     public WorkSpace clickLogInWithCUP() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("LoginButton");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new WorkSpace(tool, test, user);
     }
 

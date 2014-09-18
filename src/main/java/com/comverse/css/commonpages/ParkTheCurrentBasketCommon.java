@@ -27,7 +27,7 @@ public class ParkTheCurrentBasketCommon extends CommonMenu {
 
     public void clickOk() throws Exception {
         test.writeInLogFile(Common.getMethodName());
-
         tool.clickUsingXPath("//input[@value='OK']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 }
