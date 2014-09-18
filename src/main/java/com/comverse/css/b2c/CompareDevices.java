@@ -26,12 +26,12 @@ public class CompareDevices extends B2CMenu {
         return new ChooseYourHandset(tool, test, user);
     }
 
-    public String getDevice1() throws Exception {
+    public String getDevice1Name() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         return tool.getTextUsingXPath("//table[@class='listTable']//th[1]");
     }
 
-    public String getDevice2() throws Exception {
+    public String getDevice2Name() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         return tool.getTextUsingXPath("//table[@class='listTable']//th[2]");
     }
