@@ -1,7 +1,5 @@
 package com.comverse.css.pos.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,19 +42,19 @@ public class UAM0020_Edit_login_information extends CSSTest {
             ViewHierarchy viewHierarchy = searchRetailer.clickDealerLink("Dealer 1");
             viewHierarchy.addEmployeeTelcoRetailerAdministrator(uniqueCode);
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
+            Common.assertTextEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
+            Common.assertTextEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals("Telco Retailer Administrator", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("Telco Retailer Administrator", loginInformation.getCurrentRoleFromPage());
 
             ChangeRoles changeRoles = loginInformation.clickChangeRoles();
             changeRoles.clickRadioButtonRetailerSubscriber();
             changeRoles.clickOk();
-            assertEquals("Please confirm the change of roles for login " + uniqueCode + " of user FN" + uniqueCode + " LN" + uniqueCode, changeRoles.getConfirmationMessage());
+            Common.assertTextEquals("Please confirm the change of roles for login " + uniqueCode + " of user FN" + uniqueCode + " LN" + uniqueCode, changeRoles.getConfirmationMessage());
 
             ModifyLoginRoles modifyLoginRoles = changeRoles.clickConfirm();
             loginInformation = modifyLoginRoles.clickVeiwLoginInformationLink();
-            assertEquals("Telco Retailer Subscriber", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("Telco Retailer Subscriber", loginInformation.getCurrentRoleFromPage());
 
             test.setResult("pass");
 

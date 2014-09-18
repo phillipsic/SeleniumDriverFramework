@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.orma;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,7 +49,7 @@ public class ORMA0001_List_All_Orders_ResidentialUser extends CSSTest {
 
             searchOrders.setOrderNumber(firstOrderNumber);
             searchOrders.clickSearch();
-            assertEquals(firstOrderNumber, searchOrders.getOrderNumber());
+            Common.assertTextEquals(firstOrderNumber, searchOrders.getOrderNumber());
 
             searchOrders.setOrderStatus("Dispatched");
             searchOrders.clickSearch();
@@ -59,7 +57,7 @@ public class ORMA0001_List_All_Orders_ResidentialUser extends CSSTest {
 
             searchOrders.setOrderStatus(firstOrderStatus);
             searchOrders.clickSearch();
-            assertEquals(firstOrderStatus, searchOrders.getOrderStatus());
+            Common.assertTextEquals(firstOrderStatus, searchOrders.getOrderStatus());
 
             searchOrders.setToDate("01/01/2014");
             searchOrders.setFromDate("01/01/2013");
@@ -68,7 +66,7 @@ public class ORMA0001_List_All_Orders_ResidentialUser extends CSSTest {
 
             searchOrders.setToDate(firstOrderDate);
             searchOrders.clickSearch();
-            assertEquals(firstOrderDate, searchOrders.getOrderDate());
+            Common.assertTextEquals(firstOrderDate, searchOrders.getOrderDate());
 
             test.setResult("pass");
 

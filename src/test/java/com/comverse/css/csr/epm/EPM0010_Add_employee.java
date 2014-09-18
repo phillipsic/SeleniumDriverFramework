@@ -1,7 +1,5 @@
 package com.comverse.css.csr.epm;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,10 +37,10 @@ public class EPM0010_Add_employee extends CSSTest {
             viewHierarchy.addEmployee(uniqueCode, "OCM User");
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
+            Common.assertTextEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
+            Common.assertTextEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals("OCM User", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("OCM User", loginInformation.getCurrentRoleFromPage());
 
             loginInformation.clickLogoutExpectingSSO();
 

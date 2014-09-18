@@ -1,7 +1,5 @@
 package com.comverse.css.b2b.bam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,9 +50,9 @@ public class BAM0030_Modify_payment_method_information extends CSSTest {
             // accountDetails.clickRefreshThisAccount();
             modifyPaymentInformation = accountDetails.clickModifyPaymentMethod();
 
-            assertEquals(workSpace.getAccount().getBillingBankCodeProperty(), modifyPaymentInformation.getBankCode());
-            assertEquals(workSpace.getAccount().getBillingBankAgencyCodeProperty(), modifyPaymentInformation.getBankAgencyCode());
-            assertEquals(workSpace.getAccount().getBillingBankAccountNumberProperty(), modifyPaymentInformation.getBankAccountNumber());
+            Common.assertTextEquals(workSpace.getAccount().getBillingBankCodeProperty(), modifyPaymentInformation.getBankCode());
+            Common.assertTextEquals(workSpace.getAccount().getBillingBankAgencyCodeProperty(), modifyPaymentInformation.getBankAgencyCode());
+            Common.assertTextEquals(workSpace.getAccount().getBillingBankAccountNumberProperty(), modifyPaymentInformation.getBankAccountNumber());
 
             test.setResult("pass");
 

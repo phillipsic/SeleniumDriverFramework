@@ -1,6 +1,5 @@
 package com.comverse.css.csr.bkm;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
@@ -9,6 +8,7 @@ import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.csr.*;
 import com.comverse.css.data.PO.PO_ResidentialUltraPostpaid;
@@ -44,14 +44,14 @@ public class BKM0010_View_and_manage_basket extends CSSTest {
                     .getBalanceValue());
             MyBasket myBasket = configureBalance.clickContinueExpectingMyBasket();
 
-            assertEquals("Owner", myBasket.getTypeRole());
+            Common.assertTextEquals("Owner", myBasket.getTypeRole());
 
             assertTrue(myBasket.getOfferName().matches(po_ResidentialUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
-            assertEquals("1", myBasket.getQuantity());
-            assertEquals("$ " + po_ResidentialUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
-            assertEquals("$ " + po_ResidentialUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
+            Common.assertTextEquals("1", myBasket.getQuantity());
+            Common.assertTextEquals("$ " + po_ResidentialUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
+            Common.assertTextEquals("$ " + po_ResidentialUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
 
-            assertEquals(enterIdentificationData.person.getPersonStreetNumberProperty() + " " + enterIdentificationData.person.getPersonStreetNameProperty() + " "
+            Common.assertTextEquals(enterIdentificationData.person.getPersonStreetNumberProperty() + " " + enterIdentificationData.person.getPersonStreetNameProperty() + " "
                     + enterIdentificationData.person.getPersonCityProperty() + "  IA " + enterIdentificationData.person.getPersonPostCodeProperty() + " "
                     + enterIdentificationData.person.getPersonHomeCountryProperty(), myBasket.getAddress());
 

@@ -1,7 +1,5 @@
 package com.comverse.css.pos.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,10 +44,10 @@ public class UAM0070_Unlock_login extends CSSTest {
             String tempPassword = viewHierarchy.addEmployeeTelcoRetailerSubscriber(uniqueCode);
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
+            Common.assertTextEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
+            Common.assertTextEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals("Telco Retailer Subscriber", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("Telco Retailer Subscriber", loginInformation.getCurrentRoleFromPage());
 
             LockLogin lockLogin = loginInformation.clickLockLogin();
             lockLogin.clickConfirm();
@@ -61,7 +59,7 @@ public class UAM0070_Unlock_login extends CSSTest {
             user2.setNewPassword(tempPassword);
             myShapeChannel.unsuccessfulLogin(user2);
 
-            assertEquals("Your login has been locked", myShapeChannel.getMessage());
+            Common.assertTextEquals("Your login has been locked", myShapeChannel.getMessage());
 
             myShapeChannel.clickAdminLogin(application);
             myShapeChannel.loginToPOSAsTelcoAdmin(user);

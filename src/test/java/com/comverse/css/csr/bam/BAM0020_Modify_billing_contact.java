@@ -1,7 +1,5 @@
 package com.comverse.css.csr.bam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -70,14 +68,14 @@ public class BAM0020_Modify_billing_contact extends CSSTest {
             accountDetails = requestsForCustomer.clickAccounts();
             accountDetails.clickRefreshThisAccount();
             modifyContactInformation = accountDetails.clickModifyBillingContact();
-            assertEquals(account.getBillingFirstNameProperty(), modifyContactInformation.getFirstName());
-            assertEquals(account.getBillingLastNameProperty(), modifyContactInformation.getLastName());
-            assertEquals(account.getBillingEmailProperty(), modifyContactInformation.getEmail());
-            assertEquals(account.getBillingPhoneProperty(), modifyContactInformation.getPhoneNumber());
-            assertEquals(account.getBillingFaxProperty(), modifyContactInformation.getFaxNumber());
-            assertEquals(account.getBillingPostCodeProperty(), modifyContactInformation.getZipCode());
-            assertEquals(account.getBillingCityProperty(), modifyContactInformation.getCity());
-            assertEquals(account.getBillingStreetNameProperty(), modifyContactInformation.getAddressLineOne());
+            Common.assertTextEquals(account.getBillingFirstNameProperty(), modifyContactInformation.getFirstName());
+            Common.assertTextEquals(account.getBillingLastNameProperty(), modifyContactInformation.getLastName());
+            Common.assertTextEquals(account.getBillingEmailProperty(), modifyContactInformation.getEmail());
+            Common.assertTextEquals(account.getBillingPhoneProperty(), modifyContactInformation.getPhoneNumber());
+            Common.assertTextEquals(account.getBillingFaxProperty(), modifyContactInformation.getFaxNumber());
+            Common.assertTextEquals(account.getBillingPostCodeProperty(), modifyContactInformation.getZipCode());
+            Common.assertTextEquals(account.getBillingCityProperty(), modifyContactInformation.getCity());
+            Common.assertTextEquals(account.getBillingStreetNameProperty(), modifyContactInformation.getAddressLineOne());
 
             test.setResult("pass");
 

@@ -1,7 +1,5 @@
 package com.comverse.css.pos.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +51,7 @@ public class UAM0140_Force_user_to_change_password_on_first_login extends CSSTes
             user2.setNewPassword(tempPassword);
             myShapeChannel.successfulLogin(user2);
 
-            assertEquals("You must change your password", myShapeChannel.getChangePasswordOnFirstLoginMessage());
+            Common.assertTextEquals("You must change your password", myShapeChannel.getChangePasswordOnFirstLoginMessage());
             myShapeChannel.setYourPassword(tempPassword);
             myShapeChannel.setNewPassword("Passw0rd!");
             myShapeChannel.setConfirmNewPassword("Passw0rd!");

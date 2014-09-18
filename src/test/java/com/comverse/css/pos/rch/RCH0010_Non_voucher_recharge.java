@@ -1,7 +1,5 @@
 package com.comverse.css.pos.rch;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,7 +57,7 @@ public class RCH0010_Non_voucher_recharge extends CSSTest {
 
             Double coreBalanceAfterRecharge = viewBalance.getCoreBalance();
 
-            assertEquals(expectedCoreBalanceAfterRecharge, coreBalanceAfterRecharge);
+            Common.assertTextEquals(expectedCoreBalanceAfterRecharge, coreBalanceAfterRecharge);
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

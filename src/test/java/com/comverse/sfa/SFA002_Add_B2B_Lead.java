@@ -1,7 +1,5 @@
 package com.comverse.sfa;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,10 +53,10 @@ public class SFA002_Add_B2B_Lead extends SFATest {
             b2bLead = homePage.clickNavigationB2BLead();
             b2bLead.findAndOpenB2BLeadByName(b2bLeadName);
 
-            assertEquals(b2bLeadName, b2bLead.getB2BLeadName());
-            assertEquals("IntCorp Standard B2B", b2bLead.getPriceList());
+            Common.assertTextEquals(b2bLeadName, b2bLead.getB2BLeadName());
+            Common.assertTextEquals("IntCorp Standard B2B", b2bLead.getPriceList());
             b2bLead.openProductList();
-            assertEquals("OneVoice Subscriber Bundle", b2bLead.getFirstProductName());
+            Common.assertTextEquals("OneVoice Subscriber Bundle", b2bLead.getFirstProductName());
 
             Common.storeB2BLeadName("SFA_BCT_B2B_Lead", b2bLeadName, "BCT on " + application.getVersion() + ": Add B2B Lead");
 

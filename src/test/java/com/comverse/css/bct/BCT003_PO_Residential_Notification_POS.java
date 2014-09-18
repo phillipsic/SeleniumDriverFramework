@@ -1,7 +1,5 @@
 package com.comverse.css.bct;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,7 +48,7 @@ public class BCT003_PO_Residential_Notification_POS extends CSSTest {
         accountDetails = requestsForCustomer.clickAccounts();
         accountDetails.clickRefreshThisAccount();
         modifyContactInformation = accountDetails.clickModifyBillingContact();
-        assertEquals("fn" + uniqueTimeStamp, modifyContactInformation.getFirstName());
+        Common.assertTextEquals("fn" + uniqueTimeStamp, modifyContactInformation.getFirstName());
 
         test.setResult("pass");
 

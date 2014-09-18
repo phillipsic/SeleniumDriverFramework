@@ -1,7 +1,5 @@
 package com.comverse.css.csr.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,17 +37,17 @@ public class UAM0020_Edit_login_information extends CSSTest {
             viewHierarchy.addOCMPublisherEmployee(uniqueCode);
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
+            Common.assertTextEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
+            Common.assertTextEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals("OCM Publisher", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("OCM Publisher", loginInformation.getCurrentRoleFromPage());
             ChangeRoles changeRoles = loginInformation.clickChangeRoles();
             changeRoles.clickRadioButtonOCMUser();
             changeRoles.clickOk();
-            assertEquals("Are you sure you want to change roles for login " + uniqueCode + " of member FN" + uniqueCode + " LN" + uniqueCode, changeRoles.getConfirmationMessage());
+            Common.assertTextEquals("Are you sure you want to change roles for login " + uniqueCode + " of member FN" + uniqueCode + " LN" + uniqueCode, changeRoles.getConfirmationMessage());
 
             loginInformation = changeRoles.clickConfirm();
-            assertEquals("OCM User", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("OCM User", loginInformation.getCurrentRoleFromPage());
 
             test.setResult("pass");
 

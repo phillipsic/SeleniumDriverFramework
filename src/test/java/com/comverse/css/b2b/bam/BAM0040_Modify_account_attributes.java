@@ -1,7 +1,5 @@
 package com.comverse.css.b2b.bam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,7 +49,7 @@ public class BAM0040_Modify_account_attributes extends CSSTest {
             accountDetails.clickAccountAttributesTab();
             modifyAccountAttributes = accountDetails.clickModifyAccountContact();
 
-            assertEquals(account.getBillingCustomerSocialSecurityNumberProperty(), modifyAccountAttributes.getSecurityNumber());
+            Common.assertTextEquals(account.getBillingCustomerSocialSecurityNumberProperty(), modifyAccountAttributes.getSecurityNumber());
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

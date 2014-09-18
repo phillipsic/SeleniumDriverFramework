@@ -1,7 +1,5 @@
 package com.comverse.css.csr.uam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,10 +45,10 @@ public class UAM0050_Change_secret_question_and_answer extends CSSTest {
             String tempPassword = viewHierarchy.addBusinessAdminEmployee(uniqueCode);
 
             ContactInformation contactInformation = viewHierarchy.clickEmployeeNameLink("FN" + uniqueCode, "LN" + uniqueCode);
-            assertEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
-            assertEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
+            Common.assertTextEquals("First Name: FN" + uniqueCode, contactInformation.getFirstName());
+            Common.assertTextEquals("Last Name: LN" + uniqueCode, contactInformation.getLastName());
             com.comverse.css.csr.LoginInformation loginInformation = contactInformation.clickViewLoginInformationLink();
-            assertEquals("Business Administrator", loginInformation.getCurrentRoleFromPage());
+            Common.assertTextEquals("Business Administrator", loginInformation.getCurrentRoleFromPage());
             loginInformation.clickLogoutExpectingSSO();
 
             Application application2 = new B2B();
@@ -73,7 +71,7 @@ public class UAM0050_Change_secret_question_and_answer extends CSSTest {
             com.comverse.css.b2b.LoginInformation b2bLoginInformation = b2bContactInformation.clickViewLoginInformationLink();
             ChangeSecretAnswer changeSecretAnswer = b2bLoginInformation.clickChangeYourSecretQuestionAndAnswer();
 
-            assertEquals("Passw0rd!", changeSecretAnswer.getSecretAnswer());
+            Common.assertTextEquals("Passw0rd!", changeSecretAnswer.getSecretAnswer());
 
             changeSecretAnswer.setSecretQuestion("What 's your birth place?");
             changeSecretAnswer.setSecretAnswer("BirthPlace");

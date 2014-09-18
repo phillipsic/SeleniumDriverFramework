@@ -1,7 +1,5 @@
 package com.comverse.css.csr.pem;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -82,12 +80,12 @@ public class PEM0020_Modify_existing_person_details extends CSSTest {
             Common.assertTextOnPage(tool, workSpace.getPerson().getPersonLanguageProperty());
             // Common.assertTextOnPage(tool,
             // workSpace.getPerson().getPersonNationalIDProperty());
-            assertEquals(tool.getAttributeUsingId("nationalid", "value"), workSpace.getPerson().getPersonNationalIDProperty());
-            assertEquals(tool.getAttributeUsingId("dateOfBirth", "value"), workSpace.getPerson().getPersonDateOfBirthProperty());
-            assertEquals(tool.getAttributeUsingId("email", "value"), workSpace.getPerson().getPersonEmailAddressProperty());
-            assertEquals(tool.getAttributeUsingId("phone", "value"), workSpace.getPerson().getPersonPhoneNumberProperty());
-            assertEquals(tool.getAttributeUsingId("mobile", "value"), workSpace.getPerson().getPersonMobileNumberProperty());
-            assertEquals(tool.getAttributeUsingId("fax", "value"), workSpace.getPerson().getPersonFaxNumberProperty());
+            Common.assertTextEquals(tool.getAttributeUsingId("nationalid", "value"), workSpace.getPerson().getPersonNationalIDProperty());
+            Common.assertTextEquals(tool.getAttributeUsingId("dateOfBirth", "value"), workSpace.getPerson().getPersonDateOfBirthProperty());
+            Common.assertTextEquals(tool.getAttributeUsingId("email", "value"), workSpace.getPerson().getPersonEmailAddressProperty());
+            Common.assertTextEquals(tool.getAttributeUsingId("phone", "value"), workSpace.getPerson().getPersonPhoneNumberProperty());
+            Common.assertTextEquals(tool.getAttributeUsingId("mobile", "value"), workSpace.getPerson().getPersonMobileNumberProperty());
+            Common.assertTextEquals(tool.getAttributeUsingId("fax", "value"), workSpace.getPerson().getPersonFaxNumberProperty());
 
             test.setResult("pass");
 

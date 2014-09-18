@@ -1,6 +1,5 @@
 package com.comverse.css.csr.bkm;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
@@ -46,14 +45,14 @@ public class BKM0050_Save_the_current_basket_automatically extends CSSTest {
             MyBasket myBasket = configureBalance.clickContinueExpectingMyBasket();
             myBasket.assign3InventoriesFirstOffer(subscriber);
 
-            assertEquals("Owner", myBasket.getTypeRole());
+            Common.assertTextEquals("Owner", myBasket.getTypeRole());
 
             assertTrue(myBasket.getOfferName().matches(po_ResidentialUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
-            assertEquals("1", myBasket.getQuantity());
-            assertEquals("$ " + po_ResidentialUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
-            assertEquals("$ " + po_ResidentialUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
+            Common.assertTextEquals("1", myBasket.getQuantity());
+            Common.assertTextEquals("$ " + po_ResidentialUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
+            Common.assertTextEquals("$ " + po_ResidentialUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
 
-            assertEquals(enterIdentificationData.person.getPersonStreetNumberProperty() + " " + enterIdentificationData.person.getPersonStreetNameProperty() + " "
+            Common.assertTextEquals(enterIdentificationData.person.getPersonStreetNumberProperty() + " " + enterIdentificationData.person.getPersonStreetNameProperty() + " "
                     + enterIdentificationData.person.getPersonCityProperty() + "  IA " + enterIdentificationData.person.getPersonPostCodeProperty() + " "
                     + enterIdentificationData.person.getPersonHomeCountryProperty(), myBasket.getAddress());
 
@@ -64,14 +63,14 @@ public class BKM0050_Save_the_current_basket_automatically extends CSSTest {
             myBasket = restorePreviousBasket.clickRestoreSavedBasket();
             myBasket.assign3InventoriesFirstOffer(subscriber);
 
-            assertEquals("Owner", myBasket.getTypeRole());
+            Common.assertTextEquals("Owner", myBasket.getTypeRole());
 
             assertTrue(myBasket.getOfferName().matches(po_ResidentialUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
-            assertEquals("1", myBasket.getQuantity());
-            assertEquals("$ " + po_ResidentialUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
-            assertEquals("$ " + po_ResidentialUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
+            Common.assertTextEquals("1", myBasket.getQuantity());
+            Common.assertTextEquals("$ " + po_ResidentialUltraPostpaid.getRC() + " Monthly", myBasket.getRecurringCharge());
+            Common.assertTextEquals("$ " + po_ResidentialUltraPostpaid.getNRC(), myBasket.getUpfrontCharge());
 
-            assertEquals(enterIdentificationData.person.getPersonStreetNumberProperty() + " " + enterIdentificationData.person.getPersonStreetNameProperty() + " "
+            Common.assertTextEquals(enterIdentificationData.person.getPersonStreetNumberProperty() + " " + enterIdentificationData.person.getPersonStreetNameProperty() + " "
                     + enterIdentificationData.person.getPersonCityProperty() + "  IA " + enterIdentificationData.person.getPersonPostCodeProperty() + " "
                     + enterIdentificationData.person.getPersonHomeCountryProperty(), myBasket.getAddress());
 

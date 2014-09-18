@@ -1,6 +1,5 @@
 package com.comverse.css.bct;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
@@ -56,7 +55,7 @@ public class BCT002_PO_Residential_Recharge_CSR extends CSSTest {
 
         Double coreBalanceAfterRecharge = viewBalance.getCoreBalance();
 
-        assertEquals(expectedCoreBalanceAfterRecharge, coreBalanceAfterRecharge);
+        Common.assertTextEquals(expectedCoreBalanceAfterRecharge, coreBalanceAfterRecharge);
 
         test.setResult("pass");
     }

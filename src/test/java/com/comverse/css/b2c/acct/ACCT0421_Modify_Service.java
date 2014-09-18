@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.acct;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -65,7 +63,7 @@ public class ACCT0421_Modify_Service extends CSSTest {
 
             modifyOfferParameters = subscriberDetail.clickOfferConfigure(so_2010WorldCupSoccerNews.getOfferName());
 
-            assertEquals("512", modifyOfferParameters.getVoiceMailSize());
+            Common.assertTextEquals("512", modifyOfferParameters.getVoiceMailSize());
             // More validation steps to be added.
 
             test.setResult("pass");

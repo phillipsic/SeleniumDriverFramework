@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.acct;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -66,7 +64,7 @@ public class ACCT0501_Recharge_Credit extends CSSTest {
 
             double coreBalanceValueAfterRecharge = viewBalances.getBalanceValue("CORE BALANCE");
 
-            assertEquals(Double.toString(coreBalanceValueAfterRecharge), Double.toString(coreBalanceValue + Double.parseDouble(amountToRecharge)));
+            Common.assertTextEquals(Double.toString(coreBalanceValueAfterRecharge), Double.toString(coreBalanceValue + Double.parseDouble(amountToRecharge)));
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

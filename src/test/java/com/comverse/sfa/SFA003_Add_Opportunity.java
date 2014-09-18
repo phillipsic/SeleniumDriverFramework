@@ -1,7 +1,5 @@
 package com.comverse.sfa;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,13 +56,13 @@ public class SFA003_Add_Opportunity extends SFATest {
             opportunity = homePage.clickNavigationOpportunity();
             opportunity.findAndOpenOpportunityByName(opportunityName);
 
-            assertEquals(opportunityName, opportunity.getOpportunityName());
-            assertEquals("IntCorp Standard B2B", opportunity.getPriceList());
+            Common.assertTextEquals(opportunityName, opportunity.getOpportunityName());
+            Common.assertTextEquals("IntCorp Standard B2B", opportunity.getPriceList());
             opportunity.openSalesProcess();
-            assertEquals("Qualified", opportunity.getCurrentSalesStage());
-            assertEquals("Confirm Customer Needs and Timelines", opportunity.getFirstTaskName());
+            Common.assertTextEquals("Qualified", opportunity.getCurrentSalesStage());
+            Common.assertTextEquals("Confirm Customer Needs and Timelines", opportunity.getFirstTaskName());
             opportunity.openProductList();
-            assertEquals("OneVoice Subscriber Bundle", opportunity.getFirstProductName());
+            Common.assertTextEquals("OneVoice Subscriber Bundle", opportunity.getFirstProductName());
 
             Common.storeOpportunityName("SFA_BCT_Opportunity", opportunityName, "BCT on " + application.getVersion() + ": Add Opporunity");
 

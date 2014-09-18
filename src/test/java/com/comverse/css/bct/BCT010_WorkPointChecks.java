@@ -1,12 +1,11 @@
 package com.comverse.css.bct;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.common.AlreadyRunException;
+import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.data.apps.WPMC;
 import com.comverse.workpoint.LogonToTheWorkPointManagementConsole;
@@ -36,10 +35,10 @@ public class BCT010_WorkPointChecks extends WPMCTest {
             WelcomeToTheWorkpointManagementConsole welcomeToTheWorkpointManagementConsole = loginPage.successfulWPMCAdminLogin();
             WorkpointManagementConsole workpointManagementConsole = welcomeToTheWorkpointManagementConsole.clickManageMonitors();
 
-            assertEquals("NORMAL", workpointManagementConsole.getStatusOfMonitorQueue("WPDS#actionq#ActionQ1"));
-            assertEquals("NORMAL", workpointManagementConsole.getStatusOfMonitorQueue("WPDS#alertq#AlertQ1"));
-            assertEquals("NORMAL", workpointManagementConsole.getStatusOfMonitorQueue("WPDS#jobq#JobQ1"));
-            assertEquals("NORMAL", workpointManagementConsole.getStatusOfMonitorQueue("WPDS#mailq#MailQ1"));
+            Common.assertTextEquals("NORMAL", workpointManagementConsole.getStatusOfMonitorQueue("WPDS#actionq#ActionQ1"));
+            Common.assertTextEquals("NORMAL", workpointManagementConsole.getStatusOfMonitorQueue("WPDS#alertq#AlertQ1"));
+            Common.assertTextEquals("NORMAL", workpointManagementConsole.getStatusOfMonitorQueue("WPDS#jobq#JobQ1"));
+            Common.assertTextEquals("NORMAL", workpointManagementConsole.getStatusOfMonitorQueue("WPDS#mailq#MailQ1"));
 
             test.setResult("pass");
 

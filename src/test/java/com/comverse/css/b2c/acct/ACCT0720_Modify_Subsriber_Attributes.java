@@ -1,7 +1,5 @@
 package com.comverse.css.b2c.acct;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -71,7 +69,7 @@ public class ACCT0720_Modify_Subsriber_Attributes extends CSSTest {
             subscriberDetail = searchRequests.clickDashbaordMenu();
             modifySubscriberAttributes = subscriberDetail.clickConfigureAttributes();
 
-            assertEquals("French (Standard)", modifySubscriberAttributes.getLanguage());
+            Common.assertTextEquals("French (Standard)", modifySubscriberAttributes.getLanguage());
 
             test.setResult("pass");
 

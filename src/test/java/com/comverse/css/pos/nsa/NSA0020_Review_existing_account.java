@@ -1,7 +1,5 @@
 package com.comverse.css.pos.nsa;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +44,7 @@ public class NSA0020_Review_existing_account extends CSSTest {
             Common.assertTextOnPage(tool, "Please review the following customer data is correct");
             UpdateAccountContactInformations updateAccountContactInformations = customerAcquisitionCustomerDataReview.clickEditCustomerIdentityAndContact();
 
-            assertEquals((accountLastname), updateAccountContactInformations.getLastName());
+            Common.assertTextEquals((accountLastname), updateAccountContactInformations.getLastName());
 
             test.setResult("pass");
         } catch (AlreadyRunException e) {

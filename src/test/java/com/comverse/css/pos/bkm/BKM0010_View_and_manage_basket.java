@@ -1,6 +1,5 @@
 package com.comverse.css.pos.bkm;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
@@ -72,14 +71,14 @@ public class BKM0010_View_and_manage_basket extends CSSTest {
             serviceConnectionDetails.clickSetMSISDNInventory(subscriber);
             myBasket = serviceConnectionDetails.clickOk();
 
-            assertEquals("Owner", myBasket.getTypeRole());
+            Common.assertTextEquals("Owner", myBasket.getTypeRole());
 
             assertTrue(myBasket.getOfferName().matches(po_ResidentialUltraPostpaid.getOfferName() + "[\\s\\S]*$"));
-            assertEquals("1", myBasket.getQuantity());
-            assertEquals("$ 30.00 Monthly", myBasket.getRecurringCharge());
-            assertEquals("$ 22.00", myBasket.getUpfrontCharge());
+            Common.assertTextEquals("1", myBasket.getQuantity());
+            Common.assertTextEquals("$ 30.00 Monthly", myBasket.getRecurringCharge());
+            Common.assertTextEquals("$ 22.00", myBasket.getUpfrontCharge());
 
-            assertEquals("55 Name of Street US ville  IA postcode United States", myBasket.getAddress());
+            Common.assertTextEquals("55 Name of Street US ville  IA postcode United States", myBasket.getAddress());
 
             test.setResult("pass");
 

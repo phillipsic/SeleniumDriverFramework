@@ -1,7 +1,5 @@
 package com.comverse.css.b2b.bam;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -66,15 +64,15 @@ public class BAM0020_Modify_billing_contact extends CSSTest {
             accountDetails = requestsForCustomer.clickAccounts();
 
             modifyContactInformation = accountDetails.clickModifyBillingContact();
-            assertEquals("fn" + uniqueTimeStamp, modifyContactInformation.getFirstName());
-            assertEquals("ln" + uniqueTimeStamp, modifyContactInformation.getLastName());
-            assertEquals("email-" + uniqueTimeStamp + "@email.com", modifyContactInformation.getEmail());
-            assertEquals("pn" + uniqueTimeStamp, modifyContactInformation.getPhoneNumber());
-            assertEquals("fxn" + uniqueTimeStamp, modifyContactInformation.getFaxNumber());
-            assertEquals("Florida", modifyContactInformation.getState());
-            assertEquals("pc" + uniqueTimeStamp, modifyContactInformation.getZipCode());
-            assertEquals("ct" + uniqueTimeStamp, modifyContactInformation.getCity());
-            assertEquals("ad1-" + uniqueTimeStamp, modifyContactInformation.getAddressLineOne());
+            Common.assertTextEquals("fn" + uniqueTimeStamp, modifyContactInformation.getFirstName());
+            Common.assertTextEquals("ln" + uniqueTimeStamp, modifyContactInformation.getLastName());
+            Common.assertTextEquals("email-" + uniqueTimeStamp + "@email.com", modifyContactInformation.getEmail());
+            Common.assertTextEquals("pn" + uniqueTimeStamp, modifyContactInformation.getPhoneNumber());
+            Common.assertTextEquals("fxn" + uniqueTimeStamp, modifyContactInformation.getFaxNumber());
+            Common.assertTextEquals("Florida", modifyContactInformation.getState());
+            Common.assertTextEquals("pc" + uniqueTimeStamp, modifyContactInformation.getZipCode());
+            Common.assertTextEquals("ct" + uniqueTimeStamp, modifyContactInformation.getCity());
+            Common.assertTextEquals("ad1-" + uniqueTimeStamp, modifyContactInformation.getAddressLineOne());
 
             test.setResult("pass");
 
