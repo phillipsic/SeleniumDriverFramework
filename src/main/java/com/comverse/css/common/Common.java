@@ -62,6 +62,10 @@ public class Common {
         assertFalse("ASSERTION FAIL: NOT expecting " + searchText + "in page", pageSource.contains(searchText));
     }
 
+    public static void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
+        assertTrue("ASSERTION FAIL: expecting True", verify);
+    }
+
     public static void assertVerifyFalse(AutomationTool tool, Boolean verify) throws Exception {
         assertFalse("ASSERTION FAIL: expecting False", verify);
     }
