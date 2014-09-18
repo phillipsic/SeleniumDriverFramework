@@ -4,8 +4,6 @@
  */
 package com.comverse.css.commonpages;
 
-import static org.junit.Assert.assertTrue;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -301,7 +299,7 @@ public class AccountDetailsCommon extends CommonMenu {
         addNewCase.enterNoteDescription("Note - Task to do");
         AddCaseReviewCommon addCaseReview = addNewCase.clickContinue();
         AddCaseConfirmationCommon addCaseConfirmation = addCaseReview.clickCreateCase();
-        assertTrue(addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
+        Common.assertVerifyTrue(tool, addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
         String caseId = addCaseConfirmation.getCaseID();
         addCaseConfirmation.clickOk();
 
@@ -318,7 +316,7 @@ public class AccountDetailsCommon extends CommonMenu {
         addNewCase.enterNoteDescription("Note - Task to do");
         AddCaseReviewCommon addCaseReview = addNewCase.clickContinue();
         AddCaseConfirmationCommon addCaseConfirmation = addCaseReview.clickCreateCaseAndClose();
-        assertTrue(addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
+        Common.assertVerifyTrue(tool, addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
         String caseId = addCaseConfirmation.getCaseID();
         addCaseConfirmation.clickOk();
 

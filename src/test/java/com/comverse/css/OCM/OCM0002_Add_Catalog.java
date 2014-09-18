@@ -39,11 +39,11 @@ public class OCM0002_Add_Catalog extends CSSTest {
         tool.clickUsingID("mainPanel:treeForm:catalog-tree:0:0:_idJsp18_link");
         // click "Create New Catalog"
         tool.clickUsingID("mainPanel:boxForm:actionBox:actionList:entityType:add");
-        
+
         tool.enterStringUsingId("mainPanel:edit:fields:name", productName);
-        
+
         tool.enterStringUsingId("mainPanel:edit:fields:code", productCode);
-        
+
         tool.enterStringUsingId("mainPanel:edit:fields:description", productDescription);
         tool.clickUsingID("mainPanel:edit:buttons:createProductCategory");
 

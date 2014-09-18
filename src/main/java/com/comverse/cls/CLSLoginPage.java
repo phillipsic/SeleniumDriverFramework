@@ -18,21 +18,25 @@ public class CLSLoginPage extends CLSMenu {
         }
     }
 
-    public void setUserName(String login) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void setUserName(String login) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("j_username", login);
     }
 
-    public void setPassword(String password) throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void setPassword(String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("j_password", password);
     }
 
-    public void clickLogin() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public void clickLogin() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Login']");
     }
 
-    public Logging successfulCLSAdminLogin() throws Exception {  test.writeInLogFile(Common.getMethodName());
+    public Logging successfulCLSAdminLogin() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
 
         PropertyHelper propsHelper = new PropertyHelper();
         String login = propsHelper.getPasswordProperties("LOGIN.CLSAdmin");

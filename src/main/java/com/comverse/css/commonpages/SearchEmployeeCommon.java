@@ -1,7 +1,5 @@
 package com.comverse.css.commonpages;
 
-import static org.junit.Assert.assertTrue;
-
 import com.comverse.common.AutomationTool;
 import com.comverse.common.Test;
 import com.comverse.common.User;
@@ -46,7 +44,7 @@ public class SearchEmployeeCommon extends CommonMenu {
     public SearchEmployeeCommon checkIfResultIsCorrect(String numberOfCustomersDisplayed) throws Exception {
         test.writeInLogFile(Common.getMethodName());
 
-        assertTrue(tool.getTextUsingCssSelector("BODY").matches("^[\\s\\S]*" + numberOfCustomersDisplayed + " employee\\(s\\) found[\\s\\S]*$"));
+        Common.assertVerifyTrue(tool, tool.getTextUsingCssSelector("BODY").matches("^[\\s\\S]*" + numberOfCustomersDisplayed + " employee\\(s\\) found[\\s\\S]*$"));
 
         return new SearchEmployeeCommon(tool, test, user);
         // Asserts that the given numberOfCustomersDisplayd is equal to the

@@ -5,9 +5,9 @@ import com.comverse.common.Test;
 import com.comverse.common.User;
 import com.comverse.upm.common.CommonMenu;
 
-public class UpmHomePage extends CommonMenu{
+public class UpmHomePage extends CommonMenu {
 
-    public UpmHomePage(AutomationTool tool,Test test, User user) throws Exception {
+    public UpmHomePage(AutomationTool tool, Test test, User user) throws Exception {
         super(tool, test, user);
         String currentScreen = tool.getTitle();
         String expectedScreen = "Comverse ONE Unified Platform|home";
@@ -18,6 +18,5 @@ public class UpmHomePage extends CommonMenu{
         }
 
     }
-    
-    
+
 }

@@ -35,7 +35,7 @@ public class OCM0006_Add_Subsidized_Device extends CSSTest {
         LoginPage loginPage = new LoginPage(tool, test, user);
         OCMApplication ocmApplication = loginPage.loginToOCM(user);
 
-        this.inputFile =System.getProperty("user.dir") + "\\src\\test\\java\\com\\comverse\\css\\OCM\\Data\\DevicesSubsidized.xls";
+        this.inputFile = System.getProperty("user.dir") + "\\src\\test\\java\\com\\comverse\\css\\OCM\\Data\\DevicesSubsidized.xls";
         File inputWorkbook = new File(inputFile);
         Workbook w;
         String DeviceType = "";
@@ -46,7 +46,8 @@ public class OCM0006_Add_Subsidized_Device extends CSSTest {
         int rowCounter = 0;
 
         tool.get(application.appURL() + "/faces/catalog/product_by_type.jsp;" + ocmApplication.getSessionIDFromUrl());
-        // tool.get(application.appURL() + "/faces/catalog/product_by_type.jsp");
+        // tool.get(application.appURL() +
+        // "/faces/catalog/product_by_type.jsp");
         tool.clickUsingID("mainPanel:treeForm:type-tree:0:t2");
         tool.clickUsingID("mainPanel:treeForm:type-tree:0:1:t2");
 
