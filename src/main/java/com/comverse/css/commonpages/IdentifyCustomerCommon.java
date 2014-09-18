@@ -112,7 +112,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public CustomerSearchResultCommon searchByAccountLastNameMultiplePersons(String lastName) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " with data (" + lastName + ")");
 
         tool.enterStringUsingId("accountLastName", lastName);
         tool.clickUsingName("accountExtendedButton");
@@ -122,7 +122,7 @@ public class IdentifyCustomerCommon extends CommonMenu {
     }
 
     public CustomerSearchResultCommon searchByAccountFirstNameMultiplePersons(String firstName) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+         test.writeInLogFile(Common.getMethodName() + " with data (" + firstName + ")");
 
         tool.enterStringUsingId("accountFirstName", firstName);
         tool.clickUsingName("accountExtendedButton");

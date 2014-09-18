@@ -80,6 +80,7 @@ public class ChooseYourHandset extends B2CMenu {
     public void clickFilter() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Filter']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public MyBasket clickContinue() throws Exception {
@@ -92,22 +93,25 @@ public class ChooseYourHandset extends B2CMenu {
     public void clickAdvanceFilterLink() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Advanced Filter");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
     }
 
     public HandsetDetails viewDetailsOfHandset(String Handset) throws Exception {
         test.writeInLogFile(Common.getMethodName() + " using data (" + Handset + ")");
         tool.clickUsingXPath(".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='View Details']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new HandsetDetails(tool, test, user);
     }
 
     public ChooseYourHandset clickAddToCompare(String Handset) throws Exception {
         test.writeInLogFile(Common.getMethodName() + " using data (" + Handset + ")");
         tool.clickUsingXPath(".//p[contains(text(),'" + Handset + "')]//../following-sibling::div[2]//input[@type='submit' and @value='Add to Compare']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourHandset(tool, test, user);
     }
 
     public String comparableDevice1() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+       // test.writeInLogFile(Common.getMethodName());
         String temp = tool.getTextUsingXPath(".//div[@class='comparisonItem' and starts-with(.,'1.')]");
         String[] compareDevice = temp.split(":");
         return compareDevice[1].trim();
@@ -121,7 +125,7 @@ public class ChooseYourHandset extends B2CMenu {
     }
 
     public String comparableDevice2() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+       // test.writeInLogFile(Common.getMethodName());
         String temp = tool.getTextUsingXPath(".//div[@class='comparisonItem' and starts-with(.,'2.')]");
         String[] compareDevice = temp.split(":");
         return compareDevice[1].trim();

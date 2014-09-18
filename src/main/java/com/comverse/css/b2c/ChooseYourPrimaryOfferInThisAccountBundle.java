@@ -111,6 +111,7 @@ public class ChooseYourPrimaryOfferInThisAccountBundle extends B2CMenu {
     public ChooseYourPrimaryOffer clickSwitchToBrowsePrimaryOffers() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingCssSelector("input[type='submit'][value='Switch to Browse Primary Offers']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ChooseYourPrimaryOffer(tool, test, user);
     }
 

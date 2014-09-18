@@ -1,9 +1,5 @@
 package com.comverse.css.b2c.orco;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import com.comverse.css.b2c.*;
 import com.comverse.css.common.AlreadyRunException;
 import com.comverse.css.common.CSSTest;
@@ -11,6 +7,9 @@ import com.comverse.css.common.Common;
 import com.comverse.css.common.Prep;
 import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV2;
 import com.comverse.data.apps.B2C;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 public class ORCO0011_Capture_Immediate_Payment_Method extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();
@@ -41,9 +40,9 @@ public class ORCO0011_Capture_Immediate_Payment_Method extends CSSTest {
             ChooseAccessories chooseAccessories = chooseYourPrimaryOffer.clickNoThanks();
             MyBasket myBasket = chooseAccessories.clickContinue();
             TermsAndConditions termsAndConditions = myBasket.clickCheckOutWithDevices();
-            test.setBugId("CBS00163135");
+        
             CheckoutRegister checkoutRegister = termsAndConditions.clickOk();
-            test.setBugId("NoBug");
+    
             SignUpUser signUpUser = checkoutRegister.selectSignMeUpAndClickContinue();
             CustomerDetails customerDetails = signUpUser.enterMandatoryFieldsOnlyAndClickSignMeUp(uniqueTimeStamp);
 

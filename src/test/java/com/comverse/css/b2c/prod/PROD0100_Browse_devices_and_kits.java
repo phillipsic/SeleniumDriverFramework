@@ -13,6 +13,7 @@ import com.comverse.css.data.DEVICE.VD_CSSPQAVoiceDeviceStandardPhonesDEV1;
 import com.comverse.data.apps.B2C;
 
 public class PROD0100_Browse_devices_and_kits extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -53,9 +54,7 @@ public class PROD0100_Browse_devices_and_kits extends CSSTest {
 
             TermsAndConditions termsAndConditions = myBasket.clickCheckOutExpectingTermsAndConditions();
 
-            test.setBugId("CBS00163135");
             termsAndConditions.clickOkExpectingCheckoutRegister();
-            test.setBugId("NoBug");
 
             test.setResult("pass");
 

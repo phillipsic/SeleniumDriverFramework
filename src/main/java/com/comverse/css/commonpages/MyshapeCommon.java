@@ -26,8 +26,9 @@ public class MyshapeCommon extends CommonMenu {
 
         this.setUserName(user.getLogin());
         this.setPassword(user.getPassword());
-        if (user.getRealm() != null)
+        if (user.getRealm() != null) {
             this.selectRealm(user.getRealm());
+        }
         this.clickLogin();
 
         if (tool.getPageSource().contains("Please enter a valid user name and password.")) {
@@ -91,19 +92,19 @@ public class MyshapeCommon extends CommonMenu {
     }
 
     public void setUserName(String login) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
-
+        test.writeInLogFile(Common.getMethodName() + " with data (" + login + ")");
         tool.enterStringUsingId("login", login);
     }
 
     public void setPassword(String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName() + " with data (" + password + ")");
         test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("password", password);
     }
 
     public void selectRealm(String realm) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " with data (" + realm + ")");
         if (tool.getPageSource().contains("Domain")) {
             tool.selectVisibleTextByID("realm", realm);
         }

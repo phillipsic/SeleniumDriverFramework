@@ -72,7 +72,7 @@ public class SHMA0010_Checkout_Basket extends CSSTest {
             Common.assertTextOnPage(tool, po_DIYInteractiveTVOfferforAll.getOfferName());
             Common.assertTextOnPage(tool, so_DIYeCountDownExtra.getOfferName());
             Common.assertTextOnPage(tool, po_DIYExtTVPO.getOfferName());
-            // bugId = "NoBug";
+           
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {
