@@ -39,6 +39,7 @@ public class ChooseYourPrimaryOffer extends B2CMenu {
         test.writeInLogFile(Common.getMethodName() + " using data (" + primaryOfferName + ")");
         int pageCounter = 2;
 
+        boolean elementPresent = tool.isElementPresentByXPath("//p[text()[normalize-space(.)='" + primaryOfferName + "']]/../..//input[@value='Select']");
         boolean beresult = Common.isOfferTextOnPage(tool, primaryOfferName);
         System.out.println("Found offer?  - " + beresult);
 
