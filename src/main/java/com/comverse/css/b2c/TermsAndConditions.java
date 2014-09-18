@@ -22,6 +22,7 @@ public class TermsAndConditions extends B2CMenu {
     public CheckoutRegister clickOk() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutRegister(tool, test, user);
     }
 
@@ -35,6 +36,7 @@ public class TermsAndConditions extends B2CMenu {
     public CheckoutRegister clickOkExpectingCheckoutRegister() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='OK']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutRegister(tool, test, user);
     }
 }

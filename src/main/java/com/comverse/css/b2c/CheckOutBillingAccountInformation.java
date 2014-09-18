@@ -16,7 +16,7 @@ public class CheckOutBillingAccountInformation extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Checkout - Billing Account Information";
 
-      if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -26,12 +26,14 @@ public class CheckOutBillingAccountInformation extends B2CMenu {
     public CheckoutReview clickContinue() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new CheckoutReview(tool, test, user);
     }
 
     public BillingManagement clickContinueExpectingBillingManagement() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new BillingManagement(tool, test, user);
     }
 

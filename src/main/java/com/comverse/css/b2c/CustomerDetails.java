@@ -29,18 +29,21 @@ public class CustomerDetails extends B2CMenu {
     public CheckOutDeliveryAddress clickOkExpectingCheckOutDeliveryAddress() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("prospectok");
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new CheckOutDeliveryAddress(tool, test, user);
     }
 
     public CheckOutDeliveryAddress clickOkWithDevices() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("prospectok");
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new CheckOutDeliveryAddress(tool, test, user);
     }
 
     public ModifyCustomerDetails clickModify() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingName("modifyprospectinfo");
+        Common.waitForEndOfWaitingPage(tool, Common.getMethodName());
         return new ModifyCustomerDetails(tool, test, user);
     }
 }

@@ -23,18 +23,21 @@ public class BillingManagement extends B2CMenu {
     public CheckoutReview clickContinue() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutReview(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForFirstSubscriber() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("change_billing_contract_0");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 
     public CheckOutBillingAccountInformation clickIWantASeparateBillForSecondSubscriber() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingID("change_billing_contract_1");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckOutBillingAccountInformation(tool, test, user);
     }
 }

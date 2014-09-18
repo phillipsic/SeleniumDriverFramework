@@ -16,7 +16,7 @@ public class CheckoutReview extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Checkout Review";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -26,12 +26,14 @@ public class CheckoutReview extends B2CMenu {
     public CheckoutConfirmation clickContinue() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new CheckoutConfirmation(tool, test, user);
     }
 
     public ImmediatePayment clickContinueWithDevices() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Continue >']");
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new ImmediatePayment(tool, test, user);
     }
 
