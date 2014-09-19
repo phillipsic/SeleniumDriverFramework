@@ -27,7 +27,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public void clickSearch() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+       // test.writeInLogFile(Common.getMethodName());
 
         tool.clickUsingXPath("//input[@value='Search']");
 
@@ -46,13 +46,13 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public void setOrderNumber(String orderNumber) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        //test.writeInLogFile(Common.getMethodName());
 
         tool.enterStringUsingId("orderNb", orderNumber);
     }
 
     public String getOrderStatus1() throws Exception {
-       // test.writeInLogFile(Common.getMethodName());
+        // test.writeInLogFile(Common.getMethodName());
         String orderStatus = tool.getTextUsingXPath("//table[@id='orderList']/tbody/tr/td[5]");
         return orderStatus;
     }
@@ -106,7 +106,7 @@ public class SearchOrdersCommon extends CommonMenu {
     }
 
     public void waitUntilOrderCompletedOrFailedWithGetAccountID(String orderNumber, Account account) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " with data (" + orderNumber + ")");
 
         int maxIterations = 120;
         int iterationCounter = 0;
@@ -122,6 +122,7 @@ public class SearchOrdersCommon extends CommonMenu {
 
             if (orderStatus.equals("Complete")) {
                 System.out.println("Order Complete");
+                test.writeInLogFile(Common.getMethodName() + "Order Complete");
                 SearchOrdersCommon serviceOrdersCommon = new SearchOrdersCommon(tool, test, user);
                 ServiceOrderDetailsCommon serviceOrderDetailsCommon = serviceOrdersCommon.clickViewDetails();
                 serviceOrderDetailsCommon.getAccountID(account);
@@ -129,6 +130,7 @@ public class SearchOrdersCommon extends CommonMenu {
             }
 
             if (orderStatus.equalsIgnoreCase("failed") || orderStatus.equalsIgnoreCase("Cancelled")) {
+                test.writeInLogFile(Common.getMethodName() + "Order failed with status " + orderStatus);
                 throw new IllegalStateException("Order failed with status " + orderStatus);
             }
 
@@ -136,6 +138,7 @@ public class SearchOrdersCommon extends CommonMenu {
         }
 
         if (iterationCounter >= maxIterations) {
+            test.writeInLogFile(Common.getMethodName() + "Order failed with status " + this.getOrderStatus1());
             throw new IllegalStateException("Order failed with status " + this.getOrderStatus1());
         }
 

@@ -52,6 +52,7 @@ public class ComverseOneSingleSignOn extends Main {
     public RestorePreviousBasket loginToCSRAsCSRAdminWithPreviousBasket() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         loginSSOUser();
+        Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         return new RestorePreviousBasket(tool, test, user);
     }
 
