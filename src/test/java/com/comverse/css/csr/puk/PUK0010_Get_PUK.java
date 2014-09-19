@@ -38,9 +38,9 @@ public class PUK0010_Get_PUK extends CSSTest {
             preparation.enablePUK(accountNumber);
             SubscriberDetails subscriberDashboard = accountDetails.selectFirstSubscriberFromNavigationPanel();
             subscriberDashboard.clickRefreshThisSubscriber();
-            UnlockPINWithPUK puk = subscriberDashboard.clickGetPUK();
+            UnlockPINWithPUK unlockPINWithPUK = subscriberDashboard.clickGetPUK();
             Common.assertTextOnPage(tool, "007");
-            puk.clickOK();
+            unlockPINWithPUK.clickOK();
 
             test.setResult("pass");
 
