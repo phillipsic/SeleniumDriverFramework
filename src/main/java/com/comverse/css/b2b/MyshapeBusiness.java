@@ -25,16 +25,19 @@ public class MyshapeBusiness extends MyshapeCommon {
     public void login(User user) throws Exception {
         test.writeInLogFile(Common.getMethodName());
 
+        test.writeInLogFile("Using Login: " + user.getLogin());
         tool.enterStringUsingId("login", user.getLogin());
-
+        test.writeInLogFile("Using password: " + user.getPassword());
         tool.enterStringUsingId("password", user.getPassword());
         tool.clickUsingName("LoginButton");
 
         if (tool.getPageSource().contains("Please enter a valid user name and password.")) {
+            test.writeInLogFile("Invalid username or password - IS USER CREATED? ");
             throw new Exception("Invalid username or password - IS USER CREATED? ");
         }
 
         if (tool.getPageSource().contains("Synchronization Failed")) {
+            test.writeInLogFile("Synchronization Failed - ENVIRONMENT PROBLEM?");
             throw new Exception("Synchronization Failed - ENVIRONMENT PROBLEM?");
         }
 
