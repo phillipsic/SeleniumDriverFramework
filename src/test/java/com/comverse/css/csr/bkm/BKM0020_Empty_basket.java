@@ -46,9 +46,9 @@ public class BKM0020_Empty_basket extends CSSTest {
             RemoveBasket removeBasket = myBasket.clickClear();
             workSpace = removeBasket.clickYes();
 
-            ResumeAParkedBasket resumeAParkedBasket = workSpace.clickBasket();
+            workSpace.clickBasket();
             Common.assertTextNotOnPage(tool, uniqueTimeStamp);
-            
+
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {
