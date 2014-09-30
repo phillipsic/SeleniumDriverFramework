@@ -16,7 +16,7 @@ public class SearchOrders extends B2CMenu {
         String currentScreen = tool.getTitle();
         String expectedScreen = "Search Orders";
 
-         if (!expectedScreen.equals(tool.getTitle())) {
+        if (!expectedScreen.equals(tool.getTitle())) {
             test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
@@ -24,7 +24,7 @@ public class SearchOrders extends B2CMenu {
     }
 
     public void clickSearch() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+       // test.writeInLogFile(Common.getMethodName());
         tool.clickUsingXPath("//input[@value='Search']");
 
     }
@@ -50,7 +50,7 @@ public class SearchOrders extends B2CMenu {
     }
 
     public String getOrderStatus() throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+      //  test.writeInLogFile(Common.getMethodName());
         String orderStatus = tool.getTextUsingXPath("//table[@id='orderList']/tbody/tr/td[5]");
         return orderStatus;
     }
@@ -113,13 +113,13 @@ public class SearchOrders extends B2CMenu {
             System.out.println(this.getClass().getSimpleName() + ": Iteration  " + iterationCounter + " of " + maxIterations + " Status:" + orderStatus);
 
             if (orderStatus.equals("Complete")) {
-
+                test.writeInLogFile("Order Complete");
                 System.out.println("Order Complete");
                 break;
             }
 
             if (orderStatus.equalsIgnoreCase("failed") || orderStatus.equalsIgnoreCase("Cancelled")) {
-
+                test.writeInLogFile("Order failed with status " + orderStatus);
                 throw new IllegalStateException("Order failed with status " + orderStatus);
             }
 
@@ -127,6 +127,7 @@ public class SearchOrders extends B2CMenu {
         }
 
         if (iterationCounter >= maxIterations) {
+            test.writeInLogFile("Order failed with status " + this.getOrderStatus());
             throw new IllegalStateException("Order failed with status " + this.getOrderStatus());
         }
     }
