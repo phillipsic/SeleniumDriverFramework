@@ -40,6 +40,7 @@ public class CheckoutConfirmation extends B2CMenu {
         String orderNumber;
         orderNumber = tool.getTextUsingXPath("//span[2]");
         System.out.println("Order Number = '" + orderNumber + "'");
+        test.writeInLogFile(Common.getMethodName() + ": Order Number = '" + orderNumber + "'");
         return orderNumber;
     }
 
