@@ -44,31 +44,31 @@ public class ServiceConnectionDetailsCommon extends CommonMenu {
     }
 
     public void clickSetSIMInventory(Subscriber subscriber) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         String inventoryString = "SIM type:";
 
         this.clickSetButton(inventoryString);
         String SIM = tool.getTextUsingXPath("//p[span[contains(text(),\"SIM reference:\")]]/span[2]");
         subscriber.setSubscriberSIMProperty(SIM);
+        test.writeInLogFile(Common.getMethodName() + " using SIM " + subscriber.getSubscriberSIMProperty());
     }
 
     public void clickSetIMSIInventory(Subscriber subscriber) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         String inventoryString = "IMSI type:";
 
         this.clickSetButton(inventoryString);
         String IMSI = tool.getTextUsingXPath("//p[span[contains(text(),\"IMSI reference:\")]]/span[2]");
         subscriber.setSubscriberIMSIProperty(IMSI);
+        test.writeInLogFile(Common.getMethodName() + " using IMSI " + subscriber.getSubscriberIMSIProperty());
     }
 
     public void clickSetMSISDNInventory(Subscriber subscriber) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
         String inventoryString = "MSISDN type:";
 
         this.clickSetButton(inventoryString);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         String MSISDN = tool.getTextUsingXPath("//p[span[contains(text(),\"MSISDN reference:\")]]/span[2]");
         subscriber.setSubscriberMSISDNProperty(MSISDN);
+        test.writeInLogFile(Common.getMethodName() + " using MSISDN " + subscriber.getSubscriberMSISDNProperty());
     }
 
     public void clickSetTVQualityInventory(Subscriber subscriber) throws Exception {
