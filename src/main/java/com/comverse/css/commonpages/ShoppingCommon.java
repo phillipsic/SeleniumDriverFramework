@@ -32,7 +32,7 @@ public class ShoppingCommon extends CommonMenu {
     }
 
     public void clickSubscriberBundlePrimaryOfferName(String offername) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " " + offername);
         Common.waitForEndOfWaitingPage(tool, this.getClass().getSimpleName());
         Common.waitForOffersToLoadOnPage(tool, this.getClass().getSimpleName());
         tool.clickUsingLinkText(offername);

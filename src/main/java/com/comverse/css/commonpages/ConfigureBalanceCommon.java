@@ -45,7 +45,7 @@ public class ConfigureBalanceCommon extends CommonMenu {
     }
 
     public void setSpendingLimit(String limitName, String limitAmount) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + " " + limitAmount);
         tool.enterStringUsingId(limitName + "_limit", limitAmount);
     }
 
