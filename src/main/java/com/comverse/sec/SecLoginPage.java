@@ -206,10 +206,10 @@ public class SecLoginPage extends CommonMenu {
         secCsrAdmin.clickSave();
 
         Common.sleepForNumberOfSeconds(10);
-
+  
         if (!tool.getPageSource().contains("Successfully created")) {
-
-            throw new Exception("Failed create");
+            
+            throw new Exception("User Creation Failed " + userlogin);
         }
 
     }
