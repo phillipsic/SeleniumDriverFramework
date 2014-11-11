@@ -1,5 +1,6 @@
 package com.comverse.css.csr.aca;
 
+import com.comverse.common.Invoice;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,12 +28,13 @@ public class ACA0040_View_NRC_history extends CSSTest {
     @Test
     public void testACA0030_View_NRC_history() throws Exception {
         try {
-            launchCSSApplicationAndSSOLogin();
-            String accountNumberWithNRC = preparation.readPropertyFromAccountPropertyFile("Invoice.NRC");
+            Invoice invoice = new Invoice();
 
+            launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("BILLED.RC");
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
-            AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountID(accountNumberWithNRC);
+            AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountID(accountNumber);
             // ViewInvoices viewInvocies =
             // accountDetails.clickBillsAndPayments();
             ViewTransactionHistory viewTransactionHistory = accountDetails.clickHistories();

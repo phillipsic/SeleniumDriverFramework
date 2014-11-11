@@ -1,5 +1,6 @@
 package com.comverse.css.csr.aca;
 
+import com.comverse.common.Invoice;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,12 +28,13 @@ public class ACA0050_View_subscriber_combined_history extends CSSTest {
     @Test
     public void testACA0050_View_subscriber_combined_history() throws Exception {
         try {
-            launchCSSApplicationAndSSOLogin();
-            String accountNumberWithComHist = preparation.readPropertyFromAccountPropertyFile("Invoice.NRC");
+            Invoice invoice = new Invoice();
 
+            launchCSSApplicationAndSSOLogin();
+            String accountNumber = invoice.getAcct("BILLED.RC");
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
-            AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountID(accountNumberWithComHist);
+            AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountID(accountNumber);
             SubscriberDetails subscriberDashboard = accountDetails.selectFirstSubscriberFromNavigationPanel();
             ViewCombinedHistory viewCombinedHistory = subscriberDashboard.clickonCombinedHistory();
             viewCombinedHistory.enterToDateTodayFromDateMinus10();

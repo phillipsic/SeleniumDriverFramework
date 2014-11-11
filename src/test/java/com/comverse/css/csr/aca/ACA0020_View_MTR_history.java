@@ -1,5 +1,6 @@
 package com.comverse.css.csr.aca;
 
+import com.comverse.common.Invoice;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import com.comverse.data.apps.CSR;
 import com.comverse.data.users.CSRAdmin;
 
 public class ACA0020_View_MTR_history extends CSSTest {
+
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
@@ -28,13 +30,13 @@ public class ACA0020_View_MTR_history extends CSSTest {
     public void testACA0020_View_MTR_history() throws Exception {
 
         try {
+            Invoice invoice = new Invoice();
+
             launchCSSApplicationAndSSOLogin();
-
-            String accountNumberWithMTR = preparation.readPropertyFromAccountPropertyFile("Invoice.MTR");
-
+            String accountNumber = invoice.getAcct("BILLED.MTR");
             WorkSpace workSpace = new WorkSpace(tool, test, user);
             IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
-            AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountID(accountNumberWithMTR);
+            AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountID(accountNumber);
             ViewTransactionHistory viewTransactionHistory = accountDetails.clickHistories();
             // ViewTransactionHistory viewTransactionHistory =
             // viewInvocies.clickTransactionHistory();
