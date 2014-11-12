@@ -29,7 +29,7 @@ public class BCT005_PO_Residential_Casemanagement_CSR extends CSSTest {
         WorkSpace workSpace = new WorkSpace(tool, test, user);
 
         IdentifyCustomer manageAccount = workSpace.gotoManageAccount();
-        AccountDetails accountDetails = manageAccount.searchByAccountLastNameSinglePerson(accountLastName);
+        AccountDetails accountDetails = manageAccount.gotoAccountDashboardUsingAccountLastName(accountLastName);
         accountDetails.clickRefreshThisAccount();
         AddNewCase addNewCase = accountDetails.addNewCase();
 
@@ -39,7 +39,7 @@ public class BCT005_PO_Residential_Casemanagement_CSR extends CSSTest {
         addNewCase.selectNoteType("Complaint");
         addNewCase.enterNoteDescription("Note - Complaint description");
         AddCaseReview addCaseReview = addNewCase.clickContinue();
-        test.setBugId("CBS00156658");
+        
         AddCaseConfirmation addCaseConfirmation = addCaseReview.clickCreateCase();
         test.setBugId("NoBug");
         Common.assertVerifyTrue(tool, addCaseConfirmation.getConfirmationMessage().matches("^[\\s\\S]*Your case has been successfully created with the reference[\\s\\S]*$"));
