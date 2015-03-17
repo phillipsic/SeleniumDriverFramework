@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  name="Comverse Sample Template for CSS"  pageWidth="595" pageHeight="842" columnWidth="555" whenNoDataType="AllSectionsNoDetail" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  name="company Sample Template for CSS"  pageWidth="595" pageHeight="842" columnWidth="555" whenNoDataType="AllSectionsNoDetail" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<parameter name="Basket Data~0~0~CSS~~Subscribers Details" class="java.lang.String">
 		<parameterDescription><![CDATA[I.e. Sample Satic text]]></parameterDescription>
 	</parameter>
@@ -16,7 +16,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font size="20" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Comverse Sample Template]]></text>
+				<text><![CDATA[company Sample Template]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="31" width="555" height="65"/>

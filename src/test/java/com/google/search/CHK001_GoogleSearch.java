@@ -4,13 +4,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.comverse.css.b2c.*;
+import com.company.css.b2c.*;
 import com.framework.common.AlreadyRunException;
 import com.framework.app.common.CSSTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
-import com.comverse.css.data.PO.PO_ResidentialBasicPrepaid;
-import com.comverse.data.apps.B2C;
+import com.company.css.data.PO.PO_ResidentialBasicPrepaid;
+import com.company.data.apps.B2C;
 
 public class CHK001_GoogleSearch extends CSSTest {
     private StringBuffer verificationErrors = new StringBuffer();

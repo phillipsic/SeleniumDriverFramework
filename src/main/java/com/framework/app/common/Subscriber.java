@@ -1,6 +1,6 @@
 package com.framework.app.common;
 
-import com.comverse.css.data.C1Data;
+import com.company.css.data.C1Data;
 
 public class Subscriber extends C1Data {
 

@@ -8,7 +8,7 @@ import com.framework.common.User;
 import com.framework.common.Test;
 import org.junit.Before;
 
-import com.comverse.sec.ComverseOneSingleSignOn;
+import com.company.sec.companyOneSingleSignOn;
 
 public class CSSTest extends Main {
 
@@ -50,7 +50,7 @@ public class CSSTest extends Main {
         tool.get(application.appURL());
         test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
         test.writeInLogFile("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
-        ComverseOneSingleSignOn ssoLoginPage = new ComverseOneSingleSignOn(tool, test, user);
+        companyOneSingleSignOn ssoLoginPage = new companyOneSingleSignOn(tool, test, user);
         ssoLoginPage.loginSSOUser();
         application.setVersion(tool, test);
         tool.navigateBack();
