@@ -4,9 +4,9 @@
  */
 package com.comverse.css.OCM;
 
-import com.comverse.common.AutomationTool;
-import com.comverse.common.Test;
-import com.comverse.common.User;
+import com.framework.common.AutomationTool;
+import com.framework.common.Test;
+import com.framework.common.User;
 import com.comverse.css.commonpages.CommonMenu;
 
 public class WorkSpace extends CommonMenu {

@@ -6,9 +6,9 @@ import org.junit.Test;
 
 import com.comverse.css.OCM.LoginPage;
 import com.comverse.css.OCM.OCMApplication;
-import com.comverse.css.common.CSSTest;
-import com.comverse.css.common.Common;
-import com.comverse.css.common.Prep;
+import com.framework.app.common.CSSTest;
+import com.framework.app.common.Common;
+import com.framework.app.common.Prep;
 import com.comverse.data.apps.OCM;
 import com.comverse.data.users.OCMPub;
 

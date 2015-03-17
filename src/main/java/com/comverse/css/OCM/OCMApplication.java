@@ -12,11 +12,11 @@ import java.util.Date;
 import jxl.Cell;
 import jxl.Sheet;
 
-import com.comverse.common.Application;
-import com.comverse.common.AutomationTool;
-import com.comverse.common.Main;
-import com.comverse.common.Test;
-import com.comverse.css.common.Common;
+import com.framework.common.Application;
+import com.framework.common.AutomationTool;
+import com.framework.common.Main;
+import com.framework.common.Test;
+import com.framework.app.common.Common;
 
 public class OCMApplication extends Main {
 

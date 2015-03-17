@@ -2,10 +2,10 @@ package com.comverse.css.OCM;
 
 import java.util.MissingResourceException;
 
-import com.comverse.common.AutomationTool;
-import com.comverse.common.Test;
-import com.comverse.common.User;
-import com.comverse.css.common.Common;
+import com.framework.common.AutomationTool;
+import com.framework.common.Test;
+import com.framework.common.User;
+import com.framework.app.common.Common;
 import com.comverse.css.commonpages.CommonMenu;
 
 public class LoginPage extends CommonMenu {

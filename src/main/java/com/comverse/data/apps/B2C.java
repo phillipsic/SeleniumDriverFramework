@@ -1,6 +1,6 @@
 package com.comverse.data.apps;
 
-import com.comverse.common.Application;
+import com.framework.common.Application;
 
 public class B2C extends Application {
 

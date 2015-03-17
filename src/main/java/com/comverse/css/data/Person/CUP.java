@@ -1,6 +1,6 @@
 package com.comverse.css.data.Person;
 
-import com.comverse.css.common.Subscriber;
+import com.framework.app.common.Subscriber;
 import com.comverse.css.data.Offer;
 import com.comverse.css.data.PO.PO_WilsonCometPlan;
 

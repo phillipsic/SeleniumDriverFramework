@@ -1,11 +1,11 @@
 package com.comverse.css.common.data;
 
-import com.comverse.css.common.AlreadyRunException;
+import com.framework.common.AlreadyRunException;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.comverse.css.common.CSSTest;
-import com.comverse.css.common.Prep;
+import com.framework.app.common.CSSTest;
+import com.framework.app.common.Prep;
 import com.comverse.css.csr.AddressAdd;
 import com.comverse.css.csr.AddressAdministration;
 import com.comverse.css.csr.HomePageBackOffice;

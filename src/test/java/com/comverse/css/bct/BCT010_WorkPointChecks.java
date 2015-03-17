@@ -4,9 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.comverse.css.common.AlreadyRunException;
-import com.comverse.css.common.Common;
-import com.comverse.css.common.Prep;
+import com.framework.common.AlreadyRunException;
+import com.framework.app.common.Common;
+import com.framework.app.common.Prep;
 import com.comverse.data.apps.WPMC;
 import com.comverse.workpoint.LogonToTheWorkPointManagementConsole;
 import com.comverse.workpoint.WelcomeToTheWorkpointManagementConsole;

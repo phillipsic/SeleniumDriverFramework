@@ -1,7 +1,7 @@
 package com.comverse.css.data;
 
 import com.comverse.css.common.Account;
-import com.comverse.css.common.Subscriber;
+import com.framework.app.common.Subscriber;
 
 public abstract class C1Data {
 

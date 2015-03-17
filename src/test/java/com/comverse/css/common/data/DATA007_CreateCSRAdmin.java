@@ -4,9 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.comverse.common.User;
-import com.comverse.css.common.CSSTest;
-import com.comverse.css.common.Prep;
+import com.framework.common.User;
+import com.framework.app.common.CSSTest;
+import com.framework.app.common.Prep;
 import com.comverse.data.apps.SEC;
 import com.comverse.data.users.CSRAdmin;
 import com.comverse.data.users.SECAdmin;

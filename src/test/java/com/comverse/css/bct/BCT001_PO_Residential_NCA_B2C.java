@@ -5,10 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.comverse.css.b2c.*;
-import com.comverse.css.common.AlreadyRunException;
-import com.comverse.css.common.CSSTest;
-import com.comverse.css.common.Common;
-import com.comverse.css.common.Prep;
+import com.framework.common.AlreadyRunException;
+import com.framework.app.common.CSSTest;
+import com.framework.app.common.Common;
+import com.framework.app.common.Prep;
 import com.comverse.css.data.PO.PO_ResidentialBasicPrepaid;
 import com.comverse.data.apps.B2C;
 

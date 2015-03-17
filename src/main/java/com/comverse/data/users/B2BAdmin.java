@@ -1,7 +1,7 @@
 package com.comverse.data.users;
 
-import com.comverse.common.User;
-import com.comverse.css.common.Common;
+import com.framework.common.User;
+import com.framework.app.common.Common;
 
 public class B2BAdmin extends User {
 

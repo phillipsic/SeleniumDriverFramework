@@ -4,9 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.comverse.css.common.AlreadyRunException;
-import com.comverse.css.common.CSSTest;
-import com.comverse.css.common.Prep;
+import com.framework.common.AlreadyRunException;
+import com.framework.app.common.CSSTest;
+import com.framework.app.common.Prep;
 import com.comverse.css.pos.MyShapeChannel;
 import com.comverse.css.pos.SearchRetailer;
 import com.comverse.css.pos.ViewHierarchy;

@@ -1,6 +1,6 @@
 package com.comverse.data.users;
 
-import com.comverse.common.User;
+import com.framework.common.User;
 
 public class WPMCAdmin extends User {
 
