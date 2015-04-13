@@ -5,7 +5,7 @@ import com.framework.common.User;
 public class NormalUser extends User {
 
     public NormalUser() throws Exception {
-        setRole("CSRUser");
+        setRole("NormalUser");
         setLogin();
         setPassword();
         setRealm();
