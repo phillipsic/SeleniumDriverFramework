@@ -26,7 +26,7 @@ public class CSSTest extends Main {
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
     }
 
-    public void launchCSSApplication() throws Exception {
+    public void launchApplication() throws Exception {
         application.setVersion(tool, test);
         tool.get(application.appURL());
         test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());

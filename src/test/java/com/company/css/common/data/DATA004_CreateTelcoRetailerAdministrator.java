@@ -31,7 +31,7 @@ public class DATA004_CreateTelcoRetailerAdministrator extends CSSTest {
     public void testDATA004_CreateTelcoRetailerAdministrator() throws Exception {
 
         try {
-            launchCSSApplication();
+            launchApplication();
 
             MyShapeChannel loginPage = new MyShapeChannel(tool, test, user);
             loginPage.clickAdminLogin(application);

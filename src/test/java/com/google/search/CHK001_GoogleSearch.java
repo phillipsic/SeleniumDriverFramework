@@ -28,7 +28,7 @@ public class CHK001_GoogleSearch extends CSSTest {
 
         try {
             PO_ResidentialBasicPrepaid po_ResidentialBasicPrepaid = new PO_ResidentialBasicPrepaid();
-            launchCSSApplication();
+            launchApplication();
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 

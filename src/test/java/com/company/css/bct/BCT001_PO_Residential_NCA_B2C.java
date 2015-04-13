@@ -29,7 +29,7 @@ public class BCT001_PO_Residential_NCA_B2C extends CSSTest {
 
         try {
             PO_ResidentialBasicPrepaid po_ResidentialBasicPrepaid = new PO_ResidentialBasicPrepaid();
-            launchCSSApplication();
+            launchApplication();
 
             String uniqueTimeStamp = Common.generateTimeStamp();
 

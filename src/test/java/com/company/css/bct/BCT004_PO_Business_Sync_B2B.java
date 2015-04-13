@@ -27,7 +27,7 @@ public class BCT004_PO_Business_Sync_B2B extends CSSTest {
     @Test
     public void testBCT004_PO_Business_Sync_B2B() throws Exception {
 
-        launchCSSApplication();
+        launchApplication();
         MyshapeBusiness loginPage = new MyshapeBusiness(tool, test, user);
         loginPage.clickAdminLogin(application);
         WorkSpace workSpace = loginPage.loginToB2B(user);

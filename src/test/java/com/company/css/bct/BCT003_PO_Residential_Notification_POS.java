@@ -24,7 +24,7 @@ public class BCT003_PO_Residential_Notification_POS extends CSSTest {
 
     @Test
     public void testBCT003_PO_Residential_Notification_POS() throws Exception {
-        launchCSSApplication();
+        launchApplication();
         String uniqueTimeStamp = Common.generateTimeStamp();
         String accountLastName = Common.getLastNameRechargableAccount();
         MyShapeChannel myShapeChannel = new MyShapeChannel(tool, test, user);
