@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import com.company.css.OCM.LoginPage;
 import com.company.css.OCM.OCMApplication;
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.data.apps.OCM;
 import com.company.data.users.OCMPub;
 
-public class BCT007_Propagation extends CSSTest {
+public class BCT007_Propagation extends Test {
 
     @Override
     @Before

@@ -4,14 +4,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.css.pos.*;
 import com.company.data.apps.POS;
 import com.company.data.users.TelcoRetailerAdmin;
 
-public class BCT003_PO_Residential_Notification_POS extends CSSTest {
+public class BCT003_PO_Residential_Notification_POS extends Test {
 
     @Override
     @Before

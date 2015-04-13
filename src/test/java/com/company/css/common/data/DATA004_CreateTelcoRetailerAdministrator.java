@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.framework.common.AlreadyRunException;
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Prep;
 import com.company.css.pos.MyShapeChannel;
 import com.company.css.pos.SearchRetailer;
@@ -15,7 +15,7 @@ import com.company.data.apps.POS;
 import com.company.data.users.TelcoAdmin;
 import com.company.data.users.TelcoRetailerAdmin;
 
-public class DATA004_CreateTelcoRetailerAdministrator extends CSSTest {
+public class DATA004_CreateTelcoRetailerAdministrator extends Test {
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before

@@ -6,12 +6,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Prep;
 import com.company.data.apps.OCM;
 import com.company.data.users.OCMPub;
 
-public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends CSSTest {
+public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends Test {
 
     @Override
     @Before

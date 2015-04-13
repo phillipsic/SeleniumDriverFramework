@@ -6,12 +6,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Prep;
 import com.company.data.apps.OCM;
 import com.company.data.users.OCMPub;
 
-public class OCM0002_Add_Catalog extends CSSTest {
+public class OCM0002_Add_Catalog extends Test {
 
     @Override
     @Before

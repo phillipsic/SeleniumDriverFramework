@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.framework.common.AlreadyRunException;
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.css.csr.AddOutboundCommunicationTemplate;
@@ -15,7 +15,7 @@ import com.company.css.csr.OutboundCommunicationTemplate;
 import com.company.data.apps.CSR;
 import com.company.data.users.BOGAdmin;
 
-public class DATA002_UploadOBCTemplate extends CSSTest {
+public class DATA002_UploadOBCTemplate extends Test {
 
     private StringBuffer verificationErrors = new StringBuffer();
 

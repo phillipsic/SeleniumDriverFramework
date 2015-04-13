@@ -4,7 +4,7 @@ import com.framework.common.AlreadyRunException;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Prep;
 import com.company.css.csr.AddressAdd;
 import com.company.css.csr.AddressAdministration;
@@ -14,7 +14,7 @@ import com.company.data.apps.CSR;
 import com.company.data.users.BOGAdmin;
 import org.junit.After;
 
-public class DATA003_AddReferentialAddress extends CSSTest {
+public class DATA003_AddReferentialAddress extends Test {
 
     private StringBuffer verificationErrors = new StringBuffer();
 

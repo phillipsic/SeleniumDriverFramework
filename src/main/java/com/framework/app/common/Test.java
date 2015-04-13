@@ -10,7 +10,7 @@ import org.junit.Before;
 
 import com.company.sec.companyOneSingleSignOn;
 
-public class CSSTest extends Main {
+public class Test extends Main {
 
     @Before
     public void setUp() throws Exception {

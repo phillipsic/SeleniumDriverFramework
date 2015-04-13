@@ -5,14 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.framework.common.User;
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Prep;
 import com.company.data.apps.SEC;
 import com.company.data.users.CSRUser;
 import com.company.data.users.SECAdmin;
 import com.company.sec.SecLoginPage;
 
-public class DATA008_CreateCSRUser extends CSSTest {
+public class DATA008_CreateCSRUser extends Test {
 
     @Before
     @Override

@@ -2,7 +2,7 @@ package com.company.css.common.data;
 
 import com.framework.app.common.Subscriber;
 import com.framework.app.common.Prep;
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Common;
 import com.framework.common.AlreadyRunException;
 import org.junit.After;
@@ -19,7 +19,7 @@ import com.company.data.apps.CSR;
 import com.company.data.users.B2BAdmin;
 import com.company.data.users.CSRAdmin;
 
-public class DATA009_CreateB2BAccountAndAdmin extends CSSTest {
+public class DATA009_CreateB2BAccountAndAdmin extends Test {
 
     private StringBuffer verificationErrors = new StringBuffer();
 

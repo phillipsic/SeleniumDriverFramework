@@ -4,14 +4,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.css.csr.*;
 import com.company.data.apps.CSR;
 import com.company.data.users.CSRAdmin;
 
-public class BCT002_PO_Residential_Recharge_CSR extends CSSTest {
+public class BCT002_PO_Residential_Recharge_CSR extends Test {
 
     @Before
     @Override

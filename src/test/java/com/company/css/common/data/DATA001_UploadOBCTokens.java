@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Prep;
 import com.company.css.csr.HomePageBackOffice;
 import com.company.css.csr.InventoryAdministration;
@@ -13,7 +13,7 @@ import com.company.css.csr.UploadToken;
 import com.company.data.apps.CSR;
 import com.company.data.users.BOGAdmin;
 
-public class DATA001_UploadOBCTokens extends CSSTest {
+public class DATA001_UploadOBCTokens extends Test {
 
     @Before
     @Override

@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import com.company.css.b2c.*;
 import com.framework.common.AlreadyRunException;
-import com.framework.app.common.CSSTest;
+import com.framework.app.common.Test;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.css.data.PO.PO_ResidentialBasicPrepaid;
 import com.company.data.apps.Google;
 
-public class CHK001_GoogleSearch extends CSSTest {
+public class CHK001_GoogleSearch extends Test {
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Override
