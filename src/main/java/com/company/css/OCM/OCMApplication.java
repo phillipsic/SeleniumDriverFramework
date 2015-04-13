@@ -15,12 +15,12 @@ import jxl.Sheet;
 import com.framework.common.Application;
 import com.framework.common.AutomationTool;
 import com.framework.common.Main;
-import com.framework.common.Test;
+import com.framework.common.TestDetails;
 import com.framework.app.common.Common;
 
 public class OCMApplication extends Main {
 
-    public OCMApplication(AutomationTool tool, Test test) throws Exception {
+    public OCMApplication(AutomationTool tool, TestDetails test) throws Exception {
         this.tool = tool;
         this.test = test;
         String currentScreen = tool.getTitle();

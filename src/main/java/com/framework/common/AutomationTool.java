@@ -121,7 +121,7 @@ public class AutomationTool extends Main {
         return null;
     }
 
-    public String instanciateDriver(AutomationTool tool, Test test) throws Exception {
+    public String instanciateDriver(AutomationTool tool, TestDetails test) throws Exception {
         return null;
     }
 
@@ -139,7 +139,7 @@ public class AutomationTool extends Main {
     public void navigateRefresh() throws Exception {
     }
 
-    public void parseUserAgent(AutomationTool tool, Test test, String intBrowser) {
+    public void parseUserAgent(AutomationTool tool, TestDetails test, String intBrowser) {
     }
 
     public void performDragAndDrop(WebElement from, WebElement to) throws Exception {

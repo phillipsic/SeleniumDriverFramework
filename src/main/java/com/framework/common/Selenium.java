@@ -200,7 +200,7 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public String instanciateDriver(AutomationTool tool, Test test) throws Exception {
+    public String instanciateDriver(AutomationTool tool, TestDetails test) throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
 
         tool.platform.setComputerName(System.getenv("computername"));
@@ -327,7 +327,7 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void parseUserAgent(AutomationTool tool, Test test, String intBrowser) {
+    public void parseUserAgent(AutomationTool tool, TestDetails test, String intBrowser) {
         String userAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
 
         if (test.getDebug()) {

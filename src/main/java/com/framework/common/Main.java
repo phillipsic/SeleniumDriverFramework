@@ -17,7 +17,7 @@ import com.framework.app.common.Prep;
 public class Main {
 
     private StringBuffer verificationErrors = new StringBuffer();
-    public Test test;
+    public TestDetails test;
     public Application application;
     public Prep preparation;
     public Platform platform;

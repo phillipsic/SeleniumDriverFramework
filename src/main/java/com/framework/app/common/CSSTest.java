@@ -5,7 +5,7 @@ import com.framework.common.Selenium;
 import com.framework.common.Main;
 import com.framework.common.Application;
 import com.framework.common.User;
-import com.framework.common.Test;
+import com.framework.common.TestDetails;
 import org.junit.Before;
 
 import com.company.sec.companyOneSingleSignOn;
@@ -16,7 +16,7 @@ public class CSSTest extends Main {
     public void setUp() throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
         tool = new Selenium();
-        test = new Test();
+        test = new TestDetails();
         test.setName(this.getClass().getSimpleName());
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
         System.out.println("DEBUG = " + test.getDebug());

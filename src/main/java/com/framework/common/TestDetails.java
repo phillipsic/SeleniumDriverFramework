@@ -4,7 +4,7 @@ import java.io.*;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class Test extends Main {
+public class TestDetails extends Main {
 
     private String name;
     private String result;
@@ -14,7 +14,7 @@ public class Test extends Main {
     private String LOG_FILE;
     public Writer w;
 
-    public Test() throws Exception {
+    public TestDetails() throws Exception {
         setResult("fail");
         setBugId("NoBug");
     }

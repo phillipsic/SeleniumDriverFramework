@@ -5,13 +5,13 @@
 package com.company.css.OCM;
 
 import com.framework.common.AutomationTool;
-import com.framework.common.Test;
+import com.framework.common.TestDetails;
 import com.framework.common.User;
 import com.company.css.commonpages.CommonMenu;
 
 public class WorkSpace extends CommonMenu {
 
-    public WorkSpace(AutomationTool tool, Test test, User user) throws Exception {
+    public WorkSpace(AutomationTool tool, TestDetails test, User user) throws Exception {
         super(tool, test, user);
         String currentScreen = tool.getTitle();
         String expectedScreen = "Welcome to OCM!";

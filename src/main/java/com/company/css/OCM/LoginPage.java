@@ -3,7 +3,7 @@ package com.company.css.OCM;
 import java.util.MissingResourceException;
 
 import com.framework.common.AutomationTool;
-import com.framework.common.Test;
+import com.framework.common.TestDetails;
 import com.framework.common.User;
 import com.framework.app.common.Common;
 import com.company.css.commonpages.CommonMenu;
@@ -11,7 +11,7 @@ import com.company.css.commonpages.CommonMenu;
 public class LoginPage extends CommonMenu {
 
     // public final User user;
-    public LoginPage(AutomationTool tool, Test test, User user) throws Exception {
+    public LoginPage(AutomationTool tool, TestDetails test, User user) throws Exception {
         super(tool, test, user);
 
         String currentScreen = tool.getTitle();
