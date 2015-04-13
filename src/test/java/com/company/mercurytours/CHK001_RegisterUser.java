@@ -22,7 +22,7 @@ public class CHK001_RegisterUser extends AppTest {
         super.setUp();
         preparation = new Prep();
         application = new MercuryTours();
-         user = new JoeBloggs();
+        user = new JoeBloggs();
     }
 
     @Test
@@ -36,6 +36,12 @@ public class CHK001_RegisterUser extends AppTest {
 
             WelcomeMercuryTours WelcomePage = new WelcomeMercuryTours(tool, test, user);
             RegisterMercuryTours RegisterPage = WelcomePage.clickRegisterLink();
+
+            RegisterPage.enterUserName(user.getLogin());
+            RegisterPage.enterPassword(user.getPassword());
+            RegisterPage.enterConfirmPassword(user.getPassword());
+            RegisterPage.clickSubmit();
+            
 
             Common.storeB2CLoginDetailsAndLastName("LN" + uniqueTimeStamp, uniqueTimeStamp, "0123456", "ACCS0000_CreateExistingAccount");
 
