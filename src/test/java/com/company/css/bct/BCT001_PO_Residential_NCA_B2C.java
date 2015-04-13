@@ -10,7 +10,7 @@ import com.framework.app.common.CSSTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.css.data.PO.PO_ResidentialBasicPrepaid;
-import com.company.data.apps.B2C;
+import com.company.data.apps.Google;
 
 public class BCT001_PO_Residential_NCA_B2C extends CSSTest {
 
@@ -21,7 +21,7 @@ public class BCT001_PO_Residential_NCA_B2C extends CSSTest {
     public void setUp() throws Exception {
         super.setUp();
         preparation = new Prep();
-        application = new B2C();
+        application = new Google();
     }
 
     @Test

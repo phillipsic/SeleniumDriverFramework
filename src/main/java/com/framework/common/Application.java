@@ -3,18 +3,17 @@ package com.framework.common;
 import com.framework.app.common.PropertyHelper;
 
 public class Application extends Main {
+
     private String Name;
     private String CommonName;
-    private String OCMName;
     private String Version;
     private String MainURLKey;
     private String DirectURLKey;
-    private boolean isCSSApp;
 
     public Application() {
         setMainURLKey("base_url");
         setDirectURLKey("css_direct_url");
-        setOCMName("nmy-ocm-app");
+       
     }
 
     public String getName() {
@@ -31,22 +30,6 @@ public class Application extends Main {
 
     public void setCommonName(String commonName) {
         CommonName = commonName;
-    }
-
-    public boolean getIsCSSApp() {
-        return isCSSApp;
-    }
-
-    public void setIsCSSApp(boolean isCSSApp) {
-        this.isCSSApp = isCSSApp;
-    }
-
-    public String getOCMName() {
-        return OCMName;
-    }
-
-    public void setOCMName(String ocmname) {
-        OCMName = ocmname;
     }
 
     public void setMainURLKey(String mainURLKey) {
@@ -66,19 +49,16 @@ public class Application extends Main {
         return proxyURL() + "/" + propsHelper.getInitProperties(this.getName() + "_url") + "/";
     }
 
-    public String appOCMURL() {
-        PropertyHelper propsHelper = new PropertyHelper();
-        return proxyURL() + "/" + propsHelper.getInitProperties(this.getOCMName() + "_url") + "/";
-    }
-
-    // POS URL is used to get versions for non CSS applications
+    // Needs to be rewritten - flag for where to get build nubmer
     public String versionURL() {
         PropertyHelper propsHelper = new PropertyHelper();
+            
         String URL = "";
-        if (isCSSApp)
+        if (propsHelper.getInitProperties("buildNumberIniFile").equals("TRUE")) {
             URL = proxyURL() + "/" + propsHelper.getInitProperties(this.getName() + "_url") + "/";
-        else
+        } else {
             URL = proxyURL() + "/" + propsHelper.getInitProperties("myshapepos_url") + "/";
+        }
 
         return URL;
     }
