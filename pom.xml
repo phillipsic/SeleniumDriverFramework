@@ -72,6 +72,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testSuite>**/bct/*.java</testSuite>
         <selenium_browser>IE</selenium_browser>
+        <test_environment>ENV1</test_environment>
     </properties>
 
     <dependencies>
