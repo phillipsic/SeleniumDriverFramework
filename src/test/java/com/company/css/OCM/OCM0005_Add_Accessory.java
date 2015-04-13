@@ -12,12 +12,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Prep;
 import com.company.data.apps.OCM;
 import com.company.data.users.OCMPub;
 
-public class OCM0005_Add_Accessory extends Test {
+public class OCM0005_Add_Accessory extends AppTest {
     private String inputFile;
 
     @Override
@@ -29,7 +29,7 @@ public class OCM0005_Add_Accessory extends Test {
         user = new OCMPub();
     }
 
-    @Test
+    @AppTest
     public void testOCM0005_Add_Accessory() throws Exception {
         boolean accessoryAlreadyExists = false;
 

@@ -14,13 +14,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.data.apps.OCM;
 import com.company.data.users.OCMPub;
 
-public class OCM0001_Add_Images extends Test {
+public class OCM0001_Add_Images extends AppTest {
     private String inputFile;
 
     @Override
@@ -32,7 +32,7 @@ public class OCM0001_Add_Images extends Test {
         user = new OCMPub();
     }
 
-    @Test
+    @AppTest
     public void testOCM0001_Add_Images() throws Exception {
 
         launchOCMApplicationAndGetBuildNumber();

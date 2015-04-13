@@ -2,7 +2,7 @@ package com.company.css.common.data;
 
 import com.framework.app.common.Subscriber;
 import com.framework.app.common.Prep;
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Common;
 import com.framework.common.AlreadyRunException;
 import org.junit.After;
@@ -19,7 +19,7 @@ import com.company.data.apps.CSR;
 import com.company.data.users.B2BAdmin;
 import com.company.data.users.CSRAdmin;
 
-public class DATA009_CreateB2BAccountAndAdmin extends Test {
+public class DATA009_CreateB2BAccountAndAdmin extends AppTest {
 
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -32,7 +32,7 @@ public class DATA009_CreateB2BAccountAndAdmin extends Test {
         user = new CSRAdmin();
     }
 
-    @Test
+    @AppTest
     public void testDATA009_CreateB2BAccountAndAdmin() throws Exception {
         try {
             Application applicationtemp = application;

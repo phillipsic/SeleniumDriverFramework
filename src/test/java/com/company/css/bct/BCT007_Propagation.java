@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import com.company.css.OCM.LoginPage;
 import com.company.css.OCM.OCMApplication;
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.data.apps.OCM;
 import com.company.data.users.OCMPub;
 
-public class BCT007_Propagation extends Test {
+public class BCT007_Propagation extends AppTest {
 
     @Override
     @Before
@@ -23,7 +23,7 @@ public class BCT007_Propagation extends Test {
         user = new OCMPub();
     }
 
-    @Test
+    @AppTest
     public void testBCT007_Propagation() throws Exception {
         launchOCMApplicationAndGetBuildNumber();
         LoginPage loginPage = new LoginPage(tool, test, user);

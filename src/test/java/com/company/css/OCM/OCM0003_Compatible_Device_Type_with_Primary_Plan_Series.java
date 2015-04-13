@@ -6,12 +6,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Prep;
 import com.company.data.apps.OCM;
 import com.company.data.users.OCMPub;
 
-public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends Test {
+public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends AppTest {
 
     @Override
     @Before
@@ -22,7 +22,7 @@ public class OCM0003_Compatible_Device_Type_with_Primary_Plan_Series extends Tes
         user = new OCMPub();
     }
 
-    @Test
+    @AppTest
     public void testOCM0003_Compatible_Device_Type_with_Primary_Plan_Series() throws Exception {
 
         launchOCMApplicationAndGetBuildNumber();

@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.framework.common.AlreadyRunException;
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Prep;
 import com.company.css.pos.MyShapeChannel;
 import com.company.css.pos.SearchRetailer;
@@ -15,7 +15,7 @@ import com.company.data.apps.POS;
 import com.company.data.users.TelcoAdmin;
 import com.company.data.users.TelcoRetailerUser;
 
-public class DATA005_CreateTelcoRetailerSubscriber extends Test {
+public class DATA005_CreateTelcoRetailerSubscriber extends AppTest {
     private StringBuffer verificationErrors = new StringBuffer();
 
     @Before
@@ -27,7 +27,7 @@ public class DATA005_CreateTelcoRetailerSubscriber extends Test {
         user = new TelcoAdmin();
     }
 
-    @Test
+    @AppTest
     public void testDATA005_CreateTelcoRetailerSubscriber() throws Exception {
 
         try {

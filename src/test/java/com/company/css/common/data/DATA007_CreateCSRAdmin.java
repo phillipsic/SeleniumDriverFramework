@@ -5,14 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.framework.common.User;
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Prep;
 import com.company.data.apps.SEC;
 import com.company.data.users.CSRAdmin;
 import com.company.data.users.SECAdmin;
 import com.company.sec.SecLoginPage;
 
-public class DATA007_CreateCSRAdmin extends Test {
+public class DATA007_CreateCSRAdmin extends AppTest {
 
     @Before
     @Override
@@ -23,7 +23,7 @@ public class DATA007_CreateCSRAdmin extends Test {
         user = new SECAdmin();
     }
 
-    @Test
+    @AppTest
     public void testDATA007_CreateCSRAdmin() throws Exception {
         launchSecurityApplication();
         SecLoginPage loginPage = new SecLoginPage(tool, test, user);

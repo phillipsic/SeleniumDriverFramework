@@ -6,14 +6,14 @@ import org.junit.Test;
 
 import com.framework.common.User;
 import com.company.css.b2b.*;
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.data.apps.B2B;
 import com.company.data.users.B2BAdmin;
 import com.company.data.users.CSRAdmin;
 
-public class BCT004_PO_Business_Sync_B2B extends Test {
+public class BCT004_PO_Business_Sync_B2B extends AppTest {
 
     @Before
     @Override
@@ -24,7 +24,7 @@ public class BCT004_PO_Business_Sync_B2B extends Test {
         user = new CSRAdmin();
     }
 
-    @Test
+    @AppTest
     public void testBCT004_PO_Business_Sync_B2B() throws Exception {
 
         launchApplication();

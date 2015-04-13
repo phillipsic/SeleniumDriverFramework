@@ -4,14 +4,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.css.pos.*;
 import com.company.data.apps.POS;
 import com.company.data.users.TelcoRetailerAdmin;
 
-public class BCT003_PO_Residential_Notification_POS extends Test {
+public class BCT003_PO_Residential_Notification_POS extends AppTest {
 
     @Override
     @Before
@@ -22,7 +22,7 @@ public class BCT003_PO_Residential_Notification_POS extends Test {
         user = new TelcoRetailerAdmin();
     }
 
-    @Test
+    @AppTest
     public void testBCT003_PO_Residential_Notification_POS() throws Exception {
         launchApplication();
         String uniqueTimeStamp = Common.generateTimeStamp();

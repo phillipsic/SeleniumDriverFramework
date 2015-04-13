@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.css.csr.ActionDone;
@@ -14,7 +14,7 @@ import com.company.css.csr.InventoryAdministration;
 import com.company.data.apps.CSR;
 import com.company.data.users.BOGAdmin;
 
-public class BCT000_Insert_Inventory extends Test {
+public class BCT000_Insert_Inventory extends AppTest {
 
     @Before
     @Override
@@ -25,7 +25,7 @@ public class BCT000_Insert_Inventory extends Test {
         user = new BOGAdmin();
     }
 
-    @Test
+    @AppTest
     public void testBCT000_Insert_Inventory() throws Exception {
         launchCSSApplicationAndSSOLogin();
         String imsiSerialnumber, simSerialnumber, prepaidSerialnumber, normalSerialnumber;

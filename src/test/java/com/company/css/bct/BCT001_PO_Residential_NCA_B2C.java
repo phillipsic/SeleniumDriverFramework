@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import com.company.css.b2c.*;
 import com.framework.common.AlreadyRunException;
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
 import com.company.css.data.PO.PO_ResidentialBasicPrepaid;
-import com.company.data.apps.Google;
+import com.company.mercurytours.MercuryTours;
 
-public class BCT001_PO_Residential_NCA_B2C extends Test {
+public class BCT001_PO_Residential_NCA_B2C extends AppTest {
 
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -21,10 +21,10 @@ public class BCT001_PO_Residential_NCA_B2C extends Test {
     public void setUp() throws Exception {
         super.setUp();
         preparation = new Prep();
-        application = new Google();
+        application = new MercuryTours();
     }
 
-    @Test
+    @AppTest
     public void testBCT001_NCA_Residential_Basic_Prepaid() throws Exception {
 
         try {

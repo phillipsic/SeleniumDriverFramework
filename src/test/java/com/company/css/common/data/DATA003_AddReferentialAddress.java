@@ -4,7 +4,7 @@ import com.framework.common.AlreadyRunException;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Prep;
 import com.company.css.csr.AddressAdd;
 import com.company.css.csr.AddressAdministration;
@@ -14,7 +14,7 @@ import com.company.data.apps.CSR;
 import com.company.data.users.BOGAdmin;
 import org.junit.After;
 
-public class DATA003_AddReferentialAddress extends Test {
+public class DATA003_AddReferentialAddress extends AppTest {
 
     private StringBuffer verificationErrors = new StringBuffer();
 
@@ -27,7 +27,7 @@ public class DATA003_AddReferentialAddress extends Test {
         user = new BOGAdmin();
     }
 
-    @Test
+    @AppTest
     public void testDATA003_AddReferentialAddress() throws Exception {
         try {
             launchCSSApplicationAndSSOLogin();

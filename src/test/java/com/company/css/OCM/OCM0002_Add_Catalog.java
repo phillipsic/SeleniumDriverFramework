@@ -6,12 +6,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.app.common.Test;
+import com.framework.app.common.AppTest;
 import com.framework.app.common.Prep;
 import com.company.data.apps.OCM;
 import com.company.data.users.OCMPub;
 
-public class OCM0002_Add_Catalog extends Test {
+public class OCM0002_Add_Catalog extends AppTest {
 
     @Override
     @Before
@@ -22,7 +22,7 @@ public class OCM0002_Add_Catalog extends Test {
         user = new OCMPub();
     }
 
-    @Test
+    @AppTest
     public void testOCM0002_Add_Catalog() throws Exception {
 
         String productName = "CSS_PQA_Catalog40";
