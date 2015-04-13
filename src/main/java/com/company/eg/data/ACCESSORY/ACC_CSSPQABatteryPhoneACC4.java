@@ -1,5 +1,5 @@
-package com.company.css.data.ACCESSORY;
-import com.company.css.data.Accessory;
+package com.company.eg.data.ACCESSORY;
+import com.company.eg.data.Accessory;
 
 public class ACC_CSSPQABatteryPhoneACC4 extends Accessory {
 
