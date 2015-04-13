@@ -8,6 +8,7 @@ import com.framework.common.AlreadyRunException;
 import com.framework.app.common.AppTest;
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
+import com.company.mercurytours.users.JoeBloggs;
 
 import com.company.mercurytours.pages.*;
 
@@ -21,6 +22,7 @@ public class CHK001_RegisterUser extends AppTest {
         super.setUp();
         preparation = new Prep();
         application = new MercuryTours();
+         user = new JoeBloggs();
     }
 
     @Test
