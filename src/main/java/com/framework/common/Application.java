@@ -12,7 +12,7 @@ public class Application extends Main {
 
     public Application() {
         setMainURLKey("base_url");
-        setDirectURLKey("css_direct_url");
+        setDirectURLKey("direct_url");
        
     }
 
