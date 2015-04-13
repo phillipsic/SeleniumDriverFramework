@@ -1,5 +1,6 @@
 package com.company.mercurytours.pages;
 
+import com.framework.app.common.Common;
 import com.framework.common.AutomationTool;
 import com.framework.common.TestDetails;
 import com.framework.common.User;
@@ -22,4 +23,18 @@ public class RegisterMercuryTours extends MercuryToursMenu {
         test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
+    public void enterUserName(String login) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+        tool.enterStringUsingId("email", login);
+    }
+
+    public void enterPassword(String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+        tool.enterStringUsingName("password", password);
+    }
+
+    public void enterConfirmPassword(String password) throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+        tool.enterStringUsingName("confirmPassword", password);
+    }
 }
