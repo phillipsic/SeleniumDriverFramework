@@ -37,4 +37,9 @@ public class RegisterMercuryTours extends MercuryToursMenu {
         test.writeInLogFile(Common.getMethodName());
         tool.enterStringUsingName("confirmPassword", password);
     }
+    
+    public void clickSubmit() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+        tool.clickUsingName("register");        
+    }
 }
