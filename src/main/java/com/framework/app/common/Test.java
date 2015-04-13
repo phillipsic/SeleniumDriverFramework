@@ -8,8 +8,6 @@ import com.framework.common.User;
 import com.framework.common.TestDetails;
 import org.junit.Before;
 
-import com.company.sec.companyOneSingleSignOn;
-
 public class Test extends Main {
 
     @Before
@@ -44,41 +42,6 @@ public class Test extends Main {
     public void launchAnotherCSSApplication(Application application2) throws Exception {
         tool.get(application2.appURL());
         Thread.sleep(1000);
-    }
-
-    public void launchCSSApplicationAndSSOLogin() throws Exception {
-        tool.get(application.appURL());
-        test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
-        test.writeInLogFile("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
-        companyOneSingleSignOn ssoLoginPage = new companyOneSingleSignOn(tool, test, user);
-        ssoLoginPage.loginSSOUser();
-        application.setVersion(tool, test);
-        tool.navigateBack();
-        if (!test.getDebug()) {
-            this.checkForPassAndAbort(this.getClass().getSimpleName());
-        }
-        Common.checkForExistingBasketAndDiscard(tool);
-    }
-
-    public void launchOCMApplicationAndGetBuildNumber() throws Exception {
-        application.setVersion(tool, test);
-        // Launch OCM with Direct URL
-        application.setMainURLKey(application.getDirectURLKey());
-        tool.get(application.appOCMURL());
-        if (!test.getDebug()) {
-            this.checkForPassAndAbort(this.getClass().getSimpleName());
-        }
-    }
-
-    public void launchOCMApplication() throws Exception {
-        // Launch OCM with Direct URL
-        application.setMainURLKey(application.getDirectURLKey());
-        tool.get(application.appOCMURL());
-    }
-
-    public void launchSecurityApplication() throws Exception {
-        application.setVersion(tool, test);
-        tool.get(application.appFullURL());
     }
 
     public void launchOTGApplication() throws Exception {
