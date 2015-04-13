@@ -2,10 +2,10 @@ package com.company.data.users;
 
 import com.framework.common.User;
 
-public class CSRAdmin extends User {
+public class NormalUser extends User {
 
-    public CSRAdmin() throws Exception {
-        setRole("CSRAdmin");
+    public NormalUser() throws Exception {
+        setRole("CSRUser");
         setLogin();
         setPassword();
         setRealm();
