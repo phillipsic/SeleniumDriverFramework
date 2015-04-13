@@ -17,47 +17,121 @@ import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
+/**
+ *
+ * @author S823509
+ */
 public class Common {
 
+    /**
+     * This class should be used to store methods that can be used by any
+     * application
+     */
     public Common() {
     }
 
+    /**
+     *
+     * @param value
+     * @throws Exception
+     */
     public static void sleepForNumberOfSeconds(long value) throws Exception {
         long numberOfSeconds = value * 1000;
         Thread.sleep(numberOfSeconds);
     }
 
+    /**
+     *
+     * @param tool
+     * @param searchText
+     * @return
+     * @throws Exception
+     */
     public static Boolean isTextOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = tool.getPageSource();
         return pageSource.contains(searchText);
     }
 
+    /**
+     *
+     * @param tool
+     * @param idOfCheckBox
+     * @return
+     * @throws Exception
+     */
     public static Boolean isCheckBoxSelected(AutomationTool tool, String idOfCheckBox) throws Exception {
         return (tool.searchUsingID(idOfCheckBox)).isSelected();
     }
 
+    /**
+     * This should be used instead of using an assert in the Test. This method
+     * has a description added that will appear in the debugging information.
+     *
+     * @param tool
+     * @param searchText
+     * @throws Exception
+     */
     public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
         assertTrue("ASSERTION FAIL: Expecting " + searchText + " in page", pageSource.contains(searchText));
     }
 
+    /**
+     *     * This should be used instead of using an assert in the Test. This
+     * method has a description added that will appear in the debugging
+     * information.
+     *
+     * @param tool
+     * @param searchText
+     * @throws Exception
+     */
     public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
         assertFalse("ASSERTION FAIL: NOT expecting " + searchText + "in page", pageSource.contains(searchText));
     }
 
+    /**
+     * This should be used instead of using an assert in the Test. This method
+     * has a description added that will appear in the debugging information.
+     *
+     * @param tool
+     * @param verify
+     * @throws Exception
+     */
     public static void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
         assertTrue("ASSERTION FAIL: expecting True", verify);
     }
 
+    /**
+     * This should be used instead of using an assert in the Test. This method
+     * has a description added that will appear in the debugging information.
+     *
+     * @param tool
+     * @param verify
+     * @throws Exception
+     */
     public static void assertVerifyFalse(AutomationTool tool, Boolean verify) throws Exception {
         assertFalse("ASSERTION FAIL: expecting False", verify);
     }
 
+    /**
+     * This should be used instead of using an assert in the Test. This method
+     * has a description added that will appear in the debugging information.
+     *
+     * @param expectedText
+     * @param actualText
+     * @throws Exception
+     */
     public static void assertTextEquals(Object expectedText, Object actualText) throws Exception {
         assertEquals("ASSERTION FAIL: Expecting " + expectedText + " but was " + actualText, expectedText, actualText);
     }
 
+    /**
+     *
+     * @param dirtyString
+     * @return
+     * @throws Exception
+     */
     public static String removeHTMLTags(String dirtyString) throws Exception {
         String dirtyString1 = dirtyString.replaceAll("&nbsp;", "");
         String dirtyString2 = dirtyString1.replaceAll("<![CDATA[.*?]]>", "");
@@ -65,22 +139,48 @@ public class Common {
         return dirtyString3.replaceAll("  ", " ");
     }
 
+    /**
+     *
+     * @param tool
+     * @return
+     * @throws Exception
+     */
     public static String returnCleanPageSource(AutomationTool tool) throws Exception {
         String dirtyString = tool.getPageSource();
         dirtyString = removeHTMLTags(dirtyString);
         return cleanStringOfIllegalChars(dirtyString);
     }
 
+    /**
+     *
+     * @param tool
+     * @param searchText
+     * @return
+     * @throws Exception
+     */
     public static Boolean isTextOnPageWithRegex(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
         return pageSource.matches("^[\\s\\S]*" + searchText + "[\\s\\S]*$");
     }
 
+    /**
+     *
+     * @param tool
+     * @param searchText
+     * @return
+     * @throws Exception
+     */
     public static Boolean isTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
         return !pageSource.contains(searchText);
     }
 
+    /**
+     *
+     * @param dirtyString
+     * @return
+     * @throws Exception
+     */
     public static String cleanStringOfIllegalChars(String dirtyString) throws Exception {
         String dirtyString1 = dirtyString.replaceAll("[^\\p{Print}]", "");
         String dirtyString2 = dirtyString1.replaceAll("\\p{Cntrl}", "");
@@ -90,16 +190,31 @@ public class Common {
         return dirtyString4.trim();
     }
 
+    /**
+     *
+     * @param value
+     * @return
+     */
     public static String replaceAmpCodeWithCharacter(String value) {
         return value.replaceAll("&amp;", "&");
     }
 
+    /**
+     *
+     * @param dirtyString
+     * @return
+     * @throws Exception
+     */
     public static String cleanStringOfAllNonDigits(String dirtyString) throws Exception {
         dirtyString.replaceAll("\\pL+", "");
         String cleanString = dirtyString.trim();
         return cleanString;
     }
 
+    /**
+     * Generates a unique number that can be used in data.
+     * @return @throws Exception
+     */
     public static String generateTimeStamp() throws Exception {
         long ts = (new java.util.Date()).getTime();
         // System.out.print("Unique string - " + String.valueOf(ts));
@@ -309,19 +424,40 @@ public class Common {
     }
 
     /* Folowing left in as examples - code will need to be changed 
+
+     * Retrieves a string from the database that has been previously stored.
+     * @return @throws Exception
      */
     public static String getBCTLastName() throws Exception {
         return getPropertyValueFromDB("bct_lastname");
     }
 
+    /**
+     * Retrieves a string from the database that has been previously stored.
+     * @return @throws Exception
+     */
     public static String getPersonFirstName() throws Exception {
         return "FN" + getPropertyValueFromDB("bct_login");
     }
 
+    /**
+     * Retrieves a string from the database that has been previously stored.
+     * @return @throws Exception
+     */
     public static String getPersonLastName() throws Exception {
         return "LN" + getPropertyValueFromDB("bct_login");
     }
 
+    /**
+     * Stores information in the database that can be used by other tests.
+     * Below is only an example and needs to be changed for your needs.
+     * 
+     * @param lastName
+     * @param login
+     * @param Password
+     * @param comment
+     * @throws Exception
+     */
     public static void storeB2CLoginDetailsAndLastName(String lastName, String login, String Password, String comment) throws Exception {
         if (lastName.matches("LN[0-9]{13}")) {
             storePropertyInDB("bct_login", login, comment);
@@ -335,35 +471,68 @@ public class Common {
         }
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public static String getB2CLoginName() throws Exception {
         return getPropertyValueFromDB("bct_login");
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public static String getB2CPassword() throws Exception {
         return getPropertyValueFromDB("bct_password");
     }
 
-  
+    /**
+     *
+     * @param orgName
+     * @param comment
+     * @throws Exception
+     */
     public static void storeOrganizationName(String orgName, String comment) throws Exception {
         storePropertyInDB("SFA_BCT_Organization", orgName, comment);
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public static String getOrganizationName() throws Exception {
         String orgName = getPropertyValueFromDB("SFA_BCT_Organization");
         System.out.print("SFA_BCT_Organization  : " + orgName + "\r\n");
         return orgName;
     }
 
-  
-
+    /**
+     *
+     * @param tool
+     * @return
+     * @throws Exception
+     */
     public static String getCurrentWindowHandle(AutomationTool tool) throws Exception {
         return tool.getWindowHandle();
     }
 
+    /**
+     *
+     * @param tool
+     * @param windowHandle
+     * @throws Exception
+     */
     public static void switchToThisWindow(AutomationTool tool, String windowHandle) throws Exception {
         tool.switchToWindow(windowHandle);
     }
 
+    /**
+     *
+     * @param tool
+     * @param windowHandleTable
+     * @throws Exception
+     */
     public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) throws Exception {
         Set<String> windows = tool.getWindowHandles();
         for (String window : windows) {
@@ -376,6 +545,15 @@ public class Common {
         }
     }
 
+    /**
+     *
+     * @param host
+     * @param login
+     * @param password
+     * @param sourceFile
+     * @param targetDir
+     * @throws Exception
+     */
     public static void sftpFile(String host, String login, String password, String sourceFile, String targetDir) throws Exception {
         Session session = null;
         Channel channel = null;
@@ -418,6 +596,11 @@ public class Common {
         }
     }
 
+    /**
+     *
+     * @param value
+     * @return
+     */
     public static double removeCurrencyAndConvertToDouble(String value) {
         String value1 = value.replace("$", "");
         String value2 = value1.replace(" ", "");
@@ -426,26 +609,48 @@ public class Common {
         return doubleValue;
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getCurrentDayOfMonth() {
         Calendar day = Calendar.getInstance();
         return day.get(Calendar.DAY_OF_MONTH);
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getCurrentMonth() {
         Calendar month = Calendar.getInstance();
         return month.get(Calendar.MONTH) + 1;
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getCurrentYear() {
         Calendar year = Calendar.getInstance();
         return year.get(Calendar.YEAR);
     }
 
+    /**
+     *
+     * @return
+     */
     public static String getSysdateDDMMYYYY() {
         String sysdate = Common.getCurrentDayOfMonth() + "/" + Common.getCurrentMonth() + "/" + Common.getCurrentYear();
         return sysdate;
     }
 
+    /**
+     *
+     * @param howManySeconds
+     * @return
+     * @throws Exception
+     */
     public static String formatToHHmmss(String howManySeconds) throws Exception {
         int initSeconds = Integer.parseInt(howManySeconds);
         int hours = initSeconds / 3600;
@@ -458,6 +663,10 @@ public class Common {
         return time;
     }
 
+    /**
+     *
+     * @return @throws Exception
+     */
     public static String getMethodName() throws Exception {
         StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
         // maybe this number needs to be corrected
