@@ -1,5 +1,6 @@
 package com.company.mercurytours;
 
+import com.company.mercurytours.app.MercuryTours;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
