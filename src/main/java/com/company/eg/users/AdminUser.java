@@ -1,4 +1,4 @@
-package com.company.data.users;
+package com.company.eg.users;
 
 import com.framework.common.User;
 
