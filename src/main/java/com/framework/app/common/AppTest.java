@@ -30,22 +30,11 @@ public class AppTest extends Main {
         tool.get(application.appURL());
         test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
         test.writeInLogFile("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
-        
-        
+
         if (!test.getDebug() && test.getDBReporting()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
     }
-
-//    public void launchCSSApplicationOnly() throws Exception {
-//        tool.get(application.appURL());
-//        Thread.sleep(1000);
-//    }
-
-//    public void launchAnotherCSSApplication(Application application2) throws Exception {
-//        tool.get(application2.appURL());
-//        Thread.sleep(1000);
-//    }
 
     public void launchAnotherApplication() throws Exception {
         tool.get(application.appFullURL());
