@@ -62,51 +62,51 @@ public class Prep extends Main {
         return properties;
     }
 
-    public void updateVersion(DB cid) throws Exception {
-        cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("UPDATE_TIMESTAMP"));
-    }
+//    public void updateVersion(DB cid) throws Exception {
+//        cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("UPDATE_TIMESTAMP"));
+//    }
 
-    private void enableParameter(String paramValue, String paramName, String paramExpectedValue) throws Exception {
-        DB cid = new DB(propsHelper.getENV() + "CID");
-        if (cid.execSQLSelectWithParam(cid.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_" + paramName), 1, paramValue).equals(paramExpectedValue))
-            System.out.println(paramName + " already enabled");
-        else {
-            cid.execSQLUpdateWithParam(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_" + paramName), paramValue);
-            updateVersion(cid);
-            System.out.println(paramName + " is now enabled");
-        }
-    }
+//    private void enableParameter(String paramValue, String paramName, String paramExpectedValue) throws Exception {
+//        DB cid = new DB(propsHelper.getENV() + "CID");
+//        if (cid.execSQLSelectWithParam(cid.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_" + paramName), 1, paramValue).equals(paramExpectedValue))
+//            System.out.println(paramName + " already enabled");
+//        else {
+//            cid.execSQLUpdateWithParam(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_" + paramName), paramValue);
+//            updateVersion(cid);
+//            System.out.println(paramName + " is now enabled");
+//        }
+//    }
 
-    public void enableDevice(Application application) throws Exception {
-        enableParameter(application.getCommonName() + "_char_value", "DEVICE", "true");
-    }
+   // public void enableDevice(Application application) throws Exception {
+    //    enableParameter(application.getCommonName() + "_char_value", "DEVICE", "true");
+  //  }
 
-    public void enableSubscribeStatusHistory(Application application) throws Exception {
-        enableParameter(application.getCommonName() + "_char_value", "SUBSCRIBER_STATUS_HISTORY", "true");
-    }
+  //  public void enableSubscribeStatusHistory(Application application) throws Exception {
+  //      enableParameter(application.getCommonName() + "_char_value", "SUBSCRIBER_STATUS_HISTORY", "true");
+ //   }
 
-    public void enableBusinessNCA(Application application) throws Exception {
+  //  public void enableBusinessNCA(Application application) throws Exception {
         // 19 is the Business Org_Type_Code
-        enableParameter(application.getCommonName(), "BUSINESS_NCA", "19");
-    }
+ //       enableParameter(application.getCommonName(), "BUSINESS_NCA", "19");
+ //   }
 
-    public void enablePUK(String paramValue) throws Exception {
-        DB ctlg = new DB(propsHelper.getENV() + "CTLG");
-        if (ctlg.execSQLSelectWithParam(ctlg.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_PUK"), 1, paramValue).equals("007"))
-            System.out.println("PUK already enabled");
-        else {
-            ctlg.execSQLUpdateWithParam(ctlg.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_PUK"), paramValue);
-            System.out.println("PUK is now enabled");
-        }
-    }
-
-    public void enableCoherencyCheck(Application application) throws Exception {
-        enableParameter(application.getCommonName() + "_char_value", "COHERENCY_CHECK", "true");
-    }
-
-    public void enableRPO(Application application) throws Exception {
-        enableParameter(application.getCommonName() + "_char_value", "RPO", "true");
-    }
+//    public void enablePUK(String paramValue) throws Exception {
+//        DB ctlg = new DB(propsHelper.getENV() + "CTLG");
+//        if (ctlg.execSQLSelectWithParam(ctlg.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_PUK"), 1, paramValue).equals("007"))
+//            System.out.println("PUK already enabled");
+//        else {
+//            ctlg.execSQLUpdateWithParam(ctlg.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_PUK"), paramValue);
+//            System.out.println("PUK is now enabled");
+//        }
+//    }
+//
+//    public void enableCoherencyCheck(Application application) throws Exception {
+//        enableParameter(application.getCommonName() + "_char_value", "COHERENCY_CHECK", "true");
+//    }
+//
+//    public void enableRPO(Application application) throws Exception {
+//        enableParameter(application.getCommonName() + "_char_value", "RPO", "true");
+//    }
 
     // public void savePropertiesToFile(String lastnamevalue, String loginvalue,
     // String passwordvalue, String callingTest) {
