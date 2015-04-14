@@ -26,7 +26,7 @@ public class CHK001_RegisterUser extends AppTest {
     }
 
     @Test
-    public void testACCS0000_CreateExistingAccount() throws Exception {
+    public void testCHK001_RegisterUser() throws Exception {
 
         try {
 
