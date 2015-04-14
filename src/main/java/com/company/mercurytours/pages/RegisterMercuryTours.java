@@ -24,17 +24,17 @@ public class RegisterMercuryTours extends MercuryToursMenu {
     }
 
     public void enterUserName(String login) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + login);
         tool.enterStringUsingId("email", login);
     }
 
     public void enterPassword(String password) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + password);
         tool.enterStringUsingName("password", password);
     }
 
     public void enterConfirmPassword(String password) throws Exception {
-        test.writeInLogFile(Common.getMethodName());
+        test.writeInLogFile(Common.getMethodName() + password);
         tool.enterStringUsingName("confirmPassword", password);
     }
     
