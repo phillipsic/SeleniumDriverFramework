@@ -8,7 +8,7 @@ import com.framework.common.Main;
 public class PropertyHelper extends Main {
 
     /**
-     * 
+     *
      * @param name
      * @return
      * @throws IOException
@@ -22,7 +22,7 @@ public class PropertyHelper extends Main {
     }
 
     /**
-     * 
+     *
      * @param key
      * @return
      */
@@ -98,6 +98,10 @@ public class PropertyHelper extends Main {
             value = props.getProperty(key);
         }
 
+        if (value == "") {
+            System.out.println("Key not found in the INI file " + environmentIdentifier + "_" + PASSWORD_PROPERTY_FILE);
+        }
+
         return value;
     }
 
@@ -117,7 +121,7 @@ public class PropertyHelper extends Main {
     }
 
     /**
-     * 
+     *
      * @param key
      * @return
      */
@@ -140,7 +144,7 @@ public class PropertyHelper extends Main {
 
     // changed for setting the property for success order
     /**
-     * 
+     *
      * @param key
      * @param lastname
      */
@@ -195,12 +199,12 @@ public class PropertyHelper extends Main {
      * Writes the last name out to a property file 'BCT_PROPERTY_FILE' The
      * BCT_PROPERTY_FILE should not be in GIT or this causes problems with the
      * PULL
-     * 
+     *
      * This method should only be called after a successful NCA.
-     * 
+     *
      * The BCT_PROPERTY_FILE property file will be found at the root of Selenium
      * or workspace.
-     * 
+     *
      * @param lastnamevalue
      */
     public void savePropertiesToFile(String lastnamevalue, String loginvalue, String passwordvalue, String callingTest) {
@@ -233,7 +237,7 @@ public class PropertyHelper extends Main {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public String readLastNameFromFile() {
@@ -277,7 +281,6 @@ public class PropertyHelper extends Main {
             }
 
             // load a properties file
-
             prop.load(new FileInputStream(initFile.getAbsolutePath()));
             System.out.println("Login retrieved from file = " + prop.getProperty("bct_login"));
 
@@ -313,7 +316,7 @@ public class PropertyHelper extends Main {
     }
 
     /**
-     * 
+     *
      * @param args
      */
     public static void main(String args[]) {
