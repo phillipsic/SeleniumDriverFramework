@@ -17,6 +17,7 @@ public class AppTest extends Main {
         test = new TestDetails();
         test.setName(this.getClass().getSimpleName());
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
+        test.setDBReporting(Boolean.valueOf(propsHelper.readInitProperties("DB_REPORTING")));
         System.out.println("DEBUG = " + test.getDebug());
         test.setLOG_FILE();
         tool.platform = new Platform();
@@ -29,22 +30,24 @@ public class AppTest extends Main {
         tool.get(application.appURL());
         test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
         test.writeInLogFile("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
-        if (!test.getDebug()) {
+        
+        
+        if (!test.getDebug() && test.getDBReporting()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
         }
     }
 
-    public void launchCSSApplicationOnly() throws Exception {
-        tool.get(application.appURL());
-        Thread.sleep(1000);
-    }
+//    public void launchCSSApplicationOnly() throws Exception {
+//        tool.get(application.appURL());
+//        Thread.sleep(1000);
+//    }
 
-    public void launchAnotherCSSApplication(Application application2) throws Exception {
-        tool.get(application2.appURL());
-        Thread.sleep(1000);
-    }
+//    public void launchAnotherCSSApplication(Application application2) throws Exception {
+//        tool.get(application2.appURL());
+//        Thread.sleep(1000);
+//    }
 
-    public void launchOTGApplication() throws Exception {
+    public void launchAnotherApplication() throws Exception {
         tool.get(application.appFullURL());
         Thread.sleep(4000);
     }
