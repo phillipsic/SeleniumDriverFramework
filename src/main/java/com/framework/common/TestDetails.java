@@ -11,6 +11,7 @@ public class TestDetails extends Main {
     private String bugId;
     private String message;
     private Boolean debug = false;
+    private Boolean dbReporting = false;
     private String LOG_FILE;
     public Writer w;
 
@@ -57,6 +58,14 @@ public class TestDetails extends Main {
 
     public void setDebug(Boolean debug) {
         this.debug = debug;
+    }
+    
+     public Boolean getDBReporting() {
+        return dbReporting;
+    }
+
+    public void setDBReporting(Boolean dbReporting) {
+        this.dbReporting = dbReporting;
     }
 
     public String getLOG_FILE() {
