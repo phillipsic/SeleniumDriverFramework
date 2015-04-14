@@ -456,7 +456,7 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void switchToFrame(WebElement webElement) throws Exception {
+    public void switchToFrame(String webElement) throws Exception {
         driver.switchTo().frame(webElement);
     }
 

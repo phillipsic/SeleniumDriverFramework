@@ -201,7 +201,7 @@ public class AutomationTool extends Main {
     public void switchTo() throws Exception {
     }
 
-    public void switchToFrame(WebElement webElement) throws Exception {
+    public void switchToFrame(String webElement) throws Exception {
     }
 
     public void switchToWindow(String windowHandle) throws Exception {
