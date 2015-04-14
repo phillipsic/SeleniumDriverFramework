@@ -1,4 +1,4 @@
-package com.company.mercurytours;
+package com.company.mercurytours.app;
 
 import com.framework.common.Application;
 
