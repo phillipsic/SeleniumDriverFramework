@@ -11,6 +11,6 @@ public class JoeBloggs extends User {
         */
         setLogin();
         setPassword();
-        setRealm();
+       // setRealm();
     }
 }
