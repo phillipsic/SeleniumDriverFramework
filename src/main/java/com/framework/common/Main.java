@@ -45,7 +45,7 @@ public class Main {
                 test.closeLogFile();
                 if (test.getDBReporting()) {
                     this.checkForBadData();
-                    this.logResultsInDB("CV", test.getMessage());
+                    this.logResultsInDB(test.getMessage());
                 }
             } catch (Exception e1) {
             }
@@ -57,7 +57,7 @@ public class Main {
                 test.closeLogFile();
                 if (test.getDBReporting()) {
                     this.checkForBadData();
-                    this.logResultsInDB("CV", test.getMessage());
+                    this.logResultsInDB(test.getMessage());
                 }
             } catch (Exception e1) {
             }
@@ -90,7 +90,7 @@ public class Main {
         }
 
         @SuppressWarnings("resource")
-        public void logResultsInDB(String mode, String message) {
+        public void logResultsInDB(String message) {
             try {
 
                 DB cust = new DB("AUTOTEST");
@@ -190,9 +190,7 @@ public class Main {
                                     + test.getName()
                                     + "', NOW(),'"
                                     + test.getResult()
-                                    + "','"
-                                    + mode
-                                    + "','"
+                                    + "','"                                    
                                     + tool.platform.getBrowserFullNameAndVersion()
                                     + "', '"
                                     + tool.platform.getOSFullNameAndVersion() + "', '" + message + "')";
