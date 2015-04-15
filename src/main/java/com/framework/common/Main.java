@@ -43,8 +43,10 @@ public class Main {
             try {
                 test.writeInLogFile("ERRO", "########## " + test.getMessage() + " ##########");
                 test.closeLogFile();
-                this.checkForBadData();
-                this.logResultsInDB("CV", test.getMessage());
+                if (test.getDBReporting()) {
+                    this.checkForBadData();
+                    this.logResultsInDB("CV", test.getMessage());
+                }
             } catch (Exception e1) {
             }
         }
@@ -53,8 +55,10 @@ public class Main {
         protected void succeeded(Description description) {
             try {
                 test.closeLogFile();
-                this.checkForBadData();
-                this.logResultsInDB("CV", test.getMessage());
+                if (test.getDBReporting()) {
+                    this.checkForBadData();
+                    this.logResultsInDB("CV", test.getMessage());
+                }
             } catch (Exception e1) {
             }
         }
