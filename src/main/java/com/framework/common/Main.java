@@ -177,7 +177,7 @@ public class Main {
                             System.out.println("More than one row found - issue updating, please check manually.");
 
                         } else if (iRowCount == 0) {
-                            sql = "INSERT INTO csspqa.test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, tag, browser, OS, fail_message )VALUES ("
+                            sql = "INSERT INTO csspqa.test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, browser, OS, fail_message )VALUES ("
                                     + "'"
                                     + test.getBugId()
                                     + "','"
