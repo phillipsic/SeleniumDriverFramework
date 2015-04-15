@@ -1,5 +1,6 @@
 package com.company.mercurytours;
 
+import com.company.mercurytours.app.MercuryTours;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,8 +33,6 @@ public class CHK001_RegisterUser extends AppTest {
 
             launchApplication();
 
-           
-
             WelcomeMercuryTours WelcomePage = new WelcomeMercuryTours(tool, test, user);
             RegisterMercuryTours RegisterPage = WelcomePage.clickRegisterLink();
 
@@ -41,10 +40,8 @@ public class CHK001_RegisterUser extends AppTest {
             RegisterPage.enterPassword(user.getPassword());
             RegisterPage.enterConfirmPassword(user.getPassword());
             RegisterPage.clickSubmit();
-            
 
           //  Common.storeB2CLoginDetailsAndLastName("LN" + uniqueTimeStamp, uniqueTimeStamp, "0123456", "ACCS0000_CreateExistingAccount");
-
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {
