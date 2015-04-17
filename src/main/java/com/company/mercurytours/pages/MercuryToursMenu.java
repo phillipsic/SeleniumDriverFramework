@@ -17,17 +17,29 @@ public class MercuryToursMenu extends Main {
         this.test = test;
         this.user = user;
     }
-    
+
     public WelcomeMercuryTours clickHomeLink() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("Home");
         return new WelcomeMercuryTours(tool, test, user);
     }
-    
+
     public RegisterMercuryTours clickRegisterLink() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("REGISTER");
         return new RegisterMercuryTours(tool, test, user);
+    }
+
+    public SignOnMercuryTours clickSignOnLink() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+        tool.clickUsingLinkText("SIGN-ON");
+        return new SignOnMercuryTours(tool, test, user);
+    }
+
+    public SignOnMercuryTours clickSignOffLink() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+        tool.clickUsingLinkText("SIGN-OFF");
+        return new SignOnMercuryTours(tool, test, user);
     }
 
 }
