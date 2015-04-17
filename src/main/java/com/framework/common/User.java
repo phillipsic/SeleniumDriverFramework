@@ -7,14 +7,19 @@ import com.framework.app.common.PropertyHelper;
  * @author Ian Phillips
  */
 public class User extends Main {
+
     private String login;
     private String password;
     private String role;
     private String realm;
+    private String firstName;
+    private String lastName;
+
     private PropertyHelper propsHelper = new PropertyHelper();
 
     /**
      * This class should be extended to create for each user.
+     *
      * @throws Exception
      */
     public User() throws Exception {
@@ -22,6 +27,7 @@ public class User extends Main {
 
     /**
      * Returns the login of the user to the test.
+     *
      * @return
      */
     public String getLogin() {
@@ -29,8 +35,7 @@ public class User extends Main {
     }
 
     /**
-     * Reads the login from the ini file.
-     * Use: LOGIN.AdminUser
+     * Reads the login from the ini file. Use: LOGIN.AdminUser
      */
     public void setLogin() {
         this.login = propsHelper.getPasswordProperties("LOGIN." + getRole());
@@ -52,8 +57,9 @@ public class User extends Main {
     }
 
     /**
-     * For resetting the password in the INI file.  Its possible to automate 
-     * the changing of a password and updating the ini file.
+     * For resetting the password in the INI file. Its possible to automate the
+     * changing of a password and updating the ini file.
+     *
      * @param password
      */
     public void setNewPassword(String password) {
@@ -97,6 +103,28 @@ public class User extends Main {
      */
     public void setRealm() {
         this.realm = propsHelper.getPasswordProperties("REALM." + getRole());
+    }
+
+    /**
+     *
+     */
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     *
+     */
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
 }
