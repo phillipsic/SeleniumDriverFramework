@@ -4,7 +4,12 @@ import com.framework.common.User;
 
 public class JoeBloggs extends User {
 
+   
+
     public JoeBloggs() throws Exception {
+
+        setFirstName("Joe");
+        setLastName("Bloggs");
 
         /* The role is needed to find the users login and password
          in the <ENV>_init.properties file
@@ -17,6 +22,10 @@ public class JoeBloggs extends User {
          */
         setLogin();
         setPassword();
-        // setRealm();
+        // setRealm();        
+
     }
+
+    
+
 }
