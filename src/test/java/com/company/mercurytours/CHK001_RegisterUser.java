@@ -47,7 +47,14 @@ public class CHK001_RegisterUser extends AppTest {
             Common.assertTextOnPage(tool, "Dear " + user.getFirstName() + " " + user.getLastName());
             Common.assertTextOnPage(tool, "Note: Your user name is " + user.getLogin());
 
-            
+            SignOnMercuryTours SignOn = RegisterPage.clickSignIn();
+
+            SignOn.enterUserName(user.getLogin());
+            SignOn.enterPassword(user.getPassword());
+            FindAFlightMercuryTours FindAFlight = SignOn.clickSubmit();
+
+            SignOn = FindAFlight.clickSignOffLink();
+
 //            Only uncomment if you have the MySQL DB reporting installed and activated in the init.properties file
 //            Common.storeB2CLoginDetailsAndLastName(user.getLastName(), user.getLogin(), user.getPassword(), "Login details stored for later");
             test.setResult("pass");
