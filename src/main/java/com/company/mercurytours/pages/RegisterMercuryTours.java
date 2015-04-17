@@ -53,8 +53,9 @@ public class RegisterMercuryTours extends MercuryToursMenu {
         tool.clickUsingName("register");
     }
     
-     public void clickSignIn() throws Exception {
+     public SignOnMercuryTours clickSignIn() throws Exception {
         test.writeInLogFile(Common.getMethodName());
         tool.clickUsingLinkText("sign-in");
+        return new SignOnMercuryTours(tool, test, user);
     }
 }
