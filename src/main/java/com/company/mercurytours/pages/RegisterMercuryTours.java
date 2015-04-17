@@ -23,6 +23,16 @@ public class RegisterMercuryTours extends MercuryToursMenu {
         test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
+    public void enterFirstName(String value) throws Exception {
+        test.writeInLogFile(Common.getMethodName() + value);
+        tool.enterStringUsingName("firstName", value);
+    }
+
+    public void enterLastName(String value) throws Exception {
+        test.writeInLogFile(Common.getMethodName() + value);
+        tool.enterStringUsingName("lastName", value);
+    }
+
     public void enterUserName(String login) throws Exception {
         test.writeInLogFile(Common.getMethodName() + login);
         tool.enterStringUsingId("email", login);
@@ -37,9 +47,14 @@ public class RegisterMercuryTours extends MercuryToursMenu {
         test.writeInLogFile(Common.getMethodName() + password);
         tool.enterStringUsingName("confirmPassword", password);
     }
-    
+
     public void clickSubmit() throws Exception {
         test.writeInLogFile(Common.getMethodName());
-        tool.clickUsingName("register");        
+        tool.clickUsingName("register");
+    }
+    
+     public void clickSignIn() throws Exception {
+        test.writeInLogFile(Common.getMethodName());
+        tool.clickUsingLinkText("sign-in");
     }
 }
