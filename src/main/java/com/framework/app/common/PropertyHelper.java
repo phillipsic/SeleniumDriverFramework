@@ -342,13 +342,14 @@ public class PropertyHelper extends Main {
     public String getENV() {
         Properties props = null;
 
-        try {
-            props = readProperties(INIT_PROPERTY_FILE);
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
+        if (System.getProperty("test_environment") == null) {
+            try {
+                props = readProperties(INIT_PROPERTY_FILE);
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+                e.printStackTrace();
+            }
         }
-
         return props.getProperty("environment");
     }
 
