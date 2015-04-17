@@ -36,12 +36,20 @@ public class CHK001_RegisterUser extends AppTest {
             WelcomeMercuryTours WelcomePage = new WelcomeMercuryTours(tool, test, user);
             RegisterMercuryTours RegisterPage = WelcomePage.clickRegisterLink();
 
+            RegisterPage.enterFirstName(user.getFirstName());
+            RegisterPage.enterLastName(user.getLastName());
+
             RegisterPage.enterUserName(user.getLogin());
             RegisterPage.enterPassword(user.getPassword());
             RegisterPage.enterConfirmPassword(user.getPassword());
             RegisterPage.clickSubmit();
 
-          //  Common.storeB2CLoginDetailsAndLastName("LN" + uniqueTimeStamp, uniqueTimeStamp, "0123456", "ACCS0000_CreateExistingAccount");
+            Common.assertTextOnPage(tool, "Dear " + user.getFirstName() + " " + user.getLastName());
+            Common.assertTextOnPage(tool, "Note: Your user name is " + user.getLogin());
+
+            
+//            Only uncomment if you have the MySQL DB reporting installed and activated in the init.properties file
+//            Common.storeB2CLoginDetailsAndLastName(user.getLastName(), user.getLogin(), user.getPassword(), "Login details stored for later");
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {
