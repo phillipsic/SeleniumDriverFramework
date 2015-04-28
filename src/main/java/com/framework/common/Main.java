@@ -27,7 +27,7 @@ public class Main {
     public static final String INIT_LOCATION = System.getProperty("user.dir") + "/src/main/resources/";
     public static final String INIT_PROPERTY_FILE = "init.properties";
     public static final String ACCOUNTS_PROPERTY_FILE = "Accounts.properties";
-    public static final String BCT_PROPERTY_FILE = "bctinit.properties";
+    public static final String TEST_PROPERTY_FILE = "testinit.properties";
     public static final String PASSWORD_PROPERTY_FILE = "Passwords.properties";
     public static final String DB_PROPERTY_FILE = "DB.properties";
     public static final String SQL_INVOICE_PROPERTY_FILE = "SQL_invoice.properties";
