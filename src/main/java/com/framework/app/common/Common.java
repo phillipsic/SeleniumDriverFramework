@@ -213,6 +213,7 @@ public class Common {
 
     /**
      * Generates a unique number that can be used in data.
+     *
      * @return @throws Exception
      */
     public static String generateTimeStamp() throws Exception {
@@ -434,6 +435,7 @@ public class Common {
 
     /**
      * Retrieves a string from the database that has been previously stored.
+     *
      * @return @throws Exception
      */
     public static String getPersonFirstName() throws Exception {
@@ -442,6 +444,7 @@ public class Common {
 
     /**
      * Retrieves a string from the database that has been previously stored.
+     *
      * @return @throws Exception
      */
     public static String getPersonLastName() throws Exception {
@@ -449,9 +452,9 @@ public class Common {
     }
 
     /**
-     * Stores information in the database that can be used by other tests.
-     * Below is only an example and needs to be changed for your needs.
-     * 
+     * Stores information in the database that can be used by other tests. Below
+     * is only an example and needs to be changed for your needs.
+     *
      * @param lastName
      * @param login
      * @param Password
@@ -505,6 +508,13 @@ public class Common {
         String orgName = getPropertyValueFromDB("SFA_BCT_Organization");
         System.out.print("SFA_BCT_Organization  : " + orgName + "\r\n");
         return orgName;
+    }
+
+    public static String getPropertyFromIniFile(String key) throws Exception {
+
+        PropertyHelper propsHelper = new PropertyHelper();
+        String value = propsHelper.readPropertyFromFile(key);
+        return value;
     }
 
     /**
