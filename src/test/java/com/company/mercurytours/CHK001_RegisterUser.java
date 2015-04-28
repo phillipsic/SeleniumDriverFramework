@@ -56,7 +56,10 @@ public class CHK001_RegisterUser extends AppTest {
             SignOn = FindAFlight.clickSignOffLink();
 
 //            Only uncomment if you have the MySQL DB reporting installed and activated in the init.properties file
-//            Common.storeB2CLoginDetailsAndLastName(user.getLastName(), user.getLogin(), user.getPassword(), "Login details stored for later");
+//            Common.storeLoginDetailsAndLastName(user.getLastName(), user.getLogin(), user.getPassword(), "Login details stored for later");
+            Common.storePropertyInIniFile("user_login", user.getLogin(), "Created by test CHK001_RegisterUser");
+            Common.storePropertyInIniFile("user_password", user.getPassword(), "Created by test CHK001_RegisterUser");
+
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {
