@@ -12,6 +12,8 @@ import java.util.Properties;
 import com.framework.common.Application;
 import com.framework.common.DB;
 import com.framework.common.Main;
+import java.io.File;
+import java.io.FileInputStream;
 
 public class Prep extends Main {
     private PropertyHelper propsHelper = new PropertyHelper();
@@ -108,7 +110,7 @@ public class Prep extends Main {
 //        enableParameter(application.getCommonName() + "_char_value", "RPO", "true");
 //    }
 
-    // public void savePropertiesToFile(String lastnamevalue, String loginvalue,
+    // public void savePropertyToFile(String lastnamevalue, String loginvalue,
     // String passwordvalue, String callingTest) {
     //
     // try {
@@ -215,37 +217,37 @@ public class Prep extends Main {
     // return (prop.getProperty("bct_login"));
     // }
     //
-    // public String readBCTPasswordFromINIFile() {
-    // Properties prop = new Properties();
-    //
-    // try {
-    // prop = readProperties(INIT_PROPERTY_FILE);
-    // } catch (IOException e) {
-    // System.err.println(e.getMessage());
-    // e.printStackTrace();
-    // }
-    // String environmentIdentifier = prop.getProperty("environment");
-    //
-    // try {
-    // //load a properties file
-    // File initFile = new File(environmentIdentifier + BCT_PROPERTY_FILE);
-    //
-    // boolean exists = (initFile.exists());
-    // if (exists) {
-    // String initFilePath = initFile.getAbsolutePath();
-    // System.out.println("INIT file was found at " + initFilePath);
-    // } else {
-    // System.out.println("ERROR INIT file not found");
-    // }
-    //
-    // prop.load(new FileInputStream(initFile.getAbsolutePath()));
-    //
-    // System.out.println("Last name retrieved from file = " +
-    // prop.getProperty("bct_password"));
-    //
-    // } catch (IOException ex) {
-    // ex.printStackTrace();
-    // }
-    // return (prop.getProperty("bct_password"));
-    // }
+//     public String readBCTPasswordFromINIFile() {
+//     Properties prop = new Properties();
+//    
+//     try {
+//     prop = readProperties(INIT_PROPERTY_FILE);
+//     } catch (IOException e) {
+//     System.err.println(e.getMessage());
+//     e.printStackTrace();
+//     }
+//     String environmentIdentifier = prop.getProperty("environment");
+//    
+//     try {
+//     //load a properties file
+//     File initFile = new File(environmentIdentifier + BCT_PROPERTY_FILE);
+//    
+//     boolean exists = (initFile.exists());
+//     if (exists) {
+//     String initFilePath = initFile.getAbsolutePath();
+//     System.out.println("INIT file was found at " + initFilePath);
+//     } else {
+//     System.out.println("ERROR INIT file not found");
+//     }
+//    
+//     prop.load(new FileInputStream(initFile.getAbsolutePath()));
+//    
+//     System.out.println("Last name retrieved from file = " +
+//     prop.getProperty("bct_password"));
+//    
+//     } catch (IOException ex) {
+//     ex.printStackTrace();
+//     }
+//     return (prop.getProperty("bct_password"));
+//     }
 }
