@@ -461,7 +461,7 @@ public class Common {
      * @param comment
      * @throws Exception
      */
-    public static void storeB2CLoginDetailsAndLastName(String lastName, String login, String Password, String comment) throws Exception {
+    public static void storeLoginDetailsAndLastName(String lastName, String login, String Password, String comment) throws Exception {
         if (lastName.matches("LN[0-9]{13}")) {
             storePropertyInDB("bct_login", login, comment);
             storePropertyInDB("bct_password", Password, comment);
@@ -515,6 +515,12 @@ public class Common {
         PropertyHelper propsHelper = new PropertyHelper();
         String value = propsHelper.readPropertyFromFile(key);
         return value;
+    }
+
+    public static void storePropertyInIniFile(String key, String value, String comment) throws Exception {
+
+        PropertyHelper propsHelper = new PropertyHelper();
+        propsHelper.savePropertyToFile(key, value, comment);
     }
 
     /**
