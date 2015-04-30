@@ -57,6 +57,10 @@ public class CHK001_RegisterUser extends AppTest {
 
 //            Only uncomment if you have the MySQL DB reporting installed and activated in the init.properties file
 //            Common.storeLoginDetailsAndLastName(user.getLastName(), user.getLogin(), user.getPassword(), "Login details stored for later");
+           
+            
+            // Following will create and update a property file at the root of the project.
+            // File will be called "<ENV>_test.properties"
             Common.storePropertyInIniFile("user_login", user.getLogin(), "Created by test CHK001_RegisterUser");
             Common.storePropertyInIniFile("user_password", user.getPassword(), "Created by test CHK001_RegisterUser");
 
