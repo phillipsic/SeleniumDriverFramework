@@ -3,8 +3,9 @@ package com.framework.app.common;
 import java.io.*;
 import java.util.*;
 
-
 import com.framework.common.Main;
+import org.ini4j.InvalidFileFormatException;
+import org.ini4j.Wini;
 
 public class PropertyHelper extends Main {
 
@@ -206,31 +207,39 @@ public class PropertyHelper extends Main {
      * The TEST_PROPERTY_FILE property file will be found at the root of
      * Selenium or workspace.
      *
-     * @param lastnamevalue
+     * @param key
+     * @param value
+     * @param comment
      */
     public void savePropertyToFile(String key, String value, String comment) {
         try {
-            Properties props = new Properties();
 
             String environmentIdentifier = this.getENV();
+            System.out.println("Environment =  " + environmentIdentifier);
 
-            File initFile = new File(TEST_PROPERTY_FILE);
-            boolean exists = (initFile.exists());
-            if (exists) {
-                String initFilePath = initFile.getAbsolutePath();
-                System.out.println("INIT file was found at " + initFilePath);
-            } else {
-                System.out.println("ERROR INIT file not found");
+            File inioutfile = new File(environmentIdentifier + "_" + TEST_PROPERTY_FILE, "");
+//Insert here.
+            if (!inioutfile.exists()) {
+                if (!inioutfile.createNewFile()) {
+                    return;
+                }
             }
+
+            Wini initFile = new Wini(new File(inioutfile.getAbsolutePath()));
+
+            initFile.setComment(comment);
+
+            initFile.put("main", key, value);
 
             System.out.println("Saving key - " + key + " and value - " + value);
 
-            props.setProperty(key, value);
+            initFile.store();
+            //System.out.println("INIT file saved to  " + initFile.getAbsolutePath());
 
-            props.store(new FileOutputStream(initFile), comment + "  ENV# " + environmentIdentifier);
-            System.out.println("INIT file saved to  " + initFile.getAbsolutePath());
-
+        } catch (InvalidFileFormatException e) {
+            System.out.println("Invalid file format.");
         } catch (IOException e) {
+            System.out.println("Problem reading file.");
         }
     }
 
@@ -369,7 +378,6 @@ public class PropertyHelper extends Main {
 //
 //        return value;
 //    }
-
     public String getSQLPrepProperties(String key) {
         Properties props = null;
         String value = null;
