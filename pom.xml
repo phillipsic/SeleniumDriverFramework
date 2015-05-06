@@ -37,6 +37,7 @@
                     <systemPropertyVariables>
                         <selenium_browser>${selenium_browser}</selenium_browser>
                         <testSuite>${testSuite}</testSuite>
+                        <test_environment>ENV1</test_environment>
                     </systemPropertyVariables>
                     
                 </configuration>
