@@ -214,12 +214,12 @@ public class Selenium extends AutomationTool {
             System.out.println("Browser set in property file: " + tool.platform.getBrowser());
         } else {
             tool.platform.setBrowser(System.getProperty("selenium_browser"));
-            System.out.println("Browser surcharged by Jenkins to " + tool.platform.getBrowser());
+            System.out.println("Browser found by Jenkins " + tool.platform.getBrowser());
         }
 
         if (System.getProperty("selenium_os") != null) {
             tool.platform.setOS(System.getProperty("selenium_os"));
-            System.out.println("Browser surcharged by Jenkins to " + tool.platform.getOS());
+            System.out.println("OS set to " + tool.platform.getOS());
         }
 
         String useGRID = propsHelper.readInitProperties("USE.GRID");
