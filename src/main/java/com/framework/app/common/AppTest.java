@@ -3,7 +3,6 @@ package com.framework.app.common;
 import com.framework.common.Platform;
 import com.framework.common.Selenium;
 import com.framework.common.Main;
-import com.framework.common.Application;
 import com.framework.common.User;
 import com.framework.common.TestDetails;
 import org.junit.Before;
