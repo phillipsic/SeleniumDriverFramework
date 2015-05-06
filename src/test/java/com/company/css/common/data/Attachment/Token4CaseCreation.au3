@@ -1,1 +1,0 @@
-Dim $Location$Location = @ScriptDirWinWaitActive("Browse")Send($Location&"\Token4CaseCreation.csv")Send("{ENTER}")
