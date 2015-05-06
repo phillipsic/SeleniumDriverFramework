@@ -223,11 +223,13 @@ public class Selenium extends AutomationTool {
         }
 
         String useGRID = propsHelper.readInitProperties("USE.GRID");
+        System.out.println("Use GRID set to " + tool.platform.getOS());
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         if (tool.platform.getComputerName().equalsIgnoreCase(propsHelper.readInitProperties("MasterMachine.Name")) || useGRID.equalsIgnoreCase("true")) {
             String gridBrowser = propsHelper.readInitProperties("GRID.BROWSER");
-            
-             System.out.println("Running on Jenkins and using GRID " + tool.platform.getOS());
+
+            System.out.println("Running on Jenkins and using GRID " + tool.platform.getComputerName());
 
             if (useGRID.equalsIgnoreCase("true")) {
                 if (gridBrowser.equalsIgnoreCase("IE")) {
