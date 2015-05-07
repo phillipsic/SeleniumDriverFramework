@@ -7,15 +7,15 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3
 ?>
 <head>
        <title>Test Build Summary Result Report</title>
-		<link type="text/css" rel="stylesheet" href="../CQ/yui/build/datatable/assets/skins/sam/datatable.css"/>
-		<script type="text/javascript" src="../CQ/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
-		<script type="text/javascript" src="../CQ/yui/build/element/element-beta-min.js"></script>
-		<script type="text/javascript" src="../CQ/yui/build/datasource/datasource-beta-min.js"></script>
-		<script type="text/javascript" src="../CQ/yui/build/json/json-min.js"></script>
-		<script type="text/javascript" src="../CQ/yui/build/connection/connection-min.js"></script>
-		<script type="text/javascript" src="../CQ/yui/build/dragdrop/dragdrop-min.js"></script>
-		<script type="text/javascript" src="../CQ/yui/build/calendar/calendar-min.js"></script>
-		<script type="text/javascript" src="../CQ/yui/build/datatable/datatable-beta-min.js"></script>
+		<link type="text/css" rel="stylesheet" href="../yui/build/datatable/assets/skins/sam/datatable.css"/>
+		<script type="text/javascript" src="../yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="../yui/build/element/element-beta-min.js"></script>
+		<script type="text/javascript" src="../yui/build/datasource/datasource-beta-min.js"></script>
+		<script type="text/javascript" src="../yui/build/json/json-min.js"></script>
+		<script type="text/javascript" src="../yui/build/connection/connection-min.js"></script>
+		<script type="text/javascript" src="../yui/build/dragdrop/dragdrop-min.js"></script>
+		<script type="text/javascript" src="../yui/build/calendar/calendar-min.js"></script>
+		<script type="text/javascript" src="../yui/build/datatable/datatable-beta-min.js"></script>
 	</head>
 <body class=" yui-skin-sam"> 
 
