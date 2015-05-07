@@ -37,8 +37,8 @@
                     <systemPropertyVariables>
                         <selenium_browser>${selenium_browser}</selenium_browser>
                         <testSuite>${testSuite}</testSuite>
-                        <test_environment>ENV1</test_environment>
-                        <jenkins_server>false</jenkins_server>
+                        <test_environment>${test_environment}</test_environment>
+                        <jenkins_server>${jenkins_server}</jenkins_server>
                     </systemPropertyVariables>
                     
                 </configuration>
