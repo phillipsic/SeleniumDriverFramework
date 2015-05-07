@@ -223,14 +223,15 @@ public class Selenium extends AutomationTool {
         }
 
         String useGRID = propsHelper.readInitProperties("USE.GRID");
-        System.out.println("Use GRID set to " + useGRID);
+        String gridHubIP = propsHelper.readInitProperties("GRID.HUB.IP");
+        String gridHubPort = propsHelper.readInitProperties("GRID.HUB.PORT");
+        String gridOS = propsHelper.readInitProperties("GRID.OS");
 
+        System.out.println("Use GRID set to " + useGRID);
         System.out.println("Jenkins Server " + System.getProperty("jenkins_server"));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        System.out.println("Comparing machine name with ini file setting " + useGRID);
-        //  System.out.println("INI file machine name [" + propsHelper.readInitProperties("MasterMachine.Name") +"]");
         System.out.println("Actual machine name   [" + tool.platform.getComputerName() + "]");
 
         if (System.getProperty("jenkins_server").equalsIgnoreCase("true") || useGRID.equalsIgnoreCase("true")) {
@@ -251,9 +252,6 @@ public class Selenium extends AutomationTool {
                     tool.platform.CH(capabilities);
                 }
 
-                String gridHubIP = propsHelper.readInitProperties("GRID.HUB.IP");
-                String gridHubPort = propsHelper.readInitProperties("GRID.HUB.PORT");
-                String gridOS = propsHelper.readInitProperties("GRID.OS");
                 capabilities.setCapability("tool.platform", gridOS);
                 tool.platform.setBrowser(gridBrowser);
 
@@ -275,9 +273,7 @@ public class Selenium extends AutomationTool {
                 test.setDebug(false);
 //                String gridHubIP = "10.230.22.121";
 //                String gridHubPort = "4444";
-                String gridHubIP = propsHelper.readInitProperties("GRID.HUB.IP");
-                String gridHubPort = propsHelper.readInitProperties("GRID.HUB.PORT");
-                String gridOS = propsHelper.readInitProperties("GRID.OS");
+
                 capabilities.setCapability("tool.platform", gridOS);
                 tool.platform.setBrowser(gridBrowser);
                 capabilities.setCapability("tool.platform", tool.platform.getOS());
