@@ -231,14 +231,14 @@ public class Selenium extends AutomationTool {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         
         
-        System.out.println("Comparing machine name with ini file setting" + useGRID);
-        System.out.println("INI file machine name [" + propsHelper.readInitProperties("MasterMachine.Name") +"]");
+        System.out.println("Comparing machine name with ini file setting " + useGRID);
+      //  System.out.println("INI file machine name [" + propsHelper.readInitProperties("MasterMachine.Name") +"]");
         System.out.println("Actual machine name   [" + tool.platform.getComputerName() +"]");
         
-        if (tool.platform.getComputerName().equalsIgnoreCase(propsHelper.readInitProperties("MasterMachine.Name")) || useGRID.equalsIgnoreCase("true")) {
+        if (System.getProperty("jenkins_server").equalsIgnoreCase("true") || useGRID.equalsIgnoreCase("true")) {
             String gridBrowser = propsHelper.readInitProperties("GRID.BROWSER");
 
-            System.out.println("Running on Jenkins and using GRID " + tool.platform.getComputerName());
+            System.out.println("Running on Jenkins and using GRID " );
 
             if (useGRID.equalsIgnoreCase("true")) {
                 if (gridBrowser.equalsIgnoreCase("IE")) {
