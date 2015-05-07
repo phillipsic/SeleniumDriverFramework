@@ -244,10 +244,38 @@ public class Selenium extends AutomationTool {
 
             System.out.println("Running on Jenkins and using GRID ");
 
-            if (useGRID.equalsIgnoreCase("true")) {
+            if (jenkinsServer.equalsIgnoreCase("true")) {
+                // Running from Jenkins
+                // Pick up the properties from system properties
+
+                if (System.getProperty("selenium_browser").equalsIgnoreCase("IE")) {
+                    tool.platform.IE(capabilities);
+                }
+
+                if (System.getProperty("selenium_browser").equalsIgnoreCase("FF")) {
+                    tool.platform.FF(capabilities);
+                }
+
+                if (System.getProperty("selenium_browser").equalsIgnoreCase("CH")) {
+                    tool.platform.CH(capabilities);
+                }
+
+                // Turn off debugging if we are running from jenkins
+                test.setDebug(false);
+                System.out.println("Running on Jenkins so debug set to " + test.getDebug());
+//                String gridHubIP = "10.230.22.121";
+//                String gridHubPort = "4444";
+
+                capabilities.setCapability("tool.platform", gridOS);
+                tool.platform.setBrowser(gridBrowser);
+                capabilities.setCapability("tool.platform", tool.platform.getOS());
+
+                driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
+
+            } else {
+
                 // Running from a PC and selecting GRID
                 // Pick up the propeties from INT file.
-
                 if (gridBrowser.equalsIgnoreCase("IE")) {
                     tool.platform.IE(capabilities);
                 }
@@ -266,30 +294,6 @@ public class Selenium extends AutomationTool {
                 System.out.println("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub");
                 driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
 
-            } else {
-                // Running from Jenkins
-                // Pick up the properties from system properties
-
-                if (System.getProperty("selenium_browser").equalsIgnoreCase("IE")) {
-                    tool.platform.IE(capabilities);
-                }
-
-                if (System.getProperty("selenium_browser").equalsIgnoreCase("FF")) {
-                    tool.platform.FF(capabilities);
-                }
-
-                if (System.getProperty("selenium_browser").equalsIgnoreCase("CH")) {
-                    tool.platform.CH(capabilities);
-                }
-                test.setDebug(false);
-//                String gridHubIP = "10.230.22.121";
-//                String gridHubPort = "4444";
-
-                capabilities.setCapability("tool.platform", gridOS);
-                tool.platform.setBrowser(gridBrowser);
-                capabilities.setCapability("tool.platform", tool.platform.getOS());
-
-                driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
             }
 
         } else {
