@@ -156,7 +156,7 @@ public class Application extends Main {
         } else {
             // Using date here but you could write code to get the version from the app  
 
-            DateFormat df = new SimpleDateFormat("yyyyMMd");
+            DateFormat df = new SimpleDateFormat("yyyyMMdd");
             Date today = Calendar.getInstance().getTime();
 
             this.Version = df.format(today);
