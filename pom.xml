@@ -38,6 +38,7 @@
                         <selenium_browser>${selenium_browser}</selenium_browser>
                         <testSuite>${testSuite}</testSuite>
                         <test_environment>ENV1</test_environment>
+                        <jenkins_server>false</jenkins_server>
                     </systemPropertyVariables>
                     
                 </configuration>
@@ -74,6 +75,7 @@
         <testSuite>**/mercurytours/*.java</testSuite>
         <selenium_browser>IE</selenium_browser>
         <test_environment>ENV1</test_environment>
+        <jenkins_server>false</jenkins_server>
     </properties>
 
     <dependencies>
