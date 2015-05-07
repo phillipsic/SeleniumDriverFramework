@@ -226,15 +226,20 @@ public class Selenium extends AutomationTool {
         String gridHubIP = propsHelper.readInitProperties("GRID.HUB.IP");
         String gridHubPort = propsHelper.readInitProperties("GRID.HUB.PORT");
         String gridOS = propsHelper.readInitProperties("GRID.OS");
+        String jenkinsServer = System.getProperty("jenkins_server");
 
         System.out.println("Use GRID set to " + useGRID);
-        System.out.println("Jenkins Server " + System.getProperty("jenkins_server"));
+
+        if (jenkinsServer == null) {
+            jenkinsServer = "false";
+        }
+        System.out.println("Jenkins Server " + jenkinsServer);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         System.out.println("Actual machine name   [" + tool.platform.getComputerName() + "]");
 
-        if (System.getProperty("jenkins_server").equalsIgnoreCase("true") || useGRID.equalsIgnoreCase("true")) {
+        if (jenkinsServer.equalsIgnoreCase("true") || useGRID.equalsIgnoreCase("true")) {
             String gridBrowser = propsHelper.readInitProperties("GRID.BROWSER");
 
             System.out.println("Running on Jenkins and using GRID ");
