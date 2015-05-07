@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class Platform extends Main {
 
@@ -58,6 +59,9 @@ public class Platform extends Main {
 
     public void IE(DesiredCapabilities capabilities) throws Exception {
         capabilities.setBrowserName("internet explorer");
+        capabilities.setCapability("ignoreZoomSetting", true);
+        capabilities.setCapability("nativeEvents", false);
+        capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true); 
         File file = new File("IEDriverServer/IEDriverServer.exe");
         System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
     }
