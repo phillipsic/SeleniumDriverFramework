@@ -224,6 +224,9 @@ public class Selenium extends AutomationTool {
 
         String useGRID = propsHelper.readInitProperties("USE.GRID");
         System.out.println("Use GRID set to " + useGRID);
+        
+        
+        System.out.println("Jenkins Server " + System.getProperty("jenkins_server"));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         
