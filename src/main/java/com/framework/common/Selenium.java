@@ -245,6 +245,9 @@ public class Selenium extends AutomationTool {
             System.out.println("Running on Jenkins and using GRID ");
 
             if (useGRID.equalsIgnoreCase("true")) {
+                // Running from a PC and selecting GRID
+                // Pick up the propeties from INT file.
+
                 if (gridBrowser.equalsIgnoreCase("IE")) {
                     tool.platform.IE(capabilities);
                 }
@@ -264,6 +267,9 @@ public class Selenium extends AutomationTool {
                 driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
 
             } else {
+                // Running from Jenkins
+                // Pick up the properties from system properties
+
                 if (System.getProperty("selenium_browser").equalsIgnoreCase("IE")) {
                     tool.platform.IE(capabilities);
                 }
