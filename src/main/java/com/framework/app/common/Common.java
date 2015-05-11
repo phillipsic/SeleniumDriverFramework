@@ -689,4 +689,12 @@ public class Common {
         StackTraceElement e = stacktrace[2];
         return e.getMethodName();
     }
+
+    public static void assertCorrectPageTitle(AutomationTool tool, String expectedScreen) throws Exception {
+        String currentScreen = tool.getTitle();
+        // Check that we're on the right page.
+        if (!expectedScreen.equals(tool.getTitle())) {
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+        }
+    }
 }
