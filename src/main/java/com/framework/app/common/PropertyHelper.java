@@ -4,6 +4,9 @@ import java.io.*;
 import java.util.*;
 
 import com.framework.common.Main;
+import java.util.prefs.Preferences;
+import org.ini4j.Ini;
+import org.ini4j.IniPreferences;
 import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 
@@ -144,7 +147,6 @@ public class PropertyHelper extends Main {
         return value;
     }
 
-    // changed for setting the property for success order
     /**
      *
      * @param key
@@ -198,11 +200,11 @@ public class PropertyHelper extends Main {
     }
 
     /**
-     * Writes the last name out to a property file 'TEST_PROPERTY_FILE' The
+     * Writes the key/value to a property file 'TEST_PROPERTY_FILE' The
      * TEST_PROPERTY_FILE should not be in GIT or this causes problems with the
      * PULL
      *
-     * This method should only be called after a successful NCA.
+     * This method should only be called after a successful pass.
      *
      * The TEST_PROPERTY_FILE property file will be found at the root of
      * Selenium or workspace.
@@ -211,14 +213,14 @@ public class PropertyHelper extends Main {
      * @param value
      * @param comment
      */
-    public void savePropertyToFile(String key, String value, String comment) {
+    public void savePropertyToTestIniFile(String key, String value, String comment) {
         try {
 
             String environmentIdentifier = this.getENV();
             System.out.println("Environment =  " + environmentIdentifier);
 
             File inioutfile = new File(environmentIdentifier + "_" + TEST_PROPERTY_FILE, "");
-//Insert here.
+
             if (!inioutfile.exists()) {
                 if (!inioutfile.createNewFile()) {
                     return;
@@ -241,6 +243,16 @@ public class PropertyHelper extends Main {
         } catch (IOException e) {
             System.out.println("Problem reading file.");
         }
+    }
+
+    public String readPropertyFromTestIniFile(String key) throws IOException {
+
+        String environmentIdentifier = this.getENV();
+        System.out.println("Environment =  " + environmentIdentifier);
+
+        Preferences prefs = new IniPreferences(new Ini(new File(environmentIdentifier + "_" + TEST_PROPERTY_FILE, "")));
+
+        return prefs.node("main").get(key, null);
     }
 
     /**
