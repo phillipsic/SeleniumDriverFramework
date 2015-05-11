@@ -13,13 +13,9 @@ public class SignOnMercuryTours extends MercuryToursMenu {
 
     public SignOnMercuryTours(AutomationTool tool, TestDetails test, User user) throws Exception {
         super(tool, test, user);
-        String currentScreen = tool.getTitle();
-        String expectedScreen = "Sign-on: Mercury Tours";
 
-        if (!expectedScreen.equals(tool.getTitle())) {
-            test.writeInLogFile("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
-            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
-        }
+        String expectedScreen = "Sign-on: Mercury Tours";
+        Common.assertCorrectPageTitle(tool, expectedScreen);
         test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
