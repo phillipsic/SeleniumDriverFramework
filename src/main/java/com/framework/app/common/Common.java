@@ -513,7 +513,7 @@ public class Common {
     public static String getPropertyFromIniFile(String key) throws Exception {
 
         PropertyHelper propsHelper = new PropertyHelper();
-        String value = propsHelper.readPropertyFromFile(key);
+        String value = propsHelper.readPropertyFromTestIniFile(key);
         return value;
     }
 
