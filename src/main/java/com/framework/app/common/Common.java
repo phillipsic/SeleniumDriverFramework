@@ -520,7 +520,7 @@ public class Common {
     public static void storePropertyInIniFile(String key, String value, String comment) throws Exception {
 
         PropertyHelper propsHelper = new PropertyHelper();
-        propsHelper.savePropertyToFile(key, value, comment);
+        propsHelper.savePropertyToTestIniFile(key, value, comment);
     }
 
     /**
