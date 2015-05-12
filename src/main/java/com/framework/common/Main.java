@@ -190,7 +190,7 @@ public class Main {
                                     + test.getName()
                                     + "', NOW(),'"
                                     + test.getResult()
-                                    + "','"                                    
+                                    + "','"
                                     + tool.platform.getBrowserFullNameAndVersion()
                                     + "', '"
                                     + tool.platform.getOSFullNameAndVersion() + "', '" + message + "')";
@@ -277,6 +277,7 @@ public class Main {
         System.out.println("Version : " + application.getVersion());
         System.out.println("Application : " + application.getName());
         System.out.println("Test ID : " + test.getName());
+        System.out.println("Bug ID : " + test.getBugId());
         System.out.println("Result : " + test.getResult());
     }
 
