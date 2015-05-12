@@ -17,7 +17,7 @@ public class TestDetails extends Main {
 
     public TestDetails() throws Exception {
         setResult("fail");
-        setBugId("NoBug");
+        setBugIdNoBug();
     }
 
     public String getName() {
@@ -48,7 +48,12 @@ public class TestDetails extends Main {
         return bugId;
     }
 
-    public void setBugId(String bugId) {
+    public void setBugIdNoBug() {
+        this.bugId = "NoBug";
+    }
+
+    public void setBugId(String bugId) throws Exception {
+        this.writeInLogFile("INFO", "Expecting bug [" + bugId + "] in the following line");
         this.bugId = bugId;
     }
 
@@ -59,8 +64,8 @@ public class TestDetails extends Main {
     public void setDebug(Boolean debug) {
         this.debug = debug;
     }
-    
-     public Boolean getDBReporting() {
+
+    public Boolean getDBReporting() {
         return dbReporting;
     }
 
