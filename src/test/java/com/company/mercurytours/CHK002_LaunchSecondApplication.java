@@ -1,5 +1,6 @@
 package com.company.mercurytours;
 
+import com.company.mercurytours.app.Google;
 import com.company.mercurytours.app.MercuryTours;
 import org.junit.After;
 import org.junit.Before;
@@ -12,6 +13,7 @@ import com.framework.app.common.Prep;
 import com.company.mercurytours.users.JoeBloggs;
 
 import com.company.mercurytours.pages.*;
+import com.framework.common.Application;
 
 public class CHK002_LaunchSecondApplication extends AppTest {
 
@@ -47,11 +49,10 @@ public class CHK002_LaunchSecondApplication extends AppTest {
             Common.assertTextOnPage(tool, "Dear " + user.getFirstName() + " " + user.getLastName());
             Common.assertTextOnPage(tool, "Note: Your user name is " + user.getLogin());
 
-          
-            launchAnotherApplication();
+            Application googleApplication = new Google();
+            launchAnotherApplication(googleApplication);
             Common.assertCorrectPageTitle(tool, "Google");
-            
-            
+
             test.setResult("pass");
 
         } catch (AlreadyRunException e) {

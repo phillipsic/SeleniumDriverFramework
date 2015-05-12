@@ -37,12 +37,9 @@ public class AppTest extends Main {
         }
     }
 
-    public void launchAnotherApplication() throws Exception {
+    public void launchAnotherApplication(Application otherApplication) throws Exception {
 
-        
-        // TODO - need to pass in the application as I am now mixing framework with application specific code.
-        Application googleApplication = new Google();
-        tool.get(googleApplication.appFullURL());
+        tool.get(otherApplication.appFullURL());
         Thread.sleep(4000);
     }
 }
