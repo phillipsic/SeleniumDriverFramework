@@ -31,7 +31,7 @@ public class CHK002_LaunchSecondApplication extends AppTest {
 
         try {
 
-            launchApplication();
+            launchMainApplication();
 
             WelcomeMercuryTours WelcomePage = new WelcomeMercuryTours(tool, test, user);
             RegisterMercuryTours RegisterPage = WelcomePage.clickRegisterLink();

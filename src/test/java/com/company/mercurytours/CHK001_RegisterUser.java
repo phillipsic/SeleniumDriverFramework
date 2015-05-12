@@ -31,7 +31,7 @@ public class CHK001_RegisterUser extends AppTest {
 
         try {
 
-            launchApplication();
+            launchMainApplication();
 
             WelcomeMercuryTours WelcomePage = new WelcomeMercuryTours(tool, test, user);
             RegisterMercuryTours RegisterPage = WelcomePage.clickRegisterLink();
