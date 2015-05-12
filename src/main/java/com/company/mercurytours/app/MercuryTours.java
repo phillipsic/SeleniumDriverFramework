@@ -5,9 +5,10 @@ import com.framework.common.Application;
 public class MercuryTours extends Application {
 
     public MercuryTours() throws Exception {
-        setName("MercuryTours");
+        setName("MercuryTours"); // this is the name of the application.  If set in the init.properties file
+        // then the name will be appended to the base url. No app name in this case.
         setCommonName("Mercury Tours");
-        setMainURLKey("MercuryTours_base_url");
+        setMainURLKey("MercuryTours_base_url"); // this is the key for the base URL
 
         /*
          The base URL should not be set here but in the <ENV>_init.properties file.
