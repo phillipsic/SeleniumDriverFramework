@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.framework.app.common;
 
 import java.io.IOException;
@@ -9,13 +5,10 @@ import java.io.InputStream;
 import java.util.MissingResourceException;
 import java.util.Properties;
 
-import com.framework.common.Application;
-import com.framework.common.DB;
 import com.framework.common.Main;
-import java.io.File;
-import java.io.FileInputStream;
 
 public class Prep extends Main {
+
     private PropertyHelper propsHelper = new PropertyHelper();
 
     public Prep() throws Exception {
@@ -64,11 +57,14 @@ public class Prep extends Main {
         return properties;
     }
 
-//    public void updateVersion(DB cid) throws Exception {
-//        cid.execSQLUpdate(cid.oracleDBStatement(), propsHelper.getSQLPrepProperties("UPDATE_TIMESTAMP"));
-//    }
 
-//    private void enableParameter(String paramValue, String paramName, String paramExpectedValue) throws Exception {
+    /* This class should be used for setting up the environment. If you need to update a DB or property files
+     Then this is the place to do it.
+     */
+   // public void enableDevice(Application application) throws Exception {
+    //    enableParameter(application.getCommonName() + "_char_value", "DEVICE", "true");
+    //  }
+    //    private void enableParameter(String paramValue, String paramName, String paramExpectedValue) throws Exception {
 //        DB cid = new DB(propsHelper.getENV() + "CID");
 //        if (cid.execSQLSelectWithParam(cid.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_" + paramName), 1, paramValue).equals(paramExpectedValue))
 //            System.out.println(paramName + " already enabled");
@@ -78,176 +74,4 @@ public class Prep extends Main {
 //            System.out.println(paramName + " is now enabled");
 //        }
 //    }
-
-   // public void enableDevice(Application application) throws Exception {
-    //    enableParameter(application.getCommonName() + "_char_value", "DEVICE", "true");
-  //  }
-
-  //  public void enableSubscribeStatusHistory(Application application) throws Exception {
-  //      enableParameter(application.getCommonName() + "_char_value", "SUBSCRIBER_STATUS_HISTORY", "true");
- //   }
-
-  //  public void enableBusinessNCA(Application application) throws Exception {
-        // 19 is the Business Org_Type_Code
- //       enableParameter(application.getCommonName(), "BUSINESS_NCA", "19");
- //   }
-
-//    public void enablePUK(String paramValue) throws Exception {
-//        DB ctlg = new DB(propsHelper.getENV() + "CTLG");
-//        if (ctlg.execSQLSelectWithParam(ctlg.oracleDBCnx(), propsHelper.getSQLPrepProperties("CHECK_PUK"), 1, paramValue).equals("007"))
-//            System.out.println("PUK already enabled");
-//        else {
-//            ctlg.execSQLUpdateWithParam(ctlg.oracleDBStatement(), propsHelper.getSQLPrepProperties("ENABLE_PUK"), paramValue);
-//            System.out.println("PUK is now enabled");
-//        }
-//    }
-//
-//    public void enableCoherencyCheck(Application application) throws Exception {
-//        enableParameter(application.getCommonName() + "_char_value", "COHERENCY_CHECK", "true");
-//    }
-//
-//    public void enableRPO(Application application) throws Exception {
-//        enableParameter(application.getCommonName() + "_char_value", "RPO", "true");
-//    }
-
-    // public void savePropertyToFile(String lastnamevalue, String loginvalue,
-    // String passwordvalue, String callingTest) {
-    //
-    // try {
-    // Properties props = new Properties();
-    //
-    // try {
-    // props = readProperties(INIT_PROPERTY_FILE);
-    // } catch (IOException e) {
-    // System.err.println(e.getMessage());
-    // e.printStackTrace();
-    // }
-    // String environmentIdentifier = props.getProperty("environment");
-    //
-    // File initFile = new File(environmentIdentifier + BCT_PROPERTY_FILE);
-    // boolean exists = (initFile.exists());
-    // if (exists) {
-    // String initFilePath = initFile.getAbsolutePath();
-    // System.out.println("INIT file was found at " + initFilePath);
-    // } else {
-    // System.out.println("ERROR INIT file not found");
-    // }
-    //
-    // System.out.println("Saving lastname to property file - " +
-    // lastnamevalue);
-    // System.out.println("Saving login to property file - " + loginvalue);
-    // System.out.println("Saving password to property file - " +
-    // passwordvalue);
-    // props.setProperty("bct_password", passwordvalue);
-    // props.setProperty("bct_lastname", lastnamevalue);
-    // props.setProperty("bct_login", loginvalue);
-    //
-    // props.store(new FileOutputStream(initFile), "Updated by " + callingTest +
-    // "in ENV# " + environmentIdentifier);
-    // System.out.println("INIT file saved to  " + initFile.getAbsolutePath());
-    //
-    // } catch (IOException e) {
-    // }
-    // }
-    //
-    // public String readLastNameFromFile() {
-    // Properties prop = new Properties();
-    //
-    // try {
-    // prop = readProperties(INIT_PROPERTY_FILE);
-    // } catch (IOException e) {
-    // System.err.println(e.getMessage());
-    // e.printStackTrace();
-    // }
-    // String environmentIdentifier = prop.getProperty("environment");
-    //
-    // try {
-    // //load a properties file
-    // File initFile = new File(environmentIdentifier + BCT_PROPERTY_FILE);
-    //
-    // boolean exists = (initFile.exists());
-    // if (exists) {
-    // String initFilePath = initFile.getAbsolutePath();
-    // System.out.println("INIT file was found at " + initFilePath);
-    // } else {
-    // System.out.println("ERROR INIT file not found");
-    // }
-    //
-    // prop.load(new FileInputStream(initFile.getAbsolutePath()));
-    //
-    // System.out.println("Last name retrieved from file = " +
-    // prop.getProperty("bct_lastname"));
-    //
-    // } catch (IOException ex) {
-    // ex.printStackTrace();
-    // }
-    // return (prop.getProperty("bct_lastname"));
-    // }
-    // public String readBCTLoginFromINIFile() {
-    // Properties prop = new Properties();
-    //
-    // try {
-    // prop = readProperties(INIT_PROPERTY_FILE);
-    // } catch (IOException e) {
-    // System.err.println(e.getMessage());
-    // e.printStackTrace();
-    // }
-    // String environmentIdentifier = prop.getProperty("environment");
-    //
-    // try {
-    // //load a properties file
-    // File initFile = new File(environmentIdentifier + BCT_PROPERTY_FILE);
-    //
-    // boolean exists = (initFile.exists());
-    // if (exists) {
-    // String initFilePath = initFile.getAbsolutePath();
-    // System.out.println("INIT file was found at " + initFilePath);
-    // } else {
-    // System.out.println("ERROR INIT file not found");
-    // }
-    //
-    // prop.load(new FileInputStream(initFile.getAbsolutePath()));
-    //
-    // System.out.println("Last name retrieved from file = " +
-    // prop.getProperty("bct_login"));
-    //
-    // } catch (IOException ex) {
-    // ex.printStackTrace();
-    // }
-    // return (prop.getProperty("bct_login"));
-    // }
-    //
-//     public String readBCTPasswordFromINIFile() {
-//     Properties prop = new Properties();
-//    
-//     try {
-//     prop = readProperties(INIT_PROPERTY_FILE);
-//     } catch (IOException e) {
-//     System.err.println(e.getMessage());
-//     e.printStackTrace();
-//     }
-//     String environmentIdentifier = prop.getProperty("environment");
-//    
-//     try {
-//     //load a properties file
-//     File initFile = new File(environmentIdentifier + BCT_PROPERTY_FILE);
-//    
-//     boolean exists = (initFile.exists());
-//     if (exists) {
-//     String initFilePath = initFile.getAbsolutePath();
-//     System.out.println("INIT file was found at " + initFilePath);
-//     } else {
-//     System.out.println("ERROR INIT file not found");
-//     }
-//    
-//     prop.load(new FileInputStream(initFile.getAbsolutePath()));
-//    
-//     System.out.println("Last name retrieved from file = " +
-//     prop.getProperty("bct_password"));
-//    
-//     } catch (IOException ex) {
-//     ex.printStackTrace();
-//     }
-//     return (prop.getProperty("bct_password"));
-//     }
 }
