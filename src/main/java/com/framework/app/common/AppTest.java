@@ -1,5 +1,7 @@
 package com.framework.app.common;
 
+import com.company.mercurytours.app.Google;
+import com.framework.common.Application;
 import com.framework.common.Platform;
 import com.framework.common.Selenium;
 import com.framework.common.Main;
@@ -36,7 +38,9 @@ public class AppTest extends Main {
     }
 
     public void launchAnotherApplication() throws Exception {
-        tool.get(application.appFullURL());
+
+        Application googleApplication = new Google();
+        tool.get(googleApplication.appFullURL());
         Thread.sleep(4000);
     }
 }
