@@ -47,8 +47,10 @@ public class CHK003_RegisterUserBugIdExample extends AppTest {
             Common.assertTextOnPage(tool, "Dear " + user.getFirstName() + " " + user.getLastName());
                 
 
-            test.setBugId("bug#1");   // This is the bug ID from your bug tracker. 
+            test.setBugId("bug#1");   // This is the bug ID from your bug tracker. Te setBugId method should be set the line before the fail.
+            
             Common.assertTextOnPage(tool, "Note:Your user name is " + user.getLogin()); // This is the line with the bug.
+            
             test.setBugIdNoBug(); //Reset the bug id.  When the bug is fixed we expect to get further and don't want the previous bug reported
             // The bug ID will be reported to the MySQL DB and used in reporting.
             // The bug ID will also be shown in the console window as - (Bug ID : bug#1)
