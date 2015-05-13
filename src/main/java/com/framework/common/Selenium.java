@@ -20,6 +20,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.framework.app.common.PropertyHelper;
+import java.io.IOException;
+import java.net.HttpURLConnection;
 
 public class Selenium extends AutomationTool {
 
@@ -269,6 +271,8 @@ public class Selenium extends AutomationTool {
                 capabilities.setCapability("tool.platform", gridOS);
                 tool.platform.setBrowser(gridBrowser);
                 capabilities.setCapability("tool.platform", tool.platform.getOS());
+                
+                 ping("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub", 5000);
 
                 driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
 
@@ -292,6 +296,8 @@ public class Selenium extends AutomationTool {
                 tool.platform.setBrowser(gridBrowser);
 
                 System.out.println("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub");
+                
+                ping("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub", 5000);
                 driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
 
             }
@@ -322,6 +328,22 @@ public class Selenium extends AutomationTool {
 
         return tool.platform.getBrowser();
     }
+    
+    public static boolean ping(String url, int timeout) {
+    // Otherwise an exception may be thrown on invalid SSL certificates:
+    url = url.replaceFirst("^https", "http");
+
+    try {
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        connection.setConnectTimeout(timeout);
+        connection.setReadTimeout(timeout);
+        connection.setRequestMethod("HEAD");
+        int responseCode = connection.getResponseCode();
+        return (200 <= responseCode && responseCode <= 399);
+    } catch (IOException exception) {
+        throw new IllegalStateException("GRID HUB does not appear to have been started");
+    }
+}
 
     @Override
     public boolean isElementPresentByID(String id) throws Exception {
