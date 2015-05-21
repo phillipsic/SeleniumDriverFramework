@@ -20,10 +20,9 @@ SET time_zone = "+00:00";
 -- Database: `autotest`
 --
 CREATE DATABASE `autotest`;
-CREATE USER 'autouser'@'localhost' IDENTIFIED BY 'autopassword';
-GRANT ALL PRIVILEGES ON autotest.* TO `autouser`@`localhost`;
-FLUSH PRIVILEGES;
+
 -- --------------------------------------------------------
+USE autotest;
 
 --
 -- Table structure for table `test_results`
@@ -43,6 +42,11 @@ CREATE TABLE IF NOT EXISTS `test_results` (
   `fail_message` varchar(250) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+FLUSH PRIVILEGES;
+CREATE USER 'autotest'@'localhost' IDENTIFIED BY 'autopasswd';
+GRANT ALL PRIVILEGES ON autotest.* TO `autouser`@`localhost`;
+FLUSH PRIVILEGES;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
