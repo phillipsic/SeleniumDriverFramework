@@ -87,7 +87,7 @@ public class AppTest extends Main {
                         }
                         int iRowCount = Integer.parseInt(SQLResult.getString("rowcount"));
                         if (iRowCount == 1) {
-                            sql = "select * from csspqa.test_results where test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
+                            sql = "select * from autotest.test_results where test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
                                     + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
                                     + tool.platform.getOSFullNameAndVersion() + "'";
 
@@ -107,7 +107,7 @@ public class AppTest extends Main {
                             }
 
                             if (storedResult.equals("fail")) {
-                                sql = "UPDATE csspqa.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "', fail_message = '"
+                                sql = "UPDATE autotest.test_results SET bug_id ='" + test.getBugId() + "',  ip = '" + tool.platform.getComputerName() + "', fail_message = '"
                                         + message + "', time_stamp = NOW() WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'"
                                         + " and application = '" + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
                                         + tool.platform.getOSFullNameAndVersion() + "'";
@@ -124,7 +124,7 @@ public class AppTest extends Main {
                             }
 
                             if (test.getResult().equals("pass") && storedResult.equals("fail")) {
-                                sql = "UPDATE csspqa.test_results SET test_result = 'pass', time_stamp = NOW(), bug_id = 'NoBug', ip = '" + tool.platform.getComputerName()
+                                sql = "UPDATE autotest.test_results SET test_result = 'pass', time_stamp = NOW(), bug_id = 'NoBug', ip = '" + tool.platform.getComputerName()
                                         + "'   WHERE test_id = '" + test.getName() + "'" + " and version = '" + application.getVersion() + "'" + " and application = '"
                                         + application.getName() + "'" + " and  browser ='" + tool.platform.getBrowserFullNameAndVersion() + "' and OS = '"
                                         + tool.platform.getOSFullNameAndVersion() + "'";
@@ -144,7 +144,7 @@ public class AppTest extends Main {
                             System.out.println("More than one row found - issue updating, please check manually.");
 
                         } else if (iRowCount == 0) {
-                            sql = "INSERT INTO csspqa.test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, browser, OS, fail_message )VALUES ("
+                            sql = "INSERT INTO autotest.test_results ( bug_id, ip , version , application , test_id , time_stamp , test_result, browser, OS, fail_message )VALUES ("
                                     + "'"
                                     + test.getBugId()
                                     + "','"

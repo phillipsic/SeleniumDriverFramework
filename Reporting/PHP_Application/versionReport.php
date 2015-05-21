@@ -84,7 +84,7 @@ include "./header.html";
     if ($selectedScript == "") {
         if ($selectedApplication != "") {
 
-            $ListOfTestsForSelectedAppQuery = "select distinct test_id from csspqa.test_results  where application = '" . $selectedApplication . "' and WebTestFlag is null order by test_id;";
+            $ListOfTestsForSelectedAppQuery = "select distinct test_id from autotest.test_results  where application = '" . $selectedApplication . "' and WebTestFlag is null order by test_id;";
             $ListOfTestsForSelectedAppResult = mysql_query($ListOfTestsForSelectedAppQuery);
 
             echo "<form name=formTest action='versionReport.php' method=POST>";
@@ -118,7 +118,7 @@ include "./header.html";
         while ($row = mysql_fetch_assoc($ListPassedBuildsResult)) {
             $loopCounter++;
 
-            $BuildDatesQuery = "select min(time_stamp) as start, max(time_stamp) as end from csspqa.test_results  where version = '" . $row['version'] . "' ";
+            $BuildDatesQuery = "select min(time_stamp) as start, max(time_stamp) as end from autotest.test_results  where version = '" . $row['version'] . "' ";
             $BuildDatesResult = mysql_query($BuildDatesQuery);
 
             $daterows = mysql_fetch_assoc($BuildDatesResult);
