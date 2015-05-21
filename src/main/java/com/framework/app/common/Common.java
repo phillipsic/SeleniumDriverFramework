@@ -31,6 +31,7 @@ public class Common {
     }
 
     /**
+     * Puts the test to sleep for a number of seconds.
      *
      * @param value
      * @throws Exception
@@ -41,10 +42,11 @@ public class Common {
     }
 
     /**
+     * Method checks if a string is found on a page.
      *
      * @param tool
      * @param searchText
-     * @return
+     * @return TRUE or FALSE
      * @throws Exception
      */
     public static Boolean isTextOnPage(AutomationTool tool, String searchText) throws Exception {
@@ -53,10 +55,11 @@ public class Common {
     }
 
     /**
+     * Method used to find out if a checkbox is selected or not
      *
      * @param tool
      * @param idOfCheckBox
-     * @return
+     * @return TRUE or FALSE
      * @throws Exception
      */
     public static Boolean isCheckBoxSelected(AutomationTool tool, String idOfCheckBox) throws Exception {
@@ -77,9 +80,8 @@ public class Common {
     }
 
     /**
-     *     * This should be used instead of using an assert in the Test. This
-     * method has a description added that will appear in the debugging
-     * information.
+     * This should be used instead of using an assert in the Test. This method
+     * has a description added that will appear in the debugging information.
      *
      * @param tool
      * @param searchText
@@ -127,9 +129,10 @@ public class Common {
     }
 
     /**
+     * Cleans a string. Removes CDATA tags, double spaces, and &nbsp.
      *
      * @param dirtyString
-     * @return
+     * @return clean string
      * @throws Exception
      */
     public static String removeHTMLTags(String dirtyString) throws Exception {
@@ -140,9 +143,10 @@ public class Common {
     }
 
     /**
+     * Returns a cleaned page source. Removes htlm tags and illegal chars
      *
      * @param tool
-     * @return
+     * @return clean page source
      * @throws Exception
      */
     public static String returnCleanPageSource(AutomationTool tool) throws Exception {
@@ -152,6 +156,8 @@ public class Common {
     }
 
     /**
+     * Will take a string with regex imbeded to find the string in the page,
+     * after the page has been cleaned
      *
      * @param tool
      * @param searchText
@@ -164,6 +170,8 @@ public class Common {
     }
 
     /**
+     * Method will check to see if the string is contained in a clean page
+     * source
      *
      * @param tool
      * @param searchText
@@ -411,7 +419,17 @@ public class Common {
 
     }
 
-    private static void storePropertyInDB(String key, String value, String comment) throws Exception {
+    /**
+     * Will only keep one property based on the key. If the key already exists
+     * then it will update. If it does not exist then it will insert.
+     *
+     *
+     * @param key
+     * @param value
+     * @param comment
+     * @throws java.lang.Exception
+     */
+    public static void storePropertyInDB(String key, String value, String comment) throws Exception {
         if (checkPropertyExistsInDB(key)) {
             updatePropertyInDB(key, value, comment);
         } else {
@@ -419,97 +437,51 @@ public class Common {
         }
     }
 
-    private static void storeMultiplePropertiesInDB(String key, String value, String comment) throws Exception {
+    /**
+     * Will store multiple copies of a particular property rather than update an
+     * existing.
+     *
+     *
+     * @param key
+     * @param value
+     * @param comment
+     * @throws java.lang.Exception
+     */
+    public static void storeMultiplePropertiesInDB(String key, String value, String comment) throws Exception {
 
         insertPropertyInDB(key, value, comment);
     }
 
-    /* Folowing left in as examples - code will need to be changed 
-
-     * Retrieves a string from the database that has been previously stored.
+    /**
+     * This method should be used when you want the property removed after it is
+     * read from the database. Some data can only be used once. This should be
+     * used in conjunction with the storeMultiplePropertiesInDB() method.
+     *
+     * @param key
      * @return @throws Exception
      */
-    public static String getBCTLastName() throws Exception {
-        return getPropertyValueFromDB("bct_lastname");
+    public static String getDisposablePropertyFromDatabase(String key) throws Exception {
+
+        String propertyValue = getPropertyValueFromDB(key);
+        deletePropertyFromDB(key, propertyValue);
+        return propertyValue;
     }
 
     /**
-     * Retrieves a string from the database that has been previously stored.
      *
+     * @param key
      * @return @throws Exception
      */
-    public static String getPersonFirstName() throws Exception {
-        return "FN" + getPropertyValueFromDB("bct_login");
+    public static String getPropertyFromDatabase(String key) throws Exception {
+        return getPropertyValueFromDB(key);
     }
 
     /**
-     * Retrieves a string from the database that has been previously stored.
      *
-     * @return @throws Exception
-     */
-    public static String getPersonLastName() throws Exception {
-        return "LN" + getPropertyValueFromDB("bct_login");
-    }
-
-    /**
-     * Stores information in the database that can be used by other tests. Below
-     * is only an example and needs to be changed for your needs.
-     *
-     * @param lastName
-     * @param login
-     * @param Password
-     * @param comment
+     * @param key
+     * @return
      * @throws Exception
      */
-    public static void storeLoginDetailsAndLastName(String lastName, String login, String Password, String comment) throws Exception {
-        if (lastName.matches("LN[0-9]{13}")) {
-            storePropertyInDB("bct_login", login, comment);
-            storePropertyInDB("bct_password", Password, comment);
-            storePropertyInDB("bct_lastname", lastName, comment);
-        } else {
-            System.out.println("\r\n**************************************");
-            System.out.println("WARNING - The property postpaid_last_name does not match the pattern LN12314567890123/'" + lastName + "'");
-            System.out.println("WARNING - data has not been save to the database.");
-            System.out.println("**************************************");
-        }
-    }
-
-    /**
-     *
-     * @return @throws Exception
-     */
-    public static String getB2CLoginName() throws Exception {
-        return getPropertyValueFromDB("bct_login");
-    }
-
-    /**
-     *
-     * @return @throws Exception
-     */
-    public static String getB2CPassword() throws Exception {
-        return getPropertyValueFromDB("bct_password");
-    }
-
-    /**
-     *
-     * @param orgName
-     * @param comment
-     * @throws Exception
-     */
-    public static void storeOrganizationName(String orgName, String comment) throws Exception {
-        storePropertyInDB("SFA_BCT_Organization", orgName, comment);
-    }
-
-    /**
-     *
-     * @return @throws Exception
-     */
-    public static String getOrganizationName() throws Exception {
-        String orgName = getPropertyValueFromDB("SFA_BCT_Organization");
-        System.out.print("SFA_BCT_Organization  : " + orgName + "\r\n");
-        return orgName;
-    }
-
     public static String getPropertyFromIniFile(String key) throws Exception {
 
         PropertyHelper propsHelper = new PropertyHelper();
@@ -517,6 +489,13 @@ public class Common {
         return value;
     }
 
+    /**
+     *
+     * @param key
+     * @param value
+     * @param comment
+     * @throws Exception
+     */
     public static void storePropertyInIniFile(String key, String value, String comment) throws Exception {
 
         PropertyHelper propsHelper = new PropertyHelper();
@@ -690,6 +669,12 @@ public class Common {
         return e.getMethodName();
     }
 
+    /**
+     *
+     * @param tool
+     * @param expectedScreen
+     * @throws Exception
+     */
     public static void assertCorrectPageTitle(AutomationTool tool, String expectedScreen) throws Exception {
         String currentScreen = tool.getTitle();
         // Check that we're on the right page.
