@@ -11,7 +11,6 @@ public class User extends Main {
     private String login;
     private String password;
     private String role;
-    private String realm;
     private String firstName;
     private String lastName;
 
@@ -43,6 +42,7 @@ public class User extends Main {
 
     /**
      * Returns the password of the User
+     *
      * @return returns the password as a string
      */
     public String getPassword() {
@@ -68,6 +68,7 @@ public class User extends Main {
 
     /**
      * Updates the login of the user.
+     *
      * @param login
      */
     public void setNewLogin(String login) {
@@ -89,8 +90,6 @@ public class User extends Main {
     public void setRole(String role) {
         this.role = role;
     }
-
-   
 
     /**
      *
