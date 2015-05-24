@@ -45,25 +45,25 @@ class mysql {
 	function opendbconnection($HOST, $DB, $USER, $PASSWORD) {
 	
 		
-		 $this->dbconnection = mysql_connect($HOST, $USER, $PASSWORD);
+		 $this->dbconnection = mysqli_connect($HOST, $USER, $PASSWORD, $DB) or die("Error " . mysqli_error( $this->dbconnection));
 		 
 		
-		 if ( $this->dbconnection ) {
-			 $this->db = mysql_select_db($DB);
-			 
-			 if ( !$this->db ) {
-					// @codeCoverageIgnoreStart
-					return mysql_errno()." - ".mysql_error();
-					// @codeCoverageIgnoreEnd
-			}
-			 
-		 } else {
-			 
-			 // @codeCoverageIgnoreStart
-			 return mysql_errno()." - ".mysql_error();
-			 // @codeCoverageIgnoreEnd
-		 }
-		 
+//		 if ( $this->dbconnection ) {
+//			 $this->db = mysql_select_db($DB);
+//			 
+//			 if ( !$this->db ) {
+//					// @codeCoverageIgnoreStart
+//					return mysql_errno()." - ".mysql_error();
+//					// @codeCoverageIgnoreEnd
+//			}
+//			 
+//		 } else {
+//			 
+//			 // @codeCoverageIgnoreStart
+//			 return mysql_errno()." - ".mysql_error();
+//			 // @codeCoverageIgnoreEnd
+//		 }
+//		 
 		 return "OK";
 
 		
