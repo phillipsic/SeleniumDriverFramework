@@ -64,7 +64,7 @@ class mysql {
 //			 // @codeCoverageIgnoreEnd
 //		 }
 //		 
-		 return "OK";
+		 return $this->dbconnection;
 
 		
     }
