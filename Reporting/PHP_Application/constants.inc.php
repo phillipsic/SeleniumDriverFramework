@@ -2,7 +2,7 @@
 
 # Mysql Connction details
 define("HOST",  "localhost");
-define("DB",  "csspqa");
+define("DB",  "autotest");
 define("USER",  "user");
 define("PASSWORD",  "password");
 

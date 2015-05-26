@@ -61,7 +61,7 @@ include "./header.html";
     $appResult = mysql_query($appQuery);
 
 
-    $LastFiveBuildsQuery = "select distinct version from csspqa.test_results  order by time_stamp desc limit 15;";
+    $LastFiveBuildsQuery = "select distinct version from autotest.test_results  order by time_stamp desc limit 15;";
     $LastFiveBuildsResult = mysql_query($LastFiveBuildsQuery);
 
 
@@ -224,7 +224,7 @@ include "./header.html";
 
 
         echo "<h2>Test scripts failing with a defect</h2>";
-        $DefectIDSQL = " SELECT  distinct test_id, bug_id FROM csspqa.test_results WHERE tag = '" . $tag . "' and test_result != 'pass' and bug_id !='NoBug' and version like ('%" . $selectedBuild . "%') and application = '" . $selectedApplication . "'";
+        $DefectIDSQL = " SELECT  distinct test_id, bug_id FROM autotest.test_results WHERE tag = '" . $tag . "' and test_result != 'pass' and bug_id !='NoBug' and version like ('%" . $selectedBuild . "%') and application = '" . $selectedApplication . "'";
 
         $DefectIDResult = mysql_query($DefectIDSQL);
         echo "<div id=\"my2MarkedUpContainer\">";

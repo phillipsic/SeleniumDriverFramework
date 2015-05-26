@@ -56,7 +56,7 @@ include "./header.html";
     $appResult = mysql_query($appQuery);
 
 
-    $LastFiveBuildsQuery = "select distinct version from csspqa.test_results  order by time_stamp desc limit 10;";
+    $LastFiveBuildsQuery = "select distinct version from autotest.test_results  order by time_stamp desc limit 10;";
     $LastFiveBuildsResult = mysql_query($LastFiveBuildsQuery);
 
 
