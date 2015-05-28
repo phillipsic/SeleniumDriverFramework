@@ -5,6 +5,7 @@
  */
 package com.framework.common;
 
+import com.framework.app.common.PropertyHelper;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -29,14 +30,18 @@ public class EmailHost {
     private String folder;
     private String username;
     private String password;
+    private PropertyHelper propsHelper = new PropertyHelper();
 
     public EmailHost(String host, String port, String protocol, String folder, String username, String password) {
+
+        this.setProvider("main");
         this.host = host;
         this.port = port;
         this.protocol = protocol;
         this.folder = folder;
         this.username = username;
         this.password = password;
+
     }
 
     public String getProvider() {
@@ -48,51 +53,52 @@ public class EmailHost {
     }
 
     public String getHost() {
+
         return host;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    public void setHost() throws IOException {
+        this.host = propsHelper.readPropertyFromEmailPropertyFile(getProvider(), "EMAIL_HOST");
     }
 
     public String getPort() {
         return port;
     }
 
-    public void setPort(String port) {
-        this.port = port;
+    public void setPort() throws IOException {
+        this.port = propsHelper.readPropertyFromEmailPropertyFile(getProvider(), "EMAIL_PORT");
     }
 
     public String getProtocol() {
         return protocol;
     }
 
-    public void setProtocol(String protocol) {
-        this.protocol = protocol;
+    public void setProtocol() throws IOException {
+        this.protocol = propsHelper.readPropertyFromEmailPropertyFile(getProvider(), "EMAIL_PROTOCOL");
     }
 
     public String getFolder() {
         return folder;
     }
 
-    public void setFolder(String folder) {
-        this.folder = folder;
+    public void setFolder() throws IOException {
+        this.folder = propsHelper.readPropertyFromEmailPropertyFile(getProvider(), "EMAIL_FOLDER");
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername() throws IOException {
+        this.username = propsHelper.readPropertyFromEmailPropertyFile(getProvider(), "EMAIL_USER");
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword() throws IOException {
+        this.password = propsHelper.readPropertyFromEmailPropertyFile(getProvider(), "EMAIL_PASSWORD");
     }
 
     public void retrieveEmailMessageBySubject(String emailSubject) {
