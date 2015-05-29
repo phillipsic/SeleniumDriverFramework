@@ -8,6 +8,5 @@ public class AdminUser extends User {
         setRole("AdminUser");
         setLogin();
         setPassword();
-        setRealm();
     }
 }

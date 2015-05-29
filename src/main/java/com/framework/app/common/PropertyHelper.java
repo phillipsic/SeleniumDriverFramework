@@ -255,6 +255,12 @@ public class PropertyHelper extends Main {
         return prefs.node("main").get(key, null);
     }
 
+    public String readPropertyFromEmailPropertyFile(String provider, String key) throws IOException {
+
+        Preferences prefs = new IniPreferences(new Ini(new File(EMAIL_PROPERTY_FILE, "")));
+        return prefs.node(provider).get(key, null);
+    }
+
     /**
      *
      * @return

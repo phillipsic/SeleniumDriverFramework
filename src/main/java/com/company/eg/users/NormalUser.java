@@ -8,6 +8,5 @@ public class NormalUser extends User {
         setRole("NormalUser");
         setLogin();
         setPassword();
-        setRealm();
     }
 }

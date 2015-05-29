@@ -33,7 +33,7 @@ public class Common {
     /**
      * Puts the test to sleep for a number of seconds.
      *
-     * @param value
+     * @param value Number of seconds for test to sleep
      * @throws Exception
      */
     public static void sleepForNumberOfSeconds(long value) throws Exception {
@@ -44,8 +44,8 @@ public class Common {
     /**
      * Method checks if a string is found on a page.
      *
-     * @param tool
-     * @param searchText
+     * @param tool Automation object
+     * @param searchText text to be find in a page
      * @return TRUE or FALSE
      * @throws Exception
      */
@@ -57,8 +57,8 @@ public class Common {
     /**
      * Method used to find out if a checkbox is selected or not
      *
-     * @param tool
-     * @param idOfCheckBox
+     * @param tool Automation object
+     * @param idOfCheckBox id of the checkbox to be checked
      * @return TRUE or FALSE
      * @throws Exception
      */
@@ -70,8 +70,8 @@ public class Common {
      * This should be used instead of using an assert in the Test. This method
      * has a description added that will appear in the debugging information.
      *
-     * @param tool
-     * @param searchText
+     * @param tool Automation object
+     * @param searchText text to search in page
      * @throws Exception
      */
     public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
@@ -83,8 +83,8 @@ public class Common {
      * This should be used instead of using an assert in the Test. This method
      * has a description added that will appear in the debugging information.
      *
-     * @param tool
-     * @param searchText
+     * @param tool Automation object
+     * @param searchText text that should not be found on the page.
      * @throws Exception
      */
     public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
@@ -96,8 +96,8 @@ public class Common {
      * This should be used instead of using an assert in the Test. This method
      * has a description added that will appear in the debugging information.
      *
-     * @param tool
-     * @param verify
+     * @param tool Automation object
+     * @param verify value to check for TRUE
      * @throws Exception
      */
     public static void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
@@ -108,8 +108,8 @@ public class Common {
      * This should be used instead of using an assert in the Test. This method
      * has a description added that will appear in the debugging information.
      *
-     * @param tool
-     * @param verify
+     * @param tool Automation object
+     * @param verify value to check for FALSE
      * @throws Exception
      */
     public static void assertVerifyFalse(AutomationTool tool, Boolean verify) throws Exception {
@@ -120,8 +120,8 @@ public class Common {
      * This should be used instead of using an assert in the Test. This method
      * has a description added that will appear in the debugging information.
      *
-     * @param expectedText
-     * @param actualText
+     * @param expectedText The expected result
+     * @param actualText the actual text to compare with the expected result
      * @throws Exception
      */
     public static void assertTextEquals(Object expectedText, Object actualText) throws Exception {
@@ -131,7 +131,7 @@ public class Common {
     /**
      * Cleans a string. Removes CDATA tags, double spaces, and &nbsp.
      *
-     * @param dirtyString
+     * @param dirtyString Stting that needs to be cleaned
      * @return clean string
      * @throws Exception
      */
@@ -145,7 +145,7 @@ public class Common {
     /**
      * Returns a cleaned page source. Removes htlm tags and illegal chars
      *
-     * @param tool
+     * @param tool Automation object
      * @return clean page source
      * @throws Exception
      */
@@ -159,8 +159,9 @@ public class Common {
      * Will take a string with regex imbeded to find the string in the page,
      * after the page has been cleaned
      *
-     * @param tool
-     * @param searchText
+     * @param tool Automation object
+     * @param searchText Text containing a regular expression to be found on the
+     * page
      * @return
      * @throws Exception
      */
@@ -173,8 +174,8 @@ public class Common {
      * Method will check to see if the string is contained in a clean page
      * source
      *
-     * @param tool
-     * @param searchText
+     * @param tool Automation object
+     * @param searchText Text that should not be found on the page.
      * @return
      * @throws Exception
      */
@@ -185,7 +186,7 @@ public class Common {
 
     /**
      *
-     * @param dirtyString
+     * @param dirtyString String to be cleaned.
      * @return
      * @throws Exception
      */
@@ -200,7 +201,7 @@ public class Common {
 
     /**
      *
-     * @param value
+     * @param value String to be searched for &amp and replaced with &
      * @return
      */
     public static String replaceAmpCodeWithCharacter(String value) {
@@ -209,7 +210,7 @@ public class Common {
 
     /**
      *
-     * @param dirtyString
+     * @param dirtyString STring to be cleaned of Non digits
      * @return
      * @throws Exception
      */
@@ -424,9 +425,9 @@ public class Common {
      * then it will update. If it does not exist then it will insert.
      *
      *
-     * @param key
-     * @param value
-     * @param comment
+     * @param key key of the property
+     * @param value value of the property
+     * @param comment any comment to go with the key value pair.
      * @throws java.lang.Exception
      */
     public static void storePropertyInDB(String key, String value, String comment) throws Exception {
@@ -442,9 +443,9 @@ public class Common {
      * existing.
      *
      *
-     * @param key
-     * @param value
-     * @param comment
+     * @param key key of the property
+     * @param value value of the property
+     * @param comment any comment to go with the key value pair.
      * @throws java.lang.Exception
      */
     public static void storeMultiplePropertiesInDB(String key, String value, String comment) throws Exception {
@@ -457,7 +458,8 @@ public class Common {
      * read from the database. Some data can only be used once. This should be
      * used in conjunction with the storeMultiplePropertiesInDB() method.
      *
-     * @param key
+     * @param key key to find corresponding value in database. Will then be
+     * removed from the DB.
      * @return @throws Exception
      */
     public static String getDisposablePropertyFromDatabase(String key) throws Exception {
@@ -469,7 +471,7 @@ public class Common {
 
     /**
      *
-     * @param key
+     * @param key to find corresponding value in database
      * @return @throws Exception
      */
     public static String getPropertyFromDatabase(String key) throws Exception {
@@ -478,7 +480,7 @@ public class Common {
 
     /**
      *
-     * @param key
+     * @param key to find corresponding vavlue in ini file
      * @return
      * @throws Exception
      */
@@ -491,9 +493,9 @@ public class Common {
 
     /**
      *
-     * @param key
-     * @param value
-     * @param comment
+     * @param key key/value pair to be stored in ini file
+     * @param value key/value pair to be stored in ini file
+     * @param comment users comment to go with the key/value pair
      * @throws Exception
      */
     public static void storePropertyInIniFile(String key, String value, String comment) throws Exception {
@@ -504,8 +506,8 @@ public class Common {
 
     /**
      *
-     * @param tool
-     * @return
+     * @param tool Automation object
+     * @return returns the handle of the current window
      * @throws Exception
      */
     public static String getCurrentWindowHandle(AutomationTool tool) throws Exception {
@@ -514,8 +516,8 @@ public class Common {
 
     /**
      *
-     * @param tool
-     * @param windowHandle
+     * @param tool Automation object
+     * @param windowHandle handle of the window to switch to.
      * @throws Exception
      */
     public static void switchToThisWindow(AutomationTool tool, String windowHandle) throws Exception {
@@ -524,8 +526,8 @@ public class Common {
 
     /**
      *
-     * @param tool
-     * @param windowHandleTable
+     * @param tool Automation object
+     * @param windowHandleTable list of open window handles
      * @throws Exception
      */
     public static void switchToNewWindow(AutomationTool tool, String... windowHandleTable) throws Exception {
@@ -542,11 +544,11 @@ public class Common {
 
     /**
      *
-     * @param host
-     * @param login
-     * @param password
-     * @param sourceFile
-     * @param targetDir
+     * @param host ip or url of server
+     * @param login login name
+     * @param password password
+     * @param sourceFile File to be uploaded
+     * @param targetDir target directory to upload the file to.
      * @throws Exception
      */
     public static void sftpFile(String host, String login, String password, String sourceFile, String targetDir) throws Exception {
@@ -593,8 +595,8 @@ public class Common {
 
     /**
      *
-     * @param value
-     * @return
+     * @param value value in which we need to remove the currency symbol
+     * @return returns the currency after converting it to a double
      */
     public static double removeCurrencyAndConvertToDouble(String value) {
         String value1 = value.replace("$", "");
@@ -606,7 +608,7 @@ public class Common {
 
     /**
      *
-     * @return
+     * @return returns the current day of the month as an INT
      */
     public static int getCurrentDayOfMonth() {
         Calendar day = Calendar.getInstance();
@@ -615,7 +617,7 @@ public class Common {
 
     /**
      *
-     * @return
+     * @return returns the current month as an INT
      */
     public static int getCurrentMonth() {
         Calendar month = Calendar.getInstance();
@@ -624,7 +626,7 @@ public class Common {
 
     /**
      *
-     * @return
+     * @return returns the current year as an INT
      */
     public static int getCurrentYear() {
         Calendar year = Calendar.getInstance();
@@ -633,7 +635,7 @@ public class Common {
 
     /**
      *
-     * @return
+     * @return returns the date in the following format: DD/MM/YYYY
      */
     public static String getSysdateDDMMYYYY() {
         String sysdate = Common.getCurrentDayOfMonth() + "/" + Common.getCurrentMonth() + "/" + Common.getCurrentYear();
@@ -642,8 +644,9 @@ public class Common {
 
     /**
      *
-     * @param howManySeconds
-     * @return
+     * @param howManySeconds Number of seconds to be converted into hours,
+     * minutes and seconds.
+     * @return Returns the converted number of seconds as a string
      * @throws Exception
      */
     public static String formatToHHmmss(String howManySeconds) throws Exception {
@@ -659,8 +662,10 @@ public class Common {
     }
 
     /**
+     * This method is mainly used internally but can be used in a test
      *
-     * @return @throws Exception
+     * @return
+     * @throws Exception
      */
     public static String getMethodName() throws Exception {
         StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
@@ -671,8 +676,8 @@ public class Common {
 
     /**
      *
-     * @param tool
-     * @param expectedScreen
+     * @param tool Automation object
+     * @param expectedScreen the expected title of the page for an assertion.
      * @throws Exception
      */
     public static void assertCorrectPageTitle(AutomationTool tool, String expectedScreen) throws Exception {

@@ -11,7 +11,6 @@ public class User extends Main {
     private String login;
     private String password;
     private String role;
-    private String realm;
     private String firstName;
     private String lastName;
 
@@ -42,8 +41,9 @@ public class User extends Main {
     }
 
     /**
+     * Returns the password of the User
      *
-     * @return
+     * @return returns the password as a string
      */
     public String getPassword() {
         return password;
@@ -67,6 +67,7 @@ public class User extends Main {
     }
 
     /**
+     * Updates the login of the user.
      *
      * @param login
      */
@@ -76,7 +77,7 @@ public class User extends Main {
 
     /**
      *
-     * @return
+     * @return returns the role of the user as a string
      */
     public String getRole() {
         return role;
@@ -84,7 +85,7 @@ public class User extends Main {
 
     /**
      *
-     * @param role
+     * @param role uupdates the role of the user.
      */
     public void setRole(String role) {
         this.role = role;
@@ -92,36 +93,31 @@ public class User extends Main {
 
     /**
      *
-     * @return
-     */
-    public String getRealm() {
-        return realm;
-    }
-
-    /**
-     *
-     */
-    public void setRealm() {
-        this.realm = propsHelper.getPasswordProperties("REALM." + getRole());
-    }
-
-    /**
-     *
+     * @param firstname first name of user to be updated
      */
     public void setFirstName(String firstname) {
         this.firstName = firstname;
     }
 
+    /**
+     *
+     * @return returns the first name of the user as a string
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     *
+     * @return returns the last name of the user
+     */
     public String getLastName() {
         return lastName;
     }
 
     /**
      *
+     * @param lastname sets the lastname of the user
      */
     public void setLastName(String lastname) {
         this.lastName = lastname;
