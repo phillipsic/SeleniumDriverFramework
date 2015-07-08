@@ -32,7 +32,7 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3
         $selectedApplication = $_POST[selectedApplication];
         $selectedVersion = $_POST[selectedVersion];
 	$appQuery = "SELECT distinct application from test_results;";
-	$appResult = mysql_query($appQuery);
+	$appResult = mysqli_query($appQuery);
 	
 
 	
@@ -66,7 +66,7 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3
 
                 $DistinctQuery = "select substring(version, 1, locate( '-', version)-1) as versionNumbers  from test_results where application = '".$selectedApplication."' group by versionNumbers";
 		
-                $DistinctResult = mysql_query($DistinctQuery);
+                $DistinctResult = mysqli_query($DistinctQuery);
 //                echo "number of rows [".mysql_num_rows($DistinctResult)."]";
 		
 		
@@ -103,13 +103,13 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3
 					
 					$BuildQuery = "select distinct test_id  from test_results where application = '".$selectedApplication."' and tag = 'cv' and test_result = 'pass' AND  version like  '%".$row['versionNumbers'] ."%'";
                                         echo $BuildQuery;
-					$BuildResult = mysql_query($BuildQuery);					
+					$BuildResult = mysqli_query($BuildQuery);					
 					
 					$numberOfPassed = $num_rows = mysql_num_rows($BuildResult);
                                         echo "number of rows Passed [".$numberOfPassed."]";
 					
 					$TotalTestsRunQuery = "select distinct test_id  from test_results where application = '".$selectedApplication."' AND  version like  '%".$row['versionNumbers'] ."%'";
-					$TotalTestsRunResult = mysql_query($TotalTestsRunQuery);
+					$TotalTestsRunResult = mysqli_query($TotalTestsRunQuery);
 					$TotalRun = $num_rows = mysql_num_rows($TotalTestsRunResult);
 					
 
