@@ -22,6 +22,8 @@ import org.openqa.selenium.support.ui.Select;
 import com.framework.app.common.PropertyHelper;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
 
 public class Selenium extends AutomationTool {
 
@@ -39,6 +41,16 @@ public class Selenium extends AutomationTool {
     @Override
     public boolean checkSelectedUsingXpath(String xpath) throws Exception {
         return driver.findElement(By.xpath(xpath)).isSelected();
+    }
+
+    @Override
+    public boolean checkEnabledUsingXpath(String xpath) throws Exception {
+        return driver.findElement(By.xpath(xpath)).isEnabled();
+    }
+
+    @Override
+    public boolean checkEnabledUsingId(String id) throws Exception {
+        return driver.findElement(By.id(id)).isEnabled();
     }
 
     @Override
@@ -162,6 +174,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public String getSelectedTextByXpath(String xpath) throws Exception {
+        return new Select(driver.findElement(By.xpath(xpath))).getFirstSelectedOption().getText();
+    }
+
+    @Override
     public String getTextUsingClassName(String className) throws Exception {
         return driver.findElement(By.className(className)).getText();
     }
@@ -271,8 +288,8 @@ public class Selenium extends AutomationTool {
                 capabilities.setCapability("tool.platform", gridOS);
                 tool.platform.setBrowser(gridBrowser);
                 capabilities.setCapability("tool.platform", tool.platform.getOS());
-                
-                 ping("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub", 5000);
+
+                ping("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub", 5000);
 
                 driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
 
@@ -296,7 +313,7 @@ public class Selenium extends AutomationTool {
                 tool.platform.setBrowser(gridBrowser);
 
                 System.out.println("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub");
-                
+
                 ping("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub", 5000);
                 driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
 
@@ -328,22 +345,22 @@ public class Selenium extends AutomationTool {
 
         return tool.platform.getBrowser();
     }
-    
-    public static boolean ping(String url, int timeout) {
-    // Otherwise an exception may be thrown on invalid SSL certificates:
-    url = url.replaceFirst("^https", "http");
 
-    try {
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-        connection.setConnectTimeout(timeout);
-        connection.setReadTimeout(timeout);
-        connection.setRequestMethod("HEAD");
-        int responseCode = connection.getResponseCode();
-        return (200 <= responseCode && responseCode <= 399);
-    } catch (IOException exception) {
-        throw new IllegalStateException("GRID HUB does not appear to have been started");
+    public static boolean ping(String url, int timeout) {
+        // Otherwise an exception may be thrown on invalid SSL certificates:
+        url = url.replaceFirst("^https", "http");
+
+        try {
+            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+            connection.setConnectTimeout(timeout);
+            connection.setReadTimeout(timeout);
+            connection.setRequestMethod("HEAD");
+            int responseCode = connection.getResponseCode();
+            return (200 <= responseCode && responseCode <= 399);
+        } catch (IOException exception) {
+            throw new IllegalStateException("GRID HUB does not appear to have been started");
+        }
     }
-}
 
     @Override
     public boolean isElementPresentByID(String id) throws Exception {
@@ -424,7 +441,7 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void performUsingXPath(String xpath) throws Exception {
+    public void performMoveUsingXPath(String xpath) throws Exception {
         action = new Actions(driver);
         this.action.moveToElement(driver.findElement(By.xpath(xpath))).perform();
     }
@@ -500,6 +517,26 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void pressTABWithID(String id) throws Exception {
+        driver.findElement(By.id(id)).sendKeys(Keys.TAB);
+    }
+
+    @Override
+    public void pressTABWithXPath(String xpath) throws Exception {
+        driver.findElement(By.xpath(xpath)).sendKeys(Keys.TAB);
+    }
+
+    @Override
+    public void pressENTERWithXPath(String xpath) throws Exception {
+        driver.findElement(By.xpath(xpath)).sendKeys(Keys.ENTER);
+    }
+
+    @Override
+    public void pressENTERWithID(String id) throws Exception {
+        driver.findElement(By.id(id)).sendKeys(Keys.ENTER);
+    }
+
+    @Override
     public void switchTo() throws Exception {
         driver.switchTo().defaultContent();
     }
@@ -512,5 +549,13 @@ public class Selenium extends AutomationTool {
     @Override
     public void switchToWindow(String windowHandle) throws Exception {
         driver.switchTo().window(windowHandle);
+
+    }
+
+    @Override
+    public void switchToAlertAndAccept() throws Exception {
+
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
     }
 }

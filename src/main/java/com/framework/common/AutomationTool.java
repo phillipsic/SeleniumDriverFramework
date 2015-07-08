@@ -14,8 +14,32 @@ public class AutomationTool extends Main {
         return false;
     }
 
+    public boolean checkEnabledUsingXpath(String xpath) throws Exception {
+        return false;
+    }
+
+    public boolean checkEnabledUsingId(String id) throws Exception {
+        return false;
+    }
+
     public boolean checkSelectedUsingXpath(String xpath) throws Exception {
         return false;
+    }
+
+    public void pressTABWithID(String id) throws Exception {
+
+    }
+
+    public void pressTABWithXPath(String xpath) throws Exception {
+
+    }
+
+    public void pressENTERWithXPath(String xpath) throws Exception {
+
+    }
+
+    public void pressENTERWithID(String id) throws Exception {
+
     }
 
     public void clickListUsingName(String name) throws Exception {
@@ -89,6 +113,10 @@ public class AutomationTool extends Main {
         return null;
     }
 
+    public String getSelectedTextByXpath(String xpath) throws Exception {
+        return null;
+    }
+
     public String getTextUsingClassName(String className) throws Exception {
         return null;
     }
@@ -145,7 +173,7 @@ public class AutomationTool extends Main {
     public void performDragAndDrop(WebElement from, WebElement to) throws Exception {
     }
 
-    public void performUsingXPath(String xpath) throws Exception {
+    public void performMoveUsingXPath(String xpath) throws Exception {
     }
 
     public void quit() throws Exception {
@@ -205,5 +233,8 @@ public class AutomationTool extends Main {
     }
 
     public void switchToWindow(String windowHandle) throws Exception {
+    }
+
+    public void switchToAlertAndAccept() throws Exception {
     }
 }
