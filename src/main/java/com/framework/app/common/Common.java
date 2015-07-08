@@ -1,6 +1,7 @@
 package com.framework.app.common;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -128,6 +129,10 @@ public class Common {
         assertEquals("ASSERTION FAIL: Expecting " + expectedText + " but was " + actualText, expectedText, actualText);
     }
 
+    public static void assertTextNotEquals(Object expectedText, Object actualText) throws Exception {
+        assertNotSame("ASSERTION FAIL: Expecting different values but are the same:" + expectedText + " and " + actualText, expectedText, actualText);
+    }
+
     /**
      * Cleans a string. Removes CDATA tags, double spaces, and &nbsp.
      *
@@ -185,6 +190,7 @@ public class Common {
     }
 
     /**
+     * Cleans a sting of unprintable characters
      *
      * @param dirtyString String to be cleaned.
      * @return
@@ -200,6 +206,7 @@ public class Common {
     }
 
     /**
+     * Replaces the code &amp; with &
      *
      * @param value String to be searched for &amp and replaced with &
      * @return
@@ -209,6 +216,7 @@ public class Common {
     }
 
     /**
+     * Removes all non digit characters from a string
      *
      * @param dirtyString STring to be cleaned of Non digits
      * @return
@@ -221,7 +229,7 @@ public class Common {
     }
 
     /**
-     * Generates a unique number that can be used in data.
+     * Generates a unique number based on a timestamp that can be used in data.
      *
      * @return @throws Exception
      */
@@ -421,8 +429,8 @@ public class Common {
     }
 
     /**
-     * Will only keep one property based on the key. If the key already exists
-     * then it will update. If it does not exist then it will insert.
+     * Stores a property based on the key. If the key already exists then it
+     * will update. If it does not exist then it will insert.
      *
      *
      * @param key key of the property
@@ -438,9 +446,16 @@ public class Common {
         }
     }
 
+    public static boolean assertTextFieldIsReadOnlyUsingID(AutomationTool tool, String id) throws Exception {
+
+        return tool.checkEnabledUsingId(id);
+    }
+
     /**
-     * Will store multiple copies of a particular property rather than update an
-     * existing.
+     * Will store multiple copies of a particular property based on the key,
+     * rather than update it will always insert. This should be used for
+     * key-values that can only be used once and then should be removed/deleted
+     * from the DB using getDisposablePropertyFromDatabase()
      *
      *
      * @param key key of the property
@@ -470,6 +485,9 @@ public class Common {
     }
 
     /**
+     * Returns the value of the key-value property from the database. The
+     * property is left in the database after the read. Should be used for
+     * properties that can be reused.
      *
      * @param key to find corresponding value in database
      * @return @throws Exception
@@ -479,6 +497,9 @@ public class Common {
     }
 
     /**
+     * Returns the value of a property that has been previously stored in a
+     * local property file. The property file can be found in the root of the
+     * project directory.
      *
      * @param key to find corresponding vavlue in ini file
      * @return
@@ -492,6 +513,8 @@ public class Common {
     }
 
     /**
+     * Stores a property in a local property file under the section [main] The
+     * property file can be found in the root of the project directory.
      *
      * @param key key/value pair to be stored in ini file
      * @param value key/value pair to be stored in ini file
@@ -505,6 +528,7 @@ public class Common {
     }
 
     /**
+     * Returns the handle of the window that currently has focus.
      *
      * @param tool Automation object
      * @return returns the handle of the current window
@@ -515,6 +539,7 @@ public class Common {
     }
 
     /**
+     * Use this method to switch to a window when you already have the handle
      *
      * @param tool Automation object
      * @param windowHandle handle of the window to switch to.
@@ -525,6 +550,9 @@ public class Common {
     }
 
     /**
+     * When a new window/popup is opened used this method to switch to it. You
+     * need to pass in all the old window handles for the method to identify the
+     * new window
      *
      * @param tool Automation object
      * @param windowHandleTable list of open window handles
@@ -543,6 +571,11 @@ public class Common {
     }
 
     /**
+     * Method is used to upload files to servers. Needs to be rewriten to read
+     * the properties from an ini file and not stored in a test. The [section]
+     * could be used to identify a server in the ini file. This would remove the
+     * need to pass in the connection details, only the name of the server and
+     * the file details.
      *
      * @param host ip or url of server
      * @param login login name
@@ -594,12 +627,15 @@ public class Common {
     }
 
     /**
+     * Used to remove currency symbols from strings and convert to a double.
+     * Allows the test to then do calculations with figures extracted from a web
+     * page
      *
      * @param value value in which we need to remove the currency symbol
      * @return returns the currency after converting it to a double
      */
-    public static double removeCurrencyAndConvertToDouble(String value) {
-        String value1 = value.replace("$", "");
+    public static double removeCurrencyAndConvertToDouble(String currencySymbol, String value) {
+        String value1 = value.replace(currencySymbol, "");
         String value2 = value1.replace(" ", "");
 
         double doubleValue = Double.parseDouble(value2);
@@ -607,6 +643,7 @@ public class Common {
     }
 
     /**
+     * Returns the day of the month so tests can check or set dates.
      *
      * @return returns the current day of the month as an INT
      */
@@ -616,6 +653,7 @@ public class Common {
     }
 
     /**
+     * Returns the currente month so tests can check or set dates.
      *
      * @return returns the current month as an INT
      */
@@ -625,6 +663,7 @@ public class Common {
     }
 
     /**
+     * Returns the current year so tests can check or set dates.
      *
      * @return returns the current year as an INT
      */
@@ -634,6 +673,9 @@ public class Common {
     }
 
     /**
+     * Wrapper script for constructing todays date in a particular format. Might
+     * be a better way of reworking this to be able to change the format of the
+     * date returned.
      *
      * @return returns the date in the following format: DD/MM/YYYY
      */
@@ -643,6 +685,8 @@ public class Common {
     }
 
     /**
+     * Method takes a number of seconds and then converts them into hours,
+     * minutes and seconds, and converst to a string.
      *
      * @param howManySeconds Number of seconds to be converted into hours,
      * minutes and seconds.
@@ -675,6 +719,8 @@ public class Common {
     }
 
     /**
+     * This method should be used in every page object to check the correct page
+     * title.
      *
      * @param tool Automation object
      * @param expectedScreen the expected title of the page for an assertion.
@@ -686,5 +732,9 @@ public class Common {
         if (!expectedScreen.equals(tool.getTitle())) {
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
+    }
+
+    public static void clickOKOnAlertPopup(AutomationTool tool) throws Exception {
+        tool.switchToAlertAndAccept();
     }
 }
