@@ -157,6 +157,10 @@ public class AutomationTool extends Main {
         return false;
     }
 
+    public boolean isElementPresentByLinkText(String text) throws Exception {
+        return false;
+    }
+
     public boolean isElementPresentByXPath(String xpath) throws Exception {
         return false;
     }

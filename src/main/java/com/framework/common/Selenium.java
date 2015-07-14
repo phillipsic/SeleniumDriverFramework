@@ -365,7 +365,17 @@ public class Selenium extends AutomationTool {
     @Override
     public boolean isElementPresentByID(String id) throws Exception {
         try {
-            driver.findElements(By.id(id));
+            driver.findElement(By.id(id));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    @Override
+    public boolean isElementPresentByLinkText(String text) throws Exception {
+        try {
+            driver.findElement(By.linkText(text));
             return true;
         } catch (Exception e) {
             return false;
@@ -375,7 +385,7 @@ public class Selenium extends AutomationTool {
     @Override
     public boolean isElementPresentByXPath(String xpath) throws Exception {
         try {
-            driver.findElements(By.xpath(xpath));
+            driver.findElement(By.xpath(xpath));
             return true;
         } catch (Exception e) {
             return false;
