@@ -265,8 +265,16 @@ public class Main {
 
     @After
     public void tearDown() throws Exception {
+
+        test.writeInLogFile("Browser : " + tool.platform.getBrowserFullNameAndVersion());
+        test.writeInLogFile("OS : " + tool.platform.getOSFullNameAndVersion());
+        test.writeInLogFile("Version : " + application.getVersion());
+        test.writeInLogFile("Application : " + application.getName());
+        test.writeInLogFile("Test ID : " + test.getName());
+        test.writeInLogFile("Bug ID : " + test.getBugId());
+        test.writeInLogFile("Result : " + test.getResult());
+
         tool.quit();
-        test.writeInLogFile("Test Result: " + test.getResult());
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
