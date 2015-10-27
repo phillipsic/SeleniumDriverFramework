@@ -671,6 +671,14 @@ public class Common {
         Calendar year = Calendar.getInstance();
         return year.get(Calendar.YEAR);
     }
+    
+      public static String todaysDatePlusDays(int days, String dateFormat) {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+
+        cal.add(Calendar.DATE, days); //minus number would decrement the days
+        return sdf.format(cal.getTime());
+    }
 
     /**
      * Wrapper script for constructing todays date in a particular format. Might
