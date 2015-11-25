@@ -687,8 +687,13 @@ public class Common {
      *
      * @return returns the date in the following format: DD/MM/YYYY
      */
-    public static String getSysdateDDMMYYYY() {
-        String sysdate = Common.getCurrentDayOfMonth() + "/" + Common.getCurrentMonth() + "/" + Common.getCurrentYear();
+     public static String getSysdateDDMMYYYYWithSeparater(String separater) {
+        String sysdate = Common.getCurrentDayOfMonth() + separater + Common.getCurrentMonth() + separater + Common.getCurrentYear();
+        return sysdate;
+    }
+
+    public static String getSysdateYYYYMMDDWithSeparater(String separater) {
+        String sysdate = Common.getCurrentYear() + separater + Common.getCurrentMonth() + separater + Common.getCurrentDayOfMonth();
         return sysdate;
     }
 
