@@ -13,8 +13,9 @@ public class User extends Main {
     private String role;
     private String firstName;
     private String lastName;
+    private String userID;
 
-    private PropertyHelper propsHelper = new PropertyHelper();
+    public PropertyHelper propsHelper = new PropertyHelper();
 
     /**
      * This class should be extended to create for each user.
@@ -121,6 +122,14 @@ public class User extends Main {
      */
     public void setLastName(String lastname) {
         this.lastName = lastname;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
 }
