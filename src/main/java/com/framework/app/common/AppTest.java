@@ -8,6 +8,7 @@ import com.framework.common.Selenium;
 import com.framework.common.Main;
 import com.framework.common.User;
 import com.framework.common.TestDetails;
+import com.relevantcodes.extentreports.ExtentTest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,9 +26,11 @@ public class AppTest extends Main {
         test.setDBReporting(Boolean.valueOf(propsHelper.readInitProperties("DB_REPORTING")));
         System.out.println("DEBUG = " + test.getDebug());
         test.setLOG_FILE();
+        test.startResultLogger();
         tool.platform = new Platform();
         user = new User();
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
+       
     }
 
     public void launchMainApplication() throws Exception {
