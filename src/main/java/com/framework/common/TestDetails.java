@@ -1,8 +1,19 @@
 package com.framework.common;
 
+import com.framework.app.common.Common;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import java.io.*;
 import java.text.DateFormat;
 import java.util.Date;
+import org.apache.commons.io.FileUtils;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  *
@@ -17,11 +28,20 @@ public class TestDetails extends Main {
     private Boolean debug = false;
     private Boolean dbReporting = false;
     private String LOG_FILE;
+    public ExtentTest testExtReport;
+    public String reportingPath = System.getProperty("user.dir");
+    private String filenameOfReport = reportingPath + "/testReport" + Common.getSysdateYYYYMMDDWithSeparater("") + ".html";
+//    public String filenameOfReport = "extendedReport.html";
 
     /**
      *
      */
     public Writer w;
+    public FileOutputStream fileOut;
+    public int excelRowCounter;
+    public HSSFWorkbook workbook;
+    public ExtentReports extent;
+    public ExtentTest reportExt;
 
     /**
      * Main class that stores the results of the test.
@@ -31,6 +51,7 @@ public class TestDetails extends Main {
     public TestDetails() throws Exception {
         setResult("fail");
         setBugIdNoBug();
+
     }
 
     /**
@@ -134,7 +155,8 @@ public class TestDetails extends Main {
      * Gets the status of the MySQL DB installation: TRUE or FALSE Should NOT be
      * used in a test
      *
-     * @return returns true - MySQL reporting being used, false its not being used
+     * @return returns true - MySQL reporting being used, false its not being
+     * used
      */
     public Boolean getDBReporting() {
         return dbReporting;
@@ -171,6 +193,47 @@ public class TestDetails extends Main {
         }
     }
 
+    public void startResultLogger() {
+        extent = new ExtentReports(filenameOfReport, false);
+        reportExt = extent.startTest(this.getName(), "Sample description");
+    }
+
+    public void writeResultLoggerFail(String message) {
+        reportExt.log(LogStatus.FAIL, message);
+    }
+
+    public void writeResultLoggerPass(String message) {
+        reportExt.log(LogStatus.PASS, message);
+    }
+
+    public void writeResultLoggerInfo(String message) {
+        reportExt.log(LogStatus.INFO, message);
+    }
+
+    public void captureScreenShotToResultLogger() throws Exception {
+        File scrFile = tool.takeScreenShot();
+        //The below method will save the screen shot in d drive with name "screenshot.png"
+        FileUtils.copyFile(scrFile, new File(reportingPath + "/" + Common.generateTimeStamp() + ".png"));
+
+        reportExt.log(LogStatus.INFO, "Snapshot below: " + reportExt.addScreenCapture(reportingPath + "/" + Common.generateTimeStamp() + ".png"));
+    }
+
+    public void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
+        assertTrue("ASSERTION FAIL: expecting True", verify);
+        reportExt.log(LogStatus.PASS, "ASSERTION FAIL: expecting True" + verify);
+    }
+
+    public void assertTextEquals(Object expectedText, Object actualText) throws Exception {
+        assertEquals("ASSERTION FAIL: Expecting [" + expectedText + "] but was [" + actualText + "]", expectedText, actualText);
+        reportExt.log(LogStatus.PASS, "ASSERTION PASS: Expecting [" + expectedText + "] and was [" + actualText + "]");
+    }
+
+    public void closeResultLogger() {
+        extent.endTest(reportExt);
+// writing everything to document
+        extent.flush();
+    }
+
     /**
      *
      * @throws FileNotFoundException
@@ -189,6 +252,8 @@ public class TestDetails extends Main {
      */
     public void writeInLogFile(String text) throws Exception {
         this.writeInLogFile("TEST", text);
+        this.writeResultLoggerInfo(text);
+//        testExtReport.log(LogStatus.INFO, text);
     }
 
     /**
@@ -217,6 +282,65 @@ public class TestDetails extends Main {
             this.writeInLogFile("INFO", "Test Stop: " + this.getName());
             this.w.close();
         }
+
+    }
+
+    public void openExcelFile() throws FileNotFoundException, IOException, Exception {
+        try {
+
+            String fileName = "ExcelResultFiles/Report-" + Common.todaysDatePlusDays(0, "yyyyMMdd-hhmmss");
+            fileOut = new FileOutputStream(fileName + ".xls");
+            workbook = new HSSFWorkbook();
+            HSSFSheet worksheet = workbook.createSheet("Results");
+
+            HSSFRow row1 = worksheet.createRow((short) 0);
+
+            HSSFCell cellA1 = row1.createCell(0);
+            cellA1.setCellValue("Script");
+
+            HSSFCell cellB1 = row1.createCell(1);
+            cellB1.setCellValue("Identifier");
+
+            HSSFCell cellC1 = row1.createCell(2);
+            cellC1.setCellValue("Message");
+
+            HSSFCell cellD1 = row1.createCell(3);
+            cellD1.setCellValue("Result");
+
+            excelRowCounter = 1;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void writeToExcelFile(String scriptName, String identifier, String message, String result) throws FileNotFoundException, IOException {
+
+        HSSFSheet worksheet = workbook.getSheet("Results");
+        HSSFRow row1 = worksheet.createRow((short) excelRowCounter);
+
+        HSSFCell cellA1 = row1.createCell(0);
+        cellA1.setCellValue(scriptName);
+
+        HSSFCell cellB1 = row1.createCell(1);
+        cellB1.setCellValue(identifier);
+
+        HSSFCell cellC1 = row1.createCell(2);
+        cellC1.setCellValue(message);
+
+        HSSFCell cellD1 = row1.createCell(3);
+        cellD1.setCellValue(result);
+        excelRowCounter++;
+
+    }
+
+    public void closeExcelFile() throws FileNotFoundException, IOException {
+
+        workbook.write(fileOut);
+        this.fileOut.flush();
+        this.fileOut.close();
     }
 
 }
