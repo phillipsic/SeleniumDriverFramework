@@ -17,7 +17,34 @@ import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Iterator;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellValue;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -106,6 +133,10 @@ public class Common {
         assertTrue("ASSERTION FAIL: expecting True", verify);
     }
 
+    public static void assertElementPresentByLinkText(AutomationTool tool, String value) throws Exception {
+        tool.isElementPresentByLinkText(value);
+    }
+
     /**
      * This should be used instead of using an assert in the Test. This method
      * has a description added that will appear in the debugging information.
@@ -127,7 +158,7 @@ public class Common {
      * @throws Exception
      */
     public static void assertTextEquals(Object expectedText, Object actualText) throws Exception {
-        assertEquals("ASSERTION FAIL: Expecting " + expectedText + " but was " + actualText, expectedText, actualText);
+        assertEquals("ASSERTION FAIL: Expecting [" + expectedText + "] but was [" + actualText + "]", expectedText, actualText);
     }
 
     public static void assertTextNotEquals(Object expectedText, Object actualText) throws Exception {
@@ -146,6 +177,18 @@ public class Common {
         String dirtyString2 = dirtyString1.replaceAll("<![CDATA[.*?]]>", "");
         String dirtyString3 = dirtyString2.replaceAll("\\<.*?>", "");
         return dirtyString3.replaceAll("  ", " ");
+    }
+
+    public static String checkTextEqual(Object expectedText, Object actualText) throws Exception {
+
+//        String value = "Comparison of [" + expectedText + "] with [" + actualText + "] - ";
+        String value = "";
+        if (expectedText.equals(actualText)) {
+            value = value + "PASS";
+        } else {
+            value = value + "FAIL";
+        }
+        return value;
     }
 
     /**
@@ -648,9 +691,10 @@ public class Common {
      *
      * @return returns the current day of the month as an INT
      */
-    public static int getCurrentDayOfMonth() {
+    public static String getCurrentDayOfMonth() {
+        NumberFormat formatter = new DecimalFormat("00");
         Calendar day = Calendar.getInstance();
-        return day.get(Calendar.DAY_OF_MONTH);
+        return formatter.format(day.get(Calendar.DAY_OF_MONTH));
     }
 
     /**
@@ -672,8 +716,8 @@ public class Common {
         Calendar year = Calendar.getInstance();
         return year.get(Calendar.YEAR);
     }
-    
-      public static String todaysDatePlusDays(int days, String dateFormat) {
+
+    public static String todaysDatePlusDays(int days, String dateFormat) {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 
@@ -688,7 +732,7 @@ public class Common {
      *
      * @return returns the date in the following format: DD/MM/YYYY
      */
-     public static String getSysdateDDMMYYYYWithSeparater(String separater) {
+    public static String getSysdateDDMMYYYYWithSeparater(String separater) {
         String sysdate = Common.getCurrentDayOfMonth() + separater + Common.getCurrentMonth() + separater + Common.getCurrentYear();
         return sysdate;
     }
@@ -750,5 +794,45 @@ public class Common {
 
     public static void clickOKOnAlertPopup(AutomationTool tool) throws Exception {
         tool.switchToAlertAndAccept();
+    }
+
+    public static String readExcelCell(String filePathAndName, String sheetNumber, int rowNumber, int cellNumber) throws IOException, InvalidFormatException, NullPointerException {
+
+        FileInputStream fileInputStream = new FileInputStream(filePathAndName);
+        HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);
+        HSSFSheet worksheet = workbook.getSheet(sheetNumber);
+        HSSFRow row1 = worksheet.getRow(rowNumber);
+        HSSFCell cellA1 = row1.getCell(cellNumber);
+        String a1Val;
+
+        try {
+            a1Val = cellA1.getStringCellValue();
+        } catch (NullPointerException e) {
+
+            a1Val = "";
+        }
+
+        return a1Val;
+    }
+
+    public static int getNumberOfExcelRows(String filePathAndName, String sheetNumber) throws IOException, InvalidFormatException {
+
+        String current = System.getProperty("user.dir");
+//        System.out.println("Current working directory in Java : " + current);
+
+        filePathAndName = current + "/" + filePathAndName;
+
+        InputStream inp = new FileInputStream(filePathAndName);
+        Workbook wb = WorkbookFactory.create(inp);
+
+        Sheet sheet = wb.getSheet(sheetNumber);
+        if (sheet == null) {
+
+            System.out.println("ERROR - sheet not found  : " + sheetNumber);
+        }
+
+        System.out.println("Number of rows detected : " + sheet.getPhysicalNumberOfRows());
+
+        return sheet.getPhysicalNumberOfRows();
     }
 }
