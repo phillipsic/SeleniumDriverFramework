@@ -13,6 +13,9 @@ import org.junit.runner.Description;
 
 import com.framework.app.common.Common;
 import com.framework.app.common.Prep;
+import com.relevantcodes.extentreports.ExtentReports;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -23,6 +26,7 @@ public class Main {
     public Platform platform;
     public User user;
     public AutomationTool tool;
+    public ExtentReports extent;
 
     public static final String INIT_LOCATION = System.getProperty("user.dir") + "/src/main/resources/";
     public static final String INIT_PROPERTY_FILE = "init.properties";
@@ -34,6 +38,10 @@ public class Main {
     public static final String SQL_PREP_PROPERTY_FILE = "SQL_Prep.properties";
     public static final String EMAIL_PROPERTY_FILE = "Email.properties";
 
+    public Main() {
+
+    }
+
     public class LogResults extends TestWatcher {
 
         @Override
@@ -41,6 +49,14 @@ public class Main {
 
             String[] line = e.getMessage().split("\n");
             test.setMessage(line[0]);
+            test.writeResultLoggerFail(test.getMessage() + description);
+//            try {
+//                test.captureScreenShotToResultLogger();
+//            } catch (Exception ex) {
+//                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+            test.closeResultLogger();
+
             try {
                 test.writeInLogFile("ERRO", "########## " + test.getMessage() + " ##########");
                 test.closeLogFile();
@@ -54,6 +70,10 @@ public class Main {
 
         @Override
         protected void succeeded(Description description) {
+
+            test.writeResultLoggerPass(test.getMessage() + description);
+            test.closeResultLogger();
+
             try {
                 test.closeLogFile();
                 if (test.getDBReporting()) {
