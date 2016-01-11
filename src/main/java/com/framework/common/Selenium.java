@@ -20,10 +20,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.framework.app.common.PropertyHelper;
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Selenium extends AutomationTool {
 
@@ -36,6 +41,11 @@ public class Selenium extends AutomationTool {
     @Override
     public boolean checkDisplayedUsingXpath(String xpath) throws Exception {
         return driver.findElement(By.xpath(xpath)).isDisplayed();
+    }
+
+    @Override
+    public boolean checkDisplayedUsingId(String id) throws Exception {
+        return driver.findElement(By.id(id)).isDisplayed();
     }
 
     @Override
@@ -365,13 +375,13 @@ public class Selenium extends AutomationTool {
     @Override
     public boolean isElementPresentByID(String id) throws Exception {
         try {
-            driver.findElement(By.id(id));
+            driver.findElements(By.id(id));
             return true;
         } catch (Exception e) {
             return false;
         }
     }
-    
+
     @Override
     public boolean isElementPresentByLinkText(String text) throws Exception {
         try {
@@ -385,7 +395,7 @@ public class Selenium extends AutomationTool {
     @Override
     public boolean isElementPresentByXPath(String xpath) throws Exception {
         try {
-            driver.findElement(By.xpath(xpath));
+            driver.findElements(By.xpath(xpath));
             return true;
         } catch (Exception e) {
             return false;
@@ -567,5 +577,35 @@ public class Selenium extends AutomationTool {
 
         Alert alert = driver.switchTo().alert();
         alert.accept();
+    }
+
+    @Override
+    public void waitForVisibilityOfElementUsingXpath(String xpath) throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+    }
+
+    @Override
+    public void waitForVisibilityOfElementUsingId(String id) throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
+    }
+
+    @Override
+    public void waitForElementToBeClickableUsingId(String id) throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
+    }
+
+    @Override
+    public void waitForElementToBeClickableUsingXpath(String xpath) throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+    }
+    
+    @Override
+    public File takeScreenShot(){
+      File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+      return scrFile;
     }
 }
