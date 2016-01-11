@@ -1,5 +1,6 @@
 package com.framework.common;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -11,6 +12,10 @@ public class AutomationTool extends Main {
     }
 
     public boolean checkDisplayedUsingXpath(String xpath) throws Exception {
+        return false;
+    }
+
+    public boolean checkDisplayedUsingId(String id) throws Exception {
         return false;
     }
 
@@ -240,5 +245,25 @@ public class AutomationTool extends Main {
     }
 
     public void switchToAlertAndAccept() throws Exception {
+    }
+
+    public void waitForVisibilityOfElementUsingXpath(String xpath) throws Exception {
+
+    }
+
+    public void waitForVisibilityOfElementUsingId(String id) throws Exception {
+
+    }
+
+    public void waitForElementToBeClickableUsingId(String id) throws Exception {
+
+    }
+
+    public void waitForElementToBeClickableUsingXpath(String xpath) throws Exception {
+
+    }
+
+    public File takeScreenShot() {
+        return null;
     }
 }
