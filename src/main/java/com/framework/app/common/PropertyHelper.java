@@ -132,7 +132,7 @@ public class PropertyHelper extends Main {
      */
     public String getAccountProperties(String key) {
 
-        System.out.println("This is the key " + key);
+        System.out.println("Reading from Property file for key - " + key);
         Properties props = null;
 
         String environmentIdentifier = this.getENV();
