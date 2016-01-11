@@ -1,6 +1,6 @@
 package com.company.mercurytours.pages;
 
-import com.framework.app.common.Common;
+import com.framework.common.Common;
 import com.framework.common.AutomationTool;
 import com.framework.common.Main;
 import com.framework.common.TestDetails;

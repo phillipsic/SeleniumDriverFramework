@@ -1,7 +1,5 @@
 package com.framework.common;
 
-import com.framework.app.common.PropertyHelper;
-
 /**
  *
  * @author Ian Phillips

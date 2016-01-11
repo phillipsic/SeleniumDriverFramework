@@ -5,7 +5,6 @@
  */
 package com.framework.common;
 
-import com.framework.app.common.PropertyHelper;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Level;

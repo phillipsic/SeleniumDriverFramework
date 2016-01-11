@@ -1,4 +1,4 @@
-package com.framework.app.common;
+package com.framework.common;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;

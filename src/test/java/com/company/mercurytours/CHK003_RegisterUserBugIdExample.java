@@ -6,9 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.framework.common.AlreadyRunException;
-import com.framework.app.common.AppTest;
-import com.framework.app.common.Common;
-import com.framework.app.common.Prep;
+import com.framework.common.AppTest;
+import com.framework.common.Common;
+import com.framework.common.Prep;
 import com.company.mercurytours.users.JoeBloggs;
 
 import com.company.mercurytours.pages.*;

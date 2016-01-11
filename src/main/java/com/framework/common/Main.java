@@ -11,8 +11,6 @@ import org.junit.Rule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
-import com.framework.app.common.Common;
-import com.framework.app.common.Prep;
 import com.relevantcodes.extentreports.ExtentReports;
 import java.util.logging.Level;
 import java.util.logging.Logger;

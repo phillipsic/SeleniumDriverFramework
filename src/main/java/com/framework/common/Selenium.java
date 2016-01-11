@@ -19,7 +19,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import com.framework.app.common.PropertyHelper;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;

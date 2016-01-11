@@ -1,4 +1,4 @@
-package com.framework.app.common;
+package com.framework.common;
 
 import java.io.IOException;
 import java.io.InputStream;

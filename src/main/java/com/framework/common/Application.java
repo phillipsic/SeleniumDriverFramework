@@ -1,6 +1,5 @@
 package com.framework.common;
 
-import com.framework.app.common.PropertyHelper;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

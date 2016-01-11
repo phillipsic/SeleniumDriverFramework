@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.framework.app.common.PropertyHelper;
 
 public class DB extends Main {
 
