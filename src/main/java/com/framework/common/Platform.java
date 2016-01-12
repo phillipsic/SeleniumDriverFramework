@@ -1,10 +1,12 @@
 package com.framework.common;
 
 import java.io.File;
+import org.apache.commons.lang3.SystemUtils;
 
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class Platform extends Main {
 
@@ -13,6 +15,11 @@ public class Platform extends Main {
     private String OSFullNameAndVersion;
     private String browser;
     private String browserFullNameAndVersion;
+    private String platformOs;
+
+    public String getPlatformOs() {
+        return platformOs;
+    }
 
     public Platform() throws Exception {
     }
@@ -57,11 +64,34 @@ public class Platform extends Main {
         this.browserFullNameAndVersion = browserFullNameAndVersion;
     }
 
+    public String getOsOfTestPlatform() {
+        return platformOs;
+    }
+
+    public void setOsOfTestPlatform(String platformOs) {
+
+        this.platformOs = getCurrentPlatformOs();
+    }
+
+    private String getCurrentPlatformOs() {
+
+        String testOS = "N/A";
+
+        if (SystemUtils.IS_OS_MAC_OSX) {
+            testOS = "MAC";
+        }
+        if (SystemUtils.IS_OS_WINDOWS) {
+            testOS = "WIN";
+        }
+
+        return testOS;
+    }
+
     public void IE(DesiredCapabilities capabilities) throws Exception {
         capabilities.setBrowserName("internet explorer");
         capabilities.setCapability("ignoreZoomSetting", true);
         capabilities.setCapability("nativeEvents", false);
-        capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true); 
+        capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
         File file = new File("IEDriverServer/IEDriverServer.exe");
         System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
     }
