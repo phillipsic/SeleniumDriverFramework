@@ -17,6 +17,10 @@ public class Platform extends Main {
     private String browserFullNameAndVersion;
     private String platformOs;
 
+    public void setPlatformOs(String platformOs) {
+        this.platformOs = platformOs;
+    }
+
     public String getPlatformOs() {
         return platformOs;
     }
@@ -68,7 +72,7 @@ public class Platform extends Main {
         return platformOs;
     }
 
-    public void setOsOfTestPlatform(String platformOs) {
+    public void setOsOfTestPlatform() {
 
         this.platformOs = getCurrentPlatformOs();
     }
@@ -104,8 +108,21 @@ public class Platform extends Main {
     }
 
     public void CH(DesiredCapabilities capabilities) throws Exception {
+
+        String filePath = "";
         capabilities.setBrowserName("chrome");
-        File file = new File("CHDriverServer/chromedriver.exe");
+
+        if (this.platformOs.equalsIgnoreCase("mac")) {
+
+            filePath = "CHDriverServer/chromedriver";
+        }
+
+        if (this.platformOs.equalsIgnoreCase("win")) {
+            filePath = "CHDriverServer/chromedriver.exe";
+        }
+
+        File file = new File(filePath);
+
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
     }
 }
