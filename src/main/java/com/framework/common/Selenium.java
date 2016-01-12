@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -230,6 +231,8 @@ public class Selenium extends AutomationTool {
     @Override
     public String instanciateDriver(AutomationTool tool, TestDetails test) throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
+        
+        tool.platform.setOsOfTestPlatform();
 
         tool.platform.setComputerName(System.getenv("computername"));
         if (tool.platform.getComputerName() == null) {
