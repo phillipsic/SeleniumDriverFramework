@@ -347,6 +347,11 @@ public class Selenium extends AutomationTool {
                 tool.platform.CH(capabilities);
                 driver = new ChromeDriver();
             }
+            
+            if (tool.platform.getBrowser().equalsIgnoreCase("SF")) {
+//                tool.platform.CH(capabilities);
+                driver = new SafariDriver();
+            }
         }
         if (driver == null) {
             throw new IllegalStateException("Browser not supported. Please use IE, CH or FF");
