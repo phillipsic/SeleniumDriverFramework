@@ -267,6 +267,27 @@ public class TestDetails extends Main {
         assertNotSame("ASSERTION FAIL: Expecting different values but are the same:" + expectedText + " and " + actualText, expectedText, actualText);
     }
 
+    /**
+     * This method should be used in every page object to check the correct page
+     * title.
+     *
+     * @param tool Automation object
+     * @param expectedScreen the expected title of the page for an assertion.
+     * @throws Exception
+     */
+    public void assertCorrectPageTitle(AutomationTool tool, String expectedScreen) throws Exception {
+        String currentScreen = tool.getTitle();
+        // Check that we're on the right page.
+        if (!expectedScreen.equals(tool.getTitle())) {
+            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
+        }
+    }
+
+    public boolean assertTextFieldIsReadOnlyUsingID(AutomationTool tool, String id) throws Exception {
+
+        return tool.checkEnabledUsingId(id);
+    }
+
     public void closeResultLogger() {
         extent.endTest(reportExt);
 // writing everything to document

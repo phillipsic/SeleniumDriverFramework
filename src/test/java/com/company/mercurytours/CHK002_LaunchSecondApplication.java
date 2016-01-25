@@ -51,7 +51,7 @@ public class CHK002_LaunchSecondApplication extends AppTest {
 
             Application googleApplication = new Google();
             launchAnotherApplication(googleApplication);
-            Common.assertCorrectPageTitle(tool, "Google");
+            test.assertCorrectPageTitle(tool, "Google");
 
             test.setResult("pass");
 

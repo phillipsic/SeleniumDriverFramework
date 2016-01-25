@@ -429,10 +429,7 @@ public class Common {
         }
     }
 
-    public static boolean assertTextFieldIsReadOnlyUsingID(AutomationTool tool, String id) throws Exception {
-
-        return tool.checkEnabledUsingId(id);
-    }
+ 
 
     /**
      * Will store multiple copies of a particular property based on the key,
@@ -715,21 +712,7 @@ public class Common {
         return e.getMethodName();
     }
 
-    /**
-     * This method should be used in every page object to check the correct page
-     * title.
-     *
-     * @param tool Automation object
-     * @param expectedScreen the expected title of the page for an assertion.
-     * @throws Exception
-     */
-    public static void assertCorrectPageTitle(AutomationTool tool, String expectedScreen) throws Exception {
-        String currentScreen = tool.getTitle();
-        // Check that we're on the right page.
-        if (!expectedScreen.equals(tool.getTitle())) {
-            throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
-        }
-    }
+   
 
     public static void clickOKOnAlertPopup(AutomationTool tool) throws Exception {
         tool.switchToAlertAndAccept();

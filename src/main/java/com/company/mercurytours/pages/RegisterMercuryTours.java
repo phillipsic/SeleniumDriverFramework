@@ -15,7 +15,7 @@ public class RegisterMercuryTours extends MercuryToursMenu {
         super(tool, test, user);
 
         String expectedScreen = "Register: Mercury Tours";
-        Common.assertCorrectPageTitle(tool, expectedScreen);
+        test.assertCorrectPageTitle(tool, expectedScreen);
         test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 

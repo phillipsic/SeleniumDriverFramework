@@ -15,7 +15,7 @@ public class SignOnMercuryTours extends MercuryToursMenu {
         super(tool, test, user);
 
         String expectedScreen = "Sign-on: Mercury Tours";
-        Common.assertCorrectPageTitle(tool, expectedScreen);
+        test.assertCorrectPageTitle(tool, expectedScreen);
         test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 
