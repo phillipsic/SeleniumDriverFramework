@@ -12,6 +12,8 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -225,6 +227,44 @@ public class TestDetails extends Main {
     public void assertTextEquals(Object expectedText, Object actualText) throws Exception {
         assertEquals("ASSERTION FAIL: Expecting [" + expectedText + "] but was [" + actualText + "]", expectedText, actualText);
         reportExt.log(LogStatus.PASS, "ASSERTION PASS: Expecting [" + expectedText + "] and was [" + actualText + "]");
+    }
+
+    public void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
+        String pageSource = Common.returnCleanPageSource(tool);
+        assertTrue("ASSERTION FAIL: Expecting " + searchText + " in page", pageSource.contains(searchText));
+    }
+
+    /**
+     * This should be used instead of using an assert in the Test. This method
+     * has a description added that will appear in the debugging information.
+     *
+     * @param tool Automation object
+     * @param searchText text that should not be found on the page.
+     * @throws Exception
+     */
+    public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
+        String pageSource = Common.returnCleanPageSource(tool);
+        assertFalse("ASSERTION FAIL: NOT expecting " + searchText + "in page", pageSource.contains(searchText));
+    }
+
+    public void assertElementPresentByLinkText(AutomationTool tool, String value) throws Exception {
+        tool.isElementPresentByLinkText(value);
+    }
+
+    /**
+     * This should be used instead of using an assert in the Test. This method
+     * has a description added that will appear in the debugging information.
+     *
+     * @param tool Automation object
+     * @param verify value to check for FALSE
+     * @throws Exception
+     */
+    public void assertVerifyFalse(AutomationTool tool, Boolean verify) throws Exception {
+        assertFalse("ASSERTION FAIL: expecting False", verify);
+    }
+
+    public void assertTextNotEquals(Object expectedText, Object actualText) throws Exception {
+        assertNotSame("ASSERTION FAIL: Expecting different values but are the same:" + expectedText + " and " + actualText, expectedText, actualText);
     }
 
     public void closeResultLogger() {

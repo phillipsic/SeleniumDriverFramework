@@ -103,68 +103,7 @@ public class Common {
      * @param searchText text to search in page
      * @throws Exception
      */
-    public static void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
-        String pageSource = Common.returnCleanPageSource(tool);
-        assertTrue("ASSERTION FAIL: Expecting " + searchText + " in page", pageSource.contains(searchText));
-    }
-
-    /**
-     * This should be used instead of using an assert in the Test. This method
-     * has a description added that will appear in the debugging information.
-     *
-     * @param tool Automation object
-     * @param searchText text that should not be found on the page.
-     * @throws Exception
-     */
-    public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
-        String pageSource = Common.returnCleanPageSource(tool);
-        assertFalse("ASSERTION FAIL: NOT expecting " + searchText + "in page", pageSource.contains(searchText));
-    }
-
-    /**
-     * This should be used instead of using an assert in the Test. This method
-     * has a description added that will appear in the debugging information.
-     *
-     * @param tool Automation object
-     * @param verify value to check for TRUE
-     * @throws Exception
-     */
-    public static void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
-        assertTrue("ASSERTION FAIL: expecting True", verify);
-    }
-
-    public static void assertElementPresentByLinkText(AutomationTool tool, String value) throws Exception {
-        tool.isElementPresentByLinkText(value);
-    }
-
-    /**
-     * This should be used instead of using an assert in the Test. This method
-     * has a description added that will appear in the debugging information.
-     *
-     * @param tool Automation object
-     * @param verify value to check for FALSE
-     * @throws Exception
-     */
-    public static void assertVerifyFalse(AutomationTool tool, Boolean verify) throws Exception {
-        assertFalse("ASSERTION FAIL: expecting False", verify);
-    }
-
-    /**
-     * This should be used instead of using an assert in the Test. This method
-     * has a description added that will appear in the debugging information.
-     *
-     * @param expectedText The expected result
-     * @param actualText the actual text to compare with the expected result
-     * @throws Exception
-     */
-    public static void assertTextEquals(Object expectedText, Object actualText) throws Exception {
-        assertEquals("ASSERTION FAIL: Expecting [" + expectedText + "] but was [" + actualText + "]", expectedText, actualText);
-    }
-
-    public static void assertTextNotEquals(Object expectedText, Object actualText) throws Exception {
-        assertNotSame("ASSERTION FAIL: Expecting different values but are the same:" + expectedText + " and " + actualText, expectedText, actualText);
-    }
-
+    
     /**
      * Cleans a string. Removes CDATA tags, double spaces, and &nbsp.
      *
