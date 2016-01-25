@@ -44,8 +44,8 @@ public class CHK001_RegisterUser extends AppTest {
             RegisterPage.enterConfirmPassword(user.getPassword());
             RegisterPage.clickSubmit();
 
-            Common.assertTextOnPage(tool, "Dear " + user.getFirstName() + " " + user.getLastName());
-            Common.assertTextOnPage(tool, "Note: Your user name is " + user.getLogin());
+            test.assertTextOnPage(tool, "Dear " + user.getFirstName() + " " + user.getLastName());
+            test.assertTextOnPage(tool, "Note: Your user name is " + user.getLogin());
 
             SignOnMercuryTours SignOn = RegisterPage.clickSignIn();
 
