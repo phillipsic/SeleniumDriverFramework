@@ -196,7 +196,7 @@ public class TestDetails extends Main {
 
     public void startResultLogger() {
         extent = new ExtentReports(filenameOfReport, false);
-        reportExt = extent.startTest(this.getName(), "Sample description");
+        reportExt = extent.startTest(this.getName(), "Selenium Logger");
     }
 
     public void writeResultLoggerFail(String message) {
@@ -221,17 +221,40 @@ public class TestDetails extends Main {
 
     public void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
         assertTrue("ASSERTION FAIL: expecting True", verify);
-        reportExt.log(LogStatus.PASS, "ASSERTION FAIL: expecting True" + verify);
+        reportExt.log(LogStatus.PASS, "ASSERTION FAIL: expecting True " + verify);
     }
 
     public void assertTextEquals(Object expectedText, Object actualText) throws Exception {
         assertEquals("ASSERTION FAIL: Expecting [" + expectedText + "] but was [" + actualText + "]", expectedText, actualText);
-        reportExt.log(LogStatus.PASS, "ASSERTION PASS: Expecting [" + expectedText + "] and was [" + actualText + "]");
+        reportExt.log(LogStatus.PASS, "ASSERTION PASS:  [" + expectedText + "] and was [" + actualText + "]");
     }
 
     public void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
         assertTrue("ASSERTION FAIL: Expecting " + searchText + " in page", pageSource.contains(searchText));
+        reportExt.log(LogStatus.PASS, "ASSERTION TEXT ON PAGE :  [" + searchText + "] ");
+    }
+
+    public void checkTextEqual(String expectedText, String actualText) throws Exception {
+
+        String value = "Comparison of [" + expectedText + "] with [" + actualText + "]";
+
+        if (expectedText.equals(actualText)) {
+            test.writeResultLoggerPass(value);
+        } else {
+            test.writeResultLoggerFail(value);
+        }
+    }
+
+    public void checkTextContains(String expectedText, String actualText) throws Exception {
+
+        String value = "String [" + expectedText + "] contains [" + actualText + "]";
+
+        if (expectedText.contains(actualText)) {
+            test.writeResultLoggerPass(value);
+        } else {
+            test.writeResultLoggerFail(value);
+        }
     }
 
     /**
@@ -242,9 +265,10 @@ public class TestDetails extends Main {
      * @param searchText text that should not be found on the page.
      * @throws Exception
      */
-    public static void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
+    public void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
         assertFalse("ASSERTION FAIL: NOT expecting " + searchText + "in page", pageSource.contains(searchText));
+        reportExt.log(LogStatus.PASS, "ASSERTION TEXT NOT ON PAGE :  [" + searchText + "]");
     }
 
     public void assertElementPresentByLinkText(AutomationTool tool, String value) throws Exception {

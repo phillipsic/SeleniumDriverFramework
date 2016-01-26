@@ -1,9 +1,5 @@
 package com.framework.common;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,8 +7,6 @@ import java.sql.ResultSet;
 import java.util.Calendar;
 import java.util.Set;
 
-import com.framework.common.AutomationTool;
-import com.framework.common.DB;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
@@ -20,31 +14,18 @@ import com.jcraft.jsch.Session;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Iterator;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellValue;
-import org.apache.poi.ss.usermodel.DateUtil;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -103,11 +84,10 @@ public class Common {
      * @param searchText text to search in page
      * @throws Exception
      */
-    
     /**
      * Cleans a string. Removes CDATA tags, double spaces, and &nbsp.
      *
-     * @param dirtyString Stting that needs to be cleaned
+     * @param dirtyString String that needs to be cleaned
      * @return clean string
      * @throws Exception
      */
@@ -116,18 +96,6 @@ public class Common {
         String dirtyString2 = dirtyString1.replaceAll("<![CDATA[.*?]]>", "");
         String dirtyString3 = dirtyString2.replaceAll("\\<.*?>", "");
         return dirtyString3.replaceAll("  ", " ");
-    }
-
-    public static String checkTextEqual(Object expectedText, Object actualText) throws Exception {
-
-//        String value = "Comparison of [" + expectedText + "] with [" + actualText + "] - ";
-        String value = "";
-        if (expectedText.equals(actualText)) {
-            value = value + "PASS";
-        } else {
-            value = value + "FAIL";
-        }
-        return value;
     }
 
     /**
@@ -429,8 +397,6 @@ public class Common {
         }
     }
 
- 
-
     /**
      * Will store multiple copies of a particular property based on the key,
      * rather than update it will always insert. This should be used for
@@ -711,8 +677,6 @@ public class Common {
         StackTraceElement e = stacktrace[2];
         return e.getMethodName();
     }
-
-   
 
     public static void clickOKOnAlertPopup(AutomationTool tool) throws Exception {
         tool.switchToAlertAndAccept();
