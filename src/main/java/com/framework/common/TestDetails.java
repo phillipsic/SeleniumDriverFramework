@@ -221,7 +221,7 @@ public class TestDetails extends Main {
 
     public void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
         assertTrue("ASSERTION FAIL: expecting True", verify);
-        reportExt.log(LogStatus.PASS, "ASSERTION FAIL: expecting True " + verify);
+        reportExt.log(LogStatus.PASS, "ASSERTION TRUE: expecting True " + verify);
     }
 
     public void assertTextEquals(Object expectedText, Object actualText) throws Exception {
@@ -235,7 +235,7 @@ public class TestDetails extends Main {
         reportExt.log(LogStatus.PASS, "ASSERTION TEXT ON PAGE :  [" + searchText + "] ");
     }
 
-    public void checkTextEqual(String expectedText, String actualText) throws Exception {
+    public void checkTextEqual(TestDetails test, String expectedText, String actualText) throws Exception {
 
         String value = "Comparison of [" + expectedText + "] with [" + actualText + "]";
 
@@ -246,9 +246,9 @@ public class TestDetails extends Main {
         }
     }
 
-    public void checkTextContains(String expectedText, String actualText) throws Exception {
+    public void checkTextContains(TestDetails test, String expectedText, String actualText) throws Exception {
 
-        String value = "String [" + expectedText + "] contains [" + actualText + "]";
+        String value = "Checking string [" + expectedText + "] contains [" + actualText + "]";
 
         if (expectedText.contains(actualText)) {
             test.writeResultLoggerPass(value);
