@@ -585,6 +585,17 @@ public class Selenium extends AutomationTool {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
+    
+    
+    @Override
+    public String switchToAlertAndGetText() throws Exception {
+
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        alert.accept();
+        return alertText;
+    }
+    
 
     @Override
     public void waitForVisibilityOfElementUsingXpath(String xpath) throws Exception {

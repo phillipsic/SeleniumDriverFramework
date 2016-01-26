@@ -247,6 +247,10 @@ public class AutomationTool extends Main {
     public void switchToAlertAndAccept() throws Exception {
     }
 
+    public String switchToAlertAndGetText() throws Exception {
+        return null;
+    }
+
     public void waitForVisibilityOfElementUsingXpath(String xpath) throws Exception {
 
     }
