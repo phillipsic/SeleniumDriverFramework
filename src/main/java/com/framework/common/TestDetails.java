@@ -131,6 +131,7 @@ public class TestDetails extends Main {
      */
     public void setBugId(String bugId) throws Exception {
         this.writeInLogFile("INFO", "Expecting bug [" + bugId + "] in the following line");
+        this.writeResultLoggerFail("Expecting bug [" + bugId + "] in the following line");
         this.bugId = bugId;
     }
 
