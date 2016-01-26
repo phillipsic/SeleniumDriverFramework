@@ -1,6 +1,5 @@
 package com.framework.common;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -600,7 +599,7 @@ public class Common {
     }
 
     /**
-     * Returns the currente month so tests can check or set dates.
+     * Returns the current month so tests can check or set dates.
      *
      * @return returns the current month as an INT
      */
@@ -680,6 +679,11 @@ public class Common {
 
     public static void clickOKOnAlertPopup(AutomationTool tool) throws Exception {
         tool.switchToAlertAndAccept();
+    }
+
+    public static String getAlertPopupText(AutomationTool tool) throws Exception {
+        return tool.switchToAlertAndGetText();
+
     }
 
     public static String readExcelCell(String filePathAndName, String sheetNumber, int rowNumber, int cellNumber) throws IOException, InvalidFormatException, NullPointerException {
