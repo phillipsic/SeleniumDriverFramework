@@ -127,6 +127,29 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void clearStringUsingCssSelector(String cssSelector) throws Exception {
+        driver.findElement(By.cssSelector(cssSelector)).clear();
+
+    }
+
+    @Override
+    public void clearStringUsingId(String id) throws Exception {
+        driver.findElement(By.id(id)).clear();
+
+    }
+
+    @Override
+    public void clearStringUsingXPath(String xpath) throws Exception {
+        driver.findElement(By.xpath(xpath)).clear();
+    }
+
+    @Override
+    public void clearStringUsingName(String name) throws Exception {
+        driver.findElement(By.name(name)).clear();
+
+    }
+
+    @Override
     public void enterStringNotTextFieldUsingId(String id, String data) throws Exception {
         driver.findElement(By.id(id)).sendKeys(data);
     }
@@ -231,7 +254,7 @@ public class Selenium extends AutomationTool {
     @Override
     public String instanciateDriver(AutomationTool tool, TestDetails test) throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
-        
+
         tool.platform.setOsOfTestPlatform();
 
         tool.platform.setComputerName(System.getenv("computername"));
@@ -347,7 +370,7 @@ public class Selenium extends AutomationTool {
                 tool.platform.CH(capabilities);
                 driver = new ChromeDriver();
             }
-            
+
             if (tool.platform.getBrowser().equalsIgnoreCase("SF")) {
 //                tool.platform.CH(capabilities);
                 driver = new SafariDriver();
@@ -381,32 +404,33 @@ public class Selenium extends AutomationTool {
 
     @Override
     public boolean isElementPresentByID(String id) throws Exception {
-        try {
-            driver.findElements(By.id(id));
-            return true;
-        } catch (Exception e) {
-            return false;
+        boolean checkResult = false;
+        if (driver.findElements(By.id(id)).size() > 0) {
+            checkResult = true;
         }
+        return checkResult;
     }
 
     @Override
     public boolean isElementPresentByLinkText(String text) throws Exception {
-        try {
-            driver.findElement(By.linkText(text));
-            return true;
-        } catch (Exception e) {
-            return false;
+
+        driver.findElement(By.linkText(text));
+        boolean checkResult = false;
+        if (driver.findElements(By.linkText(text)).size() > 0) {
+            checkResult = true;
         }
+        return checkResult;
+
     }
 
     @Override
     public boolean isElementPresentByXPath(String xpath) throws Exception {
-        try {
-            driver.findElements(By.xpath(xpath));
-            return true;
-        } catch (Exception e) {
-            return false;
+
+        boolean checkResult = false;
+        if (driver.findElements(By.xpath(xpath)).size() > 0) {
+            checkResult = true;
         }
+        return checkResult;
     }
 
     @Override
@@ -417,6 +441,18 @@ public class Selenium extends AutomationTool {
     @Override
     public void navigateRefresh() throws Exception {
         driver.navigate().refresh();
+    }
+
+    @Override
+    public void updateAttributeById(AutomationTool tool, TestDetails test, String elementId, String attribute, String value) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("window.document.getElementById('" + elementId + "').setAttribute('" + attribute + "', '" + value + "')");
+    }
+
+    @Override
+    public void updateAttributeByXpath(AutomationTool tool, TestDetails test, String elementId, String attribute, String value) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("window.document.getElementByXpath('" + elementId + "').setAttribute('" + attribute + "', '" + value + "')");
     }
 
     @Override
@@ -564,7 +600,7 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public void switchTo() throws Exception {
+    public void switchToDefaultContent() throws Exception {
         driver.switchTo().defaultContent();
     }
 
@@ -585,8 +621,7 @@ public class Selenium extends AutomationTool {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
-    
-    
+
     @Override
     public String switchToAlertAndGetText() throws Exception {
 
@@ -595,7 +630,6 @@ public class Selenium extends AutomationTool {
         alert.accept();
         return alertText;
     }
-    
 
     @Override
     public void waitForVisibilityOfElementUsingXpath(String xpath) throws Exception {
@@ -620,10 +654,10 @@ public class Selenium extends AutomationTool {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
     }
-    
+
     @Override
-    public File takeScreenShot(){
-      File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-      return scrFile;
+    public File takeScreenShot() {
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        return scrFile;
     }
 }

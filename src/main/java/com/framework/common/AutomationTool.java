@@ -31,6 +31,18 @@ public class AutomationTool extends Main {
         return false;
     }
 
+    public void clearStringUsingCssSelector(String cssSelector) throws Exception {
+    }
+
+    public void clearStringUsingId(String id) throws Exception {
+    }
+
+    public void clearStringUsingXPath(String xpath) throws Exception {
+    }
+
+    public void clearStringUsingName(String name) throws Exception {
+    }
+
     public void pressTABWithID(String id) throws Exception {
 
     }
@@ -179,6 +191,14 @@ public class AutomationTool extends Main {
     public void parseUserAgent(AutomationTool tool, TestDetails test, String intBrowser) {
     }
 
+    public void updateAttributeById(AutomationTool tool, TestDetails test, String elementId, String attribute, String value) {
+
+    }
+
+    public void updateAttributeByXpath(AutomationTool tool, TestDetails test, String elementId, String attribute, String value) {
+
+    }
+
     public void performDragAndDrop(WebElement from, WebElement to) throws Exception {
     }
 
@@ -235,7 +255,7 @@ public class AutomationTool extends Main {
     public void selectImage(String id, String data) throws Exception {
     }
 
-    public void switchTo() throws Exception {
+    public void switchToDefaultContent() throws Exception {
     }
 
     public void switchToFrame(String webElement) throws Exception {
