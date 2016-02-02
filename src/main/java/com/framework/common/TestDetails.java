@@ -6,6 +6,8 @@ import com.relevantcodes.extentreports.LogStatus;
 import java.io.*;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -131,7 +133,7 @@ public class TestDetails extends Main {
      */
     public void setBugId(String bugId) throws Exception {
         this.writeInLogFile("INFO", "Expecting bug [" + bugId + "] in the following line");
-        this.writeResultLoggerFail("Expecting bug [" + bugId + "] in the following line");
+        this.writeResultLoggerInfo("Expecting bug [" + bugId + "] in the following line(s)");
         this.bugId = bugId;
     }
 
@@ -221,17 +223,20 @@ public class TestDetails extends Main {
     }
 
     public void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
+
         assertTrue("ASSERTION FAIL: expecting True", verify);
-        reportExt.log(LogStatus.PASS, "ASSERTION TRUE: expecting True " + verify);
+        writeResultLoggerPass("ASSERTION TRUE: expecting True " + verify);
     }
 
     public void assertTextEquals(Object expectedText, Object actualText) throws Exception {
+
         assertEquals("ASSERTION FAIL: Expecting [" + expectedText + "] but was [" + actualText + "]", expectedText, actualText);
         reportExt.log(LogStatus.PASS, "ASSERTION PASS:  [" + expectedText + "] and was [" + actualText + "]");
     }
 
     public void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
+
         assertTrue("ASSERTION FAIL: Expecting " + searchText + " in page", pageSource.contains(searchText));
         reportExt.log(LogStatus.PASS, "ASSERTION TEXT ON PAGE :  [" + searchText + "] ");
     }
@@ -251,7 +256,10 @@ public class TestDetails extends Main {
 
         String value = "Checking string [" + expectedText + "] contains [" + actualText + "]";
 
-        if (expectedText.contains(actualText)) {
+        Pattern p = Pattern.compile(actualText);
+        Matcher m = p.matcher(expectedText);
+
+        if (m.find()) {
             test.writeResultLoggerPass(value);
         } else {
             test.writeResultLoggerFail(value);
@@ -268,6 +276,7 @@ public class TestDetails extends Main {
      */
     public void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
         String pageSource = Common.returnCleanPageSource(tool);
+
         assertFalse("ASSERTION FAIL: NOT expecting " + searchText + "in page", pageSource.contains(searchText));
         reportExt.log(LogStatus.PASS, "ASSERTION TEXT NOT ON PAGE :  [" + searchText + "]");
     }
@@ -286,10 +295,13 @@ public class TestDetails extends Main {
      */
     public void assertVerifyFalse(AutomationTool tool, Boolean verify) throws Exception {
         assertFalse("ASSERTION FAIL: expecting False", verify);
+        reportExt.log(LogStatus.PASS, "ASSERTING FALSE: expecting FALSE - " + verify);
     }
 
     public void assertTextNotEquals(Object expectedText, Object actualText) throws Exception {
         assertNotSame("ASSERTION FAIL: Expecting different values but are the same:" + expectedText + " and " + actualText, expectedText, actualText);
+        reportExt.log(LogStatus.PASS, "ASSERTION FAIL: Expecting different values but are the same:" + expectedText + " and " + actualText);
+
     }
 
     /**
@@ -306,6 +318,7 @@ public class TestDetails extends Main {
         if (!expectedScreen.equals(tool.getTitle())) {
             throw new IllegalStateException("<<< Expecting: " + expectedScreen + " , but got: " + currentScreen + " >>>");
         }
+        reportExt.log(LogStatus.PASS, "Checking page title, expected: [" + expectedScreen + "] Actual [" + currentScreen + "]");
     }
 
     public boolean assertTextFieldIsReadOnlyUsingID(AutomationTool tool, String id) throws Exception {
