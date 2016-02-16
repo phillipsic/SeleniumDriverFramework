@@ -685,6 +685,11 @@ public class Common {
         return tool.switchToAlertAndGetText();
 
     }
+    
+      public static String getBaseURLFromPropertyFile(Application application) throws Exception {
+        PropertyHelper propsHelper = new PropertyHelper();
+        return propsHelper.getInitProperties(application.getMainURLKey());
+    }
 
     public static String readExcelCell(String filePathAndName, String sheetNumber, int rowNumber, int cellNumber) throws IOException, InvalidFormatException, NullPointerException {
 
