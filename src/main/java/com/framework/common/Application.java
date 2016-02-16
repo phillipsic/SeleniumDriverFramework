@@ -66,6 +66,10 @@ public class Application extends Main {
         MainURLKey = mainURLKey;
     }
 
+    public String getMainURLKey() {
+        return MainURLKey;
+    }
+
     /**
      *
      * @param directURLKey
