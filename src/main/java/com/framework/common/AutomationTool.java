@@ -1,8 +1,10 @@
 package com.framework.common;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
 
@@ -287,7 +289,7 @@ public class AutomationTool extends Main {
 
     }
 
-    public File takeScreenShot() {
+    public String takeScreenShot(String reportingPath) throws IOException, Exception {
         return null;
     }
 }

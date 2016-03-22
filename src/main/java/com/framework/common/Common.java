@@ -681,53 +681,53 @@ public class Common {
         tool.switchToAlertAndAccept();
     }
 
-    public static String getAlertPopupText(AutomationTool tool) throws Exception {
-        return tool.switchToAlertAndGetText();
-
-    }
-    
-      public static String getBaseURLFromPropertyFile(Application application) throws Exception {
+    public static String getBaseURLFromPropertyFile(Application application) throws Exception {
         PropertyHelper propsHelper = new PropertyHelper();
         return propsHelper.getInitProperties(application.getMainURLKey());
     }
 
-    public static String readExcelCell(String filePathAndName, String sheetNumber, int rowNumber, int cellNumber) throws IOException, InvalidFormatException, NullPointerException {
+    public static String getAlertPopupText(AutomationTool tool) throws Exception {
+        return tool.switchToAlertAndGetText();
 
-        FileInputStream fileInputStream = new FileInputStream(filePathAndName);
-        HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);
-        HSSFSheet worksheet = workbook.getSheet(sheetNumber);
-        HSSFRow row1 = worksheet.getRow(rowNumber);
-        HSSFCell cellA1 = row1.getCell(cellNumber);
-        String a1Val;
-
-        try {
-            a1Val = cellA1.getStringCellValue();
-        } catch (NullPointerException e) {
-
-            a1Val = "";
-        }
-
-        return a1Val;
     }
 
-    public static int getNumberOfExcelRows(String filePathAndName, String sheetNumber) throws IOException, InvalidFormatException {
-
-        String current = System.getProperty("user.dir");
-//        System.out.println("Current working directory in Java : " + current);
-
-        filePathAndName = current + "/" + filePathAndName;
-
-        InputStream inp = new FileInputStream(filePathAndName);
-        Workbook wb = WorkbookFactory.create(inp);
-
-        Sheet sheet = wb.getSheet(sheetNumber);
-        if (sheet == null) {
-
-            System.out.println("ERROR - sheet not found  : " + sheetNumber);
-        }
-
-        System.out.println("Number of rows detected : " + sheet.getPhysicalNumberOfRows());
-
-        return sheet.getPhysicalNumberOfRows();
-    }
+//    public static String readExcelCell(String filePathAndName, String sheetNumber, int rowNumber, int cellNumber) throws IOException, InvalidFormatException, NullPointerException {
+//
+//        FileInputStream fileInputStream = new FileInputStream(filePathAndName);
+//        HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);
+//        HSSFSheet worksheet = workbook.getSheet(sheetNumber);
+//        HSSFRow row1 = worksheet.getRow(rowNumber);
+//        HSSFCell cellA1 = row1.getCell(cellNumber);
+//        String a1Val;
+//
+//        try {
+//            a1Val = cellA1.getStringCellValue();
+//        } catch (NullPointerException e) {
+//
+//            a1Val = "";
+//        }
+//
+//        return a1Val;
+//    }
+//
+//    public static int getNumberOfExcelRows(String filePathAndName, String sheetNumber) throws IOException, InvalidFormatException {
+//
+//        String current = System.getProperty("user.dir");
+////        System.out.println("Current working directory in Java : " + current);
+//
+//        filePathAndName = current + "/" + filePathAndName;
+//
+//        InputStream inp = new FileInputStream(filePathAndName);
+//        Workbook wb = WorkbookFactory.create(inp);
+//
+//        Sheet sheet = wb.getSheet(sheetNumber);
+//        if (sheet == null) {
+//
+//            System.out.println("ERROR - sheet not found  : " + sheetNumber);
+//        }
+//
+//        System.out.println("Number of rows detected : " + sheet.getPhysicalNumberOfRows());
+//
+//        return sheet.getPhysicalNumberOfRows();
+//    }
 }

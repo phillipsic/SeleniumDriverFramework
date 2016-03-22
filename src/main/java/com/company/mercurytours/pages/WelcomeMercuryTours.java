@@ -1,6 +1,5 @@
 package com.company.mercurytours.pages;
 
-import com.framework.common.Common;
 import com.framework.common.AutomationTool;
 import com.framework.common.TestDetails;
 import com.framework.common.User;
@@ -15,7 +14,7 @@ public class WelcomeMercuryTours extends MercuryToursMenu {
         super(tool, test, user);
 
         String expectedScreen = "Welcome: Mercury Tours";
-        Common.assertCorrectPageTitle(tool, expectedScreen);
+        test.assertCorrectPageTitle(tool, expectedScreen);
         test.writeInLogFile(" >>> Page Now loaded: " + expectedScreen + " <<<");
     }
 

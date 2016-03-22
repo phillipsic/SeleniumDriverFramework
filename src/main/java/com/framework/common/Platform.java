@@ -6,7 +6,7 @@ import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 
 public class Platform extends Main {
 
@@ -16,6 +16,7 @@ public class Platform extends Main {
     private String browser;
     private String browserFullNameAndVersion;
     private String platformOs;
+    PropertyHelper propsHelper = new PropertyHelper();
 
     public void setPlatformOs(String platformOs) {
         this.platformOs = platformOs;
@@ -98,6 +99,16 @@ public class Platform extends Main {
         capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
         File file = new File("IEDriverServer/IEDriverServer.exe");
         System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
+    }
+
+    public void BS(DesiredCapabilities capabilities) throws Exception {
+
+        capabilities.setCapability("browser", propsHelper.readInitProperties("BROWSERSTACK.browser"));
+        capabilities.setCapability("browser_version", propsHelper.readInitProperties("BROWSERSTACK.browser_version"));
+        capabilities.setCapability("os", propsHelper.readInitProperties("BROWSERSTACK.os"));
+        capabilities.setCapability("os_version", propsHelper.readInitProperties("BROWSERSTACK.os_version"));
+        capabilities.setCapability("browserstack.debug", propsHelper.readInitProperties("BROWSERSTACK.debug"));
+
     }
 
     public FirefoxProfile FF(DesiredCapabilities capabilities) throws Exception {

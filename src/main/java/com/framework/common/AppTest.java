@@ -1,14 +1,5 @@
 package com.framework.common;
 
-import com.company.mercurytours.app.Google;
-import com.framework.common.Application;
-import com.framework.common.DB;
-import com.framework.common.Platform;
-import com.framework.common.Selenium;
-import com.framework.common.Main;
-import com.framework.common.User;
-import com.framework.common.TestDetails;
-import com.relevantcodes.extentreports.ExtentTest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -47,7 +38,7 @@ public class AppTest extends Main {
     public void launchAnotherApplication(Application otherApplication) throws Exception {
 
         tool.get(otherApplication.appFullURL());
-        Thread.sleep(4000);
+        Common.sleepForNumberOfSeconds(4);
     }
 
     public void logIterationResultInDB(String iteration) {

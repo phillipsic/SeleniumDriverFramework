@@ -15,6 +15,10 @@ public class Application extends Main {
     private String CommonName;
     private String Version;
     private String MainURLKey;
+
+    public String getMainURLKey() {
+        return MainURLKey;
+    }
     private String DirectURLKey;
 
     /**
@@ -64,10 +68,6 @@ public class Application extends Main {
      */
     public void setMainURLKey(String mainURLKey) {
         MainURLKey = mainURLKey;
-    }
-
-    public String getMainURLKey() {
-        return MainURLKey;
     }
 
     /**

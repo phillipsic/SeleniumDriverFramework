@@ -8,7 +8,6 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -214,31 +213,25 @@ public class TestDetails extends Main {
         reportExt.log(LogStatus.INFO, message);
     }
 
-    public void captureScreenShotToResultLogger() throws Exception {
-        File scrFile = tool.takeScreenShot();
-        //The below method will save the screen shot in d drive with name "screenshot.png"
-        FileUtils.copyFile(scrFile, new File(reportingPath + "/" + Common.generateTimeStamp() + ".png"));
-
-        reportExt.log(LogStatus.INFO, "Snapshot below: " + reportExt.addScreenCapture(reportingPath + "/" + Common.generateTimeStamp() + ".png"));
-    }
-
     public void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
 
         assertTrue("ASSERTION FAIL: expecting True", verify);
-        writeResultLoggerPass("ASSERTION TRUE: expecting True " + verify);
+        writeResultLoggerPass("ASSERTING TRUE: expecting True " + verify);
     }
 
     public void assertTextEquals(Object expectedText, Object actualText) throws Exception {
 
         assertEquals("ASSERTION FAIL: Expecting [" + expectedText + "] but was [" + actualText + "]", expectedText, actualText);
-        reportExt.log(LogStatus.PASS, "ASSERTION PASS:  [" + expectedText + "] and was [" + actualText + "]");
+        reportExt.log(LogStatus.PASS, "ASSERTING PASS:  [" + expectedText + "] and was [" + actualText + "]");
     }
 
     public void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
+        Common.sleepForNumberOfSeconds(1);
         String pageSource = Common.returnCleanPageSource(tool);
-
+        reportExt.log(LogStatus.PASS, "ASSERTING TEXT ON PAGE :  [" + searchText + "] ");
+        captureScreenShotToResultLogger(tool);
         assertTrue("ASSERTION FAIL: Expecting " + searchText + " in page", pageSource.contains(searchText));
-        reportExt.log(LogStatus.PASS, "ASSERTION TEXT ON PAGE :  [" + searchText + "] ");
+
     }
 
     public void checkTextEqual(TestDetails test, String expectedText, String actualText) throws Exception {
@@ -275,14 +268,16 @@ public class TestDetails extends Main {
      * @throws Exception
      */
     public void assertTextNotOnPage(AutomationTool tool, String searchText) throws Exception {
+        Common.sleepForNumberOfSeconds(1);
         String pageSource = Common.returnCleanPageSource(tool);
-
-        assertFalse("ASSERTION FAIL: NOT expecting " + searchText + "in page", pageSource.contains(searchText));
         reportExt.log(LogStatus.PASS, "ASSERTION TEXT NOT ON PAGE :  [" + searchText + "]");
+        captureScreenShotToResultLogger(tool);
+        assertFalse("ASSERTION FAIL: NOT expecting [" + searchText + "] in page", pageSource.contains(searchText));
     }
 
     public void assertElementPresentByLinkText(AutomationTool tool, String value) throws Exception {
-        tool.isElementPresentByLinkText(value);
+
+        assertTrue("ASSERTING Link " + value + " on page", tool.isElementPresentByLinkText(value));
     }
 
     /**
@@ -302,6 +297,11 @@ public class TestDetails extends Main {
         assertNotSame("ASSERTION FAIL: Expecting different values but are the same:" + expectedText + " and " + actualText, expectedText, actualText);
         reportExt.log(LogStatus.PASS, "ASSERTION FAIL: Expecting different values but are the same:" + expectedText + " and " + actualText);
 
+    }
+
+    public void captureScreenShotToResultLogger(AutomationTool tool) throws Exception {
+        String filePath = tool.takeScreenShot(reportingPath);
+        reportExt.log(LogStatus.INFO, "Snapshot below: " + reportExt.addScreenCapture(filePath));
     }
 
     /**

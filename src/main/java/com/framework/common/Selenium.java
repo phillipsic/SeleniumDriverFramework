@@ -1,5 +1,8 @@
 package com.framework.common;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
+import io.github.bonigarcia.wdm.PhantomJsDriverManager;
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.List;
@@ -23,10 +26,12 @@ import org.openqa.selenium.support.ui.Select;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+//import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -314,19 +319,35 @@ public class Selenium extends AutomationTool {
                     tool.platform.CH(capabilities);
                 }
 
+                if (System.getProperty("selenium_browser").equalsIgnoreCase("BS")) {
+                    tool.platform.BS(capabilities);
+
+                }
+
                 // Turn off debugging if we are running from jenkins
                 test.setDebug(false);
                 System.out.println("Running on Jenkins so debug set to " + test.getDebug());
-//                String gridHubIP = "10.230.22.121";
-//                String gridHubPort = "4444";
 
-                capabilities.setCapability("tool.platform", gridOS);
-                tool.platform.setBrowser(gridBrowser);
-                capabilities.setCapability("tool.platform", tool.platform.getOS());
+                if (useGRID.equalsIgnoreCase("true")) {
+                    capabilities.setCapability("tool.platform", gridOS);
+                    tool.platform.setBrowser(gridBrowser);
+                    capabilities.setCapability("tool.platform", tool.platform.getOS());
 
-                ping("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub", 5000);
+                    ping("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub", 5000);
 
-                driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
+                    driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
+                } else if (tool.platform.getBrowser().equalsIgnoreCase("BS")) {
+
+                    tool.platform.setBrowserFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.browser") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
+                    tool.platform.setOSFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.os") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
+
+                    String USERNAME = propsHelper.readInitProperties("BROWSERSTACK.username");
+                    String AUTOMATEKEY = propsHelper.readInitProperties("BROWSERSTACK.automatekey");
+                    String URL = "http://" + USERNAME + ":" + AUTOMATEKEY + "@hub.browserstack.com/wd/hub";
+                    tool.platform.BS(capabilities);
+                    driver = new RemoteWebDriver(new URL(URL), capabilities);
+
+                }
 
             } else {
 
@@ -357,7 +378,8 @@ public class Selenium extends AutomationTool {
         } else {
 
             if (tool.platform.getBrowser().equalsIgnoreCase("IE")) {
-                tool.platform.IE(capabilities);
+//                tool.platform.IE(capabilities);
+                InternetExplorerDriverManager.getInstance().setup();
                 driver = new InternetExplorerDriver();
             }
 
@@ -368,7 +390,21 @@ public class Selenium extends AutomationTool {
 
             if (tool.platform.getBrowser().equalsIgnoreCase("CH")) {
                 tool.platform.CH(capabilities);
+                ChromeDriverManager.getInstance().setup();
                 driver = new ChromeDriver();
+            }
+
+            // Browser Stack
+            if (tool.platform.getBrowser().equalsIgnoreCase("BS")) {
+
+                tool.platform.setBrowserFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.browser") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
+                tool.platform.setOSFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.os") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
+
+                String USERNAME = propsHelper.readInitProperties("BROWSERSTACK.username");
+                String AUTOMATEKEY = propsHelper.readInitProperties("BROWSERSTACK.automatekey");
+                String URL = "http://" + USERNAME + ":" + AUTOMATEKEY + "@hub.browserstack.com/wd/hub";
+                tool.platform.BS(capabilities);
+                driver = new RemoteWebDriver(new URL(URL), capabilities);
             }
 
             if (tool.platform.getBrowser().equalsIgnoreCase("SF")) {
@@ -377,7 +413,7 @@ public class Selenium extends AutomationTool {
             }
         }
         if (driver == null) {
-            throw new IllegalStateException("Browser not supported. Please use IE, CH or FF");
+            throw new IllegalStateException("Browser not supported. Please use IE, CH, BS or FF");
         }
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -511,7 +547,14 @@ public class Selenium extends AutomationTool {
 
     @Override
     public void quit() throws Exception {
-        driver.quit();
+
+        try {
+            driver.quit();
+        } catch (Exception ex) {
+
+            // do something
+            System.out.println("Quit Exception");
+        }
     }
 
     @Override
@@ -656,8 +699,10 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
-    public File takeScreenShot() {
+    public String takeScreenShot(String reportingPath) throws IOException, Exception {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        return scrFile;
+        String imageName = reportingPath + "/" + Common.generateTimeStamp() + ".png";
+        FileUtils.copyFile(scrFile, new File(imageName));
+        return imageName;
     }
 }

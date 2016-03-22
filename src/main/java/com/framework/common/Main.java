@@ -1,6 +1,5 @@
 package com.framework.common;
 
-import static org.junit.Assert.fail;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,8 +11,7 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
 import com.relevantcodes.extentreports.ExtentReports;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static org.junit.Assert.fail;
 
 public class Main {
 
