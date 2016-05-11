@@ -5,7 +5,7 @@
  */
 package com.framework.common;
 
-import com.company.eg.data.ExcelFile;
+import com.framework.data.ExcelFile;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;

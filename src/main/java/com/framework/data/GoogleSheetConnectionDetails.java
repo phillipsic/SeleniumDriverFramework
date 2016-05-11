@@ -1,4 +1,4 @@
-package com.company.eg.data;
+package com.framework.data;
 
 public abstract class GoogleSheetConnectionDetails {
 
