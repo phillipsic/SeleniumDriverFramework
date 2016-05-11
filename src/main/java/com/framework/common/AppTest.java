@@ -16,6 +16,7 @@ public class AppTest extends Main {
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
         test.setDBReporting(Boolean.valueOf(propsHelper.readInitProperties("DB_REPORTING")));
         System.out.println("DEBUG = " + test.getDebug());
+        System.out.println("DB_REPORTING = " + test.getDBReporting());
         test.setLOG_FILE();
         test.startResultLogger();
         tool.platform = new Platform();
