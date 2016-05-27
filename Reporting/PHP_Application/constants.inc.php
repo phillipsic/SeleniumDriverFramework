@@ -1,10 +1,10 @@
 <?php
 
 # Mysql Connction details
-define("HOST",  "localhost");
+define("HOST",  "127.0.0.1");
 define("DB",  "autotest");
-define("USER",  "auto_user");
-define("PASSWORD",  "autopasswd");
+define("USER",  "autotest");
+define("PASSWORD",  "password");
 
 
 ?>
