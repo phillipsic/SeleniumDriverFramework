@@ -23,8 +23,11 @@ include "./header.html";
     include "./Mysql.obj.php";
     echo "<h2>Test Version Report</h2>";
 
-    $DBConnection = new mysql;
-    $DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
+    $DBConnection = mysqli_connect(HOST, USER, PASSWORD, DB);
+//    $DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
     $RowNumberMaxLimit = 50;
 
     $selectedApplication = $_POST[selectedApplication];
@@ -53,7 +56,11 @@ include "./header.html";
     // }
 
     $appQuery = "SELECT distinct application from test_results;";
-    $appResult = mysql_query($appQuery);
+
+  
+    $appResult = mysqli_query($DBConnection, $appQuery);
+
+//    echo "Completed the query";
 
     echo "<BR>selected application is - " . $selectedApplication;
     echo "<BR>selected script  is - " . $selectedScript . "<br><br><br>";
@@ -64,9 +71,9 @@ include "./header.html";
     echo "<SELECT NAME='selectedApplication' onChange='frmTest.submit();'>";
     echo " <OPTION VALUE=\"\">Select App</OPTION>";
 
-    while ($row = mysql_fetch_assoc($appResult)) {
+    while ($row = mysqli_fetch_row($appResult)) {
 
-        echo "<OPTION VALUE='" . $row['application'] . "'>" . $row['application'] . "</OPTION>";
+        echo "<OPTION VALUE='" . $row[0] . "'>" . $row[0] . "</OPTION>";
     }
 
 
@@ -84,16 +91,18 @@ include "./header.html";
     if ($selectedScript == "") {
         if ($selectedApplication != "") {
 
-            $ListOfTestsForSelectedAppQuery = "select distinct test_id from autotest.test_results  where application = '" . $selectedApplication . "' and WebTestFlag is null order by test_id;";
-            $ListOfTestsForSelectedAppResult = mysql_query($ListOfTestsForSelectedAppQuery);
+            $ListOfTestsForSelectedAppQuery = "select distinct test_id from autotest.test_results  where application = '" . $selectedApplication . "' order by test_id;";
+            $ListOfTestsForSelectedAppResult = mysqli_query($DBConnection, $ListOfTestsForSelectedAppQuery);
 
+           
+            
             echo "<form name=formTest action='versionReport.php' method=POST>";
             echo "<SELECT NAME='selectedScript' onChange='formTest.submit();'>";
             echo " <OPTION VALUE=\"\">Select Script</OPTION>";
 
-            while ($row = mysql_fetch_assoc($ListOfTestsForSelectedAppResult)) {
+            while ($row1 = mysqli_fetch_row($ListOfTestsForSelectedAppResult)) {
 
-                echo "<OPTION VALUE='" . $row['test_id'] . "'>" . $row['test_id'] . "</OPTION>";
+                echo "<OPTION VALUE='" . $row1[0] . "'>" . $row1[0]. "</OPTION>";
             }
             echo "<input type='hidden' name='selectedApplication' value='" . $selectedApplication . "'";
             echo "</SELECT></FORM>";
@@ -104,7 +113,7 @@ include "./header.html";
 
         $BuildsPassQuery = "select distinct(version) from test_results where test_id = '" . $selectedScript . "' ";
         $BuildsPassQuery .= "and test_result = 'pass' AND application ='" . $selectedApplication . "' ORDER BY id DESC LIMIT " . $RowNumberMaxLimit;
-        $ListPassedBuildsResult = mysql_query($BuildsPassQuery);
+        $ListPassedBuildsResult = mysqli_query($DBConnection, $BuildsPassQuery);
 
 
 
@@ -115,17 +124,20 @@ include "./header.html";
         echo "<TR><TH>No</TH><TH>Build ID</TH><TH>Test Start</TH><TH>Test End</TH></TR></thead><tbody>";
 
         $loopCounter = 0;
-        while ($row = mysql_fetch_assoc($ListPassedBuildsResult)) {
+        while ($row = mysqli_fetch_row($ListPassedBuildsResult)) {
             $loopCounter++;
 
-            $BuildDatesQuery = "select min(time_stamp) as start, max(time_stamp) as end from autotest.test_results  where version = '" . $row['version'] . "' ";
-            $BuildDatesResult = mysql_query($BuildDatesQuery);
+            $BuildDatesQuery = "select min(time_stamp) as start, max(time_stamp) as end from autotest.test_results  where version = '" . $row[0] . "' ";
+           echo $BuildDatesQuery;
+            $BuildDatesResult = mysqli_query($DBConnection, $BuildDatesQuery);
 
-            $daterows = mysql_fetch_assoc($BuildDatesResult);
+            $daterows = $BuildDatesResult->fetch_array(MYSQLI_ASSOC);
+            
+         
 
             echo "<TR>";
             echo "<TD>" . $loopCounter . "</TD>";
-            echo "<TD>" . $row['version'] . "</TD>";
+            echo "<TD>" . $row[0] . "</TD>";
             echo "<TD>" . $daterows['start'] . "</TD>";
             echo "<TD>" . $daterows['end'] . "</TD>";
         }
@@ -135,7 +147,7 @@ include "./header.html";
 
 
         $TestDetailQuery = "SELECT * FROM test_results WHERE test_id ='" . $selectedScript . "' AND application ='" . $selectedApplication . "' ORDER BY id DESC LIMIT " . $RowNumberMaxLimit;
-        $TestDetailResult = mysql_query($TestDetailQuery);
+        $TestDetailResult = mysqli_query($DBConnection, $TestDetailQuery);
 
 
         echo "<h2> Last " . $RowNumberMaxLimit . " test runs</h2>";
@@ -145,10 +157,10 @@ include "./header.html";
         echo "<TR><TD>ID</TD><TD> Test ID</TD><TD>Application</TD><TD>Build/Version</TD><TD>Browser</TD><TD>OS</TD><TD> Time Stamp</TD><TD> Client</TD><TD>Result</TD><TD>Bug ID</TD><TD>Tag</TD></TR></thead><tbody>";
 
 
-        while ($row = mysql_fetch_assoc($TestDetailResult)) {
+        while ($row = $TestDetailResult->fetch_array(MYSQLI_ASSOC)) {
 
             echo "<TR>";
-            echo "<TD>" . $row['id'] . "</TD>";
+            echo "<TD>" . $row['ID'] . "</TD>";
             echo "<TD>" . $row['test_id'] . "</TD>";
             echo "<TD>" . $row['application'] . "</TD>";
             echo "<TD>" . $row['version'] . "</TD>";
@@ -162,7 +174,7 @@ include "./header.html";
                 $bgColor = "GREEN";
             }
 
-            echo "<TD><FONT COLOR=". $bgColor .">" . $row['test_result'] . "</FONT></TD>";
+            echo "<TD><FONT COLOR=" . $bgColor . ">" . $row['test_result'] . "</FONT></TD>";
             echo "<TD>" . $row['bug_id'] . "</TD>";
             echo "<TD>" . $row['fail_message'] . "</TD>";
             echo "</TR>";
