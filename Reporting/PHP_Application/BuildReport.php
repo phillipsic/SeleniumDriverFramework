@@ -89,7 +89,7 @@ include "./header.html";
             $TestBuildListArray[] = $row;
         }
 
-
+        echo "<center>";
         echo "<div id=\"myMarkedUpContainer\">";
         echo "<Table id='myTable'><thead>";
         echo "<TR><TH>Build Number</TH><TH>Total Passed</TH><TH>Total Failed</TH><TH>Total Executed</TH><TH>Pass Rate</TH><TH>Install Date</TH></TR></thead><tbody>";
@@ -98,15 +98,15 @@ include "./header.html";
 
 
 
-            $BuildQuery = "select distinct test_id  from test_results where application = '" . $selectedApplication . " and test_result = 'pass' AND  version like  '%" . $row['version'] . "%'";
+            $BuildQuery = "select distinct test_id  from test_results where application = '" . $selectedApplication . "' and test_result = 'pass' AND  version like  '%" . $row['version'] . "%'";
             echo $BuildQuery;
             $BuildResult = mysqli_query($link, $BuildQuery);
 
-            $numberOfPassed = $num_rows = mysqli_num_rows($BuildResult);
+            $numberOfPassed = mysqli_num_rows($BuildResult);
 
 
             $TotalTestsFailedQuery = "select distinct test_id from test_results where application = '" . $selectedApplication . "' and test_result = 'fail' AND  version like '%" . $row['version'] . "%' and bug_id !='NoBug'";
-            echo "query =" . $TotalTestsFailedQuery;
+//            echo "query =" . $TotalTestsFailedQuery;
             $TotalTestsFailedResult = mysqli_query($link, $TotalTestsFailedQuery)or die(mysqli_error($link));
             $numberFailedWithBug = $num_rows = mysqli_num_rows($TotalTestsFailedResult);
 
@@ -136,6 +136,7 @@ include "./header.html";
 
 
         echo "</tbody></Table ></div>";
+        echo "</center>";
     }
 
 // 

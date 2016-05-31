@@ -26,13 +26,13 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3
 	echo "<h2>Test Build Summary Result Report</h2>";
 	
 	$DBConnection = new mysql;
-	$DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
+	$link = $DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
 	
 	
         $selectedApplication = $_POST[selectedApplication];
         $selectedVersion = $_POST[selectedVersion];
 	$appQuery = "SELECT distinct application from test_results;";
-	$appResult = mysqli_query($appQuery);
+	$appResult = mysqli_query($link, $appQuery);
 	
 
 	
@@ -44,7 +44,7 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3
         echo "<SELECT NAME='selectedApplication' onChange='frmTest.submit();'>";
         echo " <OPTION VALUE=\"\">Select App</OPTION>";
          
-	while ($row = mysql_fetch_assoc($appResult)){
+	while ($row = $appResult->fetch_array(MYSQLI_ASSOC)){
 
             echo "<OPTION VALUE='".$row['application']."'>".$row['application']."</OPTION>";
 
@@ -66,7 +66,7 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3
 
                 $DistinctQuery = "select substring(version, 1, locate( '-', version)-1) as versionNumbers  from test_results where application = '".$selectedApplication."' group by versionNumbers";
 		
-                $DistinctResult = mysqli_query($DistinctQuery);
+                $DistinctResult = mysqli_query($link, $DistinctQuery);
 //                echo "number of rows [".mysql_num_rows($DistinctResult)."]";
 		
 		
@@ -97,20 +97,20 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3
                     echo "<Table id='myTable'><thead>";
                     echo "<TR><TH>Build Number</TH><TH>Total Passed</TH><TH>Total Executed</TH><TH>Pass Rate</TH></TR></thead><tbody>";
 			
-				while($row = mysql_fetch_assoc($DistinctResult)){
+				while($row = $DistinctResult->fetch_array(MYSQLI_ASSOC)){
 					
 			
 					
 					$BuildQuery = "select distinct test_id  from test_results where application = '".$selectedApplication."' and tag = 'cv' and test_result = 'pass' AND  version like  '%".$row['versionNumbers'] ."%'";
                                         echo $BuildQuery;
-					$BuildResult = mysqli_query($BuildQuery);					
+					$BuildResult = mysqli_query($link, $BuildQuery);					
 					
-					$numberOfPassed = $num_rows = mysql_num_rows($BuildResult);
+					$numberOfPassed = mysqli_num_rows($BuildResult);
                                         echo "number of rows Passed [".$numberOfPassed."]";
 					
 					$TotalTestsRunQuery = "select distinct test_id  from test_results where application = '".$selectedApplication."' AND  version like  '%".$row['versionNumbers'] ."%'";
-					$TotalTestsRunResult = mysqli_query($TotalTestsRunQuery);
-					$TotalRun = $num_rows = mysql_num_rows($TotalTestsRunResult);
+					$TotalTestsRunResult = mysqli_query($link, $TotalTestsRunQuery);
+					$TotalRun =  mysqli_num_rows($TotalTestsRunResult);
 					
 
 					

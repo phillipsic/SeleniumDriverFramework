@@ -19,7 +19,7 @@ include "./header.html";
 
     <?php
     //oracle connection variables
-   // $connect = ocilogon("CQ_RO", "comverse", "cqprdcbs");
+    // $connect = ocilogon("CQ_RO", "comverse", "cqprdcbs");
 
 
 
@@ -38,17 +38,20 @@ include "./header.html";
         return false;
     }
 
-    $DBConnection = new mysql;
-    $DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
+    $DBConnection = mysqli_connect(HOST, USER, PASSWORD, DB);
 
-    if (isset($_GET['tag'])) {
-
-        $tag = $_GET['tag'];
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-    if (isset($_POST[tag])) {
 
-        $tag = $_POST[tag];
-    }
+//    if (isset($_GET['tag'])) {
+//
+//        $tag = $_GET['tag'];
+////    }
+//    if (isset($_POST[tag])) {
+//
+//        $tag = $_POST[tag];
+//    }
 
 
 
@@ -58,28 +61,29 @@ include "./header.html";
     $selectedBuild = $_POST[selectedBuild];
 
     $appQuery = "SELECT distinct application from test_results;";
-    $appResult = mysql_query($appQuery);
+    $appResult = mysqli_query($DBConnection, $appQuery);
 
 
     $LastFiveBuildsQuery = "select distinct version from autotest.test_results  order by time_stamp desc limit 15;";
-    $LastFiveBuildsResult = mysql_query($LastFiveBuildsQuery);
+    $LastFiveBuildsResult = mysqli_query($DBConnection, $LastFiveBuildsQuery);
 
 
 
 
-    echo "<b>Deployment Mode - " . strtoupper($tag) . "</b><br>";
+//    echo "<b>Deployment Mode - " . strtoupper($tag) . "</b><br>";
     echo "<b>selected application is - " . $selectedApplication . "</b><br>";
     echo "<b>selected build is - " . $selectedBuild . "</b><br>";
 
 
 
 
-    echo "<form name=frmTest action='testMaintenanceReport.php?tag=cv' method=POST>";
+    echo "<form name=frmTest action='testMaintenanceReport.php' method=POST>";
+
     echo "<table>";
     echo "<TR><TD><SELECT NAME='selectedApplication'>";
     echo " <OPTION VALUE=\"\">Select App</OPTION>";
 
-    while ($row = mysql_fetch_assoc($appResult)) {
+    while ($row = $appResult->fetch_array(MYSQLI_ASSOC)) {
 
         echo "<OPTION VALUE='" . $row['application'] . "'>" . $row['application'] . "</OPTION>";
     }
@@ -89,7 +93,7 @@ include "./header.html";
     echo "<TD><SELECT NAME='selectedBuild' onChange='frmTest.submit();'>";
     echo " <OPTION VALUE=\"\">Select Build</OPTION>";
 
-    while ($row = mysql_fetch_assoc($LastFiveBuildsResult)) {
+    while ($row = $LastFiveBuildsResult->fetch_array(MYSQLI_ASSOC)) {
 
         echo "<OPTION VALUE='" . $row['version'] . "'>" . $row['version'] . "</OPTION>";
     }
@@ -97,7 +101,7 @@ include "./header.html";
 
 
 
-    echo "<input type='hidden' name='tag' value='" . $tag . "'";
+//    echo "<input type='hidden' name='tag' value='" . $tag . "'";
 
     echo "</form>";
 
@@ -110,13 +114,13 @@ include "./header.html";
 
         // echo "executing: " . $ListOfAllResultsQuery;
 
-        $ListOfAllResultsResult = mysql_query($ListOfAllResultsQuery);
+        $ListOfAllResultsResult = mysqli_query($DBConnection, $ListOfAllResultsQuery);
         $currentTestId = null;
         $listOfPassedTests = array();
         $listOfFailedTests = array();
         $listOfFailedTestsWithBugs = array();
 
-        while ($row = mysql_fetch_assoc($ListOfAllResultsResult)) {
+        while ($row = $ListOfAllResultsResult->fetch_array(MYSQLI_ASSOC)) {
 
             if ($row['test_result'] == 'pass') {
 
@@ -127,8 +131,8 @@ include "./header.html";
         //var_dump($listOfPassedTests);
 
 
-        mysql_data_seek($ListOfAllResultsResult, 0);
-        while ($row = mysql_fetch_assoc($ListOfAllResultsResult)) {
+        mysqli_data_seek($ListOfAllResultsResult, 0);
+        while ($row = $ListOfAllResultsResult->fetch_array(MYSQLI_ASSOC)) {
             if (in_array($row['test_id'], $listOfPassedTests)) {
 
                 // echo "<BR>Found result for " . $row['test_id'] . " DO NOTHING";
@@ -190,7 +194,7 @@ include "./header.html";
         // echo "<BR>_________________________________<BR><BR>";
 
 
-
+        echo "<center>";
         echo "<div id=\"myMarkedUpContainer\">";
         echo "<Table id='myTable'><thead>";
         echo "<TR><TH>Test ID</TH><th>Last Pass</TH></TR></thead><tbody>";
@@ -203,10 +207,10 @@ include "./header.html";
 
             // echo " value => " . $value[0];
 
-            $PassQuery = "select * from test_results where test_id = '" . $value[0] . "' and tag = 'cv'  and test_result = 'pass' AND application = '" . $selectedApplication . "' group by id desc limit 1";
+            $PassQuery = "select * from test_results where test_id = '" . $value[0] . "'  and test_result = 'pass' AND application = '" . $selectedApplication . "' group by id desc limit 1";
             // echo " executing ==> " . $PassQuery;
-            $PassResult = mysql_query($PassQuery);
-            $passrow = mysql_fetch_assoc($PassResult);
+            $PassResult = mysqli_query($DBConnection, $PassQuery);
+            $passrow = $PassResult->fetch_array(MYSQLI_ASSOC);
 
 
 
@@ -221,15 +225,15 @@ include "./header.html";
 
 
         echo "</tbody></Table ></div>";
-
+        echo "<center>";
 
         echo "<h2>Test scripts failing with a defect</h2>";
-        $DefectIDSQL = " SELECT  distinct test_id, bug_id FROM autotest.test_results WHERE tag = '" . $tag . "' and test_result != 'pass' and bug_id !='NoBug' and version like ('%" . $selectedBuild . "%') and application = '" . $selectedApplication . "'";
+        $DefectIDSQL = " SELECT  distinct test_id, bug_id FROM autotest.test_results WHERE  test_result != 'pass' and bug_id !='NoBug' and version like ('%" . $selectedBuild . "%') and application = '" . $selectedApplication . "'";
 
-        $DefectIDResult = mysql_query($DefectIDSQL);
+        $DefectIDResult = mysqli_query($DBConnection, $DefectIDSQL);
         echo "<div id=\"my2MarkedUpContainer\">";
         echo "<Table id='my2Table'><thead>";
-        echo "<TR><TH>Test ID</TH><TH>Bug ID</TH><TH>Bug Status</TH><TH>Bug Title</TH></TR></thead><tbody>";
+        echo "<TR><TH>Test ID</TH><TH>Bug ID</TH></TR></thead><tbody>";
 
         foreach ($listOfFailedTestsWithBugs as $key => $value) {
             echo "<BR>" . $stmt;
@@ -270,16 +274,14 @@ include "./header.html";
         my2DataSource.responseSchema = {
             fields: [
                 {key: "Test ID"},
-                {key: "Bug ID"},
-                {key: "Bug Status"},
-                {key: "Bug Title"}
+                {key: "Bug ID"}
+
             ]};
 
         var my2ColumnDefs = [
             {key: "Test ID", label: "Test ID", sortable: true},
-            {key: "Bug ID", label: "Bug ID", sortable: true},
-            {key: "Bug Status", label: "Bug Status", sortable: true},
-            {key: "Bug Title", label: "Bug Title", sortable: true}
+            {key: "Bug ID", label: "Bug ID", sortable: true}
+
         ];
 
 

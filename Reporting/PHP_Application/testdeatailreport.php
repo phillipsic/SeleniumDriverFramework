@@ -6,7 +6,7 @@
 	$RowNumberMaxLimit = 20;
 	
 	$DBConnection = new mysql;
-	$DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
+	$link = $DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
 	
 
 
@@ -28,21 +28,21 @@
 
 
         $TotalRunsPassQuery = "select count(*) as totalpass from test_results where test_id = '".$selectedTest."'  AND application ='" . $selectedApp . "' and test_result = 'pass'";
-        $LastPassBuildResult = mysql_query($TotalRunsPassQuery);
-        $LastPassBuildArray = mysql_fetch_assoc($LastPassBuildResult);
+        $LastPassBuildResult = mysqli_query($link, $TotalRunsPassQuery);
+        $LastPassBuildArray = $LastPassBuildResult->fetch_array(MYSQLI_ASSOC);
         
         $TotalRunsFailQuery = "select count(*) as totalfail from test_results where test_id = '".$selectedTest."' AND application ='" . $selectedApp . "' and test_result = 'fail'";
-        $TotalRunsFailResult = mysql_query($TotalRunsFailQuery);
-        $TotalRunsFailArray = mysql_fetch_assoc($TotalRunsFailResult);
+        $TotalRunsFailResult = mysqli_query($link, $TotalRunsFailQuery);
+        $TotalRunsFailArray = $TotalRunsFailResult->fetch_array(MYSQLI_ASSOC);
 
 
         $LastPassBuildQuery = "select * from test_results where test_id = '".$selectedTest."' AND application ='" . $selectedApp . "' and test_result = 'pass' order by id desc limit 1";
-        $LastPassBuildResult = mysql_query($LastPassBuildQuery);
-        $LastPassResultArray = mysql_fetch_assoc($LastPassBuildResult);
+        $LastPassBuildResult = mysqli_query($link,$LastPassBuildQuery);
+        $LastPassResultArray = $LastPassBuildResult->fetch_array(MYSQLI_ASSOC);
 
         $LastFailBuildQuery = "select * from test_results where test_id = '".$selectedTest."' AND application ='" . $selectedApp . "' and test_result = 'fail' order by id desc limit 1";
-        $LastFailBuildResult = mysql_query($LastFailBuildQuery);
-        $LastFailResultArray = mysql_fetch_assoc($LastFailBuildResult);
+        $LastFailBuildResult = mysqli_query($link, $LastFailBuildQuery);
+        $LastFailResultArray = $LastFailBuildResult->fetch_array(MYSQLI_ASSOC);
 
 
         echo "<Table border=1 >";
@@ -62,14 +62,14 @@
 
         $BuildsPassQuery = "select distinct(version) from test_results where test_id = '".$selectedTest."' ";
         $BuildsPassQuery .= "and test_result = 'pass' AND application ='" . $selectedApp . "' ORDER BY id DESC LIMIT ".$RowNumberMaxLimit;
-        $ListPassedBuildsResult = mysql_query($BuildsPassQuery);
+        $ListPassedBuildsResult = mysqli_query($link, $BuildsPassQuery);
 
         echo "<h2> Builds test has Passed on</h2>";
         echo "<Table border=1 >";
 	echo "<TR><TD>Build ID </TD></TR>";
 
 
-	while ($row = mysql_fetch_assoc($ListPassedBuildsResult)){
+	while ($row = $ListPassedBuildsResult->fetch_array(MYSQLI_ASSOC)){
 
 		echo "<TR>";
 		echo "<TD>" .$row['version']."</TD>";
@@ -83,20 +83,20 @@
 
 	
 	$TestDetailQuery = "SELECT * FROM test_results WHERE test_id ='".$selectedTest."' AND application ='" . $selectedApp . "' ORDER BY id DESC LIMIT ".$RowNumberMaxLimit;
-	$TestDetailResult = mysql_query($TestDetailQuery);
+	$TestDetailResult = mysqli_query($link, $TestDetailQuery);
 
 
 
         echo "<h2> Last 20 test runs</h2>";
 	echo "<Table border=1 >";
-	echo "<TR><TD>ID </TD><TD> Test ID</TD><TD>Application</TD><TD>Build/Version</TD><TD>Browser</TD><TD>OS</TD><TD> Time Stamp</TD><TD> Client</TD><TD>Result</TD><TD>Bug ID</TD><TD>Tag</TD></TR>";
+	echo "<TR><TD>ID </TD><TD>Application</TD><TD>Build/Version</TD><TD>Browser</TD><TD>OS</TD><TD> Time Stamp</TD><TD> Client</TD><TD>Result</TD><TD>Bug ID</TD><TD>Fail Message</TD></TR>";
 	
 	
-	while ($row = mysql_fetch_assoc($TestDetailResult)){
+	while ($row = $TestDetailResult->fetch_array(MYSQLI_ASSOC)){
  
 		echo "<TR>";
-		echo "<TD>".$row['id']."</TD>";
-		echo "<TD>".$row['test_id']."</TD>";
+		echo "<TD>".$row['ID']."</TD>";
+		
 		echo "<TD>" .$row['application']."</TD>";
 		echo "<TD>" .$row['version']."</TD>";
                 echo "<TD>" .$row['browser']."</TD>";
@@ -111,7 +111,7 @@
 		
 		echo "<TD bgcolor=". $bgColor.">" .$row['test_result']."</TD>";
 		echo "<TD>" .$row['bug_id']."</TD>";
-                echo "<TD>" .$row['tag']."</TD>";
+              echo "<TD>".$row['fail_message']."</TD>";
 		echo "</TR>";	 
 	}
 	echo "</Table >";

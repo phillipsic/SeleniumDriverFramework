@@ -57,7 +57,7 @@ include "./header.html";
 
     $appQuery = "SELECT distinct application from test_results;";
 
-  
+
     $appResult = mysqli_query($DBConnection, $appQuery);
 
 //    echo "Completed the query";
@@ -94,20 +94,57 @@ include "./header.html";
             $ListOfTestsForSelectedAppQuery = "select distinct test_id from autotest.test_results  where application = '" . $selectedApplication . "' order by test_id;";
             $ListOfTestsForSelectedAppResult = mysqli_query($DBConnection, $ListOfTestsForSelectedAppQuery);
 
-           
-            
+
+
             echo "<form name=formTest action='versionReport.php' method=POST>";
             echo "<SELECT NAME='selectedScript' onChange='formTest.submit();'>";
             echo " <OPTION VALUE=\"\">Select Script</OPTION>";
 
             while ($row1 = mysqli_fetch_row($ListOfTestsForSelectedAppResult)) {
 
-                echo "<OPTION VALUE='" . $row1[0] . "'>" . $row1[0]. "</OPTION>";
+                echo "<OPTION VALUE='" . $row1[0] . "'>" . $row1[0] . "</OPTION>";
             }
             echo "<input type='hidden' name='selectedApplication' value='" . $selectedApplication . "'";
             echo "</SELECT></FORM>";
         }
     } else {
+
+
+
+
+
+        $TotalRunsPassQuery = "select count(*) as totalpass from test_results where test_id = '" . $selectedScript . "'  AND application ='" . $selectedApplication . "' and test_result = 'pass'";
+        $LastPassBuildResult = mysqli_query($DBConnection, $TotalRunsPassQuery);
+        $LastPassBuildArray = $LastPassBuildResult->fetch_array(MYSQLI_ASSOC);
+
+        $TotalRunsFailQuery = "select count(*) as totalfail from test_results where test_id = '" . $selectedScript . "' AND application ='" . $selectedApplication . "' and test_result = 'fail'";
+        $TotalRunsFailResult = mysqli_query($DBConnection, $TotalRunsFailQuery);
+        $TotalRunsFailArray = $TotalRunsFailResult->fetch_array(MYSQLI_ASSOC);
+
+
+        $LastPassBuildQuery = "select * from test_results where test_id = '" . $selectedScript . "' AND application ='" . $selectedApplication . "' and test_result = 'pass' order by id desc limit 1";
+        $LastPassBuildResult = mysqli_query($DBConnection, $LastPassBuildQuery);
+        $LastPassResultArray = $LastPassBuildResult->fetch_array(MYSQLI_ASSOC);
+
+        $LastFailBuildQuery = "select * from test_results where test_id = '" . $selectedScript . "' AND application ='" . $selectedApplication . "' and test_result = 'fail' order by id desc limit 1";
+        $LastFailBuildResult = mysqli_query($DBConnection, $LastFailBuildQuery);
+        $LastFailResultArray = $LastFailBuildResult->fetch_array(MYSQLI_ASSOC);
+
+        echo "<center>";
+        echo "<div id=\"myMarkedUpContainer3\">";
+        echo "<Table id='myTable3'><thead>";
+        echo "<TR><TD>Last Pass</TD><TD> Last Fail</TD><TD>Total Pass</TD><TD> Total Fail</TD><TD> Total Run</TD></TR></thead><tbody>";
+        echo "<TR>";
+        echo " <TD>" . $LastPassResultArray['version'] . "</TD><TD>" . $LastFailResultArray['version'] . "</TD>";
+        echo " <TD>" . $LastPassBuildArray['totalpass'] . "</TD><TD>" . $TotalRunsFailArray['totalfail'] . "</TD>";
+        $totalRun = $LastPassBuildArray['totalpass'] + $TotalRunsFailArray['totalfail'];
+
+        echo " <TD>" . $totalRun . "</TD>";
+        echo "</TR>";
+        echo "</tbody></Table></div>";
+        echo "</center>";
+        echo"<BR><BR><BR>";
+
 
 
 
@@ -128,12 +165,12 @@ include "./header.html";
             $loopCounter++;
 
             $BuildDatesQuery = "select min(time_stamp) as start, max(time_stamp) as end from autotest.test_results  where version = '" . $row[0] . "' ";
-           echo $BuildDatesQuery;
+//            echo $BuildDatesQuery;
             $BuildDatesResult = mysqli_query($DBConnection, $BuildDatesQuery);
 
             $daterows = $BuildDatesResult->fetch_array(MYSQLI_ASSOC);
-            
-         
+
+
 
             echo "<TR>";
             echo "<TD>" . $loopCounter . "</TD>";
@@ -195,6 +232,34 @@ include "./header.html";
     ?>
 
     <script type="text/javascript">
+
+        var myDataSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("myTable3"));
+        myDataSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+        myDataSource.responseSchema = {
+            fields: [
+                {key: "Last Pass"},
+                {key: "Last Fail"},
+                {key: "Total Pass"},
+                {key: "Total Fail"},
+                {key: "Total Run"}
+            ]};
+
+        var myColumnDefs = [
+            {key: "Last Pass", label: "Last Pass", sortable: true},
+            {key: "Last Fail", label: "Last Fail", sortable: true},
+            {key: "Total Pass", label: "Total Pass", sortable: true},
+            {key: "Total Fail", label: "Total Fail", sortable: true},
+            {key: "Total Run", label: "Total Run", sortable: true}
+        ];
+
+
+        var myDataTable = new YAHOO.widget.DataTable("myMarkedUpContainer3", myColumnDefs, myDataSource, {draggableColumns: true});
+
+
+
+
+
+
 
         var myDataSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("myTable"));
         myDataSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
