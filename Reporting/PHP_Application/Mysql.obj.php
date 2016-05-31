@@ -45,7 +45,7 @@ class mysql {
 	function opendbconnection($HOST, $DB, $USER, $PASSWORD) {
 	
 		
-		 $this->dbconnection = mysqli_connect($HOST, $USER, $PASSWORD, $DB) or die("Error " . mysqli_error( $this->dbconnection));
+		 $this->dbconnection = mysqli_connect($HOST, $USER, $PASSWORD, $DB) or die("DB connection Error " . mysqli_connect_error( $this->dbconnection));
 		 
 		
 //		 if ( $this->dbconnection ) {

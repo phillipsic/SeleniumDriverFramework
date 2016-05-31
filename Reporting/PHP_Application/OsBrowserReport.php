@@ -19,7 +19,7 @@ include "./header.html";
 
     <?php
     //oracle connection variables
-   //$connect = ocilogon("CQ_RO", "comverse", "cqprdcbs");
+    //$connect = ocilogon("CQ_RO", "comverse", "cqprdcbs");
 
 
 
@@ -34,7 +34,7 @@ include "./header.html";
 
 
     $DBConnection = new mysql;
-    $DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
+    $link = $DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
 
     if (isset($_GET['tag'])) {
 
@@ -53,28 +53,29 @@ include "./header.html";
     $selectedBuild = $_POST[selectedBuild];
 
     $appQuery = "SELECT distinct application from test_results;";
-    $appResult = mysql_query($appQuery);
+    $appResult = mysqli_query($link, $appQuery);
 
 
     $LastFiveBuildsQuery = "select distinct version from autotest.test_results  order by id desc limit 5;";
-    $LastFiveBuildsResult = mysql_query($LastFiveBuildsQuery);
+    $LastFiveBuildsResult = mysqli_query($link, $LastFiveBuildsQuery);
 
 
 
 
-    echo "<b>Deployment Mode - " . strtoupper($tag) . "</b><br>";
+//    echo "<b>Deployment Mode - " . strtoupper($tag) . "</b><br>";
     echo "<b>selected application is - " . $selectedApplication . "</b><br>";
     echo "<b>selected build is - " . $selectedBuild . "</b><br>";
 
 
 
 
-    echo "<form name=frmTest action='OsBrowserReport.php?tag=cv' method=POST>";
+    echo "<form name=frmTest action='OsBrowserReport.php' method=POST>";
+
     echo "<table>";
     echo "<TR><TD><SELECT NAME='selectedApplication'>";
     echo " <OPTION VALUE=\"\">Select App</OPTION>";
 
-    while ($row = mysql_fetch_assoc($appResult)) {
+    while ($row = $appResult->fetch_array(MYSQLI_ASSOC)) {
 
         echo "<OPTION VALUE='" . $row['application'] . "'>" . $row['application'] . "</OPTION>";
     }
@@ -84,7 +85,7 @@ include "./header.html";
     echo "<TD><SELECT NAME='selectedBuild' onChange='frmTest.submit();'>";
     echo " <OPTION VALUE=\"\">Select Build</OPTION>";
 
-    while ($row = mysql_fetch_assoc($LastFiveBuildsResult)) {
+    while ($row = $LastFiveBuildsResult->fetch_array(MYSQLI_ASSOC)) {
 
         echo "<OPTION VALUE='" . $row['version'] . "'>" . $row['version'] . "</OPTION>";
     }
@@ -94,7 +95,7 @@ include "./header.html";
 
 
 
-    echo "<input type='hidden' name='tag' value='" . $tag . "'";
+//    echo "<input type='hidden' name='tag' value='" . $tag . "'";
 
     echo "</form>";
 
@@ -103,54 +104,59 @@ include "./header.html";
 
 
 
-        $DistinctTestScriptQuery = "select distinct test_id from test_results where application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' and WebTestFlag is null order by test_id";
+        $DistinctTestScriptQuery = "select distinct test_id from test_results where application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' order by test_id";
 
         //echo "executing: " . $DistinctTestScriptQuery;
 
-        $DistinctTestScriptResult = mysql_query($DistinctTestScriptQuery);
+        $DistinctTestScriptResult = mysqli_query($link, $DistinctTestScriptQuery);
 
 
         // Get list of broswers and applications the build/app have been run on
 
-        $platformsExecutedOnQuery = "select distinct  browser from test_results where application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' and WebTestFlag is null order by test_id";
-        $platformsExecutedOnResult = mysql_query($platformsExecutedOnQuery);
+        $platformsExecutedOnQuery = "select distinct  browser from test_results where application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' order by test_id";
+        $platformsExecutedOnResult = mysqli_query($link, $platformsExecutedOnQuery);
 
         // echo $platformsExecutedOnQuery;
 
 
 
-
+        echo "<center>";
         echo "<div id=\"myMarkedUpContainer\">";
         echo "<BR><Table id='myTable'><thead>";
         echo "<TR><TH>Test ID</TH>";
 
-        while ($row = mysql_fetch_array($platformsExecutedOnResult, MYSQL_ASSOC)) {
+        while ($row = $platformsExecutedOnResult->fetch_array(MYSQLI_ASSOC)) {
             echo "<TH> " . $row["browser"] . "</th>";
         }
         echo "</thead><tbody>\n";
 
-        mysql_data_seek($platformsExecutedOnResult, 0);
+        mysqli_data_seek($platformsExecutedOnResult, 0);
 
 
-        while ($testrow = mysql_fetch_assoc($DistinctTestScriptResult)) {
+        while ($testrow = $DistinctTestScriptResult->fetch_array(MYSQLI_ASSOC)) {
 
 
-            echo "<BR><tr><td> <a href='testdeatailreport.php?test_id=" . urlencode($testrow['test_id']) . "&app=" . $selectedApplication . "'>" . $testrow['test_id'] . "</a></td>";
-            while ($row = mysql_fetch_array($platformsExecutedOnResult, MYSQL_ASSOC)) {
+            echo "<BR><tr><td> <a href='versionReport.php?selectedScript=" . urlencode($testrow['test_id']) . "&selectedApplication=" . $selectedApplication . "'>" . $testrow['test_id'] . "</a></td>";
+            while ($row = $platformsExecutedOnResult->fetch_array(MYSQLI_ASSOC)) {
 
-                $TestPassResultQuery = " select count(*) from test_results where test_id = '" . $testrow['test_id'] . "' and browser = '" . $row["browser"]  . "'and tag = '" . $tag . "' and test_result ='pass' and version like ('%" . $selectedBuild . "%') and application = '" . $selectedApplication . "'";
-                // echo $TestPassResultQuery;
-                $TestPassResult = mysql_query($TestPassResultQuery);
-                $NumberOfPasses = mysql_result($TestPassResult, 0);
+                $TestPassResultQuery = " select count(*) from test_results where test_id = '" . $testrow['test_id'] . "' and browser = '" . $row["browser"] . "' and test_result ='pass' and version like ('%" . $selectedBuild . "%') and application = '" . $selectedApplication . "'";
+//                 echo $TestPassResultQuery;
+                $TestPassResult = mysqli_query($link, $TestPassResultQuery);
+                $NumberOfPasses = mysqli_fetch_row($TestPassResult);
 
-                if ($NumberOfPasses < 1) {
+//                echo "number of passes".$NumberOfPasses[0];
 
-                    $numberOfFailedQuery = " select count(*) from test_results where test_id = '" . $testrow['test_id'] . "' and browser = '" . $row["browser"]  . "'and tag = '" . $tag . "' and version like ('%" . $selectedBuild . "%') and application = '" . $selectedApplication . "'";
+                if ($NumberOfPasses[0] < 1) {
+
+                    $numberOfFailedQuery = " select count(*) from test_results where test_id = '" . $testrow['test_id'] . "' and browser = '" . $row["browser"] . "' and test_result = 'fail' and version like ('%" . $selectedBuild . "%') and application = '" . $selectedApplication . "'";
                     // echo $TestPassResultQuery;
-                    $numberOfFailedResult = mysql_query($numberOfFailedQuery);
-                    $numberOfFails = mysql_result($numberOfFailedResult, 0);
+                    $numberOfFailedResult = mysqli_query($link, $numberOfFailedQuery);
+                    $numberOfFails = mysqli_fetch_row($numberOfFailedResult);
 
-                    if ($numberOfFails < 1) {
+//                    echo $numberOfFailedQuery;
+//                    echo "number of fails ". $numberOfFails;
+
+                    if ($numberOfFails[0] < 1) {
 
                         $result = "<CENTER><FONT COLOR=\"BLACK\">Not Run</FONT></CENTER>";
                     } else {
@@ -167,11 +173,11 @@ include "./header.html";
             $lastPassedQuery = "select time_stamp from test_results where test_id = '" . $testrow['test_id'] . "' and application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' order by id desc limit 1";
 
             // echo $lastPassedQuery;
-            $lastPassedResult = mysql_query($lastPassedQuery);
-            $lastPass = mysql_result($lastPassedResult, 0);
+            $lastPassedResult = mysqli_query($link, $lastPassedQuery);
+            $lastPass = mysqli_fetch_row($lastPassedResult);
 
-            echo "<td>" . $lastPass . " </td></tr>";
-            mysql_data_seek($platformsExecutedOnResult, 0);
+            echo "<td>" . $lastPass[0] . " </td></tr>";
+            mysqli_data_seek($platformsExecutedOnResult, 0);
         }
 
 
@@ -184,6 +190,7 @@ include "./header.html";
 
 
         echo "</tbody></Table ></div>";
+        echo "</center>";
     }
     // 
     ?>
@@ -193,34 +200,32 @@ include "./header.html";
         var myDataSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("myTable"));
         myDataSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
         myDataSource.responseSchema = {
-            fields: [
-                {key:"Test ID"},<?
-    $platformsExecutedOnQuery = "select distinct  browser from test_results where application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' and WebTestFlag is null order by test_id";
-    $platformsExecutedOnResult = mysql_query($platformsExecutedOnQuery);
-    while ($row = mysql_fetch_array($platformsExecutedOnResult, MYSQL_ASSOC)) {
+        fields: [
+        {key:"Test ID"},<?
+    $platformsExecutedOnQuery = "select distinct  browser from test_results where application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' order by test_id";
+    $platformsExecutedOnResult = mysqli_query($link, $platformsExecutedOnQuery);
+    while ($row = $platformsExecutedOnResult->fetch_array(MYSQLI_ASSOC)) {
         echo "{key: \"" . $row["browser"] . "\"},";
     }
     ?>
-                {key:"Last Pass"}
-            ]};
+        {key:"Last Pass"}
+        ]};
 
         var myColumnDefs = [
-            {key:"Test ID", label:"Test ID", sortable:true},<?
-    $platformsExecutedOnQuery = "select distinct  browser from test_results where application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' and WebTestFlag is null order by test_id";
-    $platformsExecutedOnResult = mysql_query($platformsExecutedOnQuery);
+        {key:"Test ID", label:"Test ID", sortable:true},<?
+    $platformsExecutedOnQuery = "select distinct  browser from test_results where application = '" . $selectedApplication . "' and version = '" . $selectedBuild . "' order by test_id";
+    $platformsExecutedOnResult = mysqli_query($link, $platformsExecutedOnQuery);
 
-    while ($row = mysql_fetch_array($platformsExecutedOnResult, MYSQL_ASSOC)) {
-        echo "{key:\"" . $row["browser"] . "\", label:\"" . $row["browser"]  . "\", sortable:true},";
+    while ($row = $platformsExecutedOnResult->fetch_array(MYSQLI_ASSOC)) {
+        echo "{key:\"" . $row["browser"] . "\", label:\"" . $row["browser"] . "\", sortable:true},";
     }
     ?>
-            {key:"Last Pass", label:"Last Run", sortable:true}
+        {key:"Last Pass", label:"Last Run", sortable:true}
         ];
+                var myDataTable = new YAHOO.widget.DataTable("myMarkedUpContainer", myColumnDefs, myDataSource, {draggableColumns: true});
 
 
-        var myDataTable = new YAHOO.widget.DataTable("myMarkedUpContainer", myColumnDefs, myDataSource, {draggableColumns:true});
 
-
-       
     </script>
 
 
