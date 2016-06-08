@@ -80,41 +80,9 @@ include "./header.html";
     echo "</form>";
 
 
-//    echo "<b>Deployment Mode - " . strtoupper($tag) . "</b><br>";
-//    echo "<b>selected application is - " . $selectedApplication . "</b><br>";
-//    echo "<b>selected build is - " . $selectedBuild . "</b><br>";
 
+//    echo "</form>";
 
-
-
-//    echo "<form name=frmTest action='testMaintenanceReport.php' method=POST>";
-//
-//    echo "<table>";
-//    echo "<TR><TD><SELECT NAME='selectedApplication'>";
-//    echo " <OPTION VALUE=\"\">Select App</OPTION>";
-//
-//    while ($row = $appResult->fetch_array(MYSQLI_ASSOC)) {
-//
-//        echo "<OPTION VALUE='" . $row['application'] . "'>" . $row['application'] . "</OPTION>";
-//    }
-//    echo "</SELECT></TD>";
-
-
-//    echo "<TD><SELECT NAME='selectedBuild' onChange='frmTest.submit();'>";
-//    echo " <OPTION VALUE=\"\">Select Build</OPTION>";
-//
-//    while ($row = $LastFiveBuildsResult->fetch_array(MYSQLI_ASSOC)) {
-//
-//        echo "<OPTION VALUE='" . $row['version'] . "'>" . $row['version'] . "</OPTION>";
-//    }
-//    echo "</SELECT></TD></TR></TABLE>";
-
-
-
-//    echo "<input type='hidden' name='tag' value='" . $tag . "'";
-
-    echo "</form>";
-    
     if ($selectedBuild == "") {
         if ($selectedApplication != "") {
 
