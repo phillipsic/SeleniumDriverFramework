@@ -79,7 +79,7 @@ include "./header.html";
 
 
         $DistinctQuery = "select distinct version, substring(version,CHAR_LENGTH(version) - 6, CHAR_LENGTH(version) ) as buildNumber from test_results where application = '" . $selectedApplication . "'
-  ORDER BY buildNumber + 0 DESC LIMIT 0, 20";
+  ORDER BY time_stamp + 0 DESC LIMIT 0, 20";
         $DistinctResult = mysqli_query($link, $DistinctQuery);
 
 
