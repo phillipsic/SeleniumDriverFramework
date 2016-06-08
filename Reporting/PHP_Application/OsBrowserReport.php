@@ -36,18 +36,66 @@ include "./header.html";
     $DBConnection = new mysql;
     $link = $DBConnection->opendbconnection(HOST, DB, USER, PASSWORD);
 
-    if (isset($_GET['tag'])) {
-
-        $tag = $_GET['tag'];
-    }
-    if (isset($_POST[tag])) {
-
-        $tag = $_POST[tag];
-    }
 
 
 
 
+
+//    $selectedApplication = $_POST[selectedApplication];
+//    $selectedBuild = $_POST[selectedBuild];
+//
+//    $appQuery = "SELECT distinct application from test_results;";
+//    $appResult = mysqli_query($link, $appQuery);
+//
+//
+//    $LastFiveBuildsQuery = "select distinct version from autotest.test_results  order by id desc limit 5;";
+//    $LastFiveBuildsResult = mysqli_query($link, $LastFiveBuildsQuery);
+//
+//
+//
+//
+////    echo "<b>Deployment Mode - " . strtoupper($tag) . "</b><br>";
+//    echo "<b>selected application is - " . $selectedApplication . "</b><br>";
+//    echo "<b>selected build is - " . $selectedBuild . "</b><br>";
+//
+//
+//
+//
+//    echo "<form name=frmTest action='OsBrowserReport.php' method=POST>";
+//
+//    echo "<table>";
+//    echo "<TR><TD><SELECT NAME='selectedApplication'>";
+//    echo " <OPTION VALUE=\"\">Select App</OPTION>";
+//
+//    while ($row = $appResult->fetch_array(MYSQLI_ASSOC)) {
+//
+//        echo "<OPTION VALUE='" . $row['application'] . "'>" . $row['application'] . "</OPTION>";
+//    }
+//    echo "</SELECT></TD>";
+//
+//
+//    echo "<TD><SELECT NAME='selectedBuild' onChange='frmTest.submit();'>";
+//    echo " <OPTION VALUE=\"\">Select Build</OPTION>";
+//
+//    while ($row = $LastFiveBuildsResult->fetch_array(MYSQLI_ASSOC)) {
+//
+//        echo "<OPTION VALUE='" . $row['version'] . "'>" . $row['version'] . "</OPTION>";
+//    }
+//
+//
+//    echo "</SELECT></TD></TR></TABLE>";
+//
+//
+//
+////    echo "<input type='hidden' name='tag' value='" . $tag . "'";
+//
+//    echo "</form>";
+//
+//
+//    if ($selectedApplication != "" && $selectedBuild != "") {
+        
+        
+        
 
     $selectedApplication = $_POST[selectedApplication];
     $selectedBuild = $_POST[selectedBuild];
@@ -56,51 +104,52 @@ include "./header.html";
     $appResult = mysqli_query($link, $appQuery);
 
 
-    $LastFiveBuildsQuery = "select distinct version from autotest.test_results  order by id desc limit 5;";
+    $LastFiveBuildsQuery = "select distinct version from autotest.test_results  order by time_stamp desc limit 15;";
     $LastFiveBuildsResult = mysqli_query($link, $LastFiveBuildsQuery);
 
-
-
-
-//    echo "<b>Deployment Mode - " . strtoupper($tag) . "</b><br>";
-    echo "<b>selected application is - " . $selectedApplication . "</b><br>";
-    echo "<b>selected build is - " . $selectedBuild . "</b><br>";
-
+    echo "<BR>selected application is - " . $selectedApplication;
+    echo "<BR>selected build  is - " . $selectedBuild . "<br><br><br>";
 
 
 
     echo "<form name=frmTest action='OsBrowserReport.php' method=POST>";
-
-    echo "<table>";
-    echo "<TR><TD><SELECT NAME='selectedApplication'>";
+    echo "<SELECT NAME='selectedApplication' onChange='frmTest.submit();'>";
     echo " <OPTION VALUE=\"\">Select App</OPTION>";
 
-    while ($row = $appResult->fetch_array(MYSQLI_ASSOC)) {
+    while ($row = mysqli_fetch_row($appResult)) {
 
-        echo "<OPTION VALUE='" . $row['application'] . "'>" . $row['application'] . "</OPTION>";
-    }
-    echo "</SELECT></TD>";
-
-
-    echo "<TD><SELECT NAME='selectedBuild' onChange='frmTest.submit();'>";
-    echo " <OPTION VALUE=\"\">Select Build</OPTION>";
-
-    while ($row = $LastFiveBuildsResult->fetch_array(MYSQLI_ASSOC)) {
-
-        echo "<OPTION VALUE='" . $row['version'] . "'>" . $row['version'] . "</OPTION>";
+        echo "<OPTION VALUE='" . $row[0] . "'>" . $row[0] . "</OPTION>";
     }
 
 
-    echo "</SELECT></TD></TR></TABLE>";
-
-
-
-//    echo "<input type='hidden' name='tag' value='" . $tag . "'";
+    echo "</SELECT>";
 
     echo "</form>";
 
 
-    if ($selectedApplication != "" && $selectedBuild != "") {
+
+//    echo "</form>";
+
+    if ($selectedBuild == "") {
+        if ($selectedApplication != "") {
+
+            $ListOfTestsForSelectedAppQuery = "select distinct version from autotest.test_results  where application = '" . $selectedApplication . "' order by time_stamp desc;";
+            $ListOfTestsForSelectedAppResult = mysqli_query($link, $ListOfTestsForSelectedAppQuery);
+
+
+
+            echo "<form name=formTest action='OsBrowserReport.php' method=POST>";
+            echo "<SELECT NAME='selectedBuild' onChange='formTest.submit();'>";
+            echo " <OPTION VALUE=\"\">Select Build</OPTION>";
+
+            while ($row1 = mysqli_fetch_row($ListOfTestsForSelectedAppResult)) {
+
+                echo "<OPTION VALUE='" . $row1[0] . "'>" . $row1[0] . "</OPTION>";
+            }
+            echo "<input type='hidden' name='selectedApplication' value='" . $selectedApplication . "'";
+            echo "</SELECT></FORM>";
+        }
+    } else {
 
 
 
