@@ -44,14 +44,7 @@ include "./header.html";
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-//    if (isset($_GET['tag'])) {
-//
-//        $tag = $_GET['tag'];
-////    }
-//    if (isset($_POST[tag])) {
-//
-//        $tag = $_POST[tag];
-//    }
+
 
 
 
