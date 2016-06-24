@@ -13,18 +13,6 @@ import com.jcraft.jsch.Session;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 /**
  *
@@ -36,6 +24,8 @@ public class Common {
      * This class should be used to store methods that can be used by any
      * application
      */
+    PropertyHelper propsHelper = new PropertyHelper();
+
     public Common() {
     }
 
@@ -388,12 +378,24 @@ public class Common {
      * @param comment any comment to go with the key value pair.
      * @throws java.lang.Exception
      */
-    public static void storePropertyInDB(String key, String value, String comment) throws Exception {
+    private static void storePropertyInDB(String key, String value, String comment) throws Exception {
         if (checkPropertyExistsInDB(key)) {
             updatePropertyInDB(key, value, comment);
         } else {
             insertPropertyInDB(key, value, comment);
         }
+    }
+
+    public static void storeProperty(String key, String value, String comment) throws Exception {
+
+        PropertyHelper propsHelper = new PropertyHelper();
+
+        if (propsHelper.readInitProperties("DB_REPORTING").equalsIgnoreCase("true")) {
+            storePropertyInDB(key, value, comment);
+        } else {
+            storePropertyInIniFile(key, value, comment);
+        }
+
     }
 
     /**
@@ -437,8 +439,23 @@ public class Common {
      * @param key to find corresponding value in database
      * @return @throws Exception
      */
-    public static String getPropertyFromDatabase(String key) throws Exception {
+    private static String getPropertyFromDatabase(String key) throws Exception {
         return getPropertyValueFromDB(key);
+    }
+
+    public static String getStoredProperty(String key) throws Exception {
+        PropertyHelper propsHelper = new PropertyHelper();
+
+        String propertyValue = "";
+
+        if (propsHelper.readInitProperties("DB_REPORTING").equalsIgnoreCase("true")) {
+            propertyValue = getPropertyFromDatabase(key);
+
+        } else {
+            propertyValue = getPropertyFromIniFile(key);
+        }
+        return propertyValue;
+
     }
 
     /**
@@ -450,7 +467,7 @@ public class Common {
      * @return
      * @throws Exception
      */
-    public static String getPropertyFromIniFile(String key) throws Exception {
+    private static String getPropertyFromIniFile(String key) throws Exception {
 
         PropertyHelper propsHelper = new PropertyHelper();
         String value = propsHelper.readPropertyFromTestIniFile(key);
@@ -466,7 +483,7 @@ public class Common {
      * @param comment users comment to go with the key/value pair
      * @throws Exception
      */
-    public static void storePropertyInIniFile(String key, String value, String comment) throws Exception {
+    private static void storePropertyInIniFile(String key, String value, String comment) throws Exception {
 
         PropertyHelper propsHelper = new PropertyHelper();
         propsHelper.savePropertyToTestIniFile(key, value, comment);
