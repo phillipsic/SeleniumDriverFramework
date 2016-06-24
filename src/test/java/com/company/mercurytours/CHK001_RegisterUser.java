@@ -59,10 +59,10 @@ public class CHK001_RegisterUser extends AppTest {
 //            Common.storeLoginDetailsAndLastName(user.getLastName(), user.getLogin(), user.getPassword(), "Login details stored for later");
             // Following will create and update a property file at the root of the project.
             // File will be called "<ENV>_test.properties"
-            Common.storePropertyInIniFile("user_login", user.getLogin(), "Created by test CHK001_RegisterUser");
-            Common.storePropertyInIniFile("user_password", user.getPassword(), "Created by test CHK001_RegisterUser");
+            Common.storeProperty("user_login", user.getLogin(), "Created by test CHK001_RegisterUser");
+            Common.storeProperty("user_password", user.getPassword(), "Created by test CHK001_RegisterUser");
 
-            System.out.println("User password - " + Common.getPropertyFromIniFile("user_password"));
+            System.out.println("User password - " + Common.getStoredProperty("user_password"));
 
             test.setResult("pass");
 
