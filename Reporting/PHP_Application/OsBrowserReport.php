@@ -133,7 +133,7 @@ include "./header.html";
     if ($selectedBuild == "") {
         if ($selectedApplication != "") {
 
-            $ListOfTestsForSelectedAppQuery = "select distinct version from autotest.test_results  where application = '" . $selectedApplication . "' order by time_stamp desc;";
+            $ListOfTestsForSelectedAppQuery = "select distinct version from autotest.test_results  where application = '" . $selectedApplication . "' order by time_stamp desc limit 15;";
             $ListOfTestsForSelectedAppResult = mysqli_query($link, $ListOfTestsForSelectedAppQuery);
 
 
