@@ -31,15 +31,19 @@ public class EmailHost {
     private String password;
     private PropertyHelper propsHelper = new PropertyHelper();
 
-    public EmailHost(String host, String port, String protocol, String folder, String username, String password) {
+    public EmailHost() throws IOException {
 
         this.setProvider("main");
-        this.host = host;
-        this.port = port;
-        this.protocol = protocol;
-        this.folder = folder;
-        this.username = username;
-        this.password = password;
+        setHost();
+        setPort();
+        setUsername();
+        setPassword();
+//        this.host = host;
+//        this.port = port;
+//        this.protocol = protocol;
+//        this.folder = folder;
+//        this.username = username;
+//        this.password = password;
 
     }
 
@@ -100,7 +104,9 @@ public class EmailHost {
         this.password = propsHelper.readPropertyFromEmailPropertyFile(getProvider(), "EMAIL_PASSWORD");
     }
 
-    public void retrieveEmailMessageBySubject(String emailSubject) {
+    public String retrieveCountEmailMessageBySubject(String subjectToCount) {
+
+        int foundCounter = 0;
 
         try {
             Properties properties = new Properties();
@@ -131,6 +137,10 @@ public class EmailHost {
                 System.out.println("From: " + message.getFrom()[0]);
                 System.out.println("Text: " + message.getContent().toString());
 
+                if (message.getSubject().contains(subjectToCount)) {
+                    foundCounter++;
+                }
+
             }
 
             //close the store and folder objects
@@ -144,6 +154,61 @@ public class EmailHost {
         } catch (IOException ex) {
             Logger.getLogger(EmailHost.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return Integer.toString(foundCounter);
     }
 
+    public String retrieveEmailMessageBySubject(String subjectToCount) {
+
+        int foundCounter = 0;
+
+        try {
+            Properties properties = new Properties();
+
+            properties.put("mail.pop3.host", host);
+            properties.put("mail.pop3.port", port);
+            properties.put("mail.pop3.starttls.enable", "true");
+            Session emailSession = Session.getDefaultInstance(properties);
+
+            //create the POP3 store object and connect with the pop server
+            Store store = emailSession.getStore("pop3s");
+
+            store.connect(host, username, password);
+
+            //create the folder object and open it
+            Folder emailFolder = store.getFolder("INBOX");
+            emailFolder.open(Folder.READ_ONLY);
+
+            // retrieve the messages from the folder in an array and print it
+            Message[] messages = emailFolder.getMessages();
+            System.out.println("messages.length---" + messages.length);
+
+            for (int i = 0, n = messages.length; i < n; i++) {
+                Message message = messages[i];
+                System.out.println("---------------------------------");
+                System.out.println("Email Number " + (i + 1));
+                System.out.println("Subject: " + message.getSubject());
+                System.out.println("From: " + message.getFrom()[0]);
+                System.out.println("Text: " + message.getContent().toString());
+
+                if (message.getSubject().contains(subjectToCount)) {
+                    foundCounter++;
+                }
+
+            }
+
+            //close the store and folder objects
+            emailFolder.close(false);
+            store.close();
+        } catch (MessagingException e) {
+            System.out.println("Exception while connecting to server: "
+                    + e.getLocalizedMessage());
+            e.printStackTrace();
+            System.exit(2);
+        } catch (IOException ex) {
+            Logger.getLogger(EmailHost.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return Integer.toString(foundCounter);
+    }
+
+    
 }

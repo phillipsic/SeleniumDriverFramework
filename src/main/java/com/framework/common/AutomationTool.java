@@ -1,10 +1,8 @@
 package com.framework.common;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
-import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
 
@@ -33,6 +31,10 @@ public class AutomationTool extends Main {
         return false;
     }
 
+    public boolean checkSelectedUsingId(String id) throws Exception {
+        return false;
+    }
+
     public void clearStringUsingCssSelector(String cssSelector) throws Exception {
     }
 
@@ -43,6 +45,10 @@ public class AutomationTool extends Main {
     }
 
     public void clearStringUsingName(String name) throws Exception {
+    }
+
+    public void closeCurrentWindow() throws Exception {
+
     }
 
     public void pressTABWithID(String id) throws Exception {
@@ -263,6 +269,10 @@ public class AutomationTool extends Main {
     public void switchToFrame(String webElement) throws Exception {
     }
 
+    public void switchToFrameUsingXpath(String xpath) throws Exception {
+
+    }
+
     public void switchToWindow(String windowHandle) throws Exception {
     }
 
@@ -273,23 +283,35 @@ public class AutomationTool extends Main {
         return null;
     }
 
-    public void waitForVisibilityOfElementUsingXpath(String xpath) throws Exception {
+    public void waitForVisibilityOfElementUsingXpath(String xpath, int timeout) throws Exception {
 
     }
 
-    public void waitForVisibilityOfElementUsingId(String id) throws Exception {
+    public void waitForVisibilityOfElementUsingId(String id, int timeout) throws Exception {
 
     }
 
-    public void waitForElementToBeClickableUsingId(String id) throws Exception {
+    public void waitForElementToBeClickableUsingId(String id, int timeout) throws Exception {
 
     }
 
-    public void waitForElementToBeClickableUsingXpath(String xpath) throws Exception {
+    public void waitForElementToBeClickableUsingXpath(String xpath, int timeout) throws Exception {
 
     }
 
     public String takeScreenShot(String reportingPath) throws IOException, Exception {
         return null;
     }
+
+    public void moveCursorSomewhereElse(String xpath) throws Exception {
+    }
+
+    public int countRowsInTableUsingClass(String tableClass) throws Exception {
+        return 0;
+    }
+
+    public void scrollDownUsingClassName(String className) throws Exception {
+
+    }
+
 }

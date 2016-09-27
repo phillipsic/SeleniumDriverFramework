@@ -1,5 +1,6 @@
 package com.framework.common;
 
+import com.framework.data.GoogleSheetConnectionDetails;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,6 +14,9 @@ public class AppTest extends Main {
         tool = new Selenium();
         test = new TestDetails();
         test.setName(this.getClass().getSimpleName());
+
+        System.out.println("ENVIRONMENT = " + propsHelper.readInitProperties("environment"));
+
         test.setDebug(Boolean.valueOf(propsHelper.readInitProperties("DEBUG")));
         test.setDBReporting(Boolean.valueOf(propsHelper.readInitProperties("DB_REPORTING")));
         System.out.println("DEBUG = " + test.getDebug());
@@ -22,7 +26,7 @@ public class AppTest extends Main {
         tool.platform = new Platform();
         user = new User();
         tool.parseUserAgent(tool, test, tool.instanciateDriver(tool, test));
-       
+
     }
 
     public void launchMainApplication() throws Exception {
@@ -30,6 +34,10 @@ public class AppTest extends Main {
         tool.get(application.appURL());
         test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
         test.writeInLogFile("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
+
+        if (tool.platform.getBrowserstaacksessionid() != "") {
+            test.writeResultLoggerInfo("BrowserStack Session ID - "+tool.platform.getBrowserstaacksessionid());
+        }
 
         if (!test.getDebug() && test.getDBReporting()) {
             this.checkForPassAndAbort(this.getClass().getSimpleName());
@@ -40,6 +48,18 @@ public class AppTest extends Main {
 
         tool.get(otherApplication.appFullURL());
         Common.sleepForNumberOfSeconds(4);
+    }
+
+    public void launchGoogleApplication(GoogleSheetConnectionDetails googleConnectionDetails, GoogleSheets googleSheet) throws Exception {
+        application.setVersion(tool, test);
+//        tool.get(application.appURL());
+        tool.get(googleSheet.getWorkSheetHREF() + googleConnectionDetails.getAddonURL());
+        test.writeInLogFile("INFO", "Browser: " + tool.platform.getBrowserFullNameAndVersion() + ", OS: " + tool.platform.getOSFullNameAndVersion());
+        test.writeInLogFile("INFO", "Application: " + application.getCommonName() + " " + application.appURL());
+
+        if (!test.getDebug() && test.getDBReporting()) {
+            this.checkForPassAndAbort(this.getClass().getSimpleName());
+        }
     }
 
     public void logIterationResultInDB(String iteration) {

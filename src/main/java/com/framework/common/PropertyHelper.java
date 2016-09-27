@@ -3,7 +3,6 @@ package com.framework.common;
 import java.io.*;
 import java.util.*;
 
-import com.framework.common.Main;
 import java.util.prefs.Preferences;
 import org.ini4j.Ini;
 import org.ini4j.IniPreferences;
@@ -60,21 +59,22 @@ public class PropertyHelper extends Main {
         return value;
     }
 
-    public String readInitProperties(String key) {
+    public String readInitProperties(String key) throws IOException {
 
         Properties props = null;
         String value = "";
 
+//        try {
+//            props = readProperties(INIT_PROPERTY_FILE);
+//        } catch (IOException e) {
+//            System.err.println(e.getMessage());
+//            e.printStackTrace();
+//        }
         try {
             props = readProperties(INIT_PROPERTY_FILE);
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
-        }
+        } catch (NullPointerException e) {
 
-        try {
-            props = readProperties(INIT_PROPERTY_FILE);
-        } catch (IOException e) {
+            System.out.println("Please check the file exists: " + INIT_PROPERTY_FILE);
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
@@ -92,7 +92,11 @@ public class PropertyHelper extends Main {
 
         try {
             props = readProperties(environmentIdentifier + "_" + PASSWORD_PROPERTY_FILE);
+            //  } catch (NullPointerException | IOException e) {
+
         } catch (IOException e) {
+
+            System.out.println("Please check the file exists: " + environmentIdentifier + "_" + PASSWORD_PROPERTY_FILE);
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
@@ -130,7 +134,7 @@ public class PropertyHelper extends Main {
      * @param key
      * @return
      */
-    public String getAccountProperties(String key) {
+    public String getAccountProperties(String key) throws IOException {
 
         System.out.println("Reading from Property file for key - " + key);
         Properties props = null;
@@ -139,7 +143,8 @@ public class PropertyHelper extends Main {
 
         try {
             props = readProperties(environmentIdentifier + "_" + ACCOUNTS_PROPERTY_FILE);
-        } catch (IOException e) {
+        } catch (NullPointerException e) {
+            System.out.println("Please check the file exists: " + environmentIdentifier + "_" + ACCOUNTS_PROPERTY_FILE);
             System.err.println(e.getMessage());
             e.printStackTrace();
         }

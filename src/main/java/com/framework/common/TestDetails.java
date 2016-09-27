@@ -16,6 +16,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertTrue;
 
 /**
  *
@@ -213,16 +217,28 @@ public class TestDetails extends Main {
         reportExt.log(LogStatus.INFO, message);
     }
 
-    public void assertVerifyTrue(AutomationTool tool, Boolean verify) throws Exception {
+    public void assertVerifyTrue(AutomationTool tool, Boolean verify, String message) throws Exception {
 
-        assertTrue("ASSERTION FAIL: expecting True", verify);
-        writeResultLoggerPass("ASSERTING TRUE: expecting True " + verify);
+        assertTrue("ASSERTION FAIL: " + message, verify);
+        writeResultLoggerPass("ASSERTING TRUE: " + message + " : " + verify);
     }
 
     public void assertTextEquals(Object expectedText, Object actualText) throws Exception {
 
         assertEquals("ASSERTION FAIL: Expecting [" + expectedText + "] but was [" + actualText + "]", expectedText, actualText);
         reportExt.log(LogStatus.PASS, "ASSERTING PASS:  [" + expectedText + "] and was [" + actualText + "]");
+    }
+
+    public void assertTextContains(TestDetails test, String expectedText, String actualText) throws Exception {
+//        String value = "Asserting string [" + expectedText + "] contains [" + actualText + "]";
+        Pattern p = Pattern.compile(actualText);
+        Matcher m = p.matcher(expectedText);
+        test.assertVerifyTrue(tool, m.find(), "Asserting string contains string");
+//        if (m.find()) {
+//            test.writeResultLoggerPass(value);
+//        } else {
+//            test.writeResultLoggerFail(value);
+//        }
     }
 
     public void assertTextOnPage(AutomationTool tool, String searchText) throws Exception {
@@ -280,6 +296,11 @@ public class TestDetails extends Main {
         assertTrue("ASSERTING Link " + value + " on page", tool.isElementPresentByLinkText(value));
     }
 
+    public void assertElementPresentByXpath(AutomationTool tool, String value) throws Exception {
+
+        assertTrue("ASSERTING Element " + value + " on page", tool.isElementPresentByXPath(value));
+    }
+
     /**
      * This should be used instead of using an assert in the Test. This method
      * has a description added that will appear in the debugging information.
@@ -288,9 +309,9 @@ public class TestDetails extends Main {
      * @param verify value to check for FALSE
      * @throws Exception
      */
-    public void assertVerifyFalse(AutomationTool tool, Boolean verify) throws Exception {
-        assertFalse("ASSERTION FAIL: expecting False", verify);
-        reportExt.log(LogStatus.PASS, "ASSERTING FALSE: expecting FALSE - " + verify);
+    public void assertVerifyFalse(AutomationTool tool, Boolean verify, String message) throws Exception {
+        assertFalse("ASSERTION FAIL: " + message, verify);
+        reportExt.log(LogStatus.PASS, "ASSERTING FALSE: " + message + " : " + verify);
     }
 
     public void assertTextNotEquals(Object expectedText, Object actualText) throws Exception {
@@ -408,7 +429,7 @@ public class TestDetails extends Main {
             excelRowCounter = 1;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

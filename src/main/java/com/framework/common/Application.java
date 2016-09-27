@@ -185,7 +185,10 @@ public class Application extends Main {
      */
     public String appFullURL() {
         PropertyHelper propsHelper = new PropertyHelper();
-        return propsHelper.getInitProperties(this.getName() + "_url");
+
+        String key = this.MainURLKey;
+
+        return propsHelper.getInitProperties(key);
     }
 
 }

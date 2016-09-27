@@ -5,11 +5,10 @@ import java.io.InputStream;
 import java.util.MissingResourceException;
 import java.util.Properties;
 
-import com.framework.common.Main;
 
 public class Prep extends Main {
 
-    private PropertyHelper propsHelper = new PropertyHelper();
+//    private PropertyHelper propsHelper = new PropertyHelper();
 
     public Prep() throws Exception {
     }

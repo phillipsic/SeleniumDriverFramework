@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
 public class DB extends Main {
 
     private String ip;
@@ -69,9 +68,14 @@ public class DB extends Main {
     }
 
     public Connection mysqlDBCnx() throws Exception {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://" + getIp() + ":3306/" + getService_name(), getLogin(), getPassword());
+        Connection con = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://" + getIp() + ":3306/" + getService_name(), getLogin(), getPassword());
 
+        } catch (Exception e) {
+            System.err.print(e.getMessage());
+        }
         return con;
     }
 

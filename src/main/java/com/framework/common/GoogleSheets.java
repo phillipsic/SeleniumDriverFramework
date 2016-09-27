@@ -5,13 +5,18 @@
  */
 package com.framework.common;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.framework.data.GoogleSheetConnectionDetails;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson.JacksonFactory;
-import com.google.gdata.client.docs.DocsService;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.PlainTextConstruct;
 import com.google.gdata.data.docs.DocumentListEntry;
@@ -21,12 +26,6 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.data.spreadsheet.WorksheetFeed;
 import com.google.gdata.util.ServiceException;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
@@ -36,6 +35,7 @@ public class GoogleSheets {
 
     private String sheetName;
     private String workSheetName;
+    private String workSheetHREF;
     private String CLIENT_ID;
     private String CLIENT_SECRET;
     private String accessToken;
@@ -52,6 +52,38 @@ public class GoogleSheets {
     public com.google.gdata.data.spreadsheet.SpreadsheetEntry requiredSpreadsheet;
     public WorksheetEntry requiredWorkSheet;
 
+    public String getSheetName() {
+        return sheetName;
+    }
+
+    public void setSheetName(String sheetName) {
+        this.sheetName = sheetName;
+    }
+
+    public String getWorkSheetName() {
+        return workSheetName;
+    }
+
+    public void setWorkSheetName(String workSheetName) {
+        this.workSheetName = workSheetName;
+    }
+
+    public String getWorkSheetHREF() {
+        return workSheetHREF;
+    }
+
+    public void setWorkSheetHREF(String workSheetHREF) {
+        this.workSheetHREF = workSheetHREF;
+    }
+
+    public int getTotalSheets() {
+        return totalSheets;
+    }
+
+    public void setTotalSheets(int totalSheets) {
+        this.totalSheets = totalSheets;
+    }
+
     public GoogleSheets(GoogleSheetConnectionDetails requiredSheet) {
 
         this.sheetName = requiredSheet.getSpreadSheetName();
@@ -61,7 +93,7 @@ public class GoogleSheets {
         this.refreshToken = requiredSheet.getRefreshToken();
         this.accessToken = requiredSheet.getAccessToken();
 
-        List<String> scopes = Arrays.asList("https://www.googleapis.com/auth/drive");
+//        List<String> scopes = Arrays.asList("https://www.googleapis.com/auth/drive");
         try {
 
             GoogleCredential credential
@@ -98,10 +130,12 @@ public class GoogleSheets {
                     throw new IllegalArgumentException();
                 }
 
-//                System.out.println(spreadsheet.getTitle().getPlainText());
+                System.out.println(spreadsheet.getTitle().getPlainText());
                 if (spreadsheet.getTitle().getPlainText().equalsIgnoreCase(this.sheetName)) {
 //                    System.out.println("Found it");
                     this.requiredSpreadsheet = spreadsheet;
+                    this.workSheetHREF = spreadsheet.getHtmlLink().getHref();
+                    System.out.println(spreadsheet.getHtmlLink().getHref());
                     spreadsheetfound = true;
                 }
 
@@ -118,15 +152,18 @@ public class GoogleSheets {
 
             boolean worksheetfound = false;
             for (WorksheetEntry worksheet : worksheets) {
-//                System.out.println(worksheet.getTitle().getPlainText());
+                System.out.println(worksheet.getTitle().getPlainText());
+                System.out.println("Searching for " + workSheetName);
                 if (worksheet.getTitle().getPlainText().equalsIgnoreCase(workSheetName)) {
-//                    System.out.println("Found It");
+
                     this.requiredWorkSheet = worksheet;
+
                     worksheetfound = true;
                 }
                 sheetCounter++;
             }
             if (!worksheetfound) {
+                this.sheetName = this.addNewSheet();
                 System.out.println("Worksheet was not found, please check the name");
                 throw new IllegalArgumentException("Worksheet was not found, please check the name");
             }
@@ -140,7 +177,7 @@ public class GoogleSheets {
 
     public String addNewSheet() throws IOException, ServiceException {
 
-        String sheetName = "Sheet" + this.totalSheets;
+        String sheetName = "Sheet" + (this.totalSheets + 1);
 
         WorksheetEntry worksheet = new WorksheetEntry();
         worksheet.setTitle(new PlainTextConstruct(sheetName));
@@ -149,6 +186,7 @@ public class GoogleSheets {
 
         URL worksheetFeedUrl = this.requiredSpreadsheet.getWorksheetFeedUrl();
         this.requiredservice.insert(worksheetFeedUrl, worksheet);
+        this.totalSheets = this.totalSheets + 1;
         return sheetName;
     }
 
@@ -177,10 +215,71 @@ public class GoogleSheets {
             if (cell.getTitle().getPlainText().equalsIgnoreCase(cellId)) {
 
                 cellValue = cell.getCell().getValue().toString();
+
             }
 
         }
         return cellValue;
+    }
+    
+       public String getCellInputValue(String cellId) throws IOException, ServiceException {
+
+        String cellValue = "";
+
+//     Fetch the cell feed of the worksheet.
+        URL cellFeedUrl = requiredWorkSheet.getCellFeedUrl();
+        CellFeed cellFeed = requiredservice.getFeed(cellFeedUrl, CellFeed.class);
+
+        // Iterate through each cell, printing its value.
+        for (CellEntry cell : cellFeed.getEntries()) {
+            // Print the cell's address in A1 notation
+//            System.out.print(cell.getTitle().getPlainText() + "\t");
+////            // Print the cell's address in R1C1 notation
+//            System.out.print(cell.getId().substring(cell.getId().lastIndexOf('/') + 1) + "\t");
+////            // Print the cell's formula or text value
+//            System.out.print(cell.getCell().getInputValue() + "\t");
+////            // Print the cell's calculated value if the cell's value is numeric
+////            // Prints empty string if cell's value is not numeric
+//            System.out.print(cell.getCell().getNumericValue() + "\t");
+////            // Print the cell's displayed value (useful if the cell has a formula)
+//            System.out.println(cell.getCell().getValue() + "\t");
+
+            if (cell.getTitle().getPlainText().equalsIgnoreCase(cellId)) {
+
+                cellValue = cell.getCell().getInputValue();
+
+            }
+
+        }
+        return cellValue;
+    }
+
+    public void updateCellValue(String cellId, String value) throws IOException, ServiceException {
+
+//        String cellValue = "";
+
+//     Fetch the cell feed of the worksheet.
+        URL cellFeedUrl = requiredWorkSheet.getCellFeedUrl();
+        CellFeed cellFeed = requiredservice.getFeed(cellFeedUrl, CellFeed.class);
+
+        // Iterate through each cell, printing its value.
+        for (CellEntry cell : cellFeed.getEntries()) {
+
+            
+            System.out.print("comparing " + cell.getTitle().getPlainText() + " with " + cellId +"\n");
+            
+            if (cell.getTitle().getPlainText().equalsIgnoreCase(cellId)) {
+
+//                cellValue = cell.getCell().getValue().toString();
+
+                cell.changeInputValueLocal(value);
+                cell.update();
+                 System.out.print("Cell updated\n");
+            
+            }
+
+        }
+
     }
 
     public int getNumberOfRows() {
@@ -197,7 +296,8 @@ public class GoogleSheets {
 
 //     Fetch the cell feed of the worksheet.
         URL cellFeedUrl = requiredWorkSheet.getCellFeedUrl();
-        CellFeed cellFeed = requiredservice.getFeed(cellFeedUrl, CellFeed.class);
+        CellFeed cellFeed = requiredservice.getFeed(cellFeedUrl, CellFeed.class
+        );
 
         // Iterate through each cell, printing its value.
         for (CellEntry cell : cellFeed.getEntries()) {
@@ -231,12 +331,12 @@ public class GoogleSheets {
 
     public void createSpreadSheet() throws MalformedURLException, IOException, ServiceException {
 
-        DocsService docsService = new DocsService("MySampleApplication-v3");
-        docsService.setUserCredentials("ianphillipstest@gmail.com", "kahn+DUAL");
+//        DocsService docsService = new DocsService("MySampleApplication-v3");
+//        docsService.setUserCredentials("ianphillipstest@gmail.com", "kahn+DUAL");
         URL GOOGLE_DRIVE_FEED_URL = new URL("https://docs.google.com/feeds/default/private/full/");
         DocumentListEntry documentListEntry = new com.google.gdata.data.docs.SpreadsheetEntry();
         documentListEntry.setTitle(new PlainTextConstruct("Spreadsheet_name"));
-        documentListEntry = docsService.insert(GOOGLE_DRIVE_FEED_URL, documentListEntry);
+        documentListEntry = this.requiredservice.insert(GOOGLE_DRIVE_FEED_URL, documentListEntry);
 
     }
 }

@@ -5,7 +5,6 @@
  */
 package com.framework.common;
 
-import com.framework.data.ExcelFile;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,12 +13,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+
+import com.framework.data.ExcelFile;
 
 /**
  *
@@ -28,18 +30,17 @@ import org.apache.poi.ss.usermodel.Row;
 public class ExcelSpreadsheet {
 
     static private HSSFSheet requiredWorksheet;
-    private String filePathAndName;
+//    private String filePathAndName;
 
     public ExcelSpreadsheet(ExcelFile excelConnectionDetails) throws FileNotFoundException, IOException {
 
-        String current = System.getProperty("user.dir");
-        this.filePathAndName = current + "/" + excelConnectionDetails.getFilename();
-
+//        String current = System.getProperty("user.dir");
+//        this.filePathAndName = current + "/" + excelConnectionDetails.getFilename();
         FileInputStream fileInputStream = new FileInputStream(excelConnectionDetails.getFilename());
         HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);
         HSSFSheet worksheet = workbook.getSheet(excelConnectionDetails.getSheetname());
 
-        this.requiredWorksheet = worksheet;
+        ExcelSpreadsheet.requiredWorksheet = worksheet;
 
     }
 
@@ -56,7 +57,7 @@ public class ExcelSpreadsheet {
     public int getNumberOfExcelColumns() throws IOException, InvalidFormatException {
 
         int numberOfCells = 0;
-        Iterator rowIterator = requiredWorksheet.rowIterator();
+        Iterator<Row> rowIterator = requiredWorksheet.rowIterator();
         /**
          * Escape the header row *
          */

@@ -1,6 +1,5 @@
 package com.framework.common;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,6 +10,7 @@ import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
 import com.relevantcodes.extentreports.ExtentReports;
+import static org.junit.Assert.fail;
 import static org.junit.Assert.fail;
 
 public class Main {
@@ -32,7 +32,7 @@ public class Main {
     public static final String DB_PROPERTY_FILE = "DB.properties";
     public static final String SQL_INVOICE_PROPERTY_FILE = "SQL_invoice.properties";
     public static final String SQL_PREP_PROPERTY_FILE = "SQL_Prep.properties";
-    public static final String EMAIL_PROPERTY_FILE = "Email.properties";
+    public static final String EMAIL_PROPERTY_FILE = INIT_LOCATION + "Email.properties";
 
     public Main() {
 
@@ -67,7 +67,8 @@ public class Main {
         @Override
         protected void succeeded(Description description) {
 
-            test.writeResultLoggerPass(test.getMessage() + description);
+//            test.writeResultLoggerPass(test.getMessage() + description);
+            test.writeResultLoggerPass(description.toString());
             test.closeResultLogger();
 
             try {
@@ -234,6 +235,8 @@ public class Main {
                     System.out.println("Disconnected from database");
                 }
             } catch (Exception e) {
+                System.out.println("Problem connecting to the database");
+
             }
         }
     }
@@ -243,12 +246,24 @@ public class Main {
 
     public void checkForPassAndAbort(String test_id) throws Exception {
 
+        PropertyHelper propsHelper = new PropertyHelper();
+        Statement st = null;
+
+        String domainCodeAlwaysRun = propsHelper.readInitProperties("DOMAIN.code");
+
         String domainCode = test_id.substring(0, 3);
         System.out.println("Domain Code = " + domainCode);
+        System.out.println("Domain Code Always Run = " + domainCodeAlwaysRun);
 
-        if (domainCode.equals("BCT") == false) {
+        if (domainCode.equals(domainCodeAlwaysRun) == false) {
             DB autotest = new DB("AUTOTEST");
-            Statement st = autotest.mysqlDBStatement();
+
+            try {
+                st = autotest.mysqlDBStatement();
+            } catch (NullPointerException e) {
+                System.out.print("NullPointerException caught - Is the MYSQL server up? ");
+            }
+
             if (st != null) {
                 if (test.getDebug()) {
                     System.out.println("Connected to the database");

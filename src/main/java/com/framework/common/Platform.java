@@ -6,7 +6,7 @@ import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.CapabilityType;
 
 public class Platform extends Main {
 
@@ -16,6 +16,15 @@ public class Platform extends Main {
     private String browser;
     private String browserFullNameAndVersion;
     private String platformOs;
+    private String browserstaacksessionid;
+
+    public String getBrowserstaacksessionid() {
+        return browserstaacksessionid;
+    }
+
+    public void setBrowserstaacksessionid(String browserstaacksessionid) {
+        this.browserstaacksessionid = browserstaacksessionid;
+    }
     PropertyHelper propsHelper = new PropertyHelper();
 
     public void setPlatformOs(String platformOs) {
@@ -66,7 +75,7 @@ public class Platform extends Main {
     }
 
     public void setBrowserFullNameAndVersion(String browserFullNameAndVersion) {
-        this.browserFullNameAndVersion = browserFullNameAndVersion;
+        this.browserFullNameAndVersion = browserFullNameAndVersion.toLowerCase();
     }
 
     public String getOsOfTestPlatform() {
@@ -96,6 +105,7 @@ public class Platform extends Main {
         capabilities.setBrowserName("internet explorer");
         capabilities.setCapability("ignoreZoomSetting", true);
         capabilities.setCapability("nativeEvents", false);
+        capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
         capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
         File file = new File("IEDriverServer/IEDriverServer.exe");
         System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
@@ -108,12 +118,14 @@ public class Platform extends Main {
         capabilities.setCapability("os", propsHelper.readInitProperties("BROWSERSTACK.os"));
         capabilities.setCapability("os_version", propsHelper.readInitProperties("BROWSERSTACK.os_version"));
         capabilities.setCapability("browserstack.debug", propsHelper.readInitProperties("BROWSERSTACK.debug"));
+        //capabilities.setCapability("project", test.getName());
 
     }
 
     public FirefoxProfile FF(DesiredCapabilities capabilities) throws Exception {
         FirefoxProfile profile = new FirefoxProfile();
         capabilities.setBrowserName("firefox");
+        capabilities.setCapability(CapabilityType.OVERLAPPING_CHECK_DISABLED, true);
         System.out.println("Staring FF Driver");
         return profile;
     }

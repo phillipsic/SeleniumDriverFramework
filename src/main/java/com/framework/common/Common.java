@@ -334,39 +334,39 @@ public class Common {
 
     }
 
-    private static String getMatchingPropertyValueFromDB(String key, String matchString) throws Exception {
-
-        PropertyHelper propsHelper = new PropertyHelper();
-
-        String testEnvironment = propsHelper.getENV();
-
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        String propertyValue;
-        Connection connection = null;
-        DB autotest = new DB("AUTOTEST");
-        connection = autotest.mysqlDBCnx();
-
-        try {
-            statement = connection.prepareStatement("SELECT property_value FROM dynamic_test_data WHERE property_key = ? AND property_value like ? AND environment = ?");
-
-            statement.setString(1, key);
-            statement.setString(2, "%" + matchString + "%");
-            statement.setString(3, testEnvironment);
-
-            resultSet = statement.executeQuery();
-            resultSet.next();
-            propertyValue = resultSet.getString("property_value");
-
-        } finally {
-            resultSet.close();
-            statement.close();
-            connection.close();
-        }
-
-        return propertyValue;
-
-    }
+//    private static String getMatchingPropertyValueFromDB(String key, String matchString) throws Exception {
+//
+//        PropertyHelper propsHelper = new PropertyHelper();
+//
+//        String testEnvironment = propsHelper.getENV();
+//
+//        PreparedStatement statement = null;
+//        ResultSet resultSet = null;
+//        String propertyValue;
+//        Connection connection = null;
+//        DB autotest = new DB("AUTOTEST");
+//        connection = autotest.mysqlDBCnx();
+//
+//        try {
+//            statement = connection.prepareStatement("SELECT property_value FROM dynamic_test_data WHERE property_key = ? AND property_value like ? AND environment = ?");
+//
+//            statement.setString(1, key);
+//            statement.setString(2, "%" + matchString + "%");
+//            statement.setString(3, testEnvironment);
+//
+//            resultSet = statement.executeQuery();
+//            resultSet.next();
+//            propertyValue = resultSet.getString("property_value");
+//
+//        } finally {
+//            resultSet.close();
+//            statement.close();
+//            connection.close();
+//        }
+//
+//        return propertyValue;
+//
+//    }
 
     /**
      * Stores a property based on the key. If the key already exists then it
@@ -378,7 +378,7 @@ public class Common {
      * @param comment any comment to go with the key value pair.
      * @throws java.lang.Exception
      */
-    private static void storePropertyInDB(String key, String value, String comment) throws Exception {
+    public static void storePropertyInDB(String key, String value, String comment) throws Exception {
         if (checkPropertyExistsInDB(key)) {
             updatePropertyInDB(key, value, comment);
         } else {
@@ -439,7 +439,7 @@ public class Common {
      * @param key to find corresponding value in database
      * @return @throws Exception
      */
-    private static String getPropertyFromDatabase(String key) throws Exception {
+    public static String getPropertyFromDatabase(String key) throws Exception {
         return getPropertyValueFromDB(key);
     }
 

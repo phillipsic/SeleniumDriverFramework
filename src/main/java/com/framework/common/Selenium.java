@@ -1,8 +1,7 @@
 package com.framework.common;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
-import io.github.bonigarcia.wdm.PhantomJsDriverManager;
+////import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.List;
@@ -14,6 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -27,10 +27,13 @@ import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.SessionId;
 //import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -39,6 +42,8 @@ public class Selenium extends AutomationTool {
 
     private WebDriver driver;
     private Actions action;
+    PropertyHelper propsHelper = new PropertyHelper();
+//    JavascriptExecutor jse = (JavascriptExecutor) driver;
 
     public Selenium() throws Exception {
     }
@@ -56,6 +61,11 @@ public class Selenium extends AutomationTool {
     @Override
     public boolean checkSelectedUsingXpath(String xpath) throws Exception {
         return driver.findElement(By.xpath(xpath)).isSelected();
+    }
+
+    @Override
+    public boolean checkSelectedUsingId(String id) throws Exception {
+        return driver.findElement(By.id(id)).isSelected();
     }
 
     @Override
@@ -112,6 +122,11 @@ public class Selenium extends AutomationTool {
     @Override
     public void clickUsingXPath(String xpath) throws Exception {
         driver.findElement(By.xpath(xpath)).click();
+    }
+
+    @Override
+    public void closeCurrentWindow() throws Exception {
+        driver.close();
     }
 
     @Override
@@ -299,8 +314,8 @@ public class Selenium extends AutomationTool {
         System.out.println("Actual machine name   [" + tool.platform.getComputerName() + "]");
 
         if (jenkinsServer.equalsIgnoreCase("true") || useGRID.equalsIgnoreCase("true")) {
-            String gridBrowser = propsHelper.readInitProperties("GRID.BROWSER");
 
+            String gridBrowser = propsHelper.readInitProperties("GRID.BROWSER");
             System.out.println("Running on Jenkins and using GRID ");
 
             if (jenkinsServer.equalsIgnoreCase("true")) {
@@ -320,8 +335,32 @@ public class Selenium extends AutomationTool {
                 }
 
                 if (System.getProperty("selenium_browser").equalsIgnoreCase("BS")) {
-                    tool.platform.BS(capabilities);
 
+                    System.out.println("Setting up BrowserStack properties");
+                    /*
+                    If we are running from browser stack then pickup different properties
+                     */
+                    capabilities.setCapability("browser", System.getProperty("browserstack_browser"));
+
+                    if (System.getProperty("selenium_browserversion").equalsIgnoreCase("latest")) {
+                        capabilities.setCapability("browser_version", "");
+                    } else {
+                        capabilities.setCapability("browser_version", System.getProperty("selenium_browserversion"));
+                    }
+
+                    capabilities.setCapability("os", System.getProperty("selenium_os"));
+
+                    if (System.getProperty("selenium_osversion").equalsIgnoreCase("latest")) {
+                        capabilities.setCapability("os_version", "");
+                    } else {
+                        capabilities.setCapability("os_version", System.getProperty("selenium_osversion"));
+                    }
+
+                    capabilities.setCapability("browserstack.debug", "false");
+                    capabilities.setCapability("project", propsHelper.readInitProperties("BROWSERSTACK.project"));
+                    capabilities.setCapability("build", test.getName());
+
+                    System.out.println("Completed Setting up BrowserStack properties");
                 }
 
                 // Turn off debugging if we are running from jenkins
@@ -329,6 +368,8 @@ public class Selenium extends AutomationTool {
                 System.out.println("Running on Jenkins so debug set to " + test.getDebug());
 
                 if (useGRID.equalsIgnoreCase("true")) {
+                    System.out.println(" - - > Setting up GRID properties");
+
                     capabilities.setCapability("tool.platform", gridOS);
                     tool.platform.setBrowser(gridBrowser);
                     capabilities.setCapability("tool.platform", tool.platform.getOS());
@@ -338,14 +379,36 @@ public class Selenium extends AutomationTool {
                     driver = new RemoteWebDriver(new URL("http://" + gridHubIP + ":" + gridHubPort + "/wd/hub"), capabilities);
                 } else if (tool.platform.getBrowser().equalsIgnoreCase("BS")) {
 
+                    System.out.println(" - - > Setting up BrowserStack properties");
                     tool.platform.setBrowserFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.browser") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
                     tool.platform.setOSFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.os") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
 
                     String USERNAME = propsHelper.readInitProperties("BROWSERSTACK.username");
                     String AUTOMATEKEY = propsHelper.readInitProperties("BROWSERSTACK.automatekey");
                     String URL = "http://" + USERNAME + ":" + AUTOMATEKEY + "@hub.browserstack.com/wd/hub";
-                    tool.platform.BS(capabilities);
+                    //tool.platform.BS(capabilities);
                     driver = new RemoteWebDriver(new URL(URL), capabilities);
+
+                    SessionId session_Id = ((RemoteWebDriver) driver).getSessionId();
+                    System.out.println("BrowserStack Session ID" + session_Id);
+
+                    Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+                    String browsername = cap.getBrowserName();
+                    String browserversion = cap.getVersion();
+                    System.out.println("Browser: " + browsername);
+                    System.out.println("Browser Version: " + browserversion);
+
+                    String browserAndVersion = "";
+                    if (StringUtils.countMatches(browserversion, ".") > 1) {
+
+                        String[] shortVersion = browserversion.split("\\.", 3);
+                        browserAndVersion = shortVersion[0] + "." + shortVersion[1];
+                    } else {
+                        browserAndVersion = browserversion;
+                    }
+
+                    tool.platform.setBrowserFullNameAndVersion(browsername + "/" + browserAndVersion);
+                    tool.platform.setOSFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.os") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
 
                 }
 
@@ -379,7 +442,7 @@ public class Selenium extends AutomationTool {
 
             if (tool.platform.getBrowser().equalsIgnoreCase("IE")) {
 //                tool.platform.IE(capabilities);
-                InternetExplorerDriverManager.getInstance().setup();
+//                InternetExplorerDriverManager.getInstance().setup();
                 driver = new InternetExplorerDriver();
             }
 
@@ -390,21 +453,45 @@ public class Selenium extends AutomationTool {
 
             if (tool.platform.getBrowser().equalsIgnoreCase("CH")) {
                 tool.platform.CH(capabilities);
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--start-maximized");
                 ChromeDriverManager.getInstance().setup();
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
             }
 
             // Browser Stack
             if (tool.platform.getBrowser().equalsIgnoreCase("BS")) {
 
-                tool.platform.setBrowserFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.browser") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
-                tool.platform.setOSFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.os") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
-
                 String USERNAME = propsHelper.readInitProperties("BROWSERSTACK.username");
                 String AUTOMATEKEY = propsHelper.readInitProperties("BROWSERSTACK.automatekey");
                 String URL = "http://" + USERNAME + ":" + AUTOMATEKEY + "@hub.browserstack.com/wd/hub";
                 tool.platform.BS(capabilities);
+                capabilities.setCapability("project", propsHelper.readInitProperties("BROWSERSTACK.project"));
+                capabilities.setCapability("build", test.getName());
+
                 driver = new RemoteWebDriver(new URL(URL), capabilities);
+
+                SessionId session_Id = ((RemoteWebDriver) driver).getSessionId();
+                System.out.println("BrowserStack Session ID: " + session_Id);
+
+                Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+                String browsername = cap.getBrowserName();
+                String browserversion = cap.getVersion();
+                System.out.println("Browser: " + browsername);
+                System.out.println("Browser Version: " + browserversion);
+
+                String browserAndVersion = "";
+                if (StringUtils.countMatches(browserversion, ".") > 1) {
+
+                    String[] shortVersion = browserversion.split("\\.", 3);
+                    browserAndVersion = shortVersion[0] + "." + shortVersion[1];
+                } else {
+                    browserAndVersion = browserversion;
+                }
+
+                tool.platform.setBrowserFullNameAndVersion(browsername + "/" + browserAndVersion);
+                tool.platform.setOSFullNameAndVersion(propsHelper.readInitProperties("BROWSERSTACK.os") + " - " + propsHelper.readInitProperties("BROWSERSTACK.os_version"));
+                tool.platform.setBrowserstaacksessionid(session_Id.toString());
             }
 
             if (tool.platform.getBrowser().equalsIgnoreCase("SF")) {
@@ -440,32 +527,36 @@ public class Selenium extends AutomationTool {
 
     @Override
     public boolean isElementPresentByID(String id) throws Exception {
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         boolean checkResult = false;
         if (driver.findElements(By.id(id)).size() > 0) {
             checkResult = true;
         }
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return checkResult;
     }
 
     @Override
     public boolean isElementPresentByLinkText(String text) throws Exception {
-
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.findElement(By.linkText(text));
         boolean checkResult = false;
         if (driver.findElements(By.linkText(text)).size() > 0) {
             checkResult = true;
         }
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return checkResult;
 
     }
 
     @Override
     public boolean isElementPresentByXPath(String xpath) throws Exception {
-
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         boolean checkResult = false;
         if (driver.findElements(By.xpath(xpath)).size() > 0) {
             checkResult = true;
         }
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return checkResult;
     }
 
@@ -653,6 +744,11 @@ public class Selenium extends AutomationTool {
     }
 
     @Override
+    public void switchToFrameUsingXpath(String xpath) throws Exception {
+        driver.switchTo().frame(driver.findElement(By.xpath(xpath)));
+    }
+
+    @Override
     public void switchToWindow(String windowHandle) throws Exception {
         driver.switchTo().window(windowHandle);
 
@@ -670,31 +766,31 @@ public class Selenium extends AutomationTool {
 
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
-        alert.accept();
+//        alert.accept();
         return alertText;
     }
 
     @Override
-    public void waitForVisibilityOfElementUsingXpath(String xpath) throws Exception {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+    public void waitForVisibilityOfElementUsingXpath(String xpath, int timeout) throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     }
 
     @Override
-    public void waitForVisibilityOfElementUsingId(String id) throws Exception {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+    public void waitForVisibilityOfElementUsingId(String id, int timeout) throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
     }
 
     @Override
-    public void waitForElementToBeClickableUsingId(String id) throws Exception {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+    public void waitForElementToBeClickableUsingId(String id, int timeout) throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
     }
 
     @Override
-    public void waitForElementToBeClickableUsingXpath(String xpath) throws Exception {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+    public void waitForElementToBeClickableUsingXpath(String xpath, int timeout) throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
     }
 
@@ -705,4 +801,25 @@ public class Selenium extends AutomationTool {
         FileUtils.copyFile(scrFile, new File(imageName));
         return imageName;
     }
+
+    @Override
+    public void moveCursorSomewhereElse(String xpath) throws Exception {
+
+        WebElement element = driver.findElement(By.xpath(xpath));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0," + element.getLocation().x + ")");
+        element.click();
+    }
+
+    @Override
+    public int countRowsInTableUsingClass(String tableClass) throws Exception {
+        return driver.findElements(By.xpath("//table[@class='" + tableClass + "']/tbody/tr")).size();
+    }
+
+    @Override
+    public void scrollDownUsingClassName(String className) throws Exception {
+        JavascriptExecutor jsx = (JavascriptExecutor) driver;
+        jsx.executeScript("document.getElementsByClassName('" + className + "')[0].scrollTop += 1000", "");
+    }
+
 }
