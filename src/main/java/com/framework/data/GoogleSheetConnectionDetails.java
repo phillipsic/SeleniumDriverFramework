@@ -8,6 +8,17 @@ public abstract class GoogleSheetConnectionDetails {
     private String accessToken;
     private String refreshToken;
     private String workSheetName;
+    private String addonURL;
+
+    public String getAddonURL() {
+        return addonURL;
+    }
+
+    public void setAddonURL(String addonURL) {
+        this.addonURL = addonURL;
+    }
+    
+
 
     public String getWorkSheetName() {
         return workSheetName;
